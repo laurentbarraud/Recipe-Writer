@@ -16,6 +16,5 @@ namespace Recipe_Writer
         {
             InitializeComponent();
         }
-
     }
 }
