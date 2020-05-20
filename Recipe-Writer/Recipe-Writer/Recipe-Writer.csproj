@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-recipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous-recipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-stars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2-stars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export-to-html.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export-to-html1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export-to-html2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export-to-html3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingredients-search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\validate.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
