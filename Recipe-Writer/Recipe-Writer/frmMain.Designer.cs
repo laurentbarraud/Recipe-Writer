@@ -34,6 +34,11 @@
             this.pnlSearchResults = new System.Windows.Forms.Panel();
             this.lblSearchResults = new System.Windows.Forms.Label();
             this.pnlInstructions = new System.Windows.Forms.Panel();
+            this.cmdEditInstruction4 = new System.Windows.Forms.Button();
+            this.cmdEditInstruction3 = new System.Windows.Forms.Button();
+            this.cmdEditInstruction5 = new System.Windows.Forms.Button();
+            this.cmdEditInstruction2 = new System.Windows.Forms.Button();
+            this.cmdEditInstruction1 = new System.Windows.Forms.Button();
             this.lblInstruction5 = new System.Windows.Forms.Label();
             this.lblInstruction4 = new System.Windows.Forms.Label();
             this.lblbInstruction3 = new System.Windows.Forms.Label();
@@ -46,11 +51,6 @@
             this.chkWritingAssistance = new System.Windows.Forms.CheckBox();
             this.cmdTitleSearch = new System.Windows.Forms.Button();
             this.picScore = new System.Windows.Forms.PictureBox();
-            this.cmdEditInstruction4 = new System.Windows.Forms.Button();
-            this.cmdEditInstruction3 = new System.Windows.Forms.Button();
-            this.cmdEditInstruction5 = new System.Windows.Forms.Button();
-            this.cmdEditInstruction2 = new System.Windows.Forms.Button();
-            this.cmdEditInstruction1 = new System.Windows.Forms.Button();
             this.picRecipe = new System.Windows.Forms.PictureBox();
             this.cmdDeleteRecipe = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
@@ -115,6 +115,71 @@
             this.pnlInstructions.Name = "pnlInstructions";
             this.pnlInstructions.Size = new System.Drawing.Size(1056, 354);
             this.pnlInstructions.TabIndex = 4;
+            // 
+            // cmdEditInstruction4
+            // 
+            this.cmdEditInstruction4.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
+            this.cmdEditInstruction4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdEditInstruction4.FlatAppearance.BorderSize = 0;
+            this.cmdEditInstruction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdEditInstruction4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEditInstruction4.Location = new System.Drawing.Point(1003, 231);
+            this.cmdEditInstruction4.Name = "cmdEditInstruction4";
+            this.cmdEditInstruction4.Size = new System.Drawing.Size(30, 30);
+            this.cmdEditInstruction4.TabIndex = 19;
+            this.cmdEditInstruction4.UseVisualStyleBackColor = true;
+            // 
+            // cmdEditInstruction3
+            // 
+            this.cmdEditInstruction3.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
+            this.cmdEditInstruction3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdEditInstruction3.FlatAppearance.BorderSize = 0;
+            this.cmdEditInstruction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdEditInstruction3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEditInstruction3.Location = new System.Drawing.Point(1003, 161);
+            this.cmdEditInstruction3.Name = "cmdEditInstruction3";
+            this.cmdEditInstruction3.Size = new System.Drawing.Size(30, 30);
+            this.cmdEditInstruction3.TabIndex = 17;
+            this.cmdEditInstruction3.UseVisualStyleBackColor = true;
+            // 
+            // cmdEditInstruction5
+            // 
+            this.cmdEditInstruction5.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
+            this.cmdEditInstruction5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdEditInstruction5.FlatAppearance.BorderSize = 0;
+            this.cmdEditInstruction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdEditInstruction5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEditInstruction5.Location = new System.Drawing.Point(1003, 298);
+            this.cmdEditInstruction5.Name = "cmdEditInstruction5";
+            this.cmdEditInstruction5.Size = new System.Drawing.Size(30, 30);
+            this.cmdEditInstruction5.TabIndex = 21;
+            this.cmdEditInstruction5.UseVisualStyleBackColor = true;
+            // 
+            // cmdEditInstruction2
+            // 
+            this.cmdEditInstruction2.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
+            this.cmdEditInstruction2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdEditInstruction2.FlatAppearance.BorderSize = 0;
+            this.cmdEditInstruction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdEditInstruction2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEditInstruction2.Location = new System.Drawing.Point(1003, 90);
+            this.cmdEditInstruction2.Name = "cmdEditInstruction2";
+            this.cmdEditInstruction2.Size = new System.Drawing.Size(30, 30);
+            this.cmdEditInstruction2.TabIndex = 15;
+            this.cmdEditInstruction2.UseVisualStyleBackColor = true;
+            // 
+            // cmdEditInstruction1
+            // 
+            this.cmdEditInstruction1.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
+            this.cmdEditInstruction1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdEditInstruction1.FlatAppearance.BorderSize = 0;
+            this.cmdEditInstruction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdEditInstruction1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEditInstruction1.Location = new System.Drawing.Point(1003, 20);
+            this.cmdEditInstruction1.Name = "cmdEditInstruction1";
+            this.cmdEditInstruction1.Size = new System.Drawing.Size(30, 30);
+            this.cmdEditInstruction1.TabIndex = 13;
+            this.cmdEditInstruction1.UseVisualStyleBackColor = true;
             // 
             // lblInstruction5
             // 
@@ -229,71 +294,6 @@
             this.picScore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picScore.TabIndex = 6;
             this.picScore.TabStop = false;
-            // 
-            // cmdEditInstruction4
-            // 
-            this.cmdEditInstruction4.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction4.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction4.Location = new System.Drawing.Point(987, 231);
-            this.cmdEditInstruction4.Name = "cmdEditInstruction4";
-            this.cmdEditInstruction4.Size = new System.Drawing.Size(40, 40);
-            this.cmdEditInstruction4.TabIndex = 19;
-            this.cmdEditInstruction4.UseVisualStyleBackColor = true;
-            // 
-            // cmdEditInstruction3
-            // 
-            this.cmdEditInstruction3.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction3.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction3.Location = new System.Drawing.Point(987, 161);
-            this.cmdEditInstruction3.Name = "cmdEditInstruction3";
-            this.cmdEditInstruction3.Size = new System.Drawing.Size(40, 40);
-            this.cmdEditInstruction3.TabIndex = 17;
-            this.cmdEditInstruction3.UseVisualStyleBackColor = true;
-            // 
-            // cmdEditInstruction5
-            // 
-            this.cmdEditInstruction5.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction5.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction5.Location = new System.Drawing.Point(987, 298);
-            this.cmdEditInstruction5.Name = "cmdEditInstruction5";
-            this.cmdEditInstruction5.Size = new System.Drawing.Size(40, 40);
-            this.cmdEditInstruction5.TabIndex = 21;
-            this.cmdEditInstruction5.UseVisualStyleBackColor = true;
-            // 
-            // cmdEditInstruction2
-            // 
-            this.cmdEditInstruction2.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction2.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction2.Location = new System.Drawing.Point(987, 90);
-            this.cmdEditInstruction2.Name = "cmdEditInstruction2";
-            this.cmdEditInstruction2.Size = new System.Drawing.Size(40, 40);
-            this.cmdEditInstruction2.TabIndex = 15;
-            this.cmdEditInstruction2.UseVisualStyleBackColor = true;
-            // 
-            // cmdEditInstruction1
-            // 
-            this.cmdEditInstruction1.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction1.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction1.Location = new System.Drawing.Point(987, 20);
-            this.cmdEditInstruction1.Name = "cmdEditInstruction1";
-            this.cmdEditInstruction1.Size = new System.Drawing.Size(40, 40);
-            this.cmdEditInstruction1.TabIndex = 13;
-            this.cmdEditInstruction1.UseVisualStyleBackColor = true;
             // 
             // picRecipe
             // 
