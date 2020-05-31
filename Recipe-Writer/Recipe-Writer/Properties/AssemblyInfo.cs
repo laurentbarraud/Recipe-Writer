@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Recipe-Writer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Write recipes and manage them in a collection, with an inventory of available ingredients and a weekly meals planner.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("CPNV")]
 [assembly: AssemblyProduct("Recipe-Writer")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("GNU Licence Laurent Barraud, 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
