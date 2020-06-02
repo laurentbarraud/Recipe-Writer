@@ -262,6 +262,7 @@
             this.cmdTitleSearch.Size = new System.Drawing.Size(40, 40);
             this.cmdTitleSearch.TabIndex = 3;
             this.cmdTitleSearch.UseVisualStyleBackColor = true;
+            this.cmdTitleSearch.Click += new System.EventHandler(this.cmdTitleSearch_Click);
             // 
             // picScore
             // 
@@ -344,6 +345,7 @@
             this.lstSearchResults.Name = "lstSearchResults";
             this.lstSearchResults.Size = new System.Drawing.Size(814, 100);
             this.lstSearchResults.TabIndex = 4;
+            this.lstSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstSearchResults_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
@@ -399,6 +401,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recipe Writer";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlInstructions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).EndInit();

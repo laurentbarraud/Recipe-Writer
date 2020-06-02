@@ -16,5 +16,21 @@ namespace Recipe_Writer
         {
             InitializeComponent();
         }
+
+        private void cmdTitleSearch_Click(object sender, EventArgs e)
+        {
+            // To-Do : implement a function that takes every keyword in the textfield and send them to the SearchRecipes function as arguments
+        }
+
+        private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // To-Do : implement a function that affects to the currentDisplayedRecipe object the values returned by each of the 5 functions,
+            // each being called after.
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            // To-Do : instanciates a new Recipes objet, with default values for its properties
+        }
     }
 }
