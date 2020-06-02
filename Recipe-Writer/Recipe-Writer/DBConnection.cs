@@ -88,6 +88,25 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Reads the id of a recipe, with its title given in argument
+        /// </summary>
+        /// <param name="titleRecipe"></param>the title of the selected recipe
+        /// <returns>the id of the selected recipe</returns>
+        public int ReadRecipeId(int titleRecipe)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "SELECT id AS idRecipeRequested FROM 'Recipes' WHERE title =" + titleRecipe + ";";
+
+            int idRecipeFound = 0;
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                dataReader["idRecipeRequested"].ToString();
+            }
+            return idRecipeFound;
+        }
+
+        /// <summary>
         /// Reads a recipe title from the database
         /// </summary>
         /// <param name="idRecipe"></param>the id of the recipe

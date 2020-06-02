@@ -14,6 +14,9 @@ namespace Recipe_Writer
 {
     public partial class frmMain : Form
     {
+        // Declares and instanciates the current displayed recipe object, constructed with default values, and accessible globally
+        Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, "default", null, null);
+
         public frmMain()
         {
             InitializeComponent();
@@ -61,8 +64,6 @@ namespace Recipe_Writer
                 dbConn.CreateTables();
                 dbConn.InsertInitialData();
             }
-
-            // To-Do : 2) instanciates a new Recipes objet, with default values for its properties 
         }
 
         private void cmdTitleSearch_Click(object sender, EventArgs e)
@@ -174,8 +175,8 @@ namespace Recipe_Writer
 
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // To-Do : 3) implement a function that affects to the currentDisplayedRecipe object the values returned by each of the 5 functions,
-            // each being called after.
+            // To-Do : implement a function that affects to the _currentDisplayedRecipe object the values returned by each of the 5 functions,
+            // each being called one after.
         }
     }
 }
