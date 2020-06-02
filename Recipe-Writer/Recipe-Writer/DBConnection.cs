@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Recipe_Writer
 {
@@ -188,19 +185,85 @@ namespace Recipe_Writer
         /// <summary>
         /// Reads the list of the recipes found with up to 8 keywords found in their title
         /// </summary>
-        /// <param name="keyword1">first keyword to search with</param>
-        /// <param name="keyword2">second keyword to search with</param>
-        /// <param name="keyword3">third keyword to search with</param>
-        /// <param name="keyword4">fourth keyword to search with</param>
-        /// <param name="keyword5">fifth keyword to search with</param>
-        /// <param name="keyword6">sixth keyword to search with</param>
-        /// <param name="keyword7">seventh keyword to search with</param>
-        /// <param name="keyword8">eight keyword to search with</param>
+        /// <param name="keywordInput1">first keyword to search with</param>
+        /// <param name="keywordInput2">second keyword to search with</param>
+        /// <param name="keywordInput3">third keyword to search with</param>
+        /// <param name="keywordInput4">fourth keyword to search with</param>
+        /// <param name="keywordInput5">fifth keyword to search with</param>
+        /// <param name="keywordInput6">sixth keyword to search with</param>
+        /// <param name="keywordInput7">seventh keyword to search with</param>
+        /// <param name="keywordInput8">eight keyword to search with</param>
         /// <returns>List of the titles of the recipes found in the database</returns>
-        public List<string> SearchRecipes(string keyword1 = "", string keyword2 = "", string keyword3 = "", string keyword4 = "", string keyword5 = "", string keyword6 = "", string keyword7 = "", string keyword8 = "")
+        public List<string> SearchRecipes(string keywordInput1 = "", string keywordInput2 = "", string keywordInput3 = "", string keywordInput4 = "", string keywordInput5 = "", string keywordInput6 = "", string keywordInput7 = "", string keywordInput8 = "")
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT title FROM 'Recipes';";
+
+            cmd.CommandText = "SELECT title FROM 'Recipes'";
+
+            // Counting the number of words given in arguments
+            int nbKeywordsTyped = 0;
+
+            if (keywordInput1 != "")
+                nbKeywordsTyped++;
+            if (keywordInput2 != "")
+                nbKeywordsTyped++;
+            if (keywordInput3 != "")
+                nbKeywordsTyped++;
+            if (keywordInput4 != "")
+                nbKeywordsTyped++;
+            if (keywordInput5 != "")
+                nbKeywordsTyped++;
+            if (keywordInput6 != "")
+                nbKeywordsTyped++;
+            if (keywordInput7 != "")
+                nbKeywordsTyped++;
+            if (keywordInput8 != "")
+                nbKeywordsTyped++;
+
+            if (nbKeywordsTyped > 0)
+            {
+                cmd.CommandText += "WHERE title LIKE '%"+ keywordInput1 +"%'";
+
+                if (nbKeywordsTyped > 1)
+                {
+                    cmd.CommandText += " AND title LIKE '%" + keywordInput2 + "%'";
+
+                    if (nbKeywordsTyped > 2)
+                    {
+                        cmd.CommandText += " AND title LIKE '%" + keywordInput3 + "%'";
+                        
+                        if (nbKeywordsTyped > 3)
+                        {
+                            cmd.CommandText += " AND title LIKE '%" + keywordInput4 + "%'";
+
+                            if (nbKeywordsTyped > 4)
+                            {
+                                cmd.CommandText += " AND title LIKE '%" + keywordInput5 + "%'";
+
+                                if (nbKeywordsTyped > 5)
+                                {
+                                    cmd.CommandText += " AND title LIKE '%" + keywordInput6 + "%'";
+                                    
+                                    if (nbKeywordsTyped > 6)
+                                    {
+                                        cmd.CommandText += " AND title LIKE '%" + keywordInput7 + "%'";
+                                    
+                                        if (nbKeywordsTyped > 7)
+                                        {
+                                            cmd.CommandText += " AND title LIKE '%" + keywordInput8 + "%'";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Completes the sql request
+            cmd.CommandText += ";";
+
+            // Declares a list of string to contain the results found in the database
             List<string> titlesFound = new List<string>();
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
@@ -208,6 +271,7 @@ namespace Recipe_Writer
             {
                 titlesFound.Add(dataReader["title"].ToString());
             }
+
             return titlesFound;
         }
 
