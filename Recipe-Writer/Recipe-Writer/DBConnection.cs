@@ -92,16 +92,16 @@ namespace Recipe_Writer
         /// </summary>
         /// <param name="titleRecipe"></param>the title of the selected recipe
         /// <returns>the id of the selected recipe</returns>
-        public int ReadRecipeId(int titleRecipe)
+        public int ReadRecipeId(string titleRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT id AS idRecipeRequested FROM 'Recipes' WHERE title =" + titleRecipe + ";";
+            cmd.CommandText = "SELECT id AS idRecipeRequested FROM 'Recipes' WHERE title ='"+ titleRecipe + "';";
 
             int idRecipeFound = 0;
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                dataReader["idRecipeRequested"].ToString();
+                int.TryParse(dataReader["idRecipeRequested"].ToString(), out idRecipeFound);
             }
             return idRecipeFound;
         }
@@ -196,11 +196,127 @@ namespace Recipe_Writer
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                dataReader["recipeLowBudgetStatus"].ToString();
+                dataReader["recipeImagePath"].ToString();
             }
             return imagePathFound;
         }
 
+        /// <summary>
+        /// Reads the quantity of ingredients needed to make current selected recipe, with their scales
+        /// </summary>
+        /// <param name="idRecipe">the id of the recipe</param>
+        /// <returns>List of quantities and names of the ingredients needed to make the recipe, concatenated with their scales </returns>
+        public List<string> ReadIngredientsQtyForARecipe(int idRecipe)
+        {
+            // Declares a list of string to contain the quantity of ingredients needed to make the recipe, concatenated with their scale
+            List<string> listQtyIngredientPlusScale = new List<string>();
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+
+            // Retrieves all the data about ingredients needed for the currently selected recipe
+            cmd.CommandText = "SELECT qtyIngredient1, scale1.scaleName AS 'scaleIngredient1', ingredient1.ingredientName AS 'ingredient1Name', " +
+                                "qtyIngredient2, scale2.scaleName AS 'scaleIngredient2', ingredient2.ingredientName AS 'ingredient2Name', " +
+                                "qtyIngredient3, scale3.scaleName AS 'scaleIngredient3', ingredient3.ingredientName AS 'ingredient3Name', " +
+                                "qtyIngredient4, scale4.scaleName AS 'scaleIngredient4', ingredient4.ingredientName AS 'ingredient4Name', " +
+                                "qtyIngredient5, scale5.scaleName AS 'scaleIngredient5', ingredient5.ingredientName AS 'ingredient5Name', " +
+                                "qtyIngredient6, scale6.scaleName AS 'scaleIngredient6', ingredient6.ingredientName AS 'ingredient6Name', " +
+                                "qtyIngredient7, scale7.scaleName AS 'scaleIngredient7', ingredient7.ingredientName AS 'ingredient7Name', " +
+                                "qtyIngredient8, scale8.scaleName AS 'scaleIngredient8', ingredient8.ingredientName AS 'ingredient8Name', " +
+                                "qtyIngredient9, scale9.scaleName AS 'scaleIngredient9', ingredient9.ingredientName AS 'ingredient9Name', " +
+                                "qtyIngredient10, scale10.scaleName AS 'scaleIngredient10', ingredient10.ingredientName AS 'ingredient10Name', " +
+                                "qtyIngredient11, scale11.scaleName AS 'scaleIngredient11', ingredient11.ingredientName AS 'ingredient11Name', " +
+                                "qtyIngredient12, scale12.scaleName AS 'scaleIngredient12', ingredient12.ingredientName AS 'ingredient12Name', " +
+                                "qtyIngredient13, scale13.scaleName AS 'scaleIngredient13', ingredient13.ingredientName AS 'ingredient13Name', " +
+                                "qtyIngredient14, scale14.scaleName AS 'scaleIngredient14', ingredient14.ingredientName AS 'ingredient14Name', " +
+                                "qtyIngredient15, scale15.scaleName AS 'scaleIngredient15', ingredient15.ingredientName AS 'ingredient15Name', " +
+                                "qtyIngredient16, scale16.scaleName AS 'scaleIngredient16', ingredient16.ingredientName AS 'ingredient16Name', " +
+                                "qtyIngredient17, scale17.scaleName AS 'scaleIngredient17', ingredient17.ingredientName AS 'ingredient17Name', " +
+                                "qtyIngredient18, scale18.scaleName AS 'scaleIngredient18', ingredient18.ingredientName AS 'ingredient18Name', " +
+                                "qtyIngredient19, scale19.scaleName AS 'scaleIngredient19', ingredient19.ingredientName AS 'ingredient19Name', " +
+                                "qtyIngredient20, scale20.scaleName AS 'scaleIngredient20', ingredient20.ingredientName AS 'ingredient20Name' " +
+                                "FROM Recipes_has_Ingredients " +
+                                "LEFT JOIN Scales AS scale1 ON Recipes_has_Ingredients.scales1_id = scale1.id " +
+                                "LEFT JOIN Scales AS scale2 ON Recipes_has_Ingredients.scales2_id = scale2.id " +
+                                "LEFT JOIN Scales AS scale3 ON Recipes_has_Ingredients.scales3_id = scale3.id " +
+                                "LEFT JOIN Scales AS scale4 ON Recipes_has_Ingredients.scales4_id = scale4.id " +
+                                "LEFT JOIN Scales AS scale5 ON Recipes_has_Ingredients.scales5_id = scale5.id " +
+                                "LEFT JOIN Scales AS scale6 ON Recipes_has_Ingredients.scales6_id = scale6.id " +
+                                "LEFT JOIN Scales AS scale7 ON Recipes_has_Ingredients.scales7_id = scale7.id " +
+                                "LEFT JOIN Scales AS scale8 ON Recipes_has_Ingredients.scales8_id = scale8.id " +
+                                "LEFT JOIN Scales AS scale9 ON Recipes_has_Ingredients.scales9_id = scale9.id " +
+                                "LEFT JOIN Scales AS scale10 ON Recipes_has_Ingredients.scales10_id = scale10.id " +
+                                "LEFT JOIN Scales AS scale11 ON Recipes_has_Ingredients.scales11_id = scale11.id " +
+                                "LEFT JOIN Scales AS scale12 ON Recipes_has_Ingredients.scales12_id = scale12.id " +
+                                "LEFT JOIN Scales AS scale13 ON Recipes_has_Ingredients.scales13_id = scale13.id " +
+                                "LEFT JOIN Scales AS scale14 ON Recipes_has_Ingredients.scales14_id = scale14.id " +
+                                "LEFT JOIN Scales AS scale15 ON Recipes_has_Ingredients.scales15_id = scale15.id " +
+                                "LEFT JOIN Scales AS scale16 ON Recipes_has_Ingredients.scales16_id = scale16.id " +
+                                "LEFT JOIN Scales AS scale17 ON Recipes_has_Ingredients.scales17_id = scale17.id " +
+                                "LEFT JOIN Scales AS scale18 ON Recipes_has_Ingredients.scales18_id = scale18.id " +
+                                "LEFT JOIN Scales AS scale19 ON Recipes_has_Ingredients.scales19_id = scale19.id " +
+                                "LEFT JOIN Scales AS scale20 ON Recipes_has_Ingredients.scales20_id = scale20.id " +
+                                "LEFT JOIN Ingredients AS ingredient1 ON Recipes_has_Ingredients.ingredient1_id = ingredient1.id " +
+                                "LEFT JOIN Ingredients AS ingredient2 ON Recipes_has_Ingredients.ingredient2_id = ingredient2.id " +
+                                "LEFT JOIN Ingredients AS ingredient3 ON Recipes_has_Ingredients.ingredient3_id = ingredient3.id " +
+                                "LEFT JOIN Ingredients AS ingredient4 ON Recipes_has_Ingredients.ingredient4_id = ingredient4.id " +
+                                "LEFT JOIN Ingredients AS ingredient5 ON Recipes_has_Ingredients.ingredient5_id = ingredient5.id " +
+                                "LEFT JOIN Ingredients AS ingredient6 ON Recipes_has_Ingredients.ingredient6_id = ingredient6.id " +
+                                "LEFT JOIN Ingredients AS ingredient7 ON Recipes_has_Ingredients.ingredient7_id = ingredient7.id " +
+                                "LEFT JOIN Ingredients AS ingredient8 ON Recipes_has_Ingredients.ingredient8_id = ingredient8.id " +
+                                "LEFT JOIN Ingredients AS ingredient9 ON Recipes_has_Ingredients.ingredient9_id = ingredient9.id " +
+                                "LEFT JOIN Ingredients AS ingredient10 ON Recipes_has_Ingredients.ingredient10_id = ingredient10.id " +
+                                "LEFT JOIN Ingredients AS ingredient11 ON Recipes_has_Ingredients.ingredient11_id = ingredient11.id " +
+                                "LEFT JOIN Ingredients AS ingredient12 ON Recipes_has_Ingredients.ingredient12_id = ingredient12.id " +
+                                "LEFT JOIN Ingredients AS ingredient13 ON Recipes_has_Ingredients.ingredient13_id = ingredient13.id " +
+                                "LEFT JOIN Ingredients AS ingredient14 ON Recipes_has_Ingredients.ingredient14_id = ingredient14.id " +
+                                "LEFT JOIN Ingredients AS ingredient15 ON Recipes_has_Ingredients.ingredient15_id = ingredient15.id " +
+                                "LEFT JOIN Ingredients AS ingredient16 ON Recipes_has_Ingredients.ingredient16_id = ingredient16.id " +
+                                "LEFT JOIN Ingredients AS ingredient17 ON Recipes_has_Ingredients.ingredient17_id = ingredient17.id " +
+                                "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
+                                "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
+                                "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
+                                "WHERE Recipes_id ="+idRecipe+";";
+
+                SQLiteDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    for (int i = 1; i <= 20; i++)
+                    {
+                        if (dataReader["qtyIngredient" + i].ToString() != "")
+                        {
+                            // Adds the data into the list of string in a proper formatted way
+                            listQtyIngredientPlusScale.Add(dataReader["qtyIngredient" + i].ToString() + " " + dataReader["scaleIngredient" + i].ToString() + " de " + dataReader["ingredient" +i+ "Name"].ToString());       
+                        }
+                    }
+                }
+
+            return listQtyIngredientPlusScale;
+        }
+
+        /// <summary>
+        /// Reads the name of an ingredient for a given id
+        /// </summary>
+        /// <param name="idIngredient">the id of the ingredient</param>
+        /// <returns>Name of the ingredient</returns>
+        public string ReadIngredientName(int idIngredient)
+        {
+            // Declares a string to contain the ingredient name
+            string ingredientNameFound = "";
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+
+            cmd.CommandText = "SELECT ingredientName FROM 'Ingredients' WHERE id=" + idIngredient + ";";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                ingredientNameFound = dataReader["ingredientName"].ToString();
+            }
+
+            return ingredientNameFound;
+        }
+
+  
         /// <summary>
         /// Reads the list of the recipes found with up to 8 keywords found in their title
         /// </summary>

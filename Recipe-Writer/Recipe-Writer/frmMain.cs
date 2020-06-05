@@ -175,8 +175,31 @@ namespace Recipe_Writer
 
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // To-Do : implement a function that affects to the _currentDisplayedRecipe object the values returned by each of the 5 functions,
-            // each being called one after.
+            // Affects to the title property of the _currentDisplayedRecipe object the selected recipe, in the search result listbox
+            _currentDisplayedRecipe.Title = lstSearchResults.SelectedItem.ToString();
+
+           // Calls the function that returns the id of a recipe, given its title in argument
+            _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(_currentDisplayedRecipe.Title);
+
+            // Affects to the properties of the _currentDisplayedRecipe object the others values returned by the dbConn functions
+            _currentDisplayedRecipe.CompletionTime = dbConn.ReadRecipeCompletionTime(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.LowBudget = dbConn.ReadRecipeLowBudgetStatus(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.QtyIngredientsScaleList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
+
+            // Clears the combobox of ingredients before adding the items found
+            cmbRecipeIngredients.Items.Clear();
+
+            // Adds each ingredients list item as a new item in the ingredients comboBox
+            foreach (string ingredientItem in _currentDisplayedRecipe.QtyIngredientsScaleList)
+            {
+                cmbRecipeIngredients.Items.Add(ingredientItem);
+            }
+
+            // To-do : call the dbConn.ReadInstructionsList function
+
+            // To-Do : creates the instruction labels dynamically with their edit buttons
         }
     }
 }
