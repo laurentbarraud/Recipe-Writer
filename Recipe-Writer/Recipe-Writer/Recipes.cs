@@ -59,7 +59,7 @@ namespace Recipe_Writer
 			set { qtyIngredientsScaleList = value; }
 		}
 
-		private List<string> InstructionsList
+		public List<string> InstructionsList
 		{
 			get { return instructionsList; }
 			set { instructionsList = value; }

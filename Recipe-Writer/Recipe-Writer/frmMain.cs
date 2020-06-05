@@ -173,6 +173,9 @@ namespace Recipe_Writer
                 }   
         }
 
+        /// <summary>
+        /// Displays the ingredients, image and instructions for the selected recipe
+        /// </summary>
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Affects to the title property of the _currentDisplayedRecipe object the selected recipe, in the search result listbox
@@ -186,6 +189,8 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.LowBudget = dbConn.ReadRecipeLowBudgetStatus(_currentDisplayedRecipe.Id);
             _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(_currentDisplayedRecipe.Id);
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
+
+            // Calls the function that will read the ingredients needed to make the recipe
             _currentDisplayedRecipe.QtyIngredientsScaleList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
 
             // Clears the combobox of ingredients before adding the items found
@@ -197,9 +202,28 @@ namespace Recipe_Writer
                 cmbRecipeIngredients.Items.Add(ingredientItem);
             }
 
-            // To-do : call the dbConn.ReadInstructionsList function
+            // Calls the function that will read the instructions to follow to make the recipe
+            _currentDisplayedRecipe.InstructionsList = dbConn.ReadInstructionsForARecipe(_currentDisplayedRecipe.Id);
 
             // To-Do : creates the instruction labels dynamically with their edit buttons
+            CreateInstructionsLayout(_currentDisplayedRecipe.InstructionsList);
+        }
+
+        /// <summary>
+        /// Creates the instructions layout to display them to the user
+        /// </summary>
+        /// <param name="instructionsList">The list of the instructions to display</param>
+        public void CreateInstructionsLayout(List<string> instructionsList)
+        {
+
+        }
+
+        /// <summary>
+        /// Changes the background color of the selected instruction and changes the background to transparent for the unselected instructions
+        /// </summary>
+        public void RefreshSelectedInstruction()
+        {
+
         }
     }
 }

@@ -70,7 +70,7 @@ namespace Recipe_Writer
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = System.IO.File.ReadAllText(@Environment.CurrentDirectory + "\\scripts\\" + "Recipe-writer-insert-initial-data" + ".sql");
             cmd.ExecuteNonQuery();
-        }    
+        }
 
 
         /// <summary>
@@ -82,6 +82,21 @@ namespace Recipe_Writer
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "DELETE FROM 'Recipes' WHERE id=" + idRecipe + ";";
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+
+            return true;
+        }
+
+        /// <summary>
+        /// Deletes an instruction from a recipe
+        /// </summary>
+        /// <param name="idRecipe">the id of the recipe</param>
+        /// <param name="rankInstruction">the rank of the instruction</param>
+        /// <returns>Bool if the operation succeeded</returns>
+        public bool DeleteInstruction(int idRecipe, int rankInstruction)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "DELETE FROM 'Instructions_has_Recipes' WHERE id=" + idRecipe + " AND InstructionNb=" + rankInstruction + ";";
             SQLiteDataReader dataReader = cmd.ExecuteReader();
 
             return true;
@@ -202,10 +217,10 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Reads the quantity of ingredients needed to make current selected recipe, with their scales
+        /// Reads the quantity of ingredients needed to make the current selected recipe, with their scales
         /// </summary>
         /// <param name="idRecipe">the id of the recipe</param>
-        /// <returns>List of quantities and names of the ingredients needed to make the recipe, concatenated with their scales </returns>
+        /// <returns>List of quantities and names of the ingredients needed to make the recipe, concatenated with their scales</returns>
         public List<string> ReadIngredientsQtyForARecipe(int idRecipe)
         {
             // Declares a list of string to contain the quantity of ingredients needed to make the recipe, concatenated with their scale
@@ -316,7 +331,40 @@ namespace Recipe_Writer
             return ingredientNameFound;
         }
 
-  
+        /// <summary>
+        /// Reads the instructions needed to make the currently selected recipe
+        /// </summary>
+        /// <param name="idRecipe">the id of the recipe</param>
+        /// <returns>List of the instructions to follow to make the recipe</returns>
+        public List<string> ReadInstructionsForARecipe(int idRecipe)
+        {
+            // Declares a list of string to contain the instructions to follow to make the currently selected recipe
+            List<string> listInstructions = new List<string>();
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+
+            // Retrieves all the data about ingredients needed for the currently selected recipe
+            cmd.CommandText = "SELECT instruction " +
+                                "FROM Instructions_has_Recipes " +
+                                "LEFT JOIN Instructions ON Instructions_has_Recipes.Instructions_id = Instructions.id " +
+                                "WHERE Recipes_id =" + idRecipe + ";";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                for (int i = 1; i <= 20; i++)
+                {
+                    if (dataReader["instruction"].ToString() != "")
+                    {
+                        // Adds the data into the list of string
+                        listInstructions.Add(dataReader["instruction"].ToString());
+                    }
+                }
+            }
+
+            return listInstructions;
+        }
+
         /// <summary>
         /// Reads the list of the recipes found with up to 8 keywords found in their title
         /// </summary>

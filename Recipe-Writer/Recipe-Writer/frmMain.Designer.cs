@@ -33,15 +33,7 @@
             this.txtTitleSearch = new System.Windows.Forms.TextBox();
             this.lblSearchResults = new System.Windows.Forms.Label();
             this.pnlInstructions = new System.Windows.Forms.Panel();
-            this.cmdEditInstruction4 = new System.Windows.Forms.Button();
-            this.cmdEditInstruction3 = new System.Windows.Forms.Button();
-            this.cmdEditInstruction5 = new System.Windows.Forms.Button();
-            this.cmdEditInstruction2 = new System.Windows.Forms.Button();
             this.cmdEditInstruction1 = new System.Windows.Forms.Button();
-            this.lblInstruction5 = new System.Windows.Forms.Label();
-            this.lblInstruction4 = new System.Windows.Forms.Label();
-            this.lblbInstruction3 = new System.Windows.Forms.Label();
-            this.lblInstruction2 = new System.Windows.Forms.Label();
             this.lblInstruction1 = new System.Windows.Forms.Label();
             this.nudPersons = new System.Windows.Forms.NumericUpDown();
             this.lblPortions = new System.Windows.Forms.Label();
@@ -92,72 +84,12 @@
             // pnlInstructions
             // 
             this.pnlInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlInstructions.Controls.Add(this.cmdEditInstruction4);
-            this.pnlInstructions.Controls.Add(this.cmdEditInstruction3);
-            this.pnlInstructions.Controls.Add(this.cmdEditInstruction5);
-            this.pnlInstructions.Controls.Add(this.cmdEditInstruction2);
             this.pnlInstructions.Controls.Add(this.cmdEditInstruction1);
-            this.pnlInstructions.Controls.Add(this.lblInstruction5);
-            this.pnlInstructions.Controls.Add(this.lblInstruction4);
-            this.pnlInstructions.Controls.Add(this.lblbInstruction3);
-            this.pnlInstructions.Controls.Add(this.lblInstruction2);
             this.pnlInstructions.Controls.Add(this.lblInstruction1);
             this.pnlInstructions.Location = new System.Drawing.Point(104, 330);
             this.pnlInstructions.Name = "pnlInstructions";
             this.pnlInstructions.Size = new System.Drawing.Size(1056, 354);
             this.pnlInstructions.TabIndex = 4;
-            // 
-            // cmdEditInstruction4
-            // 
-            this.cmdEditInstruction4.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction4.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction4.Location = new System.Drawing.Point(1003, 231);
-            this.cmdEditInstruction4.Name = "cmdEditInstruction4";
-            this.cmdEditInstruction4.Size = new System.Drawing.Size(30, 30);
-            this.cmdEditInstruction4.TabIndex = 19;
-            this.cmdEditInstruction4.UseVisualStyleBackColor = true;
-            // 
-            // cmdEditInstruction3
-            // 
-            this.cmdEditInstruction3.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction3.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction3.Location = new System.Drawing.Point(1003, 162);
-            this.cmdEditInstruction3.Name = "cmdEditInstruction3";
-            this.cmdEditInstruction3.Size = new System.Drawing.Size(30, 30);
-            this.cmdEditInstruction3.TabIndex = 17;
-            this.cmdEditInstruction3.UseVisualStyleBackColor = true;
-            // 
-            // cmdEditInstruction5
-            // 
-            this.cmdEditInstruction5.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction5.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction5.Location = new System.Drawing.Point(1003, 295);
-            this.cmdEditInstruction5.Name = "cmdEditInstruction5";
-            this.cmdEditInstruction5.Size = new System.Drawing.Size(30, 30);
-            this.cmdEditInstruction5.TabIndex = 21;
-            this.cmdEditInstruction5.UseVisualStyleBackColor = true;
-            // 
-            // cmdEditInstruction2
-            // 
-            this.cmdEditInstruction2.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction2.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction2.Location = new System.Drawing.Point(1003, 92);
-            this.cmdEditInstruction2.Name = "cmdEditInstruction2";
-            this.cmdEditInstruction2.Size = new System.Drawing.Size(30, 30);
-            this.cmdEditInstruction2.TabIndex = 15;
-            this.cmdEditInstruction2.UseVisualStyleBackColor = true;
             // 
             // cmdEditInstruction1
             // 
@@ -171,42 +103,6 @@
             this.cmdEditInstruction1.Size = new System.Drawing.Size(30, 30);
             this.cmdEditInstruction1.TabIndex = 13;
             this.cmdEditInstruction1.UseVisualStyleBackColor = true;
-            // 
-            // lblInstruction5
-            // 
-            this.lblInstruction5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstruction5.Location = new System.Drawing.Point(18, 288);
-            this.lblInstruction5.Name = "lblInstruction5";
-            this.lblInstruction5.Size = new System.Drawing.Size(905, 42);
-            this.lblInstruction5.TabIndex = 20;
-            this.lblInstruction5.Text = "Instruction5";
-            // 
-            // lblInstruction4
-            // 
-            this.lblInstruction4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstruction4.Location = new System.Drawing.Point(18, 225);
-            this.lblInstruction4.Name = "lblInstruction4";
-            this.lblInstruction4.Size = new System.Drawing.Size(905, 42);
-            this.lblInstruction4.TabIndex = 18;
-            this.lblInstruction4.Text = "Instruction4";
-            // 
-            // lblbInstruction3
-            // 
-            this.lblbInstruction3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblbInstruction3.Location = new System.Drawing.Point(18, 158);
-            this.lblbInstruction3.Name = "lblbInstruction3";
-            this.lblbInstruction3.Size = new System.Drawing.Size(905, 42);
-            this.lblbInstruction3.TabIndex = 16;
-            this.lblbInstruction3.Text = "Instruction3";
-            // 
-            // lblInstruction2
-            // 
-            this.lblInstruction2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstruction2.Location = new System.Drawing.Point(18, 87);
-            this.lblInstruction2.Name = "lblInstruction2";
-            this.lblInstruction2.Size = new System.Drawing.Size(905, 42);
-            this.lblInstruction2.TabIndex = 14;
-            this.lblInstruction2.Text = "Instruction2";
             // 
             // lblInstruction1
             // 
@@ -419,15 +315,7 @@
         private System.Windows.Forms.Button cmdTitleSearch;
         private System.Windows.Forms.PictureBox picRecipe;
         private System.Windows.Forms.Panel pnlInstructions;
-        private System.Windows.Forms.Button cmdEditInstruction4;
-        private System.Windows.Forms.Button cmdEditInstruction3;
-        private System.Windows.Forms.Button cmdEditInstruction5;
-        private System.Windows.Forms.Button cmdEditInstruction2;
         private System.Windows.Forms.Button cmdEditInstruction1;
-        private System.Windows.Forms.Label lblInstruction5;
-        private System.Windows.Forms.Label lblInstruction4;
-        private System.Windows.Forms.Label lblbInstruction3;
-        private System.Windows.Forms.Label lblInstruction2;
         private System.Windows.Forms.Label lblInstruction1;
         private System.Windows.Forms.Label lblSearchResults;
         private System.Windows.Forms.Button cmdNewRecipe;
