@@ -346,36 +346,33 @@ namespace Recipe_Writer
         /// <returns>List of the instructions to follow to make the recipe</returns>
         public List<Instructions> ReadInstructionsForARecipe(int idRecipe)
         {
+            int instructionId = 0;
+            string textInstruction = "";
+            int recipeId = 0;
+            int rankInstruction = 0;
+
             // Declares a list of string to contain the instructions to follow to make the currently selected recipe
             List<Instructions> listInstructionsRequested = new List<Instructions>();
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
             // Retrieves all the data about ingredients needed for the currently selected recipe
-            cmd.CommandText = "SELECT Instructions_id, instruction AS InstructionText, Recipes_id, InstructionNb " +
+            cmd.CommandText = "SELECT Instructions_id, instruction, Recipes_id, InstructionNb " +
                                 "FROM Instructions_has_Recipes " +
-                                "LEFT JOIN Instructions ON Instructions_has_Recipes.Instructions_id = Instructions.id " +
-                                "WHERE Recipes_id =" + idRecipe + ";";
+                                "INNER JOIN Instructions ON Instructions_has_Recipes.Instructions_id = Instructions.id " +
+                                "WHERE Recipes_id ='" + idRecipe + "';";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
 
-            int instructionId = 0;
-            string textInstruction = "";
-            int recipeId = 0;
-            int rankInstruction = 0;
-
             while (dataReader.Read())
             {
-                for (int i = 1; i <= 20; i++)
-                {
-                    int.TryParse(dataReader["Instructions_id"].ToString(), out instructionId);
-                    textInstruction = dataReader["InstructionText"].ToString();
-                    int.TryParse(dataReader["Recipes_id"].ToString(), out recipeId);
-                    int.TryParse(dataReader["InstructionNb"].ToString(), out rankInstruction);
+                int.TryParse(dataReader["Instructions_id"].ToString(), out instructionId);
+                textInstruction = dataReader["instruction"].ToString();
+                int.TryParse(dataReader["Recipes_id"].ToString(), out recipeId);
+                int.TryParse(dataReader["InstructionNb"].ToString(), out rankInstruction);
 
-                    Instructions instructionToAdd = new Instructions(instructionId, textInstruction, recipeId, rankInstruction);
-                    listInstructionsRequested.Add(instructionToAdd);
-                }
+                Instructions instructionToAdd = new Instructions(instructionId, textInstruction, recipeId, rankInstruction);
+                listInstructionsRequested.Add(instructionToAdd);
             }
 
             return listInstructionsRequested;
@@ -472,6 +469,18 @@ namespace Recipe_Writer
             }
 
             return titlesFound;
+        }
+
+        /// <summary>
+        /// Updates an instruction text for the selected recipe
+        /// </summary>
+        /// <param name="idInstruction">the id of the instruction</param>
+        /// <param name="newInstructionText">the new text of the instruction</param>
+        public void UpdateInstruction(int idInstruction, string newInstructionText)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "UPDATE 'Instructions' SET instruction ='" + newInstructionText + "' WHERE id =" + idInstruction + ";";
+            cmd.ExecuteReader();
         }
 
 

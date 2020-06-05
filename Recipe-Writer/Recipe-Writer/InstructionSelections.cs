@@ -9,13 +9,13 @@ namespace Recipe_Writer
 {
     public class InstructionSelections
     {
-        private int instructionId;
+        private int instructionRank;
         private Label instructionLabel;
 
-        public int InstructionId 
+        public int InstructionRank 
         {
-            get { return instructionId; }
-            set { instructionId = value; } 
+            get { return instructionRank; }
+            set { instructionRank = value; } 
         }
         public Label InstructionLabel 
         {
