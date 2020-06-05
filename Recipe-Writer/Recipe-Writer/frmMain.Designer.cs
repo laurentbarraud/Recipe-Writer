@@ -33,8 +33,6 @@
             this.txtTitleSearch = new System.Windows.Forms.TextBox();
             this.lblSearchResults = new System.Windows.Forms.Label();
             this.pnlInstructions = new System.Windows.Forms.Panel();
-            this.cmdEditInstruction1 = new System.Windows.Forms.Button();
-            this.lblInstruction1 = new System.Windows.Forms.Label();
             this.nudPersons = new System.Windows.Forms.NumericUpDown();
             this.lblPortions = new System.Windows.Forms.Label();
             this.chkWritingAssistance = new System.Windows.Forms.CheckBox();
@@ -49,7 +47,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbRecipeIngredients = new System.Windows.Forms.ComboBox();
             this.lblComplettionTime = new System.Windows.Forms.Label();
-            this.pnlInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).BeginInit();
@@ -83,35 +80,12 @@
             // 
             // pnlInstructions
             // 
+            this.pnlInstructions.AutoScroll = true;
             this.pnlInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlInstructions.Controls.Add(this.cmdEditInstruction1);
-            this.pnlInstructions.Controls.Add(this.lblInstruction1);
             this.pnlInstructions.Location = new System.Drawing.Point(104, 330);
             this.pnlInstructions.Name = "pnlInstructions";
             this.pnlInstructions.Size = new System.Drawing.Size(1056, 354);
             this.pnlInstructions.TabIndex = 4;
-            // 
-            // cmdEditInstruction1
-            // 
-            this.cmdEditInstruction1.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit;
-            this.cmdEditInstruction1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdEditInstruction1.FlatAppearance.BorderSize = 0;
-            this.cmdEditInstruction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEditInstruction1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEditInstruction1.Location = new System.Drawing.Point(1003, 20);
-            this.cmdEditInstruction1.Name = "cmdEditInstruction1";
-            this.cmdEditInstruction1.Size = new System.Drawing.Size(30, 30);
-            this.cmdEditInstruction1.TabIndex = 13;
-            this.cmdEditInstruction1.UseVisualStyleBackColor = true;
-            // 
-            // lblInstruction1
-            // 
-            this.lblInstruction1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstruction1.Location = new System.Drawing.Point(18, 15);
-            this.lblInstruction1.Name = "lblInstruction1";
-            this.lblInstruction1.Size = new System.Drawing.Size(905, 42);
-            this.lblInstruction1.TabIndex = 12;
-            this.lblInstruction1.Text = "Instruction1";
             // 
             // nudPersons
             // 
@@ -298,7 +272,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recipe Writer";
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.pnlInstructions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).EndInit();
@@ -315,8 +288,6 @@
         private System.Windows.Forms.Button cmdTitleSearch;
         private System.Windows.Forms.PictureBox picRecipe;
         private System.Windows.Forms.Panel pnlInstructions;
-        private System.Windows.Forms.Button cmdEditInstruction1;
-        private System.Windows.Forms.Label lblInstruction1;
         private System.Windows.Forms.Label lblSearchResults;
         private System.Windows.Forms.Button cmdNewRecipe;
         private System.Windows.Forms.Button cmdDeleteRecipe;
