@@ -14,28 +14,29 @@ namespace Recipe_Writer
 {
     public partial class frmMain : Form
     {
-        // Declares and instanciates a static default instruction, accessible globally
-        static Instructions _defaultInstruction = new Instructions(0, "", 0, 0);
+        // Declares and instancies a connection to the database
+        public DBConnection dbConn = new DBConnection();
 
-        // Declares and instanciates a static default list of instructions, accessible globally
-        static List<Instructions> _defaultListInstruction = new List<Instructions>();
+        // Declares and instanciates a default instruction, accessible globally
+        public static Instructions _defaultInstruction = new Instructions(0, "", 0, 0);
 
-        // Declares and instanciates the current displayed recipe object, constructed with default values, and accessible globally
-        Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, "default", null, _defaultListInstruction);
+        // Declares and instanciates a default list of instructions, accessible globally
+        public static List<Instructions> _defaultListInstruction = new List<Instructions>();
 
         // Declares and instanciates the list that will handle the selected instruction
         private List<InstructionSelections> instructionSelection = new List<InstructionSelections>();
 
+        // Declares and instanciates the current displayed recipe object, constructed with default values, and accessible globally
+        public Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, "default", null, _defaultListInstruction);
+
         private int currentInstruction = 0;
         private int selectedInstruction = -1;
+
 
         public frmMain()
         {
             InitializeComponent();
         }
-
-        // Declares and instancies a connection to the database
-        private DBConnection dbConn = new DBConnection();
 
         /// <summary>
         /// Form load
@@ -79,129 +80,143 @@ namespace Recipe_Writer
         }
 
         private void cmdTitleSearch_Click(object sender, EventArgs e)
+        { 
+            // If the user has typed something in the textbox
+            if (txtTitleSearch.Text != "")
+            {
+                SearchRecipes();
+            }
+            // If the search textbox is empty
+            else
+            {
+                MessageBox.Show("Veuillez taper un ou plusieurs terme(s) de recherche.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }   
+        }
+
+
+        /// <summary>
+        /// Search recipes containing the input keywords in their title
+        /// </summary>
+        private void SearchRecipes()
         {
             // Empties the listbox control
-            lstSearchResults.Items.Clear();            
+            lstSearchResults.Items.Clear();
 
-                // If the user has typed something in the textbox
-                if (txtTitleSearch.Text != "")
+            string formattedKeywords = txtTitleSearch.Text;
+
+            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
+            if (txtTitleSearch.Text.Contains("'"))
+            {
+                formattedKeywords = txtTitleSearch.Text.Replace("'", "''");
+            }
+
+            // Declares an array and stores the keywordsSeparates the text typed by the user in the search text box into keywords and stores them in an array
+            string[] arrayKeywordsInput = formattedKeywords.Split(' ');
+
+            // If the user has typed 8 words or less in the textbox
+            if (arrayKeywordsInput.Length <= 8)
+            {
+                switch (arrayKeywordsInput.Length)
                 {
-                    string formattedKeywords = txtTitleSearch.Text;
+                    // If the user has typed only one word in the search textbox
+                    case 1:
 
-                    // Checks if the keywords contain an apostroph, to avoid making the sql request crash
-                    if (txtTitleSearch.Text.Contains("'"))
-                    {
-                        formattedKeywords = txtTitleSearch.Text.Replace("'", "''");
-                    }
-
-                // Declares an array and stores the keywordsSeparates the text typed by the user in the search text box into keywords and stores them in an array
-                string[] arrayKeywordsInput = formattedKeywords.Split(' ');
-
-                    // If the user has typed 8 words or less in the textbox
-                    if (arrayKeywordsInput.Length <= 8)
-                    {
-                        switch (arrayKeywordsInput.Length)
-                        {  
-                            // If the user has typed only one word in the search textbox
-                            case 1:
-
-                                // Calls the dbConn.SearchRecipes function with only one keyword in argument and adds the returned title in the list of string
-                                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0]))
-                                {
-                                    // Adds each title found as a new item in the listbox control
-                                    lstSearchResults.Items.Add(title);
-                                }
-                                break;
-                            
-                            // If the user has typed two words in the search textbox
-                            case 2:
-
-                                // Calls the dbConn.SearchRecipes function with two keywords in argument and adds the returned titles in the list of string
-                                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1]))
-                                {
-                                    // Adds each title found as a new item in the listbox control
-                                    lstSearchResults.Items.Add(title);
-                                }
-                                break;
-
-                            case 3:
-
-                                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2]))
-                                {
-                                    lstSearchResults.Items.Add(title);
-                                }
-                                break;
-
-                            case 4:
-
-                                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3]))
-                                {
-                                    lstSearchResults.Items.Add(title);
-                                }
-                                break;
-
-                            case 5:
-
-                                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4]))
-                                {
-                                    lstSearchResults.Items.Add(title);
-                                }
-                                break;
-
-                            case 6:
-
-                                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5]))
-                                {
-                                    lstSearchResults.Items.Add(title);
-                                }
-                                break;
-
-                            case 7:
-
-                                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6]))
-                                {
-                                    lstSearchResults.Items.Add(title);
-                                }
-                                break;
-
-                            case 8:
-
-                                // Calls the dbConn.SearchRecipes function with eight keywords in argument and adds the returned title in the list of string
-                                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
-                                {
-                                    // Adds each title found as a new item in the listbox control
-                                    lstSearchResults.Items.Add(title);
-                                }
-                                break;
+                        // Calls the dbConn.SearchRecipes function with only one keyword in argument and adds the returned title in the list of string
+                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0]))
+                        {
+                            // Adds each title found as a new item in the listbox control
+                            lstSearchResults.Items.Add(title);
                         }
-                    }                   
-                    // If the user has typed more than 8 words in the search textbox
-                    else
-                    {
+                        break;
+
+                    // If the user has typed two words in the search textbox
+                    case 2:
+
+                        // Calls the dbConn.SearchRecipes function with two keywords in argument and adds the returned titles in the list of string
+                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1]))
+                        {
+                            // Adds each title found as a new item in the listbox control
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 3:
+
+                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 4:
+
+                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 5:
+
+                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 6:
+
+                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 7:
+
+                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 8:
+
                         // Calls the dbConn.SearchRecipes function with eight keywords in argument and adds the returned title in the list of string
                         foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
                         {
                             // Adds each title found as a new item in the listbox control
                             lstSearchResults.Items.Add(title);
                         }
-                    }
+                        break;
                 }
-                // If the search textbox is empty
-                else
+            }
+            // If the user has typed more than 8 words in the search textbox
+            else
+            {
+                // Calls the dbConn.SearchRecipes function with eight keywords in argument and adds the returned title in the list of string
+                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
                 {
-                    MessageBox.Show("Veuillez taper un ou plusieurs terme(s) de recherche.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }   
+                    // Adds each title found as a new item in the listbox control
+                    lstSearchResults.Items.Add(title);
+                }
+            }
+        }
+                
+        private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayRecipeInfos();
         }
 
         /// <summary>
         /// Displays the ingredients, image and instructions for the selected recipe
         /// </summary>
-        private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        public void DisplayRecipeInfos()
         {
             // Affects to the title property of the _currentDisplayedRecipe object the selected recipe, in the search result listbox
             _currentDisplayedRecipe.Title = lstSearchResults.SelectedItem.ToString();
 
-           // Calls the function that returns the id of a recipe, given its title in argument
+            // Calls the function that returns the id of a recipe, given its title in argument
             _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(_currentDisplayedRecipe.Title);
 
             // Affects to the properties of the _currentDisplayedRecipe object the others values returned by the dbConn functions
@@ -228,6 +243,13 @@ namespace Recipe_Writer
 
             // Calls the function that creates the instruction labels dynamically
             CreateInstructionsLayout();
+
+            // Calls the function that display the illustration image for the currently selected recipe
+            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
+
+            // Affects to the pictureBox the current displayed recipe illustration image
+            picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
+            picRecipe.BorderStyle = BorderStyle.None;
         }
 
         /// <summary>
@@ -408,6 +430,28 @@ namespace Recipe_Writer
                 else
                 {
                     instructionSelection[i].InstructionLabel.BackColor = Color.Transparent;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Opens OpenFileDialog instance and affects the selected file to the picture box
+        /// </summary>
+        private void picRecipe_Click(object sender, EventArgs e)
+        {
+            // Wraps the creation of the OpenFileDialog instance in a using statement,
+            // rather than manually calling the Dispose method to ensure proper disposal
+            using (ofdAssociatedImage)
+            {
+                if (ofdAssociatedImage.ShowDialog() == DialogResult.OK)
+                {
+                    // Displays the image in the picturebox on the form       
+                    picRecipe.Load(ofdAssociatedImage.FileName);
+                    picRecipe.BorderStyle = BorderStyle.None;
+
+                    // Shows a dialog form which asks the user to provide a file name for the new image
+                    frmNewImagePath _frmNewImagePath = new frmNewImagePath(this);
+                    _frmNewImagePath.Show();
                 }
             }
         }

@@ -209,7 +209,7 @@ namespace Recipe_Writer
         /// Reads a recipe low budget status
         /// </summary>
         /// <param name="idRecipe"></param>the id of the recipe to display
-        /// <returns>an int value acting as a bool if the recipe is low budget or not</returns>
+        /// <returns>the image path for the currently selected recipe</returns>
         public string ReadRecipeImagePath(int idRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
@@ -219,7 +219,7 @@ namespace Recipe_Writer
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                dataReader["recipeImagePath"].ToString();
+                imagePathFound = dataReader["recipeImagePath"].ToString();
             }
             return imagePathFound;
         }
@@ -480,6 +480,18 @@ namespace Recipe_Writer
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "UPDATE 'Instructions' SET instruction ='" + newInstructionText + "' WHERE id =" + idInstruction + ";";
+            cmd.ExecuteReader();
+        }
+
+        /// <summary>
+        /// Updates the image path for the selected recipe
+        /// </summary>
+        /// <param name="idRecipe">the id of the currently selected recipe</param>
+        /// <param name="newImagePath">the new image path to update</param>
+        public void UpdateImagePath(int idRecipe, string newImagePath)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "UPDATE 'Recipes' SET imagePath ='" + newImagePath + "' WHERE id =" + idRecipe + ";";
             cmd.ExecuteReader();
         }
 

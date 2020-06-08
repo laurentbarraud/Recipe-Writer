@@ -47,6 +47,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbRecipeIngredients = new System.Windows.Forms.ComboBox();
             this.lblComplettionTime = new System.Windows.Forms.Label();
+            this.ofdAssociatedImage = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).BeginInit();
@@ -146,12 +147,15 @@
             // 
             // picRecipe
             // 
+            this.picRecipe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picRecipe.Location = new System.Drawing.Point(960, 25);
             this.picRecipe.Name = "picRecipe";
             this.picRecipe.Size = new System.Drawing.Size(200, 200);
+            this.picRecipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picRecipe.TabIndex = 2;
             this.picRecipe.TabStop = false;
+            this.picRecipe.Click += new System.EventHandler(this.picRecipe_Click);
             // 
             // cmdDeleteRecipe
             // 
@@ -243,6 +247,16 @@
             this.lblComplettionTime.TabIndex = 10;
             this.lblComplettionTime.Text = "Temps de réalisation : ";
             // 
+            // ofdAssociatedImage
+            // 
+            this.ofdAssociatedImage.DefaultExt = "\"Tous les types d\'images|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff\"";
+            this.ofdAssociatedImage.FileName = "openFileDialog1";
+            this.ofdAssociatedImage.Filter = "jpg|*.jpg;*.jpeg|png|*.png|bmp|*.bmp|gif|*.gif|tiff|*.tif;*.tiff|Tous les types d" +
+    "\'images|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tif;*.tiff";
+            this.ofdAssociatedImage.FilterIndex = 6;
+            this.ofdAssociatedImage.InitialDirectory = "@\"C:\\\"";
+            this.ofdAssociatedImage.Title = "Associer une image d\'illustration à cette recette";
+            // 
             // frmMain
             // 
             this.AcceptButton = this.cmdTitleSearch;
@@ -301,6 +315,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbRecipeIngredients;
         private System.Windows.Forms.Label lblComplettionTime;
+        private System.Windows.Forms.OpenFileDialog ofdAssociatedImage;
     }
 }
 
