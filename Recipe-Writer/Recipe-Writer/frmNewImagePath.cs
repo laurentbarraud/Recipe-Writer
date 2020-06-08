@@ -93,5 +93,13 @@ namespace Recipe_Writer
                 this.Close();
             }   
         }
+
+        /// <summary>
+        /// Prevents the user to move the window
+        /// </summary>
+        private void frmNewImagePath_Move(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

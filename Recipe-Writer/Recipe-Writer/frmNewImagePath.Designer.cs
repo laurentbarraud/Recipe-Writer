@@ -83,6 +83,7 @@
             this.Name = "frmNewImagePath";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrer un nom pour le fichier de l\'image d\'illustration";
+            this.Move += new System.EventHandler(this.frmNewImagePath_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
 
