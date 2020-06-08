@@ -125,7 +125,7 @@ namespace Recipe_Writer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap ingredients_search {
             get {
-                object obj = ResourceManager.GetObject("ingredients_search", resourceCulture);
+                object obj = ResourceManager.GetObject("ingredients-search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +186,16 @@ namespace Recipe_Writer.Properties {
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap side_menu {
+            get {
+                object obj = ResourceManager.GetObject("side-menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
