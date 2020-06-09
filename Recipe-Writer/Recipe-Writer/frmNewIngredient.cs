@@ -46,7 +46,13 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
+            // To-Do : If the user has entered a new ingredient not in the list
+            // add a new ingredient id in the database (dbConn.CountAllIngredients + 1) 
+            // then store the id returned in newIngredientId
 
+            // if the user has selected an ingredient from the list, 
+            // store the id selected in newIngredientId
+            // add the id reference to this ingredient (newIngredientId) in the database, to the current selected recipe ingredient(dbConn.nbIngredientsForARecipe)+1
         }
 
         private void frmNewIngredient_Move(object sender, EventArgs e)

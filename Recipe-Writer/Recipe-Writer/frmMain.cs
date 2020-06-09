@@ -756,7 +756,6 @@ namespace Recipe_Writer
             CloseSideMenu();
         }
 
-
         /// <summary>
         /// Function that animates the close of the panel content
         /// </summary>
@@ -789,9 +788,23 @@ namespace Recipe_Writer
         {
             if (cmbRecipeIngredients.SelectedIndex == cmbRecipeIngredients.Items.Count - 1)
             {
+                cmdDeleteIngredient.Visible = false;
+
                 frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
                 _frmNewIngredient.ShowDialog();
+            } else if (cmbRecipeIngredients.SelectedIndex != 0)
+            {
+                cmdDeleteIngredient.Visible = true;
             }
+
+            else
+            {
+                cmdDeleteIngredient.Visible = false;
+            }
+        }
+        private void cmdDeleteIngredient_Click(object sender, EventArgs e)
+        {
+            // To-Do : call the dbConn method to delete the selected ingredient for the currently selected recipe
         }
     }
 }

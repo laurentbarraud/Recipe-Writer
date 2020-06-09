@@ -69,6 +69,7 @@
             this.picRecipe = new System.Windows.Forms.PictureBox();
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdNewRecipe = new System.Windows.Forms.Button();
+            this.cmdDeleteIngredient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
             this.cmsRecipeResult.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
@@ -212,9 +213,9 @@
             this.cmbRecipeIngredients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRecipeIngredients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbRecipeIngredients.FormattingEnabled = true;
-            this.cmbRecipeIngredients.Location = new System.Drawing.Point(663, 287);
+            this.cmbRecipeIngredients.Location = new System.Drawing.Point(651, 287);
             this.cmbRecipeIngredients.Name = "cmbRecipeIngredients";
-            this.cmbRecipeIngredients.Size = new System.Drawing.Size(240, 24);
+            this.cmbRecipeIngredients.Size = new System.Drawing.Size(232, 24);
             this.cmbRecipeIngredients.TabIndex = 16;
             this.cmbRecipeIngredients.SelectedIndexChanged += new System.EventHandler(this.cmbRecipeIngredients_SelectedIndexChanged);
             // 
@@ -450,7 +451,7 @@
             // 
             // picEnoughIngredientsToMakeRecipe
             // 
-            this.picEnoughIngredientsToMakeRecipe.Location = new System.Drawing.Point(920, 281);
+            this.picEnoughIngredientsToMakeRecipe.Location = new System.Drawing.Point(941, 281);
             this.picEnoughIngredientsToMakeRecipe.Name = "picEnoughIngredientsToMakeRecipe";
             this.picEnoughIngredientsToMakeRecipe.Size = new System.Drawing.Size(35, 30);
             this.picEnoughIngredientsToMakeRecipe.TabIndex = 12;
@@ -504,12 +505,25 @@
             this.cmdNewRecipe.UseVisualStyleBackColor = true;
             this.cmdNewRecipe.Click += new System.EventHandler(this.cmdNewRecipe_Click);
             // 
+            // cmdDeleteIngredient
+            // 
+            this.cmdDeleteIngredient.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdDeleteIngredient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdDeleteIngredient.Location = new System.Drawing.Point(896, 281);
+            this.cmdDeleteIngredient.Name = "cmdDeleteIngredient";
+            this.cmdDeleteIngredient.Size = new System.Drawing.Size(35, 30);
+            this.cmdDeleteIngredient.TabIndex = 24;
+            this.cmdDeleteIngredient.UseVisualStyleBackColor = true;
+            this.cmdDeleteIngredient.Visible = false;
+            this.cmdDeleteIngredient.Click += new System.EventHandler(this.cmdDeleteIngredient_Click);
+            // 
             // frmMain
             // 
             this.AcceptButton = this.cmdTitleSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 709);
+            this.Controls.Add(this.cmdDeleteIngredient);
             this.Controls.Add(this.picMenu);
             this.Controls.Add(this.pnlSlideMenu);
             this.Controls.Add(this.pnlSideMenu);
@@ -590,6 +604,7 @@
         private System.Windows.Forms.ToolStripMenuItem exporterCetteRecetteEnHTMLToolStripMenuItem;
         public System.Windows.Forms.TextBox txtTitleSearch;
         public System.Windows.Forms.ComboBox cmbRecipeIngredients;
+        private System.Windows.Forms.Button cmdDeleteIngredient;
     }
 }
 
