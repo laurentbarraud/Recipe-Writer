@@ -414,6 +414,17 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(_currentDisplayedRecipe.Id);
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
 
+            // --- Affecting the _currentDisplayedRecipe properties to the controls properties ----------------------------------------------------
+            if (_currentDisplayedRecipe.LowBudget == 1)
+            {
+                picLowBudget.Visible = true;
+            }
+
+            else
+            {
+                picLowBudget.Visible = false;
+            }
+
             // Calls the function that will read the ingredients needed to make the recipe and adds the ingredients in the ingredients property of the current displayed recipe object
             _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
  

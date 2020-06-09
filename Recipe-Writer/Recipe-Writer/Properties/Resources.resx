@@ -124,6 +124,9 @@
   <data name="export-to-html" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\export-to-html3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="delete-recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="previous-recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\previous-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,8 +148,8 @@
   <data name="2-stars" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2-stars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="new-recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,8 +160,8 @@
   <data name="edit-recipe-title" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit-recipe-title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="new-recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ingredients-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ingredients-search1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,7 +169,7 @@
   <data name="1-star" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1-star.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete-recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lowBudget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lowBudget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
