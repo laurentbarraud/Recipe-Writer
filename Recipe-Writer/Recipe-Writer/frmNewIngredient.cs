@@ -61,6 +61,17 @@ namespace Recipe_Writer
         private void cmdValidate_Click(object sender, EventArgs e)
         {
             double parsedQtyIngredient = 0.0;
+            int nbIngredientsForARecipe = 0;
+            int idSelectedRecipe = 0;
+            string scaleUsedForIngredient = "";
+
+            string formattedIngredientName = cmbIngredientsList.Text;
+
+            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
+            if (cmbIngredientsList.Text.Contains("'"))
+            {
+                formattedIngredientName = cmbIngredientsList.Text.Replace("'", "''");
+            }
 
             // If the user has selected an ingredient from the list
             if (cmbIngredientsList.Text == cmbIngredientsList.SelectedItem.ToString())
@@ -69,13 +80,13 @@ namespace Recipe_Writer
                 if (txtQtyIngredient.Text != "" && double.TryParse(txtQtyIngredient.Text, out parsedQtyIngredient))
                 {
                     // Stores the id of the current selected recipe
-                    int idSelectedRecipe = _frmMain._currentDisplayedRecipe.Id;
+                    idSelectedRecipe = _frmMain._currentDisplayedRecipe.Id;
 
                     // Calls the method to count the total number of ingredients affected to the currently selected recipe
-                    int nbIngredientsForARecipe = _frmMain.dbConn.CountAllIngredientsForARecipe(idSelectedRecipe);
+                    nbIngredientsForARecipe = _frmMain.dbConn.CountAllIngredientsForARecipe(idSelectedRecipe);
 
                     // Calls the method to get the ingredient scale in use in the database
-                    string scaleUsedForIngredient = _frmMain.dbConn.ReadIngredientScale(_frmMain._currentDisplayedRecipe.Id, cmbIngredientsList.SelectedIndex - 1, _frmMain._currentDisplayedRecipe.IngredientsList.Count + 1);
+                    scaleUsedForIngredient = _frmMain.dbConn.ReadIngredientScale(_frmMain._currentDisplayedRecipe.Id, cmbIngredientsList.SelectedIndex - 1, _frmMain._currentDisplayedRecipe.IngredientsList.Count + 1);
 
                     // Calls the method to add the new ingredient by reference to its id to the currently selected recipe ingredients list
                     _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsList.SelectedIndex - 1, scaleUsedForIngredient);
@@ -96,11 +107,27 @@ namespace Recipe_Writer
             // If the user has entered a new ingredient not in the list
             else
             {
-                // To-Do : 
-                // adds a new ingredient id in the database (dbConn.CountAllIngredients + 1)
+                // If the user has typed numbers in the quantity of ingredient textbox
+                if (txtQtyIngredient.Text != "" && double.TryParse(txtQtyIngredient.Text, out parsedQtyIngredient))
+                {
+                    // Stores the id of the current selected recipe
+                    idSelectedRecipe = _frmMain._currentDisplayedRecipe.Id;
 
+                    // Calls the method to count the total number of ingredients affected to the currently selected recipe
+                    nbIngredientsForARecipe = _frmMain.dbConn.CountAllIngredientsForARecipe(idSelectedRecipe);
 
-                // then store the id returned in newIngredientId
+                    // Calls the method to get the ingredient scale in use in the database
+                    scaleUsedForIngredient = _frmMain.dbConn.ReadIngredientScale(_frmMain._currentDisplayedRecipe.Id, cmbIngredientsList.SelectedIndex - 1, _frmMain._currentDisplayedRecipe.IngredientsList.Count + 1);
+
+                    // Calls the method to add the new ingredient by reference to its id to the currently selected recipe ingredients list
+                    _frmMain.dbConn.AddNewIngredient(_frmMain._currentDisplayedRecipe.Id, parsedQtyIngredient, formattedIngredientName, cmbScalesList.Text, nbIngredientsForARecipe);
+                }
+
+                // If the user has left the quantity of ingredient textbox empty or has typed a not-valid number
+                else
+                {
+                    MessageBox.Show("Veuillez entrer un nombre réel valide pour la quantité de l'ingrédient", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

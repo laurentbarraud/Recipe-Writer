@@ -98,13 +98,17 @@ namespace Recipe_Writer
         /// <summary>
         /// Adds a new ingredient into the database to the recipe given in argument
         /// </summary>
-        /// <param name="idRecipe">the id of the recipe whose is adding the ingredient</param>
-        /// <param name="newIngredientName">the name of the new ingredient</param>
-        public void AddNewIngredient(int idRecipe, string newIngredientName)
+        /// <param name="idRecipe">the id of the recipe whose is adding the new ingredient</param>
+        /// <param name="qtyIngredient">the quantity of the new ingredient</param>
+        /// <param name="newIngredientName">the name of the new ingredient/param>
+        /// <param name="scaleIngredient">the scale used by the new ingredient</param>
+        /// <param name="nbIngredientsForARecipe">the number of ingredients needed for the selected recipe</param>
+        public void AddNewIngredient(int idRecipe, double qtyIngredient, string newIngredientName, string scaleIngredient, int nbIngredientsForARecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "INSERT INTO 'Ingredients' (ingredientName, qtyAvailable) VALUES (" + newIngredientName + ", '0.0') " +
-                                "WHERE Recipes_id ='" + idRecipe + "';";
+                              "INSERT INTO 'Recipes_has_Ingredients' (qtyIngredient" +nbIngredientsForARecipe+1+", ingredient" +nbIngredientsForARecipe+1+", scales" +nbIngredientsForARecipe+1+") VALUES ('"+qtyIngredient+"', '"+newIngredientName+"', '"+scaleIngredient+"') " +
+                              "WHERE Recipes_id ='" + idRecipe + "';";
         }
 
         /// <summary>
