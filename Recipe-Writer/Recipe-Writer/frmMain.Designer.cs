@@ -79,7 +79,8 @@
             this.txtTitleSearch.Location = new System.Drawing.Point(261, 40);
             this.txtTitleSearch.Name = "txtTitleSearch";
             this.txtTitleSearch.Size = new System.Drawing.Size(571, 27);
-            this.txtTitleSearch.TabIndex = 2;
+            this.txtTitleSearch.TabIndex = 0;
+            this.txtTitleSearch.Enter += new System.EventHandler(this.txtTitleSearch_Enter);
             // 
             // lblSearchResults
             // 
@@ -97,7 +98,7 @@
             this.pnlInstructions.Location = new System.Drawing.Point(104, 330);
             this.pnlInstructions.Name = "pnlInstructions";
             this.pnlInstructions.Size = new System.Drawing.Size(1056, 354);
-            this.pnlInstructions.TabIndex = 4;
+            this.pnlInstructions.TabIndex = 17;
             // 
             // nudPersons
             // 
@@ -149,7 +150,7 @@
             this.cmbRecipeIngredients.Location = new System.Drawing.Point(655, 287);
             this.cmbRecipeIngredients.Name = "cmbRecipeIngredients";
             this.cmbRecipeIngredients.Size = new System.Drawing.Size(199, 24);
-            this.cmbRecipeIngredients.TabIndex = 11;
+            this.cmbRecipeIngredients.TabIndex = 16;
             this.cmbRecipeIngredients.Text = "Liste des ingrédients utilisés";
             // 
             // lblComplettionTime
@@ -180,7 +181,7 @@
             this.cmdTitleSearch.Location = new System.Drawing.Point(847, 35);
             this.cmdTitleSearch.Name = "cmdTitleSearch";
             this.cmdTitleSearch.Size = new System.Drawing.Size(40, 40);
-            this.cmdTitleSearch.TabIndex = 3;
+            this.cmdTitleSearch.TabIndex = 1;
             this.cmdTitleSearch.UseVisualStyleBackColor = true;
             this.cmdTitleSearch.Click += new System.EventHandler(this.cmdTitleSearch_Click);
             // 
@@ -223,7 +224,7 @@
             this.cmdDeleteRecipe.Location = new System.Drawing.Point(882, 227);
             this.cmdDeleteRecipe.Name = "cmdDeleteRecipe";
             this.cmdDeleteRecipe.Size = new System.Drawing.Size(30, 30);
-            this.cmdDeleteRecipe.TabIndex = 6;
+            this.cmdDeleteRecipe.TabIndex = 15;
             this.cmdDeleteRecipe.UseVisualStyleBackColor = true;
             // 
             // cmdBack
@@ -235,7 +236,7 @@
             this.cmdBack.Location = new System.Drawing.Point(188, 30);
             this.cmdBack.Name = "cmdBack";
             this.cmdBack.Size = new System.Drawing.Size(50, 50);
-            this.cmdBack.TabIndex = 1;
+            this.cmdBack.TabIndex = 3;
             this.cmdBack.UseVisualStyleBackColor = true;
             // 
             // cmdExportHtml
@@ -250,7 +251,7 @@
             this.cmdExportHtml.Location = new System.Drawing.Point(753, 227);
             this.cmdExportHtml.Name = "cmdExportHtml";
             this.cmdExportHtml.Size = new System.Drawing.Size(121, 30);
-            this.cmdExportHtml.TabIndex = 5;
+            this.cmdExportHtml.TabIndex = 14;
             this.cmdExportHtml.Text = "Exporter";
             this.cmdExportHtml.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.cmdExportHtml.UseVisualStyleBackColor = false;
@@ -265,7 +266,7 @@
             this.cmdNewRecipe.Location = new System.Drawing.Point(127, 30);
             this.cmdNewRecipe.Name = "cmdNewRecipe";
             this.cmdNewRecipe.Size = new System.Drawing.Size(50, 50);
-            this.cmdNewRecipe.TabIndex = 0;
+            this.cmdNewRecipe.TabIndex = 2;
             this.cmdNewRecipe.UseVisualStyleBackColor = true;
             // 
             // pnlSideMenu
@@ -347,7 +348,7 @@
             this.chkShowOnlyLowBudget.Location = new System.Drawing.Point(40, 269);
             this.chkShowOnlyLowBudget.Name = "chkShowOnlyLowBudget";
             this.chkShowOnlyLowBudget.Size = new System.Drawing.Size(313, 22);
-            this.chkShowOnlyLowBudget.TabIndex = 7;
+            this.chkShowOnlyLowBudget.TabIndex = 8;
             this.chkShowOnlyLowBudget.Text = "N\'afficher que les recettes pour petit budget";
             this.chkShowOnlyLowBudget.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkShowOnlyLowBudget.UseVisualStyleBackColor = true;
@@ -372,7 +373,7 @@
             this.lblSearchByIngredients.Location = new System.Drawing.Point(132, 29);
             this.lblSearchByIngredients.Name = "lblSearchByIngredients";
             this.lblSearchByIngredients.Size = new System.Drawing.Size(180, 18);
-            this.lblSearchByIngredients.TabIndex = 0;
+            this.lblSearchByIngredients.TabIndex = 20;
             this.lblSearchByIngredients.Text = "Recherche par ingrédients";
             // 
             // lblSearchIngredient3
@@ -382,8 +383,9 @@
             this.lblSearchIngredient3.Location = new System.Drawing.Point(37, 174);
             this.lblSearchIngredient3.Name = "lblSearchIngredient3";
             this.lblSearchIngredient3.Size = new System.Drawing.Size(91, 18);
-            this.lblSearchIngredient3.TabIndex = 5;
+            this.lblSearchIngredient3.TabIndex = 13;
             this.lblSearchIngredient3.Text = "Ingrédient #3";
+            this.lblSearchIngredient3.Click += new System.EventHandler(this.lblSearchIngredient3_Click);
             // 
             // lblSearchIngredient2
             // 
@@ -392,8 +394,9 @@
             this.lblSearchIngredient2.Location = new System.Drawing.Point(38, 129);
             this.lblSearchIngredient2.Name = "lblSearchIngredient2";
             this.lblSearchIngredient2.Size = new System.Drawing.Size(91, 18);
-            this.lblSearchIngredient2.TabIndex = 3;
+            this.lblSearchIngredient2.TabIndex = 11;
             this.lblSearchIngredient2.Text = "Ingrédient #2";
+            this.lblSearchIngredient2.Click += new System.EventHandler(this.lblSearchIngredient2_Click);
             // 
             // lblSearchIngredient1
             // 
@@ -402,8 +405,9 @@
             this.lblSearchIngredient1.Location = new System.Drawing.Point(38, 83);
             this.lblSearchIngredient1.Name = "lblSearchIngredient1";
             this.lblSearchIngredient1.Size = new System.Drawing.Size(91, 18);
-            this.lblSearchIngredient1.TabIndex = 1;
+            this.lblSearchIngredient1.TabIndex = 10;
             this.lblSearchIngredient1.Text = "Ingrédient #1";
+            this.lblSearchIngredient1.Click += new System.EventHandler(this.lblSearchIngredient1_Click);
             // 
             // txtSearchIngredient3
             // 
@@ -417,14 +421,14 @@
             this.txtSearchIngredient2.Location = new System.Drawing.Point(182, 129);
             this.txtSearchIngredient2.Name = "txtSearchIngredient2";
             this.txtSearchIngredient2.Size = new System.Drawing.Size(228, 22);
-            this.txtSearchIngredient2.TabIndex = 4;
+            this.txtSearchIngredient2.TabIndex = 5;
             // 
             // txtSearchIngredient1
             // 
             this.txtSearchIngredient1.Location = new System.Drawing.Point(182, 83);
             this.txtSearchIngredient1.Name = "txtSearchIngredient1";
             this.txtSearchIngredient1.Size = new System.Drawing.Size(228, 22);
-            this.txtSearchIngredient1.TabIndex = 2;
+            this.txtSearchIngredient1.TabIndex = 4;
             // 
             // cmdIngredientsSearch
             // 
@@ -435,7 +439,7 @@
             this.cmdIngredientsSearch.Location = new System.Drawing.Point(417, 280);
             this.cmdIngredientsSearch.Name = "cmdIngredientsSearch";
             this.cmdIngredientsSearch.Size = new System.Drawing.Size(40, 40);
-            this.cmdIngredientsSearch.TabIndex = 3;
+            this.cmdIngredientsSearch.TabIndex = 9;
             this.cmdIngredientsSearch.UseVisualStyleBackColor = true;
             this.cmdIngredientsSearch.Click += new System.EventHandler(this.cmdIngredientsSearch_Click);
             // 

@@ -212,8 +212,13 @@ namespace Recipe_Writer
         private void cmdIngredientsSearch_Click(object sender, EventArgs e)
         {
             // If the user has typed something in one of the textboxes
-            if (txtSearchIngredient1.Text != "" && txtSearchIngredient2.Text != "" && txtSearchIngredient3.Text != "")
+            if (txtSearchIngredient1.Text != "" || txtSearchIngredient2.Text != ""  || txtSearchIngredient3.Text != "")
             {
+                // Closing side menu and slide menu animation
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 360);
+                Animations.Animate(pnlSideMenu, Animations.Effect.Slide, 150, 270);
+                this.Refresh();
+
                 SearchRecipesByIngredients();
             }
             // If all the textboxes are empty
@@ -224,76 +229,92 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Search recipes containing the input keywords in their title
+        /// Search recipes which contain all the input ingredients
         /// </summary>
         private void SearchRecipesByIngredients()
         {
             // Empties the listbox control
             lstSearchResults.Items.Clear();
 
-            string formattedIngredient1 = txtSearchIngredient1.Text;
-            string formattedIngredient2 = txtSearchIngredient2.Text;
-            string formattedIngredient3 = txtSearchIngredient3.Text;
+            string formattedInputIngredient1 = txtSearchIngredient1.Text;
+            string formattedInputIngredient2 = txtSearchIngredient2.Text;
+            string formattedInputIngredient3 = txtSearchIngredient3.Text;
 
             // Checks if the search ingredients input by the user contain an apostroph, to avoid making the sql request crash
-            formattedIngredient1 = txtSearchIngredient1.Text.Replace("'", "''");
-            formattedIngredient2 = txtSearchIngredient2.Text.Replace("'", "''");
-            formattedIngredient3 = txtSearchIngredient3.Text.Replace("'", "''");
+            formattedInputIngredient1 = txtSearchIngredient1.Text.Replace("'", "''");
+            formattedInputIngredient2 = txtSearchIngredient2.Text.Replace("'", "''");
+            formattedInputIngredient3 = txtSearchIngredient3.Text.Replace("'", "''");
 
             // Declares a list of string and stores each ingredient the user wants to use for the search
-            List<string> searchIngredientslist = new List<string>();
+            List<string> searchIngredientsInputList = new List<string>();
 
             if (txtSearchIngredient1.Text != "")
             {
-                searchIngredientslist.Add(txtSearchIngredient1.Text);
+                searchIngredientsInputList.Add(formattedInputIngredient1);
             }
 
             if (txtSearchIngredient2.Text != "")
             {
-                searchIngredientslist.Add(txtSearchIngredient2.Text);
+                searchIngredientsInputList.Add(formattedInputIngredient2);
             }
 
             if (txtSearchIngredient3.Text != "")
             {
-                searchIngredientslist.Add(txtSearchIngredient3.Text);
+                searchIngredientsInputList.Add(formattedInputIngredient3);
             }
-           
-            String[] arraySearchIngredients = searchIngredientslist.ToArray();
 
-            switch (searchIngredientslist.Count)
+            // Declares an array to stock the input ingredient list
+            string[] arraySearchIngredientsInput = searchIngredientsInputList.ToArray();
+            List<string> listTitlesRequested = new List<string>();
+
+            switch (searchIngredientsInputList.Count)
             {
                 // If the user has typed only one ingredient to search recipes for
                 case 1:
 
-                    // Calls the dbConn.SearchRecipesByIngredients method with only one ingredient in argument and adds the returned title in the list of string
-                    foreach (string title in dbConn.SearchRecipesByIngredients(arraySearchIngredients[0]))
+                    // Calls the dbConn.SearchRecipesByTitle function with only one keyword in argument and adds each returned title from the list to the list control
+                    listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0]);
+
+                    foreach (string titleItem in listTitlesRequested)
                     {
-                        // Adds each title found as a new item in the listbox control
-                        lstSearchResults.Items.Add(title);
+                        if (titleItem != "")
+                        {
+                            lstSearchResults.Items.Add(titleItem);
+                        }
                     }
                     break;
 
-                // If the user has typed two ingredients to search recipes for
+                // If the user has typed two ingredients to search recipe for
                 case 2:
 
-                    // Calls the dbConn.SearchRecipesByIngredients method with two ingredients in argument and adds the returned titles in the list of string
-                    foreach (string title in dbConn.SearchRecipesByIngredients(arraySearchIngredients[0], arraySearchIngredients[1]))
+                    listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1]);
+
+                    // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
+                    foreach (string titleItem in listTitlesRequested)
                     {
-                        // Adds each title found as a new item in the listbox control
-                        lstSearchResults.Items.Add(title);
+                        if (titleItem != "")
+                        {
+                            lstSearchResults.Items.Add(titleItem);
+                        }
+
                     }
                     break;
 
-                // If the user has typed three ingredients to search recipes for
                 case 3:
 
-                    // Calls the dbConn.SearchRecipesByIngredients method with three ingredients in argument and adds the returned titles in the list of string
-                    foreach (string title in dbConn.SearchRecipesByIngredients(arraySearchIngredients[0], arraySearchIngredients[1], arraySearchIngredients[2]))
+                    listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2]);
+
+                    // Calls the dbConn.SearchRecipesByTitle function with three keywords in argument and adds the returned titles in the list of string
+                    foreach (string titleItem in listTitlesRequested)
                     {
-                        lstSearchResults.Items.Add(title);
+                        if (titleItem != "")
+                        {
+                            lstSearchResults.Items.Add(titleItem);
+                        }
+
                     }
                     break;
-            }
+            }         
         }
 
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
@@ -575,6 +596,7 @@ namespace Recipe_Writer
                 // Opening slide menu animation
                 Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 250, 0);
                 this.Refresh();
+                this.AcceptButton = cmdIngredientsSearch;
             }
         }
 
@@ -621,5 +643,24 @@ namespace Recipe_Writer
             }
         }
 
+        private void lblSearchIngredient1_Click(object sender, EventArgs e)
+        {
+            txtSearchIngredient1.Focus();
+        }
+
+        private void lblSearchIngredient2_Click(object sender, EventArgs e)
+        {
+            txtSearchIngredient2.Focus();
+        }
+
+        private void lblSearchIngredient3_Click(object sender, EventArgs e)
+        {
+            txtSearchIngredient3.Focus();
+        }
+
+        private void txtTitleSearch_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = cmdTitleSearch;
+        }
     }
 }

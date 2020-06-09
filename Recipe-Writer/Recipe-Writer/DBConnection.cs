@@ -384,12 +384,12 @@ namespace Recipe_Writer
         /// <param name="ingredientInput1">first ingredient to search with</param>
         /// <param name="ingredientInput2">second ingredient to search with</param>
         /// <param name="ingredientInput3">third ingredient to search with</param>
-        /// <returns>List of the titles of the recipes found in the database</returns>
+        /// <returns>Integer list of the id of the recipes found in the database</returns>
         public List<string> SearchRecipesByIngredients(string ingredientInput1 = "", string ingredientInput2 = "", string ingredientInput3 = "")
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
-            cmd.CommandText = "SELECT ingredient1.ingredientName AS 'ingredient1Name'," +
+            cmd.CommandText = "SELECT Recipes.title AS RecipesTitlesRequested, ingredient1.ingredientName AS 'ingredient1Name'," +
                                 "ingredient2.ingredientName AS 'ingredient2Name', ingredient3.ingredientName AS 'ingredient3Name', ingredient4.ingredientName AS 'ingredient4Name', " +
                                 "ingredient5.ingredientName AS 'ingredient5Name', ingredient6.ingredientName AS 'ingredient6Name', ingredient7.ingredientName AS 'ingredient7Name',  " +
                                 "ingredient8.ingredientName AS 'ingredient8Name', ingredient9.ingredientName AS 'ingredient9Name', ingredient10.ingredientName AS 'ingredient10Name', " +
@@ -417,47 +417,76 @@ namespace Recipe_Writer
                                 "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
                                 "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
                                 "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
-                                "WHERE Recipes_id =;";
+                                "LEFT JOIN Recipes ON Recipes_id = Recipes_id";
 
             // Counting the number of words given in arguments
-            int nbKeywordsTyped = 0;
+            int nbIngredientsTyped = 0;
 
-            if (keywordInput1 != "")
-                nbKeywordsTyped++;
-            if (keywordInput2 != "")
-                nbKeywordsTyped++;
-            if (keywordInput3 != "")
-                nbKeywordsTyped++;
+            if (ingredientInput1 != "")
+                nbIngredientsTyped++;
+            if (ingredientInput2 != "")
+                nbIngredientsTyped++;
+            if (ingredientInput3 != "")
+                nbIngredientsTyped++;
            
-
-            if (nbKeywordsTyped > 0)
+            // Adding each ingredients to the search with AND operator
+            if (nbIngredientsTyped > 0)
             {
-                cmd.CommandText += "WHERE title LIKE '%" + keywordInput1 + "%'";
+                cmd.CommandText += " WHERE (ingredient1Name LIKE '%" + ingredientInput1 + "%' OR ingredient2Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient3Name LIKE '%" + ingredientInput1 + "%'  OR  ingredient4Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient5Name LIKE '%" + ingredientInput1 + "%' OR ingredient6Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient7Name LIKE '%" + ingredientInput1 + "%' OR ingredient8Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient9Name LIKE '%" + ingredientInput1 + "%' OR ingredient10Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient11Name LIKE '%" + ingredientInput1 + "%'  OR  ingredient12Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient13Name LIKE '%" + ingredientInput1 + "%' OR ingredient14Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient15Name LIKE '%" + ingredientInput1 + "%'  OR  ingredient16Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient17Name LIKE '%" + ingredientInput1 + "%' OR ingredient18Name LIKE '%" + ingredientInput1 + "%'" +
+                                    " OR ingredient19Name LIKE '%" + ingredientInput1 + "%' OR ingredient20Name LIKE '%" + ingredientInput1 + "%'";
 
-                if (nbKeywordsTyped > 1)
+                if (nbIngredientsTyped > 1)
                 {
-                    cmd.CommandText += " AND title LIKE '%" + keywordInput2 + "%'";
+                    cmd.CommandText += ") AND (ingredient1Name LIKE '%" + ingredientInput2 + "%' OR ingredient2Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient3Name LIKE '%" + ingredientInput2 + "%' OR  ingredient4Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient5Name LIKE '%" + ingredientInput2 + "%' OR ingredient6Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient7Name LIKE '%" + ingredientInput2 + "%' OR ingredient8Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient9Name LIKE '%" + ingredientInput2 + "%' OR ingredient10Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient11Name LIKE '%" + ingredientInput2 + "%' OR ingredient12Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient13Name LIKE '%" + ingredientInput2 + "%' OR ingredient14Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient15Name LIKE '%" + ingredientInput2 + "%' OR ingredient16Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient17Name LIKE '%" + ingredientInput2 + "%' OR ingredient18Name LIKE '%" + ingredientInput2 + "%'" +
+                                    " OR ingredient19Name LIKE '%" + ingredientInput2 + "%' OR ingredient20Name LIKE '%" + ingredientInput2 + "%'";
 
-                    if (nbKeywordsTyped > 2)
+                    if (nbIngredientsTyped > 2)
                     {
-                        cmd.CommandText += " AND title LIKE '%" + keywordInput3 + "%'";
+                        cmd.CommandText += ") AND (ingredient1Name LIKE '%" + ingredientInput3 + "%' OR ingredient2Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient3Name LIKE '%" + ingredientInput3 + "%' OR ingredient4Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient5Name LIKE '%" + ingredientInput3 + "%' OR ingredient6Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient7Name LIKE '%" + ingredientInput3 + "%' OR ingredient8Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient9Name LIKE '%" + ingredientInput3 + "%' OR ingredient10Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient11Name LIKE '%" + ingredientInput3 + "%' OR ingredient12Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient13Name LIKE '%" + ingredientInput3 + "%' OR ingredient14Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient15Name LIKE '%" + ingredientInput3 + "%' OR ingredient16Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient17Name LIKE '%" + ingredientInput3 + "%' OR ingredient18Name LIKE '%" + ingredientInput3 + "%'" +
+                                    " OR ingredient19Name LIKE '%" + ingredientInput3 + "%' OR ingredient20Name LIKE '%" + ingredientInput3 + "%'";
                     }
                 }
             }
 
             // Completes the sql request
-            cmd.CommandText += ";";
+            cmd.CommandText += ");";
 
-            // Declares a list of string to contain the results found in the database
-            List<string> titlesFound = new List<string>();
+            // Declares a list of string to contain the titles of the recipes found in the database
+            List<string> recipesTitlesFound = new List<string>();
+            string titleFound = "";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                titlesFound.Add(dataReader["title"].ToString());
+                titleFound = dataReader["RecipesTitlesRequested"].ToString();
+                recipesTitlesFound.Add(titleFound);
             }
 
-            return titlesFound;
+            return recipesTitlesFound;
         }
 
         /// <summary>
@@ -498,6 +527,7 @@ namespace Recipe_Writer
             if (keywordInput8 != "")
                 nbKeywordsTyped++;
 
+            // Adding each keywords to the search with AND operator
             if (nbKeywordsTyped > 0)
             {
                 cmd.CommandText += "WHERE title LIKE '%"+ keywordInput1 +"%'";
