@@ -95,6 +95,27 @@ namespace Recipe_Writer
             cmd.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Counts the number of ingredients stored in the database
+        /// </summary>
+        /// <returns>the number of ingredients stored in the database</returns>
+        public int CountAllIngredientsStored()
+        {
+            // Declares a list of ingredients to contain the ones needed to make the recipe
+            int nbOfIngredientsStored = 0;
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "SELECT COUNT(*) AS nbIngredientsStored FROM Ingredients;";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {     
+                // Parses the quantity of the ingredient
+                int.TryParse(dataReader["nbIngredientsStored"].ToString(), out nbOfIngredientsStored);
+            }
+
+            return nbOfIngredientsStored;
+        }
 
         /// <summary>
         /// Deletes a recipe from the database
@@ -123,6 +144,33 @@ namespace Recipe_Writer
             SQLiteDataReader dataReader = cmd.ExecuteReader();
 
             return true;
+        }
+
+        /// <summary>
+        /// Reads all ingredients stored in the database
+        /// </summary>
+        /// <returns>the list of ingredients stored in the database</returns>
+        public List<string> ReadAllIngredientsStored()
+        {
+            // Declares a list of ingredients to contain the ones needed to make the recipe
+            List<string> allIngredientsNamesList = new List<string>();
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "SELECT id, ingredientName, qtyAvailable FROM Ingredients;";
+
+            int nbIngredientsStored = CountAllIngredientsStored();
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                if (dataReader["ingredientName"].ToString() != "")
+                {
+                    // Adds the ingredient to the list
+                    allIngredientsNamesList.Add(dataReader["ingredientName"].ToString());
+                }
+            }
+            
+            return allIngredientsNamesList;
         }
 
         /// <summary>
@@ -255,7 +303,7 @@ namespace Recipe_Writer
         /// <returns>List of the ingredients needed to make the recipe</returns>
         public List<Ingredients> ReadIngredientsQtyForARecipe(int idRecipe)
         {
-            // Declares a list of string to contain the quantity of ingredients needed to make the recipe, concatenated with their scale
+            // Declares a list of string to contain the ones needed to make the recipe
             List<Ingredients> listIngredientsRequested = new List<Ingredients>();
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();

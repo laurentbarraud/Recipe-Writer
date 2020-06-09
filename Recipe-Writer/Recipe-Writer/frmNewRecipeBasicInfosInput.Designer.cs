@@ -48,9 +48,8 @@
             // 
             // lblNewRecipeTitle
             // 
-            this.lblNewRecipeTitle.AutoSize = true;
             this.lblNewRecipeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewRecipeTitle.Location = new System.Drawing.Point(40, 56);
+            this.lblNewRecipeTitle.Location = new System.Drawing.Point(40, 54);
             this.lblNewRecipeTitle.Name = "lblNewRecipeTitle";
             this.lblNewRecipeTitle.Size = new System.Drawing.Size(45, 18);
             this.lblNewRecipeTitle.TabIndex = 5;
@@ -67,18 +66,16 @@
             // 
             // lblNewRecipeCompletionTime
             // 
-            this.lblNewRecipeCompletionTime.AutoSize = true;
             this.lblNewRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewRecipeCompletionTime.Location = new System.Drawing.Point(152, 109);
+            this.lblNewRecipeCompletionTime.Location = new System.Drawing.Point(120, 109);
             this.lblNewRecipeCompletionTime.Name = "lblNewRecipeCompletionTime";
-            this.lblNewRecipeCompletionTime.Size = new System.Drawing.Size(153, 18);
+            this.lblNewRecipeCompletionTime.Size = new System.Drawing.Size(185, 21);
             this.lblNewRecipeCompletionTime.TabIndex = 6;
             this.lblNewRecipeCompletionTime.Text = "Temps de réalisation :";
             this.lblNewRecipeCompletionTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblMinutes
             // 
-            this.lblMinutes.AutoSize = true;
             this.lblMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMinutes.Location = new System.Drawing.Point(384, 110);
             this.lblMinutes.Name = "lblMinutes";
@@ -146,6 +143,7 @@
             this.Name = "frmNewRecipeBasicInfosInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrez les informations pour la nouvelle recette";
+            this.Move += new System.EventHandler(this.frmNewRecipeBasicInfosInput_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -71,5 +71,10 @@ namespace Recipe_Writer
                 MessageBox.Show("Vous devez saisir un titre pour la nouvelle recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void frmNewRecipeBasicInfosInput_Move(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

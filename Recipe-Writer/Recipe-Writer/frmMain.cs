@@ -789,7 +789,8 @@ namespace Recipe_Writer
         {
             if (cmbRecipeIngredients.SelectedIndex == cmbRecipeIngredients.Items.Count - 1)
             {
-
+                frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
+                _frmNewIngredient.ShowDialog();
             }
         }
     }

@@ -562,7 +562,6 @@
         private System.Windows.Forms.CheckBox chkWritingAssistance;
         private System.Windows.Forms.ListBox lstSearchResults;
         private System.Windows.Forms.PictureBox picEnoughIngredientsToMakeRecipe;
-        private System.Windows.Forms.ComboBox cmbRecipeIngredients;
         private System.Windows.Forms.Label lblComplettionTime;
         private System.Windows.Forms.OpenFileDialog ofdAssociatedImage;
         private System.Windows.Forms.Panel pnlSideMenu;
@@ -590,6 +589,7 @@
         private System.Windows.Forms.ToolStripMenuItem supprimerCetteRecetteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exporterCetteRecetteEnHTMLToolStripMenuItem;
         public System.Windows.Forms.TextBox txtTitleSearch;
+        public System.Windows.Forms.ComboBox cmbRecipeIngredients;
     }
 }
 

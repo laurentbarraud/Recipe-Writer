@@ -57,6 +57,7 @@
             this.cmdCancel.Size = new System.Drawing.Size(34, 32);
             this.cmdCancel.TabIndex = 1;
             this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // cmdValidate
             // 
@@ -69,6 +70,7 @@
             this.cmdValidate.Size = new System.Drawing.Size(34, 32);
             this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = true;
+            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // cmbIngredientsList
             // 
@@ -77,7 +79,7 @@
             this.cmbIngredientsList.Location = new System.Drawing.Point(206, 35);
             this.cmbIngredientsList.MaxDropDownItems = 6;
             this.cmbIngredientsList.Name = "cmbIngredientsList";
-            this.cmbIngredientsList.Size = new System.Drawing.Size(195, 24);
+            this.cmbIngredientsList.Size = new System.Drawing.Size(241, 24);
             this.cmbIngredientsList.TabIndex = 0;
             // 
             // frmNewIngredient
@@ -96,6 +98,8 @@
             this.Name = "frmNewIngredient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajout d\'un nouvel ingrédient à la recette";
+            this.Load += new System.EventHandler(this.frmNewIngredient_Load);
+            this.Move += new System.EventHandler(this.frmNewIngredient_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
 
