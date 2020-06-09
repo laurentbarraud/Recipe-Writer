@@ -37,6 +37,11 @@
             this.lblPortions = new System.Windows.Forms.Label();
             this.chkWritingAssistance = new System.Windows.Forms.CheckBox();
             this.lstSearchResults = new System.Windows.Forms.ListBox();
+            this.cmsRecipeResult = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.nouvelleRecetteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierLeTitreDeCetteRecetteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerCetteRecetteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exporterCetteRecetteEnHTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbRecipeIngredients = new System.Windows.Forms.ComboBox();
             this.lblComplettionTime = new System.Windows.Forms.Label();
             this.ofdAssociatedImage = new System.Windows.Forms.OpenFileDialog();
@@ -57,10 +62,6 @@
             this.txtSearchIngredient2 = new System.Windows.Forms.TextBox();
             this.txtSearchIngredient1 = new System.Windows.Forms.TextBox();
             this.cmdIngredientsSearch = new System.Windows.Forms.Button();
-            this.cmsRecipeResult = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.nouvelleRecetteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifierLeTitreDeCetteRecetteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.supprimerCetteRecetteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmdTitleSearch = new System.Windows.Forms.Button();
             this.picMenu = new System.Windows.Forms.PictureBox();
             this.picEnoughIngredientsToMakeRecipe = new System.Windows.Forms.PictureBox();
@@ -68,13 +69,12 @@
             this.picRecipe = new System.Windows.Forms.PictureBox();
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdNewRecipe = new System.Windows.Forms.Button();
-            this.exporterCetteRecetteEnHTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
+            this.cmsRecipeResult.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSettings)).BeginInit();
             this.pnlSlideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClosePanel)).BeginInit();
-            this.cmsRecipeResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnoughIngredientsToMakeRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).BeginInit();
@@ -164,12 +164,55 @@
             this.lstSearchResults.TabIndex = 4;
             this.lstSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstSearchResults_SelectedIndexChanged);
             // 
+            // cmsRecipeResult
+            // 
+            this.cmsRecipeResult.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsRecipeResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nouvelleRecetteToolStripMenuItem,
+            this.modifierLeTitreDeCetteRecetteToolStripMenuItem,
+            this.supprimerCetteRecetteToolStripMenuItem,
+            this.exporterCetteRecetteEnHTMLToolStripMenuItem});
+            this.cmsRecipeResult.Name = "cmsRecipeResult";
+            this.cmsRecipeResult.Size = new System.Drawing.Size(295, 108);
+            // 
+            // nouvelleRecetteToolStripMenuItem
+            // 
+            this.nouvelleRecetteToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.new_recipe;
+            this.nouvelleRecetteToolStripMenuItem.Name = "nouvelleRecetteToolStripMenuItem";
+            this.nouvelleRecetteToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
+            this.nouvelleRecetteToolStripMenuItem.Text = "Nouvelle recette";
+            this.nouvelleRecetteToolStripMenuItem.Click += new System.EventHandler(this.nouvelleRecetteToolStripMenuItem_Click);
+            // 
+            // modifierLeTitreDeCetteRecetteToolStripMenuItem
+            // 
+            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Enabled = false;
+            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.edit_recipe_title;
+            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Name = "modifierLeTitreDeCetteRecetteToolStripMenuItem";
+            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
+            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Text = "Modifier le titre de cette recette";
+            // 
+            // supprimerCetteRecetteToolStripMenuItem
+            // 
+            this.supprimerCetteRecetteToolStripMenuItem.Enabled = false;
+            this.supprimerCetteRecetteToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.delete_recipe;
+            this.supprimerCetteRecetteToolStripMenuItem.Name = "supprimerCetteRecetteToolStripMenuItem";
+            this.supprimerCetteRecetteToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
+            this.supprimerCetteRecetteToolStripMenuItem.Text = "Supprimer cette recette";
+            // 
+            // exporterCetteRecetteEnHTMLToolStripMenuItem
+            // 
+            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Enabled = false;
+            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.export_to_html;
+            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Name = "exporterCetteRecetteEnHTMLToolStripMenuItem";
+            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
+            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Text = "Exporter cette recette en HTML";
+            // 
             // cmbRecipeIngredients
             // 
             this.cmbRecipeIngredients.FormattingEnabled = true;
-            this.cmbRecipeIngredients.Location = new System.Drawing.Point(655, 287);
+            this.cmbRecipeIngredients.Location = new System.Drawing.Point(676, 287);
             this.cmbRecipeIngredients.Name = "cmbRecipeIngredients";
-            this.cmbRecipeIngredients.Size = new System.Drawing.Size(199, 24);
+            this.cmbRecipeIngredients.Size = new System.Drawing.Size(227, 24);
             this.cmbRecipeIngredients.TabIndex = 16;
             this.cmbRecipeIngredients.Text = "Liste des ingrédients utilisés";
             // 
@@ -178,7 +221,7 @@
             this.lblComplettionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblComplettionTime.Location = new System.Drawing.Point(410, 287);
             this.lblComplettionTime.Name = "lblComplettionTime";
-            this.lblComplettionTime.Size = new System.Drawing.Size(225, 19);
+            this.lblComplettionTime.Size = new System.Drawing.Size(228, 24);
             this.lblComplettionTime.TabIndex = 10;
             this.lblComplettionTime.Text = "Temps de réalisation : ";
             // 
@@ -379,40 +422,6 @@
             this.cmdIngredientsSearch.UseVisualStyleBackColor = true;
             this.cmdIngredientsSearch.Click += new System.EventHandler(this.cmdIngredientsSearch_Click);
             // 
-            // cmsRecipeResult
-            // 
-            this.cmsRecipeResult.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsRecipeResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nouvelleRecetteToolStripMenuItem,
-            this.modifierLeTitreDeCetteRecetteToolStripMenuItem,
-            this.supprimerCetteRecetteToolStripMenuItem,
-            this.exporterCetteRecetteEnHTMLToolStripMenuItem});
-            this.cmsRecipeResult.Name = "cmsRecipeResult";
-            this.cmsRecipeResult.Size = new System.Drawing.Size(295, 136);
-            // 
-            // nouvelleRecetteToolStripMenuItem
-            // 
-            this.nouvelleRecetteToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.new_recipe;
-            this.nouvelleRecetteToolStripMenuItem.Name = "nouvelleRecetteToolStripMenuItem";
-            this.nouvelleRecetteToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
-            this.nouvelleRecetteToolStripMenuItem.Text = "Nouvelle recette";
-            // 
-            // modifierLeTitreDeCetteRecetteToolStripMenuItem
-            // 
-            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Enabled = false;
-            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.edit_recipe_title;
-            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Name = "modifierLeTitreDeCetteRecetteToolStripMenuItem";
-            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
-            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Text = "Modifier le titre de cette recette";
-            // 
-            // supprimerCetteRecetteToolStripMenuItem
-            // 
-            this.supprimerCetteRecetteToolStripMenuItem.Enabled = false;
-            this.supprimerCetteRecetteToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.delete_recipe;
-            this.supprimerCetteRecetteToolStripMenuItem.Name = "supprimerCetteRecetteToolStripMenuItem";
-            this.supprimerCetteRecetteToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
-            this.supprimerCetteRecetteToolStripMenuItem.Text = "Supprimer cette recette";
-            // 
             // cmdTitleSearch
             // 
             this.cmdTitleSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdTitleSearch.BackgroundImage")));
@@ -439,7 +448,7 @@
             // 
             // picEnoughIngredientsToMakeRecipe
             // 
-            this.picEnoughIngredientsToMakeRecipe.Location = new System.Drawing.Point(879, 284);
+            this.picEnoughIngredientsToMakeRecipe.Location = new System.Drawing.Point(920, 281);
             this.picEnoughIngredientsToMakeRecipe.Name = "picEnoughIngredientsToMakeRecipe";
             this.picEnoughIngredientsToMakeRecipe.Size = new System.Drawing.Size(35, 30);
             this.picEnoughIngredientsToMakeRecipe.TabIndex = 12;
@@ -491,14 +500,7 @@
             this.cmdNewRecipe.Size = new System.Drawing.Size(50, 50);
             this.cmdNewRecipe.TabIndex = 2;
             this.cmdNewRecipe.UseVisualStyleBackColor = true;
-            // 
-            // exporterCetteRecetteEnHTMLToolStripMenuItem
-            // 
-            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Enabled = false;
-            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.export_to_html;
-            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Name = "exporterCetteRecetteEnHTMLToolStripMenuItem";
-            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
-            this.exporterCetteRecetteEnHTMLToolStripMenuItem.Text = "Exporter cette recette en HTML";
+            this.cmdNewRecipe.Click += new System.EventHandler(this.cmdNewRecipe_Click);
             // 
             // frmMain
             // 
@@ -531,12 +533,12 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Click += new System.EventHandler(this.frmMain_Click);
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).EndInit();
+            this.cmsRecipeResult.ResumeLayout(false);
             this.pnlSideMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picSettings)).EndInit();
             this.pnlSlideMenu.ResumeLayout(false);
             this.pnlSlideMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClosePanel)).EndInit();
-            this.cmsRecipeResult.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnoughIngredientsToMakeRecipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).EndInit();
@@ -547,7 +549,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtTitleSearch;
         private System.Windows.Forms.Button cmdTitleSearch;
         private System.Windows.Forms.PictureBox picRecipe;
         private System.Windows.Forms.Panel pnlInstructions;
@@ -586,6 +587,7 @@
         private System.Windows.Forms.ToolStripMenuItem modifierLeTitreDeCetteRecetteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supprimerCetteRecetteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exporterCetteRecetteEnHTMLToolStripMenuItem;
+        public System.Windows.Forms.TextBox txtTitleSearch;
     }
 }
 

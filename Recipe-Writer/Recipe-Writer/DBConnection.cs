@@ -833,26 +833,29 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Inserts a new recipe in the database, with its basic data
+        /// Writes a new recipe in the database, with its basic data
         /// </summary>
         /// <param name="newRecipeTitle">the new title of the recipe, if the user has edited it</param>
         /// <param name="newRecipeCompletionTime">the new completion time of the recipe, if the user has edited it</param>
         /// <param name="newRecipeLowBudgetStatus">the low budget value of the recipe, if the user has edited it</param>
-        public void MakeNewRecipe(string newRecipeTitle, string newRecipeCompletionTime = "", string newRecipeLowBudgetStatus = "")
+        public void WriteNewRecipe(string newRecipeTitle, string newRecipeCompletionTime, bool newRecipeLowBudgetStatus)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "INSERT INTO 'Recipes' (title) VALUES (" + newRecipeTitle + ");";
+            cmd.CommandText += "INSERT INTO 'Recipes' (completionTime) VALUES (" + newRecipeCompletionTime + ");";
 
-            if (newRecipeCompletionTime != "")
+            if (newRecipeLowBudgetStatus)
             {
-                cmd.CommandText += "INSERT INTO 'Recipes' (completionTime) VALUES (" + newRecipeCompletionTime + ");";
-                
+                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES ('1');";
             }
 
-            if (newRecipeLowBudgetStatus != "")
+            // If the recipe hasn't been flagged as low budget
+            else
             {
-                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES (" + newRecipeLowBudgetStatus + ");";
-            }                            
+                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES ('0');";
+            }
+
+            ReadRecipeId(newRecipeTitle);
         }
 
         /// <summary>

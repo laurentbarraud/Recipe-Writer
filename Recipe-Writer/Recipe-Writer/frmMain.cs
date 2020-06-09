@@ -89,6 +89,17 @@ namespace Recipe_Writer
             }
         }
 
+        private void cmdNewRecipe_Click(object sender, EventArgs e)
+        {
+            cmsRecipeResult.Items[0].PerformClick();
+        }
+
+        private void nouvelleRecetteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewRecipeBasicInfosInput _frmNewRecipeBasicInfosInput = new frmNewRecipeBasicInfosInput(this);
+            _frmNewRecipeBasicInfosInput.ShowDialog();
+        }
+
         private void cmdTitleSearch_Click(object sender, EventArgs e)
         { 
             // If the user has typed something in the textbox
@@ -414,6 +425,8 @@ namespace Recipe_Writer
             {
                 cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + ingredientToAdd.Scale + " de " + ingredientToAdd.Name);
             }
+
+            cmbRecipeIngredients.Items.Add("Ajouter un ingrédient...");
 
             // Calls the function that will return the instructions list to follow to make the recipe,
             // then and affects them to the current displayed Recipe instruction list.
@@ -761,5 +774,6 @@ namespace Recipe_Writer
             Animations.Animate(pnlSideMenu, Animations.Effect.Slide, 150, 270);
             this.Refresh();
         }
+
     }
 }
