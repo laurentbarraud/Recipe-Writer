@@ -420,7 +420,7 @@ namespace Recipe_Writer
             // Clears the combobox of ingredients before adding the items found
             cmbRecipeIngredients.Items.Clear();
 
-            cmbRecipeIngredients.Items.Add("Liste des ingrédients nécessaires");
+            cmbRecipeIngredients.Items.Add("Ingrédients nécessaires");
 
             // Adds each ingredients list item as a new item in the ingredients comboBo
             foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)

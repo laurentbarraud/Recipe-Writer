@@ -36,6 +36,20 @@ namespace Recipe_Writer
                 // Adding each ingredient's name to the combobox items
                 cmbIngredientsList.Items.Add(ingredientName);
             }
+
+            // Empties the combobox before adding new scales to it
+            cmbScalesList.Items.Clear();
+
+            List<string> allScalesStoredList = new List<string>();
+            allScalesStoredList = _frmMain.dbConn.ReadAllScalesStored();
+
+            foreach (string scaleName in allScalesStoredList)
+            {
+                // Adding each ingredient's name to the combobox items
+                cmbScalesList.Items.Add(scaleName);
+            }
+
+            cmbScalesList.SelectedIndex = 0;
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)
@@ -46,20 +60,37 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
+            double parsedQtyIngredient = 0.0;
+
             // If the user has selected an ingredient from the list
             if (cmbIngredientsList.Text == cmbIngredientsList.SelectedItem.ToString())
             {
-                // Stores the id of the current selected recipe
-                int idSelectedRecipe = _frmMain._currentDisplayedRecipe.Id;
+                // If the user has typed numbers in the quantity of ingredient textbox
+                if (txtQtyIngredient.Text != "" && double.TryParse(txtQtyIngredient.Text, out parsedQtyIngredient))
+                {
+                    // Stores the id of the current selected recipe
+                    int idSelectedRecipe = _frmMain._currentDisplayedRecipe.Id;
 
-                // Calls the method to count the total number of ingredients affected to the currently selected recipe
-                int nbIngredientsForARecipe = _frmMain.dbConn.CountAllIngredientsForARecipe(idSelectedRecipe);
+                    // Calls the method to count the total number of ingredients affected to the currently selected recipe
+                    int nbIngredientsForARecipe = _frmMain.dbConn.CountAllIngredientsForARecipe(idSelectedRecipe);
 
-                // Calls the method to get the ingredient scale in use in the database
-                string scaleUsedForIngredient = _frmMain.dbConn.ReadIngredientScale(_frmMain._currentDisplayedRecipe.Id, cmbIngredientsList.SelectedIndex - 1, _frmMain._currentDisplayedRecipe.IngredientsList.Count + 1);
+                    // Calls the method to get the ingredient scale in use in the database
+                    string scaleUsedForIngredient = _frmMain.dbConn.ReadIngredientScale(_frmMain._currentDisplayedRecipe.Id, cmbIngredientsList.SelectedIndex - 1, _frmMain._currentDisplayedRecipe.IngredientsList.Count + 1);
 
-                // Calls the method to add the new ingredient by reference to its id to the currently selected recipe ingredients list
-                _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsList.SelectedIndex - 1, scaleUsedForIngredient);   
+                    // Calls the method to add the new ingredient by reference to its id to the currently selected recipe ingredients list
+                    _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsList.SelectedIndex - 1, scaleUsedForIngredient);
+                }
+
+                // If the user has left the quantity of ingredient textbox empty or has typed a not-valid number
+                else
+                {
+                    MessageBox.Show("Veuillez entrer un nombre réel valide pour la quantité de l'ingrédient", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            else if (cmbIngredientsList.Text == "")
+            {
+                MessageBox.Show("Veuillez sélectionner un ingrédient ou en taper un nouveau", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // If the user has entered a new ingredient not in the list
