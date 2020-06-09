@@ -233,6 +233,28 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Reads all scales stored in the database
+        /// </summary>
+        /// <returns>the list of scales stored in the database</returns>
+        public List<string> ReadAllScalesStored()
+        {
+            // Declares a list of ingredients to contain the ones needed to make the recipe
+            List<string> allScalesNamesList = new List<string>();
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "SELECT id, scaleName FROM Scales;";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                // Adds the ingredient to the list
+                allScalesNamesList.Add(dataReader["scaleName"].ToString());    
+            }
+
+            return allScalesNamesList;
+        }
+
+        /// <summary>
         /// Reads the quantity of ingredients needed to make the current selected recipe, with their scales
         /// </summary>
         /// <param name="idRecipe">the id of the recipe</param>
