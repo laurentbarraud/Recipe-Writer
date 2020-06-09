@@ -48,7 +48,6 @@
             this.cmdExportHtml = new System.Windows.Forms.Button();
             this.cmdNewRecipe = new System.Windows.Forms.Button();
             this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.pnlSettings = new System.Windows.Forms.Panel();
             this.pnlMealsPlanner = new System.Windows.Forms.Panel();
             this.pnlInventory = new System.Windows.Forms.Panel();
             this.pnlSearchByIngredients = new System.Windows.Forms.Panel();
@@ -64,6 +63,8 @@
             this.txtSearchIngredient1 = new System.Windows.Forms.TextBox();
             this.cmdIngredientsSearch = new System.Windows.Forms.Button();
             this.picMenu = new System.Windows.Forms.PictureBox();
+            this.picSettings = new System.Windows.Forms.PictureBox();
+            this.picClosePanel = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnoughIngredientsToMakeRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).BeginInit();
@@ -71,6 +72,8 @@
             this.pnlSideMenu.SuspendLayout();
             this.pnlSlideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClosePanel)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTitleSearch
@@ -163,7 +166,6 @@
             this.cmbRecipeIngredients.Size = new System.Drawing.Size(199, 24);
             this.cmbRecipeIngredients.TabIndex = 16;
             this.cmbRecipeIngredients.Text = "Liste des ingrédients utilisés";
-
             // 
             // lblComplettionTime
             // 
@@ -283,7 +285,7 @@
             // 
             // pnlSideMenu
             // 
-            this.pnlSideMenu.Controls.Add(this.pnlSettings);
+            this.pnlSideMenu.Controls.Add(this.picSettings);
             this.pnlSideMenu.Controls.Add(this.pnlMealsPlanner);
             this.pnlSideMenu.Controls.Add(this.pnlInventory);
             this.pnlSideMenu.Controls.Add(this.pnlSearchByIngredients);
@@ -292,16 +294,6 @@
             this.pnlSideMenu.Size = new System.Drawing.Size(79, 294);
             this.pnlSideMenu.TabIndex = 18;
             this.pnlSideMenu.Visible = false;
-            // 
-            // pnlSettings
-            // 
-            this.pnlSettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlSettings.BackgroundImage")));
-            this.pnlSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlSettings.Location = new System.Drawing.Point(9, 209);
-            this.pnlSettings.Name = "pnlSettings";
-            this.pnlSettings.Size = new System.Drawing.Size(59, 50);
-            this.pnlSettings.TabIndex = 18;
-            this.pnlSettings.MouseHover += new System.EventHandler(this.pnlSettings_MouseHover);
             // 
             // pnlMealsPlanner
             // 
@@ -336,6 +328,8 @@
             // pnlSlideMenu
             // 
             this.pnlSlideMenu.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlSlideMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSlideMenu.Controls.Add(this.picClosePanel);
             this.pnlSlideMenu.Controls.Add(this.chkShowOnlyLowBudget);
             this.pnlSlideMenu.Controls.Add(this.chkInverseSearch);
             this.pnlSlideMenu.Controls.Add(this.lblSearchByIngredients);
@@ -466,6 +460,27 @@
             this.picMenu.TabStop = false;
             this.picMenu.MouseHover += new System.EventHandler(this.picMenu_MouseHover);
             // 
+            // picSettings
+            // 
+            this.picSettings.BackgroundImage = global::Recipe_Writer.Properties.Resources.settings;
+            this.picSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picSettings.Location = new System.Drawing.Point(8, 215);
+            this.picSettings.Name = "picSettings";
+            this.picSettings.Size = new System.Drawing.Size(60, 50);
+            this.picSettings.TabIndex = 22;
+            this.picSettings.TabStop = false;
+            // 
+            // picClosePanel
+            // 
+            this.picClosePanel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.picClosePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picClosePanel.Location = new System.Drawing.Point(456, 3);
+            this.picClosePanel.Name = "picClosePanel";
+            this.picClosePanel.Size = new System.Drawing.Size(39, 23);
+            this.picClosePanel.TabIndex = 22;
+            this.picClosePanel.TabStop = false;
+            this.picClosePanel.Click += new System.EventHandler(this.picClosePanel_Click);
+            // 
             // frmMain
             // 
             this.AcceptButton = this.cmdTitleSearch;
@@ -506,6 +521,8 @@
             this.pnlSlideMenu.ResumeLayout(false);
             this.pnlSlideMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClosePanel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,7 +548,6 @@
         private System.Windows.Forms.OpenFileDialog ofdAssociatedImage;
         private System.Windows.Forms.Panel pnlSideMenu;
         private System.Windows.Forms.Panel pnlSlideMenu;
-        private System.Windows.Forms.Panel pnlSettings;
         private System.Windows.Forms.Panel pnlMealsPlanner;
         private System.Windows.Forms.Panel pnlInventory;
         private System.Windows.Forms.Panel pnlSearchByIngredients;
@@ -547,6 +563,8 @@
         private System.Windows.Forms.Button cmdIngredientsSearch;
         private System.Windows.Forms.PictureBox picMenu;
         private System.Windows.Forms.NumericUpDown nudPersons;
+        private System.Windows.Forms.PictureBox picSettings;
+        private System.Windows.Forms.PictureBox picClosePanel;
     }
 }
 

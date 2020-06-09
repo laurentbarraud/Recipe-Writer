@@ -182,34 +182,6 @@
         3EiTfY45ltQoQNpYJNgC6SeqJdI50k0FZj4+WvwXpSMLzysAPeEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pnlSettings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEcAAABHCAYAAABVsFofAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAABStJREFUeF7t221TFlUYB/D7A/hB4k0vfN0X8E1posakgqWiIWlK1Pg00zRYDeU4
-        WoF+hyZBgWQQYSyfEKUvgKJgYX6H7Zy558i1//3v2WsX9uxa94vfoP+9zrXnwM3e+3DTiKKoJQUNW5po
-        2NJEw5YmGtbRwL3V6Nv7q+affLuz+/oT84Vvy4uGdfLu199EEm5Hsvbk7IqJeJ0GDetELtbBGufnx/+o
-        azVoWCe4WN+C89Rq0LBOBh/8nVgwW/T5hy8TNcdv/cd/rbZefZJYtBb2youGIfVMLZsvfJvFFq2FvfKi
-        YSj7bzx7vZAhczDF7XKhRWFPx54adE8+N//k2y0ahsIW88Wt5ejifPL4sR5nf//L7K65z0PiB2K5nKFh
-        CHKCVcO5OTQMhU20Cjgvh4YhscmGhPORaBgam3QaHCuxeh8cj2gY2uezL+jkpa7xZ6aUj5f2ji3R8QjH
-        MTQMjU1ewnoN1kfCeoaGobHJO8cKXgL0Tq/Qfg7WMzQM6dwd/68U1ufB+jlnxLlPGhqWbZu5XrIXhT/N
-        r9KJOz2TS6ac99DomXpO+zpYj2hYFjZBHxxfBOub5sTMCzNkbWysUdnYhHxwfBGsr48cG2tUNjYZHxxf
-        BOvrI8fGGpWNTcYHxxfB+vrIsbFGIW39dTHqm1n/220W1jfNj4/it01ijarAJulc/vOVKeHjNIYXXtG+
-        DtYjGoa0fcR/GxTr82D9nM6J7MsRGobGJi9hvQbrI2E9Q8PQ2OQRjvFh4xGOYWgYGps8g+MYNg5dggNv
-        GhrmsW/8Kb05Lh24wW9k776uu72Ajt6MP7H41Pyf1fkMzmU/d6ehltxZL0xYknUuO20u/GReFTcfhoZa
-        mh2l1WBeJTcnREMt3Mlh8oAOa1ye9srpnij2q1aUfdzs5oRoqDWUcZKFLj16aYatjZfbZI7b1sv17JtO
-        HpvcNoaGUoc5aGLm4I6yDNzNvsEkXXjov9+TZeAef1V8daf5qsUc0VByO7oi3pEO/hZ/apjHhfnkO5v9
-        XM25lG8c66GFvfKiocN2uFFs//6Z+C1St19nz3jxH4KF/fKiocN2WDa5/7Rn5rLG0dblQUOJ7bQsmn1/
-        OM6PgawWa/KiIWI7RgfMmTKOe++XRVrL4FhLW2e1jz5N1O4zx0asy4OG6Pwc/+iZpbnn0g0f+0BYL8mx
-        H3jeOS3Z83DGZ280aIjkThHWptkzkf4Nwtq6oCFiC7KwLgvrYf0wFz85rAsaOu2eY0b/jP+zfGlYLwvr
-        6iARsIkzOE6L9UIDd9Ovd0JKBGyyDI7TYr0YHFeFRMAmyuA4LdaLwXFVSAS7ri1F393PvuDDcVqsF4Pj
-        qkBDaXgh+ccW1mcFPzfDellHppaj90eSJ5JVoiFii7GwLgvrYWlveIdGQ8QWZA0v6M9Pdo2knxZgbV3Q
-        ELEFORcVP/WusfKeapaJhhL7Ay+mc0x/tYzar27cnx5uJBo6bCFlOWguMHH/VaOh9f3c+u7fFnF0utgl
-        SVlo6ODkuwo+odTace0Neyu3kz42FX/JfzJZ/N7u5cdr73AfiWdUgw/qd2VOQ41t5oRNLlqjY3TRDE32
-        2l6zkz+Hhho7R/P/7SX2qDsaagyZX4+sxeP2vYpPU9UJDTVw4X2z8Q84W6dux59L2c/oYU2d0VBDLtrC
-        7Y6suSIOxm8CGubRe3Ml8h1Q7bvQ2T/yPSOvCxq2NNGwpamxuf3jTWxDS+uVk6qts7/RaDt0utHW9WXj
-        7Y4jtOj/6K39Jxtb3tnc+BdpDLmc64La9gAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="pnlMealsPlanner.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAR8AAAEfCAYAAAB4V8JNAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu

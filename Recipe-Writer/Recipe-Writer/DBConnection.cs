@@ -431,7 +431,7 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Reads the list of the ingredients found with up to 3 ingredients found in the recipes
+        /// Reads the list of the ingredients found with up to 3 ingredients found in the recipes list
         /// </summary>
         /// <param name="ingredientInput1">first ingredient to search with</param>
         /// <param name="ingredientInput2">second ingredient to search with</param>
@@ -526,6 +526,147 @@ namespace Recipe_Writer
 
             // Completes the sql request
             cmd.CommandText += ");";
+
+            // Declares a list of string to contain the titles of the recipes found in the database
+            List<string> recipesTitlesFound = new List<string>();
+            string titleFound = "";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                titleFound = dataReader["RecipesTitlesRequested"].ToString();
+                recipesTitlesFound.Add(titleFound);
+            }
+
+            return recipesTitlesFound;
+        }
+
+        /// <summary>
+        /// Reads the list of the ingredients found by excluding up to 3 ingredients from the found recipes list
+        /// </summary>
+        /// <param name="ingredientToExcludeInput1">first ingredient to exclude from the search</param>
+        /// <param name="ingredientToExcludeInput2">second ingredient to exclude from the search</param>
+        /// <param name="ingredientToExcludeInput3">third ingredient to exclude from the search</param>
+        /// <returns>Integer list of the id of the recipes found in the database</returns>
+        public List<string> SearchRecipesByExcludingIngredients(string ingredientToExcludeInput1 = "", string ingredientToExcludeInput2 = "", string ingredientToExcludeInput3 = "")
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+
+            cmd.CommandText = "SELECT Recipes.title AS RecipesTitlesRequested, ingredient1.ingredientName AS 'ingredient1Name', ingredient2.ingredientName AS 'ingredient2Name'," + 
+                                " ingredient3.ingredientName AS 'ingredient3Name', ingredient4.ingredientName AS 'ingredient4Name', ingredient5.ingredientName AS 'ingredient5Name'," +
+                                " ingredient6.ingredientName AS 'ingredient6Name', ingredient7.ingredientName AS 'ingredient7Name', ingredient8.ingredientName AS 'ingredient8Name'," +
+                                " ingredient9.ingredientName AS 'ingredient9Name', ingredient10.ingredientName AS 'ingredient10Name', ingredient11.ingredientName AS 'ingredient11Name'," +
+                                " ingredient12.ingredientName AS 'ingredient12Name', ingredient13.ingredientName AS 'ingredient13Name', ingredient14.ingredientName AS 'ingredient14Name'," +
+                                " ingredient15.ingredientName AS 'ingredient15Name', ingredient16.ingredientName AS 'ingredient16Name', ingredient17.ingredientName AS 'ingredient17Name'," +
+                                " ingredient18.ingredientName AS 'ingredient18Name', ingredient19.ingredientName AS 'ingredient19Name', ingredient20.ingredientName AS 'ingredient20Name'" +
+                                " FROM Recipes_has_Ingredients " +
+                                "LEFT JOIN Ingredients AS ingredient1 ON Recipes_has_Ingredients.ingredient1_id = ingredient1.id " +
+                                "LEFT JOIN Ingredients AS ingredient2 ON Recipes_has_Ingredients.ingredient2_id = ingredient2.id " +
+                                "LEFT JOIN Ingredients AS ingredient3 ON Recipes_has_Ingredients.ingredient3_id = ingredient3.id " +
+                                "LEFT JOIN Ingredients AS ingredient4 ON Recipes_has_Ingredients.ingredient4_id = ingredient4.id " +
+                                "LEFT JOIN Ingredients AS ingredient5 ON Recipes_has_Ingredients.ingredient5_id = ingredient5.id " +
+                                "LEFT JOIN Ingredients AS ingredient6 ON Recipes_has_Ingredients.ingredient6_id = ingredient6.id " +
+                                "LEFT JOIN Ingredients AS ingredient7 ON Recipes_has_Ingredients.ingredient7_id = ingredient7.id " +
+                                "LEFT JOIN Ingredients AS ingredient8 ON Recipes_has_Ingredients.ingredient8_id = ingredient8.id " +
+                                "LEFT JOIN Ingredients AS ingredient9 ON Recipes_has_Ingredients.ingredient9_id = ingredient9.id " +
+                                "LEFT JOIN Ingredients AS ingredient10 ON Recipes_has_Ingredients.ingredient10_id = ingredient10.id " +
+                                "LEFT JOIN Ingredients AS ingredient11 ON Recipes_has_Ingredients.ingredient11_id = ingredient11.id " +
+                                "LEFT JOIN Ingredients AS ingredient12 ON Recipes_has_Ingredients.ingredient12_id = ingredient12.id " +
+                                "LEFT JOIN Ingredients AS ingredient13 ON Recipes_has_Ingredients.ingredient13_id = ingredient13.id " +
+                                "LEFT JOIN Ingredients AS ingredient14 ON Recipes_has_Ingredients.ingredient14_id = ingredient14.id " +
+                                "LEFT JOIN Ingredients AS ingredient15 ON Recipes_has_Ingredients.ingredient15_id = ingredient15.id " +
+                                "LEFT JOIN Ingredients AS ingredient16 ON Recipes_has_Ingredients.ingredient16_id = ingredient16.id " +
+                                "LEFT JOIN Ingredients AS ingredient17 ON Recipes_has_Ingredients.ingredient17_id = ingredient17.id " +
+                                "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
+                                "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
+                                "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
+                                "LEFT JOIN Recipes ON Recipes_id = Recipes_id";
+
+            // Counting the number of words given in arguments
+            int nbIngredientsToExcludeTyped = 0;
+
+            if (ingredientToExcludeInput1 != "")
+                nbIngredientsToExcludeTyped++;
+            if (ingredientToExcludeInput2 != "")
+                nbIngredientsToExcludeTyped++;
+            if (ingredientToExcludeInput3 != "")
+                nbIngredientsToExcludeTyped++;
+
+            // Adding each ingredients to the search with AND operator
+            switch (nbIngredientsToExcludeTyped )
+            {
+                case 1:
+                    cmd.CommandText += " WHERE ingredient1Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient2Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient3Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient4Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient5Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient6Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient7Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient8Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient9Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient10Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient11Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient12Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient13Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient14Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient15Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient16Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient17Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient18Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient19Name NOT IN('" + ingredientToExcludeInput1 + "')" +
+                                           " AND ingredient20Name NOT IN('" + ingredientToExcludeInput1 + "')";
+                    break;
+
+                case 2:
+                    cmd.CommandText += " WHERE ingredient1Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient2Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient3Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient4Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient5Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient6Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient7Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient8Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient9Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient10Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient11Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient12Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient13Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient14Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient15Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient16Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient17Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient18Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient19Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
+                                           " AND ingredient20Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')";
+                    break;
+
+                case 3:
+                    cmd.CommandText += " WHERE ingredient1Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient2Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient3Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient4Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient5Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient6Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient7Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient8Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient9Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient10Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient11Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient12Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient13Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient14Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient15Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient16Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient17Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient18Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient19Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
+                                           " AND ingredient20Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')";
+                    break;
+            }
+
+            // Completes the sql request
+            cmd.CommandText += ";";
 
             // Declares a list of string to contain the titles of the recipes found in the database
             List<string> recipesTitlesFound = new List<string>();
