@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.pnlMenu = new System.Windows.Forms.Panel();
-            this.picMenu = new System.Windows.Forms.PictureBox();
-            this.pnlSettings = new System.Windows.Forms.Panel();
-            this.pnlMealsPlanner = new System.Windows.Forms.Panel();
-            this.pnlInventory = new System.Windows.Forms.Panel();
-            this.pnlSearchByIngredients = new System.Windows.Forms.Panel();
             this.txtTitleSearch = new System.Windows.Forms.TextBox();
             this.lblSearchResults = new System.Windows.Forms.Label();
             this.pnlInstructions = new System.Windows.Forms.Panel();
@@ -47,88 +40,38 @@
             this.lblComplettionTime = new System.Windows.Forms.Label();
             this.ofdAssociatedImage = new System.Windows.Forms.OpenFileDialog();
             this.cmdTitleSearch = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picEnoughIngredientsToMakeRecipe = new System.Windows.Forms.PictureBox();
             this.picScore = new System.Windows.Forms.PictureBox();
             this.picRecipe = new System.Windows.Forms.PictureBox();
             this.cmdDeleteRecipe = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdExportHtml = new System.Windows.Forms.Button();
             this.cmdNewRecipe = new System.Windows.Forms.Button();
-            this.pnlSideMenu.SuspendLayout();
-            this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
+            this.pnlSideMenu = new System.Windows.Forms.Panel();
+            this.pnlSettings = new System.Windows.Forms.Panel();
+            this.pnlMealsPlanner = new System.Windows.Forms.Panel();
+            this.pnlInventory = new System.Windows.Forms.Panel();
+            this.pnlSearchByIngredients = new System.Windows.Forms.Panel();
+            this.pnlSlideMenu = new System.Windows.Forms.Panel();
+            this.chkShowOnlyLowBudget = new System.Windows.Forms.CheckBox();
+            this.chkInverseSearch = new System.Windows.Forms.CheckBox();
+            this.lblSearchByIngredients = new System.Windows.Forms.Label();
+            this.lblSearchIngredient3 = new System.Windows.Forms.Label();
+            this.lblSearchIngredient2 = new System.Windows.Forms.Label();
+            this.lblSearchIngredient1 = new System.Windows.Forms.Label();
+            this.txtSearchIngredient3 = new System.Windows.Forms.TextBox();
+            this.txtSearchIngredient2 = new System.Windows.Forms.TextBox();
+            this.txtSearchIngredient1 = new System.Windows.Forms.TextBox();
+            this.cmdIngredientsSearch = new System.Windows.Forms.Button();
+            this.picMenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnoughIngredientsToMakeRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).BeginInit();
+            this.pnlSideMenu.SuspendLayout();
+            this.pnlSlideMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnlSideMenu
-            // 
-            this.pnlSideMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSideMenu.Controls.Add(this.pnlMenu);
-            this.pnlSideMenu.Location = new System.Drawing.Point(12, 112);
-            this.pnlSideMenu.Name = "pnlSideMenu";
-            this.pnlSideMenu.Size = new System.Drawing.Size(68, 331);
-            this.pnlSideMenu.TabIndex = 8;
-            // 
-            // pnlMenu
-            // 
-            this.pnlMenu.Controls.Add(this.picMenu);
-            this.pnlMenu.Controls.Add(this.pnlSettings);
-            this.pnlMenu.Controls.Add(this.pnlMealsPlanner);
-            this.pnlMenu.Controls.Add(this.pnlInventory);
-            this.pnlMenu.Controls.Add(this.pnlSearchByIngredients);
-            this.pnlMenu.Location = new System.Drawing.Point(-1, -1);
-            this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(68, 327);
-            this.pnlMenu.TabIndex = 0;
-            // 
-            // picMenu
-            // 
-            this.picMenu.BackgroundImage = global::Recipe_Writer.Properties.Resources.side_menu;
-            this.picMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picMenu.Location = new System.Drawing.Point(5, 9);
-            this.picMenu.Name = "picMenu";
-            this.picMenu.Size = new System.Drawing.Size(59, 50);
-            this.picMenu.TabIndex = 5;
-            this.picMenu.TabStop = false;
-            // 
-            // pnlSettings
-            // 
-            this.pnlSettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlSettings.BackgroundImage")));
-            this.pnlSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlSettings.Location = new System.Drawing.Point(5, 269);
-            this.pnlSettings.Name = "pnlSettings";
-            this.pnlSettings.Size = new System.Drawing.Size(59, 50);
-            this.pnlSettings.TabIndex = 1;
-            // 
-            // pnlMealsPlanner
-            // 
-            this.pnlMealsPlanner.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMealsPlanner.BackgroundImage")));
-            this.pnlMealsPlanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlMealsPlanner.Location = new System.Drawing.Point(5, 203);
-            this.pnlMealsPlanner.Name = "pnlMealsPlanner";
-            this.pnlMealsPlanner.Size = new System.Drawing.Size(59, 50);
-            this.pnlMealsPlanner.TabIndex = 2;
-            // 
-            // pnlInventory
-            // 
-            this.pnlInventory.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlInventory.BackgroundImage")));
-            this.pnlInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlInventory.Location = new System.Drawing.Point(5, 134);
-            this.pnlInventory.Name = "pnlInventory";
-            this.pnlInventory.Size = new System.Drawing.Size(59, 50);
-            this.pnlInventory.TabIndex = 3;
-            // 
-            // pnlSearchByIngredients
-            // 
-            this.pnlSearchByIngredients.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlSearchByIngredients.BackgroundImage")));
-            this.pnlSearchByIngredients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlSearchByIngredients.Location = new System.Drawing.Point(5, 69);
-            this.pnlSearchByIngredients.Name = "pnlSearchByIngredients";
-            this.pnlSearchByIngredients.Size = new System.Drawing.Size(59, 50);
-            this.pnlSearchByIngredients.TabIndex = 4;
             // 
             // txtTitleSearch
             // 
@@ -141,7 +84,7 @@
             // lblSearchResults
             // 
             this.lblSearchResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchResults.Location = new System.Drawing.Point(100, 83);
+            this.lblSearchResults.Location = new System.Drawing.Point(100, 84);
             this.lblSearchResults.Name = "lblSearchResults";
             this.lblSearchResults.Size = new System.Drawing.Size(264, 26);
             this.lblSearchResults.TabIndex = 0;
@@ -241,13 +184,13 @@
             this.cmdTitleSearch.UseVisualStyleBackColor = true;
             this.cmdTitleSearch.Click += new System.EventHandler(this.cmdTitleSearch_Click);
             // 
-            // pictureBox1
+            // picEnoughIngredientsToMakeRecipe
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(879, 284);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 30);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.picEnoughIngredientsToMakeRecipe.Location = new System.Drawing.Point(879, 284);
+            this.picEnoughIngredientsToMakeRecipe.Name = "picEnoughIngredientsToMakeRecipe";
+            this.picEnoughIngredientsToMakeRecipe.Size = new System.Drawing.Size(35, 30);
+            this.picEnoughIngredientsToMakeRecipe.TabIndex = 12;
+            this.picEnoughIngredientsToMakeRecipe.TabStop = false;
             // 
             // picScore
             // 
@@ -325,13 +268,198 @@
             this.cmdNewRecipe.TabIndex = 0;
             this.cmdNewRecipe.UseVisualStyleBackColor = true;
             // 
+            // pnlSideMenu
+            // 
+            this.pnlSideMenu.Controls.Add(this.pnlSettings);
+            this.pnlSideMenu.Controls.Add(this.pnlMealsPlanner);
+            this.pnlSideMenu.Controls.Add(this.pnlInventory);
+            this.pnlSideMenu.Controls.Add(this.pnlSearchByIngredients);
+            this.pnlSideMenu.Location = new System.Drawing.Point(1, 168);
+            this.pnlSideMenu.Name = "pnlSideMenu";
+            this.pnlSideMenu.Size = new System.Drawing.Size(79, 294);
+            this.pnlSideMenu.TabIndex = 18;
+            this.pnlSideMenu.Visible = false;
+            // 
+            // pnlSettings
+            // 
+            this.pnlSettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlSettings.BackgroundImage")));
+            this.pnlSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlSettings.Location = new System.Drawing.Point(9, 209);
+            this.pnlSettings.Name = "pnlSettings";
+            this.pnlSettings.Size = new System.Drawing.Size(59, 50);
+            this.pnlSettings.TabIndex = 18;
+            this.pnlSettings.MouseHover += new System.EventHandler(this.pnlSettings_MouseHover);
+            // 
+            // pnlMealsPlanner
+            // 
+            this.pnlMealsPlanner.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMealsPlanner.BackgroundImage")));
+            this.pnlMealsPlanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlMealsPlanner.Location = new System.Drawing.Point(10, 144);
+            this.pnlMealsPlanner.Name = "pnlMealsPlanner";
+            this.pnlMealsPlanner.Size = new System.Drawing.Size(59, 50);
+            this.pnlMealsPlanner.TabIndex = 19;
+            this.pnlMealsPlanner.MouseHover += new System.EventHandler(this.pnlMealsPlanner_MouseHover);
+            // 
+            // pnlInventory
+            // 
+            this.pnlInventory.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlInventory.BackgroundImage")));
+            this.pnlInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlInventory.Location = new System.Drawing.Point(10, 81);
+            this.pnlInventory.Name = "pnlInventory";
+            this.pnlInventory.Size = new System.Drawing.Size(59, 50);
+            this.pnlInventory.TabIndex = 20;
+            this.pnlInventory.MouseHover += new System.EventHandler(this.pnlInventory_MouseHover);
+            // 
+            // pnlSearchByIngredients
+            // 
+            this.pnlSearchByIngredients.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlSearchByIngredients.BackgroundImage")));
+            this.pnlSearchByIngredients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlSearchByIngredients.Location = new System.Drawing.Point(10, 16);
+            this.pnlSearchByIngredients.Name = "pnlSearchByIngredients";
+            this.pnlSearchByIngredients.Size = new System.Drawing.Size(59, 50);
+            this.pnlSearchByIngredients.TabIndex = 21;
+            this.pnlSearchByIngredients.MouseHover += new System.EventHandler(this.pnlSearchByIngredients_MouseHover);
+            // 
+            // pnlSlideMenu
+            // 
+            this.pnlSlideMenu.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlSlideMenu.Controls.Add(this.chkShowOnlyLowBudget);
+            this.pnlSlideMenu.Controls.Add(this.chkInverseSearch);
+            this.pnlSlideMenu.Controls.Add(this.lblSearchByIngredients);
+            this.pnlSlideMenu.Controls.Add(this.lblSearchIngredient3);
+            this.pnlSlideMenu.Controls.Add(this.lblSearchIngredient2);
+            this.pnlSlideMenu.Controls.Add(this.lblSearchIngredient1);
+            this.pnlSlideMenu.Controls.Add(this.txtSearchIngredient3);
+            this.pnlSlideMenu.Controls.Add(this.txtSearchIngredient2);
+            this.pnlSlideMenu.Controls.Add(this.txtSearchIngredient1);
+            this.pnlSlideMenu.Controls.Add(this.cmdIngredientsSearch);
+            this.pnlSlideMenu.Location = new System.Drawing.Point(86, 112);
+            this.pnlSlideMenu.Name = "pnlSlideMenu";
+            this.pnlSlideMenu.Size = new System.Drawing.Size(500, 350);
+            this.pnlSlideMenu.TabIndex = 19;
+            this.pnlSlideMenu.Visible = false;
+            // 
+            // chkShowOnlyLowBudget
+            // 
+            this.chkShowOnlyLowBudget.AutoSize = true;
+            this.chkShowOnlyLowBudget.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkShowOnlyLowBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkShowOnlyLowBudget.Location = new System.Drawing.Point(40, 269);
+            this.chkShowOnlyLowBudget.Name = "chkShowOnlyLowBudget";
+            this.chkShowOnlyLowBudget.Size = new System.Drawing.Size(313, 22);
+            this.chkShowOnlyLowBudget.TabIndex = 7;
+            this.chkShowOnlyLowBudget.Text = "N\'afficher que les recettes pour petit budget";
+            this.chkShowOnlyLowBudget.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkShowOnlyLowBudget.UseVisualStyleBackColor = true;
+            // 
+            // chkInverseSearch
+            // 
+            this.chkInverseSearch.AutoSize = true;
+            this.chkInverseSearch.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkInverseSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkInverseSearch.Location = new System.Drawing.Point(136, 231);
+            this.chkInverseSearch.Name = "chkInverseSearch";
+            this.chkInverseSearch.Size = new System.Drawing.Size(217, 22);
+            this.chkInverseSearch.TabIndex = 7;
+            this.chkInverseSearch.Text = "Exclusion de ces ingrédients";
+            this.chkInverseSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkInverseSearch.UseVisualStyleBackColor = true;
+            // 
+            // lblSearchByIngredients
+            // 
+            this.lblSearchByIngredients.AutoSize = true;
+            this.lblSearchByIngredients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchByIngredients.Location = new System.Drawing.Point(132, 29);
+            this.lblSearchByIngredients.Name = "lblSearchByIngredients";
+            this.lblSearchByIngredients.Size = new System.Drawing.Size(180, 18);
+            this.lblSearchByIngredients.TabIndex = 0;
+            this.lblSearchByIngredients.Text = "Recherche par ingrédients";
+            // 
+            // lblSearchIngredient3
+            // 
+            this.lblSearchIngredient3.AutoSize = true;
+            this.lblSearchIngredient3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchIngredient3.Location = new System.Drawing.Point(37, 174);
+            this.lblSearchIngredient3.Name = "lblSearchIngredient3";
+            this.lblSearchIngredient3.Size = new System.Drawing.Size(91, 18);
+            this.lblSearchIngredient3.TabIndex = 5;
+            this.lblSearchIngredient3.Text = "Ingrédient #3";
+            // 
+            // lblSearchIngredient2
+            // 
+            this.lblSearchIngredient2.AutoSize = true;
+            this.lblSearchIngredient2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchIngredient2.Location = new System.Drawing.Point(38, 129);
+            this.lblSearchIngredient2.Name = "lblSearchIngredient2";
+            this.lblSearchIngredient2.Size = new System.Drawing.Size(91, 18);
+            this.lblSearchIngredient2.TabIndex = 3;
+            this.lblSearchIngredient2.Text = "Ingrédient #2";
+            // 
+            // lblSearchIngredient1
+            // 
+            this.lblSearchIngredient1.AutoSize = true;
+            this.lblSearchIngredient1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchIngredient1.Location = new System.Drawing.Point(38, 83);
+            this.lblSearchIngredient1.Name = "lblSearchIngredient1";
+            this.lblSearchIngredient1.Size = new System.Drawing.Size(91, 18);
+            this.lblSearchIngredient1.TabIndex = 1;
+            this.lblSearchIngredient1.Text = "Ingrédient #1";
+            // 
+            // txtSearchIngredient3
+            // 
+            this.txtSearchIngredient3.Location = new System.Drawing.Point(182, 174);
+            this.txtSearchIngredient3.Name = "txtSearchIngredient3";
+            this.txtSearchIngredient3.Size = new System.Drawing.Size(228, 22);
+            this.txtSearchIngredient3.TabIndex = 6;
+            // 
+            // txtSearchIngredient2
+            // 
+            this.txtSearchIngredient2.Location = new System.Drawing.Point(182, 129);
+            this.txtSearchIngredient2.Name = "txtSearchIngredient2";
+            this.txtSearchIngredient2.Size = new System.Drawing.Size(228, 22);
+            this.txtSearchIngredient2.TabIndex = 4;
+            // 
+            // txtSearchIngredient1
+            // 
+            this.txtSearchIngredient1.Location = new System.Drawing.Point(182, 83);
+            this.txtSearchIngredient1.Name = "txtSearchIngredient1";
+            this.txtSearchIngredient1.Size = new System.Drawing.Size(228, 22);
+            this.txtSearchIngredient1.TabIndex = 2;
+            // 
+            // cmdIngredientsSearch
+            // 
+            this.cmdIngredientsSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdIngredientsSearch.BackgroundImage")));
+            this.cmdIngredientsSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdIngredientsSearch.FlatAppearance.BorderSize = 0;
+            this.cmdIngredientsSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdIngredientsSearch.Location = new System.Drawing.Point(417, 280);
+            this.cmdIngredientsSearch.Name = "cmdIngredientsSearch";
+            this.cmdIngredientsSearch.Size = new System.Drawing.Size(40, 40);
+            this.cmdIngredientsSearch.TabIndex = 3;
+            this.cmdIngredientsSearch.UseVisualStyleBackColor = true;
+            this.cmdIngredientsSearch.Click += new System.EventHandler(this.cmdIngredientsSearch_Click);
+            // 
+            // picMenu
+            // 
+            this.picMenu.BackgroundImage = global::Recipe_Writer.Properties.Resources.side_menu;
+            this.picMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picMenu.Location = new System.Drawing.Point(10, 112);
+            this.picMenu.Name = "picMenu";
+            this.picMenu.Size = new System.Drawing.Size(59, 50);
+            this.picMenu.TabIndex = 23;
+            this.picMenu.TabStop = false;
+            this.picMenu.MouseHover += new System.EventHandler(this.picMenu_MouseHover);
+            // 
             // frmMain
             // 
             this.AcceptButton = this.cmdTitleSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 709);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picMenu);
+            this.Controls.Add(this.pnlSlideMenu);
+            this.Controls.Add(this.pnlSideMenu);
+            this.Controls.Add(this.picEnoughIngredientsToMakeRecipe);
             this.Controls.Add(this.cmbRecipeIngredients);
             this.Controls.Add(this.lstSearchResults);
             this.Controls.Add(this.chkWritingAssistance);
@@ -348,27 +476,26 @@
             this.Controls.Add(this.cmdNewRecipe);
             this.Controls.Add(this.cmdTitleSearch);
             this.Controls.Add(this.txtTitleSearch);
-            this.Controls.Add(this.pnlSideMenu);
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recipe Writer";
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.pnlSideMenu.ResumeLayout(false);
-            this.pnlMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
+            this.Click += new System.EventHandler(this.frmMain_Click);
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnoughIngredientsToMakeRecipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).EndInit();
+            this.pnlSideMenu.ResumeLayout(false);
+            this.pnlSlideMenu.ResumeLayout(false);
+            this.pnlSlideMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlSideMenu;
         private System.Windows.Forms.TextBox txtTitleSearch;
         private System.Windows.Forms.Button cmdTitleSearch;
         private System.Windows.Forms.PictureBox picRecipe;
@@ -383,15 +510,26 @@
         private System.Windows.Forms.Button cmdExportHtml;
         private System.Windows.Forms.CheckBox chkWritingAssistance;
         private System.Windows.Forms.ListBox lstSearchResults;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picEnoughIngredientsToMakeRecipe;
         private System.Windows.Forms.ComboBox cmbRecipeIngredients;
         private System.Windows.Forms.Label lblComplettionTime;
         private System.Windows.Forms.OpenFileDialog ofdAssociatedImage;
-        private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.Panel pnlSideMenu;
+        private System.Windows.Forms.Panel pnlSlideMenu;
         private System.Windows.Forms.Panel pnlSettings;
         private System.Windows.Forms.Panel pnlMealsPlanner;
         private System.Windows.Forms.Panel pnlInventory;
         private System.Windows.Forms.Panel pnlSearchByIngredients;
+        private System.Windows.Forms.CheckBox chkShowOnlyLowBudget;
+        private System.Windows.Forms.CheckBox chkInverseSearch;
+        private System.Windows.Forms.Label lblSearchByIngredients;
+        private System.Windows.Forms.Label lblSearchIngredient3;
+        private System.Windows.Forms.Label lblSearchIngredient2;
+        private System.Windows.Forms.Label lblSearchIngredient1;
+        private System.Windows.Forms.TextBox txtSearchIngredient3;
+        private System.Windows.Forms.TextBox txtSearchIngredient2;
+        private System.Windows.Forms.TextBox txtSearchIngredient1;
+        private System.Windows.Forms.Button cmdIngredientsSearch;
         private System.Windows.Forms.PictureBox picMenu;
     }
 }

@@ -32,10 +32,16 @@ namespace Recipe_Writer
         private int currentInstruction = 0;
         private int selectedInstruction = -1;
 
+        // These variables are used by the side-panel animation
+        int sidePanelWidth;
+        bool sidePanelHidden;
+
 
         public frmMain()
         {
             InitializeComponent();
+            sidePanelWidth = 549;
+            sidePanelHidden = true;
         }
 
         /// <summary>
@@ -84,7 +90,7 @@ namespace Recipe_Writer
             // If the user has typed something in the textbox
             if (txtTitleSearch.Text != "")
             {
-                SearchRecipes();
+                SearchRecipesByTitle();
             }
             // If the search textbox is empty
             else
@@ -97,7 +103,7 @@ namespace Recipe_Writer
         /// <summary>
         /// Search recipes containing the input keywords in their title
         /// </summary>
-        private void SearchRecipes()
+        private void SearchRecipesByTitle()
         {
             // Empties the listbox control
             lstSearchResults.Items.Clear();
@@ -121,8 +127,8 @@ namespace Recipe_Writer
                     // If the user has typed only one word in the search textbox
                     case 1:
 
-                        // Calls the dbConn.SearchRecipes function with only one keyword in argument and adds the returned title in the list of string
-                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0]))
+                        // Calls the dbConn.SearchRecipesByTitle function with only one keyword in argument and adds the returned title in the list of string
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0]))
                         {
                             // Adds each title found as a new item in the listbox control
                             lstSearchResults.Items.Add(title);
@@ -132,8 +138,8 @@ namespace Recipe_Writer
                     // If the user has typed two words in the search textbox
                     case 2:
 
-                        // Calls the dbConn.SearchRecipes function with two keywords in argument and adds the returned titles in the list of string
-                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1]))
+                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1]))
                         {
                             // Adds each title found as a new item in the listbox control
                             lstSearchResults.Items.Add(title);
@@ -142,7 +148,7 @@ namespace Recipe_Writer
 
                     case 3:
 
-                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2]))
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2]))
                         {
                             lstSearchResults.Items.Add(title);
                         }
@@ -150,7 +156,7 @@ namespace Recipe_Writer
 
                     case 4:
 
-                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3]))
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3]))
                         {
                             lstSearchResults.Items.Add(title);
                         }
@@ -158,7 +164,7 @@ namespace Recipe_Writer
 
                     case 5:
 
-                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4]))
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4]))
                         {
                             lstSearchResults.Items.Add(title);
                         }
@@ -166,7 +172,7 @@ namespace Recipe_Writer
 
                     case 6:
 
-                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5]))
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5]))
                         {
                             lstSearchResults.Items.Add(title);
                         }
@@ -174,7 +180,7 @@ namespace Recipe_Writer
 
                     case 7:
 
-                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6]))
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6]))
                         {
                             lstSearchResults.Items.Add(title);
                         }
@@ -182,8 +188,8 @@ namespace Recipe_Writer
 
                     case 8:
 
-                        // Calls the dbConn.SearchRecipes function with eight keywords in argument and adds the returned title in the list of string
-                        foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
+                        // Calls the dbConn.SearchRecipesByTitle function with eight keywords in argument and adds the returned title in the list of string
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
                         {
                             // Adds each title found as a new item in the listbox control
                             lstSearchResults.Items.Add(title);
@@ -194,19 +200,107 @@ namespace Recipe_Writer
             // If the user has typed more than 8 words in the search textbox
             else
             {
-                // Calls the dbConn.SearchRecipes function with eight keywords in argument and adds the returned title in the list of string
-                foreach (string title in dbConn.SearchRecipes(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
+                // Calls the dbConn.SearchRecipesByTitle function with eight keywords in argument and adds the returned title in the list of string
+                foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
                 {
                     // Adds each title found as a new item in the listbox control
                     lstSearchResults.Items.Add(title);
                 }
             }
         }
-                
+
+        private void cmdIngredientsSearch_Click(object sender, EventArgs e)
+        {
+            // If the user has typed something in one of the textboxes
+            if (txtSearchIngredient1.Text != "" && txtSearchIngredient2.Text != "" && txtSearchIngredient3.Text != "")
+            {
+                SearchRecipesByIngredients();
+            }
+            // If all the textboxes are empty
+            else
+            {
+                MessageBox.Show("Veuillez taper un ou plusieurs ingrédients de recherche.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Search recipes containing the input keywords in their title
+        /// </summary>
+        private void SearchRecipesByIngredients()
+        {
+            // Empties the listbox control
+            lstSearchResults.Items.Clear();
+
+            string formattedIngredient1 = txtSearchIngredient1.Text;
+            string formattedIngredient2 = txtSearchIngredient2.Text;
+            string formattedIngredient3 = txtSearchIngredient3.Text;
+
+            // Checks if the search ingredients input by the user contain an apostroph, to avoid making the sql request crash
+            formattedIngredient1 = txtSearchIngredient1.Text.Replace("'", "''");
+            formattedIngredient2 = txtSearchIngredient2.Text.Replace("'", "''");
+            formattedIngredient3 = txtSearchIngredient3.Text.Replace("'", "''");
+
+            // Declares a list of string and stores each ingredient the user wants to use for the search
+            List<string> searchIngredientslist = new List<string>();
+
+            if (txtSearchIngredient1.Text != "")
+            {
+                searchIngredientslist.Add(txtSearchIngredient1.Text);
+            }
+
+            if (txtSearchIngredient2.Text != "")
+            {
+                searchIngredientslist.Add(txtSearchIngredient2.Text);
+            }
+
+            if (txtSearchIngredient3.Text != "")
+            {
+                searchIngredientslist.Add(txtSearchIngredient3.Text);
+            }
+           
+            String[] arraySearchIngredients = searchIngredientslist.ToArray();
+
+            switch (searchIngredientslist.Count)
+            {
+                // If the user has typed only one ingredient to search recipes for
+                case 1:
+
+                    // Calls the dbConn.SearchRecipesByIngredients method with only one ingredient in argument and adds the returned title in the list of string
+                    foreach (string title in dbConn.SearchRecipesByIngredients(arraySearchIngredients[0]))
+                    {
+                        // Adds each title found as a new item in the listbox control
+                        lstSearchResults.Items.Add(title);
+                    }
+                    break;
+
+                // If the user has typed two ingredients to search recipes for
+                case 2:
+
+                    // Calls the dbConn.SearchRecipesByIngredients method with two ingredients in argument and adds the returned titles in the list of string
+                    foreach (string title in dbConn.SearchRecipesByIngredients(arraySearchIngredients[0], arraySearchIngredients[1]))
+                    {
+                        // Adds each title found as a new item in the listbox control
+                        lstSearchResults.Items.Add(title);
+                    }
+                    break;
+
+                // If the user has typed three ingredients to search recipes for
+                case 3:
+
+                    // Calls the dbConn.SearchRecipesByIngredients method with three ingredients in argument and adds the returned titles in the list of string
+                    foreach (string title in dbConn.SearchRecipesByIngredients(arraySearchIngredients[0], arraySearchIngredients[1], arraySearchIngredients[2]))
+                    {
+                        lstSearchResults.Items.Add(title);
+                    }
+                    break;
+            }
+        }
+
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayRecipeInfos();
         }
+
 
         /// <summary>
         /// Displays the ingredients, image and instructions for the selected recipe
@@ -455,5 +549,77 @@ namespace Recipe_Writer
                 }
             }
         }
+
+        private void picMenu_MouseHover(object sender, EventArgs e)
+        {
+            if (!pnlSideMenu.Visible)
+            {
+                // Opening side menu animation
+                Animations.Animate(pnlSideMenu, Animations.Effect.Slide, 250, 90);
+                this.Refresh();
+            }
+
+            // If the side menu is visible
+            else
+            {
+                // Closing side menu animation
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 270);
+                this.Refresh();
+            }
+        }
+
+        private void pnlSearchByIngredients_MouseHover(object sender, EventArgs e)
+        {
+            if (!pnlSlideMenu.Visible)
+            {
+                // Opening slide menu animation
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 250, 0);
+                this.Refresh();
+            }
+        }
+
+
+        private void pnlInventory_MouseHover(object sender, EventArgs e)
+        {
+            if (pnlSlideMenu.Visible)
+            {
+                // Closing slide menu animation
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 180);
+                this.Refresh();
+            }
+        }
+
+        private void pnlMealsPlanner_MouseHover(object sender, EventArgs e)
+        {
+            if (pnlSlideMenu.Visible)
+            {
+                // Closing slide menu animation
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 180);
+                this.Refresh();
+            }
+        }
+
+        private void pnlSettings_MouseHover(object sender, EventArgs e)
+        {
+            if (pnlSlideMenu.Visible)
+            {
+                // Closing slide menu animation
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 180);
+                this.Refresh();
+            }
+        }
+
+
+        private void frmMain_Click(object sender, EventArgs e)
+        {
+            if (pnlSlideMenu.Visible)
+            {
+                // Closing side menu and slide menu animation
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 360);
+                Animations.Animate(pnlSideMenu, Animations.Effect.Slide, 150, 270);
+                this.Refresh();
+            }
+        }
+
     }
 }

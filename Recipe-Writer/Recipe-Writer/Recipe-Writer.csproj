@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>

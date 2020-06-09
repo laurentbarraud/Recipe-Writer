@@ -379,6 +379,88 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Reads the list of the ingredients found with up to 3 ingredients found in the recipes
+        /// </summary>
+        /// <param name="ingredientInput1">first ingredient to search with</param>
+        /// <param name="ingredientInput2">second ingredient to search with</param>
+        /// <param name="ingredientInput3">third ingredient to search with</param>
+        /// <returns>List of the titles of the recipes found in the database</returns>
+        public List<string> SearchRecipesByIngredients(string ingredientInput1 = "", string ingredientInput2 = "", string ingredientInput3 = "")
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+
+            cmd.CommandText = "SELECT ingredient1.ingredientName AS 'ingredient1Name'," +
+                                "ingredient2.ingredientName AS 'ingredient2Name', ingredient3.ingredientName AS 'ingredient3Name', ingredient4.ingredientName AS 'ingredient4Name', " +
+                                "ingredient5.ingredientName AS 'ingredient5Name', ingredient6.ingredientName AS 'ingredient6Name', ingredient7.ingredientName AS 'ingredient7Name',  " +
+                                "ingredient8.ingredientName AS 'ingredient8Name', ingredient9.ingredientName AS 'ingredient9Name', ingredient10.ingredientName AS 'ingredient10Name', " +
+                                "ingredient11.ingredientName AS 'ingredient11Name', ingredient12.ingredientName AS 'ingredient12Name', ingredient13.ingredientName AS 'ingredient13Name', " +
+                                "ingredient14.ingredientName AS 'ingredient14Name', ingredient15.ingredientName AS 'ingredient15Name', ingredient16.ingredientName AS 'ingredient16Name', " +
+                                "ingredient17.ingredientName AS 'ingredient17Name', ingredient18.ingredientName AS 'ingredient18Name', ingredient19.ingredientName AS 'ingredient19Name', ingredient20.ingredientName AS 'ingredient20Name' " +
+                                "FROM Recipes_has_Ingredients " +
+                                "LEFT JOIN Ingredients AS ingredient1 ON Recipes_has_Ingredients.ingredient1_id = ingredient1.id " +
+                                "LEFT JOIN Ingredients AS ingredient2 ON Recipes_has_Ingredients.ingredient2_id = ingredient2.id " +
+                                "LEFT JOIN Ingredients AS ingredient3 ON Recipes_has_Ingredients.ingredient3_id = ingredient3.id " +
+                                "LEFT JOIN Ingredients AS ingredient4 ON Recipes_has_Ingredients.ingredient4_id = ingredient4.id " +
+                                "LEFT JOIN Ingredients AS ingredient5 ON Recipes_has_Ingredients.ingredient5_id = ingredient5.id " +
+                                "LEFT JOIN Ingredients AS ingredient6 ON Recipes_has_Ingredients.ingredient6_id = ingredient6.id " +
+                                "LEFT JOIN Ingredients AS ingredient7 ON Recipes_has_Ingredients.ingredient7_id = ingredient7.id " +
+                                "LEFT JOIN Ingredients AS ingredient8 ON Recipes_has_Ingredients.ingredient8_id = ingredient8.id " +
+                                "LEFT JOIN Ingredients AS ingredient9 ON Recipes_has_Ingredients.ingredient9_id = ingredient9.id " +
+                                "LEFT JOIN Ingredients AS ingredient10 ON Recipes_has_Ingredients.ingredient10_id = ingredient10.id " +
+                                "LEFT JOIN Ingredients AS ingredient11 ON Recipes_has_Ingredients.ingredient11_id = ingredient11.id " +
+                                "LEFT JOIN Ingredients AS ingredient12 ON Recipes_has_Ingredients.ingredient12_id = ingredient12.id " +
+                                "LEFT JOIN Ingredients AS ingredient13 ON Recipes_has_Ingredients.ingredient13_id = ingredient13.id " +
+                                "LEFT JOIN Ingredients AS ingredient14 ON Recipes_has_Ingredients.ingredient14_id = ingredient14.id " +
+                                "LEFT JOIN Ingredients AS ingredient15 ON Recipes_has_Ingredients.ingredient15_id = ingredient15.id " +
+                                "LEFT JOIN Ingredients AS ingredient16 ON Recipes_has_Ingredients.ingredient16_id = ingredient16.id " +
+                                "LEFT JOIN Ingredients AS ingredient17 ON Recipes_has_Ingredients.ingredient17_id = ingredient17.id " +
+                                "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
+                                "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
+                                "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
+                                "WHERE Recipes_id =;";
+
+            // Counting the number of words given in arguments
+            int nbKeywordsTyped = 0;
+
+            if (keywordInput1 != "")
+                nbKeywordsTyped++;
+            if (keywordInput2 != "")
+                nbKeywordsTyped++;
+            if (keywordInput3 != "")
+                nbKeywordsTyped++;
+           
+
+            if (nbKeywordsTyped > 0)
+            {
+                cmd.CommandText += "WHERE title LIKE '%" + keywordInput1 + "%'";
+
+                if (nbKeywordsTyped > 1)
+                {
+                    cmd.CommandText += " AND title LIKE '%" + keywordInput2 + "%'";
+
+                    if (nbKeywordsTyped > 2)
+                    {
+                        cmd.CommandText += " AND title LIKE '%" + keywordInput3 + "%'";
+                    }
+                }
+            }
+
+            // Completes the sql request
+            cmd.CommandText += ";";
+
+            // Declares a list of string to contain the results found in the database
+            List<string> titlesFound = new List<string>();
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                titlesFound.Add(dataReader["title"].ToString());
+            }
+
+            return titlesFound;
+        }
+
+        /// <summary>
         /// Reads the list of the recipes found with up to 8 keywords found in their title
         /// </summary>
         /// <param name="keywordInput1">first keyword to search with</param>
@@ -390,7 +472,7 @@ namespace Recipe_Writer
         /// <param name="keywordInput7">seventh keyword to search with</param>
         /// <param name="keywordInput8">eight keyword to search with</param>
         /// <returns>List of the titles of the recipes found in the database</returns>
-        public List<string> SearchRecipes(string keywordInput1 = "", string keywordInput2 = "", string keywordInput3 = "", string keywordInput4 = "", string keywordInput5 = "", string keywordInput6 = "", string keywordInput7 = "", string keywordInput8 = "")
+        public List<string> SearchRecipesByTitle(string keywordInput1 = "", string keywordInput2 = "", string keywordInput3 = "", string keywordInput4 = "", string keywordInput5 = "", string keywordInput6 = "", string keywordInput7 = "", string keywordInput8 = "")
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
