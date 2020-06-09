@@ -804,7 +804,8 @@ namespace Recipe_Writer
         }
         private void cmdDeleteIngredient_Click(object sender, EventArgs e)
         {
-            // To-Do : call the dbConn method to delete the selected ingredient for the currently selected recipe
+            dbConn.DeleteIngredient(_currentDisplayedRecipe.Id, cmbRecipeIngredients.Items.Count, _currentDisplayedRecipe.IngredientsList[cmbRecipeIngredients.Items.Count].Scale);
+            this.Refresh();
         }
     }
 }

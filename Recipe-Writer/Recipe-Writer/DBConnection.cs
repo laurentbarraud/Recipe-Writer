@@ -181,6 +181,21 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Deletes an ingredient from the selected recipe in argument
+        /// </summary>
+        /// <param name="idRecipe">the id of the recipe</param>
+        /// <param name="ingredientToRemoveRank">the rank of the new ingredient</param>
+        /// <param name="scaleIngredient">the scale that new ingredient uses</param>
+        public bool DeleteIngredient(int idRecipe, int ingredientToRemoveRank, string scaleIngredient)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "DELETE qtyIngredient"+ingredientToRemoveRank+",ingredient"+ingredientToRemoveRank+ ", scales"+ingredientToRemoveRank+" "+
+                              "FROM 'Recipes_has_Ingredients' " +
+                              "WHERE Recipes_id ='"+idRecipe+"';";
+            return true;
+        }
+
+        /// <summary>
         /// Deletes a recipe from the database
         /// </summary>
         /// <param name="idRecipe">the id of the recipe to delete</param>
