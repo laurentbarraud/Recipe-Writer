@@ -46,13 +46,31 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            // To-Do : If the user has entered a new ingredient not in the list
-            // add a new ingredient id in the database (dbConn.CountAllIngredients + 1) 
-            // then store the id returned in newIngredientId
+            // If the user has selected an ingredient from the list
+            if (cmbIngredientsList.Text == cmbIngredientsList.SelectedItem.ToString())
+            {
+                // Stores the id of the current selected recipe
+                int idSelectedRecipe = _frmMain._currentDisplayedRecipe.Id;
 
-            // if the user has selected an ingredient from the list, 
-            // store the id selected in newIngredientId
-            // add the id reference to this ingredient (newIngredientId) in the database, to the current selected recipe ingredient(dbConn.nbIngredientsForARecipe)+1
+                // Calls the method to count the total number of ingredients affected to the currently selected recipe
+                int nbIngredientsForARecipe = _frmMain.dbConn.CountAllIngredientsForARecipe(idSelectedRecipe);
+
+                // Calls the method to get the ingredient scale in use in the database
+                string scaleUsedForIngredient = _frmMain.dbConn.ReadIngredientScale(_frmMain._currentDisplayedRecipe.Id, cmbIngredientsList.SelectedIndex - 1, _frmMain._currentDisplayedRecipe.IngredientsList.Count + 1);
+
+                // Calls the method to add the new ingredient by reference to its id to the currently selected recipe ingredients list
+                _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsList.SelectedIndex - 1, scaleUsedForIngredient);   
+            }
+
+            // If the user has entered a new ingredient not in the list
+            else
+            {
+                // To-Do : 
+                // adds a new ingredient id in the database (dbConn.CountAllIngredients + 1)
+
+
+                // then store the id returned in newIngredientId
+            }
         }
 
         private void frmNewIngredient_Move(object sender, EventArgs e)
