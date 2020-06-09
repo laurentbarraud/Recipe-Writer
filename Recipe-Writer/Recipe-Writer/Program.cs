@@ -16,7 +16,9 @@ namespace Recipe_Writer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+
+            frmMain _frmMain = new frmMain();
+            Application.Run(_frmMain);
         }
     }
 }

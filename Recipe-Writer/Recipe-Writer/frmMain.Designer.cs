@@ -104,6 +104,16 @@
             // 
             this.nudPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudPersons.Location = new System.Drawing.Point(126, 278);
+            this.nudPersons.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.nudPersons.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudPersons.Name = "nudPersons";
             this.nudPersons.Size = new System.Drawing.Size(46, 27);
             this.nudPersons.TabIndex = 5;
@@ -112,6 +122,7 @@
             0,
             0,
             0});
+            this.nudPersons.ValueChanged += new System.EventHandler(this.nudPersons_ValueChanged);
             // 
             // lblPortions
             // 
@@ -152,6 +163,7 @@
             this.cmbRecipeIngredients.Size = new System.Drawing.Size(199, 24);
             this.cmbRecipeIngredients.TabIndex = 16;
             this.cmbRecipeIngredients.Text = "Liste des ingrédients utilisés";
+
             // 
             // lblComplettionTime
             // 
@@ -508,7 +520,6 @@
         private System.Windows.Forms.Button cmdNewRecipe;
         private System.Windows.Forms.Button cmdDeleteRecipe;
         private System.Windows.Forms.PictureBox picScore;
-        private System.Windows.Forms.NumericUpDown nudPersons;
         private System.Windows.Forms.Label lblPortions;
         private System.Windows.Forms.Button cmdBack;
         private System.Windows.Forms.Button cmdExportHtml;
@@ -535,6 +546,7 @@
         private System.Windows.Forms.TextBox txtSearchIngredient1;
         private System.Windows.Forms.Button cmdIngredientsSearch;
         private System.Windows.Forms.PictureBox picMenu;
+        private System.Windows.Forms.NumericUpDown nudPersons;
     }
 }
 

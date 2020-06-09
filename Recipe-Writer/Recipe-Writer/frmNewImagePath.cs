@@ -15,7 +15,7 @@ namespace Recipe_Writer
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
 
-        // Adds the parent form as parameter in the form constructor
+        // Constructor - Adds the parent form as parameter in the form constructor
         public frmNewImagePath(frmMain parentForm)
         {
             // Affects the parent form to an alias

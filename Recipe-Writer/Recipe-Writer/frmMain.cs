@@ -21,27 +21,27 @@ namespace Recipe_Writer
         public static Instructions _defaultInstruction = new Instructions(0, "", 0, 0);
 
         // Declares and instanciates a default list of instructions, accessible globally
-        public static List<Instructions> _defaultListInstruction = new List<Instructions>();
+        public static List<Instructions> _defaultListInstructions = new List<Instructions>();
+
+        // Declares and instanciates a default list of ingredients, accessible globally
+        public static List<Ingredients> _defaultListIngredients = new List<Ingredients>();
 
         // Declares and instanciates the list that will handle the selected instruction
         private List<InstructionSelections> instructionSelection = new List<InstructionSelections>();
 
         // Declares and instanciates the current displayed recipe object, constructed with default values, and accessible globally
-        public Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, "default", null, _defaultListInstruction);
+        public Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, "default", _defaultListIngredients, _defaultListInstructions);
 
         private int currentInstruction = 0;
         private int selectedInstruction = -1;
 
         // These variables are used by the side-panel animation
-        int sidePanelWidth;
-        bool sidePanelHidden;
-
+        private int sidePanelWidth = 549;
+        private bool sidePanelHidden = true;
 
         public frmMain()
         {
             InitializeComponent();
-            sidePanelWidth = 549;
-            sidePanelHidden = true;
         }
 
         /// <summary>
@@ -49,6 +49,10 @@ namespace Recipe_Writer
         /// </summary>
         private void frmMain_Load(object sender, EventArgs e)
         {
+            // Stores the value of the numeric updown control
+            DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value);
+            DBConnection.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
+
             // Checks if the database file exists or not
             if (File.Exists(@Environment.CurrentDirectory + "\\" + "recipe-album" + ".db"))
             {
@@ -340,16 +344,16 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(_currentDisplayedRecipe.Id);
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
 
-            // Calls the function that will read the ingredients needed to make the recipe
-            _currentDisplayedRecipe.QtyIngredientsScaleList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
-
+            // Calls the function that will read the ingredients needed to make the recipe and adds the ingredients in the ingredients property of the current displayed recipe object
+            _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
+ 
             // Clears the combobox of ingredients before adding the items found
             cmbRecipeIngredients.Items.Clear();
 
-            // Adds each ingredients list item as a new item in the ingredients comboBox
-            foreach (string ingredientItem in _currentDisplayedRecipe.QtyIngredientsScaleList)
+            // Adds each ingredients list item as a new item in the ingredients comboBo
+            foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
             {
-                cmbRecipeIngredients.Items.Add(ingredientItem);
+                cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + ingredientToAdd.Scale + " de " + ingredientToAdd.Name);
             }
 
             // Calls the function that will return the instructions list to follow to make the recipe,
@@ -365,6 +369,32 @@ namespace Recipe_Writer
             // Affects to the pictureBox the current displayed recipe illustration image
             picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
             picRecipe.BorderStyle = BorderStyle.None;
+        }
+
+        /// <summary>
+        /// Handles the re-calculation of the quantity of each ingredient for the currently displayed recipe
+        /// </summary>
+        private void nudPersons_ValueChanged(object sender, EventArgs e)
+        {
+            // If the user has increased by one the numeric updown control
+            if (DBConnection.NbPersonsPreviouslySet < Convert.ToInt32(nudPersons.Value))
+            {
+                // Stores the old value of the numeric updown control in the exposed property
+                DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value) - 1;
+            }
+
+            // If the user has decreased by one the numeric updown control
+            else if (DBConnection.NbPersonsPreviouslySet > Convert.ToInt32(nudPersons.Value))
+            {
+                // Stores the old value of the numeric updown control in the exposed property
+                DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value) + 1;
+            }
+
+            // Stores the new value of the numeric updown control in the exposed property
+            DBConnection.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
+
+            // Calls the function that will read the ingredients needed to make the recipe
+            DisplayRecipeInfos();
         }
 
         /// <summary>
@@ -662,5 +692,6 @@ namespace Recipe_Writer
         {
             this.AcceptButton = cmdTitleSearch;
         }
+
     }
 }

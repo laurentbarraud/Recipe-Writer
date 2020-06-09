@@ -14,7 +14,7 @@ namespace Recipe_Writer
 		private int lowBudget;
 		private int score;
 		private string imagePath;
-		private List<string> qtyIngredientsScaleList;
+		private List<Ingredients> ingredientsList;
 		private List<Instructions> instructionsList;
 
 		public int Id
@@ -53,10 +53,10 @@ namespace Recipe_Writer
 			set { imagePath = value; }
 		}
 
-		public List<string> QtyIngredientsScaleList
+		public List<Ingredients> IngredientsList
 		{
-			get { return qtyIngredientsScaleList; }
-			set { qtyIngredientsScaleList = value; }
+			get { return ingredientsList; }
+			set { ingredientsList = value; }
 		}
 
 		public List<Instructions> InstructionsList
@@ -76,7 +76,7 @@ namespace Recipe_Writer
 		/// <param name="imagePathProvided">the image path affected to the recipe</param>
 		/// <param name="ingredientsListProvided">the list of ingredients needed to make the recipe</param>
 		/// <param name="instructionsListProvided">the list of instructions to follow to make the recipe</param>
-		public Recipes(int idRecipeProvided, string titleProvided, int completionTimeProvided, int lowBudgetProvided, int scoreProvided, string imagePathProvided, List<string> qtyIngredientsScaleListProvided, List<Instructions> instructionsListProvided)
+		public Recipes(int idRecipeProvided, string titleProvided, int completionTimeProvided, int lowBudgetProvided, int scoreProvided, string imagePathProvided, List<Ingredients> ingredientsListProvided, List<Instructions> instructionsListProvided)
 		{
 			this.Id = idRecipeProvided;
 			this.Title = titleProvided;
@@ -84,7 +84,7 @@ namespace Recipe_Writer
 			this.LowBudget = lowBudgetProvided;
 			this.Score = scoreProvided;
 			this.ImagePath = imagePathProvided;
-			this.qtyIngredientsScaleList = qtyIngredientsScaleListProvided;
+			this.IngredientsList = ingredientsListProvided;
 			this.InstructionsList = instructionsListProvided;
 		}
 	}

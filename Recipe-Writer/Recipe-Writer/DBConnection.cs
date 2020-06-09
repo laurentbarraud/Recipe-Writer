@@ -9,7 +9,30 @@ namespace Recipe_Writer
         // Declaration of a private attribute of type SQLiteConnection
         SQLiteConnection sqliteConn;
 
-        // Constructor
+        // These variables are used to recalculate the portions for a selected recipe
+        private static int nbPersonsPreviouslySet = 2;
+        private static int nbPersonsSet = 2;
+
+        /// <summary>
+        /// This exposed property is used to store the previous numeric updown value during execution
+        /// </summary>
+        public static int NbPersonsPreviouslySet
+        {
+            get { return nbPersonsPreviouslySet; }
+            set { nbPersonsPreviouslySet = value; }
+        }
+
+        /// <summary>
+        /// This exposed variable property is used to store the current numeric updown value during execution
+        /// </summary>
+        public static int NbPersonsSet
+        {
+            get { return nbPersonsSet; }
+            set { nbPersonsSet = value; }
+        }
+
+
+        // Constructor - Adds the parent form as parameter
         public DBConnection()
         {
             // Creates a new database connection :
@@ -228,11 +251,12 @@ namespace Recipe_Writer
         /// Reads the quantity of ingredients needed to make the current selected recipe, with their scales
         /// </summary>
         /// <param name="idRecipe">the id of the recipe</param>
-        /// <returns>List of quantities and names of the ingredients needed to make the recipe, concatenated with their scales</returns>
-        public List<string> ReadIngredientsQtyForARecipe(int idRecipe)
+        /// <param name="nbPersons">the number of portions the quantities of ingredients allow to make</param>
+        /// <returns>List of the ingredients needed to make the recipe</returns>
+        public List<Ingredients> ReadIngredientsQtyForARecipe(int idRecipe)
         {
             // Declares a list of string to contain the quantity of ingredients needed to make the recipe, concatenated with their scale
-            List<string> listQtyIngredientPlusScale = new List<string>();
+            List<Ingredients> listIngredientsRequested = new List<Ingredients>();
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
@@ -298,22 +322,50 @@ namespace Recipe_Writer
                                 "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
                                 "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
                                 "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
-                                "WHERE Recipes_id ="+idRecipe+";";
+                                "WHERE Recipes_id =" + idRecipe + ";";
 
-                SQLiteDataReader dataReader = cmd.ExecuteReader();
-                while (dataReader.Read())
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+
+                for (int i = 1; i <= 20; i++)
                 {
-                    for (int i = 1; i <= 20; i++)
+                    double qtyIngredientFound = 0.0;
+                    Ingredients _ingredientToAdd = new Ingredients("defaultIngredient", 0.0, "g", 0.0);
+
+                    if (dataReader["qtyIngredient" + i].ToString() != "")
                     {
-                        if (dataReader["qtyIngredient" + i].ToString() != "")
-                        {
-                            // Adds the data into the list of string in a proper formatted way
-                            listQtyIngredientPlusScale.Add(dataReader["qtyIngredient" + i].ToString() + " " + dataReader["scaleIngredient" + i].ToString() + " de " + dataReader["ingredient" +i+ "Name"].ToString());       
-                        }
+                        // Parses the quantity of the ingredient
+                        double.TryParse(dataReader["qtyIngredient" + i].ToString(), out qtyIngredientFound);
+
+                            // If the number of persons == 1 or > 2
+                            if (DBConnection.NbPersonsSet == 1 || DBConnection.NbPersonsSet > 2)
+                            {
+                                // Divides by 2 the quantity
+                                qtyIngredientFound /= 2;
+                            }
+
+                            // If the number of persons > 2
+                            if (DBConnection.NbPersonsSet > 2)
+                            {
+                                // Multiply by the new value set in the numeric updown control
+                                qtyIngredientFound *= DBConnection.NbPersonsSet;
+                            }
+
+                        // Affects the ingredient quantity, scale and name to the properties of the ingredient object
+                        _ingredientToAdd.QtyRequested = qtyIngredientFound;
+                        _ingredientToAdd.Scale = dataReader["scaleIngredient" + i].ToString();
+                        _ingredientToAdd.Name = dataReader["ingredient" + i + "Name"].ToString();
+                        _ingredientToAdd.QtyAvailable = 0.0;
+
+                        // Adds the ingredients to the list
+                        listIngredientsRequested.Add(_ingredientToAdd);
                     }
                 }
+            }
 
-            return listQtyIngredientPlusScale;
+            DBConnection.NbPersonsPreviouslySet = DBConnection.NbPersonsSet;
+            return listIngredientsRequested;
         }
 
         /// <summary>
