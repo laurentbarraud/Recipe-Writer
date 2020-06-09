@@ -380,6 +380,9 @@ namespace Recipe_Writer
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayRecipeInfos();
+            cmsRecipeResult.Items[1].Enabled = true;
+            cmsRecipeResult.Items[2].Enabled = true;
+            cmsRecipeResult.Items[3].Enabled = true;
         }
 
 
