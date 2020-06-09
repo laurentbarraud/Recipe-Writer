@@ -146,7 +146,7 @@
             // 
             this.chkWritingAssistance.AutoSize = true;
             this.chkWritingAssistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkWritingAssistance.Location = new System.Drawing.Point(271, 286);
+            this.chkWritingAssistance.Location = new System.Drawing.Point(259, 286);
             this.chkWritingAssistance.Name = "chkWritingAssistance";
             this.chkWritingAssistance.Size = new System.Drawing.Size(127, 22);
             this.chkWritingAssistance.TabIndex = 6;
@@ -209,19 +209,21 @@
             // 
             // cmbRecipeIngredients
             // 
+            this.cmbRecipeIngredients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRecipeIngredients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbRecipeIngredients.FormattingEnabled = true;
-            this.cmbRecipeIngredients.Location = new System.Drawing.Point(676, 287);
+            this.cmbRecipeIngredients.Location = new System.Drawing.Point(663, 287);
             this.cmbRecipeIngredients.Name = "cmbRecipeIngredients";
-            this.cmbRecipeIngredients.Size = new System.Drawing.Size(227, 24);
+            this.cmbRecipeIngredients.Size = new System.Drawing.Size(240, 24);
             this.cmbRecipeIngredients.TabIndex = 16;
-            this.cmbRecipeIngredients.Text = "Liste des ingrédients utilisés";
+            this.cmbRecipeIngredients.SelectedIndexChanged += new System.EventHandler(this.cmbRecipeIngredients_SelectedIndexChanged);
             // 
             // lblComplettionTime
             // 
             this.lblComplettionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComplettionTime.Location = new System.Drawing.Point(410, 287);
+            this.lblComplettionTime.Location = new System.Drawing.Point(406, 287);
             this.lblComplettionTime.Name = "lblComplettionTime";
-            this.lblComplettionTime.Size = new System.Drawing.Size(228, 24);
+            this.lblComplettionTime.Size = new System.Drawing.Size(239, 24);
             this.lblComplettionTime.TabIndex = 10;
             this.lblComplettionTime.Text = "Temps de réalisation : ";
             // 
@@ -304,7 +306,7 @@
             this.pnlSlideMenu.Controls.Add(this.cmdIngredientsSearch);
             this.pnlSlideMenu.Location = new System.Drawing.Point(86, 112);
             this.pnlSlideMenu.Name = "pnlSlideMenu";
-            this.pnlSlideMenu.Size = new System.Drawing.Size(500, 350);
+            this.pnlSlideMenu.Size = new System.Drawing.Size(529, 350);
             this.pnlSlideMenu.TabIndex = 19;
             this.pnlSlideMenu.Visible = false;
             // 

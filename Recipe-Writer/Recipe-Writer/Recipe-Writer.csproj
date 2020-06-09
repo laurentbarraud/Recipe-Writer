@@ -74,6 +74,12 @@
     <Compile Include="frmNewImagePath.Designer.cs">
       <DependentUpon>frmNewImagePath.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewIngredient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewIngredient.Designer.cs">
+      <DependentUpon>frmNewIngredient.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewRecipeBasicInfosInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewImagePath.resx">
       <DependentUpon>frmNewImagePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewIngredient.resx">
+      <DependentUpon>frmNewIngredient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewRecipeBasicInfosInput.resx">
       <DependentUpon>frmNewRecipeBasicInfosInput.cs</DependentUpon>

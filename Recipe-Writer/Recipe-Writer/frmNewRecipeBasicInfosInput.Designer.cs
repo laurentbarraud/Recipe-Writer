@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.txtNewRecipeTitle = new System.Windows.Forms.TextBox();
-            this.cmdValidate = new System.Windows.Forms.Button();
-            this.cmdCancel = new System.Windows.Forms.Button();
             this.lblNewRecipeTitle = new System.Windows.Forms.Label();
             this.txtNewRecipeCompletionTime = new System.Windows.Forms.TextBox();
             this.lblNewRecipeCompletionTime = new System.Windows.Forms.Label();
             this.lblMinutes = new System.Windows.Forms.Label();
             this.chkLowBudget = new System.Windows.Forms.CheckBox();
+            this.cmdValidate = new System.Windows.Forms.Button();
+            this.cmdCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNewRecipeTitle
@@ -44,34 +44,7 @@
             this.txtNewRecipeTitle.Location = new System.Drawing.Point(95, 50);
             this.txtNewRecipeTitle.Name = "txtNewRecipeTitle";
             this.txtNewRecipeTitle.Size = new System.Drawing.Size(349, 24);
-            this.txtNewRecipeTitle.TabIndex = 2;
-            // 
-            // cmdValidate
-            // 
-            this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdValidate.FlatAppearance.BorderSize = 0;
-            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(408, 218);
-            this.cmdValidate.Name = "cmdValidate";
-            this.cmdValidate.Size = new System.Drawing.Size(34, 32);
-            this.cmdValidate.TabIndex = 3;
-            this.cmdValidate.UseVisualStyleBackColor = true;
-            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
-            // 
-            // cmdCancel
-            // 
-            this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.FlatAppearance.BorderSize = 0;
-            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancel.Location = new System.Drawing.Point(353, 218);
-            this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(34, 32);
-            this.cmdCancel.TabIndex = 5;
-            this.cmdCancel.UseVisualStyleBackColor = true;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            this.txtNewRecipeTitle.TabIndex = 0;
             // 
             // lblNewRecipeTitle
             // 
@@ -80,7 +53,7 @@
             this.lblNewRecipeTitle.Location = new System.Drawing.Point(40, 56);
             this.lblNewRecipeTitle.Name = "lblNewRecipeTitle";
             this.lblNewRecipeTitle.Size = new System.Drawing.Size(45, 18);
-            this.lblNewRecipeTitle.TabIndex = 6;
+            this.lblNewRecipeTitle.TabIndex = 5;
             this.lblNewRecipeTitle.Text = "Titre :";
             this.lblNewRecipeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -90,7 +63,7 @@
             this.txtNewRecipeCompletionTime.Location = new System.Drawing.Point(311, 106);
             this.txtNewRecipeCompletionTime.Name = "txtNewRecipeCompletionTime";
             this.txtNewRecipeCompletionTime.Size = new System.Drawing.Size(61, 24);
-            this.txtNewRecipeCompletionTime.TabIndex = 2;
+            this.txtNewRecipeCompletionTime.TabIndex = 1;
             // 
             // lblNewRecipeCompletionTime
             // 
@@ -110,7 +83,7 @@
             this.lblMinutes.Location = new System.Drawing.Point(384, 110);
             this.lblMinutes.Name = "lblMinutes";
             this.lblMinutes.Size = new System.Drawing.Size(60, 18);
-            this.lblMinutes.TabIndex = 6;
+            this.lblMinutes.TabIndex = 7;
             this.lblMinutes.Text = "minutes";
             this.lblMinutes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -121,10 +94,37 @@
             this.chkLowBudget.Location = new System.Drawing.Point(296, 161);
             this.chkLowBudget.Name = "chkLowBudget";
             this.chkLowBudget.Size = new System.Drawing.Size(146, 24);
-            this.chkLowBudget.TabIndex = 7;
+            this.chkLowBudget.TabIndex = 2;
             this.chkLowBudget.Text = "Pour petit budget";
             this.chkLowBudget.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkLowBudget.UseVisualStyleBackColor = true;
+            // 
+            // cmdValidate
+            // 
+            this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdValidate.Location = new System.Drawing.Point(408, 218);
+            this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(34, 32);
+            this.cmdValidate.TabIndex = 4;
+            this.cmdValidate.UseVisualStyleBackColor = true;
+            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
+            // 
+            // cmdCancel
+            // 
+            this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdCancel.FlatAppearance.BorderSize = 0;
+            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancel.Location = new System.Drawing.Point(353, 218);
+            this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Size = new System.Drawing.Size(34, 32);
+            this.cmdCancel.TabIndex = 3;
+            this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // frmNewRecipeBasicInfosInput
             // 

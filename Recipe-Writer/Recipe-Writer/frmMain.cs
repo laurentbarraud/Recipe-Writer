@@ -420,6 +420,8 @@ namespace Recipe_Writer
             // Clears the combobox of ingredients before adding the items found
             cmbRecipeIngredients.Items.Clear();
 
+            cmbRecipeIngredients.Items.Add("Liste des ingrédients nécessaires");
+
             // Adds each ingredients list item as a new item in the ingredients comboBo
             foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
             {
@@ -427,6 +429,9 @@ namespace Recipe_Writer
             }
 
             cmbRecipeIngredients.Items.Add("Ajouter un ingrédient...");
+
+            // Selects automatically the first item of the combobox
+            cmbRecipeIngredients.SelectedIndex = 0;
 
             // Calls the function that will return the instructions list to follow to make the recipe,
             // then and affects them to the current displayed Recipe instruction list.
@@ -775,5 +780,17 @@ namespace Recipe_Writer
             this.Refresh();
         }
 
+        /// <summary>
+        /// Event when the user selects a recipe in the results list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbRecipeIngredients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbRecipeIngredients.SelectedIndex == cmbRecipeIngredients.Items.Count - 1)
+            {
+
+            }
+        }
     }
 }
