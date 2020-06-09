@@ -41,6 +41,7 @@ namespace Recipe_Writer
                 }
 
                 _frmMain.txtTitleSearch.Text = txtNewRecipeTitle.Text;
+                _frmMain.cmdTitleSearch.PerformClick();
 
                 if (txtNewRecipeCompletionTime.Text != "")
                 {
@@ -48,7 +49,7 @@ namespace Recipe_Writer
 
                     if (int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
                     {
-                        _frmMain.dbConn.WriteNewRecipe(formattedNewRecipeTitle, txtNewRecipeCompletionTime.Text, chkLowBudget.Checked);
+                        _frmMain.dbConn.AddNewRecipe(formattedNewRecipeTitle, txtNewRecipeCompletionTime.Text, chkLowBudget.Checked); 
                     }
 
                     // If the user hasn't input a number in the textbox

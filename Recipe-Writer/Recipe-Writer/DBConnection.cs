@@ -112,6 +112,33 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Adds a new recipe into the database, with its basic data
+        /// </summary>
+        /// <param name="newRecipeTitle">the new title of the recipe, if the user has edited it</param>
+        /// <param name="newRecipeCompletionTime">the new completion time of the recipe, if the user has edited it</param>
+        /// <param name="newRecipeLowBudgetStatus">the low budget value of the recipe, if the user has edited it</param>
+        public void AddNewRecipe(string newRecipeTitle, string newRecipeCompletionTime, bool newRecipeLowBudgetStatus)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "INSERT INTO 'Recipes' (title) VALUES (" + newRecipeTitle + ");";
+            cmd.CommandText += "INSERT INTO 'Recipes' (completionTime) VALUES (" + newRecipeCompletionTime + ");";
+
+            if (newRecipeLowBudgetStatus)
+            {
+                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES ('1');";
+            }
+
+            // If the recipe hasn't been flagged as low budget
+            else
+            {
+                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES ('0');";
+            }
+
+            ReadRecipeId(newRecipeTitle);
+        }
+
+
+        /// <summary>
         /// Adds a new ingredient to the selected recipe in argument
         /// </summary>
         ///  <param name="idRecipe">the id of the recipe</param>
@@ -1012,32 +1039,6 @@ namespace Recipe_Writer
                 cmd.CommandText = "UPDATE 'Recipes' SET lowBudget =" + newLowBudgetStatus + "WHERE id =" + idRecipe + ";";
                 cmd.ExecuteReader();
             }
-        }
-
-        /// <summary>
-        /// Writes a new recipe in the database, with its basic data
-        /// </summary>
-        /// <param name="newRecipeTitle">the new title of the recipe, if the user has edited it</param>
-        /// <param name="newRecipeCompletionTime">the new completion time of the recipe, if the user has edited it</param>
-        /// <param name="newRecipeLowBudgetStatus">the low budget value of the recipe, if the user has edited it</param>
-        public void WriteNewRecipe(string newRecipeTitle, string newRecipeCompletionTime, bool newRecipeLowBudgetStatus)
-        {
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "INSERT INTO 'Recipes' (title) VALUES (" + newRecipeTitle + ");";
-            cmd.CommandText += "INSERT INTO 'Recipes' (completionTime) VALUES (" + newRecipeCompletionTime + ");";
-
-            if (newRecipeLowBudgetStatus)
-            {
-                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES ('1');";
-            }
-
-            // If the recipe hasn't been flagged as low budget
-            else
-            {
-                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES ('0');";
-            }
-
-            ReadRecipeId(newRecipeTitle);
         }
 
         /// <summary>

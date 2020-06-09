@@ -415,6 +415,8 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
 
             // --- Affecting the _currentDisplayedRecipe properties to the controls properties ----------------------------------------------------
+            lblComplettionTime.Text += _currentDisplayedRecipe.CompletionTime + " min.";
+
             if (_currentDisplayedRecipe.LowBudget == 1)
             {
                 picLowBudget.Visible = true;
