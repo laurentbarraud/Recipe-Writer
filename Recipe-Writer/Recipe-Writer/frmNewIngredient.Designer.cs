@@ -32,6 +32,9 @@
             this.cmdCancel = new System.Windows.Forms.Button();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.cmbIngredientsList = new System.Windows.Forms.ComboBox();
+            this.lblQtyIngredient = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbStoredScales = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblNewIngredientName
@@ -82,6 +85,33 @@
             this.cmbIngredientsList.Size = new System.Drawing.Size(241, 24);
             this.cmbIngredientsList.TabIndex = 0;
             // 
+            // lblQtyIngredient
+            // 
+            this.lblQtyIngredient.AutoSize = true;
+            this.lblQtyIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtyIngredient.Location = new System.Drawing.Point(116, 106);
+            this.lblQtyIngredient.Name = "lblQtyIngredient";
+            this.lblQtyIngredient.Size = new System.Drawing.Size(75, 18);
+            this.lblQtyIngredient.TabIndex = 3;
+            this.lblQtyIngredient.Text = "Quantité : ";
+            this.lblQtyIngredient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(206, 106);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 4;
+            // 
+            // cmbStoredScales
+            // 
+            this.cmbStoredScales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbStoredScales.FormattingEnabled = true;
+            this.cmbStoredScales.Location = new System.Drawing.Point(326, 106);
+            this.cmbStoredScales.Name = "cmbStoredScales";
+            this.cmbStoredScales.Size = new System.Drawing.Size(121, 24);
+            this.cmbStoredScales.TabIndex = 5;
+            // 
             // frmNewIngredient
             // 
             this.AcceptButton = this.cmdValidate;
@@ -89,7 +119,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(493, 267);
+            this.Controls.Add(this.cmbStoredScales);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cmbIngredientsList);
+            this.Controls.Add(this.lblQtyIngredient);
             this.Controls.Add(this.lblNewIngredientName);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
@@ -111,5 +144,8 @@
         private System.Windows.Forms.Button cmdCancel;
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.ComboBox cmbIngredientsList;
+        private System.Windows.Forms.Label lblQtyIngredient;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbStoredScales;
     }
 }
