@@ -42,7 +42,7 @@
             this.cmdValidate.Location = new System.Drawing.Point(385, 325);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(34, 32);
-            this.cmdValidate.TabIndex = 3;
+            this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = true;
             // 
             // lstIngredientsAvailable

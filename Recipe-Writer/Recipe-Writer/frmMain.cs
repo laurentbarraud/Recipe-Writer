@@ -395,12 +395,12 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DisplayRecipeInfos();
+
             if (!nudPersons.Visible)
             {
-                DisplayRecipeControls();
+                DisplayRecipeControls();   
             }
-            
-            DisplayRecipeInfos();
         }
 
         /// <summary>
@@ -411,6 +411,7 @@ namespace Recipe_Writer
             cmsRecipeResult.Items[1].Enabled = true;
             cmsRecipeResult.Items[2].Enabled = true;
             cmsRecipeResult.Items[3].Enabled = true;
+
             nudPersons.Visible = true;
             lblPortions.Visible = true;
             lblCompletionTime.Visible = true;
@@ -885,14 +886,26 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Function to edit the title of the currently selected recipe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void modifierLeTitreDeCetteRecetteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEditRecipeTitle _frmEditRecipeTitle = new frmEditRecipeTitle(this);
+            _frmEditRecipeTitle.RecipeTitleToEdit = lstSearchResults.SelectedItem.ToString();
+            _frmEditRecipeTitle.ShowDialog();
+        }
+
+        /// <summary>
         /// Allows the user to drag and drop the selected recipe title
         /// Source: https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/walkthrough-performing-a-drag-and-drop-operation-in-windows-forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lstSearchResults_MouseDown(object sender, MouseEventArgs e)
+        private void lstSearchResults_MouseMove(object sender, MouseEventArgs e)
         {
-            if (lstSearchResults.SelectedIndex != -1)
+            if (lstSearchResults.SelectedIndex != -1 && e.Button == MouseButtons.Left)
             {
                 lstSearchResults.DoDragDrop(lstSearchResults.SelectedItem.ToString(), DragDropEffects.Copy);
             }

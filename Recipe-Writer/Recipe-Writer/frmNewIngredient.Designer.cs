@@ -44,7 +44,7 @@
             this.lblNewIngredientName.Location = new System.Drawing.Point(45, 36);
             this.lblNewIngredientName.Name = "lblNewIngredientName";
             this.lblNewIngredientName.Size = new System.Drawing.Size(146, 18);
-            this.lblNewIngredientName.TabIndex = 3;
+            this.lblNewIngredientName.TabIndex = 5;
             this.lblNewIngredientName.Text = "Nom de l\'ingrédient : ";
             this.lblNewIngredientName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -58,7 +58,7 @@
             this.cmdCancel.Location = new System.Drawing.Point(358, 198);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(34, 32);
-            this.cmdCancel.TabIndex = 1;
+            this.cmdCancel.TabIndex = 3;
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
@@ -71,7 +71,7 @@
             this.cmdValidate.Location = new System.Drawing.Point(413, 198);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(34, 32);
-            this.cmdValidate.TabIndex = 2;
+            this.cmdValidate.TabIndex = 4;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
@@ -92,7 +92,7 @@
             this.lblQtyIngredient.Location = new System.Drawing.Point(116, 106);
             this.lblQtyIngredient.Name = "lblQtyIngredient";
             this.lblQtyIngredient.Size = new System.Drawing.Size(75, 18);
-            this.lblQtyIngredient.TabIndex = 3;
+            this.lblQtyIngredient.TabIndex = 6;
             this.lblQtyIngredient.Text = "Quantité : ";
             this.lblQtyIngredient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -101,7 +101,7 @@
             this.txtQtyIngredient.Location = new System.Drawing.Point(206, 106);
             this.txtQtyIngredient.Name = "txtQtyIngredient";
             this.txtQtyIngredient.Size = new System.Drawing.Size(100, 22);
-            this.txtQtyIngredient.TabIndex = 4;
+            this.txtQtyIngredient.TabIndex = 1;
             // 
             // cmbScalesList
             // 
@@ -111,7 +111,7 @@
             this.cmbScalesList.Location = new System.Drawing.Point(326, 106);
             this.cmbScalesList.Name = "cmbScalesList";
             this.cmbScalesList.Size = new System.Drawing.Size(121, 24);
-            this.cmbScalesList.TabIndex = 5;
+            this.cmbScalesList.TabIndex = 2;
             // 
             // frmNewIngredient
             // 

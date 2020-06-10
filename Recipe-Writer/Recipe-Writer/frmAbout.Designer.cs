@@ -40,7 +40,7 @@
             this.button1.Location = new System.Drawing.Point(188, 369);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(44, 43);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -51,7 +51,7 @@
             this.txtCredits.Multiline = true;
             this.txtCredits.Name = "txtCredits";
             this.txtCredits.Size = new System.Drawing.Size(353, 228);
-            this.txtCredits.TabIndex = 2;
+            this.txtCredits.TabIndex = 1;
             this.txtCredits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCredits
@@ -60,7 +60,7 @@
             this.lblCredits.Location = new System.Drawing.Point(106, 45);
             this.lblCredits.Name = "lblCredits";
             this.lblCredits.Size = new System.Drawing.Size(205, 23);
-            this.lblCredits.TabIndex = 3;
+            this.lblCredits.TabIndex = 0;
             this.lblCredits.Text = "Informations de licence";
             this.lblCredits.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

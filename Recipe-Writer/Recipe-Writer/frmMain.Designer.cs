@@ -93,6 +93,7 @@
             this.txtTitleSearch.Size = new System.Drawing.Size(571, 27);
             this.txtTitleSearch.TabIndex = 0;
             this.txtTitleSearch.Enter += new System.EventHandler(this.txtTitleSearch_Enter);
+
             // 
             // lblSearchResults
             // 
@@ -170,7 +171,7 @@
             this.lstSearchResults.Size = new System.Drawing.Size(814, 84);
             this.lstSearchResults.TabIndex = 4;
             this.lstSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstSearchResults_SelectedIndexChanged);
-            this.lstSearchResults.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstSearchResults_MouseDown);
+            this.lstSearchResults.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lstSearchResults_MouseMove);
             // 
             // cmsRecipeResult
             // 
@@ -198,6 +199,7 @@
             this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Name = "modifierLeTitreDeCetteRecetteToolStripMenuItem";
             this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
             this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Text = "Modifier le titre de cette recette";
+            this.modifierLeTitreDeCetteRecetteToolStripMenuItem.Click += new System.EventHandler(this.modifierLeTitreDeCetteRecetteToolStripMenuItem_Click);
             // 
             // supprimerCetteRecetteToolStripMenuItem
             // 
