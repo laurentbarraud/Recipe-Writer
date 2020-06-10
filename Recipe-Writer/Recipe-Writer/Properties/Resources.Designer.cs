@@ -185,7 +185,7 @@ namespace Recipe_Writer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap new_instruction {
             get {
-                object obj = ResourceManager.GetObject("new_instruction", resourceCulture);
+                object obj = ResourceManager.GetObject("new-instruction", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

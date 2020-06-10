@@ -80,6 +80,12 @@
     <Compile Include="frmNewIngredient.Designer.cs">
       <DependentUpon>frmNewIngredient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewInstruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewInstruction.Designer.cs">
+      <DependentUpon>frmNewInstruction.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewRecipeBasicInfosInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewIngredient.resx">
       <DependentUpon>frmNewIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewInstruction.resx">
+      <DependentUpon>frmNewInstruction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewRecipeBasicInfosInput.resx">
       <DependentUpon>frmNewRecipeBasicInfosInput.cs</DependentUpon>
@@ -199,9 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\side-menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\side-menu1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit-recipe-title.png" />

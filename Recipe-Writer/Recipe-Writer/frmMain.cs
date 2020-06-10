@@ -412,9 +412,10 @@ namespace Recipe_Writer
             cmsRecipeResult.Items[2].Enabled = true;
             cmsRecipeResult.Items[3].Enabled = true;
             nudPersons.Visible = true;
+            lblPortions.Visible = true;
             lblCompletionTime.Visible = true;
             cmbRecipeIngredients.Visible = true;
-            lblPortions.Visible = true;
+            cmdAddInstruction.Visible = true;    
         }
 
         /// <summary>
@@ -527,12 +528,6 @@ namespace Recipe_Writer
 
             // Clears the layout by removing all the labels, before adding new ones
             this.pnlInstructions.Controls.Clear();
-            
-            // Declares the buttons that may appear in the layout
-            Button cmdEditInstruction = new Button();
-            Button cmdDeleteInstruction = new Button();
-            Button cmdAddInstruction = new Button();
-            Button cmdValidateInstruction = new Button();
 
             foreach (Instructions instructionItem in _currentDisplayedRecipe.InstructionsList)
             {
@@ -564,7 +559,9 @@ namespace Recipe_Writer
                 instructionSelected.InstructionLabel = lblInstruction;
                 instructionSelection.Add(instructionSelected);
 
-                // Edit instruction button click event code ==============================================================================================
+                // Edit instruction button code ==============================================================================================
+
+                Button cmdEditInstruction = new Button();
                 cmdEditInstruction.Click += (object sender_here, EventArgs e_here) =>
                 {
                     // Source-code : https://stackoverflow.com/questions/40416262/change-label-text-on-its-own-click-event-during-runtime
@@ -577,7 +574,7 @@ namespace Recipe_Writer
                         // Sets reference.
                         txtInputUser = ((TextBox)lblInstruction.Controls[0]);
 
-                        lblInstruction.Text = txtInputUser.Text; 
+                        lblInstruction.Text = txtInputUser.Text;
                         txtInputUser.Hide();
 
                         cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
@@ -611,7 +608,9 @@ namespace Recipe_Writer
                 // Handles the event to make an instruction label editable
                 lblInstruction.DoubleClick += (object sender_here, EventArgs e_here) => { cmdEditInstruction.PerformClick(); };
 
-                // Delete instruction button click event code ================================================================================================
+                // Delete instruction code ================================================================================================
+
+                Button cmdDeleteInstruction = new Button();
                 cmdDeleteInstruction.Click += (object sender_here, EventArgs e_here) =>
                 {
                     var confirmResult = MessageBox.Show("Etes-vous sûr(e) de vouloir supprimer l'instruction ?",
@@ -626,34 +625,6 @@ namespace Recipe_Writer
                     }
                 };
 
-                // Add instruction button click event code ==============================================================================================
-                cmdAddInstruction.Click += (object sender_here, EventArgs e_here) =>
-                {
-                    TextBox txtInputUser = new TextBox();
-
-                    // We need to create the textbox
-                    txtInputUser = new TextBox();
-
-                    // Sizes it
-                    txtInputUser.Width = 615;
-                    txtInputUser.Height = lineHeight;
-
-                    // Sets the event that ends editing when focus goes elsewhere
-                    txtInputUser.LostFocus += (ss, ee) => { txtInputUser.Hide(); };
-
-                    // Displays the textbox in place
-                    txtInputUser.Show();
-
-                    // Validate instruction button code =======================================================================================
-                    cmdValidateInstruction.Click += (object sender_Here, EventArgs e_Here) =>
-                    {
-                        if (txtInputUser.Text != "")
-                        {
-                            dbConn.AddNewInstructionToRecipe(_currentDisplayedRecipe.Id, _currentDisplayedRecipe.InstructionsList.Count, txtInputUser.Text);
-                        }
-                    };
-                };
-
                 // Instruction label, detailed layout =========================================================================================
                 lblInstruction.Text = instructionItem.Text;
                 lblInstruction.Width = 615;
@@ -662,7 +633,7 @@ namespace Recipe_Writer
                 lblInstruction.TextAlign = ContentAlignment.MiddleLeft;
                 lblInstruction.ForeColor = Color.Black;
 
-                // Edit instruction button ==============================================================================================
+                // Edit button for an instruction ==============================================================================================
                 cmdEditInstruction.Text = "";
                 cmdEditInstruction.Width = iconWidth;
                 cmdEditInstruction.Height = iconHeight;
@@ -673,7 +644,7 @@ namespace Recipe_Writer
                 cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
                 cmdEditInstruction.BackgroundImageLayout = ImageLayout.Zoom;
 
-                // Delete instruction button, detailed layout =========================================================================
+                // Delete button for an instruction, detailed layout =========================================================================
                 cmdDeleteInstruction.Text = "";
                 cmdDeleteInstruction.Width = iconWidth;
                 cmdDeleteInstruction.Height = iconHeight;
@@ -684,28 +655,6 @@ namespace Recipe_Writer
                 cmdDeleteInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.delete;
                 cmdDeleteInstruction.BackgroundImageLayout = ImageLayout.Zoom;
 
-                // Add instruction button, detailed layout =========================================================================
-                cmdAddInstruction.Text = "";
-                cmdAddInstruction.Width = iconWidth;
-                cmdAddInstruction.Height = iconHeight;
-                cmdAddInstruction.Location = new Point(lblInstruction.Width + spacingWidth + cmdEditInstruction.Width, spacingHeight + (currentInstruction + 1) * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
-                cmdAddInstruction.BackColor = Color.Transparent;
-                cmdAddInstruction.FlatAppearance.BorderSize = 0;
-                cmdAddInstruction.FlatStyle = FlatStyle.Flat;
-                cmdAddInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.new_instruction;
-                cmdAddInstruction.BackgroundImageLayout = ImageLayout.Zoom;
-
-                // Validating instruction button, detailed layout =========================================================================
-                cmdValidateInstruction.Text = "";
-                cmdValidateInstruction.Width = iconWidth;
-                cmdValidateInstruction.Height = iconHeight;
-                cmdValidateInstruction.Location = new Point(lblInstruction.Width + spacingWidth, spacingHeight + (currentInstruction) * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
-                cmdValidateInstruction.BackColor = Color.Transparent;
-                cmdValidateInstruction.FlatAppearance.BorderSize = 0;
-                cmdValidateInstruction.FlatStyle = FlatStyle.Flat;
-                cmdValidateInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.validate;
-                cmdValidateInstruction.BackgroundImageLayout = ImageLayout.Zoom;
-
                 // Corrects the layout for the panel ============================================================================================
                 cmdEditInstruction.Location = new Point(20 + spacingWidth + lblInstruction.Width + spacingWidth + spacingWidth + spacingWidth, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
                 cmdDeleteInstruction.Location = new Point(20 + spacingWidth + lblInstruction.Width + spacingWidth + spacingWidth + spacingWidth + cmdEditInstruction.Width + spacingWidth, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
@@ -715,11 +664,9 @@ namespace Recipe_Writer
                 pnlInstructions.Controls.Add(cmdEditInstruction);
                 pnlInstructions.Controls.Add(cmdDeleteInstruction);
 
-                currentInstruction += 1;  
-            }
+                currentInstruction += 1;
 
-            // Adds the last control (to add a new instruction) to the layout =====================
-            pnlInstructions.Controls.Add(cmdAddInstruction);
+            }
         }
 
         /// <summary>
@@ -745,6 +692,15 @@ namespace Recipe_Writer
                     instructionSelection[i].InstructionLabel.BackColor = Color.Transparent;
                 }
             }
+        }
+
+        /// <summary>
+        /// Function to add an instruction to the currently selected recipe
+        /// </summary>
+        private void cmdAddInstruction_Click(object sender, EventArgs e)
+        {
+            frmNewInstruction _frmNewInstruction = new frmNewInstruction(this);
+            _frmNewInstruction.ShowDialog();
         }
 
         /// <summary>
@@ -797,7 +753,6 @@ namespace Recipe_Writer
                 this.AcceptButton = cmdIngredientsSearch;
             }
         }
-
 
         private void pnlInventory_MouseHover(object sender, EventArgs e)
         {
@@ -905,5 +860,7 @@ namespace Recipe_Writer
             dbConn.DeleteIngredient(_currentDisplayedRecipe.Id, cmbRecipeIngredients.Items.Count, _currentDisplayedRecipe.IngredientsList[cmbRecipeIngredients.Items.Count].Scale);
             this.Refresh();
         }
+
+   
     }
 }
