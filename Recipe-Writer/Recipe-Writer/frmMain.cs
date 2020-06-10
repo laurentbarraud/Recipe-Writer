@@ -34,12 +34,19 @@ namespace Recipe_Writer
 
         private int currentInstruction = 0;
         private int selectedInstruction = -1;
-
-        // These variables are used by the side-panel animation
-        private int sidePanelWidth = 549;
-        private bool sidePanelHidden = true;
+        
+        // These variables store if the inventory and meal planner forms are shown on screen
         private bool inventoryShown = false;
         private bool mealPlannerShown = false;
+
+        // This variable store the previous title search value
+        private string previousTitleSearch = "";
+
+        public string PreviousTitleSearch
+        {
+            get { return previousTitleSearch; }
+            set { previousTitleSearch = value; }
+        }
 
         public bool InventoryShown
         {
@@ -116,11 +123,13 @@ namespace Recipe_Writer
         }
 
         private void cmdTitleSearch_Click(object sender, EventArgs e)
-        { 
+        {
+            this.PreviousTitleSearch = txtTitleSearch.Text;
+
             // If the user has typed something in the textbox
             if (txtTitleSearch.Text != "")
             {
-                SearchRecipesByTitle();
+                SearchRecipesByTitle(txtTitleSearch.Text);
             }
             // If the search textbox is empty
             else
@@ -133,17 +142,17 @@ namespace Recipe_Writer
         /// <summary>
         /// Search recipes containing the input keywords in their title
         /// </summary>
-        private void SearchRecipesByTitle()
+        private void SearchRecipesByTitle(string titleToSearchFor)
         {
             // Empties the listbox control
             lstSearchResults.Items.Clear();
 
-            string formattedKeywords = txtTitleSearch.Text;
+            string formattedKeywords = titleToSearchFor;
 
             // Checks if the keywords contain an apostroph, to avoid making the sql request crash
-            if (txtTitleSearch.Text.Contains("'"))
+            if (titleToSearchFor.Contains("'"))
             {
-                formattedKeywords = txtTitleSearch.Text.Replace("'", "''");
+                formattedKeywords = titleToSearchFor.Replace("'", "''");
             }
 
             // Declares an array and stores the keywordsSeparates the text typed by the user in the search text box into keywords and stores them in an array
@@ -249,7 +258,17 @@ namespace Recipe_Writer
                 CloseSideMenu();
                 this.Refresh();
 
-                SearchRecipesByIngredients();
+                //--- Normal ingredient search -------------
+                if (!chkInverseSearch.Checked)
+                {
+                    SearchRecipesByIngredients(false, txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text);
+                }
+
+                //--- Inverse ingredient search ------------
+                else
+                {
+                    SearchRecipesByIngredients(true, txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text);
+                }
             }
             // If all the textboxes are empty
             else
@@ -261,34 +280,34 @@ namespace Recipe_Writer
         /// <summary>
         /// Search recipes which contain all the input ingredients or excludes the recipes that contain the ingredients input
         /// </summary>
-        private void SearchRecipesByIngredients()
+        private void SearchRecipesByIngredients(bool inverseSearch, string ingredient1ToSearchFor, string ingredient2ToSearchFor, string ingredient3ToSearchFor)
         {
             // Empties the listbox control
             lstSearchResults.Items.Clear();
 
-            string formattedInputIngredient1 = txtSearchIngredient1.Text;
-            string formattedInputIngredient2 = txtSearchIngredient2.Text;
-            string formattedInputIngredient3 = txtSearchIngredient3.Text;
+            string formattedInputIngredient1 = ingredient1ToSearchFor;
+            string formattedInputIngredient2 = ingredient2ToSearchFor;
+            string formattedInputIngredient3 = ingredient3ToSearchFor;
 
             // Checks if the search ingredients input by the user contain an apostroph, to avoid making the sql request crash
-            formattedInputIngredient1 = txtSearchIngredient1.Text.Replace("'", "''");
-            formattedInputIngredient2 = txtSearchIngredient2.Text.Replace("'", "''");
-            formattedInputIngredient3 = txtSearchIngredient3.Text.Replace("'", "''");
+            formattedInputIngredient1 = ingredient1ToSearchFor.Replace("'", "''");
+            formattedInputIngredient2 = ingredient2ToSearchFor.Replace("'", "''");
+            formattedInputIngredient3 = ingredient3ToSearchFor.Replace("'", "''");
 
             // Declares a list of string and stores each ingredient the user wants to use for the search
             List<string> searchIngredientsInputList = new List<string>();
 
-            if (txtSearchIngredient1.Text != "")
+            if (formattedInputIngredient1 != "")
             {
                 searchIngredientsInputList.Add(formattedInputIngredient1);
             }
 
-            if (txtSearchIngredient2.Text != "")
+            if (formattedInputIngredient2 != "")
             {
                 searchIngredientsInputList.Add(formattedInputIngredient2);
             }
 
-            if (txtSearchIngredient3.Text != "")
+            if (formattedInputIngredient3 != "")
             {
                 searchIngredientsInputList.Add(formattedInputIngredient3);
             }
@@ -431,7 +450,11 @@ namespace Recipe_Writer
             lblPortions.Visible = true;
             lblCompletionTime.Visible = true;
             cmbRecipeIngredients.Visible = true;
-            cmdAddInstruction.Visible = true;    
+            cmdAddInstruction.Visible = true;
+            pnlScore.Visible = true;
+            picScore1.Visible = true;
+            picScore2.Visible = true;
+            picScore3.Visible = true;
         }
 
         /// <summary>
@@ -452,8 +475,12 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
 
             // --- Affecting the _currentDisplayedRecipe properties to the controls properties ----------------------------------------------------
-            lblCompletionTime.Text += _currentDisplayedRecipe.CompletionTime + " min.";
 
+            // --- Completion time
+            lblCompletionTime.Text = "";
+            lblCompletionTime.Text += "Temps de réalisation : "+_currentDisplayedRecipe.CompletionTime+" min.";
+
+            // --- Low budget status
             if (_currentDisplayedRecipe.LowBudget == 1)
             {
                 picLowBudget.Visible = true;
@@ -464,6 +491,7 @@ namespace Recipe_Writer
                 picLowBudget.Visible = false;
             }
 
+            // --- Ingredients list
             // Calls the function that will read the ingredients needed to make the recipe and adds the ingredients in the ingredients property of the current displayed recipe object
             _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
  
@@ -483,6 +511,33 @@ namespace Recipe_Writer
             // Selects automatically the first item of the combobox
             cmbRecipeIngredients.SelectedIndex = 0;
 
+            // --- Score
+            if (_currentDisplayedRecipe.Score == 0)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+            
+            } else if (_currentDisplayedRecipe.Score == 1)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            } else if (_currentDisplayedRecipe.Score == 2)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            } else if (_currentDisplayedRecipe.Score == 3)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            }
+
+            // --- Instructions
             // Calls the function that will return the instructions list to follow to make the recipe,
             // then and affects them to the current displayed Recipe instruction list.
             _currentDisplayedRecipe.InstructionsList = dbConn.ReadInstructionsForARecipe(_currentDisplayedRecipe.Id);
@@ -490,6 +545,8 @@ namespace Recipe_Writer
             // Calls the function that creates the instruction labels dynamically
             CreateInstructionsLayout();
 
+
+            // --- ImagePath
             // Calls the function that displays the illustration image for the currently selected recipe
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
 
@@ -941,6 +998,88 @@ namespace Recipe_Writer
             if (lstSearchResults.SelectedIndex != -1 && e.Button == MouseButtons.Left)
             {
                 lstSearchResults.DoDragDrop(lstSearchResults.SelectedItem.ToString(), DragDropEffects.Copy);
+            }
+        }
+
+        private void pnlScore_MouseHover(object sender, EventArgs e)
+        {
+            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+        }
+
+        private void picScore1_MouseHover(object sender, EventArgs e)
+        {
+            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+        }
+
+        private void picScore2_MouseHover(object sender, EventArgs e)
+        {
+            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+        }
+
+        private void picScore3_MouseHover(object sender, EventArgs e)
+        {
+            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+        }
+
+        private void picScore1_Click(object sender, EventArgs e)
+        {
+            UpdateScoreForCurrentRecipe(1);
+        }
+
+        private void picScore2_Click(object sender, EventArgs e)
+        {
+            UpdateScoreForCurrentRecipe(2);
+        }
+
+        private void picScore3_Click(object sender, EventArgs e)
+        {
+            UpdateScoreForCurrentRecipe(3);
+        }
+
+        /// <summary>
+        /// Updates the score for the current selected recipe
+        /// </summary>
+        private void UpdateScoreForCurrentRecipe(int scoreToInput)
+        {
+            dbConn.UpdateScoreForRecipe(_currentDisplayedRecipe.Id, scoreToInput);
+        }
+
+        private void pnlScore_MouseLeave(object sender, EventArgs e)
+        {
+            if (_currentDisplayedRecipe.Score == 0)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 1)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 2)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 3)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
             }
         }
     }

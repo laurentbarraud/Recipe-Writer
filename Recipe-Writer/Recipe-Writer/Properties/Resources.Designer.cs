@@ -73,19 +73,9 @@ namespace Recipe_Writer.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2_stars {
+        internal static System.Drawing.Bitmap _1_star_disabled {
             get {
-                object obj = ResourceManager.GetObject("2-stars", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3_stars {
-            get {
-                object obj = ResourceManager.GetObject("3-stars", resourceCulture);
+                object obj = ResourceManager.GetObject("1-star-disabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,16 +226,6 @@ namespace Recipe_Writer.Properties {
         internal static System.Drawing.Bitmap planner {
             get {
                 object obj = ResourceManager.GetObject("planner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap previous_recipe {
-            get {
-                object obj = ResourceManager.GetObject("previous-recipe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

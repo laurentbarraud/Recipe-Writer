@@ -130,14 +130,8 @@
   <data name="delete-recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="previous-recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\previous-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="lowBudget-recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lowBudget-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="3-stars" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3-stars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="planner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\planner1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -159,9 +153,6 @@
   </data>
   <data name="validate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\validate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2-stars" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2-stars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -186,5 +177,8 @@
   </data>
   <data name="side-menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\side-menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1-star-disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1-star-disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

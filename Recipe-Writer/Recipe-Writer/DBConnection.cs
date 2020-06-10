@@ -107,9 +107,9 @@ namespace Recipe_Writer
         public void AddNewIngredient(int idRecipe, double qtyIngredient, string newIngredientName, string scaleIngredient, int nbIngredientsForARecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "INSERT INTO 'Ingredients' (ingredientName, qtyAvailable) VALUES (" + newIngredientName + ", '0.0') " +
-                              "INSERT INTO 'Recipes_has_Ingredients' (qtyIngredient" +nbIngredientsForARecipe+1+", ingredient" +nbIngredientsForARecipe+1+", scales" +nbIngredientsForARecipe+1+") VALUES ('"+qtyIngredient+"', '"+newIngredientName+"', '"+scaleIngredient+"') " +
-                              "WHERE id ='" + idRecipe + "';";
+            cmd.CommandText = "INSERT INTO 'Ingredients' (ingredientName, qtyAvailable) VALUES ("+newIngredientName+", '0.0') " +
+                              "INSERT INTO 'Recipes_has_Ingredients' (qtyIngredient"+nbIngredientsForARecipe+1+", ingredient"+nbIngredientsForARecipe+1+", scales"+nbIngredientsForARecipe+1+") VALUES ('"+qtyIngredient+"', '"+newIngredientName+"', '"+scaleIngredient+"') " +
+                              "WHERE id ='"+idRecipe+"';";
         }
 
 
@@ -123,7 +123,7 @@ namespace Recipe_Writer
             int lastInstructionId = 0;
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "INSERT INTO 'Instructions' (id, instruction) VALUES ('" + null + "','" + txtNewInstruction + "');";
+            cmd.CommandText = "INSERT INTO 'Instructions' (id, instruction) VALUES ('"+null+"','"+txtNewInstruction+"');";
 
             cmd.ExecuteNonQuery();
 
@@ -177,6 +177,7 @@ namespace Recipe_Writer
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
             cmd.CommandText = "INSERT INTO Recipes ('id','title','completionTime','lowBudget','score','imagePath') VALUES('"+null+"','"+formattedNewRecipeTitle+"','"+newRecipeCompletionTime+"','"+newRecipeLowBudgetStatus+"','0','default');";
+            cmd.ExecuteNonQuery();
         }
 
 
@@ -190,8 +191,8 @@ namespace Recipe_Writer
         public void AddNewIngredientToRecipe(int idRecipe, int nbIngredientsForARecipe, int ingredientId, string scaleIngredient)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "INSERT INTO 'Recipes_has_Ingredients' (qtyIngredient" + nbIngredientsForARecipe + 1 + ", ingredient" + nbIngredientsForARecipe + 1 + "_id, scales" + nbIngredientsForARecipe + 1 + ") VALUES ('0.0', '" + ingredientId + "', '" + scaleIngredient + ");" +
-                                "WHERE id ='" + idRecipe + "';";
+            cmd.CommandText = "INSERT INTO 'Recipes_has_Ingredients' (qtyIngredient"+nbIngredientsForARecipe + 1 +", ingredient"+nbIngredientsForARecipe + 1 +"_id, scales"+ nbIngredientsForARecipe + 1 +") VALUES ('0.0', '"+ingredientId+"', '"+scaleIngredient+");" +
+                                "WHERE id ='"+idRecipe+"';";
             
             cmd.ExecuteNonQuery();
         }
@@ -234,7 +235,7 @@ namespace Recipe_Writer
                                 "ingredient11_id, ingredient12_id, ingredient13_id, ingredient14_id, ingredient15_id, " +
                                 "ingredient16_id, ingredient17_id, ingredient18_id, ingredient19_id, ingredient20_id " +
                                 "FROM Recipes_has_Ingredients) " +
-                                "WHERE id=" + idRecipe + ";";
+                                "WHERE id='"+idRecipe+"';";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -260,7 +261,7 @@ namespace Recipe_Writer
         public void DeleteIngredient(int idRecipe, int ingredientToRemoveRank, string scaleIngredient)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "DELETE qtyIngredient"+ingredientToRemoveRank+",ingredient"+ingredientToRemoveRank+ ", scales"+ingredientToRemoveRank+" "+
+            cmd.CommandText = "DELETE qtyIngredient"+ingredientToRemoveRank+",ingredient"+ingredientToRemoveRank+", scales"+ingredientToRemoveRank+" "+
                               "FROM 'Recipes_has_Ingredients' " +
                               "WHERE id ='"+idRecipe+"';";
             cmd.ExecuteNonQuery();
@@ -274,7 +275,7 @@ namespace Recipe_Writer
         public void DeleteRecipe(int idRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "DELETE FROM 'Recipes' WHERE id=" + idRecipe + ";";
+            cmd.CommandText = "DELETE FROM 'Recipes' WHERE id='"+idRecipe+"';";
             cmd.ExecuteNonQuery();
         }
 
@@ -286,7 +287,7 @@ namespace Recipe_Writer
         public void DeleteInstruction(int idRecipe, int rankInstruction)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "DELETE FROM 'Instructions_has_Recipes' WHERE id=" + idRecipe + " AND InstructionNb=" + rankInstruction + ";";
+            cmd.CommandText = "DELETE FROM 'Instructions_has_Recipes' WHERE id='"+idRecipe+"' AND InstructionNb='"+rankInstruction+"';";
             cmd.ExecuteNonQuery();
         }
 
@@ -439,7 +440,7 @@ namespace Recipe_Writer
                                 "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
                                 "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
                                 "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
-                                "WHERE Recipes_has_Ingredients.id =" + idRecipe + ";";
+                                "WHERE Recipes_has_Ingredients.id ='"+idRecipe+"';";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -450,10 +451,10 @@ namespace Recipe_Writer
                     double qtyIngredientFound = 0.0;
                     Ingredients _ingredientToAdd = new Ingredients("defaultIngredient", 0.0, "g", 0.0);
 
-                    if (dataReader["qtyIngredient" + i].ToString() != "")
+                    if (dataReader["qtyIngredient"+i].ToString() != "")
                     {
                         // Parses the quantity of the ingredient
-                        double.TryParse(dataReader["qtyIngredient" + i].ToString(), out qtyIngredientFound);
+                        double.TryParse(dataReader["qtyIngredient"+i].ToString(), out qtyIngredientFound);
 
                         // If the number of persons == 1 or > 2
                         if (DBConnection.NbPersonsSet == 1 || DBConnection.NbPersonsSet > 2)
@@ -471,8 +472,8 @@ namespace Recipe_Writer
 
                         // Affects the ingredient quantity, scale and name to the properties of the ingredient object
                         _ingredientToAdd.QtyRequested = qtyIngredientFound;
-                        _ingredientToAdd.Scale = dataReader["scaleIngredient" + i].ToString();
-                        _ingredientToAdd.Name = dataReader["ingredient" + i + "Name"].ToString();
+                        _ingredientToAdd.Scale = dataReader["scaleIngredient"+i].ToString();
+                        _ingredientToAdd.Name = dataReader["ingredient"+i+"Name"].ToString();
                         _ingredientToAdd.QtyAvailable = 0.0;
 
                         // Adds the ingredients to the list
@@ -502,8 +503,8 @@ namespace Recipe_Writer
             // Retrieves all the data about ingredients needed for the currently selected recipe
             cmd.CommandText = "SELECT ingredient" +rankIngredient+ "_id.ingredientName, scales" +rankIngredient+ " AS 'scaleIngredient', " + 
                                 "FROM Recipes_has_Ingredients " +
-                                "LEFT JOIN Scales AS scale" +rankIngredient+" ON Recipes_has_Ingredients.scales" +rankIngredient+ "_id = scale" +rankIngredient+ ".id " +                              
-                                "WHERE Recipes_has_Ingredients.id = " + idRecipe + ";";
+                                "LEFT JOIN Scales AS scale" +rankIngredient+" ON Recipes_has_Ingredients.scales"+rankIngredient+"_id = scale"+rankIngredient+".id " +                              
+                                "WHERE Recipes_has_Ingredients.id ='"+idRecipe+"';";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -594,7 +595,7 @@ namespace Recipe_Writer
             cmd.CommandText = "SELECT Instructions_id, instruction, Recipes_id, InstructionNb " +
                                 "FROM Instructions_has_Recipes " +
                                 "INNER JOIN Instructions ON Instructions_has_Recipes.Instructions_id = Instructions.id " +
-                                "WHERE Recipes_id ='" + idRecipe + "';";
+                                "WHERE Recipes_id ='"+idRecipe+"';";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
 
@@ -636,7 +637,7 @@ namespace Recipe_Writer
             }
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT id AS idRecipeRequested FROM 'Recipes' WHERE title ='"+ formattedTitle + "';";
+            cmd.CommandText = "SELECT id AS idRecipeRequested FROM 'Recipes' WHERE title ='"+formattedTitle+"';";
 
             int idRecipeFound = 0;
             SQLiteDataReader dataReader = cmd.ExecuteReader();
@@ -655,7 +656,7 @@ namespace Recipe_Writer
         public string ReadRecipeTitle(int idRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT title AS titleRecipe FROM 'Recipes' WHERE id =" + idRecipe + ";";
+            cmd.CommandText = "SELECT title AS titleRecipe FROM 'Recipes' WHERE id ='"+idRecipe+"';";
 
             string titleFound = "";
             SQLiteDataReader dataReader = cmd.ExecuteReader();
@@ -674,7 +675,7 @@ namespace Recipe_Writer
         public int ReadRecipeCompletionTime(int idRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT completionTime AS completionTimeRecipe FROM 'Recipes' WHERE id =" + idRecipe + ";";
+            cmd.CommandText = "SELECT completionTime AS completionTimeRecipe FROM 'Recipes' WHERE id ='"+idRecipe+"';";
 
             int completionTimeValueFound = 0;
             SQLiteDataReader dataReader = cmd.ExecuteReader();
@@ -693,7 +694,7 @@ namespace Recipe_Writer
         public int ReadRecipeLowBudgetStatus(int idRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT lowBudget AS recipeLowBudgetStatus FROM 'Recipes' WHERE id =" + idRecipe + ";";
+            cmd.CommandText = "SELECT lowBudget AS recipeLowBudgetStatus FROM 'Recipes' WHERE id ='"+idRecipe+"';";
 
             int lowBudgetValueFound = 0;
             SQLiteDataReader dataReader = cmd.ExecuteReader();
@@ -712,7 +713,7 @@ namespace Recipe_Writer
         public int ReadRecipeScore(int idRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT score AS scoreRecipe FROM 'Recipes' WHERE id =" + idRecipe + ";";
+            cmd.CommandText = "SELECT score AS scoreRecipe FROM 'Recipes' WHERE id ='"+idRecipe+"';";
 
             int scoreFound = 0;
             SQLiteDataReader dataReader = cmd.ExecuteReader();
@@ -731,7 +732,7 @@ namespace Recipe_Writer
         public string ReadRecipeImagePath(int idRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT imagePath AS recipeImagePath FROM 'Recipes' WHERE id =" + idRecipe + ";";
+            cmd.CommandText = "SELECT imagePath AS recipeImagePath FROM 'Recipes' WHERE id ='"+idRecipe+"';";
 
             string imagePathFound = "";
             SQLiteDataReader dataReader = cmd.ExecuteReader();
@@ -1089,7 +1090,7 @@ namespace Recipe_Writer
         public void UpdateInstruction(int idInstruction, string newInstructionText)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "UPDATE 'Instructions' SET instruction ='" + newInstructionText + "' WHERE id =" + idInstruction + ";";
+            cmd.CommandText = "UPDATE 'Instructions' SET instruction ='"+newInstructionText+"' WHERE id ='"+idInstruction+"';";
             cmd.ExecuteReader();
         }
 
@@ -1101,7 +1102,19 @@ namespace Recipe_Writer
         public void UpdateImagePath(int idRecipe, string newImagePath)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "UPDATE 'Recipes' SET imagePath ='" + newImagePath + "' WHERE id =" + idRecipe + ";";
+            cmd.CommandText = "UPDATE 'Recipes' SET imagePath ='" + newImagePath + "' WHERE id ='"+idRecipe+"';";
+            cmd.ExecuteReader();
+        }
+
+        /// <summary>
+        /// Updates the score for the selected recipe
+        /// </summary>
+        /// <param name="idRecipe">the id of the currently selected recipe</param>
+        /// <param name="newScore">the new score to input</param>
+        public void UpdateScoreForRecipe(int idRecipe, int newScore)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "UPDATE 'Recipes' SET score ='"+newScore+"' WHERE id ='"+idRecipe+"';";
             cmd.ExecuteReader();
         }
 
@@ -1113,7 +1126,7 @@ namespace Recipe_Writer
         public void UpdateQtyIngredientAvailable(int idIngredient, double newQtyIngredientAvailable)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "UPDATE 'Ingredients' SET qtyAvailable ='"+newQtyIngredientAvailable+"' WHERE id ="+idIngredient+";";
+            cmd.CommandText = "UPDATE 'Ingredients' SET qtyAvailable ='"+newQtyIngredientAvailable+"' WHERE id='"+idIngredient+"';";
             cmd.ExecuteReader();
         }
 
@@ -1129,21 +1142,21 @@ namespace Recipe_Writer
             if (newTitleRecipe != "")
             {
                 SQLiteCommand cmd = sqliteConn.CreateCommand();
-                cmd.CommandText = "UPDATE 'Recipes' SET title ='"+newTitleRecipe+"' WHERE id =" + idRecipe + ";";
+                cmd.CommandText = "UPDATE 'Recipes' SET title ='"+newTitleRecipe+"' WHERE id ='"+idRecipe+"';";
                 cmd.ExecuteReader();
             }
 
             if (newCompletionTime != "")
             {
                 SQLiteCommand cmd = sqliteConn.CreateCommand();
-                cmd.CommandText = "UPDATE 'Recipes' SET completionTime ='"+newCompletionTime+"' WHERE id =" + idRecipe + ";";
+                cmd.CommandText = "UPDATE 'Recipes' SET completionTime ='"+newCompletionTime+"' WHERE id ='"+ idRecipe+"';";
                 cmd.ExecuteReader();
             }
 
             if (newLowBudgetStatus != "")
             {
                 SQLiteCommand cmd = sqliteConn.CreateCommand();
-                cmd.CommandText = "UPDATE 'Recipes' SET lowBudget ='"+newLowBudgetStatus+"' WHERE id =" + idRecipe + ";";
+                cmd.CommandText = "UPDATE 'Recipes' SET lowBudget ='"+newLowBudgetStatus+"' WHERE id ='"+idRecipe+"';";
                 cmd.ExecuteReader();
             }
         }
