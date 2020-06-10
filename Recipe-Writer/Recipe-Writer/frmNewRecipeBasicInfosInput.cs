@@ -30,44 +30,50 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
+            int parsedNewRecipeCompletionTime = 0;
+            int statusChkLowBudget = 0;
+
             if (txtNewRecipeTitle.Text != "")
             {
-                string formattedNewRecipeTitle = txtNewRecipeTitle.Text;
-
-                // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
-                if (txtNewRecipeTitle.Text.Contains("'"))
+                // If the user has entered only numbers in the textbox
+                if (txtNewRecipeCompletionTime.Text != "" && int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
                 {
-                    formattedNewRecipeTitle = txtNewRecipeTitle.Text.Replace("'", "''");
-                }
-
-                _frmMain.txtTitleSearch.Text = txtNewRecipeTitle.Text;
-                _frmMain.cmdTitleSearch.PerformClick();
-
-                if (txtNewRecipeCompletionTime.Text != "")
-                {
-                    int parsedNewRecipeCompletionTime = 0;
-
-                    if (int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
+                    if (chkLowBudget.Checked)
                     {
-                        _frmMain.dbConn.AddNewRecipe(formattedNewRecipeTitle, txtNewRecipeCompletionTime.Text, chkLowBudget.Checked); 
+                        statusChkLowBudget = 1;
                     }
 
-                    // If the user hasn't input a number in the textbox
+                    // If the user hasn't checked the low budget checkbox
                     else
                     {
-                        MessageBox.Show("Vous devez saisir un nombre valide pour le temps de réalisation de la nouvelle recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }   
+                        statusChkLowBudget = 0;
+                    }
+                    
+                    // Adds the new recipe into the database
+                    _frmMain.dbConn.AddNewRecipe(@txtNewRecipeTitle.Text, parsedNewRecipeCompletionTime.ToString(), statusChkLowBudget);
+
+                    // Displayed the new recipe title into the search texbox
+                    _frmMain.txtTitleSearch.Text = txtNewRecipeTitle.Text;
+
+                    // Performs a search with the new recipe title
+                    _frmMain.cmdTitleSearch.PerformClick();
+
+                    this.Hide();
+                }
+                // If the user hasn't input a number in the textbox
+                else if (!int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
+                {
+                    MessageBox.Show("Vous devez saisir un nombre valide pour le temps de réalisation de la nouvelle recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 // If the user hasn't input a completion time for the new recipe
-                else
+                else if (txtNewRecipeCompletionTime.Text == "")
                 {
                     MessageBox.Show("Vous devez saisir un temps de réalisation pour la nouvelle recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
             // If the user hasn't input a title for the new recipe
-            else
+            else if (txtNewRecipeTitle.Text == "")
             {
                 MessageBox.Show("Vous devez saisir un titre pour la nouvelle recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

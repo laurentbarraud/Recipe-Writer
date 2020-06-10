@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Security.Cryptography;
 
 namespace Recipe_Writer
 {
@@ -108,40 +109,81 @@ namespace Recipe_Writer
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "INSERT INTO 'Ingredients' (ingredientName, qtyAvailable) VALUES (" + newIngredientName + ", '0.0') " +
                               "INSERT INTO 'Recipes_has_Ingredients' (qtyIngredient" +nbIngredientsForARecipe+1+", ingredient" +nbIngredientsForARecipe+1+", scales" +nbIngredientsForARecipe+1+") VALUES ('"+qtyIngredient+"', '"+newIngredientName+"', '"+scaleIngredient+"') " +
-                              "WHERE Recipes_id ='" + idRecipe + "';";
+                              "WHERE id ='" + idRecipe + "';";
+        }
+
+
+        /// <summary>
+        /// Adds a new instruction into the database
+        /// </summary>
+        /// <param name="txtNewInstruction">the text of the new instruction</param>
+        /// <returns>the last id affected to an instruction</returns>
+        public int AddNewInstruction(string txtNewInstruction)
+        {
+            int lastInstructionId = 0;
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "INSERT INTO 'Instructions' (id, instruction) VALUES ('" + null + "','" + txtNewInstruction + "');";
+
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Select 'id' FROM 'Instructions' ORDER BY column DESC LIMIT 1;";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                // Parses the quantity of the ingredient
+                int.TryParse(dataReader["id"].ToString(), out lastInstructionId);
+            }
+
+            return lastInstructionId;
+        }
+
+        /// <summary>
+        /// Adds a new instruction reference into the database for the recipe given in argument
+        /// </summary>
+        /// <param name="idRecipe">the id of the recipe whose for which we add the new instruction</param>
+        /// <param name="nbInstructionsForRecipe">the number of instructions already store for the selected recipe</param>
+        /// <param name="txtNewInstruction">the text of the new instruction</param>
+        public void AddNewInstructionToRecipe(int idRecipe, int nbInstructionsForRecipe, string txtNewInstruction)
+        {
+            int lastInstructionId = AddNewInstruction(txtNewInstruction);
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            
+            cmd.CommandText = "INSERT INTO 'Instructions_has_Recipes' (id, Recipes_id, Instructions_id, Instructions_nb) " +
+                              "VALUES ('"+null+"','"+idRecipe+"','"+lastInstructionId+"','"+nbInstructionsForRecipe+1+") " +
+                              "WHERE id ='"+idRecipe+"';";
+
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>
         /// Adds a new recipe into the database, with its basic data
         /// </summary>
-        /// <param name="newRecipeTitle">the new title of the recipe, if the user has edited it</param>
-        /// <param name="newRecipeCompletionTime">the new completion time of the recipe, if the user has edited it</param>
-        /// <param name="newRecipeLowBudgetStatus">the low budget value of the recipe, if the user has edited it</param>
-        public void AddNewRecipe(string newRecipeTitle, string newRecipeCompletionTime, bool newRecipeLowBudgetStatus)
+        /// <param name="newRecipeTitle">the title of the new recipe</param>
+        /// <param name="newRecipeCompletionTime">the completion time of the new recipe</param>
+        /// <param name="newRecipeLowBudgetStatus">the low budget value of the new recipe</param>
+        public void AddNewRecipe(string newRecipeTitle, string newRecipeCompletionTime, int newRecipeLowBudgetStatus)
         {
+            string formattedNewRecipeTitle = newRecipeTitle;
+
+            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
+            if (newRecipeTitle.Contains("'"))
+            {
+                formattedNewRecipeTitle = newRecipeTitle.Replace("'", "''");
+            }
+
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "INSERT INTO 'Recipes' (title) VALUES (" + newRecipeTitle + ");";
-            cmd.CommandText += "INSERT INTO 'Recipes' (completionTime) VALUES (" + newRecipeCompletionTime + ");";
 
-            if (newRecipeLowBudgetStatus)
-            {
-                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES ('1');";
-            }
-
-            // If the recipe hasn't been flagged as low budget
-            else
-            {
-                cmd.CommandText += "INSERT INTO 'Recipes' (lowBudget) VALUES ('0');";
-            }
-
-            ReadRecipeId(newRecipeTitle);
+            cmd.CommandText = "INSERT INTO Recipes ('id','title','completionTime','lowBudget','score','imagePath') VALUES('"+null+"','"+formattedNewRecipeTitle+"','"+newRecipeCompletionTime+"','"+newRecipeLowBudgetStatus+"','0','default');";
         }
 
 
         /// <summary>
         /// Adds a new ingredient to the selected recipe in argument
         /// </summary>
-        ///  <param name="idRecipe">the id of the recipe</param>
+        /// <param name="idRecipe">the id of the recipe</param>
         /// <param name="newIngredientId">the id of the new ingredient</param>
         /// <param name="ingredientName">the name of the new ingredient</param>
         /// <param name="scaleIngredient">the scale that new ingredient uses</param>
@@ -149,7 +191,9 @@ namespace Recipe_Writer
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "INSERT INTO 'Recipes_has_Ingredients' (qtyIngredient" + nbIngredientsForARecipe + 1 + ", ingredient" + nbIngredientsForARecipe + 1 + "_id, scales" + nbIngredientsForARecipe + 1 + ") VALUES ('0.0', '" + ingredientId + "', '" + scaleIngredient + ");" +
-                                "WHERE Recipes_id ='" + idRecipe + "';";
+                                "WHERE id ='" + idRecipe + "';";
+            
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -213,13 +257,13 @@ namespace Recipe_Writer
         /// <param name="idRecipe">the id of the recipe</param>
         /// <param name="ingredientToRemoveRank">the rank of the new ingredient</param>
         /// <param name="scaleIngredient">the scale that new ingredient uses</param>
-        public bool DeleteIngredient(int idRecipe, int ingredientToRemoveRank, string scaleIngredient)
+        public void DeleteIngredient(int idRecipe, int ingredientToRemoveRank, string scaleIngredient)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "DELETE qtyIngredient"+ingredientToRemoveRank+",ingredient"+ingredientToRemoveRank+ ", scales"+ingredientToRemoveRank+" "+
                               "FROM 'Recipes_has_Ingredients' " +
-                              "WHERE Recipes_id ='"+idRecipe+"';";
-            return true;
+                              "WHERE id ='"+idRecipe+"';";
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -227,13 +271,11 @@ namespace Recipe_Writer
         /// </summary>
         /// <param name="idRecipe">the id of the recipe to delete</param>
         /// <returns>Bool if the operation succeeded</returns>
-        public bool DeleteRecipe(int idRecipe)
+        public void DeleteRecipe(int idRecipe)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "DELETE FROM 'Recipes' WHERE id=" + idRecipe + ";";
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-
-            return true;
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -241,14 +283,11 @@ namespace Recipe_Writer
         /// </summary>
         /// <param name="idRecipe">the id of the recipe</param>
         /// <param name="rankInstruction">the rank of the instruction</param>
-        /// <returns>Bool if the operation succeeded</returns>
-        public bool DeleteInstruction(int idRecipe, int rankInstruction)
+        public void DeleteInstruction(int idRecipe, int rankInstruction)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "DELETE FROM 'Instructions_has_Recipes' WHERE id=" + idRecipe + " AND InstructionNb=" + rankInstruction + ";";
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-
-            return true;
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -375,7 +414,7 @@ namespace Recipe_Writer
                                 "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
                                 "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
                                 "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
-                                "WHERE Recipes_id =" + idRecipe + ";";
+                                "WHERE Recipes_has_Ingredients.id =" + idRecipe + ";";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -439,7 +478,7 @@ namespace Recipe_Writer
             cmd.CommandText = "SELECT ingredient" +rankIngredient+ "_id.ingredientName, scales" +rankIngredient+ " AS 'scaleIngredient', " + 
                                 "FROM Recipes_has_Ingredients " +
                                 "LEFT JOIN Scales AS scale" +rankIngredient+" ON Recipes_has_Ingredients.scales" +rankIngredient+ "_id = scale" +rankIngredient+ ".id " +                              
-                                "WHERE Recipes_id =" + idRecipe + ";";
+                                "WHERE Recipes_has_Ingredients.id = " + idRecipe + ";";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -679,7 +718,7 @@ namespace Recipe_Writer
                                 "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
                                 "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
                                 "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
-                                "LEFT JOIN Recipes ON Recipes_id = Recipes_id";
+                                "LEFT JOIN Recipes ON Recipes_has_ingredients.id = Recipes.id";
 
             // Counting the number of words given in arguments
             int nbIngredientsTyped = 0;
@@ -757,7 +796,7 @@ namespace Recipe_Writer
         /// <param name="ingredientToExcludeInput1">first ingredient to exclude from the search</param>
         /// <param name="ingredientToExcludeInput2">second ingredient to exclude from the search</param>
         /// <param name="ingredientToExcludeInput3">third ingredient to exclude from the search</param>
-        /// <returns>Integer list of the id of the recipes found in the database</returns>
+        /// <returns>a string list of the titles of the recipes found in the database</returns>
         public List<string> SearchRecipesByExcludingIngredients(string ingredientToExcludeInput1 = "", string ingredientToExcludeInput2 = "", string ingredientToExcludeInput3 = "")
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
@@ -790,7 +829,7 @@ namespace Recipe_Writer
                                 "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
                                 "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
                                 "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
-                                "LEFT JOIN Recipes ON Recipes_id = Recipes_id";
+                                "LEFT JOIN Recipes.id ON Recipes_has_ingredients.id = Recipes.id";
 
             // Counting the number of words given in arguments
             int nbIngredientsToExcludeTyped = 0;

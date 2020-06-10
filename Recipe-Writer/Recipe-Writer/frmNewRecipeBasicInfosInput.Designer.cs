@@ -88,9 +88,9 @@
             // 
             this.chkLowBudget.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkLowBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkLowBudget.Location = new System.Drawing.Point(296, 161);
+            this.chkLowBudget.Location = new System.Drawing.Point(254, 161);
             this.chkLowBudget.Name = "chkLowBudget";
-            this.chkLowBudget.Size = new System.Drawing.Size(146, 24);
+            this.chkLowBudget.Size = new System.Drawing.Size(179, 24);
             this.chkLowBudget.TabIndex = 2;
             this.chkLowBudget.Text = "Pour petit budget";
             this.chkLowBudget.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
