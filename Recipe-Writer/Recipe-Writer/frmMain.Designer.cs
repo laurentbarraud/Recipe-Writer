@@ -605,6 +605,7 @@
             this.Controls.Add(this.cmdNewRecipe);
             this.Controls.Add(this.cmdTitleSearch);
             this.Controls.Add(this.txtTitleSearch);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

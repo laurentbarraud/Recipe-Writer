@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CPNV")]
 [assembly: AssemblyProduct("Recipe-Writer")]
-[assembly: AssemblyCopyright("GNU Licence Laurent Barraud, 2020")]
+[assembly: AssemblyCopyright("GNU Licence Laurent Barraud 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
