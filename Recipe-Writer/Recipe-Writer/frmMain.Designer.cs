@@ -52,7 +52,6 @@
             this.pnlSearchByIngredients = new System.Windows.Forms.Panel();
             this.pnlSlideMenu = new System.Windows.Forms.Panel();
             this.picClosePanel = new System.Windows.Forms.PictureBox();
-            this.chkShowOnlyLowBudget = new System.Windows.Forms.CheckBox();
             this.chkInverseSearch = new System.Windows.Forms.CheckBox();
             this.lblSearchByIngredients = new System.Windows.Forms.Label();
             this.lblSearchIngredient3 = new System.Windows.Forms.Label();
@@ -312,7 +311,6 @@
             this.pnlSlideMenu.BackColor = System.Drawing.SystemColors.Window;
             this.pnlSlideMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSlideMenu.Controls.Add(this.picClosePanel);
-            this.pnlSlideMenu.Controls.Add(this.chkShowOnlyLowBudget);
             this.pnlSlideMenu.Controls.Add(this.chkInverseSearch);
             this.pnlSlideMenu.Controls.Add(this.lblSearchByIngredients);
             this.pnlSlideMenu.Controls.Add(this.lblSearchIngredient3);
@@ -338,19 +336,6 @@
             this.picClosePanel.TabIndex = 22;
             this.picClosePanel.TabStop = false;
             this.picClosePanel.Click += new System.EventHandler(this.picClosePanel_Click);
-            // 
-            // chkShowOnlyLowBudget
-            // 
-            this.chkShowOnlyLowBudget.AutoSize = true;
-            this.chkShowOnlyLowBudget.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkShowOnlyLowBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShowOnlyLowBudget.Location = new System.Drawing.Point(40, 269);
-            this.chkShowOnlyLowBudget.Name = "chkShowOnlyLowBudget";
-            this.chkShowOnlyLowBudget.Size = new System.Drawing.Size(313, 22);
-            this.chkShowOnlyLowBudget.TabIndex = 8;
-            this.chkShowOnlyLowBudget.Text = "N\'afficher que les recettes pour petit budget";
-            this.chkShowOnlyLowBudget.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkShowOnlyLowBudget.UseVisualStyleBackColor = true;
             // 
             // chkInverseSearch
             // 
@@ -662,7 +647,6 @@
         private System.Windows.Forms.Panel pnlMealsPlanner;
         private System.Windows.Forms.Panel pnlInventory;
         private System.Windows.Forms.Panel pnlSearchByIngredients;
-        private System.Windows.Forms.CheckBox chkShowOnlyLowBudget;
         private System.Windows.Forms.CheckBox chkInverseSearch;
         private System.Windows.Forms.Label lblSearchByIngredients;
         private System.Windows.Forms.Label lblSearchIngredient3;
