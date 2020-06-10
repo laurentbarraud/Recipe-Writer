@@ -73,8 +73,11 @@ namespace Recipe_Writer
                 NumericUpDown nudQtyIngredient = new NumericUpDown();
                 nudQtyIngredient.ValueChanged += (object sender_here, EventArgs e_here) =>
                 {
-                        // To-Do : writes the function that change the ingredient quantity available according to the
-                        // numeric up-down control value                  
+                        // To-Do : call the function that change the ingredient quantity available according to the
+                        // numeric up-down control value
+                        int ingredientId = _frmMain.dbConn.ReadIngredientId(ingredientItem);
+
+                        _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientId, Convert.ToDouble(nudQtyIngredient.Value));
                     };
 
                 // Delete ingredient button code ================================================================================================
@@ -96,6 +99,7 @@ namespace Recipe_Writer
                 // Detailed layout =========================================================================================
                 // Edit button for an instruction ==========================================================================
                 nudQtyIngredient.Value = 0;
+                nudQtyIngredient.Maximum = 10000;
                 nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 8);
                 nudQtyIngredient.Width = 2 * (iconWidth);
                 nudQtyIngredient.Height = numericUpDownHeight;
@@ -128,12 +132,17 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void frmInventory_Move(object sender, EventArgs e)
         {
             this.CenterToScreen();
+        }
+
+        private void frmInventory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _frmMain.InventoryShown = false;
         }
     }
 }

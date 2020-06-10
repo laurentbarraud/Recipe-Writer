@@ -91,7 +91,7 @@ namespace Recipe_Writer
                     // Calls the method to add the new ingredient by reference to its id to the currently selected recipe ingredients list
                     _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsList.SelectedIndex - 1, scaleUsedForIngredient);
 
-                    this.Hide();
+                    this.Close();
                     _frmMain.Refresh();
                 }
 
@@ -125,7 +125,7 @@ namespace Recipe_Writer
                     // Calls the method to add the new ingredient by reference to its id to the currently selected recipe ingredients list
                     _frmMain.dbConn.AddNewIngredient(_frmMain._currentDisplayedRecipe.Id, parsedQtyIngredient, formattedIngredientName, cmbScalesList.Text, nbIngredientsForARecipe);
 
-                    this.Hide();
+                    this.Close();
                     _frmMain.Refresh();
                 }
 

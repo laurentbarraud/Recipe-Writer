@@ -522,6 +522,37 @@ namespace Recipe_Writer
         /// <summary>
         /// Reads the name of an ingredient for a given id
         /// </summary>
+        /// <param name="nameIngredient">the name of the ingredient</param>
+        /// <returns>Id of the ingredient</returns>
+        public int ReadIngredientId(string nameIngredient)
+        {
+            // Declares a string to contain the ingredient id
+            int ingredientIdFound = 0;
+
+            string formattednameIngredient = nameIngredient;
+
+            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
+            if (nameIngredient.Contains("'"))
+            {
+                formattednameIngredient = nameIngredient.Replace("'", "''");
+            }
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+
+            cmd.CommandText = "SELECT id FROM 'Ingredients' WHERE ingredientName='"+formattednameIngredient+"';";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                ingredientIdFound = int.Parse(dataReader["id"].ToString());
+            }
+
+            return ingredientIdFound;
+        }
+
+        /// <summary>
+        /// Reads the name of an ingredient for a given id
+        /// </summary>
         /// <param name="idIngredient">the id of the ingredient</param>
         /// <returns>Name of the ingredient</returns>
         public string ReadIngredientName(int idIngredient)
@@ -531,7 +562,7 @@ namespace Recipe_Writer
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
-            cmd.CommandText = "SELECT ingredientName FROM 'Ingredients' WHERE id=" + idIngredient + ";";
+            cmd.CommandText = "SELECT ingredientName FROM 'Ingredients' WHERE id='"+idIngredient+"';";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -1071,6 +1102,18 @@ namespace Recipe_Writer
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "UPDATE 'Recipes' SET imagePath ='" + newImagePath + "' WHERE id =" + idRecipe + ";";
+            cmd.ExecuteReader();
+        }
+
+        /// <summary>
+        /// Updates the quantity available for a given ingredient
+        /// </summary>
+        /// <param name="idIngredient">the id of the ingredient</param>
+        /// <param name="newQtyIngredientAvailable">the new quantity of the ingredient available</param>
+        public void UpdateQtyIngredientAvailable(int idIngredient, double newQtyIngredientAvailable)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "UPDATE 'Ingredients' SET qtyAvailable ='"+newQtyIngredientAvailable+"' WHERE id ="+idIngredient+";";
             cmd.ExecuteReader();
         }
 

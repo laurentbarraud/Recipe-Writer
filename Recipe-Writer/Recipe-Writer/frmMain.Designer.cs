@@ -481,7 +481,7 @@
             // 
             // picMenu
             // 
-            this.picMenu.BackgroundImage = global::Recipe_Writer.Properties.Resources.side_menu;
+            this.picMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picMenu.BackgroundImage")));
             this.picMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picMenu.Location = new System.Drawing.Point(10, 125);
             this.picMenu.Name = "picMenu";

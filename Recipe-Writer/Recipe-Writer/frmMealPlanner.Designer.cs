@@ -542,6 +542,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Planificateur de repas";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMealPlanner_FormClosed);
             this.Load += new System.EventHandler(this.frmMealPlanner_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picTuesdayEnoughIngredients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWednesdayEnoughIngredients)).EndInit();

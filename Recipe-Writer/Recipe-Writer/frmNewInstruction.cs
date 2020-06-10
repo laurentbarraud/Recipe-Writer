@@ -25,12 +25,12 @@ namespace Recipe_Writer
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void frmNewInstruction_Move(object sender, EventArgs e)

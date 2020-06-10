@@ -35,7 +35,7 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void cmdMondayCancelled_Click(object sender, EventArgs e)
@@ -172,6 +172,11 @@ namespace Recipe_Writer
             lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdSundayCancelled.Visible = true;
             cmdSundayDone.Visible = true;
+        }
+
+        private void frmMealPlanner_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _frmMain.MealPlannerShown = false;
         }
     }
 }

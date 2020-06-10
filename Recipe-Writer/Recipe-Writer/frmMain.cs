@@ -38,6 +38,21 @@ namespace Recipe_Writer
         // These variables are used by the side-panel animation
         private int sidePanelWidth = 549;
         private bool sidePanelHidden = true;
+        private bool inventoryShown = false;
+        private bool mealPlannerShown = false;
+
+        public bool InventoryShown
+        {
+            get { return inventoryShown; }
+            set { inventoryShown = value; }
+        }
+
+        public bool MealPlannerShown
+        {
+            get { return mealPlannerShown; }
+            set { mealPlannerShown = value; }
+        }
+
 
         public frmMain()
         {
@@ -869,14 +884,22 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void pnlInventory_Click(object sender, EventArgs e)
         {
-            frmInventory _frmInventory = new frmInventory(this);
-            _frmInventory.ShowDialog();
+            if (!this.InventoryShown)
+            {
+                this.InventoryShown = true;
+                frmInventory _frmInventory = new frmInventory(this);
+                _frmInventory.ShowDialog();
+            }
         }
 
         private void pnlMealsPlanner_MouseClick(object sender, MouseEventArgs e)
         {
-            frmMealPlanner _frmMealPlanner = new frmMealPlanner(this);
-            _frmMealPlanner.Show();
+            if (!this.MealPlannerShown)
+            {
+                this.MealPlannerShown = true;
+                frmMealPlanner _frmMealPlanner = new frmMealPlanner(this);
+                _frmMealPlanner.Show();
+            } 
         }
 
         private void picSettings_Click(object sender, EventArgs e)

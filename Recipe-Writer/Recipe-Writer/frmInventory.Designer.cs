@@ -44,6 +44,7 @@
             this.cmdValidate.Size = new System.Drawing.Size(34, 32);
             this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = true;
+            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // lstIngredientsAvailable
             // 
@@ -68,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 378);
+            this.ClientSize = new System.Drawing.Size(494, 378);
             this.Controls.Add(this.pnlIngredientsStatus);
             this.Controls.Add(this.lstIngredientsAvailable);
             this.Controls.Add(this.cmdValidate);
@@ -78,6 +79,7 @@
             this.Name = "frmInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventaire des ingrédients";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInventory_FormClosed);
             this.Load += new System.EventHandler(this.frmInventory_Load);
             this.Move += new System.EventHandler(this.frmInventory_Move);
             this.ResumeLayout(false);

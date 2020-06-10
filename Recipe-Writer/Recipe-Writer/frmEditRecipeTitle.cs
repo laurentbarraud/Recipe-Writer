@@ -51,7 +51,7 @@ namespace Recipe_Writer
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void frmEditRecipeTitle_Move(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace Recipe_Writer
 
             _frmMain.dbConn.UpdateRecipeBasicInfo(idRecipeToEdit, formattedNewRecipeTitle);
 
-            this.Hide();
+            this.Close();
         }
     }
 }

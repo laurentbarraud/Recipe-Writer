@@ -25,7 +25,7 @@ namespace Recipe_Writer
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void cmdValidate_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace Recipe_Writer
                     // Performs a search with the new recipe title
                     _frmMain.cmdTitleSearch.PerformClick();
 
-                    this.Hide();
+                    this.Close();
                 }
                 // If the user hasn't input a number in the textbox
                 else if (!int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
