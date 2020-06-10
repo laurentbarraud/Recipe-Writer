@@ -116,27 +116,27 @@ namespace Recipe_Writer
         /// <summary>
         /// Adds a new instruction into the database
         /// </summary>
+        /// <param name="idRecipe">the text of the new instruction</param>
         /// <param name="txtNewInstruction">the text of the new instruction</param>
-        /// <returns>the last id affected to an instruction</returns>
-        public int AddNewInstruction(string txtNewInstruction)
+        public int AddNewInstruction(int idRecipe, string txtNewInstruction)
         {
             int lastInstructionId = 0;
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "INSERT INTO 'Instructions' (id, instruction) VALUES ('"+null+"','"+txtNewInstruction+"');";
+            cmd.CommandText = "INSERT INTO 'Instructions' (instruction) VALUES ('"+txtNewInstruction+"');";
 
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "Select 'id' FROM 'Instructions' ORDER BY column DESC LIMIT 1;";
+            cmd.CommandText = "Select id FROM 'Instructions' ORDER BY id DESC LIMIT 1;";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                // Parses the quantity of the ingredient
+                // Parses the id of the instruction which got affected by auto-increment
                 int.TryParse(dataReader["id"].ToString(), out lastInstructionId);
             }
-
-            return lastInstructionId;
+            
+            return lastInstructionId;  
         }
 
         /// <summary>
@@ -145,15 +145,14 @@ namespace Recipe_Writer
         /// <param name="idRecipe">the id of the recipe whose for which we add the new instruction</param>
         /// <param name="nbInstructionsForRecipe">the number of instructions already store for the selected recipe</param>
         /// <param name="txtNewInstruction">the text of the new instruction</param>
-        public void AddNewInstructionToRecipe(int idRecipe, int nbInstructionsForRecipe, string txtNewInstruction)
+        public void AddNewInstructionToRecipe(int idRecipeToInput, int nbInstructionsForRecipe, string txtNewInstruction)
         {
-            int lastInstructionId = AddNewInstruction(txtNewInstruction);
+            int lastInstructionId = AddNewInstruction(idRecipeToInput, txtNewInstruction);
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            
-            cmd.CommandText = "INSERT INTO 'Instructions_has_Recipes' (id, Recipes_id, Instructions_id, Instructions_nb) " +
-                              "VALUES ('"+null+"','"+idRecipe+"','"+lastInstructionId+"','"+nbInstructionsForRecipe+1+") " +
-                              "WHERE id ='"+idRecipe+"';";
+
+            cmd.CommandText = "INSERT INTO 'Instructions_has_Recipes' (Recipes_id, Instructions_id, InstructionNb) " +
+                              "VALUES ('" + idRecipeToInput + "','" + lastInstructionId + "','" + nbInstructionsForRecipe + 1 + "')";
 
             cmd.ExecuteNonQuery();
         }

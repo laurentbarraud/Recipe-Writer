@@ -31,12 +31,13 @@
             this.txtNewImagePath = new System.Windows.Forms.TextBox();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
+            this.lblNewImagePath = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNewImagePath
             // 
             this.txtNewImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewImagePath.Location = new System.Drawing.Point(41, 64);
+            this.txtNewImagePath.Location = new System.Drawing.Point(41, 80);
             this.txtNewImagePath.Name = "txtNewImagePath";
             this.txtNewImagePath.Size = new System.Drawing.Size(349, 24);
             this.txtNewImagePath.TabIndex = 0;
@@ -68,6 +69,17 @@
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
+            // lblNewImagePath
+            // 
+            this.lblNewImagePath.AutoSize = true;
+            this.lblNewImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewImagePath.Location = new System.Drawing.Point(38, 36);
+            this.lblNewImagePath.Name = "lblNewImagePath";
+            this.lblNewImagePath.Size = new System.Drawing.Size(236, 18);
+            this.lblNewImagePath.TabIndex = 5;
+            this.lblNewImagePath.Text = "Nom de fichier à donner à l\'image :";
+            this.lblNewImagePath.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmNewImagePath
             // 
             this.AcceptButton = this.cmdValidate;
@@ -75,6 +87,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(493, 185);
+            this.Controls.Add(this.lblNewImagePath);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewImagePath);
@@ -95,5 +108,6 @@
         private System.Windows.Forms.TextBox txtNewImagePath;
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.Button cmdCancel;
+        private System.Windows.Forms.Label lblNewImagePath;
     }
 }

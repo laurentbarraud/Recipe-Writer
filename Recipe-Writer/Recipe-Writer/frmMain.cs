@@ -773,6 +773,8 @@ namespace Recipe_Writer
         private void cmdAddInstruction_Click(object sender, EventArgs e)
         {
             frmNewInstruction _frmNewInstruction = new frmNewInstruction(this);
+            _frmNewInstruction.IdRecipeToEdit = _currentDisplayedRecipe.Id;
+            _frmNewInstruction.NbInstructionsInCurrentRecipe = currentInstruction;
             _frmNewInstruction.ShowDialog();
         }
 
