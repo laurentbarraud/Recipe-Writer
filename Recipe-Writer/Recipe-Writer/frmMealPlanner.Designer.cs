@@ -71,6 +71,8 @@
             this.lblFridayRecipe = new System.Windows.Forms.Label();
             this.lblSaturdayRecipe = new System.Windows.Forms.Label();
             this.lblSundayRecipe = new System.Windows.Forms.Label();
+            this.lblMondayRecipe = new System.Windows.Forms.Label();
+            this.pnlMonday.SuspendLayout();
             this.pnlTuesday.SuspendLayout();
             this.pnlWednesday.SuspendLayout();
             this.pnlThursday.SuspendLayout();
@@ -101,6 +103,7 @@
             // 
             // pnlMonday
             // 
+            this.pnlMonday.Controls.Add(this.lblMondayRecipe);
             this.pnlMonday.Location = new System.Drawing.Point(24, 13);
             this.pnlMonday.Name = "pnlMonday";
             this.pnlMonday.Size = new System.Drawing.Size(149, 100);
@@ -177,6 +180,7 @@
             this.cmdMondayCancelled.Text = "Annulé";
             this.cmdMondayCancelled.UseVisualStyleBackColor = true;
             this.cmdMondayCancelled.Visible = false;
+            this.cmdMondayCancelled.Click += new System.EventHandler(this.cmdMondayCancelled_Click);
             // 
             // cmdThursdayDone
             // 
@@ -201,6 +205,7 @@
             this.cmdThursdayCancelled.Text = "Annulé";
             this.cmdThursdayCancelled.UseVisualStyleBackColor = true;
             this.cmdThursdayCancelled.Visible = false;
+            this.cmdThursdayCancelled.Click += new System.EventHandler(this.cmdThursdayCancelled_Click);
             // 
             // cmdSundayDone
             // 
@@ -225,6 +230,7 @@
             this.cmdSundayCancelled.Text = "Annulé";
             this.cmdSundayCancelled.UseVisualStyleBackColor = true;
             this.cmdSundayCancelled.Visible = false;
+            this.cmdSundayCancelled.Click += new System.EventHandler(this.cmdSundayCancelled_Click);
             // 
             // cmdTuesdayDone
             // 
@@ -249,6 +255,7 @@
             this.cmdTuesdayCancelled.Text = "Annulé";
             this.cmdTuesdayCancelled.UseVisualStyleBackColor = true;
             this.cmdTuesdayCancelled.Visible = false;
+            this.cmdTuesdayCancelled.Click += new System.EventHandler(this.cmdTuesdayCancelled_Click);
             // 
             // cmdWednesdayDone
             // 
@@ -297,6 +304,7 @@
             this.cmdFridayCancelled.Text = "Annulé";
             this.cmdFridayCancelled.UseVisualStyleBackColor = true;
             this.cmdFridayCancelled.Visible = false;
+            this.cmdFridayCancelled.Click += new System.EventHandler(this.cmdFridayCancelled_Click);
             // 
             // cmdSaturdayDone
             // 
@@ -321,6 +329,7 @@
             this.cmdSaturdayCancelled.Text = "Annulé";
             this.cmdSaturdayCancelled.UseVisualStyleBackColor = true;
             this.cmdSaturdayCancelled.Visible = false;
+            this.cmdSaturdayCancelled.Click += new System.EventHandler(this.cmdSaturdayCancelled_Click);
             // 
             // lblHowToUse
             // 
@@ -490,17 +499,18 @@
             this.lblWednesdayRecipe.Name = "lblWednesdayRecipe";
             this.lblWednesdayRecipe.Size = new System.Drawing.Size(141, 96);
             this.lblWednesdayRecipe.TabIndex = 0;
+            this.lblWednesdayRecipe.Click += new System.EventHandler(this.lblWednesdayRecipe_Click);
             // 
             // lblThursdayRecipe
             // 
-            this.lblThursdayRecipe.Location = new System.Drawing.Point(3, 4);
+            this.lblThursdayRecipe.Location = new System.Drawing.Point(3, 3);
             this.lblThursdayRecipe.Name = "lblThursdayRecipe";
             this.lblThursdayRecipe.Size = new System.Drawing.Size(141, 96);
             this.lblThursdayRecipe.TabIndex = 0;
             // 
             // lblFridayRecipe
             // 
-            this.lblFridayRecipe.Location = new System.Drawing.Point(3, 0);
+            this.lblFridayRecipe.Location = new System.Drawing.Point(3, 1);
             this.lblFridayRecipe.Name = "lblFridayRecipe";
             this.lblFridayRecipe.Size = new System.Drawing.Size(141, 96);
             this.lblFridayRecipe.TabIndex = 0;
@@ -518,6 +528,13 @@
             this.lblSundayRecipe.Name = "lblSundayRecipe";
             this.lblSundayRecipe.Size = new System.Drawing.Size(141, 96);
             this.lblSundayRecipe.TabIndex = 0;
+            // 
+            // lblMondayRecipe
+            // 
+            this.lblMondayRecipe.Location = new System.Drawing.Point(2, 2);
+            this.lblMondayRecipe.Name = "lblMondayRecipe";
+            this.lblMondayRecipe.Size = new System.Drawing.Size(141, 96);
+            this.lblMondayRecipe.TabIndex = 0;
             // 
             // frmMealPlanner
             // 
@@ -569,6 +586,7 @@
             this.Text = "Planificateur de repas";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmMealPlanner_Load);
+            this.pnlMonday.ResumeLayout(false);
             this.pnlTuesday.ResumeLayout(false);
             this.pnlWednesday.ResumeLayout(false);
             this.pnlThursday.ResumeLayout(false);
@@ -632,5 +650,6 @@
         private System.Windows.Forms.Label lblFridayRecipe;
         private System.Windows.Forms.Label lblSaturdayRecipe;
         private System.Windows.Forms.Label lblSundayRecipe;
+        private System.Windows.Forms.Label lblMondayRecipe;
     }
 }

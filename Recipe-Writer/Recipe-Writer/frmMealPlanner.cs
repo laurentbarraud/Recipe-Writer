@@ -37,5 +37,54 @@ namespace Recipe_Writer
         {
             this.Hide();
         }
+
+        private void cmdMondayCancelled_Click(object sender, EventArgs e)
+        {
+            lblMondayRecipe.Text = "";
+            cmdMondayCancelled.Visible = false;
+            cmdMondayDone.Visible = false;
+        }
+
+        private void cmdTuesdayCancelled_Click(object sender, EventArgs e)
+        {
+            lblTuesdayRecipe.Text = "";
+            cmdTuesdayCancelled.Visible = false;
+            cmdTuesdayDone.Visible = false;
+        }
+
+        private void lblWednesdayRecipe_Click(object sender, EventArgs e)
+        {
+            lblWednesdayRecipe.Text = "";
+            cmdWednesdayCancelled.Visible = false;
+            cmdWednesdayDone.Visible = false;
+        }
+
+        private void cmdThursdayCancelled_Click(object sender, EventArgs e)
+        {
+            lblThursdayRecipe.Text = "";
+            cmdThursdayCancelled.Visible = false;
+            cmdThursdayDone.Visible = false;
+        }
+
+        private void cmdFridayCancelled_Click(object sender, EventArgs e)
+        {
+            lblFridayRecipe.Text = "";
+            cmdFridayCancelled.Visible = false;
+            cmdFridayDone.Visible = false;
+        }
+
+        private void cmdSaturdayCancelled_Click(object sender, EventArgs e)
+        {
+            lblSaturdayRecipe.Text = "";
+            cmdSaturdayCancelled.Visible = false;
+            cmdSaturdayDone.Visible = false;
+        }
+
+        private void cmdSundayCancelled_Click(object sender, EventArgs e)
+        {
+            lblSundayRecipe.Text = "";
+            cmdSundayCancelled.Visible = false;
+            cmdSundayDone.Visible = false;
+        }
     }
 }
