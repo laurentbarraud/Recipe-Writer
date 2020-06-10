@@ -74,6 +74,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMealPlanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMealPlanner.Designer.cs">
+      <DependentUpon>frmMealPlanner.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewImagePath.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMealPlanner.resx">
+      <DependentUpon>frmMealPlanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewImagePath.resx">
       <DependentUpon>frmNewImagePath.cs</DependentUpon>

@@ -872,6 +872,12 @@ namespace Recipe_Writer
             _frmInventory.ShowDialog();
         }
 
+        private void pnlMealsPlanner_MouseClick(object sender, MouseEventArgs e)
+        {
+            frmMealPlanner _frmMealPlanner = new frmMealPlanner(this);
+            _frmMealPlanner.Show();
+        }
+
         private void picSettings_Click(object sender, EventArgs e)
         {
             frmAbout _frmAbout = new frmAbout();

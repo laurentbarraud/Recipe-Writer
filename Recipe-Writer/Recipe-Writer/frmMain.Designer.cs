@@ -277,6 +277,7 @@
             this.pnlMealsPlanner.Name = "pnlMealsPlanner";
             this.pnlMealsPlanner.Size = new System.Drawing.Size(59, 50);
             this.pnlMealsPlanner.TabIndex = 19;
+            this.pnlMealsPlanner.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlMealsPlanner_MouseClick);
             this.pnlMealsPlanner.MouseHover += new System.EventHandler(this.pnlMealsPlanner_MouseHover);
             // 
             // pnlInventory
