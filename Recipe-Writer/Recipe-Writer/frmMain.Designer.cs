@@ -267,6 +267,7 @@
             this.picSettings.Size = new System.Drawing.Size(60, 50);
             this.picSettings.TabIndex = 22;
             this.picSettings.TabStop = false;
+            this.picSettings.Click += new System.EventHandler(this.picSettings_Click);
             // 
             // pnlMealsPlanner
             // 

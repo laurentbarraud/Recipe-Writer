@@ -871,5 +871,11 @@ namespace Recipe_Writer
             frmInventory _frmInventory = new frmInventory(this);
             _frmInventory.ShowDialog();
         }
+
+        private void picSettings_Click(object sender, EventArgs e)
+        {
+            frmAbout _frmAbout = new frmAbout();
+            _frmAbout.ShowDialog();
+        }
     }
 }
