@@ -861,6 +861,15 @@ namespace Recipe_Writer
             this.Refresh();
         }
 
-   
+        /// <summary>
+        /// Displays the inventory form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pnlInventory_Click(object sender, EventArgs e)
+        {
+            frmInventory _frmInventory = new frmInventory(this);
+            _frmInventory.ShowDialog();
+        }
     }
 }
