@@ -32,5 +32,10 @@ namespace Recipe_Writer
         {
             this.Hide();
         }
+
+        private void frmNewInstruction_Move(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

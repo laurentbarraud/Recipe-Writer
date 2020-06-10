@@ -86,5 +86,92 @@ namespace Recipe_Writer
             cmdSundayCancelled.Visible = false;
             cmdSundayDone.Visible = false;
         }
+
+        private void lblMondayRecipe_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+                e.Effect = DragDropEffects.Copy;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void lblTuesdayRecipe_DragEnter(object sender, DragEventArgs e)
+        {
+            lblTuesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+        }
+
+        private void lblWednesdayRecipe_DragEnter(object sender, DragEventArgs e)
+        {
+            lblWednesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+        }
+
+        private void lblThursdayRecipe_DragEnter(object sender, DragEventArgs e)
+        {
+            lblThursdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+        }
+
+        private void lblFridayRecipe_DragEnter(object sender, DragEventArgs e)
+        {
+            lblFridayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+        }
+
+        private void lblSaturdayRecipe_DragEnter(object sender, DragEventArgs e)
+        {
+            lblSaturdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+        }
+
+        private void lblSundayRecipe_DragEnter(object sender, DragEventArgs e)
+        {
+            lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+        }
+
+        private void lblMondayRecipe_DragDrop(object sender, DragEventArgs e)
+        {
+            lblMondayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdMondayCancelled.Visible = true;
+            cmdMondayDone.Visible = true;
+        }
+
+        private void lblTuesdayRecipe_DragDrop(object sender, DragEventArgs e)
+        {
+            lblTuesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdTuesdayCancelled.Visible = true;
+            cmdTuesdayDone.Visible = true;
+        }
+
+        private void lblWednesdayRecipe_DragDrop(object sender, DragEventArgs e)
+        {
+            lblWednesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdWednesdayCancelled.Visible = true;
+            cmdWednesdayDone.Visible = true;
+        }
+
+        private void lblThursdayRecipe_DragDrop(object sender, DragEventArgs e)
+        {
+            lblThursdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdThursdayCancelled.Visible = true;
+            cmdThursdayDone.Visible = true;
+        }
+
+        private void lblFridayRecipe_DragDrop(object sender, DragEventArgs e)
+        {
+            lblFridayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdFridayCancelled.Visible = true;
+            cmdFridayDone.Visible = true;
+        }
+
+        private void lblSaturdayRecipe_DragDrop(object sender, DragEventArgs e)
+        {
+            lblSaturdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdSaturdayCancelled.Visible = true;
+            cmdSaturdayDone.Visible = true;
+        }
+
+        private void lblSundayRecipe_DragDrop(object sender, DragEventArgs e)
+        {
+            lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdSundayCancelled.Visible = true;
+            cmdSundayDone.Visible = true;
+        }
     }
 }

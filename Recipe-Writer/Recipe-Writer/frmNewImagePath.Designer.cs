@@ -78,6 +78,7 @@
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewImagePath);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewImagePath";

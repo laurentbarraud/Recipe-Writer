@@ -883,5 +883,19 @@ namespace Recipe_Writer
             frmAbout _frmAbout = new frmAbout();
             _frmAbout.ShowDialog();
         }
+
+        /// <summary>
+        /// Allows the user to drag and drop the selected recipe title
+        /// Source: https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/walkthrough-performing-a-drag-and-drop-operation-in-windows-forms
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lstSearchResults_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (lstSearchResults.SelectedIndex != -1)
+            {
+                lstSearchResults.DoDragDrop(lstSearchResults.SelectedItem.ToString(), DragDropEffects.Copy);
+            }
+        }
     }
 }

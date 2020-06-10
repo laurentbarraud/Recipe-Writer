@@ -127,6 +127,7 @@
             this.Controls.Add(this.lblNewIngredientName);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewIngredient";

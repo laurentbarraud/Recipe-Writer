@@ -170,6 +170,7 @@
             this.lstSearchResults.Size = new System.Drawing.Size(814, 84);
             this.lstSearchResults.TabIndex = 4;
             this.lstSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstSearchResults_SelectedIndexChanged);
+            this.lstSearchResults.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstSearchResults_MouseDown);
             // 
             // cmsRecipeResult
             // 

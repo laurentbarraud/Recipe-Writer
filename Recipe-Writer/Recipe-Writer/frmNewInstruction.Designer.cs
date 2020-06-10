@@ -90,11 +90,13 @@
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewInstruction);
             this.Controls.Add(this.lblNewInstruction);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewInstruction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajout d\'une nouvelle instruction à la recette";
+            this.Move += new System.EventHandler(this.frmNewInstruction_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
 

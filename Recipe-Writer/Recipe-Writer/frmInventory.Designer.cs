@@ -72,12 +72,14 @@
             this.Controls.Add(this.pnlIngredientsStatus);
             this.Controls.Add(this.lstIngredientsAvailable);
             this.Controls.Add(this.cmdValidate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventaire des ingrédients";
             this.Load += new System.EventHandler(this.frmInventory_Load);
+            this.Move += new System.EventHandler(this.frmInventory_Move);
             this.ResumeLayout(false);
 
         }

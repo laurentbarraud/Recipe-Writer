@@ -125,5 +125,10 @@ namespace Recipe_Writer
         {
             this.Hide();
         }
+
+        private void frmInventory_Move(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

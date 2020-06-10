@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.pnlMonday = new System.Windows.Forms.Panel();
-            this.pnlTuesday = new System.Windows.Forms.Panel();
-            this.pnlWednesday = new System.Windows.Forms.Panel();
-            this.pnlThursday = new System.Windows.Forms.Panel();
-            this.pnlFriday = new System.Windows.Forms.Panel();
-            this.pnlSaturday = new System.Windows.Forms.Panel();
-            this.pnlSunday = new System.Windows.Forms.Panel();
             this.cmdMondayDone = new System.Windows.Forms.Button();
             this.cmdMondayCancelled = new System.Windows.Forms.Button();
             this.cmdThursdayDone = new System.Windows.Forms.Button();
@@ -65,20 +58,13 @@
             this.txtFriday = new System.Windows.Forms.TextBox();
             this.txtSaturday = new System.Windows.Forms.TextBox();
             this.txtSunday = new System.Windows.Forms.TextBox();
+            this.lblMondayRecipe = new System.Windows.Forms.Label();
             this.lblTuesdayRecipe = new System.Windows.Forms.Label();
             this.lblWednesdayRecipe = new System.Windows.Forms.Label();
             this.lblThursdayRecipe = new System.Windows.Forms.Label();
             this.lblFridayRecipe = new System.Windows.Forms.Label();
             this.lblSaturdayRecipe = new System.Windows.Forms.Label();
             this.lblSundayRecipe = new System.Windows.Forms.Label();
-            this.lblMondayRecipe = new System.Windows.Forms.Label();
-            this.pnlMonday.SuspendLayout();
-            this.pnlTuesday.SuspendLayout();
-            this.pnlWednesday.SuspendLayout();
-            this.pnlThursday.SuspendLayout();
-            this.pnlFriday.SuspendLayout();
-            this.pnlSaturday.SuspendLayout();
-            this.pnlSunday.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTuesdayEnoughIngredients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWednesdayEnoughIngredients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSaturdayEnoughIngredients)).BeginInit();
@@ -100,62 +86,6 @@
             this.cmdValidate.TabIndex = 3;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
-            // 
-            // pnlMonday
-            // 
-            this.pnlMonday.Controls.Add(this.lblMondayRecipe);
-            this.pnlMonday.Location = new System.Drawing.Point(24, 13);
-            this.pnlMonday.Name = "pnlMonday";
-            this.pnlMonday.Size = new System.Drawing.Size(149, 100);
-            this.pnlMonday.TabIndex = 4;
-            // 
-            // pnlTuesday
-            // 
-            this.pnlTuesday.Controls.Add(this.lblTuesdayRecipe);
-            this.pnlTuesday.Location = new System.Drawing.Point(212, 13);
-            this.pnlTuesday.Name = "pnlTuesday";
-            this.pnlTuesday.Size = new System.Drawing.Size(149, 100);
-            this.pnlTuesday.TabIndex = 4;
-            // 
-            // pnlWednesday
-            // 
-            this.pnlWednesday.Controls.Add(this.lblWednesdayRecipe);
-            this.pnlWednesday.Location = new System.Drawing.Point(403, 13);
-            this.pnlWednesday.Name = "pnlWednesday";
-            this.pnlWednesday.Size = new System.Drawing.Size(149, 100);
-            this.pnlWednesday.TabIndex = 4;
-            // 
-            // pnlThursday
-            // 
-            this.pnlThursday.Controls.Add(this.lblThursdayRecipe);
-            this.pnlThursday.Location = new System.Drawing.Point(24, 144);
-            this.pnlThursday.Name = "pnlThursday";
-            this.pnlThursday.Size = new System.Drawing.Size(149, 100);
-            this.pnlThursday.TabIndex = 4;
-            // 
-            // pnlFriday
-            // 
-            this.pnlFriday.Controls.Add(this.lblFridayRecipe);
-            this.pnlFriday.Location = new System.Drawing.Point(212, 145);
-            this.pnlFriday.Name = "pnlFriday";
-            this.pnlFriday.Size = new System.Drawing.Size(149, 100);
-            this.pnlFriday.TabIndex = 4;
-            // 
-            // pnlSaturday
-            // 
-            this.pnlSaturday.Controls.Add(this.lblSaturdayRecipe);
-            this.pnlSaturday.Location = new System.Drawing.Point(403, 145);
-            this.pnlSaturday.Name = "pnlSaturday";
-            this.pnlSaturday.Size = new System.Drawing.Size(149, 100);
-            this.pnlSaturday.TabIndex = 4;
-            // 
-            // pnlSunday
-            // 
-            this.pnlSunday.Controls.Add(this.lblSundayRecipe);
-            this.pnlSunday.Location = new System.Drawing.Point(24, 280);
-            this.pnlSunday.Name = "pnlSunday";
-            this.pnlSunday.Size = new System.Drawing.Size(149, 100);
-            this.pnlSunday.TabIndex = 4;
             // 
             // cmdMondayDone
             // 
@@ -486,61 +416,95 @@
             this.txtSunday.Text = "Dim";
             this.txtSunday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblTuesdayRecipe
-            // 
-            this.lblTuesdayRecipe.Location = new System.Drawing.Point(5, 1);
-            this.lblTuesdayRecipe.Name = "lblTuesdayRecipe";
-            this.lblTuesdayRecipe.Size = new System.Drawing.Size(141, 96);
-            this.lblTuesdayRecipe.TabIndex = 0;
-            // 
-            // lblWednesdayRecipe
-            // 
-            this.lblWednesdayRecipe.Location = new System.Drawing.Point(3, 1);
-            this.lblWednesdayRecipe.Name = "lblWednesdayRecipe";
-            this.lblWednesdayRecipe.Size = new System.Drawing.Size(141, 96);
-            this.lblWednesdayRecipe.TabIndex = 0;
-            this.lblWednesdayRecipe.Click += new System.EventHandler(this.lblWednesdayRecipe_Click);
-            // 
-            // lblThursdayRecipe
-            // 
-            this.lblThursdayRecipe.Location = new System.Drawing.Point(3, 3);
-            this.lblThursdayRecipe.Name = "lblThursdayRecipe";
-            this.lblThursdayRecipe.Size = new System.Drawing.Size(141, 96);
-            this.lblThursdayRecipe.TabIndex = 0;
-            // 
-            // lblFridayRecipe
-            // 
-            this.lblFridayRecipe.Location = new System.Drawing.Point(3, 1);
-            this.lblFridayRecipe.Name = "lblFridayRecipe";
-            this.lblFridayRecipe.Size = new System.Drawing.Size(141, 96);
-            this.lblFridayRecipe.TabIndex = 0;
-            // 
-            // lblSaturdayRecipe
-            // 
-            this.lblSaturdayRecipe.Location = new System.Drawing.Point(3, 1);
-            this.lblSaturdayRecipe.Name = "lblSaturdayRecipe";
-            this.lblSaturdayRecipe.Size = new System.Drawing.Size(141, 96);
-            this.lblSaturdayRecipe.TabIndex = 0;
-            // 
-            // lblSundayRecipe
-            // 
-            this.lblSundayRecipe.Location = new System.Drawing.Point(3, 1);
-            this.lblSundayRecipe.Name = "lblSundayRecipe";
-            this.lblSundayRecipe.Size = new System.Drawing.Size(141, 96);
-            this.lblSundayRecipe.TabIndex = 0;
-            // 
             // lblMondayRecipe
             // 
-            this.lblMondayRecipe.Location = new System.Drawing.Point(2, 2);
+            this.lblMondayRecipe.AllowDrop = true;
+            this.lblMondayRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMondayRecipe.Location = new System.Drawing.Point(32, 12);
             this.lblMondayRecipe.Name = "lblMondayRecipe";
             this.lblMondayRecipe.Size = new System.Drawing.Size(141, 96);
             this.lblMondayRecipe.TabIndex = 0;
+            this.lblMondayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblMondayRecipe_DragDrop);
+            this.lblMondayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblMondayRecipe_DragEnter);
+            // 
+            // lblTuesdayRecipe
+            // 
+            this.lblTuesdayRecipe.AllowDrop = true;
+            this.lblTuesdayRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTuesdayRecipe.Location = new System.Drawing.Point(220, 14);
+            this.lblTuesdayRecipe.Name = "lblTuesdayRecipe";
+            this.lblTuesdayRecipe.Size = new System.Drawing.Size(141, 96);
+            this.lblTuesdayRecipe.TabIndex = 10;
+            this.lblTuesdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblTuesdayRecipe_DragDrop);
+            this.lblTuesdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblTuesdayRecipe_DragEnter);
+            // 
+            // lblWednesdayRecipe
+            // 
+            this.lblWednesdayRecipe.AllowDrop = true;
+            this.lblWednesdayRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWednesdayRecipe.Location = new System.Drawing.Point(411, 12);
+            this.lblWednesdayRecipe.Name = "lblWednesdayRecipe";
+            this.lblWednesdayRecipe.Size = new System.Drawing.Size(141, 96);
+            this.lblWednesdayRecipe.TabIndex = 11;
+            this.lblWednesdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblWednesdayRecipe_DragDrop);
+            this.lblWednesdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblWednesdayRecipe_DragEnter);
+            // 
+            // lblThursdayRecipe
+            // 
+            this.lblThursdayRecipe.AllowDrop = true;
+            this.lblThursdayRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThursdayRecipe.Location = new System.Drawing.Point(32, 144);
+            this.lblThursdayRecipe.Name = "lblThursdayRecipe";
+            this.lblThursdayRecipe.Size = new System.Drawing.Size(141, 96);
+            this.lblThursdayRecipe.TabIndex = 12;
+            this.lblThursdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblThursdayRecipe_DragDrop);
+            this.lblThursdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblThursdayRecipe_DragEnter);
+            // 
+            // lblFridayRecipe
+            // 
+            this.lblFridayRecipe.AllowDrop = true;
+            this.lblFridayRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFridayRecipe.Location = new System.Drawing.Point(220, 145);
+            this.lblFridayRecipe.Name = "lblFridayRecipe";
+            this.lblFridayRecipe.Size = new System.Drawing.Size(141, 96);
+            this.lblFridayRecipe.TabIndex = 13;
+            this.lblFridayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblFridayRecipe_DragDrop);
+            this.lblFridayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblFridayRecipe_DragEnter);
+            // 
+            // lblSaturdayRecipe
+            // 
+            this.lblSaturdayRecipe.AllowDrop = true;
+            this.lblSaturdayRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaturdayRecipe.Location = new System.Drawing.Point(411, 145);
+            this.lblSaturdayRecipe.Name = "lblSaturdayRecipe";
+            this.lblSaturdayRecipe.Size = new System.Drawing.Size(141, 96);
+            this.lblSaturdayRecipe.TabIndex = 14;
+            this.lblSaturdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblSaturdayRecipe_DragDrop);
+            this.lblSaturdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSaturdayRecipe_DragEnter);
+            // 
+            // lblSundayRecipe
+            // 
+            this.lblSundayRecipe.AllowDrop = true;
+            this.lblSundayRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSundayRecipe.Location = new System.Drawing.Point(32, 280);
+            this.lblSundayRecipe.Name = "lblSundayRecipe";
+            this.lblSundayRecipe.Size = new System.Drawing.Size(141, 96);
+            this.lblSundayRecipe.TabIndex = 15;
+            this.lblSundayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblSundayRecipe_DragDrop);
+            this.lblSundayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSundayRecipe_DragEnter);
             // 
             // frmMealPlanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 417);
+            this.Controls.Add(this.lblSundayRecipe);
+            this.Controls.Add(this.lblSaturdayRecipe);
+            this.Controls.Add(this.lblFridayRecipe);
+            this.Controls.Add(this.lblThursdayRecipe);
+            this.Controls.Add(this.lblWednesdayRecipe);
+            this.Controls.Add(this.lblTuesdayRecipe);
+            this.Controls.Add(this.lblMondayRecipe);
             this.Controls.Add(this.txtSunday);
             this.Controls.Add(this.txtSaturday);
             this.Controls.Add(this.txtFriday);
@@ -571,13 +535,6 @@
             this.Controls.Add(this.cmdTuesdayDone);
             this.Controls.Add(this.cmdMondayCancelled);
             this.Controls.Add(this.cmdMondayDone);
-            this.Controls.Add(this.pnlSaturday);
-            this.Controls.Add(this.pnlWednesday);
-            this.Controls.Add(this.pnlFriday);
-            this.Controls.Add(this.pnlTuesday);
-            this.Controls.Add(this.pnlSunday);
-            this.Controls.Add(this.pnlThursday);
-            this.Controls.Add(this.pnlMonday);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -586,13 +543,6 @@
             this.Text = "Planificateur de repas";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmMealPlanner_Load);
-            this.pnlMonday.ResumeLayout(false);
-            this.pnlTuesday.ResumeLayout(false);
-            this.pnlWednesday.ResumeLayout(false);
-            this.pnlThursday.ResumeLayout(false);
-            this.pnlFriday.ResumeLayout(false);
-            this.pnlSaturday.ResumeLayout(false);
-            this.pnlSunday.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picTuesdayEnoughIngredients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWednesdayEnoughIngredients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSaturdayEnoughIngredients)).EndInit();
@@ -608,13 +558,6 @@
         #endregion
 
         private System.Windows.Forms.Button cmdValidate;
-        private System.Windows.Forms.Panel pnlMonday;
-        private System.Windows.Forms.Panel pnlTuesday;
-        private System.Windows.Forms.Panel pnlWednesday;
-        private System.Windows.Forms.Panel pnlThursday;
-        private System.Windows.Forms.Panel pnlFriday;
-        private System.Windows.Forms.Panel pnlSaturday;
-        private System.Windows.Forms.Panel pnlSunday;
         private System.Windows.Forms.Button cmdMondayDone;
         private System.Windows.Forms.Button cmdMondayCancelled;
         private System.Windows.Forms.Button cmdThursdayDone;
@@ -644,12 +587,12 @@
         private System.Windows.Forms.TextBox txtFriday;
         private System.Windows.Forms.TextBox txtSaturday;
         private System.Windows.Forms.TextBox txtSunday;
+        private System.Windows.Forms.Label lblMondayRecipe;
         private System.Windows.Forms.Label lblTuesdayRecipe;
         private System.Windows.Forms.Label lblWednesdayRecipe;
         private System.Windows.Forms.Label lblThursdayRecipe;
         private System.Windows.Forms.Label lblFridayRecipe;
         private System.Windows.Forms.Label lblSaturdayRecipe;
         private System.Windows.Forms.Label lblSundayRecipe;
-        private System.Windows.Forms.Label lblMondayRecipe;
     }
 }
