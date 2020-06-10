@@ -293,7 +293,7 @@ namespace Recipe_Writer
         /// <summary>
         /// Reads all ingredients stored in the database
         /// </summary>
-        /// <returns>the list of ingredients stored in the database</returns>
+        /// <returns>the list of ingredients names stored in the database</returns>
         public List<string> ReadAllIngredientsStored()
         {
             // Declares a list of ingredients to contain the ones needed to make the recipe
@@ -315,6 +315,31 @@ namespace Recipe_Writer
             }
             
             return allIngredientsNamesList;
+        }
+
+        /// <summary>
+        /// Reads all the quantities of ingredients which are stored in the database
+        /// </summary>
+        /// <returns>a list of double containing the quantities available for each ingredient</returns>
+        public List<double> ReadAllIngredientsQtyAvailable()
+        {
+            // Declares a list of ingredients to contain the ones needed to make the recipe
+            List<double> allIngredientsQtyList = new List<double>();
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "SELECT id, ingredientName, qtyAvailable FROM Ingredients;";
+
+            double qtyIngredientStored = 0.0;
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                // Adds the ingredient to the list
+                double.TryParse(dataReader["qtyAvailable"].ToString(), out qtyIngredientStored);
+                allIngredientsQtyList.Add(qtyIngredientStored);
+            }
+
+            return allIngredientsQtyList;
         }
 
         /// <summary>

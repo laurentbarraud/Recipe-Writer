@@ -35,6 +35,7 @@ namespace Recipe_Writer
             // Clears the ingredients list before adding new ones
             lstIngredientsAvailable.Items.Clear();
 
+            // Adds each ingredient name in the ListBox control
             foreach (string ingredientName in _frmMain.dbConn.ReadAllIngredientsStored())
             {
                 lstIngredientsAvailable.Items.Add(ingredientName);
@@ -114,6 +115,10 @@ namespace Recipe_Writer
 
                 // Adds the controls to the layout ============================================================================================
                 pnlIngredientsStatus.Controls.Add(nudQtyIngredient);
+
+                // Adds each ingredient quantity in the appropriate numeric up-down control
+                nudQtyIngredient.Value = decimal.Parse(_frmMain.dbConn.ReadAllIngredientsQtyAvailable()[currentIngredient].ToString());
+ 
                 pnlIngredientsStatus.Controls.Add(cmdDeleteIngredient);
 
                 currentIngredient += 1;

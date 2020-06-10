@@ -93,7 +93,6 @@
             this.txtTitleSearch.Size = new System.Drawing.Size(571, 27);
             this.txtTitleSearch.TabIndex = 0;
             this.txtTitleSearch.Enter += new System.EventHandler(this.txtTitleSearch_Enter);
-
             // 
             // lblSearchResults
             // 
