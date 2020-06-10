@@ -89,6 +89,7 @@
             // 
             // cmdMondayDone
             // 
+            this.cmdMondayDone.Enabled = false;
             this.cmdMondayDone.FlatAppearance.BorderSize = 0;
             this.cmdMondayDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdMondayDone.Location = new System.Drawing.Point(98, 113);
@@ -114,6 +115,7 @@
             // 
             // cmdThursdayDone
             // 
+            this.cmdThursdayDone.Enabled = false;
             this.cmdThursdayDone.FlatAppearance.BorderSize = 0;
             this.cmdThursdayDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdThursdayDone.Location = new System.Drawing.Point(98, 246);
@@ -139,6 +141,7 @@
             // 
             // cmdSundayDone
             // 
+            this.cmdSundayDone.Enabled = false;
             this.cmdSundayDone.FlatAppearance.BorderSize = 0;
             this.cmdSundayDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSundayDone.Location = new System.Drawing.Point(98, 382);
@@ -164,6 +167,7 @@
             // 
             // cmdTuesdayDone
             // 
+            this.cmdTuesdayDone.Enabled = false;
             this.cmdTuesdayDone.FlatAppearance.BorderSize = 0;
             this.cmdTuesdayDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdTuesdayDone.Location = new System.Drawing.Point(286, 113);
@@ -189,6 +193,7 @@
             // 
             // cmdWednesdayDone
             // 
+            this.cmdWednesdayDone.Enabled = false;
             this.cmdWednesdayDone.FlatAppearance.BorderSize = 0;
             this.cmdWednesdayDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdWednesdayDone.Location = new System.Drawing.Point(477, 113);
@@ -213,6 +218,7 @@
             // 
             // cmdFridayDone
             // 
+            this.cmdFridayDone.Enabled = false;
             this.cmdFridayDone.FlatAppearance.BorderSize = 0;
             this.cmdFridayDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdFridayDone.Location = new System.Drawing.Point(286, 245);
@@ -238,6 +244,7 @@
             // 
             // cmdSaturdayDone
             // 
+            this.cmdSaturdayDone.Enabled = false;
             this.cmdSaturdayDone.FlatAppearance.BorderSize = 0;
             this.cmdSaturdayDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSaturdayDone.Location = new System.Drawing.Point(477, 245);

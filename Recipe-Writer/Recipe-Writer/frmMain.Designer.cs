@@ -330,7 +330,7 @@
             // 
             this.picClosePanel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             this.picClosePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picClosePanel.Location = new System.Drawing.Point(456, 3);
+            this.picClosePanel.Location = new System.Drawing.Point(461, 3);
             this.picClosePanel.Name = "picClosePanel";
             this.picClosePanel.Size = new System.Drawing.Size(39, 23);
             this.picClosePanel.TabIndex = 22;
@@ -366,9 +366,9 @@
             this.lblSearchIngredient3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchIngredient3.Location = new System.Drawing.Point(37, 174);
             this.lblSearchIngredient3.Name = "lblSearchIngredient3";
-            this.lblSearchIngredient3.Size = new System.Drawing.Size(91, 18);
+            this.lblSearchIngredient3.Size = new System.Drawing.Size(99, 18);
             this.lblSearchIngredient3.TabIndex = 13;
-            this.lblSearchIngredient3.Text = "Ingrédient #3";
+            this.lblSearchIngredient3.Text = "Ingrédient #3 :";
             this.lblSearchIngredient3.Click += new System.EventHandler(this.lblSearchIngredient3_Click);
             // 
             // lblSearchIngredient2
@@ -377,9 +377,9 @@
             this.lblSearchIngredient2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchIngredient2.Location = new System.Drawing.Point(38, 129);
             this.lblSearchIngredient2.Name = "lblSearchIngredient2";
-            this.lblSearchIngredient2.Size = new System.Drawing.Size(91, 18);
+            this.lblSearchIngredient2.Size = new System.Drawing.Size(99, 18);
             this.lblSearchIngredient2.TabIndex = 11;
-            this.lblSearchIngredient2.Text = "Ingrédient #2";
+            this.lblSearchIngredient2.Text = "Ingrédient #2 :";
             this.lblSearchIngredient2.Click += new System.EventHandler(this.lblSearchIngredient2_Click);
             // 
             // lblSearchIngredient1
@@ -388,9 +388,9 @@
             this.lblSearchIngredient1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchIngredient1.Location = new System.Drawing.Point(38, 83);
             this.lblSearchIngredient1.Name = "lblSearchIngredient1";
-            this.lblSearchIngredient1.Size = new System.Drawing.Size(91, 18);
+            this.lblSearchIngredient1.Size = new System.Drawing.Size(99, 18);
             this.lblSearchIngredient1.TabIndex = 10;
-            this.lblSearchIngredient1.Text = "Ingrédient #1";
+            this.lblSearchIngredient1.Text = "Ingrédient #1 :";
             this.lblSearchIngredient1.Click += new System.EventHandler(this.lblSearchIngredient1_Click);
             // 
             // txtSearchIngredient3
@@ -420,7 +420,7 @@
             this.cmdIngredientsSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdIngredientsSearch.FlatAppearance.BorderSize = 0;
             this.cmdIngredientsSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdIngredientsSearch.Location = new System.Drawing.Point(417, 280);
+            this.cmdIngredientsSearch.Location = new System.Drawing.Point(424, 280);
             this.cmdIngredientsSearch.Name = "cmdIngredientsSearch";
             this.cmdIngredientsSearch.Size = new System.Drawing.Size(40, 40);
             this.cmdIngredientsSearch.TabIndex = 9;
@@ -501,7 +501,7 @@
             this.cmdAddInstruction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdAddInstruction.FlatAppearance.BorderSize = 0;
             this.cmdAddInstruction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdAddInstruction.Location = new System.Drawing.Point(1119, 292);
+            this.cmdAddInstruction.Location = new System.Drawing.Point(1117, 290);
             this.cmdAddInstruction.Name = "cmdAddInstruction";
             this.cmdAddInstruction.Size = new System.Drawing.Size(40, 35);
             this.cmdAddInstruction.TabIndex = 24;
@@ -515,7 +515,7 @@
             this.cmdDeleteIngredient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdDeleteIngredient.FlatAppearance.BorderSize = 0;
             this.cmdDeleteIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDeleteIngredient.Location = new System.Drawing.Point(889, 286);
+            this.cmdDeleteIngredient.Location = new System.Drawing.Point(893, 284);
             this.cmdDeleteIngredient.Name = "cmdDeleteIngredient";
             this.cmdDeleteIngredient.Size = new System.Drawing.Size(35, 30);
             this.cmdDeleteIngredient.TabIndex = 24;
@@ -538,7 +538,7 @@
             // 
             this.picLowBudget.BackgroundImage = global::Recipe_Writer.Properties.Resources.lowBudget;
             this.picLowBudget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLowBudget.Location = new System.Drawing.Point(797, 250);
+            this.picLowBudget.Location = new System.Drawing.Point(799, 250);
             this.picLowBudget.Name = "picLowBudget";
             this.picLowBudget.Size = new System.Drawing.Size(35, 30);
             this.picLowBudget.TabIndex = 12;
@@ -572,7 +572,7 @@
             this.cmdNewRecipe.FlatAppearance.BorderSize = 0;
             this.cmdNewRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdNewRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdNewRecipe.Location = new System.Drawing.Point(181, 30);
+            this.cmdNewRecipe.Location = new System.Drawing.Point(181, 27);
             this.cmdNewRecipe.Name = "cmdNewRecipe";
             this.cmdNewRecipe.Size = new System.Drawing.Size(50, 50);
             this.cmdNewRecipe.TabIndex = 2;
