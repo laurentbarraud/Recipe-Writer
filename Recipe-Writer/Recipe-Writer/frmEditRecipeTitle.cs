@@ -14,7 +14,14 @@ namespace Recipe_Writer
     {
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
+        private int idRecipeToEdit = 0;
         private string recipeTitleToEdit = "";
+
+        public int IdRecipeToEdit
+        {
+            get { return idRecipeToEdit; }
+            set { idRecipeToEdit = value; }
+        }
 
         public string RecipeTitleToEdit
         {
@@ -50,6 +57,21 @@ namespace Recipe_Writer
         private void frmEditRecipeTitle_Move(object sender, EventArgs e)
         {
             this.CenterToScreen();
+        }
+
+        private void cmdValidate_Click(object sender, EventArgs e)
+        {
+            string formattedNewRecipeTitle = txtRecipeTitleToEdit.Text;
+
+            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
+            if (txtRecipeTitleToEdit.Text.Contains("'"))
+            {
+                formattedNewRecipeTitle = txtRecipeTitleToEdit.Text.Replace("'", "''");
+            }
+
+            _frmMain.dbConn.UpdateRecipeBasicInfo(idRecipeToEdit, formattedNewRecipeTitle);
+
+            this.Hide();
         }
     }
 }

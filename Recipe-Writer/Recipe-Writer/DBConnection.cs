@@ -1061,21 +1061,21 @@ namespace Recipe_Writer
             if (newTitleRecipe != "")
             {
                 SQLiteCommand cmd = sqliteConn.CreateCommand();
-                cmd.CommandText = "UPDATE 'Recipes' SET title =" + newTitleRecipe + "WHERE id =" + idRecipe + ";";
+                cmd.CommandText = "UPDATE 'Recipes' SET title ='"+newTitleRecipe+"' WHERE id =" + idRecipe + ";";
                 cmd.ExecuteReader();
             }
 
             if (newCompletionTime != "")
             {
                 SQLiteCommand cmd = sqliteConn.CreateCommand();
-                cmd.CommandText = "UPDATE 'Recipes' SET completionTime =" + newCompletionTime + "WHERE id =" + idRecipe + ";";
+                cmd.CommandText = "UPDATE 'Recipes' SET completionTime ='"+newCompletionTime+"' WHERE id =" + idRecipe + ";";
                 cmd.ExecuteReader();
             }
 
             if (newLowBudgetStatus != "")
             {
                 SQLiteCommand cmd = sqliteConn.CreateCommand();
-                cmd.CommandText = "UPDATE 'Recipes' SET lowBudget =" + newLowBudgetStatus + "WHERE id =" + idRecipe + ";";
+                cmd.CommandText = "UPDATE 'Recipes' SET lowBudget ='"+newLowBudgetStatus+"' WHERE id =" + idRecipe + ";";
                 cmd.ExecuteReader();
             }
         }

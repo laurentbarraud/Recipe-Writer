@@ -892,7 +892,17 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void modifierLeTitreDeCetteRecetteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string formattedTitle = lstSearchResults.SelectedItem.ToString();
+
+            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
+            if (lstSearchResults.SelectedItem.ToString().Contains("'"))
+            {
+                formattedTitle = txtTitleSearch.Text.Replace("'", "''");
+            }
+
+
             frmEditRecipeTitle _frmEditRecipeTitle = new frmEditRecipeTitle(this);
+            _frmEditRecipeTitle.IdRecipeToEdit = dbConn.ReadRecipeId(formattedTitle);
             _frmEditRecipeTitle.RecipeTitleToEdit = lstSearchResults.SelectedItem.ToString();
             _frmEditRecipeTitle.ShowDialog();
         }
