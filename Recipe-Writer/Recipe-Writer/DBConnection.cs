@@ -774,7 +774,7 @@ namespace Recipe_Writer
                                 "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
                                 "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
                                 "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
-                                "LEFT JOIN Recipes ON Recipes_has_ingredients.id = Recipes.id";
+                                "LEFT JOIN Recipes ON Recipes_has_Ingredients.id = Recipes.id";
 
             // Counting the number of words given in arguments
             int nbIngredientsTyped = 0;
@@ -855,16 +855,26 @@ namespace Recipe_Writer
         /// <returns>a string list of the titles of the recipes found in the database</returns>
         public List<string> SearchRecipesByExcludingIngredients(string ingredientToExcludeInput1 = "", string ingredientToExcludeInput2 = "", string ingredientToExcludeInput3 = "")
         {
+            // Counting the number of words given in arguments
+            int nbIngredientsToExcludeTyped = 0;
+
+            if (ingredientToExcludeInput1 != "")
+                nbIngredientsToExcludeTyped++;
+            if (ingredientToExcludeInput2 != "")
+                nbIngredientsToExcludeTyped++;
+            if (ingredientToExcludeInput3 != "")
+                nbIngredientsToExcludeTyped++;
+
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
-            cmd.CommandText = "SELECT Recipes.title AS RecipesTitlesRequested, ingredient1.ingredientName AS 'ingredient1Name', ingredient2.ingredientName AS 'ingredient2Name'," + 
+            cmd.CommandText = "SELECT Recipes.title AS RecipesTitlesRequested, ingredient1.ingredientName AS 'ingredient1Name', ingredient2.ingredientName AS 'ingredient2Name'," +
                                 " ingredient3.ingredientName AS 'ingredient3Name', ingredient4.ingredientName AS 'ingredient4Name', ingredient5.ingredientName AS 'ingredient5Name'," +
                                 " ingredient6.ingredientName AS 'ingredient6Name', ingredient7.ingredientName AS 'ingredient7Name', ingredient8.ingredientName AS 'ingredient8Name'," +
                                 " ingredient9.ingredientName AS 'ingredient9Name', ingredient10.ingredientName AS 'ingredient10Name', ingredient11.ingredientName AS 'ingredient11Name'," +
                                 " ingredient12.ingredientName AS 'ingredient12Name', ingredient13.ingredientName AS 'ingredient13Name', ingredient14.ingredientName AS 'ingredient14Name'," +
                                 " ingredient15.ingredientName AS 'ingredient15Name', ingredient16.ingredientName AS 'ingredient16Name', ingredient17.ingredientName AS 'ingredient17Name'," +
-                                " ingredient18.ingredientName AS 'ingredient18Name', ingredient19.ingredientName AS 'ingredient19Name', ingredient20.ingredientName AS 'ingredient20Name'" +
-                                " FROM Recipes_has_Ingredients " +
+                                " ingredient18.ingredientName AS 'ingredient18Name', ingredient19.ingredientName AS 'ingredient19Name', ingredient20.ingredientName AS 'ingredient20Name' " +
+                                "FROM Recipes_has_Ingredients " +
                                 "LEFT JOIN Ingredients AS ingredient1 ON Recipes_has_Ingredients.ingredient1_id = ingredient1.id " +
                                 "LEFT JOIN Ingredients AS ingredient2 ON Recipes_has_Ingredients.ingredient2_id = ingredient2.id " +
                                 "LEFT JOIN Ingredients AS ingredient3 ON Recipes_has_Ingredients.ingredient3_id = ingredient3.id " +
@@ -885,93 +895,83 @@ namespace Recipe_Writer
                                 "LEFT JOIN Ingredients AS ingredient18 ON Recipes_has_Ingredients.ingredient18_id = ingredient18.id " +
                                 "LEFT JOIN Ingredients AS ingredient19 ON Recipes_has_Ingredients.ingredient19_id = ingredient19.id " +
                                 "LEFT JOIN Ingredients AS ingredient20 ON Recipes_has_Ingredients.ingredient20_id = ingredient20.id " +
-                                "LEFT JOIN Recipes.id ON Recipes_has_ingredients.id = Recipes.id";
-
-            // Counting the number of words given in arguments
-            int nbIngredientsToExcludeTyped = 0;
-
-            if (ingredientToExcludeInput1 != "")
-                nbIngredientsToExcludeTyped++;
-            if (ingredientToExcludeInput2 != "")
-                nbIngredientsToExcludeTyped++;
-            if (ingredientToExcludeInput3 != "")
-                nbIngredientsToExcludeTyped++;
+                                "LEFT JOIN Recipes ON Recipes_has_Ingredients.id = Recipes.id";
 
             // Adding each ingredients to the search with AND operator
             switch (nbIngredientsToExcludeTyped )
             {
                 case 1:
-                    cmd.CommandText += " WHERE ingredient1Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient2Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient3Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient4Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient5Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient6Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient7Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient8Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient9Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient10Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient11Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient12Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient13Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient14Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient15Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient16Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient17Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient18Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient19Name NOT IN('" + ingredientToExcludeInput1 + "')" +
-                                           " AND ingredient20Name NOT IN('" + ingredientToExcludeInput1 + "')";
+                    cmd.CommandText += " WHERE (ingredient1Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient2Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient3Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient4Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient5Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient6Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient7Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient8Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient9Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient10Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient11Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient12Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient13Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient14Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient15Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient16Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient17Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient18Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient19Name NOT LIKE '%"+ingredientToExcludeInput1+"%'" +
+                                           " AND ingredient20Name NOT LIKE '%"+ingredientToExcludeInput1+"%'";
                     break;
 
                 case 2:
-                    cmd.CommandText += " WHERE ingredient1Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient2Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient3Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient4Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient5Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient6Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient7Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient8Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient9Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient10Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient11Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient12Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient13Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient14Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient15Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient16Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient17Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient18Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient19Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')" +
-                                           " AND ingredient20Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "')";
+                    cmd.CommandText += " WHERE (ingredient1Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient1Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient2Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient2Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient3Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient3Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient4Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient4Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient5Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient5Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient6Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient6Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient7Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient7Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient8Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient8Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient9Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient9Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient10Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient10Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient11Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient11Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient12Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient12Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient13Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient13Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient14Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient14Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient15Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient15Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient16Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient16Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient17Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient17Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient18Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient18Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient19Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient19Name NOT LIKE '%"+ingredientToExcludeInput2+"%'" +
+                                           " AND ingredient20Name NOT LIKE '%"+ingredientToExcludeInput1+"%') AND (ingredient20Name NOT LIKE '%"+ingredientToExcludeInput2+"%'";
                     break;
 
                 case 3:
-                    cmd.CommandText += " WHERE ingredient1Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient2Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient3Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient4Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient5Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient6Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient7Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient8Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient9Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient10Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient11Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient12Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient13Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient14Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient15Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient16Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient17Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient18Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient19Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')" +
-                                           " AND ingredient20Name NOT IN('" + ingredientToExcludeInput1 + "', '" + ingredientToExcludeInput2 + "', '" + ingredientToExcludeInput3 + "')";
+                    cmd.CommandText += " WHERE (ingredient1Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient1Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient1Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient2Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient2Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient2Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient3Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient3Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient3Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient4Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient4Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient4Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient5Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient5Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient5Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient6Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient6Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient6Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient7Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient7Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient7Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient8Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient8Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient8Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient9Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient9Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient9Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient10Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient10Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient10Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient11Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient11Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient11Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient12Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient12Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient12Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient13Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient13Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient13Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient14Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient14Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient14Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient15Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient15Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient15Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient16Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient16Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient16Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient17Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient17Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient17Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient18Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient18Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient18Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient19Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient19Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient19Name NOT LIKE '%"+ingredientToExcludeInput3+"%'" +
+                                           " AND ingredient20Name NOT LIKE '%"+ingredientToExcludeInput1+ "%') AND (ingredient20Name NOT LIKE '%"+ingredientToExcludeInput2+ "%') AND (ingredient20Name NOT LIKE '%"+ingredientToExcludeInput3+"%'";
                     break;
             }
 
             // Completes the sql request
-            cmd.CommandText += ";";
+            cmd.CommandText += ");";
 
             // Declares a list of string to contain the titles of the recipes found in the database
             List<string> recipesTitlesFound = new List<string>();

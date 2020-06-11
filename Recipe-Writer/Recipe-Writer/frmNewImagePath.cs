@@ -90,6 +90,7 @@ namespace Recipe_Writer
                 // Disposes of the image file
                 jpgFile.Dispose();
 
+                _frmMain.DisplayRecipeInfos();
                 this.Close();
             }   
         }

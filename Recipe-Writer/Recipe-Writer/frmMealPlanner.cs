@@ -41,50 +41,49 @@ namespace Recipe_Writer
         private void cmdMondayCancelled_Click(object sender, EventArgs e)
         {
             lblMondayRecipe.Text = "";
-            cmdMondayCancelled.Visible = false;
-            cmdMondayDone.Visible = false;
+            cmdMondayCancelled.Enabled = false;
         }
 
         private void cmdTuesdayCancelled_Click(object sender, EventArgs e)
         {
             lblTuesdayRecipe.Text = "";
-            cmdTuesdayCancelled.Visible = false;
-            cmdTuesdayDone.Visible = false;
+            cmdTuesdayCancelled.Enabled = false;
+
         }
 
         private void lblWednesdayRecipe_Click(object sender, EventArgs e)
         {
             lblWednesdayRecipe.Text = "";
-            cmdWednesdayCancelled.Visible = false;
-            cmdWednesdayDone.Visible = false;
+            cmdWednesdayCancelled.Enabled = false;
+
         }
 
         private void cmdThursdayCancelled_Click(object sender, EventArgs e)
         {
             lblThursdayRecipe.Text = "";
-            cmdThursdayCancelled.Visible = false;
-            cmdThursdayDone.Visible = false;
+            cmdThursdayCancelled.Enabled = false;
+
         }
 
         private void cmdFridayCancelled_Click(object sender, EventArgs e)
         {
             lblFridayRecipe.Text = "";
-            cmdFridayCancelled.Visible = false;
-            cmdFridayDone.Visible = false;
+            cmdFridayCancelled.Enabled = false;
+
         }
 
         private void cmdSaturdayCancelled_Click(object sender, EventArgs e)
         {
             lblSaturdayRecipe.Text = "";
-            cmdSaturdayCancelled.Visible = false;
-            cmdSaturdayDone.Visible = false;
+            cmdSaturdayCancelled.Enabled = false;
+
         }
 
         private void cmdSundayCancelled_Click(object sender, EventArgs e)
         {
             lblSundayRecipe.Text = "";
-            cmdSundayCancelled.Visible = false;
-            cmdSundayDone.Visible = false;
+            cmdSundayCancelled.Enabled = false;
+            
         }
 
         private void lblMondayRecipe_DragEnter(object sender, DragEventArgs e)
@@ -128,50 +127,50 @@ namespace Recipe_Writer
         private void lblMondayRecipe_DragDrop(object sender, DragEventArgs e)
         {
             lblMondayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdMondayCancelled.Visible = true;
-            cmdMondayDone.Visible = true;
+            cmdMondayCancelled.Enabled = true;
+            
         }
 
         private void lblTuesdayRecipe_DragDrop(object sender, DragEventArgs e)
         {
             lblTuesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdTuesdayCancelled.Visible = true;
-            cmdTuesdayDone.Visible = true;
+            cmdTuesdayCancelled.Enabled = true;
+            
         }
 
         private void lblWednesdayRecipe_DragDrop(object sender, DragEventArgs e)
         {
             lblWednesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdWednesdayCancelled.Visible = true;
-            cmdWednesdayDone.Visible = true;
+            cmdWednesdayCancelled.Enabled = true;
+
         }
 
         private void lblThursdayRecipe_DragDrop(object sender, DragEventArgs e)
         {
             lblThursdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdThursdayCancelled.Visible = true;
-            cmdThursdayDone.Visible = true;
+            cmdThursdayCancelled.Enabled = true;
+
         }
 
         private void lblFridayRecipe_DragDrop(object sender, DragEventArgs e)
         {
             lblFridayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdFridayCancelled.Visible = true;
-            cmdFridayDone.Visible = true;
+            cmdFridayCancelled.Enabled = true;
+ 
         }
 
         private void lblSaturdayRecipe_DragDrop(object sender, DragEventArgs e)
         {
             lblSaturdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdSaturdayCancelled.Visible = true;
-            cmdSaturdayDone.Visible = true;
+            cmdSaturdayCancelled.Enabled = true;
+
         }
 
         private void lblSundayRecipe_DragDrop(object sender, DragEventArgs e)
         {
             lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdSundayCancelled.Visible = true;
-            cmdSundayDone.Visible = true;
+            cmdSundayCancelled.Enabled = true;
+
         }
 
         private void frmMealPlanner_FormClosed(object sender, FormClosedEventArgs e)

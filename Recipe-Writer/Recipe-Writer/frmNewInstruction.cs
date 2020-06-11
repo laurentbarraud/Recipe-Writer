@@ -47,7 +47,7 @@ namespace Recipe_Writer
         private void cmdValidate_Click(object sender, EventArgs e)
         {
             _frmMain.dbConn.AddNewInstructionToRecipe(this.IdRecipeToEdit, this.NbInstructionsInCurrentRecipe, txtNewInstruction.Text);
-            _frmMain.Refresh();
+            _frmMain.DisplayRecipeInfos();
             this.Close();
         }
 

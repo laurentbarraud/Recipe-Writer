@@ -92,7 +92,7 @@ namespace Recipe_Writer
                     _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsList.SelectedIndex - 1, scaleUsedForIngredient);
 
                     this.Close();
-                    _frmMain.Refresh();
+                    _frmMain.DisplayRecipeInfos();
                 }
 
                 // If the user has left the quantity of ingredient textbox empty or has typed a not-valid number
@@ -126,7 +126,7 @@ namespace Recipe_Writer
                     _frmMain.dbConn.AddNewIngredient(_frmMain._currentDisplayedRecipe.Id, parsedQtyIngredient, formattedIngredientName, cmbScalesList.Text, nbIngredientsForARecipe);
 
                     this.Close();
-                    _frmMain.Refresh();
+                    _frmMain.DisplayRecipeInfos();
                 }
 
                 // If the user has left the quantity of ingredient textbox empty or has typed a not-valid number
