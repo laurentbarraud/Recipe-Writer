@@ -1052,6 +1052,7 @@ namespace Recipe_Writer
         private void UpdateScoreForCurrentRecipe(int scoreToInput)
         {
             dbConn.UpdateScoreForRecipe(_currentDisplayedRecipe.Id, scoreToInput);
+            DisplayRecipeInfos();
         }
 
         private void pnlScore_MouseLeave(object sender, EventArgs e)

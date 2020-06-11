@@ -70,7 +70,6 @@
             this.cmdDeleteIngredient = new System.Windows.Forms.Button();
             this.picMenu = new System.Windows.Forms.PictureBox();
             this.picLowBudget = new System.Windows.Forms.PictureBox();
-            this.picEnoughIngredientsToMakeRecipe = new System.Windows.Forms.PictureBox();
             this.picRecipe = new System.Windows.Forms.PictureBox();
             this.cmdNewRecipe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
@@ -85,7 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picScore1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLowBudget)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnoughIngredientsToMakeRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -545,14 +543,6 @@
             this.picLowBudget.TabStop = false;
             this.picLowBudget.Visible = false;
             // 
-            // picEnoughIngredientsToMakeRecipe
-            // 
-            this.picEnoughIngredientsToMakeRecipe.Location = new System.Drawing.Point(848, 250);
-            this.picEnoughIngredientsToMakeRecipe.Name = "picEnoughIngredientsToMakeRecipe";
-            this.picEnoughIngredientsToMakeRecipe.Size = new System.Drawing.Size(35, 30);
-            this.picEnoughIngredientsToMakeRecipe.TabIndex = 12;
-            this.picEnoughIngredientsToMakeRecipe.TabStop = false;
-            // 
             // picRecipe
             // 
             this.picRecipe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -592,7 +582,6 @@
             this.Controls.Add(this.pnlSlideMenu);
             this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.picLowBudget);
-            this.Controls.Add(this.picEnoughIngredientsToMakeRecipe);
             this.Controls.Add(this.cmbRecipeIngredients);
             this.Controls.Add(this.lstSearchResults);
             this.Controls.Add(this.chkWritingAssistance);
@@ -625,7 +614,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picScore1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLowBudget)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnoughIngredientsToMakeRecipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -640,7 +628,6 @@
         private System.Windows.Forms.Label lblPortions;
         private System.Windows.Forms.CheckBox chkWritingAssistance;
         private System.Windows.Forms.ListBox lstSearchResults;
-        private System.Windows.Forms.PictureBox picEnoughIngredientsToMakeRecipe;
         private System.Windows.Forms.Label lblCompletionTime;
         private System.Windows.Forms.OpenFileDialog ofdAssociatedImage;
         private System.Windows.Forms.Panel pnlSideMenu;
