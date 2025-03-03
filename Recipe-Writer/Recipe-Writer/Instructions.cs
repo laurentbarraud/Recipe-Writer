@@ -1,4 +1,9 @@
-﻿namespace Recipe_Writer
+﻿/// <file>Instructions.cs</file>
+/// <author>Laurent Barraud</author>
+/// <version>1.1</version>
+/// <date>March 3rd 2025</date>
+
+namespace Recipe_Writer
 {
     public class Instructions
     {

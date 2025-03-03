@@ -1,4 +1,9 @@
-﻿using System;
+﻿/// <file>frmNewRecipeBasicInfosInput.cs</file>
+/// <author>Laurent Barraud</author>
+/// <version>1.1</version>
+/// <date>March 3rd 2025</date>
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

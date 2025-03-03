@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// <file>frmAbout.cs</file>
+/// <author>Laurent Barraud</author>
+/// <version>1.1</version>
+/// <date>March 3rd 2025</date>
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,11 +29,11 @@ namespace Recipe_Writer
                 "\r\n\r\nIl a été développé dans le cadre d'un projet de remplacement de travail de fin d'apprentissage." +
                 "\r\nCe logiciel vous est accordé sous licence GNU." +
                 "\r\n Merci de citer l'auteur pour toute amélioration ou utilisation du code.\n" +
-                "\r\n\r\n\r\nJuin 2020 - Laurent Barraud - CPNV";
+                "\r\n\r\n\r\nVersion 1.1 - Juillet 2025 - Créé par Laurent Barraud";
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cmdValidate_Click(object sender, EventArgs e)
         {
             this.Close();
         }

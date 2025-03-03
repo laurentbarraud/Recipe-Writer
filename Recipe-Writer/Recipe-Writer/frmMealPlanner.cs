@@ -1,4 +1,9 @@
-﻿using System;
+﻿/// <file>frmMealPlanner.cs</file>
+/// <author>Laurent Barraud</author>
+/// <version>1.1</version>
+/// <date>March 3rd 2025</date>
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -86,96 +91,53 @@ namespace Recipe_Writer
             
         }
 
+
+        private void frmMealPlanner_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _frmMain.MealPlannerShown = false;
+        }
+
         private void lblMondayRecipe_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Text))
-                e.Effect = DragDropEffects.Copy;
-            else
-                e.Effect = DragDropEffects.None;
+            lblMondayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdMondayCancelled.Enabled = true;
         }
 
         private void lblTuesdayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblTuesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdTuesdayCancelled.Enabled = true;
         }
 
         private void lblWednesdayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblWednesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdWednesdayCancelled.Enabled = true;
         }
 
         private void lblThursdayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblThursdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdThursdayCancelled.Enabled = true;
         }
 
         private void lblFridayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblFridayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdFridayCancelled.Enabled = true;
         }
 
         private void lblSaturdayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblSaturdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
+            cmdSaturdayCancelled.Enabled = true;
         }
 
         private void lblSundayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-        }
-
-        private void lblMondayRecipe_DragDrop(object sender, DragEventArgs e)
-        {
-            lblMondayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdMondayCancelled.Enabled = true;
-            
-        }
-
-        private void lblTuesdayRecipe_DragDrop(object sender, DragEventArgs e)
-        {
-            lblTuesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdTuesdayCancelled.Enabled = true;
-            
-        }
-
-        private void lblWednesdayRecipe_DragDrop(object sender, DragEventArgs e)
-        {
-            lblWednesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdWednesdayCancelled.Enabled = true;
-
-        }
-
-        private void lblThursdayRecipe_DragDrop(object sender, DragEventArgs e)
-        {
-            lblThursdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdThursdayCancelled.Enabled = true;
-
-        }
-
-        private void lblFridayRecipe_DragDrop(object sender, DragEventArgs e)
-        {
-            lblFridayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdFridayCancelled.Enabled = true;
- 
-        }
-
-        private void lblSaturdayRecipe_DragDrop(object sender, DragEventArgs e)
-        {
-            lblSaturdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdSaturdayCancelled.Enabled = true;
-
-        }
-
-        private void lblSundayRecipe_DragDrop(object sender, DragEventArgs e)
-        {
-            lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdSundayCancelled.Enabled = true;
 
-        }
-
-        private void frmMealPlanner_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _frmMain.MealPlannerShown = false;
         }
     }
 }

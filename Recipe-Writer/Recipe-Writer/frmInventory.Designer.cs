@@ -39,7 +39,7 @@
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(385, 325);
+            this.cmdValidate.Location = new System.Drawing.Point(442, 444);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(34, 32);
             this.cmdValidate.TabIndex = 2;
@@ -52,24 +52,24 @@
             this.lstIngredientsAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsAvailable.FormattingEnabled = true;
             this.lstIngredientsAvailable.ItemHeight = 20;
-            this.lstIngredientsAvailable.Location = new System.Drawing.Point(21, 32);
+            this.lstIngredientsAvailable.Location = new System.Drawing.Point(27, 91);
             this.lstIngredientsAvailable.Name = "lstIngredientsAvailable";
-            this.lstIngredientsAvailable.Size = new System.Drawing.Size(253, 280);
+            this.lstIngredientsAvailable.Size = new System.Drawing.Size(215, 340);
             this.lstIngredientsAvailable.TabIndex = 0;
             // 
             // pnlIngredientsStatus
             // 
             this.pnlIngredientsStatus.AutoScroll = true;
-            this.pnlIngredientsStatus.Location = new System.Drawing.Point(280, 32);
+            this.pnlIngredientsStatus.Location = new System.Drawing.Point(248, 91);
             this.pnlIngredientsStatus.Name = "pnlIngredientsStatus";
-            this.pnlIngredientsStatus.Size = new System.Drawing.Size(168, 276);
+            this.pnlIngredientsStatus.Size = new System.Drawing.Size(206, 337);
             this.pnlIngredientsStatus.TabIndex = 1;
             // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 378);
+            this.ClientSize = new System.Drawing.Size(907, 486);
             this.Controls.Add(this.pnlIngredientsStatus);
             this.Controls.Add(this.lstIngredientsAvailable);
             this.Controls.Add(this.cmdValidate);
