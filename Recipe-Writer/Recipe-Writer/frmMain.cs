@@ -666,7 +666,10 @@ namespace Recipe_Writer
                 cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + ingredientToAdd.Scale + " de " + ingredientToAdd.Name);
             }
 
-            cmbRecipeIngredients.Items.Add("Ajouter un ingrédient...");
+            if (dbConn.CountAllIngredientsForARecipe(_currentDisplayedRecipe.Id) <= 19)
+            {
+                cmbRecipeIngredients.Items.Add("Ajouter un ingrédient...");
+            }
 
             // Selects automatically the first item of the combobox
             cmbRecipeIngredients.SelectedIndex = 0;

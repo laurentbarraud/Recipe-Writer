@@ -35,15 +35,19 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void frmInventory_Load(object sender, EventArgs e)
         {
+            lblNbOfIngredientsStored.Text += _frmMain.dbConn.CountAllIngredientsStored().ToString();
+
             int currentIngredient = 0;
 
+            // Type 1 of ingredients =============================================================================
+            
             // Clears the ingredients list before adding new ones
-            lstIngredientsAvailable.Items.Clear();
+            lstIngredientsType1Available.Items.Clear();
 
-            // Adds each ingredient name in the ListBox control
-            foreach (string ingredientName in _frmMain.dbConn.ReadAllIngredientsStored())
+            // Adds each ingredient name in the listbox control for type 1
+            foreach (string ingredientName in _frmMain.dbConn.ReadAllIngredientsStoredForAType(1))
             {
-                lstIngredientsAvailable.Items.Add(ingredientName);
+                lstIngredientsType1Available.Items.Add(ingredientName);
             }
 
             // Layout parameters =================================================================================
@@ -54,10 +58,12 @@ namespace Recipe_Writer
             int spacingWidth = 15;
 
             // Clears the layout by removing all the labels, before adding new ones
-            pnlIngredientsStatus.Controls.Clear();
+            pnlIngredientsType1Status.Controls.Clear();
 
-            foreach (string ingredientItem in lstIngredientsAvailable.Items)
+            foreach (string ingredientItem in lstIngredientsType1Available.Items)
             {
+                int ingredientId = _frmMain.dbConn.ReadIngredientId(ingredientItem);
+
                 // Picturebox that displays the status of the ingredient
                 PictureBox picStatusIngredient = new PictureBox();
 
@@ -73,19 +79,15 @@ namespace Recipe_Writer
                     picStatusIngredient.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 };
 
-                // Edit quantity numeric up-down control ==============================================================================================
+                // Edit quantity numeric up-down control ===========================================================
 
                 NumericUpDown nudQtyIngredient = new NumericUpDown();
                 nudQtyIngredient.ValueChanged += (object sender_here, EventArgs e_here) =>
                 {
-                        // To-Do : call the function that change the ingredient quantity available according to the
-                        // numeric up-down control value
-                        int ingredientId = _frmMain.dbConn.ReadIngredientId(ingredientItem);
-
                         _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientId, Convert.ToDouble(nudQtyIngredient.Value));
-                    };
+                };
 
-                // Delete ingredient button code ================================================================================================
+                // Delete ingredient button code ===================================================================
 
                 Button cmdDeleteIngredient = new Button();
                 cmdDeleteIngredient.Click += (object sender_here, EventArgs e_here) =>
@@ -101,8 +103,8 @@ namespace Recipe_Writer
                     }
                 };
 
-                // Detailed layout =========================================================================================
-                // Edit button for an instruction ==========================================================================
+                // Detailed layout ================================================================================
+                // Edit button for an instruction =================================================================
                 nudQtyIngredient.Value = 0;
                 nudQtyIngredient.Maximum = 10000;
                 nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 8);
@@ -111,7 +113,7 @@ namespace Recipe_Writer
                 nudQtyIngredient.Location = new Point(spacingWidth, currentIngredient*(iconHeight + lineHeight));
                 nudQtyIngredient.BorderStyle = BorderStyle.FixedSingle;
 
-                // Delete button for an instruction, detailed layout ========================================================
+                // Delete button for an instruction, detailed layout =============================================
                 cmdDeleteIngredient.Text = "";
                 cmdDeleteIngredient.Width = iconWidth;
                 cmdDeleteIngredient.Height = iconHeight;
@@ -122,13 +124,13 @@ namespace Recipe_Writer
                 cmdDeleteIngredient.BackgroundImage = Recipe_Writer.Properties.Resources.delete;
                 cmdDeleteIngredient.BackgroundImageLayout = ImageLayout.Zoom;
 
-                // Adds the controls to the layout ============================================================================================
-                pnlIngredientsStatus.Controls.Add(nudQtyIngredient);
+                // Adds the controls to the layout ================================================================
+                pnlIngredientsType1Status.Controls.Add(nudQtyIngredient);
 
                 // Adds each ingredient quantity in the appropriate numeric up-down control
-                nudQtyIngredient.Value = decimal.Parse(_frmMain.dbConn.ReadAllIngredientsQtyAvailable()[currentIngredient].ToString());
+                nudQtyIngredient.Value = decimal.Parse(_frmMain.dbConn.ReadQtyAvailableForAnIngredient(ingredientId).ToString());
  
-                pnlIngredientsStatus.Controls.Add(cmdDeleteIngredient);
+                pnlIngredientsType1Status.Controls.Add(cmdDeleteIngredient);
 
                 currentIngredient += 1;
             }

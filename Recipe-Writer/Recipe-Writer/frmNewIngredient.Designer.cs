@@ -31,10 +31,10 @@
             this.lblNewIngredientName = new System.Windows.Forms.Label();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.cmbIngredientsList = new System.Windows.Forms.ComboBox();
             this.lblQtyIngredient = new System.Windows.Forms.Label();
             this.txtQtyIngredient = new System.Windows.Forms.TextBox();
             this.cmbScalesList = new System.Windows.Forms.ComboBox();
+            this.cmbIngredientsList = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblNewIngredientName
@@ -66,6 +66,7 @@
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdValidate.Enabled = false;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdValidate.Location = new System.Drawing.Point(413, 198);
@@ -74,16 +75,6 @@
             this.cmdValidate.TabIndex = 4;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
-            // 
-            // cmbIngredientsList
-            // 
-            this.cmbIngredientsList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbIngredientsList.FormattingEnabled = true;
-            this.cmbIngredientsList.Location = new System.Drawing.Point(206, 35);
-            this.cmbIngredientsList.MaxDropDownItems = 6;
-            this.cmbIngredientsList.Name = "cmbIngredientsList";
-            this.cmbIngredientsList.Size = new System.Drawing.Size(241, 24);
-            this.cmbIngredientsList.TabIndex = 0;
             // 
             // lblQtyIngredient
             // 
@@ -113,6 +104,16 @@
             this.cmbScalesList.Size = new System.Drawing.Size(121, 24);
             this.cmbScalesList.TabIndex = 2;
             // 
+            // cmbIngredientsList
+            // 
+            this.cmbIngredientsList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIngredientsList.FormattingEnabled = true;
+            this.cmbIngredientsList.Location = new System.Drawing.Point(206, 36);
+            this.cmbIngredientsList.Name = "cmbIngredientsList";
+            this.cmbIngredientsList.Size = new System.Drawing.Size(241, 24);
+            this.cmbIngredientsList.TabIndex = 7;
+            this.cmbIngredientsList.SelectedIndexChanged += new System.EventHandler(this.cmbIngredientsList_SelectedIndexChanged);
+            // 
             // frmNewIngredient
             // 
             this.AcceptButton = this.cmdValidate;
@@ -120,9 +121,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(493, 267);
+            this.Controls.Add(this.cmbIngredientsList);
             this.Controls.Add(this.cmbScalesList);
             this.Controls.Add(this.txtQtyIngredient);
-            this.Controls.Add(this.cmbIngredientsList);
             this.Controls.Add(this.lblQtyIngredient);
             this.Controls.Add(this.lblNewIngredientName);
             this.Controls.Add(this.cmdCancel);
@@ -145,9 +146,9 @@
         private System.Windows.Forms.Label lblNewIngredientName;
         private System.Windows.Forms.Button cmdCancel;
         private System.Windows.Forms.Button cmdValidate;
-        private System.Windows.Forms.ComboBox cmbIngredientsList;
         private System.Windows.Forms.Label lblQtyIngredient;
         private System.Windows.Forms.TextBox txtQtyIngredient;
         private System.Windows.Forms.ComboBox cmbScalesList;
+        private System.Windows.Forms.ComboBox cmbIngredientsList;
     }
 }
