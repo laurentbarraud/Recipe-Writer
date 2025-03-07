@@ -1,7 +1,7 @@
 ﻿/// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 3rd 2025</date>
+/// <date>March 8th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -250,6 +250,27 @@ namespace Recipe_Writer
             }
 
             return nbOfIngredientsRequiredForThisRecipe;
+        }
+
+
+        /// <summary>
+        /// Counts the total of types of ingredients stored
+        /// </summary>
+        /// <returns>the total of types stored</returns>
+        public byte CountAllTypesOfIngredients()
+        {
+            Byte nbOfTypesOfIngredientsFound = 0;
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "SELECT COUNT(type) FROM TypesOfIngredient;";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Byte.TryParse(dataReader["COUNT(type)"].ToString(), out nbOfTypesOfIngredientsFound);
+            }
+
+            return nbOfTypesOfIngredientsFound;
         }
 
         /// <summary>

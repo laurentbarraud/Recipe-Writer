@@ -1,7 +1,7 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 3rd 2025</date>
+/// <date>March 8th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Recipe_Writer
 {
@@ -28,6 +29,8 @@ namespace Recipe_Writer
             InitializeComponent();
         }
 
+        delegate void FillInListBoxesDelegate(int idTypeOfIngredient);
+
         /// <summary>
         /// Form load event
         /// </summary>
@@ -37,17 +40,32 @@ namespace Recipe_Writer
         {
             lblNbOfIngredientsStored.Text += _frmMain.dbConn.CountAllIngredientsStored().ToString();
 
+            int totalNbOfTypes = _frmMain.dbConn.CountAllTypesOfIngredients();
+
+            // Instantiates the delegate
+            FillInListBoxesDelegate fillInListBoxesDelegate = new FillInListBoxesDelegate(FillInListBoxesWithIngredientsNamesAndQuantities);
+
+            for (int idTypeToHandle = 1; idTypeToHandle <= totalNbOfTypes; idTypeToHandle++)
+            {
+                fillInListBoxesDelegate(idTypeToHandle);
+            }
+        }
+
+        private void FillInListBoxesWithIngredientsNamesAndQuantities (int idTypeOfIngredient)
+        {
             int currentIngredient = 0;
 
-            // Type 1 of ingredients =============================================================================
-            
-            // Clears the ingredients list before adding new ones
-            lstIngredientsType1Available.Items.Clear();
+            string nameOfListBoxToHandle = "lstIngredientsType" + idTypeOfIngredient + "Available";
+            ListBox listBoxToFill = (ListBox)this.Controls.Find(nameOfListBoxToHandle, true).First();
 
-            // Adds each ingredient name in the listbox control for type 1
-            foreach (string ingredientName in _frmMain.dbConn.ReadAllIngredientsStoredForAType(1))
+            // Clears the ingredients list before adding new ones
+            listBoxToFill.Items.Clear();
+
+
+            // Adds each ingredient name in the listbox control
+            foreach (string ingredientName in _frmMain.dbConn.ReadAllIngredientsStoredForAType(idTypeOfIngredient))
             {
-                lstIngredientsType1Available.Items.Add(ingredientName);
+                listBoxToFill.Items.Add(ingredientName);
             }
 
             // Layout parameters =================================================================================
@@ -57,10 +75,13 @@ namespace Recipe_Writer
             int iconWidth = 25;
             int spacingWidth = 15;
 
-            // Clears the layout by removing all the labels, before adding new ones
-            pnlIngredientsType1Status.Controls.Clear();
+            string nameOfPanelToHandle = "pnlIngredientsType" + idTypeOfIngredient + "Status";
+            Panel panelToFill = (Panel)this.Controls.Find(nameOfPanelToHandle, true).First();
 
-            foreach (string ingredientItem in lstIngredientsType1Available.Items)
+            // Clears the layout by removing all the labels, before adding new ones
+            panelToFill.Controls.Clear();
+
+            foreach (string ingredientItem in listBoxToFill.Items)
             {
                 int ingredientId = _frmMain.dbConn.ReadIngredientId(ingredientItem);
 
@@ -84,7 +105,7 @@ namespace Recipe_Writer
                 NumericUpDown nudQtyIngredient = new NumericUpDown();
                 nudQtyIngredient.ValueChanged += (object sender_here, EventArgs e_here) =>
                 {
-                        _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientId, Convert.ToDouble(nudQtyIngredient.Value));
+                    _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientId, Convert.ToDouble(nudQtyIngredient.Value));
                 };
 
                 // Delete ingredient button code ===================================================================
@@ -97,9 +118,9 @@ namespace Recipe_Writer
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                            // To-Do : call the function that will delete the ingredient from the database
+                        // To-Do : call the function that will delete the ingredient from the database
 
-                            this.Refresh();
+                        this.Refresh();
                     }
                 };
 
@@ -110,14 +131,14 @@ namespace Recipe_Writer
                 nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 8);
                 nudQtyIngredient.Width = 2 * (iconWidth);
                 nudQtyIngredient.Height = numericUpDownHeight;
-                nudQtyIngredient.Location = new Point(spacingWidth, currentIngredient*(iconHeight + lineHeight));
+                nudQtyIngredient.Location = new Point(spacingWidth, currentIngredient * (iconHeight + lineHeight));
                 nudQtyIngredient.BorderStyle = BorderStyle.FixedSingle;
 
                 // Delete button for an instruction, detailed layout =============================================
                 cmdDeleteIngredient.Text = "";
                 cmdDeleteIngredient.Width = iconWidth;
                 cmdDeleteIngredient.Height = iconHeight;
-                cmdDeleteIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient*(iconHeight + lineHeight));
+                cmdDeleteIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
                 cmdDeleteIngredient.BackColor = Color.Transparent;
                 cmdDeleteIngredient.FlatAppearance.BorderSize = 0;
                 cmdDeleteIngredient.FlatStyle = FlatStyle.Flat;
@@ -125,17 +146,16 @@ namespace Recipe_Writer
                 cmdDeleteIngredient.BackgroundImageLayout = ImageLayout.Zoom;
 
                 // Adds the controls to the layout ================================================================
-                pnlIngredientsType1Status.Controls.Add(nudQtyIngredient);
+                panelToFill.Controls.Add(nudQtyIngredient);
 
                 // Adds each ingredient quantity in the appropriate numeric up-down control
                 nudQtyIngredient.Value = decimal.Parse(_frmMain.dbConn.ReadQtyAvailableForAnIngredient(ingredientId).ToString());
- 
-                pnlIngredientsType1Status.Controls.Add(cmdDeleteIngredient);
+
+                panelToFill.Controls.Add(cmdDeleteIngredient);
 
                 currentIngredient += 1;
             }
         }
-    
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {

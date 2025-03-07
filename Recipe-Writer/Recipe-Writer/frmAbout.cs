@@ -29,7 +29,7 @@ namespace Recipe_Writer
                 "\r\n\r\nIl a été développé dans le cadre d'un projet de remplacement de travail de fin d'apprentissage." +
                 "\r\nCe logiciel vous est accordé sous licence GNU." +
                 "\r\n Merci de citer l'auteur pour toute amélioration ou utilisation du code.\n" +
-                "\r\n\r\n\r\nVersion 1.1 - Février 2025 - Créé par Laurent Barraud";
+                "\r\n\r\n\r\nVersion 1.1 - Mars 2025 - Créé par Laurent Barraud";
 
         }
 
