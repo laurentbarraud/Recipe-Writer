@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Security.Cryptography;
+using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
@@ -569,26 +570,22 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Reads the name of an ingredient for a given id
+        /// Reads the type of an ingredient for a given id
         /// </summary>
-        /// <param name="idIngredient">the id of the ingredient</param>
-        /// <returns>Name of the ingredient</returns>
-        public string ReadIngredientName(int idIngredient)
+        /// <param name="nameIngredient">the name of the ingredient</param>
+        /// <returns>Name of the type of ingredient</returns>
+        public string ReadTypeName (int idTypeOfIngredient)
         {
-            // Declares a string to contain the ingredient name
-            string ingredientNameFound = "";
-
             SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "SELECT type FROM 'TypesOfIngredient' WHERE id ='" + idTypeOfIngredient + "';";
 
-            cmd.CommandText = "SELECT ingredientName FROM 'Ingredients' WHERE id='"+idIngredient+"';";
-
+            string typeFound = "";
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                ingredientNameFound = dataReader["ingredientName"].ToString();
+                dataReader["type"].ToString();
             }
-
-            return ingredientNameFound;
+            return typeFound;
         }
 
         /// <summary>

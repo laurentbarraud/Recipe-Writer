@@ -76,7 +76,7 @@
             this.cmdValidate.Location = new System.Drawing.Point(446, 338);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(47, 44);
-            this.cmdValidate.TabIndex = 29;
+            this.cmdValidate.TabIndex = 15;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
@@ -101,7 +101,7 @@
             this.cmdThursdayCancelled.Location = new System.Drawing.Point(24, 246);
             this.cmdThursdayCancelled.Name = "cmdThursdayCancelled";
             this.cmdThursdayCancelled.Size = new System.Drawing.Size(91, 25);
-            this.cmdThursdayCancelled.TabIndex = 13;
+            this.cmdThursdayCancelled.TabIndex = 7;
             this.cmdThursdayCancelled.Text = "Supprimer";
             this.cmdThursdayCancelled.UseVisualStyleBackColor = true;
             this.cmdThursdayCancelled.Click += new System.EventHandler(this.cmdThursdayCancelled_Click);
@@ -114,7 +114,7 @@
             this.cmdSundayCancelled.Location = new System.Drawing.Point(24, 382);
             this.cmdSundayCancelled.Name = "cmdSundayCancelled";
             this.cmdSundayCancelled.Size = new System.Drawing.Size(91, 25);
-            this.cmdSundayCancelled.TabIndex = 255;
+            this.cmdSundayCancelled.TabIndex = 13;
             this.cmdSundayCancelled.Text = "Supprimer";
             this.cmdSundayCancelled.UseVisualStyleBackColor = true;
             this.cmdSundayCancelled.Click += new System.EventHandler(this.cmdSundayCancelled_Click);
@@ -127,7 +127,7 @@
             this.cmdTuesdayCancelled.Location = new System.Drawing.Point(212, 113);
             this.cmdTuesdayCancelled.Name = "cmdTuesdayCancelled";
             this.cmdTuesdayCancelled.Size = new System.Drawing.Size(90, 25);
-            this.cmdTuesdayCancelled.TabIndex = 5;
+            this.cmdTuesdayCancelled.TabIndex = 3;
             this.cmdTuesdayCancelled.Text = "Supprimer";
             this.cmdTuesdayCancelled.UseVisualStyleBackColor = true;
             this.cmdTuesdayCancelled.Click += new System.EventHandler(this.cmdTuesdayCancelled_Click);
@@ -140,7 +140,7 @@
             this.cmdWednesdayCancelled.Location = new System.Drawing.Point(403, 113);
             this.cmdWednesdayCancelled.Name = "cmdWednesdayCancelled";
             this.cmdWednesdayCancelled.Size = new System.Drawing.Size(90, 25);
-            this.cmdWednesdayCancelled.TabIndex = 9;
+            this.cmdWednesdayCancelled.TabIndex = 5;
             this.cmdWednesdayCancelled.Text = "Supprimer";
             this.cmdWednesdayCancelled.UseVisualStyleBackColor = true;
             // 
@@ -152,7 +152,7 @@
             this.cmdFridayCancelled.Location = new System.Drawing.Point(212, 245);
             this.cmdFridayCancelled.Name = "cmdFridayCancelled";
             this.cmdFridayCancelled.Size = new System.Drawing.Size(90, 25);
-            this.cmdFridayCancelled.TabIndex = 17;
+            this.cmdFridayCancelled.TabIndex = 8;
             this.cmdFridayCancelled.Text = "Supprimer";
             this.cmdFridayCancelled.UseVisualStyleBackColor = true;
             this.cmdFridayCancelled.Click += new System.EventHandler(this.cmdFridayCancelled_Click);
@@ -165,7 +165,7 @@
             this.cmdSaturdayCancelled.Location = new System.Drawing.Point(403, 245);
             this.cmdSaturdayCancelled.Name = "cmdSaturdayCancelled";
             this.cmdSaturdayCancelled.Size = new System.Drawing.Size(90, 25);
-            this.cmdSaturdayCancelled.TabIndex = 21;
+            this.cmdSaturdayCancelled.TabIndex = 11;
             this.cmdSaturdayCancelled.Text = "Supprimer";
             this.cmdSaturdayCancelled.UseVisualStyleBackColor = true;
             this.cmdSaturdayCancelled.Click += new System.EventHandler(this.cmdSaturdayCancelled_Click);
@@ -175,7 +175,7 @@
             this.lblHowToUse.Location = new System.Drawing.Point(228, 295);
             this.lblHowToUse.Name = "lblHowToUse";
             this.lblHowToUse.Size = new System.Drawing.Size(324, 40);
-            this.lblHowToUse.TabIndex = 28;
+            this.lblHowToUse.TabIndex = 14;
             this.lblHowToUse.Text = "Glissez-déposez les titres des recettes dans la case de votre choix.";
             // 
             // picTuesdayEnoughIngredients
@@ -243,7 +243,7 @@
             this.txtMonday.Multiline = true;
             this.txtMonday.Name = "txtMonday";
             this.txtMonday.Size = new System.Drawing.Size(13, 67);
-            this.txtMonday.TabIndex = 3;
+            this.txtMonday.TabIndex = 14;
             this.txtMonday.Text = "Lun";
             this.txtMonday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -256,7 +256,7 @@
             this.txtTuesday.Multiline = true;
             this.txtTuesday.Name = "txtTuesday";
             this.txtTuesday.Size = new System.Drawing.Size(13, 67);
-            this.txtTuesday.TabIndex = 7;
+            this.txtTuesday.TabIndex = 15;
             this.txtTuesday.Text = "Mar";
             this.txtTuesday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -269,7 +269,7 @@
             this.txtWednesday.Multiline = true;
             this.txtWednesday.Name = "txtWednesday";
             this.txtWednesday.Size = new System.Drawing.Size(13, 67);
-            this.txtWednesday.TabIndex = 11;
+            this.txtWednesday.TabIndex = 16;
             this.txtWednesday.Text = "Mer";
             this.txtWednesday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -282,7 +282,7 @@
             this.txtThursday.Multiline = true;
             this.txtThursday.Name = "txtThursday";
             this.txtThursday.Size = new System.Drawing.Size(13, 67);
-            this.txtThursday.TabIndex = 15;
+            this.txtThursday.TabIndex = 17;
             this.txtThursday.Text = "Jeu";
             this.txtThursday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -295,7 +295,7 @@
             this.txtFriday.Multiline = true;
             this.txtFriday.Name = "txtFriday";
             this.txtFriday.Size = new System.Drawing.Size(13, 67);
-            this.txtFriday.TabIndex = 19;
+            this.txtFriday.TabIndex = 18;
             this.txtFriday.Text = "Ven";
             this.txtFriday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -308,7 +308,7 @@
             this.txtSaturday.Multiline = true;
             this.txtSaturday.Name = "txtSaturday";
             this.txtSaturday.Size = new System.Drawing.Size(13, 67);
-            this.txtSaturday.TabIndex = 23;
+            this.txtSaturday.TabIndex = 19;
             this.txtSaturday.Text = "Sam";
             this.txtSaturday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -321,7 +321,7 @@
             this.txtSunday.Multiline = true;
             this.txtSunday.Name = "txtSunday";
             this.txtSunday.Size = new System.Drawing.Size(13, 67);
-            this.txtSunday.TabIndex = 27;
+            this.txtSunday.TabIndex = 20;
             this.txtSunday.Text = "Dim";
             this.txtSunday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -342,7 +342,7 @@
             this.lblTuesdayRecipe.Location = new System.Drawing.Point(220, 14);
             this.lblTuesdayRecipe.Name = "lblTuesdayRecipe";
             this.lblTuesdayRecipe.Size = new System.Drawing.Size(141, 82);
-            this.lblTuesdayRecipe.TabIndex = 4;
+            this.lblTuesdayRecipe.TabIndex = 2;
             this.lblTuesdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblTuesdayRecipe_DragEnter);
             // 
             // lblWednesdayRecipe
@@ -352,7 +352,7 @@
             this.lblWednesdayRecipe.Location = new System.Drawing.Point(411, 12);
             this.lblWednesdayRecipe.Name = "lblWednesdayRecipe";
             this.lblWednesdayRecipe.Size = new System.Drawing.Size(141, 84);
-            this.lblWednesdayRecipe.TabIndex = 8;
+            this.lblWednesdayRecipe.TabIndex = 4;
             this.lblWednesdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblWednesdayRecipe_DragEnter);
             // 
             // lblThursdayRecipe
@@ -362,7 +362,7 @@
             this.lblThursdayRecipe.Location = new System.Drawing.Point(32, 144);
             this.lblThursdayRecipe.Name = "lblThursdayRecipe";
             this.lblThursdayRecipe.Size = new System.Drawing.Size(141, 83);
-            this.lblThursdayRecipe.TabIndex = 12;
+            this.lblThursdayRecipe.TabIndex = 6;
             this.lblThursdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblThursdayRecipe_DragEnter);
             // 
             // lblFridayRecipe
@@ -372,7 +372,7 @@
             this.lblFridayRecipe.Location = new System.Drawing.Point(220, 145);
             this.lblFridayRecipe.Name = "lblFridayRecipe";
             this.lblFridayRecipe.Size = new System.Drawing.Size(141, 82);
-            this.lblFridayRecipe.TabIndex = 16;
+            this.lblFridayRecipe.TabIndex = 8;
             this.lblFridayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblFridayRecipe_DragEnter);
             // 
             // lblSaturdayRecipe
@@ -382,7 +382,7 @@
             this.lblSaturdayRecipe.Location = new System.Drawing.Point(411, 145);
             this.lblSaturdayRecipe.Name = "lblSaturdayRecipe";
             this.lblSaturdayRecipe.Size = new System.Drawing.Size(141, 82);
-            this.lblSaturdayRecipe.TabIndex = 20;
+            this.lblSaturdayRecipe.TabIndex = 10;
             this.lblSaturdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSaturdayRecipe_DragEnter);
             // 
             // lblSundayRecipe
@@ -392,7 +392,7 @@
             this.lblSundayRecipe.Location = new System.Drawing.Point(32, 280);
             this.lblSundayRecipe.Name = "lblSundayRecipe";
             this.lblSundayRecipe.Size = new System.Drawing.Size(141, 80);
-            this.lblSundayRecipe.TabIndex = 24;
+            this.lblSundayRecipe.TabIndex = 12;
             this.lblSundayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSundayRecipe_DragEnter);
             // 
             // frmMealPlanner

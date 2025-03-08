@@ -31,11 +31,15 @@
             this.cmdValidate = new System.Windows.Forms.Button();
             this.tabInventoryIngredients = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblTypeIngredient2 = new System.Windows.Forms.Label();
+            this.lblTypeIngredient1 = new System.Windows.Forms.Label();
             this.pnlIngredientsType2Status = new System.Windows.Forms.Panel();
             this.lstIngredientsType2Available = new System.Windows.Forms.ListBox();
             this.pnlIngredientsType1Status = new System.Windows.Forms.Panel();
             this.lstIngredientsType1Available = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblTypeIngredient4 = new System.Windows.Forms.Label();
+            this.lblTypeIngredient3 = new System.Windows.Forms.Label();
             this.pnlIngredientsType4Status = new System.Windows.Forms.Panel();
             this.lstIngredientsType4Available = new System.Windows.Forms.ListBox();
             this.pnlIngredientsType3Status = new System.Windows.Forms.Panel();
@@ -59,6 +63,8 @@
             this.pnlIngredientsType10Status = new System.Windows.Forms.Panel();
             this.lstIngredientsType10Available = new System.Windows.Forms.ListBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.lblTypeIngredient12 = new System.Windows.Forms.Label();
+            this.lblTypeIngredient11 = new System.Windows.Forms.Label();
             this.pnlIngredientsType12Status = new System.Windows.Forms.Panel();
             this.lstIngredientsType12Available = new System.Windows.Forms.ListBox();
             this.pnlIngredientsType11Status = new System.Windows.Forms.Panel();
@@ -109,6 +115,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblTypeIngredient2);
+            this.tabPage1.Controls.Add(this.lblTypeIngredient1);
             this.tabPage1.Controls.Add(this.pnlIngredientsType2Status);
             this.tabPage1.Controls.Add(this.lstIngredientsType2Available);
             this.tabPage1.Controls.Add(this.pnlIngredientsType1Status);
@@ -121,12 +129,32 @@
             this.tabPage1.Text = "Viandes/Poissons/Crustacés";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lblTypeIngredient2
+            // 
+            this.lblTypeIngredient2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeIngredient2.Location = new System.Drawing.Point(435, 13);
+            this.lblTypeIngredient2.Name = "lblTypeIngredient2";
+            this.lblTypeIngredient2.Size = new System.Drawing.Size(430, 20);
+            this.lblTypeIngredient2.TabIndex = 7;
+            this.lblTypeIngredient2.Text = "Poissons et crustacés";
+            this.lblTypeIngredient2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTypeIngredient1
+            // 
+            this.lblTypeIngredient1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeIngredient1.Location = new System.Drawing.Point(3, 13);
+            this.lblTypeIngredient1.Name = "lblTypeIngredient1";
+            this.lblTypeIngredient1.Size = new System.Drawing.Size(430, 20);
+            this.lblTypeIngredient1.TabIndex = 6;
+            this.lblTypeIngredient1.Text = "Viandes";
+            this.lblTypeIngredient1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlIngredientsType2Status
             // 
             this.pnlIngredientsType2Status.AutoScroll = true;
-            this.pnlIngredientsType2Status.Location = new System.Drawing.Point(660, 26);
+            this.pnlIngredientsType2Status.Location = new System.Drawing.Point(660, 36);
             this.pnlIngredientsType2Status.Name = "pnlIngredientsType2Status";
-            this.pnlIngredientsType2Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType2Status.Size = new System.Drawing.Size(206, 327);
             this.pnlIngredientsType2Status.TabIndex = 5;
             // 
             // lstIngredientsType2Available
@@ -135,17 +163,17 @@
             this.lstIngredientsType2Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsType2Available.FormattingEnabled = true;
             this.lstIngredientsType2Available.ItemHeight = 20;
-            this.lstIngredientsType2Available.Location = new System.Drawing.Point(439, 26);
+            this.lstIngredientsType2Available.Location = new System.Drawing.Point(439, 46);
             this.lstIngredientsType2Available.Name = "lstIngredientsType2Available";
-            this.lstIngredientsType2Available.Size = new System.Drawing.Size(215, 340);
+            this.lstIngredientsType2Available.Size = new System.Drawing.Size(215, 320);
             this.lstIngredientsType2Available.TabIndex = 4;
             // 
             // pnlIngredientsType1Status
             // 
             this.pnlIngredientsType1Status.AutoScroll = true;
-            this.pnlIngredientsType1Status.Location = new System.Drawing.Point(227, 26);
+            this.pnlIngredientsType1Status.Location = new System.Drawing.Point(227, 36);
             this.pnlIngredientsType1Status.Name = "pnlIngredientsType1Status";
-            this.pnlIngredientsType1Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType1Status.Size = new System.Drawing.Size(206, 327);
             this.pnlIngredientsType1Status.TabIndex = 3;
             // 
             // lstIngredientsType1Available
@@ -154,13 +182,15 @@
             this.lstIngredientsType1Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsType1Available.FormattingEnabled = true;
             this.lstIngredientsType1Available.ItemHeight = 20;
-            this.lstIngredientsType1Available.Location = new System.Drawing.Point(6, 26);
+            this.lstIngredientsType1Available.Location = new System.Drawing.Point(6, 46);
             this.lstIngredientsType1Available.Name = "lstIngredientsType1Available";
-            this.lstIngredientsType1Available.Size = new System.Drawing.Size(215, 340);
+            this.lstIngredientsType1Available.Size = new System.Drawing.Size(215, 320);
             this.lstIngredientsType1Available.TabIndex = 2;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblTypeIngredient4);
+            this.tabPage2.Controls.Add(this.lblTypeIngredient3);
             this.tabPage2.Controls.Add(this.pnlIngredientsType4Status);
             this.tabPage2.Controls.Add(this.lstIngredientsType4Available);
             this.tabPage2.Controls.Add(this.pnlIngredientsType3Status);
@@ -173,12 +203,32 @@
             this.tabPage2.Text = "Fruits/Légumes/Légumineuses/Champignons";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lblTypeIngredient4
+            // 
+            this.lblTypeIngredient4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeIngredient4.Location = new System.Drawing.Point(438, 7);
+            this.lblTypeIngredient4.Name = "lblTypeIngredient4";
+            this.lblTypeIngredient4.Size = new System.Drawing.Size(430, 20);
+            this.lblTypeIngredient4.TabIndex = 11;
+            this.lblTypeIngredient4.Text = "Légumes légumineuses et champignons";
+            this.lblTypeIngredient4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTypeIngredient3
+            // 
+            this.lblTypeIngredient3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeIngredient3.Location = new System.Drawing.Point(6, 7);
+            this.lblTypeIngredient3.Name = "lblTypeIngredient3";
+            this.lblTypeIngredient3.Size = new System.Drawing.Size(430, 20);
+            this.lblTypeIngredient3.TabIndex = 10;
+            this.lblTypeIngredient3.Text = "Fruits";
+            this.lblTypeIngredient3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlIngredientsType4Status
             // 
             this.pnlIngredientsType4Status.AutoScroll = true;
-            this.pnlIngredientsType4Status.Location = new System.Drawing.Point(661, 13);
+            this.pnlIngredientsType4Status.Location = new System.Drawing.Point(661, 30);
             this.pnlIngredientsType4Status.Name = "pnlIngredientsType4Status";
-            this.pnlIngredientsType4Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType4Status.Size = new System.Drawing.Size(206, 320);
             this.pnlIngredientsType4Status.TabIndex = 9;
             // 
             // lstIngredientsType4Available
@@ -187,17 +237,17 @@
             this.lstIngredientsType4Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsType4Available.FormattingEnabled = true;
             this.lstIngredientsType4Available.ItemHeight = 20;
-            this.lstIngredientsType4Available.Location = new System.Drawing.Point(440, 13);
+            this.lstIngredientsType4Available.Location = new System.Drawing.Point(440, 33);
             this.lstIngredientsType4Available.Name = "lstIngredientsType4Available";
-            this.lstIngredientsType4Available.Size = new System.Drawing.Size(215, 340);
+            this.lstIngredientsType4Available.Size = new System.Drawing.Size(215, 320);
             this.lstIngredientsType4Available.TabIndex = 8;
             // 
             // pnlIngredientsType3Status
             // 
             this.pnlIngredientsType3Status.AutoScroll = true;
-            this.pnlIngredientsType3Status.Location = new System.Drawing.Point(228, 13);
+            this.pnlIngredientsType3Status.Location = new System.Drawing.Point(228, 30);
             this.pnlIngredientsType3Status.Name = "pnlIngredientsType3Status";
-            this.pnlIngredientsType3Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType3Status.Size = new System.Drawing.Size(206, 320);
             this.pnlIngredientsType3Status.TabIndex = 7;
             // 
             // lstIngredientsType3Available
@@ -206,9 +256,9 @@
             this.lstIngredientsType3Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsType3Available.FormattingEnabled = true;
             this.lstIngredientsType3Available.ItemHeight = 20;
-            this.lstIngredientsType3Available.Location = new System.Drawing.Point(7, 13);
+            this.lstIngredientsType3Available.Location = new System.Drawing.Point(7, 33);
             this.lstIngredientsType3Available.Name = "lstIngredientsType3Available";
-            this.lstIngredientsType3Available.Size = new System.Drawing.Size(215, 340);
+            this.lstIngredientsType3Available.Size = new System.Drawing.Size(215, 320);
             this.lstIngredientsType3Available.TabIndex = 6;
             // 
             // tabPage3
@@ -393,6 +443,8 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.lblTypeIngredient12);
+            this.tabPage9.Controls.Add(this.lblTypeIngredient11);
             this.tabPage9.Controls.Add(this.pnlIngredientsType12Status);
             this.tabPage9.Controls.Add(this.lstIngredientsType12Available);
             this.tabPage9.Controls.Add(this.pnlIngredientsType11Status);
@@ -404,12 +456,32 @@
             this.tabPage9.Text = "Alcool/spiritueux/sauces/eau";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // lblTypeIngredient12
+            // 
+            this.lblTypeIngredient12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeIngredient12.Location = new System.Drawing.Point(436, 10);
+            this.lblTypeIngredient12.Name = "lblTypeIngredient12";
+            this.lblTypeIngredient12.Size = new System.Drawing.Size(430, 20);
+            this.lblTypeIngredient12.TabIndex = 13;
+            this.lblTypeIngredient12.Text = "Sauces et eau";
+            this.lblTypeIngredient12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTypeIngredient11
+            // 
+            this.lblTypeIngredient11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeIngredient11.Location = new System.Drawing.Point(4, 10);
+            this.lblTypeIngredient11.Name = "lblTypeIngredient11";
+            this.lblTypeIngredient11.Size = new System.Drawing.Size(430, 20);
+            this.lblTypeIngredient11.TabIndex = 12;
+            this.lblTypeIngredient11.Text = "Alcool et spiritueux";
+            this.lblTypeIngredient11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlIngredientsType12Status
             // 
             this.pnlIngredientsType12Status.AutoScroll = true;
-            this.pnlIngredientsType12Status.Location = new System.Drawing.Point(661, 13);
+            this.pnlIngredientsType12Status.Location = new System.Drawing.Point(661, 53);
             this.pnlIngredientsType12Status.Name = "pnlIngredientsType12Status";
-            this.pnlIngredientsType12Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType12Status.Size = new System.Drawing.Size(206, 297);
             this.pnlIngredientsType12Status.TabIndex = 9;
             // 
             // lstIngredientsType12Available
@@ -418,17 +490,17 @@
             this.lstIngredientsType12Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsType12Available.FormattingEnabled = true;
             this.lstIngredientsType12Available.ItemHeight = 20;
-            this.lstIngredientsType12Available.Location = new System.Drawing.Point(440, 13);
+            this.lstIngredientsType12Available.Location = new System.Drawing.Point(440, 53);
             this.lstIngredientsType12Available.Name = "lstIngredientsType12Available";
-            this.lstIngredientsType12Available.Size = new System.Drawing.Size(215, 340);
+            this.lstIngredientsType12Available.Size = new System.Drawing.Size(215, 300);
             this.lstIngredientsType12Available.TabIndex = 8;
             // 
             // pnlIngredientsType11Status
             // 
             this.pnlIngredientsType11Status.AutoScroll = true;
-            this.pnlIngredientsType11Status.Location = new System.Drawing.Point(228, 13);
+            this.pnlIngredientsType11Status.Location = new System.Drawing.Point(228, 53);
             this.pnlIngredientsType11Status.Name = "pnlIngredientsType11Status";
-            this.pnlIngredientsType11Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType11Status.Size = new System.Drawing.Size(206, 297);
             this.pnlIngredientsType11Status.TabIndex = 7;
             // 
             // lstIngredientsType11Available
@@ -437,9 +509,9 @@
             this.lstIngredientsType11Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsType11Available.FormattingEnabled = true;
             this.lstIngredientsType11Available.ItemHeight = 20;
-            this.lstIngredientsType11Available.Location = new System.Drawing.Point(7, 13);
+            this.lstIngredientsType11Available.Location = new System.Drawing.Point(7, 53);
             this.lstIngredientsType11Available.Name = "lstIngredientsType11Available";
-            this.lstIngredientsType11Available.Size = new System.Drawing.Size(215, 340);
+            this.lstIngredientsType11Available.Size = new System.Drawing.Size(215, 300);
             this.lstIngredientsType11Available.TabIndex = 6;
             // 
             // lblNbOfIngredientsStored
@@ -520,5 +592,11 @@
         private System.Windows.Forms.Panel pnlIngredientsType11Status;
         private System.Windows.Forms.ListBox lstIngredientsType11Available;
         private System.Windows.Forms.Label lblNbOfIngredientsStored;
+        private System.Windows.Forms.Label lblTypeIngredient1;
+        private System.Windows.Forms.Label lblTypeIngredient2;
+        private System.Windows.Forms.Label lblTypeIngredient4;
+        private System.Windows.Forms.Label lblTypeIngredient3;
+        private System.Windows.Forms.Label lblTypeIngredient12;
+        private System.Windows.Forms.Label lblTypeIngredient11;
     }
 }

@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 3rd 2025</date>
+/// <date>March 8th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -638,7 +638,7 @@ namespace Recipe_Writer
 
             // --- Completion time
             lblCompletionTime.Text = "";
-            lblCompletionTime.Text += "Temps de réalisation : "+_currentDisplayedRecipe.CompletionTime+" min.";
+            lblCompletionTime.Text += "Temps de préparation : " + _currentDisplayedRecipe.CompletionTime+" min.";
 
             // --- Low budget status
             if (_currentDisplayedRecipe.LowBudget == 1)
