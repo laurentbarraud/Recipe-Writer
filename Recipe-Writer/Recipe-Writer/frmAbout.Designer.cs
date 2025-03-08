@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.txtCredits = new System.Windows.Forms.TextBox();
-            this.lblCredits = new System.Windows.Forms.Label();
+            this.lblInfosLicence = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmdValidate
@@ -44,46 +43,36 @@
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
-            // txtCredits
+            // lblInfosLicence
             // 
-            this.txtCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCredits.Location = new System.Drawing.Point(12, 100);
-            this.txtCredits.Multiline = true;
-            this.txtCredits.Name = "txtCredits";
-            this.txtCredits.Size = new System.Drawing.Size(398, 228);
-            this.txtCredits.TabIndex = 1;
-            this.txtCredits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCredits
-            // 
-            this.lblCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCredits.Location = new System.Drawing.Point(106, 45);
-            this.lblCredits.Name = "lblCredits";
-            this.lblCredits.Size = new System.Drawing.Size(205, 23);
-            this.lblCredits.TabIndex = 0;
-            this.lblCredits.Text = "Informations de licence";
-            this.lblCredits.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblInfosLicence.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblInfosLicence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfosLicence.Location = new System.Drawing.Point(13, 39);
+            this.lblInfosLicence.Name = "lblInfosLicence";
+            this.lblInfosLicence.Size = new System.Drawing.Size(388, 315);
+            this.lblInfosLicence.TabIndex = 3;
+            this.lblInfosLicence.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 450);
-            this.Controls.Add(this.lblCredits);
-            this.Controls.Add(this.txtCredits);
+            this.Controls.Add(this.lblInfosLicence);
             this.Controls.Add(this.cmdValidate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "A propos de Recipe-Writer";
             this.Load += new System.EventHandler(this.frmAbout_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button cmdValidate;
-        private System.Windows.Forms.TextBox txtCredits;
-        private System.Windows.Forms.Label lblCredits;
+        private System.Windows.Forms.Label lblInfosLicence;
     }
 }
