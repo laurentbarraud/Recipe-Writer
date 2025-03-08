@@ -414,20 +414,18 @@ namespace Recipe_Writer
             // If the user has typed something in one of the textboxes
             if (txtSearchIngredient1.Text != "" || txtSearchIngredient2.Text != "" || txtSearchIngredient3.Text != "")
             {
-                // Closing slide panel contents and then side menu animation
                 ClosePanel();
-                this.Refresh();
 
                 //--- Normal ingredient search -------------
-                if (!chkInverseSearch.Checked)
+                if (!chkFilterRecipesForSmallBudget.Checked)
                 {
-                    SearchRecipesByIngredients(false, txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text);
+                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text);
                 }
 
-                //--- Inverse ingredient search ------------
+                //--- Low budget ingredient search ------------
                 else
                 {
-                    SearchRecipesByIngredients(true, txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text);
+                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, true);
                 }
             }
             // If all the textboxes are empty
@@ -438,18 +436,23 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Search recipes which contain all the input ingredients or excludes the recipes that contain the ingredients input
+        /// Search recipes which contain all the input ingredients
+        /// <param name="filterForSmallBudget"></param>
+        /// <param name="ingredient1ToSearchFor"</param>
+        /// <param name="ingredient2ToSearchFor"</param>
+        /// <param name="ingredient3ToSearchFor"</param>
         /// </summary>
-        private void SearchRecipesByIngredients(bool inverseSearch, string ingredient1ToSearchFor, string ingredient2ToSearchFor, string ingredient3ToSearchFor)
+        private void SearchRecipesByIngredients(string ingredient1ToSearchFor, string ingredient2ToSearchFor, string ingredient3ToSearchFor, bool filterForSmallBudget = false)
         {
-            // Empties the listbox control
+            // Empties the listbox control and the title search textbox
             lstSearchResults.Items.Clear();
+            txtTitleSearch.Text = "";
 
             string formattedInputIngredient1 = ingredient1ToSearchFor;
             string formattedInputIngredient2 = ingredient2ToSearchFor;
             string formattedInputIngredient3 = ingredient3ToSearchFor;
 
-            // Checks if the search ingredients input by the user contain an apostroph, to avoid making the sql request crash
+            // Checks if the search ingredients input by the user contains an apostroph, to avoid making the SQL request crash
             formattedInputIngredient1 = ingredient1ToSearchFor.Replace("'", "''");
             formattedInputIngredient2 = ingredient2ToSearchFor.Replace("'", "''");
             formattedInputIngredient3 = ingredient3ToSearchFor.Replace("'", "''");
@@ -477,7 +480,7 @@ namespace Recipe_Writer
             List<string> listTitlesRequested = new List<string>();
 
             // Normal mode search
-            if (!chkInverseSearch.Checked)
+            if (!filterForSmallBudget)
             {
                 switch (searchIngredientsInputList.Count)
                 {
@@ -515,7 +518,7 @@ namespace Recipe_Writer
 
                         listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2]);
 
-                        // Calls the dbConn.SearchRecipesByTitle function with three ingredients in argument and and affects the returned list to the list control
+                        // Calls the dbConn.SearchRecipesByTitle function with three ingredients in argument and affects the returned list to the list control
                         foreach (string titleItem in listTitlesRequested)
                         {
                             if (titleItem != "")
@@ -527,16 +530,16 @@ namespace Recipe_Writer
                 }
             }
             
-            // If the checkbox for inverse search is checked
+            // If the checkbox to filter recipes for small budget is checked
             else
             {
                 switch (searchIngredientsInputList.Count)
                 {
-                    // If the user has typed only one ingredient to exclude for the recipes search
+                    // If the user has typed only one ingredient
                     case 1:
 
                         // Calls the dbConn function with only one keyword in argument and adds each returned title from the list to the list control
-                        listTitlesRequested = dbConn.SearchRecipesByExcludingIngredients(arraySearchIngredientsInput[0]);
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0],"","", true);
 
                         foreach (string titleItem in listTitlesRequested)
                         {
@@ -547,10 +550,10 @@ namespace Recipe_Writer
                         }
                         break;
 
-                    // If the user has typed two ingredients to exclude for the recipes search
+                    // If the user has typed two ingredients
                     case 2:
 
-                        listTitlesRequested = dbConn.SearchRecipesByExcludingIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1]);
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1],"", true);
 
                         // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
                         foreach (string titleItem in listTitlesRequested)
@@ -563,10 +566,10 @@ namespace Recipe_Writer
                         }
                         break;
 
-                    // If the user has typed three ingredients to exclude for the recipes search
+                    // If the user has typed three ingredients
                     case 3:
 
-                        listTitlesRequested = dbConn.SearchRecipesByExcludingIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2]);
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2], true);
 
                         // Calls the dbConn.SearchRecipesByTitle function with three keywords in argument and adds the returned titles in the list of string
                         foreach (string titleItem in listTitlesRequested)

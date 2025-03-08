@@ -55,7 +55,8 @@
             this.picSearchByIngredient = new System.Windows.Forms.PictureBox();
             this.picInventory = new System.Windows.Forms.PictureBox();
             this.pnlSlideMenu = new System.Windows.Forms.Panel();
-            this.chkInverseSearch = new System.Windows.Forms.CheckBox();
+            this.chkFilterRecipesForThreeStars = new System.Windows.Forms.CheckBox();
+            this.chkFilterRecipesForSmallBudget = new System.Windows.Forms.CheckBox();
             this.lblSearchByIngredients = new System.Windows.Forms.Label();
             this.lblSearchIngredient3 = new System.Windows.Forms.Label();
             this.lblSearchIngredient2 = new System.Windows.Forms.Label();
@@ -325,7 +326,8 @@
             // 
             this.pnlSlideMenu.BackColor = System.Drawing.SystemColors.Window;
             this.pnlSlideMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSlideMenu.Controls.Add(this.chkInverseSearch);
+            this.pnlSlideMenu.Controls.Add(this.chkFilterRecipesForThreeStars);
+            this.pnlSlideMenu.Controls.Add(this.chkFilterRecipesForSmallBudget);
             this.pnlSlideMenu.Controls.Add(this.lblSearchByIngredients);
             this.pnlSlideMenu.Controls.Add(this.lblSearchIngredient3);
             this.pnlSlideMenu.Controls.Add(this.lblSearchIngredient2);
@@ -336,22 +338,33 @@
             this.pnlSlideMenu.Controls.Add(this.cmdIngredientsSearch);
             this.pnlSlideMenu.Location = new System.Drawing.Point(73, 116);
             this.pnlSlideMenu.Name = "pnlSlideMenu";
-            this.pnlSlideMenu.Size = new System.Drawing.Size(15, 204);
+            this.pnlSlideMenu.Size = new System.Drawing.Size(12, 204);
             this.pnlSlideMenu.TabIndex = 19;
             this.pnlSlideMenu.Visible = false;
             // 
-            // chkInverseSearch
+            // chkFilterRecipesForThreeStars
             // 
-            this.chkInverseSearch.AutoSize = true;
-            this.chkInverseSearch.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkInverseSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkInverseSearch.Location = new System.Drawing.Point(7, 147);
-            this.chkInverseSearch.Name = "chkInverseSearch";
-            this.chkInverseSearch.Size = new System.Drawing.Size(217, 22);
-            this.chkInverseSearch.TabIndex = 7;
-            this.chkInverseSearch.Text = "Exclusion de ces ingrédients";
-            this.chkInverseSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkInverseSearch.UseVisualStyleBackColor = true;
+            this.chkFilterRecipesForThreeStars.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkFilterRecipesForThreeStars.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFilterRecipesForThreeStars.Location = new System.Drawing.Point(169, 159);
+            this.chkFilterRecipesForThreeStars.Name = "chkFilterRecipesForThreeStars";
+            this.chkFilterRecipesForThreeStars.Size = new System.Drawing.Size(107, 24);
+            this.chkFilterRecipesForThreeStars.TabIndex = 21;
+            this.chkFilterRecipesForThreeStars.Text = "3 étoiles";
+            this.chkFilterRecipesForThreeStars.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkFilterRecipesForThreeStars.UseVisualStyleBackColor = true;
+            // 
+            // chkFilterRecipesForSmallBudget
+            // 
+            this.chkFilterRecipesForSmallBudget.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkFilterRecipesForSmallBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFilterRecipesForSmallBudget.Location = new System.Drawing.Point(21, 159);
+            this.chkFilterRecipesForSmallBudget.Name = "chkFilterRecipesForSmallBudget";
+            this.chkFilterRecipesForSmallBudget.Size = new System.Drawing.Size(129, 24);
+            this.chkFilterRecipesForSmallBudget.TabIndex = 7;
+            this.chkFilterRecipesForSmallBudget.Text = "Petit budget";
+            this.chkFilterRecipesForSmallBudget.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkFilterRecipesForSmallBudget.UseVisualStyleBackColor = true;
             // 
             // lblSearchByIngredients
             // 
@@ -634,7 +647,7 @@
         private System.Windows.Forms.Label lblCompletionTime;
         private System.Windows.Forms.OpenFileDialog ofdAssociatedImage;
         private System.Windows.Forms.Panel pnlSlideMenu;
-        private System.Windows.Forms.CheckBox chkInverseSearch;
+        private System.Windows.Forms.CheckBox chkFilterRecipesForSmallBudget;
         private System.Windows.Forms.Label lblSearchByIngredients;
         private System.Windows.Forms.Label lblSearchIngredient3;
         private System.Windows.Forms.Label lblSearchIngredient2;
@@ -670,6 +683,7 @@
         private System.Windows.Forms.ToolStripMenuItem vendrediToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem samediToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dimancheToolStripMenuItem;
+        private System.Windows.Forms.CheckBox chkFilterRecipesForThreeStars;
     }
 }
 
