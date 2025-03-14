@@ -1,7 +1,7 @@
 ﻿/// <file>Recipes.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 3rd 2025</date>
+/// <date>March 13th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -21,6 +21,7 @@ namespace Recipe_Writer
 		private string imagePath;
 		private List<Ingredients> ingredientsList;
 		private List<Instructions> instructionsList;
+		private bool isReadyToCook;
 
 		public int Id
 		{
@@ -70,6 +71,12 @@ namespace Recipe_Writer
 			set { instructionsList = value; }
 		}
 
+		public bool IsReadyToCook
+		{
+			get { return IsReadyToCook; }
+			set { IsReadyToCook = value; }
+		}
+
 		/// <summary>
 		/// Constructor of the Recipes class
 		/// </summary>
@@ -81,7 +88,7 @@ namespace Recipe_Writer
 		/// <param name="imagePathProvided">the image path affected to the recipe</param>
 		/// <param name="ingredientsListProvided">the list of ingredients needed to make the recipe</param>
 		/// <param name="instructionsListProvided">the list of instructions to follow to make the recipe</param>
-		public Recipes(int idRecipeProvided, string titleProvided, int completionTimeProvided, int lowBudgetProvided, int scoreProvided, string imagePathProvided, List<Ingredients> ingredientsListProvided, List<Instructions> instructionsListProvided)
+		public Recipes(int idRecipeProvided, string titleProvided, int completionTimeProvided, int lowBudgetProvided, int scoreProvided, string imagePathProvided, List<Ingredients> ingredientsListProvided, List<Instructions> instructionsListProvided, bool isReadyToCookProvided = false)
 		{
 			this.Id = idRecipeProvided;
 			this.Title = titleProvided;

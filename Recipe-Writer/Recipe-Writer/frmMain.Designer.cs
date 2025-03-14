@@ -76,6 +76,7 @@
             this.cmdNewRecipe = new System.Windows.Forms.Button();
             this.picSettings = new System.Windows.Forms.PictureBox();
             this.picMealPlanner = new System.Windows.Forms.PictureBox();
+            this.picRecipeReadyToCookStatus = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
             this.cmsRecipeResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearchByIngredient)).BeginInit();
@@ -89,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMealPlanner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRecipeReadyToCookStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTitleSearch
@@ -121,7 +123,7 @@
             // nudPersons
             // 
             this.nudPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudPersons.Location = new System.Drawing.Point(100, 221);
+            this.nudPersons.Location = new System.Drawing.Point(104, 221);
             this.nudPersons.Maximum = new decimal(new int[] {
             50,
             0,
@@ -147,7 +149,7 @@
             // 
             this.lblPortions.AutoSize = true;
             this.lblPortions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPortions.Location = new System.Drawing.Point(152, 228);
+            this.lblPortions.Location = new System.Drawing.Point(156, 228);
             this.lblPortions.Name = "lblPortions";
             this.lblPortions.Size = new System.Drawing.Size(62, 18);
             this.lblPortions.TabIndex = 10;
@@ -272,7 +274,7 @@
             this.cmbRecipeIngredients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRecipeIngredients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbRecipeIngredients.FormattingEnabled = true;
-            this.cmbRecipeIngredients.Location = new System.Drawing.Point(285, 223);
+            this.cmbRecipeIngredients.Location = new System.Drawing.Point(289, 223);
             this.cmbRecipeIngredients.Name = "cmbRecipeIngredients";
             this.cmbRecipeIngredients.Size = new System.Drawing.Size(206, 24);
             this.cmbRecipeIngredients.TabIndex = 16;
@@ -282,11 +284,11 @@
             // lblCompletionTime
             // 
             this.lblCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompletionTime.Location = new System.Drawing.Point(511, 226);
+            this.lblCompletionTime.Location = new System.Drawing.Point(590, 226);
             this.lblCompletionTime.Name = "lblCompletionTime";
-            this.lblCompletionTime.Size = new System.Drawing.Size(251, 24);
+            this.lblCompletionTime.Size = new System.Drawing.Size(184, 24);
             this.lblCompletionTime.TabIndex = 10;
-            this.lblCompletionTime.Text = "Temps de préparation : ";
+            this.lblCompletionTime.Text = "Préparation : 120 minutes";
             this.lblCompletionTime.Visible = false;
             // 
             // ofdAssociatedImage
@@ -460,7 +462,7 @@
             // 
             this.picScore3.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
             this.picScore3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picScore3.Location = new System.Drawing.Point(111, 1);
+            this.picScore3.Location = new System.Drawing.Point(113, 1);
             this.picScore3.Name = "picScore3";
             this.picScore3.Size = new System.Drawing.Size(36, 26);
             this.picScore3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -474,7 +476,7 @@
             // 
             this.picScore2.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
             this.picScore2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picScore2.Location = new System.Drawing.Point(78, 1);
+            this.picScore2.Location = new System.Drawing.Point(80, 1);
             this.picScore2.Name = "picScore2";
             this.picScore2.Size = new System.Drawing.Size(36, 26);
             this.picScore2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -488,7 +490,7 @@
             // 
             this.picScore1.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
             this.picScore1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picScore1.Location = new System.Drawing.Point(45, 1);
+            this.picScore1.Location = new System.Drawing.Point(47, 1);
             this.picScore1.Name = "picScore1";
             this.picScore1.Size = new System.Drawing.Size(36, 26);
             this.picScore1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -529,7 +531,7 @@
             // 
             this.picLowBudget.BackgroundImage = global::Recipe_Writer.Properties.Resources.lowBudget;
             this.picLowBudget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLowBudget.Location = new System.Drawing.Point(230, 219);
+            this.picLowBudget.Location = new System.Drawing.Point(234, 219);
             this.picLowBudget.Name = "picLowBudget";
             this.picLowBudget.Size = new System.Drawing.Size(35, 30);
             this.picLowBudget.TabIndex = 12;
@@ -586,12 +588,23 @@
             this.picMealPlanner.Click += new System.EventHandler(this.picMealPlanner_Click);
             this.picMealPlanner.MouseHover += new System.EventHandler(this.picMealPlanner_MouseHover);
             // 
+            // picRecipeReadyToCookStatus
+            // 
+            this.picRecipeReadyToCookStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picRecipeReadyToCookStatus.Location = new System.Drawing.Point(518, 219);
+            this.picRecipeReadyToCookStatus.Name = "picRecipeReadyToCookStatus";
+            this.picRecipeReadyToCookStatus.Size = new System.Drawing.Size(35, 30);
+            this.picRecipeReadyToCookStatus.TabIndex = 28;
+            this.picRecipeReadyToCookStatus.TabStop = false;
+            this.picRecipeReadyToCookStatus.Visible = false;
+            // 
             // frmMain
             // 
             this.AcceptButton = this.cmdTitleSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 651);
+            this.Controls.Add(this.picRecipeReadyToCookStatus);
             this.Controls.Add(this.pnlSlideMenu);
             this.Controls.Add(this.picSettings);
             this.Controls.Add(this.picMealPlanner);
@@ -632,6 +645,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMealPlanner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRecipeReadyToCookStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -684,6 +698,7 @@
         private System.Windows.Forms.ToolStripMenuItem samediToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dimancheToolStripMenuItem;
         private System.Windows.Forms.CheckBox chkFilterRecipesForThreeStars;
+        private System.Windows.Forms.PictureBox picRecipeReadyToCookStatus;
     }
 }
 

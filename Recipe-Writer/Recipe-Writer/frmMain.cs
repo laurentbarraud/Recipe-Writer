@@ -641,7 +641,7 @@ namespace Recipe_Writer
 
             // --- Completion time
             lblCompletionTime.Text = "";
-            lblCompletionTime.Text += "Temps de préparation : " + _currentDisplayedRecipe.CompletionTime+" min.";
+            lblCompletionTime.Text += "Préparation : " + _currentDisplayedRecipe.CompletionTime+" min.";
 
             // --- Low budget status
             if (_currentDisplayedRecipe.LowBudget == 1)
@@ -676,6 +676,9 @@ namespace Recipe_Writer
 
             // Selects automatically the first item of the combobox
             cmbRecipeIngredients.SelectedIndex = 0;
+
+            // --- Calculates if the recipe is ready to cook with what is stored in the inventory.
+            CalculateStatusOfARecipe(_currentDisplayedRecipe.IngredientsList);
 
             // --- Score
             if (_currentDisplayedRecipe.Score == 0)
@@ -722,7 +725,29 @@ namespace Recipe_Writer
                 // Affects to the pictureBox the current displayed recipe illustration image
                 picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
                 picRecipe.BorderStyle = BorderStyle.None;
-            }   
+            }
+        }
+
+
+        /// <summary>
+        /// Calculates if all ingredients needed for a recipe are in enough quantity in the inventory
+        /// </summary>
+        /// <param name="typeProvided"</param>
+        /// <returns>the list of ingredients missing with the quantity needed for the recipe</returns>
+        public List<string> CalculateStatusOfARecipe(List<Ingredients> listOfIngredientsNeeded)
+        {
+            List<string> missingIngredients = new List<string>();
+
+            foreach (Ingredients ingredientNeeded in listOfIngredientsNeeded)
+            {
+                // If the ingredient is missing
+                if (ingredientNeeded.QtyRequested > ingredientNeeded.QtyAvailable)
+                {
+                    missingIngredients.Add((ingredientNeeded.QtyRequested - ingredientNeeded.QtyAvailable).ToString() + ingredientNeeded.Scale + ingredientNeeded.Name);
+                }
+            }
+
+            return missingIngredients;
         }
 
         /// <summary>
