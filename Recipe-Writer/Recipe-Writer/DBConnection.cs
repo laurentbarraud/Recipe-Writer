@@ -1,7 +1,7 @@
 ﻿/// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 8th 2025</date>
+/// <date>March 14th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// This exposed variable property is used to store the current numeric updown value during execution
+        /// This exposed property is used to store the current numeric updown value during execution
         /// </summary>
         public static int NbPersonsSet
         {
@@ -362,6 +362,36 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Reads the quantity of an ingredient available 
+        /// </summary>
+        /// <param name="ingredientName">the name of the ingredient</param>
+        /// <returns>Quantity of the ingredient found in the inventory</returns>
+        public double ReadQtyAvailableForAnIngredient(string nameIngredient)
+        {
+            double qtyIngredientFound = 0.0;
+            string formattednameIngredient = nameIngredient;
+
+            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
+            if (nameIngredient.Contains("'"))
+            {
+                formattednameIngredient = nameIngredient.Replace("'", "''");
+            }
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+
+            cmd.CommandText = "SELECT qtyAvailable FROM Ingredients WHERE ingredientName = '" + formattednameIngredient + "';";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                // Parses the quantity of the ingredient
+                double.TryParse(dataReader["qtyAvailable"].ToString(), out qtyIngredientFound);
+            }
+
+            return qtyIngredientFound;
+        }
+
+        /// <summary>
         /// Reads all scales stored in the database
         /// </summary>
         /// <returns>the list of scales stored in the database</returns>
@@ -466,33 +496,33 @@ namespace Recipe_Writer
 
                 for (int i = 1; i <= 20; i++)
                 {
-                    double qtyIngredientFound = 0.0;
+                    double qtyIngredientNeeded = 0.0;
                     Ingredients _ingredientToAdd = new Ingredients("defaultIngredient", 0.0, "g", 0.0);
 
                     if (dataReader["qtyIngredient"+i].ToString() != "")
                     {
                         // Parses the quantity of the ingredient
-                        double.TryParse(dataReader["qtyIngredient"+i].ToString(), out qtyIngredientFound);
+                        double.TryParse(dataReader["qtyIngredient"+i].ToString(), out qtyIngredientNeeded);
 
                         // If the number of persons == 1 or > 2
                         if (DBConnection.NbPersonsSet == 1 || DBConnection.NbPersonsSet > 2)
                         {
                             // Divides by 2 the quantity
-                            qtyIngredientFound /= 2;
+                            qtyIngredientNeeded /= 2;
                         }
 
                         // If the number of persons > 2
                         if (DBConnection.NbPersonsSet > 2)
                         {
                             // Multiply by the new value set in the numeric updown control
-                            qtyIngredientFound *= DBConnection.NbPersonsSet;
+                            qtyIngredientNeeded *= DBConnection.NbPersonsSet;
                         }
 
                         // Affects the ingredient quantity, scale and name to the properties of the ingredient object
-                        _ingredientToAdd.QtyRequested = qtyIngredientFound;
+                        _ingredientToAdd.QtyRequested = qtyIngredientNeeded;
                         _ingredientToAdd.Scale = dataReader["scaleIngredient"+i].ToString();
                         _ingredientToAdd.Name = dataReader["ingredient"+i+"Name"].ToString();
-                        _ingredientToAdd.QtyAvailable = 0.0;
+                        _ingredientToAdd.QtyAvailable = this.ReadQtyAvailableForAnIngredient(_ingredientToAdd.Name);
 
                         // Adds the ingredients to the list
                         listIngredientsRequested.Add(_ingredientToAdd);
@@ -757,7 +787,7 @@ namespace Recipe_Writer
             return imagePathFound;
         }
 
-        public List<string> SearchRecipesByIngredients(string ingredientInput1 = "", string ingredientInput2 = "", string ingredientInput3 = "", bool filterForLowBudget = false)
+        public List<string> SearchRecipesByIngredients(string ingredientInput1 = "", string ingredientInput2 = "", string ingredientInput3 = "", bool filterForLowBudget = false, bool filterForThreeStars = false)
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
@@ -850,9 +880,17 @@ namespace Recipe_Writer
 
             if (filterForLowBudget)
             {
-               cmd.CommandText += " AND (lowBudget = '1');";
+               cmd.CommandText += " AND (lowBudget = '1')";
         
             }
+
+            if (filterForThreeStars)
+            {
+                cmd.CommandText += " AND (score = '3')";
+            }
+
+            cmd.CommandText += ";";
+
                string titleFound = "";
 
                SQLiteDataReader dataReader = cmd.ExecuteReader();

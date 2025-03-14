@@ -77,6 +77,7 @@
             this.picSettings = new System.Windows.Forms.PictureBox();
             this.picMealPlanner = new System.Windows.Forms.PictureBox();
             this.picRecipeReadyToCookStatus = new System.Windows.Forms.PictureBox();
+            this.ttpMissingIngredients = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
             this.cmsRecipeResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearchByIngredient)).BeginInit();
@@ -591,12 +592,18 @@
             // picRecipeReadyToCookStatus
             // 
             this.picRecipeReadyToCookStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picRecipeReadyToCookStatus.Location = new System.Drawing.Point(518, 219);
+            this.picRecipeReadyToCookStatus.Location = new System.Drawing.Point(515, 221);
             this.picRecipeReadyToCookStatus.Name = "picRecipeReadyToCookStatus";
-            this.picRecipeReadyToCookStatus.Size = new System.Drawing.Size(35, 30);
+            this.picRecipeReadyToCookStatus.Size = new System.Drawing.Size(31, 35);
             this.picRecipeReadyToCookStatus.TabIndex = 28;
             this.picRecipeReadyToCookStatus.TabStop = false;
-            this.picRecipeReadyToCookStatus.Visible = false;
+            this.picRecipeReadyToCookStatus.MouseHover += new System.EventHandler(this.picRecipeReadyToCookStatus_MouseHover);
+            // 
+            // ttpMissingIngredients
+            // 
+            this.ttpMissingIngredients.AutoPopDelay = 10000;
+            this.ttpMissingIngredients.InitialDelay = 500;
+            this.ttpMissingIngredients.ReshowDelay = 500;
             // 
             // frmMain
             // 
@@ -604,7 +611,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 651);
-            this.Controls.Add(this.picRecipeReadyToCookStatus);
             this.Controls.Add(this.pnlSlideMenu);
             this.Controls.Add(this.picSettings);
             this.Controls.Add(this.picMealPlanner);
@@ -624,6 +630,7 @@
             this.Controls.Add(this.cmdNewRecipe);
             this.Controls.Add(this.cmdTitleSearch);
             this.Controls.Add(this.txtTitleSearch);
+            this.Controls.Add(this.picRecipeReadyToCookStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMain";
@@ -699,6 +706,7 @@
         private System.Windows.Forms.ToolStripMenuItem dimancheToolStripMenuItem;
         private System.Windows.Forms.CheckBox chkFilterRecipesForThreeStars;
         private System.Windows.Forms.PictureBox picRecipeReadyToCookStatus;
+        private System.Windows.Forms.ToolTip ttpMissingIngredients;
     }
 }
 

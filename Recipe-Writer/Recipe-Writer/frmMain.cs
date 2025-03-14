@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 8th 2025</date>
+/// <date>March 14th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -417,15 +417,27 @@ namespace Recipe_Writer
                 ClosePanel();
 
                 //--- Normal ingredient search -------------
-                if (!chkFilterRecipesForSmallBudget.Checked)
+                if (!chkFilterRecipesForSmallBudget.Checked && !chkFilterRecipesForThreeStars.Checked)
                 {
                     SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text);
                 }
 
-                //--- Low budget ingredient search ------------
-                else
+                //--- Low budget recipes search ------------
+                else if (chkFilterRecipesForSmallBudget.Checked && !chkFilterRecipesForThreeStars.Checked)
                 {
                     SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, true);
+                }
+
+                //--- Three stars recipes search -------------
+                else if (!chkFilterRecipesForSmallBudget.Checked && chkFilterRecipesForThreeStars.Checked)
+                {
+                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, false, true);
+                }
+
+                //--- Low budget and three stars recipes search ------------
+                else if (chkFilterRecipesForSmallBudget.Checked && chkFilterRecipesForThreeStars.Checked)
+                {
+                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, true, true);
                 }
             }
             // If all the textboxes are empty
@@ -442,7 +454,7 @@ namespace Recipe_Writer
         /// <param name="ingredient2ToSearchFor"</param>
         /// <param name="ingredient3ToSearchFor"</param>
         /// </summary>
-        private void SearchRecipesByIngredients(string ingredient1ToSearchFor, string ingredient2ToSearchFor, string ingredient3ToSearchFor, bool filterForSmallBudget = false)
+        private void SearchRecipesByIngredients(string ingredient1ToSearchFor, string ingredient2ToSearchFor, string ingredient3ToSearchFor, bool filterForSmallBudget = false, bool filterForThreeStars = false)
         {
             // Empties the listbox control and the title search textbox
             lstSearchResults.Items.Clear();
@@ -480,7 +492,7 @@ namespace Recipe_Writer
             List<string> listTitlesRequested = new List<string>();
 
             // Normal mode search
-            if (!filterForSmallBudget)
+            if (!filterForSmallBudget && !filterForThreeStars)
             {
                 switch (searchIngredientsInputList.Count)
                 {
@@ -531,7 +543,7 @@ namespace Recipe_Writer
             }
             
             // If the checkbox to filter recipes for small budget is checked
-            else
+            else if (filterForSmallBudget && !filterForThreeStars)
             {
                 switch (searchIngredientsInputList.Count)
                 {
@@ -539,7 +551,7 @@ namespace Recipe_Writer
                     case 1:
 
                         // Calls the dbConn function with only one keyword in argument and adds each returned title from the list to the list control
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0],"","", true);
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], "", "", true);
 
                         foreach (string titleItem in listTitlesRequested)
                         {
@@ -553,7 +565,7 @@ namespace Recipe_Writer
                     // If the user has typed two ingredients
                     case 2:
 
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1],"", true);
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], "", true);
 
                         // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
                         foreach (string titleItem in listTitlesRequested)
@@ -570,6 +582,114 @@ namespace Recipe_Writer
                     case 3:
 
                         listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2], true);
+
+                        // Calls the dbConn.SearchRecipesByTitle function with three keywords in argument and adds the returned titles in the list of string
+                        foreach (string titleItem in listTitlesRequested)
+                        {
+                            if (titleItem != "")
+                            {
+                                lstSearchResults.Items.Add(titleItem);
+                            }
+
+                        }
+                        break;
+                }
+            }
+
+            // If the checkbox to filter recipes for the ones ranked three stars is checked
+            else if (!filterForSmallBudget && filterForThreeStars)
+            {
+                switch (searchIngredientsInputList.Count)
+                {
+                    // If the user has typed only one ingredient
+                    case 1:
+
+                        // Calls the dbConn function with only one keyword in argument and adds each returned title from the list to the list control
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], "", "", false, true);
+
+                        foreach (string titleItem in listTitlesRequested)
+                        {
+                            if (titleItem != "")
+                            {
+                                lstSearchResults.Items.Add(titleItem);
+                            }
+                        }
+                        break;
+
+                    // If the user has typed two ingredients
+                    case 2:
+
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], "", false, true);
+
+                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
+                        foreach (string titleItem in listTitlesRequested)
+                        {
+                            if (titleItem != "")
+                            {
+                                lstSearchResults.Items.Add(titleItem);
+                            }
+
+                        }
+                        break;
+
+                    // If the user has typed three ingredients
+                    case 3:
+
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2], false, true);
+
+                        // Calls the dbConn.SearchRecipesByTitle function with three keywords in argument and adds the returned titles in the list of string
+                        foreach (string titleItem in listTitlesRequested)
+                        {
+                            if (titleItem != "")
+                            {
+                                lstSearchResults.Items.Add(titleItem);
+                            }
+
+                        }
+                        break;
+                }
+            }
+
+            // If the checkboxes to filter recipes for small budget and to filter for the ones ranked three stars are checked
+            else if (filterForSmallBudget && filterForThreeStars)
+            {
+                switch (searchIngredientsInputList.Count)
+                {
+                    // If the user has typed only one ingredient
+                    case 1:
+
+                        // Calls the dbConn function with only one keyword in argument and adds each returned title from the list to the list control
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], "", "", true, true);
+
+                        foreach (string titleItem in listTitlesRequested)
+                        {
+                            if (titleItem != "")
+                            {
+                                lstSearchResults.Items.Add(titleItem);
+                            }
+                        }
+                        break;
+
+                    // If the user has typed two ingredients
+                    case 2:
+
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], "", true, true);
+
+                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
+                        foreach (string titleItem in listTitlesRequested)
+                        {
+                            if (titleItem != "")
+                            {
+                                lstSearchResults.Items.Add(titleItem);
+                            }
+
+                        }
+                        break;
+
+                    // If the user has typed three ingredients
+                    case 3:
+
+                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2], true, true);
 
                         // Calls the dbConn.SearchRecipesByTitle function with three keywords in argument and adds the returned titles in the list of string
                         foreach (string titleItem in listTitlesRequested)
@@ -658,9 +778,7 @@ namespace Recipe_Writer
             // Calls the function that will read the ingredients needed to make the recipe and adds the ingredients in the ingredients property of the current displayed recipe object
             _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
  
-            // Clears the combobox of ingredients before adding the items found
             cmbRecipeIngredients.Items.Clear();
-
             cmbRecipeIngredients.Items.Add("Ingrédients nécessaires");
 
             // Adds each ingredients list item as a new item in the ingredients comboBo
@@ -678,7 +796,16 @@ namespace Recipe_Writer
             cmbRecipeIngredients.SelectedIndex = 0;
 
             // --- Calculates if the recipe is ready to cook with what is stored in the inventory.
-            CalculateStatusOfARecipe(_currentDisplayedRecipe.IngredientsList);
+            if (CalculateRecipeStatus(_currentDisplayedRecipe.IngredientsList))
+            {
+                picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_green;
+            }
+
+            // If there's one or more ingredient(s) missing
+            else
+            {
+                picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_red;
+            }
 
             // --- Score
             if (_currentDisplayedRecipe.Score == 0)
@@ -686,20 +813,23 @@ namespace Recipe_Writer
                 picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
                 picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
                 picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-            
-            } else if (_currentDisplayedRecipe.Score == 1)
+
+            }
+            else if (_currentDisplayedRecipe.Score == 1)
             {
                 picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
                 picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
                 picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
 
-            } else if (_currentDisplayedRecipe.Score == 2)
+            }
+            else if (_currentDisplayedRecipe.Score == 2)
             {
                 picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
                 picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
                 picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
 
-            } else if (_currentDisplayedRecipe.Score == 3)
+            }
+            else if (_currentDisplayedRecipe.Score == 3)
             {
                 picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
                 picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
@@ -733,21 +863,21 @@ namespace Recipe_Writer
         /// Calculates if all ingredients needed for a recipe are in enough quantity in the inventory
         /// </summary>
         /// <param name="typeProvided"</param>
-        /// <returns>the list of ingredients missing with the quantity needed for the recipe</returns>
-        public List<string> CalculateStatusOfARecipe(List<Ingredients> listOfIngredientsNeeded)
+        /// <returns>the status of a recipe : ready for cooking or not</returns>
+        public bool CalculateRecipeStatus(List<Ingredients> listOfIngredientsNeeded)
         {
-            List<string> missingIngredients = new List<string>();
+            bool RecipeIsReadyToCook = true;
 
             foreach (Ingredients ingredientNeeded in listOfIngredientsNeeded)
             {
                 // If the ingredient is missing
                 if (ingredientNeeded.QtyRequested > ingredientNeeded.QtyAvailable)
                 {
-                    missingIngredients.Add((ingredientNeeded.QtyRequested - ingredientNeeded.QtyAvailable).ToString() + ingredientNeeded.Scale + ingredientNeeded.Name);
+                    RecipeIsReadyToCook = false;
                 }
             }
 
-            return missingIngredients;
+            return RecipeIsReadyToCook;
         }
 
         /// <summary>
@@ -1074,6 +1204,11 @@ namespace Recipe_Writer
         {
             frmAbout _frmAbout = new frmAbout();
             _frmAbout.ShowDialog();
+        }
+
+        private void picRecipeReadyToCookStatus_MouseHover(object sender, EventArgs e)
+        {
+            ttpMissingIngredients.Show("Indique si vous avez assez d'ingrédients pour faire la recette.", picRecipeReadyToCookStatus);
         }
     }
 }

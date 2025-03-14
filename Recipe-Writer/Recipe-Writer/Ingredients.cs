@@ -1,7 +1,7 @@
 ﻿/// <file>Ingredients.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 3rd 2025</date>
+/// <date>March 14th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -13,12 +13,19 @@ namespace Recipe_Writer
 {
 	public class Ingredients
 	{
+		private int id;
 		private string name;
 		private double qtyRequested;
 		private double qtyAvailable;
 		private string scale;
 
-		public string Name
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Name
 		{
 			get { return name; }
 			set { name = value; }

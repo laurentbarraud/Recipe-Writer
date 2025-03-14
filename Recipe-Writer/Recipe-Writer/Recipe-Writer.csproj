@@ -190,49 +190,7 @@
     <None Include="Resources\edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export-to-html.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export-to-html1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export-to-html2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export-to-html3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ingredients-search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\inventory.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\planner.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\validate.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ingredients-search1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\inventory1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\planner1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\settings1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit-recipe-title.png" />
@@ -250,15 +208,6 @@
     <None Include="Resources\new-instruction.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ingredient-status-green.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ingredient-status-red.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ingredient-status-yellow.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\side-menu.png" />
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +215,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Recipe-writer.ico" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\planner.png" />
+    <None Include="Resources\recipe-status-red.jpg" />
+    <None Include="Resources\recipe-status-green.jpg" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\ingredients-search.png" />
+    <None Include="Resources\export-to-html.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />

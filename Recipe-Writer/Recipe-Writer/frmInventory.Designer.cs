@@ -152,9 +152,9 @@
             // pnlIngredientsType2Status
             // 
             this.pnlIngredientsType2Status.AutoScroll = true;
-            this.pnlIngredientsType2Status.Location = new System.Drawing.Point(660, 36);
+            this.pnlIngredientsType2Status.Location = new System.Drawing.Point(660, 46);
             this.pnlIngredientsType2Status.Name = "pnlIngredientsType2Status";
-            this.pnlIngredientsType2Status.Size = new System.Drawing.Size(206, 327);
+            this.pnlIngredientsType2Status.Size = new System.Drawing.Size(206, 317);
             this.pnlIngredientsType2Status.TabIndex = 5;
             // 
             // lstIngredientsType2Available
@@ -171,9 +171,9 @@
             // pnlIngredientsType1Status
             // 
             this.pnlIngredientsType1Status.AutoScroll = true;
-            this.pnlIngredientsType1Status.Location = new System.Drawing.Point(227, 36);
+            this.pnlIngredientsType1Status.Location = new System.Drawing.Point(227, 46);
             this.pnlIngredientsType1Status.Name = "pnlIngredientsType1Status";
-            this.pnlIngredientsType1Status.Size = new System.Drawing.Size(206, 327);
+            this.pnlIngredientsType1Status.Size = new System.Drawing.Size(206, 317);
             this.pnlIngredientsType1Status.TabIndex = 3;
             // 
             // lstIngredientsType1Available
@@ -539,7 +539,6 @@
             this.Text = "Inventaire des ingrédients";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInventory_FormClosed);
             this.Load += new System.EventHandler(this.frmInventory_Load);
-            this.Move += new System.EventHandler(this.frmInventory_Move);
             this.tabInventoryIngredients.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);

@@ -1,8 +1,8 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 8th 2025</date>
-
+/// <date>March 14th 2025</date>
+/// 
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -128,7 +128,7 @@ namespace Recipe_Writer
                 // Edit button for an instruction =================================================================
                 nudQtyIngredient.Value = 0;
                 nudQtyIngredient.Maximum = 10000;
-                nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 8);
+                nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 9);
                 nudQtyIngredient.Width = 2 * (iconWidth);
                 nudQtyIngredient.Height = numericUpDownHeight;
                 nudQtyIngredient.Location = new Point(spacingWidth, currentIngredient * (iconHeight + lineHeight));
@@ -160,11 +160,6 @@ namespace Recipe_Writer
         private void cmdValidate_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void frmInventory_Move(object sender, EventArgs e)
-        {
-            this.CenterToScreen();
         }
 
         private void frmInventory_FormClosed(object sender, FormClosedEventArgs e)

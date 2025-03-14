@@ -1,7 +1,7 @@
 ﻿/// <file>Recipes.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 13th 2025</date>
+/// <date>March 14th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,6 @@ namespace Recipe_Writer
 		private string imagePath;
 		private List<Ingredients> ingredientsList;
 		private List<Instructions> instructionsList;
-		private bool isReadyToCook;
 
 		public int Id
 		{
@@ -69,12 +68,6 @@ namespace Recipe_Writer
 		{
 			get { return instructionsList; }
 			set { instructionsList = value; }
-		}
-
-		public bool IsReadyToCook
-		{
-			get { return IsReadyToCook; }
-			set { IsReadyToCook = value; }
 		}
 
 		/// <summary>

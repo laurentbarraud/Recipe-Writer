@@ -19,7 +19,7 @@ namespace Recipe_Writer.Properties {
     // à l'aide d'un outil, tel que ResGen ou Visual Studio.
     // Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
     // avec l'option /str ou régénérez votre projet VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -125,37 +125,7 @@ namespace Recipe_Writer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap export_to_html {
             get {
-                object obj = ResourceManager.GetObject("export-to-html", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ingredient_status_green {
-            get {
-                object obj = ResourceManager.GetObject("ingredient_status_green", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ingredient_status_red {
-            get {
-                object obj = ResourceManager.GetObject("ingredient_status_red", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ingredient_status_yellow {
-            get {
-                object obj = ResourceManager.GetObject("ingredient_status_yellow", resourceCulture);
+                object obj = ResourceManager.GetObject("export_to_html", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -165,7 +135,7 @@ namespace Recipe_Writer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap ingredients_search {
             get {
-                object obj = ResourceManager.GetObject("ingredients-search", resourceCulture);
+                object obj = ResourceManager.GetObject("ingredients_search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,6 +203,26 @@ namespace Recipe_Writer.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap recipe_status_green {
+            get {
+                object obj = ResourceManager.GetObject("recipe_status_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap recipe_status_red {
+            get {
+                object obj = ResourceManager.GetObject("recipe_status_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
@@ -246,16 +236,6 @@ namespace Recipe_Writer.Properties {
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap side_menu {
-            get {
-                object obj = ResourceManager.GetObject("side-menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
