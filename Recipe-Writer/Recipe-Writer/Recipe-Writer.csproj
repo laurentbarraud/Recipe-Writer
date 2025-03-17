@@ -208,9 +208,6 @@
     <None Include="Resources\new-instruction.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\side-menu.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\1-star-disabled.png" />
   </ItemGroup>
   <ItemGroup>

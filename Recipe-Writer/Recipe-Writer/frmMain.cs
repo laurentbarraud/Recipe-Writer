@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 14th 2025</date>
+/// <date>March 17th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -728,6 +728,7 @@ namespace Recipe_Writer
             cmsRecipeResult.Items[1].Enabled = true;
             cmsRecipeResult.Items[2].Enabled = true;
             cmsRecipeResult.Items[3].Enabled = true;
+            cmsRecipeResult.Items[4].Enabled = true;
 
             nudPersons.Visible = true;
             lblPortions.Visible = true;
@@ -775,7 +776,6 @@ namespace Recipe_Writer
             }
 
             // --- Ingredients list
-            // Calls the function that will read the ingredients needed to make the recipe and adds the ingredients in the ingredients property of the current displayed recipe object
             _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
  
             cmbRecipeIngredients.Items.Clear();
@@ -787,7 +787,7 @@ namespace Recipe_Writer
                 cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + ingredientToAdd.Scale + " de " + ingredientToAdd.Name);
             }
 
-            if (dbConn.CountAllIngredientsForARecipe(_currentDisplayedRecipe.Id) <= 19)
+            if (_currentDisplayedRecipe.IngredientsList.Count() <= 19)
             {
                 cmbRecipeIngredients.Items.Add("Ajouter un ingrédient...");
             }
@@ -796,7 +796,7 @@ namespace Recipe_Writer
             cmbRecipeIngredients.SelectedIndex = 0;
 
             // --- Calculates if the recipe is ready to cook with what is stored in the inventory.
-            if (CalculateRecipeStatus(_currentDisplayedRecipe.IngredientsList))
+            if (CalculateRecipeReadyToCookStatus(_currentDisplayedRecipe.IngredientsList))
             {
                 picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_green;
             }
@@ -862,9 +862,9 @@ namespace Recipe_Writer
         /// <summary>
         /// Calculates if all ingredients needed for a recipe are in enough quantity in the inventory
         /// </summary>
-        /// <param name="typeProvided"</param>
+        /// <param name="listOfIngredientsNeeded"</param>
         /// <returns>the status of a recipe : ready for cooking or not</returns>
-        public bool CalculateRecipeStatus(List<Ingredients> listOfIngredientsNeeded)
+        public bool CalculateRecipeReadyToCookStatus(List<Ingredients> listOfIngredientsNeeded)
         {
             bool RecipeIsReadyToCook = true;
 
@@ -1024,7 +1024,7 @@ namespace Recipe_Writer
             dbConn.DeleteIngredient(_currentDisplayedRecipe.Id, cmbRecipeIngredients.Items.Count, _currentDisplayedRecipe.IngredientsList[cmbRecipeIngredients.Items.Count].Scale);
             this.Refresh();
         }
-     
+
         /// <summary>
         /// Function to edit the title of the currently selected recipe
         /// </summary>
@@ -1200,15 +1200,15 @@ namespace Recipe_Writer
             }
         }
 
+        private void picRecipeReadyToCookStatus_MouseHover(object sender, EventArgs e)
+        {
+            ttpMissingIngredients.Show("Indique si vous avez assez d'ingrédients pour faire la recette.", picRecipeReadyToCookStatus);
+        }
+       
         private void picSettings_Click(object sender, EventArgs e)
         {
             frmAbout _frmAbout = new frmAbout();
             _frmAbout.ShowDialog();
-        }
-
-        private void picRecipeReadyToCookStatus_MouseHover(object sender, EventArgs e)
-        {
-            ttpMissingIngredients.Show("Indique si vous avez assez d'ingrédients pour faire la recette.", picRecipeReadyToCookStatus);
         }
     }
 }
