@@ -1,7 +1,7 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 17th 2025</date>
+/// <date>March 19th 2025</date>
 /// 
 using System;
 using System.Collections.Generic;
@@ -108,6 +108,25 @@ namespace Recipe_Writer
                     _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientId, Convert.ToDouble(nudQtyIngredient.Value));
                 };
 
+                nudQtyIngredient.Value = 0;
+                nudQtyIngredient.Maximum = 10000;
+                nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 9);
+                nudQtyIngredient.Width = 2 * (iconWidth);
+                nudQtyIngredient.Height = numericUpDownHeight;
+                nudQtyIngredient.Location = new Point(spacingWidth, currentIngredient * (iconHeight + lineHeight));
+                nudQtyIngredient.BorderStyle = BorderStyle.FixedSingle;
+
+                // Adds the ingredient quantity in the appropriate numeric up-down control
+                nudQtyIngredient.Value = decimal.Parse(_frmMain.dbConn.ReadQtyAvailableForAnIngredient(ingredientId).ToString());
+
+                // Label with the scale (unit of measure) used ===========================================================
+
+                Label lblScaleIngredient = new Label();
+                lblScaleIngredient.Text = _frmMain.dbConn.ReadIngredientScale(ingredientId);
+                lblScaleIngredient.Font = new Font(lblScaleIngredient.Font.FontFamily, 9);
+                lblScaleIngredient.AutoSize = true;
+                lblScaleIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
+
                 // Delete ingredient button code ===================================================================
 
                 Button cmdDeleteIngredient = new Button();
@@ -124,21 +143,10 @@ namespace Recipe_Writer
                     }
                 };
 
-                // Detailed layout ================================================================================
-                // Edit button for an instruction =================================================================
-                nudQtyIngredient.Value = 0;
-                nudQtyIngredient.Maximum = 10000;
-                nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 9);
-                nudQtyIngredient.Width = 2 * (iconWidth);
-                nudQtyIngredient.Height = numericUpDownHeight;
-                nudQtyIngredient.Location = new Point(spacingWidth, currentIngredient * (iconHeight + lineHeight));
-                nudQtyIngredient.BorderStyle = BorderStyle.FixedSingle;
-
-                // Delete button for an instruction, detailed layout =============================================
                 cmdDeleteIngredient.Text = "";
                 cmdDeleteIngredient.Width = iconWidth;
                 cmdDeleteIngredient.Height = iconHeight;
-                cmdDeleteIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
+                cmdDeleteIngredient.Location = new Point(lblScaleIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
                 cmdDeleteIngredient.BackColor = Color.Transparent;
                 cmdDeleteIngredient.FlatAppearance.BorderSize = 0;
                 cmdDeleteIngredient.FlatStyle = FlatStyle.Flat;
@@ -147,10 +155,7 @@ namespace Recipe_Writer
 
                 // Adds the controls to the layout ================================================================
                 panelToFill.Controls.Add(nudQtyIngredient);
-
-                // Adds each ingredient quantity in the appropriate numeric up-down control
-                nudQtyIngredient.Value = decimal.Parse(_frmMain.dbConn.ReadQtyAvailableForAnIngredient(ingredientId).ToString());
-
+                panelToFill.Controls.Add(lblScaleIngredient);
                 panelToFill.Controls.Add(cmdDeleteIngredient);
 
                 currentIngredient += 1;

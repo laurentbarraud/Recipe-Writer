@@ -1,11 +1,12 @@
 ﻿/// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 17th 2025</date>
+/// <date>March 19th 2025</date>
 
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 
@@ -323,7 +324,7 @@ namespace Recipe_Writer
             List<string> allIngredientsNamesList = new List<string>();
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT id, ingredientName, qtyAvailable FROM Ingredients WHERE typeOfIngredient_id ='"+typeProvided+"';";
+            cmd.CommandText = "SELECT id, ingredientName, qtyAvailable FROM Ingredients WHERE typeOfIngredient_id ='" + typeProvided+ "' ORDER BY ingredientName;";
 
             int nbIngredientsStored = CountAllIngredientsStored();
 
@@ -544,35 +545,31 @@ namespace Recipe_Writer
         /// <summary>
         /// Reads the scale used by an ingredient
         /// </summary>
-        /// <param name="idRecipe">the id of the currently selected recipe</param>
         /// <param name="idIngredient">the id of the ingredient</param>
-        /// <param name="rankIngredient">the rank of the ingredient in the recipe ingredient list</param>
-        /// <returns>the id of the scale used by the ingredient</returns>
-        public string ReadIngredientScale(int idRecipe, int idIngredient, int rankIngredient)
+        /// <returns>the name of the scale used by the ingredient</returns>
+        public string ReadIngredientScale(int idIngredient)
         {
-            // Stores the id of the scale for that ingredient
-            string scaleFound = "";
+            // Stores the name of the scale used by that ingredient
+            string scaleNameFound = "";
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
             // Retrieves all the data about ingredients needed for the currently selected recipe
-            cmd.CommandText = "SELECT ingredient" +rankIngredient+ "_id.ingredientName, scales" +rankIngredient+ " AS 'scaleIngredient', " + 
-                                "FROM Recipes_has_Ingredients " +
-                                "LEFT JOIN Scales AS scale" +rankIngredient+" ON Recipes_has_Ingredients.scales"+rankIngredient+"_id = scale"+rankIngredient+".id " +                              
-                                "WHERE Recipes_has_Ingredients.id = '"+idRecipe+"';";
+            cmd.CommandText = "SELECT Scales.scaleName " +
+                                "FROM Ingredients " +
+                                "INNER JOIN Scales ON Ingredients.scale_id = Scales.Id " +
+                                "WHERE Ingredients.Id = " + idIngredient + ";";
 
             SQLiteDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                Ingredients _ingredientToAdd = new Ingredients("defaultIngredient", 0.0, "g", 0.0);
-
-                if (dataReader["qtyIngredient"+rankIngredient].ToString() != "")
+                if (dataReader["scaleName"].ToString() != "")
                 {
-                    scaleFound = dataReader["scale"+rankIngredient+"_id"].ToString();
+                    scaleNameFound = dataReader["scaleName"].ToString();
                 }
             }
 
-            return scaleFound;
+            return scaleNameFound;
         }
 
         /// <summary>
