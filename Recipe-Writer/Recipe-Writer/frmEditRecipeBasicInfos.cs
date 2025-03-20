@@ -1,7 +1,7 @@
 ﻿/// <file>frmEditRecipeTitle.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 19th 2025</date>
+/// <date>March 20th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -19,21 +19,34 @@ namespace Recipe_Writer
     {
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
+
         private int idRecipeToEdit = 0;
         private string recipeTitleToEdit = "";
+        private int recipeCompletionTime = 0;
+        private int lowBudgetStatus = 0;
 
         public int IdRecipeToEdit
         {
             get { return idRecipeToEdit; }
             set { idRecipeToEdit = value; }
         }
-
         public string RecipeTitleToEdit
         {
             get { return recipeTitleToEdit; }
             set { recipeTitleToEdit = value; }
         }
 
+        public int RecipeCompletionTime
+        {
+            get { return recipeCompletionTime; }
+            set { recipeCompletionTime = value; }
+        }
+
+        public int LowBudgetStatus
+        {
+            get { return lowBudgetStatus; }
+            set { lowBudgetStatus = value; }
+        }
 
         // Constructor - Adds the parent form as parameter in the form constructor
         public frmEditRecipeBasicInfos(frmMain parentForm)
@@ -51,32 +64,83 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void frmEditRecipeTitle_Load(object sender, EventArgs e)
         {
-            txtRecipeTitleToEdit.Text = this.RecipeTitleToEdit;
+            txtRecipeTitleToEdit.Text = RecipeTitleToEdit;
+            txtRecipeCompletionTime.Text = RecipeCompletionTime.ToString();
+            if (LowBudgetStatus == 1)
+            {
+                chkLowBudget.Checked = true;
+            }
+            else
+            {
+                chkLowBudget.Checked = false;
+            }
         }
+
+        private void chkLowBudget_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkLowBudget.Checked)
+            {
+                LowBudgetStatus = 1;
+            }
+            else
+            {
+                LowBudgetStatus = 0;
+            }
+        }
+
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void frmEditRecipeTitle_Move(object sender, EventArgs e)
-        {
-            this.CenterToScreen();
-        }
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            string formattedNewRecipeTitle = txtRecipeTitleToEdit.Text;
+            string formattedRecipeTitle = txtRecipeTitleToEdit.Text;
+            int parsedRecipeCompletionTime = 0;
+
 
             // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
             if (txtRecipeTitleToEdit.Text.Contains("'"))
             {
-                formattedNewRecipeTitle = txtRecipeTitleToEdit.Text.Replace("'", "''");
+                formattedRecipeTitle = txtRecipeTitleToEdit.Text.Replace("'", "''");
             }
 
-            _frmMain.dbConn.UpdateRecipeBasicInfo(idRecipeToEdit, formattedNewRecipeTitle);
+            if (txtRecipeTitleToEdit.Text != "")
+            {
+                // If the user has entered only numbers in the textbox
+                if (txtRecipeCompletionTime.Text != "" && int.TryParse(txtRecipeCompletionTime.Text, out parsedRecipeCompletionTime))
+                {
+                    _frmMain.dbConn.UpdateRecipeBasicInfos(idRecipeToEdit, formattedRecipeTitle, txtRecipeCompletionTime.Text, LowBudgetStatus.ToString());
+                    _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
 
+                    this.Close();
+                }
+                // If the user hasn't input a number in the completion time textbox
+                else if (!int.TryParse(txtRecipeCompletionTime.Text, out parsedRecipeCompletionTime))
+                {
+                    MessageBox.Show("Vous devez saisir un nombre valide pour le temps de réalisation de la recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // If the user hasn't input a completion time for the recipe
+                else if (txtRecipeCompletionTime.Text == "")
+                {
+                    MessageBox.Show("Vous devez saisir un temps de réalisation pour la recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            // If the user hasn't input a title for the recipe
+            else if (txtRecipeTitleToEdit.Text == "")
+            {
+                MessageBox.Show("Vous devez saisir un titre pour la recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
             this.Close();
+        }
+
+        private void frmEditRecipeTitle_Move(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
         }
     }
 }

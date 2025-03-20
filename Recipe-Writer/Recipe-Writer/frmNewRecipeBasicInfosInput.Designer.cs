@@ -42,6 +42,7 @@
             // 
             this.txtNewRecipeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewRecipeTitle.Location = new System.Drawing.Point(95, 50);
+            this.txtNewRecipeTitle.MaxLength = 500;
             this.txtNewRecipeTitle.Name = "txtNewRecipeTitle";
             this.txtNewRecipeTitle.Size = new System.Drawing.Size(349, 24);
             this.txtNewRecipeTitle.TabIndex = 0;
@@ -51,15 +52,16 @@
             this.lblNewRecipeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewRecipeTitle.Location = new System.Drawing.Point(40, 54);
             this.lblNewRecipeTitle.Name = "lblNewRecipeTitle";
-            this.lblNewRecipeTitle.Size = new System.Drawing.Size(45, 18);
+            this.lblNewRecipeTitle.Size = new System.Drawing.Size(50, 18);
             this.lblNewRecipeTitle.TabIndex = 5;
             this.lblNewRecipeTitle.Text = "Titre :";
-            this.lblNewRecipeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblNewRecipeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtNewRecipeCompletionTime
             // 
             this.txtNewRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewRecipeCompletionTime.Location = new System.Drawing.Point(311, 106);
+            this.txtNewRecipeCompletionTime.MaxLength = 3;
             this.txtNewRecipeCompletionTime.Name = "txtNewRecipeCompletionTime";
             this.txtNewRecipeCompletionTime.Size = new System.Drawing.Size(61, 24);
             this.txtNewRecipeCompletionTime.TabIndex = 1;
@@ -100,6 +102,7 @@
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdValidate.Location = new System.Drawing.Point(408, 218);
@@ -113,6 +116,7 @@
             // 
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdCancel.CausesValidation = false;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
             this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -143,7 +147,7 @@
             this.MinimizeBox = false;
             this.Name = "frmNewRecipeBasicInfosInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Entrez les informations pour la nouvelle recette";
+            this.Text = "Entrez les infos de base pour la nouvelle recette";
             this.Move += new System.EventHandler(this.frmNewRecipeBasicInfosInput_Move);
             this.ResumeLayout(false);
             this.PerformLayout();

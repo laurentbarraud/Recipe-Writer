@@ -1,7 +1,7 @@
 ﻿/// <file>frmNewInstruction.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 19th 2025</date>
+/// <date>March 20th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -52,7 +52,7 @@ namespace Recipe_Writer
         private void cmdValidate_Click(object sender, EventArgs e)
         {
             _frmMain.dbConn.AddNewInstructionToRecipe(this.IdRecipeToEdit, this.NbInstructionsInCurrentRecipe, txtNewInstruction.Text);
-            _frmMain.DisplayRecipeInfos();
+            _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
             this.Close();
         }
 

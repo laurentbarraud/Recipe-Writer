@@ -37,18 +37,6 @@
             this.lblPortions = new System.Windows.Forms.Label();
             this.lstSearchResults = new System.Windows.Forms.ListBox();
             this.cmsRecipeResult = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.newRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editThisRecipesTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteThisRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportThisRecipeToAWebPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PlanRecipeOn = new System.Windows.Forms.ToolStripMenuItem();
-            this.lundiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mardiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mercrediToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.jeudiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendrediToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.samediToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dimancheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbRecipeIngredients = new System.Windows.Forms.ComboBox();
             this.lblCompletionTime = new System.Windows.Forms.Label();
             this.ofdAssociatedImage = new System.Windows.Forms.OpenFileDialog();
@@ -62,17 +50,29 @@
             this.txtSearchIngredient3 = new System.Windows.Forms.TextBox();
             this.txtSearchIngredient2 = new System.Windows.Forms.TextBox();
             this.txtSearchIngredient1 = new System.Windows.Forms.TextBox();
-            this.cmdIngredientsSearch = new System.Windows.Forms.Button();
             this.pnlScore = new System.Windows.Forms.Panel();
-            this.picScore3 = new System.Windows.Forms.PictureBox();
-            this.picScore2 = new System.Windows.Forms.PictureBox();
-            this.picScore1 = new System.Windows.Forms.PictureBox();
             this.ttpMissingIngredients = new System.Windows.Forms.ToolTip(this.components);
             this.cmdTitleSearch = new System.Windows.Forms.Button();
+            this.newRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editThisRecipesBasicInfosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteThisRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportThisRecipeToAWebPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlanRecipeOn = new System.Windows.Forms.ToolStripMenuItem();
+            this.lundiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mardiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mercrediToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jeudiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendrediToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.samediToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dimancheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmdIngredientsSearch = new System.Windows.Forms.Button();
             this.picSettings = new System.Windows.Forms.PictureBox();
             this.picMealPlanner = new System.Windows.Forms.PictureBox();
             this.picSearchByIngredient = new System.Windows.Forms.PictureBox();
             this.picInventory = new System.Windows.Forms.PictureBox();
+            this.picScore3 = new System.Windows.Forms.PictureBox();
+            this.picScore2 = new System.Windows.Forms.PictureBox();
+            this.picScore1 = new System.Windows.Forms.PictureBox();
             this.cmdAddInstruction = new System.Windows.Forms.Button();
             this.picLowBudget = new System.Windows.Forms.PictureBox();
             this.picRecipe = new System.Windows.Forms.PictureBox();
@@ -82,13 +82,13 @@
             this.cmsRecipeResult.SuspendLayout();
             this.pnlSlideMenu.SuspendLayout();
             this.pnlScore.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picScore3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picScore2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picScore1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMealPlanner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearchByIngredient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picScore3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picScore2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picScore1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLowBudget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipeReadyToCookStatus)).BeginInit();
@@ -174,102 +174,12 @@
             this.cmsRecipeResult.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsRecipeResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newRecipeToolStripMenuItem,
-            this.editThisRecipesTitleToolStripMenuItem,
+            this.editThisRecipesBasicInfosToolStripMenuItem,
             this.deleteThisRecipeToolStripMenuItem,
             this.exportThisRecipeToAWebPageToolStripMenuItem,
             this.PlanRecipeOn});
             this.cmsRecipeResult.Name = "cmsRecipeResult";
-            this.cmsRecipeResult.Size = new System.Drawing.Size(344, 162);
-            // 
-            // newRecipeToolStripMenuItem
-            // 
-            this.newRecipeToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.new_recipe;
-            this.newRecipeToolStripMenuItem.Name = "newRecipeToolStripMenuItem";
-            this.newRecipeToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
-            this.newRecipeToolStripMenuItem.Text = "Nouvelle recette";
-            this.newRecipeToolStripMenuItem.Click += new System.EventHandler(this.newRecipeToolStripMenuItem_Click);
-            // 
-            // editThisRecipesTitleToolStripMenuItem
-            // 
-            this.editThisRecipesTitleToolStripMenuItem.Enabled = false;
-            this.editThisRecipesTitleToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.edit_recipe_title;
-            this.editThisRecipesTitleToolStripMenuItem.Name = "editThisRecipesTitleToolStripMenuItem";
-            this.editThisRecipesTitleToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
-            this.editThisRecipesTitleToolStripMenuItem.Text = "Modifier les infos de base de la recette";
-            this.editThisRecipesTitleToolStripMenuItem.Click += new System.EventHandler(this.editThisRecipesTitleToolStripMenuItem_Click);
-            // 
-            // deleteThisRecipeToolStripMenuItem
-            // 
-            this.deleteThisRecipeToolStripMenuItem.Enabled = false;
-            this.deleteThisRecipeToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.delete_recipe;
-            this.deleteThisRecipeToolStripMenuItem.Name = "deleteThisRecipeToolStripMenuItem";
-            this.deleteThisRecipeToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
-            this.deleteThisRecipeToolStripMenuItem.Text = "Supprimer cette recette";
-            // 
-            // exportThisRecipeToAWebPageToolStripMenuItem
-            // 
-            this.exportThisRecipeToAWebPageToolStripMenuItem.Enabled = false;
-            this.exportThisRecipeToAWebPageToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.export_to_html;
-            this.exportThisRecipeToAWebPageToolStripMenuItem.Name = "exportThisRecipeToAWebPageToolStripMenuItem";
-            this.exportThisRecipeToAWebPageToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
-            this.exportThisRecipeToAWebPageToolStripMenuItem.Text = "Exporter cette recette en une page web";
-            // 
-            // PlanRecipeOn
-            // 
-            this.PlanRecipeOn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lundiToolStripMenuItem,
-            this.mardiToolStripMenuItem,
-            this.mercrediToolStripMenuItem,
-            this.jeudiToolStripMenuItem,
-            this.vendrediToolStripMenuItem,
-            this.samediToolStripMenuItem,
-            this.dimancheToolStripMenuItem});
-            this.PlanRecipeOn.Enabled = false;
-            this.PlanRecipeOn.Name = "PlanRecipeOn";
-            this.PlanRecipeOn.Size = new System.Drawing.Size(343, 26);
-            this.PlanRecipeOn.Text = "Planifier la recette pour le";
-            // 
-            // lundiToolStripMenuItem
-            // 
-            this.lundiToolStripMenuItem.Name = "lundiToolStripMenuItem";
-            this.lundiToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.lundiToolStripMenuItem.Text = "Lundi";
-            // 
-            // mardiToolStripMenuItem
-            // 
-            this.mardiToolStripMenuItem.Name = "mardiToolStripMenuItem";
-            this.mardiToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.mardiToolStripMenuItem.Text = "Mardi";
-            // 
-            // mercrediToolStripMenuItem
-            // 
-            this.mercrediToolStripMenuItem.Name = "mercrediToolStripMenuItem";
-            this.mercrediToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.mercrediToolStripMenuItem.Text = "Mercredi";
-            // 
-            // jeudiToolStripMenuItem
-            // 
-            this.jeudiToolStripMenuItem.Name = "jeudiToolStripMenuItem";
-            this.jeudiToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.jeudiToolStripMenuItem.Text = "Jeudi";
-            // 
-            // vendrediToolStripMenuItem
-            // 
-            this.vendrediToolStripMenuItem.Name = "vendrediToolStripMenuItem";
-            this.vendrediToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.vendrediToolStripMenuItem.Text = "Vendredi";
-            // 
-            // samediToolStripMenuItem
-            // 
-            this.samediToolStripMenuItem.Name = "samediToolStripMenuItem";
-            this.samediToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.samediToolStripMenuItem.Text = "Samedi";
-            // 
-            // dimancheToolStripMenuItem
-            // 
-            this.dimancheToolStripMenuItem.Name = "dimancheToolStripMenuItem";
-            this.dimancheToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.dimancheToolStripMenuItem.Text = "Dimanche";
+            this.cmsRecipeResult.Size = new System.Drawing.Size(344, 134);
             // 
             // cmbRecipeIngredients
             // 
@@ -332,19 +242,18 @@
             this.chkFilterRecipesForThreeStars.Size = new System.Drawing.Size(107, 24);
             this.chkFilterRecipesForThreeStars.TabIndex = 21;
             this.chkFilterRecipesForThreeStars.Text = "3 étoiles";
-            this.chkFilterRecipesForThreeStars.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkFilterRecipesForThreeStars.UseVisualStyleBackColor = true;
             // 
             // chkFilterRecipesForSmallBudget
             // 
-            this.chkFilterRecipesForSmallBudget.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkFilterRecipesForSmallBudget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chkFilterRecipesForSmallBudget.CheckAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.chkFilterRecipesForSmallBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFilterRecipesForSmallBudget.Location = new System.Drawing.Point(21, 159);
             this.chkFilterRecipesForSmallBudget.Name = "chkFilterRecipesForSmallBudget";
             this.chkFilterRecipesForSmallBudget.Size = new System.Drawing.Size(129, 24);
             this.chkFilterRecipesForSmallBudget.TabIndex = 7;
             this.chkFilterRecipesForSmallBudget.Text = "Petit budget";
-            this.chkFilterRecipesForSmallBudget.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkFilterRecipesForSmallBudget.UseVisualStyleBackColor = true;
             // 
             // lblSearchByIngredients
@@ -411,19 +320,6 @@
             this.txtSearchIngredient1.Size = new System.Drawing.Size(228, 22);
             this.txtSearchIngredient1.TabIndex = 4;
             // 
-            // cmdIngredientsSearch
-            // 
-            this.cmdIngredientsSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdIngredientsSearch.BackgroundImage")));
-            this.cmdIngredientsSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdIngredientsSearch.FlatAppearance.BorderSize = 0;
-            this.cmdIngredientsSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdIngredientsSearch.Location = new System.Drawing.Point(357, 143);
-            this.cmdIngredientsSearch.Name = "cmdIngredientsSearch";
-            this.cmdIngredientsSearch.Size = new System.Drawing.Size(40, 40);
-            this.cmdIngredientsSearch.TabIndex = 9;
-            this.cmdIngredientsSearch.UseVisualStyleBackColor = true;
-            this.cmdIngredientsSearch.Click += new System.EventHandler(this.cmdIngredientsSearch_Click);
-            // 
             // pnlScore
             // 
             this.pnlScore.Controls.Add(this.picScore3);
@@ -436,48 +332,6 @@
             this.pnlScore.Visible = false;
             this.pnlScore.MouseLeave += new System.EventHandler(this.pnlScore_MouseLeave);
             this.pnlScore.MouseHover += new System.EventHandler(this.pnlScore_MouseHover);
-            // 
-            // picScore3
-            // 
-            this.picScore3.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
-            this.picScore3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picScore3.Location = new System.Drawing.Point(113, 1);
-            this.picScore3.Name = "picScore3";
-            this.picScore3.Size = new System.Drawing.Size(36, 26);
-            this.picScore3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picScore3.TabIndex = 7;
-            this.picScore3.TabStop = false;
-            this.picScore3.Visible = false;
-            this.picScore3.Click += new System.EventHandler(this.picScore3_Click);
-            this.picScore3.MouseHover += new System.EventHandler(this.picScore3_MouseHover);
-            // 
-            // picScore2
-            // 
-            this.picScore2.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
-            this.picScore2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picScore2.Location = new System.Drawing.Point(80, 1);
-            this.picScore2.Name = "picScore2";
-            this.picScore2.Size = new System.Drawing.Size(36, 26);
-            this.picScore2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picScore2.TabIndex = 8;
-            this.picScore2.TabStop = false;
-            this.picScore2.Visible = false;
-            this.picScore2.Click += new System.EventHandler(this.picScore2_Click);
-            this.picScore2.MouseHover += new System.EventHandler(this.picScore2_MouseHover);
-            // 
-            // picScore1
-            // 
-            this.picScore1.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
-            this.picScore1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picScore1.Location = new System.Drawing.Point(47, 1);
-            this.picScore1.Name = "picScore1";
-            this.picScore1.Size = new System.Drawing.Size(36, 26);
-            this.picScore1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picScore1.TabIndex = 9;
-            this.picScore1.TabStop = false;
-            this.picScore1.Visible = false;
-            this.picScore1.Click += new System.EventHandler(this.picScore1_Click);
-            this.picScore1.MouseHover += new System.EventHandler(this.picScore1_MouseHover);
             // 
             // ttpMissingIngredients
             // 
@@ -497,6 +351,117 @@
             this.cmdTitleSearch.TabIndex = 1;
             this.cmdTitleSearch.UseVisualStyleBackColor = true;
             this.cmdTitleSearch.Click += new System.EventHandler(this.cmdTitleSearch_Click);
+            // 
+            // newRecipeToolStripMenuItem
+            // 
+            this.newRecipeToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.new_recipe;
+            this.newRecipeToolStripMenuItem.Name = "newRecipeToolStripMenuItem";
+            this.newRecipeToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
+            this.newRecipeToolStripMenuItem.Text = "Nouvelle recette";
+            this.newRecipeToolStripMenuItem.Click += new System.EventHandler(this.newRecipeToolStripMenuItem_Click);
+            // 
+            // editThisRecipesBasicInfosToolStripMenuItem
+            // 
+            this.editThisRecipesBasicInfosToolStripMenuItem.Enabled = false;
+            this.editThisRecipesBasicInfosToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.edit_recipe_title;
+            this.editThisRecipesBasicInfosToolStripMenuItem.Name = "editThisRecipesBasicInfosToolStripMenuItem";
+            this.editThisRecipesBasicInfosToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
+            this.editThisRecipesBasicInfosToolStripMenuItem.Text = "Modifier les infos de base de la recette";
+            this.editThisRecipesBasicInfosToolStripMenuItem.Click += new System.EventHandler(this.editThisRecipesBasicInfosToolStripMenuItem_Click);
+            // 
+            // deleteThisRecipeToolStripMenuItem
+            // 
+            this.deleteThisRecipeToolStripMenuItem.Enabled = false;
+            this.deleteThisRecipeToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.delete_recipe;
+            this.deleteThisRecipeToolStripMenuItem.Name = "deleteThisRecipeToolStripMenuItem";
+            this.deleteThisRecipeToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
+            this.deleteThisRecipeToolStripMenuItem.Text = "Supprimer cette recette";
+            // 
+            // exportThisRecipeToAWebPageToolStripMenuItem
+            // 
+            this.exportThisRecipeToAWebPageToolStripMenuItem.Enabled = false;
+            this.exportThisRecipeToAWebPageToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.export_to_html;
+            this.exportThisRecipeToAWebPageToolStripMenuItem.Name = "exportThisRecipeToAWebPageToolStripMenuItem";
+            this.exportThisRecipeToAWebPageToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
+            this.exportThisRecipeToAWebPageToolStripMenuItem.Text = "Exporter cette recette en une page web";
+            // 
+            // PlanRecipeOn
+            // 
+            this.PlanRecipeOn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lundiToolStripMenuItem,
+            this.mardiToolStripMenuItem,
+            this.mercrediToolStripMenuItem,
+            this.jeudiToolStripMenuItem,
+            this.vendrediToolStripMenuItem,
+            this.samediToolStripMenuItem,
+            this.dimancheToolStripMenuItem});
+            this.PlanRecipeOn.Enabled = false;
+            this.PlanRecipeOn.Image = global::Recipe_Writer.Properties.Resources.plan__recipe_into_planner;
+            this.PlanRecipeOn.Name = "PlanRecipeOn";
+            this.PlanRecipeOn.Size = new System.Drawing.Size(343, 26);
+            this.PlanRecipeOn.Text = "Planifier la recette pour le";
+            // 
+            // lundiToolStripMenuItem
+            // 
+            this.lundiToolStripMenuItem.Name = "lundiToolStripMenuItem";
+            this.lundiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lundiToolStripMenuItem.Text = "Lundi";
+            this.lundiToolStripMenuItem.Click += new System.EventHandler(this.lundiToolStripMenuItem_Click);
+            // 
+            // mardiToolStripMenuItem
+            // 
+            this.mardiToolStripMenuItem.Name = "mardiToolStripMenuItem";
+            this.mardiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mardiToolStripMenuItem.Text = "Mardi";
+            this.mardiToolStripMenuItem.Click += new System.EventHandler(this.mardiToolStripMenuItem_Click);
+            // 
+            // mercrediToolStripMenuItem
+            // 
+            this.mercrediToolStripMenuItem.Name = "mercrediToolStripMenuItem";
+            this.mercrediToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mercrediToolStripMenuItem.Text = "Mercredi";
+            this.mercrediToolStripMenuItem.Click += new System.EventHandler(this.mercrediToolStripMenuItem_Click);
+            // 
+            // jeudiToolStripMenuItem
+            // 
+            this.jeudiToolStripMenuItem.Name = "jeudiToolStripMenuItem";
+            this.jeudiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jeudiToolStripMenuItem.Text = "Jeudi";
+            this.jeudiToolStripMenuItem.Click += new System.EventHandler(this.jeudiToolStripMenuItem_Click);
+            // 
+            // vendrediToolStripMenuItem
+            // 
+            this.vendrediToolStripMenuItem.Name = "vendrediToolStripMenuItem";
+            this.vendrediToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.vendrediToolStripMenuItem.Text = "Vendredi";
+            this.vendrediToolStripMenuItem.Click += new System.EventHandler(this.vendrediToolStripMenuItem_Click);
+            // 
+            // samediToolStripMenuItem
+            // 
+            this.samediToolStripMenuItem.Name = "samediToolStripMenuItem";
+            this.samediToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.samediToolStripMenuItem.Text = "Samedi";
+            this.samediToolStripMenuItem.Click += new System.EventHandler(this.samediToolStripMenuItem_Click);
+            // 
+            // dimancheToolStripMenuItem
+            // 
+            this.dimancheToolStripMenuItem.Name = "dimancheToolStripMenuItem";
+            this.dimancheToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dimancheToolStripMenuItem.Text = "Dimanche";
+            this.dimancheToolStripMenuItem.Click += new System.EventHandler(this.dimancheToolStripMenuItem_Click);
+            // 
+            // cmdIngredientsSearch
+            // 
+            this.cmdIngredientsSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdIngredientsSearch.BackgroundImage")));
+            this.cmdIngredientsSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdIngredientsSearch.FlatAppearance.BorderSize = 0;
+            this.cmdIngredientsSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdIngredientsSearch.Location = new System.Drawing.Point(357, 143);
+            this.cmdIngredientsSearch.Name = "cmdIngredientsSearch";
+            this.cmdIngredientsSearch.Size = new System.Drawing.Size(40, 40);
+            this.cmdIngredientsSearch.TabIndex = 9;
+            this.cmdIngredientsSearch.UseVisualStyleBackColor = true;
+            this.cmdIngredientsSearch.Click += new System.EventHandler(this.cmdIngredientsSearch_Click);
             // 
             // picSettings
             // 
@@ -544,6 +509,48 @@
             this.picInventory.TabStop = false;
             this.picInventory.Click += new System.EventHandler(this.picInventory_Click);
             this.picInventory.MouseHover += new System.EventHandler(this.picInventory_MouseHover);
+            // 
+            // picScore3
+            // 
+            this.picScore3.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
+            this.picScore3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picScore3.Location = new System.Drawing.Point(113, 1);
+            this.picScore3.Name = "picScore3";
+            this.picScore3.Size = new System.Drawing.Size(36, 26);
+            this.picScore3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picScore3.TabIndex = 7;
+            this.picScore3.TabStop = false;
+            this.picScore3.Visible = false;
+            this.picScore3.Click += new System.EventHandler(this.picScore3_Click);
+            this.picScore3.MouseHover += new System.EventHandler(this.picScore3_MouseHover);
+            // 
+            // picScore2
+            // 
+            this.picScore2.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
+            this.picScore2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picScore2.Location = new System.Drawing.Point(80, 1);
+            this.picScore2.Name = "picScore2";
+            this.picScore2.Size = new System.Drawing.Size(36, 26);
+            this.picScore2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picScore2.TabIndex = 8;
+            this.picScore2.TabStop = false;
+            this.picScore2.Visible = false;
+            this.picScore2.Click += new System.EventHandler(this.picScore2_Click);
+            this.picScore2.MouseHover += new System.EventHandler(this.picScore2_MouseHover);
+            // 
+            // picScore1
+            // 
+            this.picScore1.BackgroundImage = global::Recipe_Writer.Properties.Resources._1_star_disabled;
+            this.picScore1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picScore1.Location = new System.Drawing.Point(47, 1);
+            this.picScore1.Name = "picScore1";
+            this.picScore1.Size = new System.Drawing.Size(36, 26);
+            this.picScore1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picScore1.TabIndex = 9;
+            this.picScore1.TabStop = false;
+            this.picScore1.Visible = false;
+            this.picScore1.Click += new System.EventHandler(this.picScore1_Click);
+            this.picScore1.MouseHover += new System.EventHandler(this.picScore1_MouseHover);
             // 
             // cmdAddInstruction
             // 
@@ -612,6 +619,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 651);
+            this.ContextMenuStrip = this.cmsRecipeResult;
             this.Controls.Add(this.pnlSlideMenu);
             this.Controls.Add(this.picSettings);
             this.Controls.Add(this.picMealPlanner);
@@ -644,13 +652,13 @@
             this.pnlSlideMenu.ResumeLayout(false);
             this.pnlSlideMenu.PerformLayout();
             this.pnlScore.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picScore3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picScore2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picScore1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMealPlanner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearchByIngredient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picScore3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picScore2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picScore1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLowBudget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecipeReadyToCookStatus)).EndInit();
@@ -681,7 +689,7 @@
         private System.Windows.Forms.NumericUpDown nudPersons;
         private System.Windows.Forms.ContextMenuStrip cmsRecipeResult;
         private System.Windows.Forms.ToolStripMenuItem newRecipeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editThisRecipesTitleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editThisRecipesBasicInfosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteThisRecipeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportThisRecipeToAWebPageToolStripMenuItem;
         public System.Windows.Forms.TextBox txtTitleSearch;

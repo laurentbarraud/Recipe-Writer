@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 19th 2025</date>
+/// <date>March 20th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -425,19 +425,16 @@ namespace Recipe_Writer
         /// <summary>
         /// Displays the ingredients, image and instructions for the selected recipe
         /// </summary>
-        public void DisplayRecipeInfos()
+        public void DisplayRecipeInfos(int idRecipe)
         {
             // Affects to the title property of the _currentDisplayedRecipe object the selected recipe, in the search result listbox
             _currentDisplayedRecipe.Title = lstSearchResults.SelectedItem.ToString();
 
-            // Calls the function that returns the id of a recipe, given its title in argument
-            _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(_currentDisplayedRecipe.Title);
-
             // Affects to the properties of the _currentDisplayedRecipe object the others values returned by the dbConn functions
-            _currentDisplayedRecipe.CompletionTime = dbConn.ReadRecipeCompletionTime(_currentDisplayedRecipe.Id);
-            _currentDisplayedRecipe.LowBudget = dbConn.ReadRecipeLowBudgetStatus(_currentDisplayedRecipe.Id);
-            _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(_currentDisplayedRecipe.Id);
-            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.CompletionTime = dbConn.ReadRecipeCompletionTime(idRecipe);
+            _currentDisplayedRecipe.LowBudget = dbConn.ReadRecipeLowBudgetStatus(idRecipe);
+            _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(idRecipe);
+            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(idRecipe);
 
             // --- Affecting the _currentDisplayedRecipe properties to the controls properties ----------------------------------------------------
 
@@ -539,13 +536,7 @@ namespace Recipe_Writer
             }
         }
 
-
-        /// <summary>
-        /// Function to edit the title of the currently selected recipe
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void editThisRecipesTitleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editThisRecipesBasicInfosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string formattedTitle = lstSearchResults.SelectedItem.ToString();
 
@@ -556,9 +547,11 @@ namespace Recipe_Writer
             }
 
 
-            frmEditRecipeTitle _frmEditRecipeTitle = new frmEditRecipeTitle(this);
-            _frmEditRecipeTitle.IdRecipeToEdit = dbConn.ReadRecipeId(formattedTitle);
-            _frmEditRecipeTitle.RecipeTitleToEdit = lstSearchResults.SelectedItem.ToString();
+            frmEditRecipeBasicInfos _frmEditRecipeTitle = new frmEditRecipeBasicInfos(this);
+            _frmEditRecipeTitle.IdRecipeToEdit = _currentDisplayedRecipe.Id;
+            _frmEditRecipeTitle.RecipeTitleToEdit = _currentDisplayedRecipe.Title;
+            _frmEditRecipeTitle.RecipeCompletionTime = _currentDisplayedRecipe.CompletionTime;
+            _frmEditRecipeTitle.LowBudgetStatus = _currentDisplayedRecipe.LowBudget;
             _frmEditRecipeTitle.ShowDialog();
         }
 
@@ -606,7 +599,8 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DisplayRecipeInfos();
+            _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(lstSearchResults.SelectedItem.ToString());
+            DisplayRecipeInfos(_currentDisplayedRecipe.Id);
 
             if (!nudPersons.Visible)
             {
@@ -644,7 +638,7 @@ namespace Recipe_Writer
             DBConnection.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
 
             // Calls the function that will read the ingredients needed to make the recipe
-            DisplayRecipeInfos();
+            DisplayRecipeInfos(_currentDisplayedRecipe.Id);
         }
      
 
@@ -1223,8 +1217,42 @@ namespace Recipe_Writer
         private void UpdateScoreForCurrentRecipe(int scoreToInput)
         {
             dbConn.UpdateScoreForRecipe(_currentDisplayedRecipe.Id, scoreToInput);
-            DisplayRecipeInfos();
+            DisplayRecipeInfos(_currentDisplayedRecipe.Id);
         }
 
+        private void lundiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            picMealPlanner_Click(sender, e);
+        }
+
+        private void mardiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            picMealPlanner_Click(sender, e);
+        }
+
+        private void mercrediToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            picMealPlanner_Click(sender, e);
+        }
+
+        private void jeudiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            picMealPlanner_Click(sender, e);
+        }
+
+        private void vendrediToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            picMealPlanner_Click(sender, e);
+        }
+
+        private void samediToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            picMealPlanner_Click(sender, e);
+        }
+
+        private void dimancheToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            picMealPlanner_Click(sender, e);
+        }
     }
 }

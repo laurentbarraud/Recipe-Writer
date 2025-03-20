@@ -193,6 +193,16 @@ namespace Recipe_Writer.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plan__recipe_into_planner {
+            get {
+                object obj = ResourceManager.GetObject("plan--recipe-into-planner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap planner {
             get {
                 object obj = ResourceManager.GetObject("planner", resourceCulture);

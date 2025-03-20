@@ -66,11 +66,11 @@
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditRecipeTitle.cs">
+    <Compile Include="frmEditRecipeBasicInfos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditRecipeTitle.Designer.cs">
-      <DependentUpon>frmEditRecipeTitle.cs</DependentUpon>
+    <Compile Include="frmEditRecipeBasicInfos.Designer.cs">
+      <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInventory.cs">
       <SubType>Form</SubType>
@@ -128,8 +128,8 @@
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditRecipeTitle.resx">
-      <DependentUpon>frmEditRecipeTitle.cs</DependentUpon>
+    <EmbeddedResource Include="frmEditRecipeBasicInfos.resx">
+      <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.cs</DependentUpon>
@@ -212,6 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Recipe-writer.ico" />
+    <None Include="Resources\plan--recipe-into-planner.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\planner.png" />

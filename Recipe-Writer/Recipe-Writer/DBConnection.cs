@@ -1,7 +1,7 @@
 ﻿/// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 19th 2025</date>
+/// <date>March 20th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -1067,7 +1067,7 @@ namespace Recipe_Writer
         /// <param name="newTitleRecipe">the new title of the recipe, if the user has edited it</param>
         /// <param name="newCompletionTime">the new completion time of the recipe, if the user has edited it</param>
         /// <param name="newLowBudgetStatus">the low budget value of the recipe, if the user has edited it</param>
-        public void UpdateRecipeBasicInfo(int idRecipe, string newTitleRecipe = "", string newCompletionTime = "", string newLowBudgetStatus = "")
+        public void UpdateRecipeBasicInfos(int idRecipe, string newTitleRecipe = "", string newCompletionTime = "", string newLowBudgetStatus = "")
         {
             if (newTitleRecipe != "")
             {
