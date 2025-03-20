@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
-    public partial class frmEditRecipeTitle : Form
+    public partial class frmEditRecipeBasicInfos : Form
     {
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
@@ -36,7 +36,7 @@ namespace Recipe_Writer
 
 
         // Constructor - Adds the parent form as parameter in the form constructor
-        public frmEditRecipeTitle(frmMain parentForm)
+        public frmEditRecipeBasicInfos(frmMain parentForm)
         {
             // Affects the parent form to an alias
             _frmMain = parentForm;

@@ -1,6 +1,6 @@
 ﻿namespace Recipe_Writer
 {
-    partial class frmEditRecipeTitle
+    partial class frmEditRecipeBasicInfos
     {
         /// <summary>
         /// Required designer variable.

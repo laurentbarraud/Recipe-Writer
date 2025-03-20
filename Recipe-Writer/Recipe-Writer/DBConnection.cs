@@ -1026,6 +1026,17 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Updates a recipe low budget status
+        /// </summary>
+        /// <param name="idRecipe"></param>the id of the recipe
+        public void UpdateRecipeLowBudgetStatus(int idRecipe, int LowBudgetStatus)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "UPDATE 'Recipes' SET lowBudget='" + LowBudgetStatus + "' WHERE id='" + idRecipe + "';";
+            cmd.ExecuteReader();
+        }
+
+        /// <summary>
         /// Updates the score for the selected recipe
         /// </summary>
         /// <param name="idRecipe">the id of the currently selected recipe</param>

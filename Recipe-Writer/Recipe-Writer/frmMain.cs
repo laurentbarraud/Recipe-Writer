@@ -116,6 +116,134 @@ namespace Recipe_Writer
             }
         }
 
+
+        /// <summary>
+        /// Calculates if all ingredients needed for a recipe are in enough quantity in the inventory
+        /// </summary>
+        /// <param name="listOfIngredientsNeeded"</param>
+        /// <returns>the status of a recipe : ready for cooking or not</returns>
+        public bool CalculateRecipeReadyToCookStatus(List<Ingredients> listOfIngredientsNeeded)
+        {
+            bool RecipeIsReadyToCook = true;
+
+            foreach (Ingredients ingredientNeeded in listOfIngredientsNeeded)
+            {
+                // If the ingredient is missing
+                if (ingredientNeeded.QtyRequested > ingredientNeeded.QtyAvailable)
+                {
+                    RecipeIsReadyToCook = false;
+                }
+            }
+
+            return RecipeIsReadyToCook;
+        }
+
+        /// <summary>
+        /// Function that animates the close of the panel content
+        /// </summary>
+        private void ClosePanel()
+        {
+            if (pnlSlideMenu.Visible)
+            {
+                // Closing slide menu animation
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 360);
+                this.Refresh();
+            }
+        }
+
+
+        /// <summary>
+        /// Event when the user selects a recipe in the results list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbRecipeIngredients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbRecipeIngredients.SelectedIndex == cmbRecipeIngredients.Items.Count - 1)
+            {
+                frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
+                _frmNewIngredient.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// Function to add an instruction to the currently selected recipe
+        /// </summary>
+        private void cmdAddInstruction_Click(object sender, EventArgs e)
+        {
+            frmNewInstruction _frmNewInstruction = new frmNewInstruction(this);
+            _frmNewInstruction.IdRecipeToEdit = _currentDisplayedRecipe.Id;
+            _frmNewInstruction.NbInstructionsInCurrentRecipe = currentInstruction;
+            _frmNewInstruction.ShowDialog();
+        }
+
+        private void cmdDeleteIngredient_Click(object sender, EventArgs e)
+        {
+            dbConn.DeleteIngredient(_currentDisplayedRecipe.Id, cmbRecipeIngredients.Items.Count, _currentDisplayedRecipe.IngredientsList[cmbRecipeIngredients.Items.Count].Scale);
+            this.Refresh();
+        }
+
+        private void cmdIngredientsSearch_Click(object sender, EventArgs e)
+        {
+            // If the user has typed something in one of the textboxes
+            if (txtSearchIngredient1.Text != "" || txtSearchIngredient2.Text != "" || txtSearchIngredient3.Text != "")
+            {
+                ClosePanel();
+
+                //--- Normal ingredient search -------------
+                if (!chkFilterRecipesForSmallBudget.Checked && !chkFilterRecipesForThreeStars.Checked)
+                {
+                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text);
+                }
+
+                //--- Low budget recipes search ------------
+                else if (chkFilterRecipesForSmallBudget.Checked && !chkFilterRecipesForThreeStars.Checked)
+                {
+                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, true);
+                }
+
+                //--- Three stars recipes search -------------
+                else if (!chkFilterRecipesForSmallBudget.Checked && chkFilterRecipesForThreeStars.Checked)
+                {
+                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, false, true);
+                }
+
+                //--- Low budget and three stars recipes search ------------
+                else if (chkFilterRecipesForSmallBudget.Checked && chkFilterRecipesForThreeStars.Checked)
+                {
+                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, true, true);
+                }
+            }
+            // If all the textboxes are empty
+            else
+            {
+                MessageBox.Show("Veuillez entrer au moins un ingrédient", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void cmdNewRecipe_Click(object sender, EventArgs e)
+        {
+            cmsRecipeResult.Items[0].PerformClick();
+        }
+
+
+        private void cmdTitleSearch_Click(object sender, EventArgs e)
+        {
+            this.PreviousTitleSearch = txtTitleSearch.Text;
+
+            // If the user has typed something in the textbox
+            if (txtTitleSearch.Text != "")
+            {
+                SearchRecipesByTitle(txtTitleSearch.Text);
+            }
+            // If the search textbox is empty
+            else
+            {
+                MessageBox.Show("Veuillez taper un ou plusieurs terme(s) de recherche.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /// <summary>
         /// Creates the instructions layout to display them to the user
         /// </summary>
@@ -272,180 +400,447 @@ namespace Recipe_Writer
             }
         }
 
-        private void cmdNewRecipe_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Event when the user selects a recipe in the search result list control
+        /// </summary>
+        private void DisplayRecipeControls()
         {
-            cmsRecipeResult.Items[0].PerformClick();
+            cmsRecipeResult.Items[1].Enabled = true;
+            cmsRecipeResult.Items[2].Enabled = true;
+            cmsRecipeResult.Items[3].Enabled = true;
+            cmsRecipeResult.Items[4].Enabled = true;
+
+            nudPersons.Visible = true;
+            lblPortions.Visible = true;
+            lblCompletionTime.Visible = true;
+            cmbRecipeIngredients.Visible = true;
+            cmdAddInstruction.Visible = true;
+            pnlScore.Visible = true;
+            picScore1.Visible = true;
+            picScore2.Visible = true;
+            picScore3.Visible = true;
         }
 
-        private void nouvelleRecetteToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Displays the ingredients, image and instructions for the selected recipe
+        /// </summary>
+        public void DisplayRecipeInfos()
+        {
+            // Affects to the title property of the _currentDisplayedRecipe object the selected recipe, in the search result listbox
+            _currentDisplayedRecipe.Title = lstSearchResults.SelectedItem.ToString();
+
+            // Calls the function that returns the id of a recipe, given its title in argument
+            _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(_currentDisplayedRecipe.Title);
+
+            // Affects to the properties of the _currentDisplayedRecipe object the others values returned by the dbConn functions
+            _currentDisplayedRecipe.CompletionTime = dbConn.ReadRecipeCompletionTime(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.LowBudget = dbConn.ReadRecipeLowBudgetStatus(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
+
+            // --- Affecting the _currentDisplayedRecipe properties to the controls properties ----------------------------------------------------
+
+            // --- Completion time
+            lblCompletionTime.Text = "";
+            lblCompletionTime.Text += "Préparation : " + _currentDisplayedRecipe.CompletionTime + " min.";
+
+            // --- Low budget status
+            if (_currentDisplayedRecipe.LowBudget == 1)
+            {
+                picLowBudget.Visible = true;
+            }
+
+            else
+            {
+                picLowBudget.Visible = false;
+            }
+
+            // --- Ingredients list
+            _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
+
+            cmbRecipeIngredients.Items.Clear();
+            cmbRecipeIngredients.Items.Add("Ingrédients nécessaires");
+
+            // Adds each ingredients list item as a new item in the ingredients comboBo
+            foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
+            {
+                cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + ingredientToAdd.Scale + " de " + ingredientToAdd.Name);
+            }
+
+            if (_currentDisplayedRecipe.IngredientsList.Count() <= 19)
+            {
+                cmbRecipeIngredients.Items.Add("Ajouter un ingrédient...");
+            }
+
+            // Selects automatically the first item of the combobox
+            cmbRecipeIngredients.SelectedIndex = 0;
+
+            // --- Calculates if the recipe is ready to cook with what is stored in the inventory.
+            if (CalculateRecipeReadyToCookStatus(_currentDisplayedRecipe.IngredientsList))
+            {
+                picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_green;
+            }
+
+            // If there's one or more ingredient(s) missing
+            else
+            {
+                picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_red;
+            }
+
+            // --- Score
+            if (_currentDisplayedRecipe.Score == 0)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 1)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 2)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 3)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            }
+
+            // --- Instructions
+            // Calls the function that will return the instructions list to follow to make the recipe,
+            // then and affects them to the current displayed Recipe instruction list.
+            _currentDisplayedRecipe.InstructionsList = dbConn.ReadInstructionsForARecipe(_currentDisplayedRecipe.Id);
+
+            // Calls the function that creates the instruction labels dynamically
+            CreateInstructionsLayout();
+
+
+            // --- ImagePath
+            // Calls the function that displays the illustration image for the currently selected recipe
+            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
+
+            // If there's an image file stored in the illustrations folder for this recipe
+            if (_currentDisplayedRecipe.ImagePath != "default")
+            {
+                // Affects to the pictureBox the current displayed recipe illustration image
+                picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
+                picRecipe.BorderStyle = BorderStyle.None;
+            }
+        }
+
+
+        /// <summary>
+        /// Function to edit the title of the currently selected recipe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void editThisRecipesTitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string formattedTitle = lstSearchResults.SelectedItem.ToString();
+
+            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
+            if (lstSearchResults.SelectedItem.ToString().Contains("'"))
+            {
+                formattedTitle = txtTitleSearch.Text.Replace("'", "''");
+            }
+
+
+            frmEditRecipeTitle _frmEditRecipeTitle = new frmEditRecipeTitle(this);
+            _frmEditRecipeTitle.IdRecipeToEdit = dbConn.ReadRecipeId(formattedTitle);
+            _frmEditRecipeTitle.RecipeTitleToEdit = lstSearchResults.SelectedItem.ToString();
+            _frmEditRecipeTitle.ShowDialog();
+        }
+
+        private void frmMain_Click(object sender, EventArgs e)
+        {
+            if (pnlSlideMenu.Visible)
+            {
+                ClosePanel();
+            }
+        }
+
+        private void lblSearchIngredient1_Click(object sender, EventArgs e)
+        {
+            txtSearchIngredient1.Focus();
+        }
+
+        private void lblSearchIngredient2_Click(object sender, EventArgs e)
+        {
+            txtSearchIngredient2.Focus();
+        }
+
+        private void lblSearchIngredient3_Click(object sender, EventArgs e)
+        {
+            txtSearchIngredient3.Focus();
+        }
+
+        /// <summary>
+        /// Allows the user to drag and drop the selected recipe title
+        /// Source: https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/walkthrough-performing-a-drag-and-drop-operation-in-windows-forms
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lstSearchResults_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (lstSearchResults.SelectedIndex != -1 && e.Button == MouseButtons.Left)
+            {
+                lstSearchResults.DoDragDrop(lstSearchResults.SelectedItem.ToString(), DragDropEffects.Copy);
+            }
+        }
+
+        /// <summary>
+        /// Event when the user selects a recipe in the search result list control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayRecipeInfos();
+
+            if (!nudPersons.Visible)
+            {
+                DisplayRecipeControls();
+            }
+        }
+
+        private void newRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmNewRecipeBasicInfosInput _frmNewRecipeBasicInfosInput = new frmNewRecipeBasicInfosInput(this);
             _frmNewRecipeBasicInfosInput.ShowDialog();
         }
 
-        private void cmdTitleSearch_Click(object sender, EventArgs e)
-        {
-            this.PreviousTitleSearch = txtTitleSearch.Text;
-
-            // If the user has typed something in the textbox
-            if (txtTitleSearch.Text != "")
-            {
-                SearchRecipesByTitle(txtTitleSearch.Text);
-            }
-            // If the search textbox is empty
-            else
-            {
-                MessageBox.Show("Veuillez taper un ou plusieurs terme(s) de recherche.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }   
-        }
-
 
         /// <summary>
-        /// Search recipes containing the input keywords in their title
+        /// Handles the re-calculation of the quantity of each ingredient for the currently displayed recipe
         /// </summary>
-        private void SearchRecipesByTitle(string titleToSearchFor)
+        private void nudPersons_ValueChanged(object sender, EventArgs e)
         {
-            // Empties the listbox control
-            lstSearchResults.Items.Clear();
-
-            string formattedKeywords = titleToSearchFor;
-
-            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
-            if (titleToSearchFor.Contains("'"))
+            // If the user has increased by one the numeric updown control
+            if (DBConnection.NbPersonsPreviouslySet < Convert.ToInt32(nudPersons.Value))
             {
-                formattedKeywords = titleToSearchFor.Replace("'", "''");
+                // Stores the old value of the numeric updown control in the exposed property
+                DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value) - 1;
             }
 
-            // Declares an array and stores the keywordsSeparates the text typed by the user in the search text box into keywords and stores them in an array
-            string[] arrayKeywordsInput = formattedKeywords.Split(' ');
-
-            // If the user has typed 8 words or less in the textbox
-            if (arrayKeywordsInput.Length <= 8)
+            // If the user has decreased by one the numeric updown control
+            else if (DBConnection.NbPersonsPreviouslySet > Convert.ToInt32(nudPersons.Value))
             {
-                switch (arrayKeywordsInput.Length)
-                {
-                    // If the user has typed only one word in the search textbox
-                    case 1:
-
-                        // Calls the dbConn.SearchRecipesByTitle function with only one keyword in argument and adds the returned title in the list of string
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0]))
-                        {
-                            // Adds each title found as a new item in the listbox control
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    // If the user has typed two words in the search textbox
-                    case 2:
-
-                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1]))
-                        {
-                            // Adds each title found as a new item in the listbox control
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 3:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 4:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 5:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 6:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 7:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 8:
-
-                        // Calls the dbConn.SearchRecipesByTitle function with eight keywords in argument and adds the returned title in the list of string
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
-                        {
-                            // Adds each title found as a new item in the listbox control
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-                }
+                // Stores the old value of the numeric updown control in the exposed property
+                DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value) + 1;
             }
-            // If the user has typed more than 8 words in the search textbox
-            else
+
+            // Stores the new value of the numeric updown control in the exposed property
+            DBConnection.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
+
+            // Calls the function that will read the ingredients needed to make the recipe
+            DisplayRecipeInfos();
+        }
+     
+
+        /// <summary>
+        /// Opens OpenFileDialog instance and affects the selected file to the picture box
+        /// </summary>
+        private void picRecipe_Click(object sender, EventArgs e)
+        {
+            // Wraps the creation of the OpenFileDialog instance in a using statement,
+            // rather than manually calling the Dispose method to ensure proper disposal
+            using (ofdAssociatedImage)
             {
-                // Calls the dbConn.SearchRecipesByTitle function with eight keywords in argument and adds the returned title in the list of string
-                foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
+                if (ofdAssociatedImage.ShowDialog() == DialogResult.OK)
                 {
-                    // Adds each title found as a new item in the listbox control
-                    lstSearchResults.Items.Add(title);
+                    // Displays the image in the picturebox on the form       
+                    picRecipe.Load(ofdAssociatedImage.FileName);
+                    picRecipe.BorderStyle = BorderStyle.None;
+
+                    // Shows a dialog form which asks the user to provide a file name for the new image
+                    frmNewImagePath _frmNewImagePath = new frmNewImagePath(this);
+                    _frmNewImagePath.Show();
                 }
             }
         }
 
-        private void cmdIngredientsSearch_Click(object sender, EventArgs e)
+        private void picInventory_Click(object sender, EventArgs e)
         {
-            // If the user has typed something in one of the textboxes
-            if (txtSearchIngredient1.Text != "" || txtSearchIngredient2.Text != "" || txtSearchIngredient3.Text != "")
+            if (!this.InventoryShown)
+            {
+                this.InventoryShown = true;
+                frmInventory _frmInventory = new frmInventory(this);
+                _frmInventory.ShowDialog();
+            }
+        }
+
+        private void picInventory_MouseHover(object sender, EventArgs e)
+        {
+            if (pnlSlideMenu.Visible)
             {
                 ClosePanel();
-
-                //--- Normal ingredient search -------------
-                if (!chkFilterRecipesForSmallBudget.Checked && !chkFilterRecipesForThreeStars.Checked)
-                {
-                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text);
-                }
-
-                //--- Low budget recipes search ------------
-                else if (chkFilterRecipesForSmallBudget.Checked && !chkFilterRecipesForThreeStars.Checked)
-                {
-                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, true);
-                }
-
-                //--- Three stars recipes search -------------
-                else if (!chkFilterRecipesForSmallBudget.Checked && chkFilterRecipesForThreeStars.Checked)
-                {
-                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, false, true);
-                }
-
-                //--- Low budget and three stars recipes search ------------
-                else if (chkFilterRecipesForSmallBudget.Checked && chkFilterRecipesForThreeStars.Checked)
-                {
-                    SearchRecipesByIngredients(txtSearchIngredient1.Text, txtSearchIngredient2.Text, txtSearchIngredient3.Text, true, true);
-                }
-            }
-            // If all the textboxes are empty
-            else
-            {
-                MessageBox.Show("Veuillez entrer au moins un ingrédient", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void picMealPlanner_Click(object sender, EventArgs e)
+        {
+            if (!this.MealPlannerShown)
+            {
+                this.MealPlannerShown = true;
+                frmMealPlanner _frmMealPlanner = new frmMealPlanner(this);
+                _frmMealPlanner.Show();
+            }
+        }
+
+
+        private void picMealPlanner_MouseHover(object sender, EventArgs e)
+        {
+            if (pnlSlideMenu.Visible)
+            {
+                ClosePanel();
+            }
+        }
+
+
+        private void picRecipeReadyToCookStatus_MouseHover(object sender, EventArgs e)
+        {
+            ttpMissingIngredients.Show("Indique si vous avez assez d'ingrédients pour faire la recette.", picRecipeReadyToCookStatus);
+        }
+
+        private void picScore1_Click(object sender, EventArgs e)
+        {
+            UpdateScoreForCurrentRecipe(1);
+        }
+
+        private void picScore2_Click(object sender, EventArgs e)
+        {
+            UpdateScoreForCurrentRecipe(2);
+        }
+
+        private void picScore3_Click(object sender, EventArgs e)
+        {
+            UpdateScoreForCurrentRecipe(3);
+        }
+
+        private void pnlScore_MouseHover(object sender, EventArgs e)
+        {
+            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+        }
+
+        private void picScore1_MouseHover(object sender, EventArgs e)
+        {
+            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+        }
+
+        private void picScore2_MouseHover(object sender, EventArgs e)
+        {
+            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+        }
+
+        private void picScore3_MouseHover(object sender, EventArgs e)
+        {
+            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+        }
+
+
+        private void picSearchByIngredient_MouseHover(object sender, EventArgs e)
+        {
+            if (!pnlSlideMenu.Visible)
+            {
+                // Opening slide menu animation
+                pnlSlideMenu.Width = 350;
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 250, 0);
+                this.Refresh();
+                this.AcceptButton = cmdIngredientsSearch;
+            }
+        }
+
+
+        private void picSettings_Click(object sender, EventArgs e)
+        {
+            frmAbout _frmAbout = new frmAbout();
+            _frmAbout.ShowDialog();
+        }
+
+
+        private void picSettings_MouseHover(object sender, EventArgs e)
+        {
+            if (pnlSlideMenu.Visible)
+            {
+                ClosePanel();
+            }
+        }
+
+        private void pnlScore_MouseLeave(object sender, EventArgs e)
+        {
+            if (_currentDisplayedRecipe.Score == 0)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 1)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 2)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
+
+            }
+            else if (_currentDisplayedRecipe.Score == 3)
+            {
+                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+            }
+        }
+
+        /// <summary>
+        /// Changes the background color of the selected instruction and changes the background to transparent for the unselected instructions
+        /// </summary>
+        public void RefreshSelectedInstruction()
+        {
+            for (int i = 0; i < instructionSelection.Count; ++i)
+            {
+                if (instructionSelection[i].InstructionRank == selectedInstruction)
+                {
+                    if (instructionSelection[i].InstructionLabel.BackColor == Color.Transparent)
+                    {
+                        instructionSelection[i].InstructionLabel.BackColor = Color.FromArgb(168, 208, 230);
+                    }
+                    else
+                    {
+                        instructionSelection[i].InstructionLabel.BackColor = Color.Transparent;
+                    }
+                }
+                else
+                {
+                    instructionSelection[i].InstructionLabel.BackColor = Color.Transparent;
+                }
+            }
+        }
+
 
         /// <summary>
         /// Search recipes which contain all the input ingredients
@@ -541,7 +936,7 @@ namespace Recipe_Writer
                         break;
                 }
             }
-            
+
             // If the checkbox to filter recipes for small budget is checked
             else if (filterForSmallBudget && !filterForThreeStars)
             {
@@ -706,403 +1101,121 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Event when the user selects a recipe in the search result list control
+        /// Search recipes containing the input keywords in their title
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        private void SearchRecipesByTitle(string titleToSearchFor)
         {
-            DisplayRecipeInfos();
+            // Empties the listbox control
+            lstSearchResults.Items.Clear();
 
-            if (!nudPersons.Visible)
+            string formattedKeywords = titleToSearchFor;
+
+            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
+            if (titleToSearchFor.Contains("'"))
             {
-                DisplayRecipeControls();   
-            }
-        }
-
-        /// <summary>
-        /// Event when the user selects a recipe in the search result list control
-        /// </summary>
-        private void DisplayRecipeControls()
-        {
-            cmsRecipeResult.Items[1].Enabled = true;
-            cmsRecipeResult.Items[2].Enabled = true;
-            cmsRecipeResult.Items[3].Enabled = true;
-            cmsRecipeResult.Items[4].Enabled = true;
-
-            nudPersons.Visible = true;
-            lblPortions.Visible = true;
-            lblCompletionTime.Visible = true;
-            cmbRecipeIngredients.Visible = true;
-            cmdAddInstruction.Visible = true;
-            pnlScore.Visible = true;
-            picScore1.Visible = true;
-            picScore2.Visible = true;
-            picScore3.Visible = true;
-        }
-
-        /// <summary>
-        /// Displays the ingredients, image and instructions for the selected recipe
-        /// </summary>
-        public void DisplayRecipeInfos()
-        {
-            // Affects to the title property of the _currentDisplayedRecipe object the selected recipe, in the search result listbox
-            _currentDisplayedRecipe.Title = lstSearchResults.SelectedItem.ToString();
-
-            // Calls the function that returns the id of a recipe, given its title in argument
-            _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(_currentDisplayedRecipe.Title);
-
-            // Affects to the properties of the _currentDisplayedRecipe object the others values returned by the dbConn functions
-            _currentDisplayedRecipe.CompletionTime = dbConn.ReadRecipeCompletionTime(_currentDisplayedRecipe.Id);
-            _currentDisplayedRecipe.LowBudget = dbConn.ReadRecipeLowBudgetStatus(_currentDisplayedRecipe.Id);
-            _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(_currentDisplayedRecipe.Id);
-            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
-
-            // --- Affecting the _currentDisplayedRecipe properties to the controls properties ----------------------------------------------------
-
-            // --- Completion time
-            lblCompletionTime.Text = "";
-            lblCompletionTime.Text += "Préparation : " + _currentDisplayedRecipe.CompletionTime+" min.";
-
-            // --- Low budget status
-            if (_currentDisplayedRecipe.LowBudget == 1)
-            {
-                picLowBudget.Visible = true;
+                formattedKeywords = titleToSearchFor.Replace("'", "''");
             }
 
+            // Declares an array and stores the keywordsSeparates the text typed by the user in the search text box into keywords and stores them in an array
+            string[] arrayKeywordsInput = formattedKeywords.Split(' ');
+
+            // If the user has typed 8 words or less in the textbox
+            if (arrayKeywordsInput.Length <= 8)
+            {
+                switch (arrayKeywordsInput.Length)
+                {
+                    // If the user has typed only one word in the search textbox
+                    case 1:
+
+                        // Calls the dbConn.SearchRecipesByTitle function with only one keyword in argument and adds the returned title in the list of string
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0]))
+                        {
+                            // Adds each title found as a new item in the listbox control
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    // If the user has typed two words in the search textbox
+                    case 2:
+
+                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1]))
+                        {
+                            // Adds each title found as a new item in the listbox control
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 3:
+
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 4:
+
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 5:
+
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 6:
+
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 7:
+
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6]))
+                        {
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+
+                    case 8:
+
+                        // Calls the dbConn.SearchRecipesByTitle function with eight keywords in argument and adds the returned title in the list of string
+                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
+                        {
+                            // Adds each title found as a new item in the listbox control
+                            lstSearchResults.Items.Add(title);
+                        }
+                        break;
+                }
+            }
+            // If the user has typed more than 8 words in the search textbox
             else
             {
-                picLowBudget.Visible = false;
-            }
-
-            // --- Ingredients list
-            _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
- 
-            cmbRecipeIngredients.Items.Clear();
-            cmbRecipeIngredients.Items.Add("Ingrédients nécessaires");
-
-            // Adds each ingredients list item as a new item in the ingredients comboBo
-            foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
-            {
-                cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + ingredientToAdd.Scale + " de " + ingredientToAdd.Name);
-            }
-
-            if (_currentDisplayedRecipe.IngredientsList.Count() <= 19)
-            {
-                cmbRecipeIngredients.Items.Add("Ajouter un ingrédient...");
-            }
-
-            // Selects automatically the first item of the combobox
-            cmbRecipeIngredients.SelectedIndex = 0;
-
-            // --- Calculates if the recipe is ready to cook with what is stored in the inventory.
-            if (CalculateRecipeReadyToCookStatus(_currentDisplayedRecipe.IngredientsList))
-            {
-                picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_green;
-            }
-
-            // If there's one or more ingredient(s) missing
-            else
-            {
-                picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_red;
-            }
-
-            // --- Score
-            if (_currentDisplayedRecipe.Score == 0)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
-            }
-            else if (_currentDisplayedRecipe.Score == 1)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
-            }
-            else if (_currentDisplayedRecipe.Score == 2)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
-            }
-            else if (_currentDisplayedRecipe.Score == 3)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-            }
-
-            // --- Instructions
-            // Calls the function that will return the instructions list to follow to make the recipe,
-            // then and affects them to the current displayed Recipe instruction list.
-            _currentDisplayedRecipe.InstructionsList = dbConn.ReadInstructionsForARecipe(_currentDisplayedRecipe.Id);
-
-            // Calls the function that creates the instruction labels dynamically
-            CreateInstructionsLayout();
-
-
-            // --- ImagePath
-            // Calls the function that displays the illustration image for the currently selected recipe
-            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
-
-            // If there's an image file stored in the illustrations folder for this recipe
-            if (_currentDisplayedRecipe.ImagePath != "default")
-            {
-                // Affects to the pictureBox the current displayed recipe illustration image
-                picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
-                picRecipe.BorderStyle = BorderStyle.None;
-            }
-        }
-
-
-        /// <summary>
-        /// Calculates if all ingredients needed for a recipe are in enough quantity in the inventory
-        /// </summary>
-        /// <param name="listOfIngredientsNeeded"</param>
-        /// <returns>the status of a recipe : ready for cooking or not</returns>
-        public bool CalculateRecipeReadyToCookStatus(List<Ingredients> listOfIngredientsNeeded)
-        {
-            bool RecipeIsReadyToCook = true;
-
-            foreach (Ingredients ingredientNeeded in listOfIngredientsNeeded)
-            {
-                // If the ingredient is missing
-                if (ingredientNeeded.QtyRequested > ingredientNeeded.QtyAvailable)
+                // Calls the dbConn.SearchRecipesByTitle function with eight keywords in argument and adds the returned title in the list of string
+                foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
                 {
-                    RecipeIsReadyToCook = false;
-                }
-            }
-
-            return RecipeIsReadyToCook;
-        }
-
-        /// <summary>
-        /// Handles the re-calculation of the quantity of each ingredient for the currently displayed recipe
-        /// </summary>
-        private void nudPersons_ValueChanged(object sender, EventArgs e)
-        {
-            // If the user has increased by one the numeric updown control
-            if (DBConnection.NbPersonsPreviouslySet < Convert.ToInt32(nudPersons.Value))
-            {
-                // Stores the old value of the numeric updown control in the exposed property
-                DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value) - 1;
-            }
-
-            // If the user has decreased by one the numeric updown control
-            else if (DBConnection.NbPersonsPreviouslySet > Convert.ToInt32(nudPersons.Value))
-            {
-                // Stores the old value of the numeric updown control in the exposed property
-                DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value) + 1;
-            }
-
-            // Stores the new value of the numeric updown control in the exposed property
-            DBConnection.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
-
-            // Calls the function that will read the ingredients needed to make the recipe
-            DisplayRecipeInfos();
-        }
-
-       
-        /// <summary>
-        /// Changes the background color of the selected instruction and changes the background to transparent for the unselected instructions
-        /// </summary>
-        public void RefreshSelectedInstruction()
-        {
-            for (int i = 0; i < instructionSelection.Count; ++i)
-            {
-                if (instructionSelection[i].InstructionRank == selectedInstruction)
-                {
-                    if (instructionSelection[i].InstructionLabel.BackColor == Color.Transparent)
-                    {
-                        instructionSelection[i].InstructionLabel.BackColor = Color.FromArgb(168, 208, 230);
-                    }
-                    else
-                    {
-                        instructionSelection[i].InstructionLabel.BackColor = Color.Transparent;
-                    }
-                }
-                else
-                {
-                    instructionSelection[i].InstructionLabel.BackColor = Color.Transparent;
+                    // Adds each title found as a new item in the listbox control
+                    lstSearchResults.Items.Add(title);
                 }
             }
         }
 
-        /// <summary>
-        /// Function to add an instruction to the currently selected recipe
-        /// </summary>
-        private void cmdAddInstruction_Click(object sender, EventArgs e)
-        {
-            frmNewInstruction _frmNewInstruction = new frmNewInstruction(this);
-            _frmNewInstruction.IdRecipeToEdit = _currentDisplayedRecipe.Id;
-            _frmNewInstruction.NbInstructionsInCurrentRecipe = currentInstruction;
-            _frmNewInstruction.ShowDialog();
-        }
 
-        /// <summary>
-        /// Opens OpenFileDialog instance and affects the selected file to the picture box
-        /// </summary>
-        private void picRecipe_Click(object sender, EventArgs e)
-        {
-            // Wraps the creation of the OpenFileDialog instance in a using statement,
-            // rather than manually calling the Dispose method to ensure proper disposal
-            using (ofdAssociatedImage)
-            {
-                if (ofdAssociatedImage.ShowDialog() == DialogResult.OK)
-                {
-                    // Displays the image in the picturebox on the form       
-                    picRecipe.Load(ofdAssociatedImage.FileName);
-                    picRecipe.BorderStyle = BorderStyle.None;
-
-                    // Shows a dialog form which asks the user to provide a file name for the new image
-                    frmNewImagePath _frmNewImagePath = new frmNewImagePath(this);
-                    _frmNewImagePath.Show();
-                }
-            }
-        }
-
-        private void frmMain_Click(object sender, EventArgs e)
-        {
-            if (pnlSlideMenu.Visible)
-            {
-                ClosePanel();  
-            }
-        }
-
-        private void lblSearchIngredient1_Click(object sender, EventArgs e)
-        {
-            txtSearchIngredient1.Focus();
-        }
-
-        private void lblSearchIngredient2_Click(object sender, EventArgs e)
-        {
-            txtSearchIngredient2.Focus();
-        }
-
-        private void lblSearchIngredient3_Click(object sender, EventArgs e)
-        {
-            txtSearchIngredient3.Focus();
-        }
 
         private void txtTitleSearch_Enter(object sender, EventArgs e)
         {
             this.AcceptButton = cmdTitleSearch;
         }
 
-        /// <summary>
-        /// Function that animates the close of the panel content
-        /// </summary>
-        private void ClosePanel()
-        {
-            if (pnlSlideMenu.Visible)
-            {
-                // Closing slide menu animation
-                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 360);
-                this.Refresh();
-            }
-        }
-
-        /// <summary>
-        /// Event when the user selects a recipe in the results list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmbRecipeIngredients_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbRecipeIngredients.SelectedIndex == cmbRecipeIngredients.Items.Count - 1)
-            {
-                frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
-                _frmNewIngredient.ShowDialog();
-            }
-        }
-        private void cmdDeleteIngredient_Click(object sender, EventArgs e)
-        {
-            dbConn.DeleteIngredient(_currentDisplayedRecipe.Id, cmbRecipeIngredients.Items.Count, _currentDisplayedRecipe.IngredientsList[cmbRecipeIngredients.Items.Count].Scale);
-            this.Refresh();
-        }
-
-        /// <summary>
-        /// Function to edit the title of the currently selected recipe
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void modifierLeTitreDeCetteRecetteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string formattedTitle = lstSearchResults.SelectedItem.ToString();
-
-            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
-            if (lstSearchResults.SelectedItem.ToString().Contains("'"))
-            {
-                formattedTitle = txtTitleSearch.Text.Replace("'", "''");
-            }
-
-
-            frmEditRecipeTitle _frmEditRecipeTitle = new frmEditRecipeTitle(this);
-            _frmEditRecipeTitle.IdRecipeToEdit = dbConn.ReadRecipeId(formattedTitle);
-            _frmEditRecipeTitle.RecipeTitleToEdit = lstSearchResults.SelectedItem.ToString();
-            _frmEditRecipeTitle.ShowDialog();
-        }
-
-        /// <summary>
-        /// Allows the user to drag and drop the selected recipe title
-        /// Source: https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/walkthrough-performing-a-drag-and-drop-operation-in-windows-forms
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lstSearchResults_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (lstSearchResults.SelectedIndex != -1 && e.Button == MouseButtons.Left)
-            {
-                lstSearchResults.DoDragDrop(lstSearchResults.SelectedItem.ToString(), DragDropEffects.Copy);
-            }
-        }
-
-        private void pnlScore_MouseHover(object sender, EventArgs e)
-        {
-            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-        }
-
-        private void picScore1_MouseHover(object sender, EventArgs e)
-        {
-            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-        }
-
-        private void picScore2_MouseHover(object sender, EventArgs e)
-        {
-            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-        }
-
-        private void picScore3_MouseHover(object sender, EventArgs e)
-        {
-            picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-            picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-            picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-        }
-
-        private void picScore1_Click(object sender, EventArgs e)
-        {
-            UpdateScoreForCurrentRecipe(1);
-        }
-
-        private void picScore2_Click(object sender, EventArgs e)
-        {
-            UpdateScoreForCurrentRecipe(2);
-        }
-
-        private void picScore3_Click(object sender, EventArgs e)
-        {
-            UpdateScoreForCurrentRecipe(3);
-        }
 
         /// <summary>
         /// Updates the score for the current selected recipe
@@ -1113,102 +1226,5 @@ namespace Recipe_Writer
             DisplayRecipeInfos();
         }
 
-        private void pnlScore_MouseLeave(object sender, EventArgs e)
-        {
-            if (_currentDisplayedRecipe.Score == 0)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
-            }
-            else if (_currentDisplayedRecipe.Score == 1)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
-            }
-            else if (_currentDisplayedRecipe.Score == 2)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
-            }
-            else if (_currentDisplayedRecipe.Score == 3)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-            }
-        }
-
-        private void picSearchByIngredient_MouseHover(object sender, EventArgs e)
-        {
-            if (!pnlSlideMenu.Visible)
-            {
-                // Opening slide menu animation
-                pnlSlideMenu.Width = 350;
-                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 250, 0);
-                this.Refresh();
-                this.AcceptButton = cmdIngredientsSearch;
-            }
-        }
-
-        private void picInventory_MouseHover(object sender, EventArgs e)
-        {
-            if (pnlSlideMenu.Visible)
-            {
-                ClosePanel();
-            }
-        }
-
-        private void picMealPlanner_MouseHover(object sender, EventArgs e)
-        {
-            if (pnlSlideMenu.Visible)
-            {
-                ClosePanel();
-            }
-        }
-
-        private void picSettings_MouseHover(object sender, EventArgs e)
-        {
-            if (pnlSlideMenu.Visible)
-            {
-                ClosePanel();
-            }
-        }
-
-        private void picInventory_Click(object sender, EventArgs e)
-        {
-            if (!this.InventoryShown)
-            {
-                this.InventoryShown = true;
-                frmInventory _frmInventory = new frmInventory(this);
-                _frmInventory.ShowDialog();
-            }
-        }
-
-        private void picMealPlanner_Click(object sender, EventArgs e)
-        {
-            if (!this.MealPlannerShown)
-            {
-                this.MealPlannerShown = true;
-                frmMealPlanner _frmMealPlanner = new frmMealPlanner(this);
-                _frmMealPlanner.Show();
-            }
-        }
-
-        private void picRecipeReadyToCookStatus_MouseHover(object sender, EventArgs e)
-        {
-            ttpMissingIngredients.Show("Indique si vous avez assez d'ingrédients pour faire la recette.", picRecipeReadyToCookStatus);
-        }
-       
-        private void picSettings_Click(object sender, EventArgs e)
-        {
-            frmAbout _frmAbout = new frmAbout();
-            _frmAbout.ShowDialog();
-        }
     }
 }
