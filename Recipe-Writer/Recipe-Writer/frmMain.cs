@@ -1222,37 +1222,79 @@ namespace Recipe_Writer
 
         private void lundiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            picMealPlanner_Click(sender, e);
+            dbConn.UpdatePlannedRecipeForADay(1, _currentDisplayedRecipe.Title);
+            
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
         }
 
         private void mardiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            picMealPlanner_Click(sender, e);
+            dbConn.UpdatePlannedRecipeForADay(2, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown= true;
+            }
         }
 
         private void mercrediToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            picMealPlanner_Click(sender, e);
+            dbConn.UpdatePlannedRecipeForADay(3, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
         }
 
         private void jeudiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            picMealPlanner_Click(sender, e);
+            dbConn.UpdatePlannedRecipeForADay(4, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
         }
 
         private void vendrediToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            picMealPlanner_Click(sender, e);
+            dbConn.UpdatePlannedRecipeForADay(5, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
         }
 
         private void samediToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            picMealPlanner_Click(sender, e);
+            dbConn.UpdatePlannedRecipeForADay(6, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
         }
 
         private void dimancheToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            picMealPlanner_Click(sender, e);
+            dbConn.UpdatePlannedRecipeForADay(7, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
         }
     }
 }

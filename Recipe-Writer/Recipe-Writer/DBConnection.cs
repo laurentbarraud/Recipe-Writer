@@ -604,6 +604,27 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Reads planned meal for a day of the week stored in the database
+        /// </summary>
+        /// <param>the id of the day of the week</param>
+        /// <returns>title of the recipes planned for that day</returns>
+        public string ReadPlannedMealsForADay(int idDayOfTheWeek)
+        {
+            string titleOfPlannedRecipeFound = ""; 
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "SELECT titleOfPlannedRecipe FROM PlannedMeals WHERE id='"+idDayOfTheWeek+"';";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                titleOfPlannedRecipeFound = dataReader["titleOfPlannedRecipe"].ToString();
+            }
+
+            return titleOfPlannedRecipeFound;
+        }
+
+        /// <summary>
         /// Reads the type of an ingredient for a given id
         /// </summary>
         /// <param name="nameIngredient">the name of the ingredient</param>
@@ -1022,6 +1043,26 @@ namespace Recipe_Writer
         {
             SQLiteCommand cmd = sqliteConn.CreateCommand();
             cmd.CommandText = "UPDATE 'Recipes' SET imagePath='" + newImagePath + "' WHERE id='"+idRecipe+"';";
+            cmd.ExecuteReader();
+        }
+
+        /// <summary>
+        /// Updates the image path for the selected recipe
+        /// </summary>
+        /// <param name="idRecipe">the id of the day of the week (from 1 to 7)</param>
+        /// <param name="titleOfTheRecipe">the title of the recipe to plan</param>
+        public void UpdatePlannedRecipeForADay(int idDayOfTheWeek, string titleOfTheRecipe)
+        {
+            string formattedTitle = titleOfTheRecipe;
+
+            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
+            if (titleOfTheRecipe.Contains("'"))
+            {
+                formattedTitle = titleOfTheRecipe.Replace("'", "''");
+            }
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "UPDATE 'PlannedMeals' SET titleOfPlannedRecipe='" + formattedTitle + "' WHERE id='" + idDayOfTheWeek + "';";
             cmd.ExecuteReader();
         }
 

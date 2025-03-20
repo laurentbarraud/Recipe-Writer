@@ -333,6 +333,7 @@
             this.lblMondayRecipe.Name = "lblMondayRecipe";
             this.lblMondayRecipe.Size = new System.Drawing.Size(141, 84);
             this.lblMondayRecipe.TabIndex = 0;
+            this.lblMondayRecipe.TextChanged += new System.EventHandler(this.lblMondayRecipe_TextChanged);
             this.lblMondayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblMondayRecipe_DragEnter);
             // 
             // lblTuesdayRecipe
@@ -343,6 +344,7 @@
             this.lblTuesdayRecipe.Name = "lblTuesdayRecipe";
             this.lblTuesdayRecipe.Size = new System.Drawing.Size(141, 82);
             this.lblTuesdayRecipe.TabIndex = 2;
+            this.lblTuesdayRecipe.TextChanged += new System.EventHandler(this.lblTuesdayRecipe_TextChanged);
             this.lblTuesdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblTuesdayRecipe_DragEnter);
             // 
             // lblWednesdayRecipe
@@ -353,6 +355,7 @@
             this.lblWednesdayRecipe.Name = "lblWednesdayRecipe";
             this.lblWednesdayRecipe.Size = new System.Drawing.Size(141, 84);
             this.lblWednesdayRecipe.TabIndex = 4;
+            this.lblWednesdayRecipe.TextChanged += new System.EventHandler(this.lblWednesdayRecipe_TextChanged);
             this.lblWednesdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblWednesdayRecipe_DragEnter);
             // 
             // lblThursdayRecipe
@@ -363,6 +366,7 @@
             this.lblThursdayRecipe.Name = "lblThursdayRecipe";
             this.lblThursdayRecipe.Size = new System.Drawing.Size(141, 83);
             this.lblThursdayRecipe.TabIndex = 6;
+            this.lblThursdayRecipe.TextChanged += new System.EventHandler(this.lblThursdayRecipe_TextChanged);
             this.lblThursdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblThursdayRecipe_DragEnter);
             // 
             // lblFridayRecipe
@@ -373,6 +377,7 @@
             this.lblFridayRecipe.Name = "lblFridayRecipe";
             this.lblFridayRecipe.Size = new System.Drawing.Size(141, 82);
             this.lblFridayRecipe.TabIndex = 8;
+            this.lblFridayRecipe.TextChanged += new System.EventHandler(this.lblFridayRecipe_TextChanged);
             this.lblFridayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblFridayRecipe_DragEnter);
             // 
             // lblSaturdayRecipe
@@ -383,6 +388,7 @@
             this.lblSaturdayRecipe.Name = "lblSaturdayRecipe";
             this.lblSaturdayRecipe.Size = new System.Drawing.Size(141, 82);
             this.lblSaturdayRecipe.TabIndex = 10;
+            this.lblSaturdayRecipe.TextChanged += new System.EventHandler(this.lblSaturdayRecipe_TextChanged);
             this.lblSaturdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSaturdayRecipe_DragEnter);
             // 
             // lblSundayRecipe
@@ -393,6 +399,7 @@
             this.lblSundayRecipe.Name = "lblSundayRecipe";
             this.lblSundayRecipe.Size = new System.Drawing.Size(141, 80);
             this.lblSundayRecipe.TabIndex = 12;
+            this.lblSundayRecipe.TextChanged += new System.EventHandler(this.lblSundayRecipe_TextChanged);
             this.lblSundayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSundayRecipe_DragEnter);
             // 
             // frmMealPlanner

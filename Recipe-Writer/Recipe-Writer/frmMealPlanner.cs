@@ -20,6 +20,8 @@ namespace Recipe_Writer
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
 
+        public delegate void LoadMealDelegate(int idDayOfTheWeek);
+
         // Constructor - Adds the parent form as parameter in the form constructor
         public frmMealPlanner(frmMain parentForm)
         {
@@ -36,7 +38,17 @@ namespace Recipe_Writer
         private void frmMealPlanner_Load(object sender, EventArgs e)
         {
             this.Location = new Point(_frmMain.Width - 150, _frmMain.Height / 2);
+
+            // Instantiates the delegate with the corresponding method
+            LoadMealDelegate loadMeal = LoadPlannedMealForADay;
+
+            // Loop for 7 days of the week (id from 1 to 7)
+            for (int idDayOfWeek = 1; idDayOfWeek < 6; idDayOfWeek++)
+            {
+                loadMeal(idDayOfWeek); // calls the delegate
+            }
         }
+
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
@@ -137,6 +149,77 @@ namespace Recipe_Writer
         {
             lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdSundayCancelled.Enabled = true;
+
+        }
+
+        private void LoadPlannedMealForADay(int idDayOfTheWeek)
+        {
+            string titlePlannedMeal = _frmMain.dbConn.ReadPlannedMealsForADay(idDayOfTheWeek);
+        
+            switch (idDayOfTheWeek)
+            {
+                case 1:
+                    lblMondayRecipe.Text = titlePlannedMeal; 
+                    break;
+
+                case 2:
+                    lblThursdayRecipe.Text = titlePlannedMeal;
+                    break;
+
+                case 3:
+                    lblWednesdayRecipe.Text = titlePlannedMeal;
+                    break;
+
+                case 4:
+                    lblThursdayRecipe.Text = titlePlannedMeal;
+                    break;
+
+                case 5:
+                    lblFridayRecipe.Text = titlePlannedMeal;
+                    break;
+
+                case 6:
+                    lblSaturdayRecipe.Text = titlePlannedMeal;
+                    break;
+
+                case 7:
+                    lblSundayRecipe.Text = titlePlannedMeal;
+                    break;
+            }
+        }
+
+        private void lblMondayRecipe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTuesdayRecipe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblWednesdayRecipe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblThursdayRecipe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFridayRecipe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSaturdayRecipe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSundayRecipe_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
