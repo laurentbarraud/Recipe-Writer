@@ -1,7 +1,7 @@
 ﻿/// <file>frmMealPlanner.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 20th 2025</date>
+/// <date>March 21th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,8 @@ namespace Recipe_Writer
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
 
-        public delegate void LoadMealDelegate(int idDayOfTheWeek);
+        // Generic delegate
+        private Action<int> loadPlannedMeal;
 
         // Constructor - Adds the parent form as parameter in the form constructor
         public frmMealPlanner(frmMain parentForm)
@@ -39,14 +40,14 @@ namespace Recipe_Writer
         {
             this.Location = new Point(_frmMain.Width - 150, _frmMain.Height / 2);
 
-            // Instantiates the delegate with the corresponding method
-            LoadMealDelegate loadMeal = LoadPlannedMealForADay;
+            loadPlannedMeal = LoadPlannedMealForADay;
 
-            // Loop for 7 days of the week (id from 1 to 7)
             for (int idDayOfWeek = 1; idDayOfWeek < 6; idDayOfWeek++)
             {
-                loadMeal(idDayOfWeek); // calls the delegate
+                loadPlannedMeal(idDayOfWeek);
             }
+
+            if (lblMondayRecipe.)
         }
 
 

@@ -1,7 +1,7 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 20th 2025</date>
+/// <date>March 21th 2025</date>
 /// 
 using System;
 using System.Collections.Generic;
@@ -29,7 +29,8 @@ namespace Recipe_Writer
             InitializeComponent();
         }
 
-        delegate void FillInListBoxesDelegate(int idTypeOfIngredient);
+        // Generic delegate
+        private Action<int> fillInListBoxesDelegate;
 
         /// <summary>
         /// Form load event
@@ -42,8 +43,7 @@ namespace Recipe_Writer
 
             int totalNbOfTypes = _frmMain.dbConn.CountAllTypesOfIngredients();
 
-            // Instantiates the delegate
-            FillInListBoxesDelegate fillInListBoxesDelegate = new FillInListBoxesDelegate(FillInListBoxesWithIngredientsNamesAndQuantities);
+            fillInListBoxesDelegate = FillInListBoxesWithIngredientsNamesAndQuantities;
 
             for (int idTypeToHandle = 1; idTypeToHandle <= totalNbOfTypes; idTypeToHandle++)
             {
