@@ -47,7 +47,40 @@ namespace Recipe_Writer
                 loadPlannedMeal(idDayOfWeek);
             }
 
-            if (lblMondayRecipe.)
+            if (lblMondayRecipe.Text != "")
+            {
+                cmdMondayCancelled.Visible = true;
+            }
+
+            if (lblTuesdayRecipe.Text != "")
+            {
+                cmdTuesdayCancelled.Visible = true;
+            }
+
+            if (lblWednesdayRecipe.Text != "")
+            {
+                cmdWednesdayCancelled.Visible = true;
+            }
+
+            if (lblThursdayRecipe.Text != "")
+            {
+                cmdThursdayCancelled.Visible = true;
+            }
+
+            if (lblFridayRecipe.Text != "")
+            {
+                cmdFridayCancelled.Visible = true;
+            }
+
+            if (lblSaturdayRecipe.Text != "")
+            {
+                cmdSaturdayCancelled.Visible = true;
+            }
+
+            if (lblSundayRecipe.Text != "")
+            {
+                cmdSundayCancelled.Visible = true;
+            }
         }
 
 
@@ -59,48 +92,48 @@ namespace Recipe_Writer
         private void cmdMondayCancelled_Click(object sender, EventArgs e)
         {
             lblMondayRecipe.Text = "";
-            cmdMondayCancelled.Enabled = false;
+            cmdMondayCancelled.Visible = false;
         }
 
         private void cmdTuesdayCancelled_Click(object sender, EventArgs e)
         {
             lblTuesdayRecipe.Text = "";
-            cmdTuesdayCancelled.Enabled = false;
+            cmdTuesdayCancelled.Visible = false;
 
         }
 
         private void lblWednesdayRecipe_Click(object sender, EventArgs e)
         {
             lblWednesdayRecipe.Text = "";
-            cmdWednesdayCancelled.Enabled = false;
+            cmdWednesdayCancelled.Visible = false;
 
         }
 
         private void cmdThursdayCancelled_Click(object sender, EventArgs e)
         {
             lblThursdayRecipe.Text = "";
-            cmdThursdayCancelled.Enabled = false;
+            cmdThursdayCancelled.Visible = false;
 
         }
 
         private void cmdFridayCancelled_Click(object sender, EventArgs e)
         {
             lblFridayRecipe.Text = "";
-            cmdFridayCancelled.Enabled = false;
+            cmdFridayCancelled.Visible = false;
 
         }
 
         private void cmdSaturdayCancelled_Click(object sender, EventArgs e)
         {
             lblSaturdayRecipe.Text = "";
-            cmdSaturdayCancelled.Enabled = false;
+            cmdSaturdayCancelled.Visible = false;
 
         }
 
         private void cmdSundayCancelled_Click(object sender, EventArgs e)
         {
             lblSundayRecipe.Text = "";
-            cmdSundayCancelled.Enabled = false;
+            cmdSundayCancelled.Visible = false;
             
         }
 
@@ -113,43 +146,43 @@ namespace Recipe_Writer
         private void lblMondayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblMondayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdMondayCancelled.Enabled = true;
+            cmdMondayCancelled.Visible = true;
         }
 
         private void lblTuesdayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblTuesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdTuesdayCancelled.Enabled = true;
+            cmdTuesdayCancelled.Visible = true;
         }
 
         private void lblWednesdayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblWednesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdWednesdayCancelled.Enabled = true;
+            cmdWednesdayCancelled.Visible = true;
         }
 
         private void lblThursdayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblThursdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdThursdayCancelled.Enabled = true;
+            cmdThursdayCancelled.Visible = true;
         }
 
         private void lblFridayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblFridayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdFridayCancelled.Enabled = true;
+            cmdFridayCancelled.Visible = true;
         }
 
         private void lblSaturdayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblSaturdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdSaturdayCancelled.Enabled = true;
+            cmdSaturdayCancelled.Visible = true;
         }
 
         private void lblSundayRecipe_DragEnter(object sender, DragEventArgs e)
         {
             lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
-            cmdSundayCancelled.Enabled = true;
+            cmdSundayCancelled.Visible = true;
 
         }
 
@@ -191,37 +224,37 @@ namespace Recipe_Writer
 
         private void lblMondayRecipe_TextChanged(object sender, EventArgs e)
         {
-
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(1, lblMondayRecipe.Text);
         }
 
         private void lblTuesdayRecipe_TextChanged(object sender, EventArgs e)
         {
-
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(2, lblTuesdayRecipe.Text);
         }
 
         private void lblWednesdayRecipe_TextChanged(object sender, EventArgs e)
         {
-
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(3, lblWednesdayRecipe.Text);
         }
 
         private void lblThursdayRecipe_TextChanged(object sender, EventArgs e)
         {
-
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(4, lblThursdayRecipe.Text);
         }
 
         private void lblFridayRecipe_TextChanged(object sender, EventArgs e)
         {
-
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(5, lblFridayRecipe.Text);
         }
 
         private void lblSaturdayRecipe_TextChanged(object sender, EventArgs e)
         {
-
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(6, lblSaturdayRecipe.Text);
         }
 
         private void lblSundayRecipe_TextChanged(object sender, EventArgs e)
         {
-
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(7, lblSundayRecipe.Text);
         }
     }
 }
