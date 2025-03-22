@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 20th 2025</date>
+/// <date>March 22th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -553,6 +553,105 @@ namespace Recipe_Writer
             _frmEditRecipeTitle.RecipeCompletionTime = _currentDisplayedRecipe.CompletionTime;
             _frmEditRecipeTitle.LowBudgetStatus = _currentDisplayedRecipe.LowBudget;
             _frmEditRecipeTitle.ShowDialog();
+        }
+
+        private void exportThisRecipeToAWebPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Displays a SaveFileDialog
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Web pages|*.html; *.htm";
+            saveFileDialog1.Title = "Exporter la recette dans une page web.";
+
+            saveFileDialog1.FileName = _currentDisplayedRecipe.Title + ".html";
+            var dialogResult = saveFileDialog1.ShowDialog();
+
+            // If a valid filename has been input
+            if (!string.IsNullOrEmpty(saveFileDialog1.FileName) && dialogResult != DialogResult.Cancel)
+            {
+                try
+                {
+                    // StringBuilder is used to improve performance when concatenating strings.
+                    var stringBuilder = new StringBuilder();
+
+                    // Start HTML with external CSS styles embedded in the file.
+                    stringBuilder.Append(@"
+                    <html>
+                        <head>
+                            <style>
+                                body {
+                                    font-family: Arial, sans-serif;
+                                    line-height: 1.6;
+                                    margin: 20px;
+                                    padding: 20px;
+                                    background-color: #f8f8f8;
+                                    }
+                                h1 {
+                                    color: #333;
+                                    }
+                                    .ingredients, .instructions {
+                                        margin-bottom: 20px;
+                                    }
+                                    .ingredients ul {
+                                        list-style-type: square;
+                                    }
+                                    .recipe-image {
+                                    max-width: 30%;
+                                    height: auto;
+                                    margin-bottom: 20px;
+                                    }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>" + _currentDisplayedRecipe.Title + @"</h1>");
+
+                        // Checks if the image file associated to the recipe exists before integrating it
+                        if (File.Exists(Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg"))
+                        {
+                            stringBuilder.Append("<img src='./illustrations/" + _currentDisplayedRecipe.ImagePath + ".jpg' alt='recipe-image' class='recipe-image' />");
+                        }
+
+                        stringBuilder.Append("<p>" + "Temps de préparation : " + _currentDisplayedRecipe.CompletionTime.ToString() + " minutes.</p>");
+
+                        // Adds the list of ingredients and the instructions in two different <div>.
+                        stringBuilder.Append(@"
+                            <div class='ingredients'>
+                            <h2>Ingrédients</h2>
+                            <ul>");
+                            
+                        foreach (var ingredient in _currentDisplayedRecipe.IngredientsList)
+                        {
+                            stringBuilder.Append("<li>" + ingredient.QtyRequested + " " + ingredient.Scale + " " + ingredient.Name + "</li>");
+                        }
+                        
+                        stringBuilder.Append(@"
+                        </ul>
+                    </div>
+                    <div class='instructions'>
+                        <h2>Instructions</h2>
+                        <ul>");
+                 
+                        foreach (var instruction in _currentDisplayedRecipe.InstructionsList)
+                        {
+                            stringBuilder.Append("<li>" + instruction.Text + "</li>");
+                        }
+                        
+                        stringBuilder.Append(@"
+                        </ul>
+
+                    </div>
+                </body>
+            </html>");
+
+                    // Writes the generated HTML to the selected file.
+                    File.WriteAllText(saveFileDialog1.FileName, stringBuilder.ToString());
+
+                    MessageBox.Show("La recette a été exportée avec succès !", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de l'exportation : " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void frmMain_Click(object sender, EventArgs e)

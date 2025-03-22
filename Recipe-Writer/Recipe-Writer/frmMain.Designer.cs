@@ -78,6 +78,7 @@
             this.picRecipe = new System.Windows.Forms.PictureBox();
             this.cmdNewRecipe = new System.Windows.Forms.Button();
             this.picRecipeReadyToCookStatus = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
             this.cmsRecipeResult.SuspendLayout();
             this.pnlSlideMenu.SuspendLayout();
@@ -213,6 +214,7 @@
             this.exportThisRecipeToAWebPageToolStripMenuItem.Name = "exportThisRecipeToAWebPageToolStripMenuItem";
             this.exportThisRecipeToAWebPageToolStripMenuItem.Size = new System.Drawing.Size(343, 26);
             this.exportThisRecipeToAWebPageToolStripMenuItem.Text = "Exporter cette recette en une page web";
+            this.exportThisRecipeToAWebPageToolStripMenuItem.Click += new System.EventHandler(this.exportThisRecipeToAWebPageToolStripMenuItem_Click);
             // 
             // PlanRecipeOn
             // 
@@ -716,6 +718,7 @@
         private System.Windows.Forms.CheckBox chkFilterRecipesForThreeStars;
         private System.Windows.Forms.PictureBox picRecipeReadyToCookStatus;
         private System.Windows.Forms.ToolTip ttpMissingIngredients;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
