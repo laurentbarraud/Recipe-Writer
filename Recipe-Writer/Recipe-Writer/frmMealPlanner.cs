@@ -95,6 +95,68 @@ namespace Recipe_Writer
         }
 
 
+        private void lblMondayRecipe_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblMondayRecipe.Text == "" && _frmMain.lstSearchResults.Text != "")
+            {
+                lblMondayRecipe.Text = _frmMain.lstSearchResults.Text;
+                cmdMondayCancelled.Visible = true;
+            }
+        }
+
+        private void lblTuesdayRecipe_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblTuesdayRecipe.Text == "" && _frmMain.lstSearchResults.Text != "")
+            {
+                lblTuesdayRecipe.Text = _frmMain.lstSearchResults.Text;
+                cmdTuesdayCancelled.Visible = true;
+            }
+        }
+
+        private void lblWednesdayRecipe_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblWednesdayRecipe.Text == "" && _frmMain.lstSearchResults.Text != "")
+            {
+                lblWednesdayRecipe.Text = _frmMain.lstSearchResults.Text;
+                cmdWednesdayCancelled.Visible = true;
+            }
+        }
+
+        private void lblThursdayRecipe_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblThursdayRecipe.Text == "" && _frmMain.lstSearchResults.Text != "")
+            {
+                lblThursdayRecipe.Text = _frmMain.lstSearchResults.Text;
+                cmdThursdayCancelled.Visible = true;
+            }
+        }
+
+        private void lblFridayRecipe_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblFridayRecipe.Text == "" && _frmMain.lstSearchResults.Text != "")
+            {
+                lblFridayRecipe.Text = _frmMain.lstSearchResults.Text;
+                cmdFridayCancelled.Visible = true;
+            }
+        }
+
+        private void lblSaturdayRecipe_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblSaturdayRecipe.Text == "" && _frmMain.lstSearchResults.Text != "")
+            {
+                lblSaturdayRecipe.Text = _frmMain.lstSearchResults.Text;
+                cmdSaturdayCancelled.Visible = true;
+            }
+        }
+
+        private void lblSundayRecipe_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblSundayRecipe.Text == "" && _frmMain.lstSearchResults.Text != "")
+            {
+                lblSundayRecipe.Text = _frmMain.lstSearchResults.Text;
+                cmdSundayCancelled.Visible = true;
+            }
+        }
         private void lblMondayRecipe_DragDrop(object sender, DragEventArgs e)
         {
             lblMondayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();

@@ -59,7 +59,7 @@
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(428, 364);
+            this.cmdValidate.Location = new System.Drawing.Point(453, 370);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(47, 44);
             this.cmdValidate.TabIndex = 22;
@@ -68,11 +68,12 @@
             // 
             // lblHowToUse
             // 
-            this.lblHowToUse.Location = new System.Drawing.Point(272, 316);
+            this.lblHowToUse.Location = new System.Drawing.Point(233, 313);
             this.lblHowToUse.Name = "lblHowToUse";
-            this.lblHowToUse.Size = new System.Drawing.Size(276, 40);
+            this.lblHowToUse.Size = new System.Drawing.Size(315, 48);
             this.lblHowToUse.TabIndex = 21;
-            this.lblHowToUse.Text = "Glissez-déposez les titres des recettes dans la case de votre choix.";
+            this.lblHowToUse.Text = "Glissez-déposez un titre de recette dans la case de votre choix ou sélectionnez u" +
+    "n titre et double-cliquez sur une case vide pour l\'affecter.";
             // 
             // lblMondayRecipe
             // 
@@ -86,6 +87,7 @@
             this.lblMondayRecipe.TextChanged += new System.EventHandler(this.lblMondayRecipe_TextChanged);
             this.lblMondayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblMondayRecipe_DragDrop);
             this.lblMondayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblMondayRecipe_DragEnter);
+            this.lblMondayRecipe.DoubleClick += new System.EventHandler(this.lblMondayRecipe_DoubleClick);
             // 
             // lblTuesdayRecipe
             // 
@@ -99,6 +101,7 @@
             this.lblTuesdayRecipe.TextChanged += new System.EventHandler(this.lblTuesdayRecipe_TextChanged);
             this.lblTuesdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblTuesdayRecipe_DragDrop);
             this.lblTuesdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblTuesdayRecipe_DragEnter);
+            this.lblTuesdayRecipe.DoubleClick += new System.EventHandler(this.lblTuesdayRecipe_DoubleClick);
             // 
             // lblWednesdayRecipe
             // 
@@ -112,6 +115,7 @@
             this.lblWednesdayRecipe.TextChanged += new System.EventHandler(this.lblWednesdayRecipe_TextChanged);
             this.lblWednesdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblWednesdayRecipe_DragDrop);
             this.lblWednesdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblWednesdayRecipe_DragEnter);
+            this.lblWednesdayRecipe.DoubleClick += new System.EventHandler(this.lblWednesdayRecipe_DoubleClick);
             // 
             // lblThursdayRecipe
             // 
@@ -125,6 +129,7 @@
             this.lblThursdayRecipe.TextChanged += new System.EventHandler(this.lblThursdayRecipe_TextChanged);
             this.lblThursdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblThursdayRecipe_DragDrop);
             this.lblThursdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblThursdayRecipe_DragEnter);
+            this.lblThursdayRecipe.DoubleClick += new System.EventHandler(this.lblThursdayRecipe_DoubleClick);
             // 
             // lblFridayRecipe
             // 
@@ -138,6 +143,7 @@
             this.lblFridayRecipe.TextChanged += new System.EventHandler(this.lblFridayRecipe_TextChanged);
             this.lblFridayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblFridayRecipe_DragDrop);
             this.lblFridayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblFridayRecipe_DragEnter);
+            this.lblFridayRecipe.DoubleClick += new System.EventHandler(this.lblFridayRecipe_DoubleClick);
             // 
             // lblSaturdayRecipe
             // 
@@ -151,6 +157,7 @@
             this.lblSaturdayRecipe.TextChanged += new System.EventHandler(this.lblSaturdayRecipe_TextChanged);
             this.lblSaturdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblSaturdayRecipe_DragDrop);
             this.lblSaturdayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSaturdayRecipe_DragEnter);
+            this.lblSaturdayRecipe.DoubleClick += new System.EventHandler(this.lblSaturdayRecipe_DoubleClick);
             // 
             // lblSundayRecipe
             // 
@@ -164,6 +171,7 @@
             this.lblSundayRecipe.TextChanged += new System.EventHandler(this.lblSundayRecipe_TextChanged);
             this.lblSundayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblSundayRecipe_DragDrop);
             this.lblSundayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSundayRecipe_DragEnter);
+            this.lblSundayRecipe.DoubleClick += new System.EventHandler(this.lblSundayRecipe_DoubleClick);
             // 
             // lblMondayText
             // 

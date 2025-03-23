@@ -675,7 +675,6 @@
         private System.Windows.Forms.Label lblSearchResults;
         private System.Windows.Forms.Button cmdNewRecipe;
         private System.Windows.Forms.Label lblPortions;
-        private System.Windows.Forms.ListBox lstSearchResults;
         private System.Windows.Forms.Label lblCompletionTime;
         private System.Windows.Forms.OpenFileDialog ofdAssociatedImage;
         private System.Windows.Forms.Panel pnlSlideMenu;
@@ -719,6 +718,7 @@
         private System.Windows.Forms.PictureBox picRecipeReadyToCookStatus;
         private System.Windows.Forms.ToolTip ttpMissingIngredients;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        internal System.Windows.Forms.ListBox lstSearchResults;
     }
 }
 
