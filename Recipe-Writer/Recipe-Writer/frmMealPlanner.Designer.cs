@@ -28,15 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMealPlanner));
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.picMondayCancelled = new System.Windows.Forms.Button();
-            this.picThursdayCancelled = new System.Windows.Forms.Button();
-            this.picSundayCancelled = new System.Windows.Forms.Button();
-            this.picTuesdayCancelled = new System.Windows.Forms.Button();
-            this.picWednesdayCancelled = new System.Windows.Forms.Button();
-            this.picFridayCancelled = new System.Windows.Forms.Button();
-            this.picSaturdayCancelled = new System.Windows.Forms.Button();
             this.lblHowToUse = new System.Windows.Forms.Label();
             this.lblMondayRecipe = new System.Windows.Forms.Label();
             this.lblTuesdayRecipe = new System.Windows.Forms.Label();
@@ -52,6 +44,13 @@
             this.lblFriday = new System.Windows.Forms.Label();
             this.lblSaturday = new System.Windows.Forms.Label();
             this.lblSunday = new System.Windows.Forms.Label();
+            this.cmdMondayCancelled = new System.Windows.Forms.Button();
+            this.cmdTuesdayCancelled = new System.Windows.Forms.Button();
+            this.cmdWednesdayCancelled = new System.Windows.Forms.Button();
+            this.cmdSundayCancelled = new System.Windows.Forms.Button();
+            this.cmdSaturdayCancelled = new System.Windows.Forms.Button();
+            this.cmdFridayCancelled = new System.Windows.Forms.Button();
+            this.cmdThursdayCancelled = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdValidate
@@ -66,104 +65,6 @@
             this.cmdValidate.TabIndex = 22;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
-            // 
-            // picMondayCancelled
-            // 
-            this.picMondayCancelled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picMondayCancelled.BackgroundImage")));
-            this.picMondayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picMondayCancelled.FlatAppearance.BorderSize = 0;
-            this.picMondayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.picMondayCancelled.Location = new System.Drawing.Point(35, 114);
-            this.picMondayCancelled.Name = "picMondayCancelled";
-            this.picMondayCancelled.Size = new System.Drawing.Size(36, 25);
-            this.picMondayCancelled.TabIndex = 1;
-            this.picMondayCancelled.UseVisualStyleBackColor = true;
-            this.picMondayCancelled.Visible = false;
-            this.picMondayCancelled.Click += new System.EventHandler(this.picMondayCancelled_Click);
-            // 
-            // picThursdayCancelled
-            // 
-            this.picThursdayCancelled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picThursdayCancelled.BackgroundImage")));
-            this.picThursdayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picThursdayCancelled.FlatAppearance.BorderSize = 0;
-            this.picThursdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.picThursdayCancelled.Location = new System.Drawing.Point(35, 245);
-            this.picThursdayCancelled.Name = "picThursdayCancelled";
-            this.picThursdayCancelled.Size = new System.Drawing.Size(36, 25);
-            this.picThursdayCancelled.TabIndex = 7;
-            this.picThursdayCancelled.UseVisualStyleBackColor = true;
-            this.picThursdayCancelled.Visible = false;
-            this.picThursdayCancelled.Click += new System.EventHandler(this.picThursdayCancelled_Click);
-            // 
-            // picSundayCancelled
-            // 
-            this.picSundayCancelled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picSundayCancelled.BackgroundImage")));
-            this.picSundayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picSundayCancelled.FlatAppearance.BorderSize = 0;
-            this.picSundayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.picSundayCancelled.Location = new System.Drawing.Point(36, 383);
-            this.picSundayCancelled.Name = "picSundayCancelled";
-            this.picSundayCancelled.Size = new System.Drawing.Size(36, 25);
-            this.picSundayCancelled.TabIndex = 13;
-            this.picSundayCancelled.UseVisualStyleBackColor = true;
-            this.picSundayCancelled.Visible = false;
-            this.picSundayCancelled.Click += new System.EventHandler(this.picSundayCancelled_Click);
-            // 
-            // picTuesdayCancelled
-            // 
-            this.picTuesdayCancelled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picTuesdayCancelled.BackgroundImage")));
-            this.picTuesdayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picTuesdayCancelled.FlatAppearance.BorderSize = 0;
-            this.picTuesdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.picTuesdayCancelled.Location = new System.Drawing.Point(212, 113);
-            this.picTuesdayCancelled.Name = "picTuesdayCancelled";
-            this.picTuesdayCancelled.Size = new System.Drawing.Size(35, 25);
-            this.picTuesdayCancelled.TabIndex = 3;
-            this.picTuesdayCancelled.UseVisualStyleBackColor = true;
-            this.picTuesdayCancelled.Visible = false;
-            this.picTuesdayCancelled.Click += new System.EventHandler(this.picTuesdayCancelled_Click);
-            // 
-            // picWednesdayCancelled
-            // 
-            this.picWednesdayCancelled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picWednesdayCancelled.BackgroundImage")));
-            this.picWednesdayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picWednesdayCancelled.FlatAppearance.BorderSize = 0;
-            this.picWednesdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.picWednesdayCancelled.Location = new System.Drawing.Point(385, 113);
-            this.picWednesdayCancelled.Name = "picWednesdayCancelled";
-            this.picWednesdayCancelled.Size = new System.Drawing.Size(35, 25);
-            this.picWednesdayCancelled.TabIndex = 5;
-            this.picWednesdayCancelled.UseVisualStyleBackColor = true;
-            this.picWednesdayCancelled.Visible = false;
-            this.picWednesdayCancelled.Click += new System.EventHandler(this.picWednesdayCancelled_Click);
-            // 
-            // picFridayCancelled
-            // 
-            this.picFridayCancelled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFridayCancelled.BackgroundImage")));
-            this.picFridayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picFridayCancelled.FlatAppearance.BorderSize = 0;
-            this.picFridayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.picFridayCancelled.Location = new System.Drawing.Point(212, 245);
-            this.picFridayCancelled.Name = "picFridayCancelled";
-            this.picFridayCancelled.Size = new System.Drawing.Size(35, 25);
-            this.picFridayCancelled.TabIndex = 9;
-            this.picFridayCancelled.UseVisualStyleBackColor = true;
-            this.picFridayCancelled.Visible = false;
-            this.picFridayCancelled.Click += new System.EventHandler(this.picFridayCancelled_Click);
-            // 
-            // picSaturdayCancelled
-            // 
-            this.picSaturdayCancelled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picSaturdayCancelled.BackgroundImage")));
-            this.picSaturdayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picSaturdayCancelled.FlatAppearance.BorderSize = 0;
-            this.picSaturdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.picSaturdayCancelled.Location = new System.Drawing.Point(385, 245);
-            this.picSaturdayCancelled.Name = "picSaturdayCancelled";
-            this.picSaturdayCancelled.Size = new System.Drawing.Size(35, 25);
-            this.picSaturdayCancelled.TabIndex = 11;
-            this.picSaturdayCancelled.UseVisualStyleBackColor = true;
-            this.picSaturdayCancelled.Visible = false;
-            this.picSaturdayCancelled.Click += new System.EventHandler(this.picSaturdayCancelled_Click);
             // 
             // lblHowToUse
             // 
@@ -334,18 +235,116 @@
             this.lblSunday.Text = "Dimanche";
             this.lblSunday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cmdMondayCancelled
+            // 
+            this.cmdMondayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdMondayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdMondayCancelled.FlatAppearance.BorderSize = 0;
+            this.cmdMondayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdMondayCancelled.Location = new System.Drawing.Point(35, 113);
+            this.cmdMondayCancelled.Name = "cmdMondayCancelled";
+            this.cmdMondayCancelled.Size = new System.Drawing.Size(36, 25);
+            this.cmdMondayCancelled.TabIndex = 23;
+            this.cmdMondayCancelled.UseVisualStyleBackColor = true;
+            this.cmdMondayCancelled.Visible = false;
+            this.cmdMondayCancelled.Click += new System.EventHandler(this.cmdMondayCancelled_Click);
+            // 
+            // cmdTuesdayCancelled
+            // 
+            this.cmdTuesdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdTuesdayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdTuesdayCancelled.FlatAppearance.BorderSize = 0;
+            this.cmdTuesdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdTuesdayCancelled.Location = new System.Drawing.Point(212, 112);
+            this.cmdTuesdayCancelled.Name = "cmdTuesdayCancelled";
+            this.cmdTuesdayCancelled.Size = new System.Drawing.Size(36, 25);
+            this.cmdTuesdayCancelled.TabIndex = 24;
+            this.cmdTuesdayCancelled.UseVisualStyleBackColor = true;
+            this.cmdTuesdayCancelled.Visible = false;
+            this.cmdTuesdayCancelled.Click += new System.EventHandler(this.cmdTuesdayCancelled_Click);
+            // 
+            // cmdWednesdayCancelled
+            // 
+            this.cmdWednesdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdWednesdayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdWednesdayCancelled.FlatAppearance.BorderSize = 0;
+            this.cmdWednesdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdWednesdayCancelled.Location = new System.Drawing.Point(382, 112);
+            this.cmdWednesdayCancelled.Name = "cmdWednesdayCancelled";
+            this.cmdWednesdayCancelled.Size = new System.Drawing.Size(36, 25);
+            this.cmdWednesdayCancelled.TabIndex = 25;
+            this.cmdWednesdayCancelled.UseVisualStyleBackColor = true;
+            this.cmdWednesdayCancelled.Visible = false;
+            this.cmdWednesdayCancelled.Click += new System.EventHandler(this.cmdWednesdayCancelled_Click);
+            // 
+            // cmdSundayCancelled
+            // 
+            this.cmdSundayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdSundayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdSundayCancelled.FlatAppearance.BorderSize = 0;
+            this.cmdSundayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSundayCancelled.Location = new System.Drawing.Point(35, 377);
+            this.cmdSundayCancelled.Name = "cmdSundayCancelled";
+            this.cmdSundayCancelled.Size = new System.Drawing.Size(36, 25);
+            this.cmdSundayCancelled.TabIndex = 26;
+            this.cmdSundayCancelled.UseVisualStyleBackColor = true;
+            this.cmdSundayCancelled.Visible = false;
+            this.cmdSundayCancelled.Click += new System.EventHandler(this.cmdSundayCancelled_Click);
+            // 
+            // cmdSaturdayCancelled
+            // 
+            this.cmdSaturdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdSaturdayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdSaturdayCancelled.FlatAppearance.BorderSize = 0;
+            this.cmdSaturdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSaturdayCancelled.Location = new System.Drawing.Point(382, 244);
+            this.cmdSaturdayCancelled.Name = "cmdSaturdayCancelled";
+            this.cmdSaturdayCancelled.Size = new System.Drawing.Size(36, 25);
+            this.cmdSaturdayCancelled.TabIndex = 29;
+            this.cmdSaturdayCancelled.UseVisualStyleBackColor = true;
+            this.cmdSaturdayCancelled.Visible = false;
+            this.cmdSaturdayCancelled.Click += new System.EventHandler(this.cmdSaturdayCancelled_Click);
+            // 
+            // cmdFridayCancelled
+            // 
+            this.cmdFridayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdFridayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdFridayCancelled.FlatAppearance.BorderSize = 0;
+            this.cmdFridayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdFridayCancelled.Location = new System.Drawing.Point(212, 244);
+            this.cmdFridayCancelled.Name = "cmdFridayCancelled";
+            this.cmdFridayCancelled.Size = new System.Drawing.Size(36, 25);
+            this.cmdFridayCancelled.TabIndex = 28;
+            this.cmdFridayCancelled.UseVisualStyleBackColor = true;
+            this.cmdFridayCancelled.Visible = false;
+            this.cmdFridayCancelled.Click += new System.EventHandler(this.cmdFridayCancelled_Click);
+            // 
+            // cmdThursdayCancelled
+            // 
+            this.cmdThursdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdThursdayCancelled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdThursdayCancelled.FlatAppearance.BorderSize = 0;
+            this.cmdThursdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdThursdayCancelled.Location = new System.Drawing.Point(35, 245);
+            this.cmdThursdayCancelled.Name = "cmdThursdayCancelled";
+            this.cmdThursdayCancelled.Size = new System.Drawing.Size(36, 25);
+            this.cmdThursdayCancelled.TabIndex = 27;
+            this.cmdThursdayCancelled.UseVisualStyleBackColor = true;
+            this.cmdThursdayCancelled.Visible = false;
+            this.cmdThursdayCancelled.Click += new System.EventHandler(this.cmdThursdayCancelled_Click);
+            // 
             // frmMealPlanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 425);
-            this.Controls.Add(this.picSundayCancelled);
-            this.Controls.Add(this.picSaturdayCancelled);
-            this.Controls.Add(this.picFridayCancelled);
-            this.Controls.Add(this.picThursdayCancelled);
-            this.Controls.Add(this.picWednesdayCancelled);
-            this.Controls.Add(this.picTuesdayCancelled);
-            this.Controls.Add(this.picMondayCancelled);
+            this.Controls.Add(this.cmdSaturdayCancelled);
+            this.Controls.Add(this.cmdFridayCancelled);
+            this.Controls.Add(this.cmdThursdayCancelled);
+            this.Controls.Add(this.cmdSundayCancelled);
+            this.Controls.Add(this.cmdWednesdayCancelled);
+            this.Controls.Add(this.cmdTuesdayCancelled);
+            this.Controls.Add(this.cmdMondayCancelled);
             this.Controls.Add(this.lblSunday);
             this.Controls.Add(this.lblSaturday);
             this.Controls.Add(this.lblFriday);
@@ -378,13 +377,6 @@
         #endregion
 
         private System.Windows.Forms.Button cmdValidate;
-        private System.Windows.Forms.Button picMondayCancelled;
-        private System.Windows.Forms.Button picThursdayCancelled;
-        private System.Windows.Forms.Button picSundayCancelled;
-        private System.Windows.Forms.Button picTuesdayCancelled;
-        private System.Windows.Forms.Button picWednesdayCancelled;
-        private System.Windows.Forms.Button picFridayCancelled;
-        private System.Windows.Forms.Button picSaturdayCancelled;
         private System.Windows.Forms.Label lblHowToUse;
         private System.Windows.Forms.Label lblMondayRecipe;
         private System.Windows.Forms.Label lblTuesdayRecipe;
@@ -400,5 +392,12 @@
         private System.Windows.Forms.Label lblFriday;
         private System.Windows.Forms.Label lblSaturday;
         private System.Windows.Forms.Label lblSunday;
+        private System.Windows.Forms.Button cmdMondayCancelled;
+        private System.Windows.Forms.Button cmdTuesdayCancelled;
+        private System.Windows.Forms.Button cmdWednesdayCancelled;
+        private System.Windows.Forms.Button cmdSundayCancelled;
+        private System.Windows.Forms.Button cmdSaturdayCancelled;
+        private System.Windows.Forms.Button cmdFridayCancelled;
+        private System.Windows.Forms.Button cmdThursdayCancelled;
     }
 }
