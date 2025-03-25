@@ -233,6 +233,16 @@ namespace Recipe_Writer.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap recipeCooked {
+            get {
+                object obj = ResourceManager.GetObject("recipeCooked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);

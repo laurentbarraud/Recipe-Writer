@@ -746,19 +746,22 @@ namespace Recipe_Writer
         /// </summary>
         private void picRecipe_Click(object sender, EventArgs e)
         {
-            // Wraps the creation of the OpenFileDialog instance in a using statement,
-            // rather than manually calling the Dispose method to ensure proper disposal
-            using (ofdAssociatedImage)
+            if (nudPersons.Visible) 
             {
-                if (ofdAssociatedImage.ShowDialog() == DialogResult.OK)
+                // Wraps the creation of the OpenFileDialog instance in a using statement,
+                // rather than manually calling the Dispose method to ensure proper disposal
+                using (ofdAssociatedImage)
                 {
-                    // Displays the image in the picturebox on the form       
-                    picRecipe.Load(ofdAssociatedImage.FileName);
-                    picRecipe.BorderStyle = BorderStyle.None;
+                    if (ofdAssociatedImage.ShowDialog() == DialogResult.OK)
+                    {
+                        // Displays the image in the picturebox on the form       
+                        picRecipe.Load(ofdAssociatedImage.FileName);
+                        picRecipe.BorderStyle = BorderStyle.None;
 
-                    // Shows a dialog form which asks the user to provide a file name for the new image
-                    frmNewImagePath _frmNewImagePath = new frmNewImagePath(this);
-                    _frmNewImagePath.Show();
+                        // Shows a dialog form which asks the user to provide a file name for the new image
+                        frmNewImagePath _frmNewImagePath = new frmNewImagePath(this);
+                        _frmNewImagePath.Show();
+                    }
                 }
             }
         }
@@ -769,7 +772,7 @@ namespace Recipe_Writer
             {
                 this.InventoryShown = true;
                 frmInventory _frmInventory = new frmInventory(this);
-                _frmInventory.ShowDialog();
+                _frmInventory.Show();
             }
         }
 

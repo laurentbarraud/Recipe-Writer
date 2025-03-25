@@ -683,14 +683,6 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Reads the list of the ingredients found with up to 3 ingredients found in the recipes list
-        /// </summary>
-        /// <param name="ingredientInput1">first ingredient to search with</param>
-        /// <param name="ingredientInput2">second ingredient to search with</param>
-        /// <param name="ingredientInput3">third ingredient to search with</param>
-        /// <returns>Integer list of the id of the recipes found in the database</returns>
-
-        /// <summary>
         /// Reads the id of a recipe, with its title given in argument
         /// </summary>
         /// <param name="titleRecipe"></param>the title of the selected recipe

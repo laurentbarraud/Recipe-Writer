@@ -212,6 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Recipe-writer.ico" />
+    <None Include="Resources\recipeCooked.png" />
     <Content Include="scripts\Recipe-writer-create-tables.sql" />
     <Content Include="scripts\Recipe-writer-insert-initial-data.sql" />
     <None Include="Resources\plan--recipe-into-planner.png" />
