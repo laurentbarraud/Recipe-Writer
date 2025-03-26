@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 22th 2025</date>
+/// <date>March 26th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -148,21 +148,6 @@ namespace Recipe_Writer
                 // Closing slide menu animation
                 Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 150, 360);
                 this.Refresh();
-            }
-        }
-
-
-        /// <summary>
-        /// Event when the user selects a recipe in the results list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmbRecipeIngredients_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbRecipeIngredients.SelectedIndex == cmbRecipeIngredients.Items.Count - 1)
-            {
-                frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
-                _frmNewIngredient.ShowDialog();
             }
         }
 
@@ -410,6 +395,8 @@ namespace Recipe_Writer
             cmsRecipeResult.Items[2].Enabled = true;
             cmsRecipeResult.Items[3].Enabled = true;
             cmsRecipeResult.Items[4].Enabled = true;
+            cmsRecipeResult.Items[6].Enabled = true;
+            cmsRecipeResult.Items[7].Enabled = true;
 
             nudPersons.Visible = true;
             lblPortions.Visible = true;
@@ -463,11 +450,6 @@ namespace Recipe_Writer
             foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
             {
                 cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + ingredientToAdd.Scale + " de " + ingredientToAdd.Name);
-            }
-
-            if (_currentDisplayedRecipe.IngredientsList.Count() <= 19)
-            {
-                cmbRecipeIngredients.Items.Add("Ajouter un ingrédient...");
             }
 
             // Selects automatically the first item of the combobox
@@ -1397,6 +1379,12 @@ namespace Recipe_Writer
                 picMealPlanner_Click(sender, e);
                 mealPlannerShown = true;
             }
+        }
+
+        private void addIngredientToThisRecipe_Click(object sender, EventArgs e)
+        {
+            frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
+            _frmNewIngredient.Show();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿/// <file>frmNewIngredient.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 20th 2025</date>
+/// <date>March 26th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -52,8 +52,6 @@ namespace Recipe_Writer
         {
             double parsedQtyIngredient = 0.0;
             int nbIngredientsForARecipe = 0;
-            int idSelectedRecipe = 0;
-            string scaleUsedForIngredient = "";
 
             string formattedIngredientName = cmbIngredientsList.Text;
 
@@ -74,6 +72,7 @@ namespace Recipe_Writer
                 _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsList.SelectedIndex+1, cmbScalesList.SelectedIndex+1);
 
                 this.Close();
+
                 _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
             }
 

@@ -80,11 +80,11 @@
             // 
             this.lblQtyIngredient.AutoSize = true;
             this.lblQtyIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtyIngredient.Location = new System.Drawing.Point(116, 106);
+            this.lblQtyIngredient.Location = new System.Drawing.Point(32, 110);
             this.lblQtyIngredient.Name = "lblQtyIngredient";
-            this.lblQtyIngredient.Size = new System.Drawing.Size(75, 18);
+            this.lblQtyIngredient.Size = new System.Drawing.Size(151, 18);
             this.lblQtyIngredient.TabIndex = 6;
-            this.lblQtyIngredient.Text = "Quantité : ";
+            this.lblQtyIngredient.Text = "Quantité nécessaire : ";
             this.lblQtyIngredient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtQtyIngredient
