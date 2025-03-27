@@ -70,7 +70,7 @@
             this.picScore3 = new System.Windows.Forms.PictureBox();
             this.picScore2 = new System.Windows.Forms.PictureBox();
             this.picScore1 = new System.Windows.Forms.PictureBox();
-            this.ttpMissingIngredients = new System.Windows.Forms.ToolTip(this.components);
+            this.ttpRecipeReadyToCookStatus = new System.Windows.Forms.ToolTip(this.components);
             this.cmdTitleSearch = new System.Windows.Forms.Button();
             this.picSettings = new System.Windows.Forms.PictureBox();
             this.picMealPlanner = new System.Windows.Forms.PictureBox();
@@ -186,7 +186,7 @@
             this.addIngredientToThisRecipe,
             this.deleteSelectedIngredientFromThisRecipe});
             this.cmsRecipeResult.Name = "cmsRecipeResult";
-            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 192);
+            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 220);
             // 
             // newRecipeToolStripMenuItem
             // 
@@ -212,6 +212,7 @@
             this.deleteThisRecipeToolStripMenuItem.Name = "deleteThisRecipeToolStripMenuItem";
             this.deleteThisRecipeToolStripMenuItem.Size = new System.Drawing.Size(417, 26);
             this.deleteThisRecipeToolStripMenuItem.Text = "Supprimer cette recette";
+            this.deleteThisRecipeToolStripMenuItem.Click += new System.EventHandler(this.deleteThisRecipeToolStripMenuItem_Click);
             // 
             // exportThisRecipeToAWebPageToolStripMenuItem
             // 
@@ -513,11 +514,11 @@
             this.picScore1.Click += new System.EventHandler(this.picScore1_Click);
             this.picScore1.MouseHover += new System.EventHandler(this.picScore1_MouseHover);
             // 
-            // ttpMissingIngredients
+            // ttpRecipeReadyToCookStatus
             // 
-            this.ttpMissingIngredients.AutoPopDelay = 10000;
-            this.ttpMissingIngredients.InitialDelay = 500;
-            this.ttpMissingIngredients.ReshowDelay = 500;
+            this.ttpRecipeReadyToCookStatus.AutoPopDelay = 10000;
+            this.ttpRecipeReadyToCookStatus.InitialDelay = 500;
+            this.ttpRecipeReadyToCookStatus.ReshowDelay = 500;
             // 
             // cmdTitleSearch
             // 
@@ -741,7 +742,7 @@
         private System.Windows.Forms.ToolStripMenuItem dimancheToolStripMenuItem;
         private System.Windows.Forms.CheckBox chkFilterRecipesForThreeStars;
         private System.Windows.Forms.PictureBox picRecipeReadyToCookStatus;
-        private System.Windows.Forms.ToolTip ttpMissingIngredients;
+        private System.Windows.Forms.ToolTip ttpRecipeReadyToCookStatus;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         internal System.Windows.Forms.ListBox lstSearchResults;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

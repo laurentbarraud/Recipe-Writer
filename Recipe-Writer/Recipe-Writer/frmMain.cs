@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 26th 2025</date>
+/// <date>March 27th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -114,6 +114,12 @@ namespace Recipe_Writer
                 dbConn.CreateTables();
                 dbConn.InsertInitialData();
             }
+        }
+
+        private void addIngredientToThisRecipe_Click(object sender, EventArgs e)
+        {
+            frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
+            _frmNewIngredient.Show();
         }
 
 
@@ -385,6 +391,17 @@ namespace Recipe_Writer
             }
         }
 
+        private void deleteThisRecipeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Etes-vous sûr(e) de vouloir supprimer la recette affichée ?",
+                "Confirmer la suppression.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                dbConn.DeleteRecipe(_currentDisplayedRecipe.Id);
+                HidesRecipeInfosAndControls();
+            }
+        }
 
         /// <summary>
         /// Event when the user selects a recipe in the search result list control
@@ -644,6 +661,42 @@ namespace Recipe_Writer
             }
         }
 
+        /// <summary>
+        /// Hides the ingredients, image and instructions and the controls for the current displayed recipe
+        /// </summary>
+        public void HidesRecipeInfosAndControls()
+        {
+            _currentDisplayedRecipe.Title = "";
+            _currentDisplayedRecipe.CompletionTime = 0;
+            _currentDisplayedRecipe.LowBudget = 0;
+            _currentDisplayedRecipe.Score = 0;
+            _currentDisplayedRecipe.ImagePath = "";
+            _currentDisplayedRecipe.IngredientsList.Clear();
+            _currentDisplayedRecipe.InstructionsList.Clear();
+
+            lblCompletionTime.Text = "";
+            picLowBudget.Visible = false;
+            picRecipe.Image = null;
+            cmbRecipeIngredients.Items.Clear();
+
+            cmsRecipeResult.Items[1].Enabled = false;
+            cmsRecipeResult.Items[2].Enabled = false;
+            cmsRecipeResult.Items[3].Enabled = false;
+            cmsRecipeResult.Items[4].Enabled = false;
+            cmsRecipeResult.Items[6].Enabled = false;
+            cmsRecipeResult.Items[7].Enabled = false;
+
+            nudPersons.Visible = false;
+            lblPortions.Visible = false;
+            lblCompletionTime.Visible = false;
+            cmbRecipeIngredients.Visible = false;
+            cmdAddInstruction.Visible = false;
+            pnlScore.Visible = false;
+            picScore1.Visible = false;
+            picScore2.Visible = false;
+            picScore3.Visible = false;
+        }
+
         private void lblSearchIngredient1_Click(object sender, EventArgs e)
         {
             txtSearchIngredient1.Focus();
@@ -686,6 +739,84 @@ namespace Recipe_Writer
             if (!nudPersons.Visible)
             {
                 DisplayRecipeControls();
+            }
+        }
+
+
+        private void lundiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbConn.UpdatePlannedRecipeForADay(1, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
+        }
+
+        private void mardiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbConn.UpdatePlannedRecipeForADay(2, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
+        }
+
+        private void mercrediToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbConn.UpdatePlannedRecipeForADay(3, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
+        }
+
+        private void jeudiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbConn.UpdatePlannedRecipeForADay(4, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
+        }
+
+        private void vendrediToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbConn.UpdatePlannedRecipeForADay(5, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
+        }
+
+        private void samediToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbConn.UpdatePlannedRecipeForADay(6, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
+            }
+        }
+
+        private void dimancheToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dbConn.UpdatePlannedRecipeForADay(7, _currentDisplayedRecipe.Title);
+
+            if (mealPlannerShown == false)
+            {
+                picMealPlanner_Click(sender, e);
+                mealPlannerShown = true;
             }
         }
 
@@ -788,7 +919,7 @@ namespace Recipe_Writer
 
         private void picRecipeReadyToCookStatus_MouseHover(object sender, EventArgs e)
         {
-            ttpMissingIngredients.Show("Indique si vous avez assez d'ingrédients pour faire la recette.", picRecipeReadyToCookStatus);
+            ttpRecipeReadyToCookStatus.Show("Indique si vous avez assez d'ingrédients pour faire la recette.", picRecipeReadyToCookStatus);
         }
 
         private void picScore1_Click(object sender, EventArgs e)
@@ -1302,89 +1433,6 @@ namespace Recipe_Writer
         {
             dbConn.UpdateScoreForRecipe(_currentDisplayedRecipe.Id, scoreToInput);
             DisplayRecipeInfos(_currentDisplayedRecipe.Id);
-        }
-
-        private void lundiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dbConn.UpdatePlannedRecipeForADay(1, _currentDisplayedRecipe.Title);
-            
-            if (mealPlannerShown == false)
-            {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
-            }
-        }
-
-        private void mardiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dbConn.UpdatePlannedRecipeForADay(2, _currentDisplayedRecipe.Title);
-
-            if (mealPlannerShown == false)
-            {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown= true;
-            }
-        }
-
-        private void mercrediToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dbConn.UpdatePlannedRecipeForADay(3, _currentDisplayedRecipe.Title);
-
-            if (mealPlannerShown == false)
-            {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
-            }
-        }
-
-        private void jeudiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dbConn.UpdatePlannedRecipeForADay(4, _currentDisplayedRecipe.Title);
-
-            if (mealPlannerShown == false)
-            {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
-            }
-        }
-
-        private void vendrediToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dbConn.UpdatePlannedRecipeForADay(5, _currentDisplayedRecipe.Title);
-
-            if (mealPlannerShown == false)
-            {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
-            }
-        }
-
-        private void samediToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dbConn.UpdatePlannedRecipeForADay(6, _currentDisplayedRecipe.Title);
-
-            if (mealPlannerShown == false)
-            {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
-            }
-        }
-
-        private void dimancheToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dbConn.UpdatePlannedRecipeForADay(7, _currentDisplayedRecipe.Title);
-
-            if (mealPlannerShown == false)
-            {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
-            }
-        }
-
-        private void addIngredientToThisRecipe_Click(object sender, EventArgs e)
-        {
-            frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
-            _frmNewIngredient.Show();
         }
     }
 }
