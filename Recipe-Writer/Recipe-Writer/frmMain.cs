@@ -231,7 +231,13 @@ namespace Recipe_Writer
             // If the search textbox is empty
             else
             {
-                MessageBox.Show("Veuillez taper un ou plusieurs terme(s) de recherche.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var confirmResult = MessageBox.Show("Afficher toutes les recettes de la base ?",
+                    "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    SearchRecipesByTitle("*");
+                }
             }
         }
 

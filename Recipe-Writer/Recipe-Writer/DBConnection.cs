@@ -959,7 +959,7 @@ namespace Recipe_Writer
                 nbKeywordsTyped++;
 
             // Adding each keywords to the search with AND operator
-            if (nbKeywordsTyped > 0)
+            if (nbKeywordsTyped > 0 && keywordInput1 != "*")
             {
                 cmd.CommandText += "WHERE title LIKE '%"+ keywordInput1 +"%'";
 
@@ -999,8 +999,8 @@ namespace Recipe_Writer
                 }
             }
 
-            // Completes the sql request
-            cmd.CommandText += ";";
+                // Completes the sql request
+                cmd.CommandText += ";";
 
             // Declares a list of string to contain the results found in the database
             List<string> titlesFound = new List<string>();
