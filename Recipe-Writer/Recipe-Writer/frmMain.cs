@@ -35,7 +35,7 @@ namespace Recipe_Writer
         private List<InstructionSelections> instructionSelection = new List<InstructionSelections>();
 
         // Declares and instanciates the current displayed recipe object, constructed with default values, and accessible globally
-        public Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, "default", _defaultListIngredients, _defaultListInstructions);
+        public Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, null, _defaultListIngredients, _defaultListInstructions);
 
         private int currentInstruction = 0;
         private int selectedInstruction = -1;
@@ -168,12 +168,6 @@ namespace Recipe_Writer
             _frmNewInstruction.ShowDialog();
         }
 
-        private void cmdDeleteIngredient_Click(object sender, EventArgs e)
-        {
-            dbConn.DeleteIngredient(_currentDisplayedRecipe.Id, cmbRecipeIngredients.Items.Count, _currentDisplayedRecipe.IngredientsList[cmbRecipeIngredients.Items.Count].Scale);
-            this.Refresh();
-        }
-
         private void cmdIngredientsSearch_Click(object sender, EventArgs e)
         {
             // If the user has typed something in one of the textboxes
@@ -231,13 +225,7 @@ namespace Recipe_Writer
             // If the search textbox is empty
             else
             {
-                var confirmResult = MessageBox.Show("Afficher toutes les recettes de la base ?",
-                    "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (confirmResult == DialogResult.Yes)
-                {
-                    SearchRecipesByTitle("*");
-                }
+                SearchRecipesByTitle("*");
             }
         }
 
@@ -397,6 +385,15 @@ namespace Recipe_Writer
             }
         }
 
+        private void deleteLastIngredientFromThisRecipe_Click(object sender, EventArgs e)
+        {
+            if (cmbRecipeIngredients.Items.Count >= 2)
+            {
+                dbConn.DeleteLastIngredientFromThisRecipe(_currentDisplayedRecipe.Id, cmbRecipeIngredients.Items.Count - 1);
+                DisplayRecipeInfos(_currentDisplayedRecipe.Id);
+            }
+        }
+
         private void deleteThisRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show("Etes-vous sûr(e) de vouloir supprimer la recette affichée ?",
@@ -425,6 +422,7 @@ namespace Recipe_Writer
             lblPortions.Visible = true;
             lblCompletionTime.Visible = true;
             cmbRecipeIngredients.Visible = true;
+            picRecipeReadyToCookStatus.Visible = true;
             cmdAddInstruction.Visible = true;
             pnlScore.Visible = true;
             picScore1.Visible = true;
@@ -533,7 +531,7 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
 
             // If there's an image file stored in the illustrations folder for this recipe
-            if (_currentDisplayedRecipe.ImagePath != "default")
+            if (_currentDisplayedRecipe.ImagePath != null)
             {
                 // Affects to the pictureBox the current displayed recipe illustration image
                 picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
@@ -680,10 +678,24 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.IngredientsList.Clear();
             _currentDisplayedRecipe.InstructionsList.Clear();
 
-            lblCompletionTime.Text = "";
+            pnlScore.Visible = false;
+            picScore1.Visible = false;
+            picScore2.Visible = false;
+            picScore3.Visible = false;
             picLowBudget.Visible = false;
-            picRecipe.Image = null;
+            picRecipe.BackgroundImage = null;
+            picRecipe.BorderStyle = BorderStyle.FixedSingle;
+            picRecipeReadyToCookStatus.Visible = false;
+
+            cmdAddInstruction.Visible = false;
             cmbRecipeIngredients.Items.Clear();
+            cmbRecipeIngredients.Visible = false;
+            lblCompletionTime.Text = "";
+            lblPortions.Visible = false;
+            lblCompletionTime.Visible = false;
+            lstSearchResults.Items.Clear();
+            nudPersons.Visible = false;
+            
 
             cmsRecipeResult.Items[1].Enabled = false;
             cmsRecipeResult.Items[2].Enabled = false;
@@ -692,15 +704,10 @@ namespace Recipe_Writer
             cmsRecipeResult.Items[6].Enabled = false;
             cmsRecipeResult.Items[7].Enabled = false;
 
-            nudPersons.Visible = false;
-            lblPortions.Visible = false;
-            lblCompletionTime.Visible = false;
-            cmbRecipeIngredients.Visible = false;
-            cmdAddInstruction.Visible = false;
-            pnlScore.Visible = false;
-            picScore1.Visible = false;
-            picScore2.Visible = false;
-            picScore3.Visible = false;
+            
+            pnlInstructions.Controls.Clear();
+
+            this.Refresh();
         }
 
         private void lblSearchIngredient1_Click(object sender, EventArgs e)

@@ -182,7 +182,7 @@ namespace Recipe_Writer
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
-            cmd.CommandText = "INSERT INTO Recipes ('id','title','completionTime','lowBudget','score','imagePath') VALUES('"+null+"','"+formattedNewRecipeTitle+"','"+newRecipeCompletionTime+"','"+newRecipeLowBudgetStatus+"','0','default');";
+            cmd.CommandText = "INSERT INTO Recipes ('id','title','completionTime','lowBudget','score','imagePath') VALUES('"+null+"','"+formattedNewRecipeTitle+"','"+newRecipeCompletionTime+"','"+newRecipeLowBudgetStatus+"','0','"+null+"');";
             cmd.ExecuteNonQuery();
         }
 
@@ -276,17 +276,26 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Deletes an ingredient from the selected recipe in argument
+        /// Deletes the last ingredient from the selected recipe in argument
         /// </summary>
         /// <param name="idRecipe">the id of the recipe</param>
-        /// <param name="ingredientToRemoveRank">the rank of the new ingredient</param>
-        /// <param name="scaleIngredient">the scale that new ingredient uses</param>
-        public void DeleteIngredient(int idRecipe, int ingredientToRemoveRank, string scaleIngredient)
+        /// <param name="ingredientToRemoveRank">the rank of the last ingredient</param>
+        public void DeleteLastIngredientFromThisRecipe(int idRecipe, int rankOfLastIngredient)
         {
+            // SQL Query using parameters to avoid errors and SQL injections
             SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "DELETE qtyIngredient"+ingredientToRemoveRank+",ingredient"+ingredientToRemoveRank+", scales"+ingredientToRemoveRank+" "+
-                              "FROM 'Recipes_has_Ingredients' " +
-                              "WHERE id = '"+idRecipe+"';";
+            cmd.CommandText = $@"
+                              UPDATE Recipes_has_Ingredients
+                              SET 
+                                qtyIngredient{rankOfLastIngredient} = NULL,
+                                ingredient{rankOfLastIngredient}_id = NULL,
+                                scales{rankOfLastIngredient}_id = NULL
+                              WHERE 
+                                id = @IdRecipe
+                              ";
+            // Added parameters for better security and readability
+            cmd.Parameters.AddWithValue("@IdRecipe", idRecipe);
+
             cmd.ExecuteNonQuery();
         }
 
