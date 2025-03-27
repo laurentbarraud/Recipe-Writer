@@ -182,7 +182,14 @@ namespace Recipe_Writer
 
             SQLiteCommand cmd = sqliteConn.CreateCommand();
 
-            cmd.CommandText = "INSERT INTO Recipes ('id','title','completionTime','lowBudget','score','imagePath') VALUES('"+null+"','"+formattedNewRecipeTitle+"','"+newRecipeCompletionTime+"','"+newRecipeLowBudgetStatus+"','0','"+null+"');";
+            cmd.CommandText = "INSERT INTO Recipes (title, completionTime, lowBudget, score, imagePath) VALUES (@title, @completionTime, @lowBudget, @score, @imagePath);";
+
+            cmd.Parameters.AddWithValue("@title", formattedNewRecipeTitle);
+            cmd.Parameters.AddWithValue("@completionTime", newRecipeCompletionTime);
+            cmd.Parameters.AddWithValue("@lowBudget", newRecipeLowBudgetStatus);
+            cmd.Parameters.AddWithValue("@score", 0);
+            cmd.Parameters.AddWithValue("@imagePath", DBNull.Value); // We use DBNull.Value to indicate null value in SQLite
+
             cmd.ExecuteNonQuery();
         }
 

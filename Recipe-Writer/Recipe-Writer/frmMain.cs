@@ -531,7 +531,7 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
 
             // If there's an image file stored in the illustrations folder for this recipe
-            if (_currentDisplayedRecipe.ImagePath != null)
+            if (_currentDisplayedRecipe.ImagePath != DBNull.Value.ToString())
             {
                 // Affects to the pictureBox the current displayed recipe illustration image
                 picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
