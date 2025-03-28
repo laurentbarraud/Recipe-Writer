@@ -91,9 +91,9 @@ namespace Recipe_Writer
             // Clears the layout by removing all the labels, before adding new ones
             panelToFill.Controls.Clear();
 
-            foreach (string ingredientItem in listBoxToFill.Items)
+            foreach (string ingredientName in listBoxToFill.Items)
             {
-                int ingredientId = _frmMain.dbConn.ReadIdForAnIngredientName(ingredientItem);
+                int ingredientId = _frmMain.dbConn.ReadIdForAnIngredientName(ingredientName);
 
                 // Picturebox that displays the status of the ingredient
                 PictureBox picStatusIngredient = new PictureBox();
@@ -132,7 +132,8 @@ namespace Recipe_Writer
                 // Label with the scale (unit of measure) used ===========================================================
 
                 Label lblScaleIngredient = new Label();
-                lblScaleIngredient.Text = _frmMain.dbConn.ReadScaleNameForAnID(ingredientId);
+                int scaleIdForThisIngredient = _frmMain.dbConn.ReadScaleIdForAnIngredient(ingredientId);               
+                lblScaleIngredient.Text = _frmMain.dbConn.ReadScaleNameForAnID(scaleIdForThisIngredient);
                 lblScaleIngredient.Font = new Font(lblScaleIngredient.Font.FontFamily, 9);
                 lblScaleIngredient.AutoSize = true;
                 lblScaleIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
