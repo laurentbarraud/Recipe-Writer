@@ -17,7 +17,7 @@ namespace Recipe_Writer
 		private string name;
 		private double qtyRequested;
 		private double qtyAvailable;
-		private string scale;
+		private int scale_id;
 
         public int Id
         {
@@ -36,10 +36,10 @@ namespace Recipe_Writer
 			set { qtyRequested = value; }
 		}
 
-		public string Scale
+		public int Scale_id
 		{
-			get { return scale; }
-			set { scale = value; }
+			get { return scale_id; }
+			set { scale_id = value; }
 		}
 
 		public double QtyAvailable
@@ -56,11 +56,11 @@ namespace Recipe_Writer
 		/// <param name="scaleProvided">the scale used to calculate with this ingredient</param>
 		/// <param name="qtyAvailableProvided">the quantity of ingredient available in the inventory</param>
 
-		public Ingredients(string nameProvided, double qtyRequestedProvided, string scaleProvided, double qtyAvailableProvided = 0.0)
+		public Ingredients(string nameProvided, double qtyRequestedProvided, int scale_idProvided, double qtyAvailableProvided = 0.0)
 		{
 			this.Name = nameProvided;
 			this.QtyRequested = qtyRequestedProvided;
-			this.Scale = scaleProvided;
+			this.scale_id = scale_idProvided;
 			this.QtyAvailable = qtyAvailableProvided;
 		}
 	}

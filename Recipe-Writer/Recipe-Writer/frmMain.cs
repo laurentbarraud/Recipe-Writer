@@ -118,7 +118,7 @@ namespace Recipe_Writer
 
         private void addIngredientToThisRecipe_Click(object sender, EventArgs e)
         {
-            frmNewIngredient _frmNewIngredient = new frmNewIngredient(this);
+            frmAddNewIngredientToRecipe _frmNewIngredient = new frmAddNewIngredientToRecipe(this);
             _frmNewIngredient.Show();
         }
 
@@ -470,7 +470,8 @@ namespace Recipe_Writer
             // Adds each ingredients list item as a new item in the ingredients comboBo
             foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
             {
-                cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + ingredientToAdd.Scale + " de " + ingredientToAdd.Name);
+                string scaleIngredientToAdd = dbConn.ReadScaleNameForAnID(ingredientToAdd.Scale_id);
+                cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + scaleIngredientToAdd + " de " + ingredientToAdd.Name);
             }
 
             // Selects automatically the first item of the combobox
@@ -623,7 +624,7 @@ namespace Recipe_Writer
                             
                         foreach (var ingredient in _currentDisplayedRecipe.IngredientsList)
                         {
-                            stringBuilder.Append("<li>" + ingredient.QtyRequested + " " + ingredient.Scale + " " + ingredient.Name + "</li>");
+                            stringBuilder.Append("<li>" + ingredient.QtyRequested + " " + dbConn.ReadScaleNameForAnID(ingredient.Scale_id) + " " + ingredient.Name + "</li>");
                         }
                         
                         stringBuilder.Append(@"

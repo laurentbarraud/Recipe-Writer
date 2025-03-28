@@ -1,7 +1,7 @@
 ﻿/// <file>frmMealPlanner.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 25th 2025</date>
+/// <date>March 28th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -253,7 +253,7 @@ namespace Recipe_Writer
                     ingredientToDeduct.QtyAvailable = 0.0;
                 }
 
-                ingredientToDeduct.Id = _frmMain.dbConn.ReadIngredientId(ingredientToDeduct.Name);
+                ingredientToDeduct.Id = _frmMain.dbConn.ReadIdForAnIngredientName(ingredientToDeduct.Name);
                 _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientToDeduct.Id, ingredientToDeduct.QtyAvailable);
             }
 

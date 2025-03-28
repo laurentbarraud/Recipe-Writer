@@ -1,7 +1,7 @@
 ﻿/// <file>frmNewIngredient.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 26th 2025</date>
+/// <date>March 28th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -15,13 +15,13 @@ using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
-    public partial class frmNewIngredient : Form
+    public partial class frmAddNewIngredientToRecipe : Form
     {
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
 
         // Constructor - Adds the parent form as parameter in the form constructor
-        public frmNewIngredient(frmMain parentForm)
+        public frmAddNewIngredientToRecipe(frmMain parentForm)
         {
             // Affects the parent form to an alias
             _frmMain = parentForm;
@@ -30,16 +30,14 @@ namespace Recipe_Writer
 
         private void frmNewIngredient_Load(object sender, EventArgs e)
         {
-            List<string> allScalesStoredList = new List<string>();
-            allScalesStoredList = _frmMain.dbConn.ReadAllScalesStored();
+            List<string> listAllIngredientsStored = new List<string>();
+            listAllIngredientsStored = _frmMain.dbConn.ReadAllIngredientsStoredForAType();
 
-            foreach (string scaleName in allScalesStoredList)
+            foreach (string ingredientName in listAllIngredientsStored)
             {
                 // Adding each ingredient's name to the combobox items
-                cmbScalesList.Items.Add(scaleName);
+                cmbIngredientsListedInDB.Items.Add(ingredientName);
             }
-
-            cmbScalesList.SelectedIndex = 0;
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)
@@ -53,23 +51,23 @@ namespace Recipe_Writer
             double parsedQtyIngredient = 0.0;
             int nbIngredientsForARecipe = 0;
 
-            string formattedIngredientName = cmbIngredientsList.Text;
+            string formattedIngredientName = cmbIngredientsListedInDB.Text;
 
             // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
-            if (cmbIngredientsList.Text.Contains("'"))
+            if (cmbIngredientsListedInDB.Text.Contains("'"))
             {
-                formattedIngredientName = cmbIngredientsList.Text.Replace("'", "''");
+                formattedIngredientName = cmbIngredientsListedInDB.Text.Replace("'", "''");
             }
 
             
             // If the user has typed numbers in the quantity of ingredient textbox
-            if (txtQtyIngredient.Text != "" && double.TryParse(txtQtyIngredient.Text, out parsedQtyIngredient))
+            if (txtQtyIngredientNeeded.Text != "" && double.TryParse(txtQtyIngredientNeeded.Text, out parsedQtyIngredient))
             {
                 // Calls the method to count the total number of ingredients affected to the currently selected recipe
                 nbIngredientsForARecipe = _frmMain.dbConn.CountAllIngredientsForARecipe(_frmMain._currentDisplayedRecipe.Id);
 
                 // Calls the method to add the new ingredient by reference to its id
-                _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsList.SelectedIndex+1, cmbScalesList.SelectedIndex+1);
+                _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsListedInDB.SelectedIndex+1);
 
                 this.Close();
 
@@ -77,27 +75,29 @@ namespace Recipe_Writer
             }
 
             // If the user has left the quantity of ingredient textbox empty or has typed a not-valid number
-            else if (txtQtyIngredient.Text == "" && double.TryParse(txtQtyIngredient.Text, out parsedQtyIngredient))
+            else if (txtQtyIngredientNeeded.Text == "" && double.TryParse(txtQtyIngredientNeeded.Text, out parsedQtyIngredient))
             {
                 MessageBox.Show("Veuillez entrer un nombre réel valide pour la quantité de l'ingrédient", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }            
         }
 
-        private void frmNewIngredient_Move(object sender, EventArgs e)
-        {
-            this.CenterToScreen();
-        }
-
         private void cmbIngredientsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbIngredientsList.SelectedIndex != -1)
+            if (cmbIngredientsListedInDB.SelectedIndex != -1)
             {
                 cmdValidate.Enabled = true;
+
+                int idIngredientSelected = _frmMain.dbConn.ReadIdForAnIngredientName(cmbIngredientsListedInDB.Text);
+                List<string> listStoredScalesInDB = new List<string>();
+                listStoredScalesInDB = _frmMain.dbConn.ReadAllScalesStored();
+                lblScaleAssociatedWithIngredientSelected.Text = listStoredScalesInDB[_frmMain.dbConn.ReadScaleIdForAnIngredient(idIngredientSelected) - 1];
             }
 
             else
             {
                 cmdValidate.Enabled = false;
+
+                lblScaleAssociatedWithIngredientSelected.Text = "";
             }
         }
     }

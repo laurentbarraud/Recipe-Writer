@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventory));
             this.cmdValidate = new System.Windows.Forms.Button();
             this.tabInventoryIngredients = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -70,6 +71,7 @@
             this.pnlIngredientsType11Status = new System.Windows.Forms.Panel();
             this.lstIngredientsType11Available = new System.Windows.Forms.ListBox();
             this.lblNbOfIngredientsStored = new System.Windows.Forms.Label();
+            this.cmdAddNewIngredientIntoDB = new System.Windows.Forms.Button();
             this.tabInventoryIngredients.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -88,7 +90,7 @@
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(442, 444);
+            this.cmdValidate.Location = new System.Drawing.Point(473, 446);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(34, 32);
             this.cmdValidate.TabIndex = 2;
@@ -523,11 +525,26 @@
             this.lblNbOfIngredientsStored.TabIndex = 4;
             this.lblNbOfIngredientsStored.Text = "Nombre d\'ingrédients stockés : ";
             // 
+            // cmdAddNewIngredientIntoDB
+            // 
+            this.cmdAddNewIngredientIntoDB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdAddNewIngredientIntoDB.BackgroundImage")));
+            this.cmdAddNewIngredientIntoDB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdAddNewIngredientIntoDB.FlatAppearance.BorderSize = 0;
+            this.cmdAddNewIngredientIntoDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdAddNewIngredientIntoDB.Location = new System.Drawing.Point(399, 444);
+            this.cmdAddNewIngredientIntoDB.Name = "cmdAddNewIngredientIntoDB";
+            this.cmdAddNewIngredientIntoDB.Size = new System.Drawing.Size(40, 35);
+            this.cmdAddNewIngredientIntoDB.TabIndex = 25;
+            this.cmdAddNewIngredientIntoDB.UseVisualStyleBackColor = true;
+            this.cmdAddNewIngredientIntoDB.Visible = false;
+            this.cmdAddNewIngredientIntoDB.Click += new System.EventHandler(this.cmdAddNewIngredientIntoDB_Click);
+            // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 486);
+            this.Controls.Add(this.cmdAddNewIngredientIntoDB);
             this.Controls.Add(this.lblNbOfIngredientsStored);
             this.Controls.Add(this.tabInventoryIngredients);
             this.Controls.Add(this.cmdValidate);
@@ -597,5 +614,6 @@
         private System.Windows.Forms.Label lblTypeIngredient3;
         private System.Windows.Forms.Label lblTypeIngredient12;
         private System.Windows.Forms.Label lblTypeIngredient11;
+        private System.Windows.Forms.Button cmdAddNewIngredientIntoDB;
     }
 }

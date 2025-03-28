@@ -1,6 +1,6 @@
 ﻿namespace Recipe_Writer
 {
-    partial class frmNewIngredient
+    partial class frmAddNewIngredientToRecipe
     {
         /// <summary>
         /// Required designer variable.
@@ -32,16 +32,16 @@
             this.cmdCancel = new System.Windows.Forms.Button();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.lblQtyIngredient = new System.Windows.Forms.Label();
-            this.txtQtyIngredient = new System.Windows.Forms.TextBox();
-            this.cmbScalesList = new System.Windows.Forms.ComboBox();
-            this.cmbIngredientsList = new System.Windows.Forms.ComboBox();
+            this.txtQtyIngredientNeeded = new System.Windows.Forms.TextBox();
+            this.cmbIngredientsListedInDB = new System.Windows.Forms.ComboBox();
+            this.lblScaleAssociatedWithIngredientSelected = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNewIngredientName
             // 
             this.lblNewIngredientName.AutoSize = true;
             this.lblNewIngredientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewIngredientName.Location = new System.Drawing.Point(45, 36);
+            this.lblNewIngredientName.Location = new System.Drawing.Point(32, 42);
             this.lblNewIngredientName.Name = "lblNewIngredientName";
             this.lblNewIngredientName.Size = new System.Drawing.Size(146, 18);
             this.lblNewIngredientName.TabIndex = 5;
@@ -87,43 +87,41 @@
             this.lblQtyIngredient.Text = "Quantité nécessaire : ";
             this.lblQtyIngredient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtQtyIngredient
+            // txtQtyIngredientNeeded
             // 
-            this.txtQtyIngredient.Location = new System.Drawing.Point(206, 106);
-            this.txtQtyIngredient.Name = "txtQtyIngredient";
-            this.txtQtyIngredient.Size = new System.Drawing.Size(100, 22);
-            this.txtQtyIngredient.TabIndex = 1;
+            this.txtQtyIngredientNeeded.Location = new System.Drawing.Point(206, 106);
+            this.txtQtyIngredientNeeded.Name = "txtQtyIngredientNeeded";
+            this.txtQtyIngredientNeeded.Size = new System.Drawing.Size(100, 22);
+            this.txtQtyIngredientNeeded.TabIndex = 1;
             // 
-            // cmbScalesList
+            // cmbIngredientsListedInDB
             // 
-            this.cmbScalesList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbScalesList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbScalesList.FormattingEnabled = true;
-            this.cmbScalesList.Location = new System.Drawing.Point(326, 106);
-            this.cmbScalesList.Name = "cmbScalesList";
-            this.cmbScalesList.Size = new System.Drawing.Size(121, 24);
-            this.cmbScalesList.TabIndex = 2;
+            this.cmbIngredientsListedInDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIngredientsListedInDB.FormattingEnabled = true;
+            this.cmbIngredientsListedInDB.Location = new System.Drawing.Point(206, 36);
+            this.cmbIngredientsListedInDB.Name = "cmbIngredientsListedInDB";
+            this.cmbIngredientsListedInDB.Size = new System.Drawing.Size(241, 24);
+            this.cmbIngredientsListedInDB.TabIndex = 7;
+            this.cmbIngredientsListedInDB.SelectedIndexChanged += new System.EventHandler(this.cmbIngredientsList_SelectedIndexChanged);
             // 
-            // cmbIngredientsList
+            // lblScaleAssociatedWithIngredientSelected
             // 
-            this.cmbIngredientsList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbIngredientsList.FormattingEnabled = true;
-            this.cmbIngredientsList.Location = new System.Drawing.Point(206, 36);
-            this.cmbIngredientsList.Name = "cmbIngredientsList";
-            this.cmbIngredientsList.Size = new System.Drawing.Size(241, 24);
-            this.cmbIngredientsList.TabIndex = 7;
-            this.cmbIngredientsList.SelectedIndexChanged += new System.EventHandler(this.cmbIngredientsList_SelectedIndexChanged);
+            this.lblScaleAssociatedWithIngredientSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScaleAssociatedWithIngredientSelected.Location = new System.Drawing.Point(324, 106);
+            this.lblScaleAssociatedWithIngredientSelected.Name = "lblScaleAssociatedWithIngredientSelected";
+            this.lblScaleAssociatedWithIngredientSelected.Size = new System.Drawing.Size(68, 22);
+            this.lblScaleAssociatedWithIngredientSelected.TabIndex = 8;
             // 
-            // frmNewIngredient
+            // frmAddNewIngredientToRecipe
             // 
             this.AcceptButton = this.cmdValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(493, 267);
-            this.Controls.Add(this.cmbIngredientsList);
-            this.Controls.Add(this.cmbScalesList);
-            this.Controls.Add(this.txtQtyIngredient);
+            this.Controls.Add(this.lblScaleAssociatedWithIngredientSelected);
+            this.Controls.Add(this.cmbIngredientsListedInDB);
+            this.Controls.Add(this.txtQtyIngredientNeeded);
             this.Controls.Add(this.lblQtyIngredient);
             this.Controls.Add(this.lblNewIngredientName);
             this.Controls.Add(this.cmdCancel);
@@ -131,11 +129,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmNewIngredient";
+            this.Name = "frmAddNewIngredientToRecipe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajout d\'un nouvel ingrédient à la recette";
             this.Load += new System.EventHandler(this.frmNewIngredient_Load);
-            this.Move += new System.EventHandler(this.frmNewIngredient_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,8 +144,8 @@
         private System.Windows.Forms.Button cmdCancel;
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.Label lblQtyIngredient;
-        private System.Windows.Forms.TextBox txtQtyIngredient;
-        private System.Windows.Forms.ComboBox cmbScalesList;
-        private System.Windows.Forms.ComboBox cmbIngredientsList;
+        private System.Windows.Forms.TextBox txtQtyIngredientNeeded;
+        private System.Windows.Forms.ComboBox cmbIngredientsListedInDB;
+        private System.Windows.Forms.Label lblScaleAssociatedWithIngredientSelected;
     }
 }

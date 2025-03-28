@@ -4,13 +4,6 @@
 /// <date>March 20th 2025</date>
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -20,7 +13,6 @@ namespace Recipe_Writer
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
         private int idRecipeToEdit;
-        private string instructionToAdd;
         private int nbInstructionsInCurrentRecipe;
 
         public int IdRecipeToEdit

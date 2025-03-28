@@ -1,7 +1,7 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 21th 2025</date>
+/// <date>March 28th 2025</date>
 /// 
 using System;
 using System.Collections.Generic;
@@ -51,6 +51,16 @@ namespace Recipe_Writer
             }
         }
 
+        private void cmdAddNewIngredientIntoDB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmInventory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _frmMain.InventoryShown = false;
+        }
+
         private void FillInListBoxesWithIngredientsNamesAndQuantities (int idTypeOfIngredient)
         {
             int currentIngredient = 0;
@@ -83,7 +93,7 @@ namespace Recipe_Writer
 
             foreach (string ingredientItem in listBoxToFill.Items)
             {
-                int ingredientId = _frmMain.dbConn.ReadIngredientId(ingredientItem);
+                int ingredientId = _frmMain.dbConn.ReadIdForAnIngredientName(ingredientItem);
 
                 // Picturebox that displays the status of the ingredient
                 PictureBox picStatusIngredient = new PictureBox();
@@ -122,7 +132,7 @@ namespace Recipe_Writer
                 // Label with the scale (unit of measure) used ===========================================================
 
                 Label lblScaleIngredient = new Label();
-                lblScaleIngredient.Text = _frmMain.dbConn.ReadIngredientScale(ingredientId);
+                lblScaleIngredient.Text = _frmMain.dbConn.ReadScaleNameForAnID(ingredientId);
                 lblScaleIngredient.Font = new Font(lblScaleIngredient.Font.FontFamily, 9);
                 lblScaleIngredient.AutoSize = true;
                 lblScaleIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
@@ -167,9 +177,5 @@ namespace Recipe_Writer
             this.Close();
         }
 
-        private void frmInventory_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _frmMain.InventoryShown = false;
-        }
     }
 }
