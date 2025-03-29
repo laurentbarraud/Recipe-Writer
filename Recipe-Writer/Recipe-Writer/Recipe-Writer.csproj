@@ -66,6 +66,12 @@
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddNewIngredientToTheDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddNewIngredientToTheDB.Designer.cs">
+      <DependentUpon>frmAddNewIngredientToTheDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditRecipeBasicInfos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,11 +134,15 @@
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddNewIngredientToTheDB.resx">
+      <DependentUpon>frmAddNewIngredientToTheDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditRecipeBasicInfos.resx">
       <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

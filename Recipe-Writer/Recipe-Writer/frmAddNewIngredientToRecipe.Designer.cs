@@ -39,7 +39,6 @@
             // 
             // lblNewIngredientName
             // 
-            this.lblNewIngredientName.AutoSize = true;
             this.lblNewIngredientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewIngredientName.Location = new System.Drawing.Point(32, 42);
             this.lblNewIngredientName.Name = "lblNewIngredientName";
@@ -55,7 +54,7 @@
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
             this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancel.Location = new System.Drawing.Point(358, 198);
+            this.cmdCancel.Location = new System.Drawing.Point(358, 141);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(34, 32);
             this.cmdCancel.TabIndex = 3;
@@ -69,7 +68,7 @@
             this.cmdValidate.Enabled = false;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(413, 198);
+            this.cmdValidate.Location = new System.Drawing.Point(413, 141);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(34, 32);
             this.cmdValidate.TabIndex = 4;
@@ -78,9 +77,8 @@
             // 
             // lblQtyIngredient
             // 
-            this.lblQtyIngredient.AutoSize = true;
             this.lblQtyIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtyIngredient.Location = new System.Drawing.Point(32, 110);
+            this.lblQtyIngredient.Location = new System.Drawing.Point(32, 95);
             this.lblQtyIngredient.Name = "lblQtyIngredient";
             this.lblQtyIngredient.Size = new System.Drawing.Size(151, 18);
             this.lblQtyIngredient.TabIndex = 6;
@@ -89,7 +87,7 @@
             // 
             // txtQtyIngredientNeeded
             // 
-            this.txtQtyIngredientNeeded.Location = new System.Drawing.Point(206, 106);
+            this.txtQtyIngredientNeeded.Location = new System.Drawing.Point(206, 91);
             this.txtQtyIngredientNeeded.Name = "txtQtyIngredientNeeded";
             this.txtQtyIngredientNeeded.Size = new System.Drawing.Size(100, 22);
             this.txtQtyIngredientNeeded.TabIndex = 1;
@@ -98,7 +96,7 @@
             // 
             this.cmbIngredientsListedInDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIngredientsListedInDB.FormattingEnabled = true;
-            this.cmbIngredientsListedInDB.Location = new System.Drawing.Point(206, 36);
+            this.cmbIngredientsListedInDB.Location = new System.Drawing.Point(206, 40);
             this.cmbIngredientsListedInDB.Name = "cmbIngredientsListedInDB";
             this.cmbIngredientsListedInDB.Size = new System.Drawing.Size(241, 24);
             this.cmbIngredientsListedInDB.TabIndex = 7;
@@ -118,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
-            this.ClientSize = new System.Drawing.Size(493, 267);
+            this.ClientSize = new System.Drawing.Size(493, 195);
             this.Controls.Add(this.lblScaleAssociatedWithIngredientSelected);
             this.Controls.Add(this.cmbIngredientsListedInDB);
             this.Controls.Add(this.txtQtyIngredientNeeded);
@@ -126,7 +124,7 @@
             this.Controls.Add(this.lblNewIngredientName);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewIngredientToRecipe";

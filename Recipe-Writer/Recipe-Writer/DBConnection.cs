@@ -193,6 +193,22 @@ namespace Recipe_Writer
             cmd.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Adds a new ingredient to the database
+        /// <param name="idTypeOfIngredient"></param>
+        /// </summary>
+        public void AddNewIngredientToDB(string ingredientName, int scaleIdForThisIngredient, int idTypeOfIngredient)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+
+            // Configure the command with parameters to avoid SQL injection
+            cmd.CommandText = "INSERT INTO Ingredients (ingredientName, scale_id, typeOfIngredient_id) " +
+                              "VALUES (@ingredientName, @scaleId, @idTypeOfIngredient);";
+            cmd.Parameters.AddWithValue("@ingredientName", ingredientName);
+            cmd.Parameters.AddWithValue("@scaleId", scaleIdForThisIngredient);
+            cmd.Parameters.AddWithValue("@idTypeOfIngredient", idTypeOfIngredient);
+            cmd.ExecuteNonQuery();
+        }
 
         /// <summary>
         /// Adds a new ingredient to the selected recipe in argument
@@ -370,6 +386,33 @@ namespace Recipe_Writer
             }
             
             return listAllIngredientsFoundInDB;
+        }
+
+
+        /// <summary>
+        /// Reads all ingredients stored in the database for a type
+        /// If the type in argument is 0, the function returns all ingredients found in the database.
+        /// </summary>
+        /// <returns>the list of ingredients names stored in the database</returns>
+        public List<string> ReadAllTypesOfIngredientsStored()
+        {
+            List<string> listAllTypesOfIngredientsFoundInDB = new List<string>();
+
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+                             
+            cmd.CommandText = "SELECT type FROM TypesOfIngredient;";
+
+            SQLiteDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                if (dataReader["type"].ToString() != "")
+                {
+                    // Adds the ingredient to the list
+                    listAllTypesOfIngredientsFoundInDB.Add(dataReader["type"].ToString());
+                }
+            }
+
+            return listAllTypesOfIngredientsFoundInDB;
         }
 
         /// <summary>

@@ -536,7 +536,6 @@
             this.cmdAddNewIngredientIntoDB.Size = new System.Drawing.Size(40, 35);
             this.cmdAddNewIngredientIntoDB.TabIndex = 25;
             this.cmdAddNewIngredientIntoDB.UseVisualStyleBackColor = true;
-            this.cmdAddNewIngredientIntoDB.Visible = false;
             this.cmdAddNewIngredientIntoDB.Click += new System.EventHandler(this.cmdAddNewIngredientIntoDB_Click);
             // 
             // frmInventory

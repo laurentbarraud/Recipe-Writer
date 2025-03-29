@@ -5,8 +5,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -118,8 +116,8 @@ namespace Recipe_Writer
 
         private void addIngredientToThisRecipe_Click(object sender, EventArgs e)
         {
-            frmAddNewIngredientToRecipe _frmNewIngredient = new frmAddNewIngredientToRecipe(this);
-            _frmNewIngredient.Show();
+            frmAddNewIngredientToRecipe _frmAddNewNewIngredientToRecipe = new frmAddNewIngredientToRecipe(this);
+            _frmAddNewNewIngredientToRecipe.Show();
         }
 
 

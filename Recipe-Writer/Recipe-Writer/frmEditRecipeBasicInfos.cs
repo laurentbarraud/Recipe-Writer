@@ -1,16 +1,9 @@
 ﻿/// <file>frmEditRecipeTitle.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 20th 2025</date>
+/// <date>March 28th 2025</date>
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
