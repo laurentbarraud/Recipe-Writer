@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 27th 2025</date>
+/// <date>March 31th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -154,6 +154,27 @@ namespace Recipe_Writer
                 this.Refresh();
             }
         }
+        private void cmbRecipeIngredients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // An ingredient of the combobox has been selected and there's at least one.
+            if (cmbRecipeIngredients.SelectedIndex >= 1 && cmbRecipeIngredients.Items.Count >= 2)
+            { 
+                if (cmsRecipeResult.Items[7].Enabled == false)
+                {
+                    cmsRecipeResult.Items[7].Enabled = true;
+                }
+            }
+
+            // No ingredient has been selected
+            else
+            {
+                if (cmsRecipeResult.Items[7].Enabled == true)
+                {
+                    cmsRecipeResult.Items[7].Enabled = false;
+                }
+            }
+        }
+
 
         /// <summary>
         /// Function to add an instruction to the currently selected recipe
@@ -383,12 +404,22 @@ namespace Recipe_Writer
             }
         }
 
-        private void deleteLastIngredientFromThisRecipe_Click(object sender, EventArgs e)
+        private void deleteIngredientFromThisRecipe_Click(object sender, EventArgs e)
         {
-            if (cmbRecipeIngredients.Items.Count >= 2)
+            if (cmbRecipeIngredients.Items.Count >= 2 && cmbRecipeIngredients.SelectedIndex >= 1)
             {
-                dbConn.DeleteLastIngredientFromThisRecipe(_currentDisplayedRecipe.Id, cmbRecipeIngredients.Items.Count - 1);
-                DisplayRecipeInfos(_currentDisplayedRecipe.Id);
+                // If the ingredient has been correctly deleted, the function returns true
+                if (dbConn.DeleteIngredientFromARecipe(_currentDisplayedRecipe.Id, cmbRecipeIngredients.SelectedIndex) == true) 
+                {
+                    dbConn.OffsetRowValuesToLeft(_currentDisplayedRecipe.Id);
+                    DisplayRecipeInfos(_currentDisplayedRecipe.Id);
+                }
+
+            }
+
+            else
+            {
+                MessageBox.Show("Aucun ingrédient n'a été sélectionné", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -414,7 +445,6 @@ namespace Recipe_Writer
             cmsRecipeResult.Items[3].Enabled = true;
             cmsRecipeResult.Items[4].Enabled = true;
             cmsRecipeResult.Items[6].Enabled = true;
-            cmsRecipeResult.Items[7].Enabled = true;
 
             nudPersons.Visible = true;
             lblPortions.Visible = true;

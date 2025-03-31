@@ -1,13 +1,14 @@
 ﻿/// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 28th 2025</date>
+/// <date>March 31th 2025</date>
 
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -303,27 +304,33 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Deletes the last ingredient from the selected recipe in argument
+        /// Deletes the selected ingredient in the combobox from the currently displayed recipe
         /// </summary>
         /// <param name="idRecipe">the id of the recipe</param>
-        /// <param name="ingredientToRemoveRank">the rank of the last ingredient</param>
-        public void DeleteLastIngredientFromThisRecipe(int idRecipe, int rankOfLastIngredient)
+        /// <param name="rankIngredient">the rank of ingredient</param>
+        public bool DeleteIngredientFromARecipe(int idRecipe, int rankIngredient)
         {
-            // SQL Query using parameters to avoid errors and SQL injections
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = $@"
-                              UPDATE Recipes_has_Ingredients
-                              SET 
-                                qtyIngredient{rankOfLastIngredient} = NULL,
-                                ingredient{rankOfLastIngredient}_id = NULL,
-                                scales{rankOfLastIngredient}_id = NULL
-                              WHERE 
-                                id = @IdRecipe
-                              ";
-            // Added parameters for better security and readability
-            cmd.Parameters.AddWithValue("@IdRecipe", idRecipe);
+            try
+            {
+                // SQL Query using parameters to avoid errors and SQL injections
+                SQLiteCommand cmd = sqliteConn.CreateCommand();
+                cmd.CommandText = $@"UPDATE Recipes_has_Ingredients
+                                     SET qtyIngredient{rankIngredient} = NULL,
+                                      ingredient{rankIngredient}_id = NULL
+                                     WHERE id = @IdRecipe;";
 
-            cmd.ExecuteNonQuery();
+                // Added parameters for better security and readability
+                cmd.Parameters.AddWithValue("@IdRecipe", idRecipe);
+                cmd.ExecuteNonQuery();
+
+                return true;
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur pendant la suppression de l'ingrédient de la recette : {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         /// <summary>
@@ -349,6 +356,101 @@ namespace Recipe_Writer
             cmd.CommandText = "DELETE FROM 'Instructions_has_Recipes' WHERE id='"+idRecipe+"' AND InstructionNb='"+rankInstruction+"';";
             cmd.ExecuteNonQuery();
         }
+
+        /// <summary>
+        /// Shifts non-null values of qtyIngredient and ingredient_id to the left in the column
+        /// Handles gaps and aligns the columns appropriately
+        /// </summary>
+        /// <param name="idRecipe">the id of the recipe to adjust </param>
+        public void OffsetRowValuesToLeft(int idRecipe)
+        {
+            try
+            {
+                // Step 1: Retrieves all columns related to qtyIngredient and ingredient_id for the recipe
+                string selectQuery = "SELECT * FROM Recipes_has_Ingredients WHERE id = @RecipeID;";
+
+                using (var cmd = new SQLiteCommand(selectQuery, sqliteConn))
+                {
+                    cmd.Parameters.AddWithValue("@RecipeID", idRecipe);
+
+                    using (SQLiteDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        if (dataReader.Read())
+                        {
+                            // Step 2 : Create lists of non-null values for qtyIngredient and ingredient_id
+                            List<object> nonNullQty = new List<object>();
+                            List<object> nonNullIngredientsIds = new List<object>();
+
+                            for (int i = 1; i <= 20; i++)
+                            {
+                                var qty = dataReader[$"qtyIngredient{i}"];
+                                var ingredientId = dataReader[$"ingredient{i}_id"];
+
+                                if (ingredientId != DBNull.Value)
+                                {
+                                    nonNullQty.Add(qty != DBNull.Value ? qty : DBNull.Value);
+                                    nonNullIngredientsIds.Add(ingredientId);
+                                }
+                            }
+
+                            // Step 3 : Build the update query dynamically
+                            string updateQuery = "UPDATE Recipes_has_Ingredients SET ";
+
+                            // For qtyIngredient columns
+                            for (int i = 1; i <= 20; i++)
+                            {
+                                if (i <= nonNullQty.Count)
+                                {
+                                    updateQuery += $"qtyIngredient{i} = @Qty{i}, ";
+                                }
+
+                                else
+                                {
+                                    updateQuery += $"qtyIngredient{i} = NULL, ";
+                                }
+                            }
+
+                            // For ingredient_id columns
+                            for (int i = 1; i <= 20; i++)
+                            {
+                                if (i <= nonNullIngredientsIds.Count)
+                                {
+                                    updateQuery += $"ingredient{i}_id = @IngredientId{i}, ";
+                                }
+
+                                else
+                                {
+                                    updateQuery += $"ingredient{i}_id = NULL, ";
+                                }
+                            }
+
+                            updateQuery = updateQuery.TrimEnd(',', ' ') + " WHERE id = @RecipeID;";
+
+                            // Step 4: Execute the update query
+                            using (var updateCommand = new SQLiteCommand(updateQuery, sqliteConn))
+                            {
+
+                                updateCommand.Parameters.AddWithValue("@RecipeID", idRecipe);
+
+                                for (int i = 1; i <= nonNullQty.Count; i++)
+                                {
+                                    updateCommand.Parameters.AddWithValue($"@Qty{i}", nonNullQty[i - 1]);
+                                    updateCommand.Parameters.AddWithValue($"@IngredientId{i}", nonNullIngredientsIds[i - 1]);
+                                }
+                                
+                                updateCommand.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur pendant le décalage des valeurs de la ligne : {ex.Message}");
+            }
+        }
+
 
         /// <summary>
         /// Reads all ingredients stored in the database for a type

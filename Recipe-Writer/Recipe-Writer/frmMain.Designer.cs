@@ -51,7 +51,7 @@
             this.dimancheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.addIngredientToThisRecipe = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteLastIngredientFromThisRecipe = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteIngredientFromThisRecipe = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbRecipeIngredients = new System.Windows.Forms.ComboBox();
             this.lblCompletionTime = new System.Windows.Forms.Label();
             this.ofdAssociatedImage = new System.Windows.Forms.OpenFileDialog();
@@ -184,15 +184,15 @@
             this.PlanRecipeOn,
             this.toolStripSeparator1,
             this.addIngredientToThisRecipe,
-            this.deleteLastIngredientFromThisRecipe});
+            this.deleteIngredientFromThisRecipe});
             this.cmsRecipeResult.Name = "cmsRecipeResult";
-            this.cmsRecipeResult.Size = new System.Drawing.Size(399, 220);
+            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 192);
             // 
             // newRecipeToolStripMenuItem
             // 
             this.newRecipeToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.new_recipe;
             this.newRecipeToolStripMenuItem.Name = "newRecipeToolStripMenuItem";
-            this.newRecipeToolStripMenuItem.Size = new System.Drawing.Size(398, 26);
+            this.newRecipeToolStripMenuItem.Size = new System.Drawing.Size(417, 26);
             this.newRecipeToolStripMenuItem.Text = "Nouvelle recette";
             this.newRecipeToolStripMenuItem.Click += new System.EventHandler(this.newRecipeToolStripMenuItem_Click);
             // 
@@ -201,7 +201,7 @@
             this.editThisRecipesBasicInfosToolStripMenuItem.Enabled = false;
             this.editThisRecipesBasicInfosToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.edit_recipe_title;
             this.editThisRecipesBasicInfosToolStripMenuItem.Name = "editThisRecipesBasicInfosToolStripMenuItem";
-            this.editThisRecipesBasicInfosToolStripMenuItem.Size = new System.Drawing.Size(398, 26);
+            this.editThisRecipesBasicInfosToolStripMenuItem.Size = new System.Drawing.Size(417, 26);
             this.editThisRecipesBasicInfosToolStripMenuItem.Text = "Modifier les infos de base de la recette";
             this.editThisRecipesBasicInfosToolStripMenuItem.Click += new System.EventHandler(this.editThisRecipesBasicInfosToolStripMenuItem_Click);
             // 
@@ -210,7 +210,7 @@
             this.deleteThisRecipeToolStripMenuItem.Enabled = false;
             this.deleteThisRecipeToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.delete_recipe;
             this.deleteThisRecipeToolStripMenuItem.Name = "deleteThisRecipeToolStripMenuItem";
-            this.deleteThisRecipeToolStripMenuItem.Size = new System.Drawing.Size(398, 26);
+            this.deleteThisRecipeToolStripMenuItem.Size = new System.Drawing.Size(417, 26);
             this.deleteThisRecipeToolStripMenuItem.Text = "Supprimer cette recette";
             this.deleteThisRecipeToolStripMenuItem.Click += new System.EventHandler(this.deleteThisRecipeToolStripMenuItem_Click);
             // 
@@ -219,7 +219,7 @@
             this.exportThisRecipeToAWebPageToolStripMenuItem.Enabled = false;
             this.exportThisRecipeToAWebPageToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.export_to_html;
             this.exportThisRecipeToAWebPageToolStripMenuItem.Name = "exportThisRecipeToAWebPageToolStripMenuItem";
-            this.exportThisRecipeToAWebPageToolStripMenuItem.Size = new System.Drawing.Size(398, 26);
+            this.exportThisRecipeToAWebPageToolStripMenuItem.Size = new System.Drawing.Size(417, 26);
             this.exportThisRecipeToAWebPageToolStripMenuItem.Text = "Exporter cette recette en une page web";
             this.exportThisRecipeToAWebPageToolStripMenuItem.Click += new System.EventHandler(this.exportThisRecipeToAWebPageToolStripMenuItem_Click);
             // 
@@ -236,7 +236,7 @@
             this.PlanRecipeOn.Enabled = false;
             this.PlanRecipeOn.Image = global::Recipe_Writer.Properties.Resources.plan__recipe_into_planner;
             this.PlanRecipeOn.Name = "PlanRecipeOn";
-            this.PlanRecipeOn.Size = new System.Drawing.Size(398, 26);
+            this.PlanRecipeOn.Size = new System.Drawing.Size(417, 26);
             this.PlanRecipeOn.Text = "Planifier la recette pour le";
             // 
             // lundiToolStripMenuItem
@@ -291,23 +291,23 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(395, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(414, 6);
             // 
             // addIngredientToThisRecipe
             // 
             this.addIngredientToThisRecipe.Enabled = false;
             this.addIngredientToThisRecipe.Name = "addIngredientToThisRecipe";
-            this.addIngredientToThisRecipe.Size = new System.Drawing.Size(398, 26);
+            this.addIngredientToThisRecipe.Size = new System.Drawing.Size(417, 26);
             this.addIngredientToThisRecipe.Text = "Ajouter un ingrédient à cette recette";
             this.addIngredientToThisRecipe.Click += new System.EventHandler(this.addIngredientToThisRecipe_Click);
             // 
-            // deleteLastIngredientFromThisRecipe
+            // deleteIngredientFromThisRecipe
             // 
-            this.deleteLastIngredientFromThisRecipe.Enabled = false;
-            this.deleteLastIngredientFromThisRecipe.Name = "deleteLastIngredientFromThisRecipe";
-            this.deleteLastIngredientFromThisRecipe.Size = new System.Drawing.Size(398, 26);
-            this.deleteLastIngredientFromThisRecipe.Text = "Supprimer le dernier ingrédient de cette recette";
-            this.deleteLastIngredientFromThisRecipe.Click += new System.EventHandler(this.deleteLastIngredientFromThisRecipe_Click);
+            this.deleteIngredientFromThisRecipe.Enabled = false;
+            this.deleteIngredientFromThisRecipe.Name = "deleteIngredientFromThisRecipe";
+            this.deleteIngredientFromThisRecipe.Size = new System.Drawing.Size(417, 26);
+            this.deleteIngredientFromThisRecipe.Text = "Supprimer l\'ingrédient sélectionné de cette recette";
+            this.deleteIngredientFromThisRecipe.Click += new System.EventHandler(this.deleteIngredientFromThisRecipe_Click);
             // 
             // cmbRecipeIngredients
             // 
@@ -319,6 +319,7 @@
             this.cmbRecipeIngredients.Size = new System.Drawing.Size(206, 24);
             this.cmbRecipeIngredients.TabIndex = 16;
             this.cmbRecipeIngredients.Visible = false;
+            this.cmbRecipeIngredients.SelectedIndexChanged += new System.EventHandler(this.cmbRecipeIngredients_SelectedIndexChanged);
             // 
             // lblCompletionTime
             // 
@@ -748,7 +749,7 @@
         internal System.Windows.Forms.ListBox lstSearchResults;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem addIngredientToThisRecipe;
-        private System.Windows.Forms.ToolStripMenuItem deleteLastIngredientFromThisRecipe;
+        private System.Windows.Forms.ToolStripMenuItem deleteIngredientFromThisRecipe;
     }
 }
 
