@@ -554,7 +554,6 @@ namespace Recipe_Writer
             // Calls the function that creates the instruction labels dynamically
             CreateInstructionsLayout();
 
-
             // --- ImagePath
             // Calls the function that displays the illustration image for the currently selected recipe
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);

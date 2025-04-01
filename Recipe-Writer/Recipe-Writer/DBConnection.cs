@@ -1346,6 +1346,19 @@ namespace Recipe_Writer
         /// <summary>
         /// Updates the image path for the selected recipe
         /// </summary>
+        /// <param name="idRecipe">the id of the currently selected recipe</param>
+        /// <param name="newImagePath">the new image path to update</param>
+        public void UpdateIngredientName(int idIngredientToEdit, string newNameOfIngredient)
+        {
+            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            cmd.CommandText = "UPDATE 'Ingredients' SET ingredientName ='" + newNameOfIngredient + "' WHERE id='" + idIngredientToEdit + "';";
+            cmd.ExecuteReader();
+        }
+
+
+        /// <summary>
+        /// Updates the image path for the selected recipe
+        /// </summary>
         /// <param name="idRecipe">the id of the day of the week (from 1 to 7)</param>
         /// <param name="titleOfTheRecipe">the title of the recipe to plan</param>
         public void UpdatePlannedRecipeForADay(int idDayOfTheWeek, string titleOfTheRecipe)

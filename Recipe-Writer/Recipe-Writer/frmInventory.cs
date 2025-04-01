@@ -14,14 +14,14 @@ namespace Recipe_Writer
     public partial class frmInventory : Form
     {
         // Declares the parent form to be able to access its controls
-        private frmMain _frmMain = null;
+        public frmMain _frmMain;
 
         // Constructor - Adds the parent form as parameter in the form constructor
-        public frmInventory(frmMain parentForm)
+        public frmInventory(frmMain parentMain)
         {
             // Affects the parent form to an alias
-            _frmMain = parentForm;
             InitializeComponent();
+            _frmMain = parentMain;
         }
 
         // Generic delegate
@@ -67,10 +67,10 @@ namespace Recipe_Writer
 
             // Layout parameters =================================================================================
             int lineHeight = 5;
-            int iconHeight = 12;
+            int iconHeight = 14;
             int numericUpDownHeight = 10;
             int iconWidth = 25;
-            int spacingWidth = 15;
+            int spacingWidth = 8;
 
             string nameOfPanelToHandle = "pnlIngredientsType" + idTypeOfIngredient + "Status";
             Panel panelToFill = (Panel)this.Controls.Find(nameOfPanelToHandle, true).First();
@@ -81,21 +81,6 @@ namespace Recipe_Writer
             foreach (string ingredientName in listBoxToFill.Items)
             {
                 int ingredientId = _frmMain.dbConn.ReadIdForAnIngredientName(ingredientName);
-
-                // Picturebox that displays the status of the ingredient
-                PictureBox picStatusIngredient = new PictureBox();
-
-                // Shows a border around a picture box when the mouse hovers it
-                picStatusIngredient.MouseHover += (object sender_here, EventArgs e_here) =>
-                {
-                    picStatusIngredient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                };
-
-                // Hides the border around a picture box when the mouse leaves it
-                picStatusIngredient.MouseLeave += (object sender_here, EventArgs e_here) =>
-                {
-                    picStatusIngredient.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                };
 
                 // Edit quantity numeric up-down control ===========================================================
 
@@ -125,8 +110,27 @@ namespace Recipe_Writer
                 lblScaleIngredient.AutoSize = true;
                 lblScaleIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
 
-                // Delete ingredient button code ===================================================================
+                // Edit ingredient name button ===================================================================
+                Button editIngredientName = new Button();
+                editIngredientName.Click += (object sender_here, EventArgs e_here) =>
+                {
+                    frmEditIngredientName _frmEditIngredientName = new frmEditIngredientName(this);
+                    _frmEditIngredientName.IdIngredientToEdit = ingredientId;
+                    _frmEditIngredientName.NameOfIngredientToEdit = ingredientName;
+                    _frmEditIngredientName.Show(this); // Links to frmInventory form
+                };
 
+                editIngredientName.Text = "";
+                editIngredientName.Width = iconWidth;
+                editIngredientName.Height = iconHeight;
+                editIngredientName.BackColor = Color.Transparent;
+                editIngredientName.FlatAppearance.BorderSize = 0;
+                editIngredientName.FlatStyle = FlatStyle.Flat;
+                editIngredientName.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
+                editIngredientName.BackgroundImageLayout = ImageLayout.Zoom;
+                editIngredientName.Location = new Point(lblScaleIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
+                
+                // Delete ingredient button code ===================================================================
                 Button cmdDeleteIngredient = new Button();
                 cmdDeleteIngredient.Click += (object sender_here, EventArgs e_here) =>
                 {
@@ -143,16 +147,17 @@ namespace Recipe_Writer
                 cmdDeleteIngredient.Text = "";
                 cmdDeleteIngredient.Width = iconWidth;
                 cmdDeleteIngredient.Height = iconHeight;
-                cmdDeleteIngredient.Location = new Point(lblScaleIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
                 cmdDeleteIngredient.BackColor = Color.Transparent;
                 cmdDeleteIngredient.FlatAppearance.BorderSize = 0;
                 cmdDeleteIngredient.FlatStyle = FlatStyle.Flat;
                 cmdDeleteIngredient.BackgroundImage = Recipe_Writer.Properties.Resources.delete;
                 cmdDeleteIngredient.BackgroundImageLayout = ImageLayout.Zoom;
+                cmdDeleteIngredient.Location = new Point(editIngredientName.Left + 20, editIngredientName.Top);
 
                 // Adds the controls to the layout ================================================================
                 panelToFill.Controls.Add(nudQtyIngredient);
                 panelToFill.Controls.Add(lblScaleIngredient);
+                panelToFill.Controls.Add(editIngredientName);
                 panelToFill.Controls.Add(cmdDeleteIngredient);
 
                 currentIngredient += 1;

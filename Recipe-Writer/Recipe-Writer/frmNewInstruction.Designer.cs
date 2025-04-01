@@ -30,8 +30,8 @@
         {
             this.lblNewInstruction = new System.Windows.Forms.Label();
             this.txtNewInstruction = new System.Windows.Forms.TextBox();
-            this.cmdCancel = new System.Windows.Forms.Button();
             this.cmdValidate = new System.Windows.Forms.Button();
+            this.cmdCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNewInstruction
@@ -41,7 +41,7 @@
             this.lblNewInstruction.Location = new System.Drawing.Point(29, 28);
             this.lblNewInstruction.Name = "lblNewInstruction";
             this.lblNewInstruction.Size = new System.Drawing.Size(88, 18);
-            this.lblNewInstruction.TabIndex = 4;
+            this.lblNewInstruction.TabIndex = 3;
             this.lblNewInstruction.Text = "Instruction : ";
             this.lblNewInstruction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -53,6 +53,19 @@
             this.txtNewInstruction.Name = "txtNewInstruction";
             this.txtNewInstruction.Size = new System.Drawing.Size(432, 71);
             this.txtNewInstruction.TabIndex = 0;
+            // 
+            // cmdValidate
+            // 
+            this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdValidate.Location = new System.Drawing.Point(420, 173);
+            this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(34, 32);
+            this.cmdValidate.TabIndex = 2;
+            this.cmdValidate.UseVisualStyleBackColor = true;
+            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // cmdCancel
             // 
@@ -68,19 +81,6 @@
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
-            // cmdValidate
-            // 
-            this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdValidate.FlatAppearance.BorderSize = 0;
-            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(420, 173);
-            this.cmdValidate.Name = "cmdValidate";
-            this.cmdValidate.Size = new System.Drawing.Size(34, 32);
-            this.cmdValidate.TabIndex = 2;
-            this.cmdValidate.UseVisualStyleBackColor = true;
-            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
-            // 
             // frmNewInstruction
             // 
             this.AcceptButton = this.cmdValidate;
@@ -92,7 +92,7 @@
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewInstruction);
             this.Controls.Add(this.lblNewInstruction);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewInstruction";

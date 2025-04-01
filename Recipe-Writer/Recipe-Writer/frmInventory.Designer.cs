@@ -154,7 +154,7 @@
             // pnlIngredientsType2Status
             // 
             this.pnlIngredientsType2Status.AutoScroll = true;
-            this.pnlIngredientsType2Status.Location = new System.Drawing.Point(660, 46);
+            this.pnlIngredientsType2Status.Location = new System.Drawing.Point(660, 53);
             this.pnlIngredientsType2Status.Name = "pnlIngredientsType2Status";
             this.pnlIngredientsType2Status.Size = new System.Drawing.Size(206, 317);
             this.pnlIngredientsType2Status.TabIndex = 5;
@@ -165,7 +165,7 @@
             this.lstIngredientsType2Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsType2Available.FormattingEnabled = true;
             this.lstIngredientsType2Available.ItemHeight = 20;
-            this.lstIngredientsType2Available.Location = new System.Drawing.Point(439, 46);
+            this.lstIngredientsType2Available.Location = new System.Drawing.Point(439, 50);
             this.lstIngredientsType2Available.Name = "lstIngredientsType2Available";
             this.lstIngredientsType2Available.Size = new System.Drawing.Size(215, 320);
             this.lstIngredientsType2Available.TabIndex = 4;
@@ -173,7 +173,7 @@
             // pnlIngredientsType1Status
             // 
             this.pnlIngredientsType1Status.AutoScroll = true;
-            this.pnlIngredientsType1Status.Location = new System.Drawing.Point(227, 46);
+            this.pnlIngredientsType1Status.Location = new System.Drawing.Point(227, 50);
             this.pnlIngredientsType1Status.Name = "pnlIngredientsType1Status";
             this.pnlIngredientsType1Status.Size = new System.Drawing.Size(206, 317);
             this.pnlIngredientsType1Status.TabIndex = 3;
@@ -184,7 +184,7 @@
             this.lstIngredientsType1Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIngredientsType1Available.FormattingEnabled = true;
             this.lstIngredientsType1Available.ItemHeight = 20;
-            this.lstIngredientsType1Available.Location = new System.Drawing.Point(6, 46);
+            this.lstIngredientsType1Available.Location = new System.Drawing.Point(7, 53);
             this.lstIngredientsType1Available.Name = "lstIngredientsType1Available";
             this.lstIngredientsType1Available.Size = new System.Drawing.Size(215, 320);
             this.lstIngredientsType1Available.TabIndex = 2;

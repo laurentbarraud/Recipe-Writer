@@ -142,7 +142,7 @@
             this.Controls.Add(this.txtNewRecipeCompletionTime);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewRecipeTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewRecipeBasicInfosInput";
