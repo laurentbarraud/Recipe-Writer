@@ -1,7 +1,7 @@
 ﻿/// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 31th 2025</date>
+/// <date>April 1st 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -334,6 +334,94 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Deletes an ingredient from all recipes in Recipes_has_ingredients and from Ingredients,
+        /// ensuring columns are shifted and IDs are reordered.
+        /// </summary>
+        /// <param name="idIngredient">The ID of the ingredient to delete></param>
+        /// <returns></returns>
+        public bool DeleteIngredientFromAllRecipesAndFromDB(int idIngredient)
+        {
+            try
+            {
+                // Ensures the database connection is open
+                if (sqliteConn.State != System.Data.ConnectionState.Open)
+                {
+                    sqliteConn.Open();
+                }
+
+                // Step 1: Gets all recipe IDs in Recipes_has_Ingredients
+                List<int> recipesIDs = new List<int>();
+                string selectRecipeIdsQuery = "SELECT id FROM Recipes_has_Ingredients;";
+                using (SQLiteCommand selectCommand = new SQLiteCommand(selectRecipeIdsQuery, sqliteConn))
+                {
+                    using (SQLiteDataReader dataReader = selectCommand.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            recipesIDs.Add(dataReader.GetInt32(0)); // Collect recipe IDs
+                        }
+                    }
+                }
+
+                // Step 2: Processes each recipe to delete the ingredient and shift columns
+                foreach (int idRecipe in recipesIDs)
+                {
+                    bool ingredientFound = false;
+
+                    for (int i = 1; i <= 20; i++)
+                    {
+                        string selectIngredientQuery = $"SELECT ingredient{i}_id FROM Recipes_has_Ingredients WHERE id = @RecipeID;";
+                        using (SQLiteCommand selectIngredientCommand = new SQLiteCommand(selectIngredientQuery, sqliteConn))
+                        {
+                            selectIngredientCommand.Parameters.AddWithValue("@RecipeID", idRecipe);
+
+                            object ingredientId = selectIngredientCommand.ExecuteScalar(); // Gets a single value
+
+                            if (ingredientId != null && ingredientId != DBNull.Value && Convert.ToInt32(ingredientId) == idIngredient)
+                            {
+                                ingredientFound = true;
+
+                                // Deletes the ingredient and its associated qtyIngredient
+                                string deleteQuery = $"UPDATE Recipes_has_Ingredients " +
+                                                     $"SET ingredient{i}_id = NULL, qtyIngredient{i} = NULL " +
+                                                     $"WHERE id = @RecipeID;";
+
+                                using (SQLiteCommand deleteFromRecipesCommand = new SQLiteCommand(deleteQuery, sqliteConn))
+                                {
+                                    deleteFromRecipesCommand.Parameters.AddWithValue("@RecipeID", idRecipe);
+                                    deleteFromRecipesCommand.ExecuteNonQuery();
+                                }
+
+                                // Shifts columns to fill the gap
+                                OffsetRowValuesToLeft(idRecipe);
+
+                                break; // Exits loop once the ingredient is deleted
+                            }
+                        }
+                    }
+                }
+
+                // Step 3: Remove the ingredient from Ingredients table
+                string deleteIngredientQuery = "DELETE FROM Ingredients WHERE id = @IngredientID;";
+                using (SQLiteCommand deleteFromInventoryCommand = new SQLiteCommand(deleteIngredientQuery, sqliteConn))
+                {
+                    deleteFromInventoryCommand.Parameters.AddWithValue("@IngredientID", idIngredient);
+                    deleteFromInventoryCommand.ExecuteNonQuery();
+                }
+
+                // Step 4: Reorders IDs in Ingredients, changes propagated via ON UPDATE CASCADE
+                OffsetColumnsValuesToUp();
+
+                return true; // Operation successful
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur pendant la suppression de l'ingrédient: {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Deletes a recipe from the database
         /// </summary>
         /// <param name="idRecipe">the id of the recipe to delete</param>
@@ -451,6 +539,52 @@ namespace Recipe_Writer
             }
         }
 
+
+        /// <summary>
+        /// Reorders IDs in the Ingredient table to ensure they are continuous.
+        /// Removes any gaps in the sequence caused by deletions.
+        /// </summary>
+        public void OffsetColumnsValuesToUp()
+        {
+            try
+            {
+                // Retrives all current IDs in ascending order
+                string selectQuery = "SELECT id FROM Ingredients ORDER BY id ASC;";
+                SQLiteCommand selectCommand = new SQLiteCommand(selectQuery, sqliteConn);
+                SQLiteDataReader dataReader = selectCommand.ExecuteReader();
+
+                List<int> currentIds = new List<int>();
+                while (dataReader.Read())
+                {
+                    // Stores the current IDs
+                    currentIds.Add(dataReader.GetInt32(0));
+                }
+                dataReader.Close();
+
+                // Loops through and assigns new consecutive IDs
+                int newId = 1; 
+                foreach (int currentId in currentIds)
+                {
+                    if (currentId != newId)
+                    {
+                        string updateQuery = "UPDATE Ingredients SET id = @NewID WHERE id = @CurrentID;";
+                        using (SQLiteCommand updateCommand = new SQLiteCommand(updateQuery, sqliteConn))
+                        {
+                            updateCommand.Parameters.AddWithValue("@NewID", newId);
+                            updateCommand.Parameters.AddWithValue("@CurrentID", currentId);
+                            updateCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    newId++;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la réorganisation des ID: {ex.Message}");
+            }
+        }
 
         /// <summary>
         /// Reads all ingredients stored in the database for a type

@@ -1,7 +1,7 @@
 ﻿/// <file>frmAbout.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 28th 2025</date>
+/// <date>April 1st 2025</date>
 
 
 using System;
@@ -29,7 +29,7 @@ namespace Recipe_Writer
                 "\r\n\r\nIl a été développé dans le cadre d'un projet de remplacement de travail de fin d'apprentissage." +
                 "\r\nCe logiciel vous est accordé sous licence GNU." +
                 "\r\n\r\nMerci de citer l'auteur pour toute amélioration ou utilisation du code.\n" +
-                "\r\n\r\n\r\nVersion 1.1 - Mars 2025\nCréé par Laurent Barraud";
+                "\r\n\r\n\r\nVersion 1.1 - Avril 2025\nCréé par Laurent Barraud";
         }
 
         private void cmdValidate_Click(object sender, EventArgs e)

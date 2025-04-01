@@ -1,7 +1,7 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 28th 2025</date>
+/// <date>April 1st 2025</date>
 /// 
 using System;
 using System.Drawing;
@@ -34,16 +34,7 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void frmInventory_Load(object sender, EventArgs e)
         {
-            lblNbOfIngredientsStored.Text += _frmMain.dbConn.CountAllIngredientsStored().ToString();
-
-            int totalNbOfTypes = _frmMain.dbConn.CountAllTypesOfIngredients();
-
-            fillInListBoxesDelegate = FillInListBoxesWithIngredientsNamesAndQuantities;
-
-            for (int idTypeToHandle = 1; idTypeToHandle <= totalNbOfTypes; idTypeToHandle++)
-            {
-                fillInListBoxesDelegate(idTypeToHandle);
-            }
+            RefreshInventory();
         }
 
         private void cmdAddNewIngredientIntoDB_Click(object sender, EventArgs e)
@@ -144,9 +135,8 @@ namespace Recipe_Writer
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        // To-Do : call the function that will delete the ingredient from the database
-
-                        this.Refresh();
+                        _frmMain.dbConn.DeleteIngredientFromAllRecipesAndFromDB(ingredientId);
+                        RefreshInventory();
                     }
                 };
 
@@ -166,6 +156,21 @@ namespace Recipe_Writer
                 panelToFill.Controls.Add(cmdDeleteIngredient);
 
                 currentIngredient += 1;
+            }
+        }
+
+        public void RefreshInventory()
+        {
+            lblNbOfIngredientsStored.Text = "Nombre d'ingrédients stockés : ";
+            lblNbOfIngredientsStored.Text += _frmMain.dbConn.CountAllIngredientsStored().ToString();
+
+            int totalNbOfTypes = _frmMain.dbConn.CountAllTypesOfIngredients();
+
+            fillInListBoxesDelegate = FillInListBoxesWithIngredientsNamesAndQuantities;
+
+            for (int idTypeToHandle = 1; idTypeToHandle <= totalNbOfTypes; idTypeToHandle++)
+            {
+                fillInListBoxesDelegate(idTypeToHandle);
             }
         }
 
