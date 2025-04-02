@@ -42,37 +42,21 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            double parsedQtyIngredient = 0.0;
-            int nbIngredientsForARecipe = 0;
-
-            string formattedIngredientName = cmbIngredientsListedInDB.Text;
-
-            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
-            if (cmbIngredientsListedInDB.Text.Contains("'"))
-            {
-                formattedIngredientName = cmbIngredientsListedInDB.Text.Replace("'", "''");
-            }
-
-            
-            // If the user has typed numbers in the quantity of ingredient textbox
-            if (txtQtyIngredientNeeded.Text != "" && double.TryParse(txtQtyIngredientNeeded.Text, out parsedQtyIngredient))
-            {
-                // Calls the method to count the total number of ingredients affected to the currently selected recipe
-                nbIngredientsForARecipe = _frmMain.dbConn.CountAllIngredientsForARecipe(_frmMain._currentDisplayedRecipe.Id);
-
-                // Calls the method to add the new ingredient by reference to its id
-                _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, nbIngredientsForARecipe, cmbIngredientsListedInDB.SelectedIndex+1);
-
-                this.Close();
-
-                _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
-            }
-
-            // If the user has left the quantity of ingredient textbox empty or has typed a not-valid number
-            else if (txtQtyIngredientNeeded.Text == "" && double.TryParse(txtQtyIngredientNeeded.Text, out parsedQtyIngredient))
+            if (!double.TryParse(txtQtyIngredientNeeded.Text, out double parsedQtyIngredient))
             {
                 MessageBox.Show("Veuillez entrer un nombre réel valide pour la quantité de l'ingrédient", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
+                return;
+            }
+
+            string formattedIngredientName = cmbIngredientsListedInDB.Text.Replace("'", "''");
+
+            int idNewIngredient = _frmMain.dbConn.ReadIdForAnIngredientName(formattedIngredientName);
+
+            _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, idNewIngredient);
+
+            _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
+
+            this.Close();
         }
 
         private void cmbIngredientsList_SelectedIndexChanged(object sender, EventArgs e)

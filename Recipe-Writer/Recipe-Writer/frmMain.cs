@@ -311,6 +311,7 @@ namespace Recipe_Writer
                         txtInputUser = ((TextBox)lblInstruction.Controls[0]);
 
                         lblInstruction.Text = txtInputUser.Text;
+                        dbConn.UpdateInstruction(instructionItem.Id, txtInputUser.Text);
                         txtInputUser.Hide();
 
                         cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
@@ -1093,259 +1094,32 @@ namespace Recipe_Writer
 
 
         /// <summary>
-        /// Search recipes which contain all the input ingredients
-        /// <param name="filterForSmallBudget"></param>
-        /// <param name="ingredient1ToSearchFor"</param>
-        /// <param name="ingredient2ToSearchFor"</param>
-        /// <param name="ingredient3ToSearchFor"</param>
+        /// Searches for recipes based on ingredients input and optional filters.
         /// </summary>
         private void SearchRecipesByIngredients(string ingredient1ToSearchFor, string ingredient2ToSearchFor, string ingredient3ToSearchFor, bool filterForSmallBudget = false, bool filterForThreeStars = false)
         {
-            // Empties the listbox control and the title search textbox
+            
             lstSearchResults.Items.Clear();
             txtTitleSearch.Text = "";
 
-            string formattedInputIngredient1 = ingredient1ToSearchFor;
-            string formattedInputIngredient2 = ingredient2ToSearchFor;
-            string formattedInputIngredient3 = ingredient3ToSearchFor;
-
-            // Checks if the search ingredients input by the user contains an apostroph, to avoid making the SQL request crash
-            formattedInputIngredient1 = ingredient1ToSearchFor.Replace("'", "''");
-            formattedInputIngredient2 = ingredient2ToSearchFor.Replace("'", "''");
-            formattedInputIngredient3 = ingredient3ToSearchFor.Replace("'", "''");
-
-            // Declares a list of string and stores each ingredient the user wants to use for the search
             List<string> searchIngredientsInputList = new List<string>();
 
-            if (formattedInputIngredient1 != "")
-            {
-                searchIngredientsInputList.Add(formattedInputIngredient1);
-            }
+            if (!string.IsNullOrWhiteSpace(ingredient1ToSearchFor))
+                searchIngredientsInputList.Add(ingredient1ToSearchFor.Replace("'", "''"));
+            if (!string.IsNullOrWhiteSpace(ingredient2ToSearchFor))
+                searchIngredientsInputList.Add(ingredient2ToSearchFor.Replace("'", "''"));
+            if (!string.IsNullOrWhiteSpace(ingredient3ToSearchFor))
+                searchIngredientsInputList.Add(ingredient3ToSearchFor.Replace("'", "''"));
 
-            if (formattedInputIngredient2 != "")
-            {
-                searchIngredientsInputList.Add(formattedInputIngredient2);
-            }
+            // Appelle la base de données avec les filtres sélectionnés
+            List<string> listTitlesRequested = dbConn.SearchRecipesByIngredients(searchIngredientsInputList, filterForSmallBudget, filterForThreeStars);
 
-            if (formattedInputIngredient3 != "")
+            // Ajoute les résultats à la liste
+            foreach (string titleItem in listTitlesRequested)
             {
-                searchIngredientsInputList.Add(formattedInputIngredient3);
-            }
-
-            // Declares an array to stock the input ingredient list
-            string[] arraySearchIngredientsInput = searchIngredientsInputList.ToArray();
-            List<string> listTitlesRequested = new List<string>();
-
-            // Normal mode search
-            if (!filterForSmallBudget && !filterForThreeStars)
-            {
-                switch (searchIngredientsInputList.Count)
+                if (!string.IsNullOrWhiteSpace(titleItem))
                 {
-                    // If the user has typed only one ingredient to search recipes for
-                    case 1:
-
-                        // Calls the dbConn function with only one ingredient in argument and affects the returned list to the list control
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0]);
-
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-                        }
-                        break;
-
-                    // If the user has typed two ingredients to search recipe for
-                    case 2:
-
-                        // Calls the dbConn.SearchRecipesByTitle function with two ingredients in argument and affects the returned list to the list control
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1]);
-
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-                        }
-                        break;
-
-                    case 3:
-
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2]);
-
-                        // Calls the dbConn.SearchRecipesByTitle function with three ingredients in argument and affects the returned list to the list control
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-                        }
-                        break;
-                }
-            }
-
-            // If the checkbox to filter recipes for small budget is checked
-            else if (filterForSmallBudget && !filterForThreeStars)
-            {
-                switch (searchIngredientsInputList.Count)
-                {
-                    // If the user has typed only one ingredient
-                    case 1:
-
-                        // Calls the dbConn function with only one keyword in argument and adds each returned title from the list to the list control
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], "", "", true);
-
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-                        }
-                        break;
-
-                    // If the user has typed two ingredients
-                    case 2:
-
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], "", true);
-
-                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-
-                        }
-                        break;
-
-                    // If the user has typed three ingredients
-                    case 3:
-
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2], true);
-
-                        // Calls the dbConn.SearchRecipesByTitle function with three keywords in argument and adds the returned titles in the list of string
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-
-                        }
-                        break;
-                }
-            }
-
-            // If the checkbox to filter recipes for the ones ranked three stars is checked
-            else if (!filterForSmallBudget && filterForThreeStars)
-            {
-                switch (searchIngredientsInputList.Count)
-                {
-                    // If the user has typed only one ingredient
-                    case 1:
-
-                        // Calls the dbConn function with only one keyword in argument and adds each returned title from the list to the list control
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], "", "", false, true);
-
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-                        }
-                        break;
-
-                    // If the user has typed two ingredients
-                    case 2:
-
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], "", false, true);
-
-                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-
-                        }
-                        break;
-
-                    // If the user has typed three ingredients
-                    case 3:
-
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2], false, true);
-
-                        // Calls the dbConn.SearchRecipesByTitle function with three keywords in argument and adds the returned titles in the list of string
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-
-                        }
-                        break;
-                }
-            }
-
-            // If the checkboxes to filter recipes for small budget and to filter for the ones ranked three stars are checked
-            else if (filterForSmallBudget && filterForThreeStars)
-            {
-                switch (searchIngredientsInputList.Count)
-                {
-                    // If the user has typed only one ingredient
-                    case 1:
-
-                        // Calls the dbConn function with only one keyword in argument and adds each returned title from the list to the list control
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], "", "", true, true);
-
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-                        }
-                        break;
-
-                    // If the user has typed two ingredients
-                    case 2:
-
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], "", true, true);
-
-                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-
-                        }
-                        break;
-
-                    // If the user has typed three ingredients
-                    case 3:
-
-                        listTitlesRequested = dbConn.SearchRecipesByIngredients(arraySearchIngredientsInput[0], arraySearchIngredientsInput[1], arraySearchIngredientsInput[2], true, true);
-
-                        // Calls the dbConn.SearchRecipesByTitle function with three keywords in argument and adds the returned titles in the list of string
-                        foreach (string titleItem in listTitlesRequested)
-                        {
-                            if (titleItem != "")
-                            {
-                                lstSearchResults.Items.Add(titleItem);
-                            }
-
-                        }
-                        break;
+                    lstSearchResults.Items.Add(titleItem);
                 }
             }
         }
