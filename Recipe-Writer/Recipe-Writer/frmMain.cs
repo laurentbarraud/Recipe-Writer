@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 31th 2025</date>
+/// <date>April 2nd 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -1351,114 +1351,39 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Search recipes containing the input keywords in their title
+        /// Searches for recipes containing the input keywords in their title.
         /// </summary>
         private void SearchRecipesByTitle(string titleToSearchFor)
         {
-            // Empties the listbox control
+            // Empties the listbox control before displaying new results
             lstSearchResults.Items.Clear();
 
-            string formattedKeywords = titleToSearchFor;
+            if (string.IsNullOrWhiteSpace(titleToSearchFor))
+                return; // Avoid processing empty searches
 
-            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
-            if (titleToSearchFor.Contains("'"))
+            // Replaces apostrophes to prevent SQL errors
+            string formattedKeywords = titleToSearchFor.Replace("'", "''");
+
+            // If the user entered "*", retrieve all recipes without filtering
+            if (formattedKeywords.Trim() == "*")
             {
-                formattedKeywords = titleToSearchFor.Replace("'", "''");
-            }
-
-            // Declares an array and stores the keywordsSeparates the text typed by the user in the search text box into keywords and stores them in an array
-            string[] arrayKeywordsInput = formattedKeywords.Split(' ');
-
-            // If the user has typed 8 words or less in the textbox
-            if (arrayKeywordsInput.Length <= 8)
-            {
-                switch (arrayKeywordsInput.Length)
+                foreach (string title in dbConn.ReadAllRecipesTitlesStored())
                 {
-                    // If the user has typed only one word in the search textbox
-                    case 1:
-
-                        // Calls the dbConn.SearchRecipesByTitle function with only one keyword in argument and adds the returned title in the list of string
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0]))
-                        {
-                            // Adds each title found as a new item in the listbox control
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    // If the user has typed two words in the search textbox
-                    case 2:
-
-                        // Calls the dbConn.SearchRecipesByTitle function with two keywords in argument and adds the returned titles in the list of string
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1]))
-                        {
-                            // Adds each title found as a new item in the listbox control
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 3:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 4:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 5:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 6:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 7:
-
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6]))
-                        {
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-
-                    case 8:
-
-                        // Calls the dbConn.SearchRecipesByTitle function with eight keywords in argument and adds the returned title in the list of string
-                        foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
-                        {
-                            // Adds each title found as a new item in the listbox control
-                            lstSearchResults.Items.Add(title);
-                        }
-                        break;
-                }
-            }
-            // If the user has typed more than 8 words in the search textbox
-            else
-            {
-                // Calls the dbConn.SearchRecipesByTitle function with eight keywords in argument and adds the returned title in the list of string
-                foreach (string title in dbConn.SearchRecipesByTitle(arrayKeywordsInput[0], arrayKeywordsInput[1], arrayKeywordsInput[2], arrayKeywordsInput[3], arrayKeywordsInput[4], arrayKeywordsInput[5], arrayKeywordsInput[6], arrayKeywordsInput[7]))
-                {
-                    // Adds each title found as a new item in the listbox control
                     lstSearchResults.Items.Add(title);
                 }
+                return;
+            }
+
+            // Splits the user input into individual keywords
+            List<string> keywords = formattedKeywords.Split(' ').ToList();
+
+            // Calls the database function with all the keywords
+            foreach (string title in dbConn.SearchRecipesByTitle(keywords))
+            {
+                // Adds each found recipe title to the listbox
+                lstSearchResults.Items.Add(title);
             }
         }
-
 
 
         private void txtTitleSearch_Enter(object sender, EventArgs e)

@@ -102,6 +102,7 @@
             // 
             this.txtTitleSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitleSearch.Location = new System.Drawing.Point(167, 39);
+            this.txtTitleSearch.MaxLength = 200;
             this.txtTitleSearch.Name = "txtTitleSearch";
             this.txtTitleSearch.Size = new System.Drawing.Size(427, 27);
             this.txtTitleSearch.TabIndex = 0;
