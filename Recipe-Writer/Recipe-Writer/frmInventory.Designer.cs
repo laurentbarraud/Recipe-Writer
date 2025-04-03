@@ -553,7 +553,6 @@
             this.Name = "frmInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventaire des ingrédients";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInventory_FormClosed);
             this.Load += new System.EventHandler(this.frmInventory_Load);
             this.tabInventoryIngredients.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

@@ -20,6 +20,9 @@ namespace Recipe_Writer
         // Declares and instancies a connection to the database
         public DBConnection dbConn = new DBConnection();
 
+        private static frmInventory _frmInventory;
+        private static frmMealPlanner _frmMealPlanner;
+
         // Declares and instanciates a default instruction, accessible globally
         public static Instructions _defaultInstruction = new Instructions(0, "", 0, 0);
 
@@ -37,10 +40,6 @@ namespace Recipe_Writer
 
         private int currentInstruction = 0;
         private int selectedInstruction = -1;
-        
-        // These variables store if the inventory and meal planner forms are shown on screen
-        private bool inventoryShown = false;
-        private bool mealPlannerShown = false;
 
         // This variable store the previous title search value
         private string previousTitleSearch = "";
@@ -50,19 +49,6 @@ namespace Recipe_Writer
             get { return previousTitleSearch; }
             set { previousTitleSearch = value; }
         }
-
-        public bool InventoryShown
-        {
-            get { return inventoryShown; }
-            set { inventoryShown = value; }
-        }
-
-        public bool MealPlannerShown
-        {
-            get { return mealPlannerShown; }
-            set { mealPlannerShown = value; }
-        }
-
 
         public frmMain()
         {
@@ -809,10 +795,9 @@ namespace Recipe_Writer
         {
             dbConn.UpdatePlannedRecipeForADay(1, _currentDisplayedRecipe.Title);
 
-            if (mealPlannerShown == false)
+            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
             {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
+                ShowInventory();
             }
         }
 
@@ -820,10 +805,9 @@ namespace Recipe_Writer
         {
             dbConn.UpdatePlannedRecipeForADay(2, _currentDisplayedRecipe.Title);
 
-            if (mealPlannerShown == false)
+            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
             {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
+                ShowInventory();
             }
         }
 
@@ -831,10 +815,9 @@ namespace Recipe_Writer
         {
             dbConn.UpdatePlannedRecipeForADay(3, _currentDisplayedRecipe.Title);
 
-            if (mealPlannerShown == false)
+            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
             {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
+                ShowInventory();
             }
         }
 
@@ -842,10 +825,9 @@ namespace Recipe_Writer
         {
             dbConn.UpdatePlannedRecipeForADay(4, _currentDisplayedRecipe.Title);
 
-            if (mealPlannerShown == false)
+            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
             {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
+                ShowInventory();
             }
         }
 
@@ -853,10 +835,9 @@ namespace Recipe_Writer
         {
             dbConn.UpdatePlannedRecipeForADay(5, _currentDisplayedRecipe.Title);
 
-            if (mealPlannerShown == false)
+            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
             {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
+                ShowInventory();
             }
         }
 
@@ -864,10 +845,9 @@ namespace Recipe_Writer
         {
             dbConn.UpdatePlannedRecipeForADay(6, _currentDisplayedRecipe.Title);
 
-            if (mealPlannerShown == false)
+            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
             {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
+                ShowInventory();
             }
         }
 
@@ -875,10 +855,9 @@ namespace Recipe_Writer
         {
             dbConn.UpdatePlannedRecipeForADay(7, _currentDisplayedRecipe.Title);
 
-            if (mealPlannerShown == false)
+            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
             {
-                picMealPlanner_Click(sender, e);
-                mealPlannerShown = true;
+                ShowInventory();
             }
         }
 
@@ -943,10 +922,14 @@ namespace Recipe_Writer
 
         private void picInventory_Click(object sender, EventArgs e)
         {
-            if (!this.InventoryShown)
+            if (_frmInventory != null && !_frmInventory.IsDisposed)
             {
-                this.InventoryShown = true;
-                frmInventory _frmInventory = new frmInventory(this);
+                _frmInventory.Close();
+                _frmInventory = null; 
+            }
+            else
+            {
+                _frmInventory = new frmInventory(this);
                 _frmInventory.Show();
             }
         }
@@ -961,10 +944,14 @@ namespace Recipe_Writer
 
         private void picMealPlanner_Click(object sender, EventArgs e)
         {
-            if (!this.MealPlannerShown)
+            if (_frmMealPlanner != null && !_frmMealPlanner.IsDisposed)
             {
-                this.MealPlannerShown = true;
-                frmMealPlanner _frmMealPlanner = new frmMealPlanner(this);
+                _frmMealPlanner.Close();
+                _frmMealPlanner = null;
+            }
+            else
+            {
+                _frmMealPlanner = new frmMealPlanner(this);
                 _frmMealPlanner.Show();
             }
         }
@@ -1179,6 +1166,17 @@ namespace Recipe_Writer
             }
         }
 
+        private void ShowInventory()
+        {
+            _frmInventory = new frmInventory(this);
+            _frmInventory.Show();
+        }
+
+        private void ShowMealPlanner()
+        {
+            _frmMealPlanner = new frmMealPlanner(this);
+            _frmMealPlanner.Show();
+        }
 
         private void txtTitleSearch_Enter(object sender, EventArgs e)
         {

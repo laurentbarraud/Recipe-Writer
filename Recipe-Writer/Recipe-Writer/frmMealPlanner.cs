@@ -1,7 +1,7 @@
 ﻿/// <file>frmMealPlanner.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 28th 2025</date>
+/// <date>April 3rd 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -254,12 +254,6 @@ namespace Recipe_Writer
 
             MessageBox.Show("Les quantités d'ingrédients nécessaires pour faire cette recette ont été déduits.", "Déduction de l'inventaire");
         }
-
-        private void frmMealPlanner_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _frmMain.MealPlannerShown = false;
-        }
-
 
         private void lblMondayRecipe_DoubleClick(object sender, EventArgs e)
         {

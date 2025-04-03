@@ -1,7 +1,7 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 1st 2025</date>
+/// <date>April 3rd 2025</date>
 /// 
 using System;
 using System.Drawing;
@@ -41,11 +41,6 @@ namespace Recipe_Writer
         {
             frmAddNewIngredientToTheDB _frmAddNewIngredientToTheDB = new frmAddNewIngredientToTheDB(_frmMain);
             _frmAddNewIngredientToTheDB.Show();
-        }
-
-        private void frmInventory_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _frmMain.InventoryShown = false;
         }
 
         private void FillInListBoxesWithIngredientsNamesAndQuantities (int idTypeOfIngredient)
