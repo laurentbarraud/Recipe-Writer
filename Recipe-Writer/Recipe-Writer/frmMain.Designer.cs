@@ -329,7 +329,7 @@
             this.lblCompletionTime.Name = "lblCompletionTime";
             this.lblCompletionTime.Size = new System.Drawing.Size(184, 24);
             this.lblCompletionTime.TabIndex = 10;
-            this.lblCompletionTime.Text = "Préparation : 120 minutes";
+            this.lblCompletionTime.Text = "Préparation :";
             this.lblCompletionTime.Visible = false;
             // 
             // ofdAssociatedImage

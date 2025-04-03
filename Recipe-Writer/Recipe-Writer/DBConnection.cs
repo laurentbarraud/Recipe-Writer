@@ -460,15 +460,35 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Deletes a recipe from the database.
+        /// Deletes a recipe and its associated ingredient relations from the database.
         /// </summary>
         /// <param name="idRecipe">The ID of the recipe to delete.</param>
         public void DeleteRecipe(int idRecipe)
         {
-            using (SQLiteCommand cmd = new SQLiteCommand("DELETE FROM Recipes WHERE id = @IdRecipe;", sqliteConn))
+            using (SQLiteTransaction transaction = sqliteConn.BeginTransaction())
             {
-                cmd.Parameters.AddWithValue("@IdRecipe", idRecipe);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    // Deletes ingredient associations for the recipe
+                    using (SQLiteCommand cmdDeleteIngredients = new SQLiteCommand("DELETE FROM Recipes_has_Ingredients WHERE recipe_id = @IdRecipe;", sqliteConn, transaction))
+                    {
+                        cmdDeleteIngredients.Parameters.AddWithValue("@IdRecipe", idRecipe);
+                        cmdDeleteIngredients.ExecuteNonQuery();
+                    }
+
+                    // Deletes the recipe itself
+                    using (SQLiteCommand cmdDeleteRecipe = new SQLiteCommand("DELETE FROM Recipes WHERE id = @IdRecipe;", sqliteConn, transaction))
+                    {
+                        cmdDeleteRecipe.Parameters.AddWithValue("@IdRecipe", idRecipe);
+                        cmdDeleteRecipe.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit(); // Confirms the deletion process
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback(); // Undoes changes if an error occurs
+                }
             }
         }
 

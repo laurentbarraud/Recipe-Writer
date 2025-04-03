@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 2nd 2025</date>
+/// <date>April 3rd 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -556,14 +556,34 @@ namespace Recipe_Writer
             CreateInstructionsLayout();
 
             // --- ImagePath
-            // Calls the function that displays the illustration image for the currently selected recipe
+            // If there's an image file stored in the illustrations folder for this recipe
             _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
 
-            // If there's an image file stored in the illustrations folder for this recipe
             if (_currentDisplayedRecipe.ImagePath != DBNull.Value.ToString())
             {
                 // Affects to the pictureBox the current displayed recipe illustration image
                 picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
+
+            }
+
+            if (File.Exists(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg"))
+            {
+                try
+                {
+                    picRecipe.BackgroundImage = Image.FromFile(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
+                    picRecipe.BorderStyle = BorderStyle.None;
+                }
+                catch (Exception ex)
+                {
+                    picRecipe.BackgroundImage = null;
+                    picRecipe.BorderStyle = BorderStyle.None;
+                }   
+            }
+
+            // If the illustration file hasn't been found on disk
+            else
+            {
+                picRecipe.BackgroundImage = null;
                 picRecipe.BorderStyle = BorderStyle.None;
             }
         }
