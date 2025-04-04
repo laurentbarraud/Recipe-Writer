@@ -16,9 +16,9 @@ using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
-    public partial class frmAbout : Form
+    public partial class frmSettings : Form
     {
-        public frmAbout()
+        public frmSettings()
         {
             InitializeComponent();
         }

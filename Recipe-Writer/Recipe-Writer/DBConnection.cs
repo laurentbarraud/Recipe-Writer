@@ -3,7 +3,7 @@
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 2nd 2025</date>
+/// <date>April 4th 2025</date>
 
 using System;
 using System.Data.SQLite;
@@ -17,22 +17,6 @@ namespace Recipe_Writer
     public class DBConnection
     {
         private SQLiteConnection sqliteConn;
-
-        // Variables for recalculating portions
-        private static int nbPersonsPreviouslySet = 2;
-        private static int nbPersonsSet = 2;
-
-        public static int NbPersonsPreviouslySet
-        {
-            get { return nbPersonsPreviouslySet; }
-            set { nbPersonsPreviouslySet = value; }
-        }
-
-        public static int NbPersonsSet
-        {
-            get { return nbPersonsSet; }
-            set { nbPersonsSet = value; }
-        }
 
         // Constructor - Initializes the database connection
         public DBConnection()

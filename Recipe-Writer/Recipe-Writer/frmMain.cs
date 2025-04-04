@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 3rd 2025</date>
+/// <date>April 4th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Recipe_Writer
 {
@@ -60,9 +61,18 @@ namespace Recipe_Writer
         /// </summary>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // Stores the value of the numeric updown control
-            DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value);
-            DBConnection.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
+            // Detect system language and apply the default setting
+            string systemLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            Properties.Settings.Default.LanguageSetting = (systemLanguage == "fr") ? "fr" : "en";
+
+            // Save the setting for persistence
+            Properties.Settings.Default.Save();
+
+            // Apply the detected language
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Properties.Settings.Default.LanguageSetting);
+            
+            int nbPersonsSet = Properties.Settings.Default.NbPersonsSet;
+            nudPersons.Value = nbPersonsSet;
 
             // Checks if the database file exists or not
             if (File.Exists(@Environment.CurrentDirectory + "\\" + "recipe-album" + ".db"))
@@ -873,22 +883,10 @@ namespace Recipe_Writer
         /// </summary>
         private void nudPersons_ValueChanged(object sender, EventArgs e)
         {
-            // If the user has increased by one the numeric updown control
-            if (DBConnection.NbPersonsPreviouslySet < Convert.ToInt32(nudPersons.Value))
-            {
-                // Stores the old value of the numeric updown control in the exposed property
-                DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value) - 1;
-            }
+            Properties.Settings.Default.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
 
-            // If the user has decreased by one the numeric updown control
-            else if (DBConnection.NbPersonsPreviouslySet > Convert.ToInt32(nudPersons.Value))
-            {
-                // Stores the old value of the numeric updown control in the exposed property
-                DBConnection.NbPersonsPreviouslySet = Convert.ToInt32(nudPersons.Value) + 1;
-            }
-
-            // Stores the new value of the numeric updown control in the exposed property
-            DBConnection.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
+            // Save value for next sessions
+            Properties.Settings.Default.Save();
 
             // Calls the function that will read the ingredients needed to make the recipe
             DisplayRecipeInfos(_currentDisplayedRecipe.Id);
@@ -1030,8 +1028,8 @@ namespace Recipe_Writer
 
         private void picSettings_Click(object sender, EventArgs e)
         {
-            frmAbout _frmAbout = new frmAbout();
-            _frmAbout.ShowDialog();
+            frmSettings _frmSettings = new frmSettings();
+            _frmSettings.ShowDialog();
         }
 
 

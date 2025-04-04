@@ -60,11 +60,11 @@
   <ItemGroup>
     <Compile Include="Animations.cs" />
     <Compile Include="DBConnection.cs" />
-    <Compile Include="frmAbout.cs">
+    <Compile Include="frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <Compile Include="frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddNewIngredientToTheDB.cs">
       <SubType>Form</SubType>
@@ -137,8 +137,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Recipes.cs" />
-    <EmbeddedResource Include="frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <EmbeddedResource Include="frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddNewIngredientToTheDB.resx">
       <DependentUpon>frmAddNewIngredientToTheDB.cs</DependentUpon>
@@ -232,6 +232,7 @@
   <ItemGroup>
     <Content Include="Recipe-writer.ico" />
     <None Include="Resources\recipeCooked.png" />
+    <None Include="Resources\app-language.png" />
     <Content Include="scripts\Recipe-writer-create-tables.sql" />
     <Content Include="scripts\Recipe-writer-insert-initial-data.sql" />
     <None Include="Resources\plan--recipe-into-planner.png" />
