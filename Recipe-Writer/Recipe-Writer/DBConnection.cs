@@ -830,13 +830,13 @@ namespace Recipe_Writer
                                 qtyIngredientNeeded = reader.GetDouble(reader.GetOrdinal(qtyColumn));
 
                                 // Adjust quantity based on number of persons
-                                if (DBConnection.NbPersonsSet == 1 || DBConnection.NbPersonsSet > 2)
+                                if (Properties.Settings.Default.NbPersonsSet == 1 || Properties.Settings.Default.NbPersonsSet > 2)
                                 {
                                     qtyIngredientNeeded /= 2;
                                 }
-                                if (DBConnection.NbPersonsSet > 2)
+                                if (Properties.Settings.Default.NbPersonsSet > 2)
                                 {
-                                    qtyIngredientNeeded *= DBConnection.NbPersonsSet;
+                                    qtyIngredientNeeded *= Properties.Settings.Default.NbPersonsSet;
                                 }
                             }
 
@@ -859,7 +859,6 @@ namespace Recipe_Writer
                 }
             }
 
-            DBConnection.NbPersonsPreviouslySet = DBConnection.NbPersonsSet;
             return listIngredientsRequested;
         }
 

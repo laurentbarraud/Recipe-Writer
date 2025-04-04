@@ -12,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Recipe_Writer
 {
@@ -61,12 +60,16 @@ namespace Recipe_Writer
         /// </summary>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // Detect system language and apply the default setting
-            string systemLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-            Properties.Settings.Default.LanguageSetting = (systemLanguage == "fr") ? "fr" : "en";
+            // If the application is launched for the first time
+            if (string.IsNullOrEmpty(Properties.Settings.Default.LanguageSetting))
+            {
+                // Detect system language and apply the default setting
+                string systemLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+                Properties.Settings.Default.LanguageSetting = (systemLanguage == "fr") ? "fr" : "en";
 
-            // Save the setting for persistence
-            Properties.Settings.Default.Save();
+                // Save the setting for persistence
+                Properties.Settings.Default.Save();
+            }
 
             // Apply the detected language
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Properties.Settings.Default.LanguageSetting);

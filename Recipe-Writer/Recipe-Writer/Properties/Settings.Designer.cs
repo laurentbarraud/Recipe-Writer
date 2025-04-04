@@ -25,7 +25,7 @@ namespace Recipe_Writer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("en")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LanguageSetting {
             get {
                 return ((string)(this["LanguageSetting"]));

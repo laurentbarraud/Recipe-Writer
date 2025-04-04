@@ -48,7 +48,7 @@
             // 
             // lblAppLanguage
             // 
-            this.lblAppLanguage.Location = new System.Drawing.Point(116, 286);
+            this.lblAppLanguage.Location = new System.Drawing.Point(116, 291);
             this.lblAppLanguage.Name = "lblAppLanguage";
             this.lblAppLanguage.Size = new System.Drawing.Size(173, 23);
             this.lblAppLanguage.TabIndex = 4;
@@ -59,9 +59,9 @@
             // 
             this.pictureBox1.BackgroundImage = global::Recipe_Writer.Properties.Resources.app_language;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(116, 346);
+            this.pictureBox1.Location = new System.Drawing.Point(129, 367);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 91);
+            this.pictureBox1.Size = new System.Drawing.Size(148, 71);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -82,10 +82,11 @@
             this.cmbAppLanguage.Items.AddRange(new object[] {
             "anglais",
             "français"});
-            this.cmbAppLanguage.Location = new System.Drawing.Point(116, 313);
+            this.cmbAppLanguage.Location = new System.Drawing.Point(116, 329);
             this.cmbAppLanguage.Name = "cmbAppLanguage";
             this.cmbAppLanguage.Size = new System.Drawing.Size(173, 24);
             this.cmbAppLanguage.TabIndex = 6;
+            this.cmbAppLanguage.SelectedValueChanged += new System.EventHandler(this.cmbAppLanguage_SelectedValueChanged);
             // 
             // frmSettings
             // 
@@ -103,7 +104,7 @@
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "A propos de Recipe-Writer";
-            this.Load += new System.EventHandler(this.frmAbout_Load);
+            this.Load += new System.EventHandler(this.frmSettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
