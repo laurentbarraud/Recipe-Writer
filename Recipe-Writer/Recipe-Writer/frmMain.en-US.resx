@@ -117,257 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;pnlInstructions.Name" xml:space="preserve">
-    <value>pnlInstructions</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblSearchResults.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSearchResults.Text" xml:space="preserve">
+    <value>Search results :</value>
+  </data>
+  <data name="lblPortions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="picSearchByIngredient.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 117</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cmbRecipeIngredients.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="picMealPlanner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 50</value>
-  </data>
-  <data name="&gt;&gt;PlanRecipeOn.Name" xml:space="preserve">
-    <value>PlanRecipeOn</value>
-  </data>
-  <data name="cmdAddInstruction.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblPortions.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cmbRecipeIngredients.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="txtSearchIngredient1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 43</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtSearchIngredient2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient3.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="picInventory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 177</value>
-  </data>
-  <data name="picLowBudget.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 30</value>
-  </data>
-  <data name="&gt;&gt;picSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picRecipe.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;exportThisRecipeToAWebPageToolStripMenuItem.Name" xml:space="preserve">
-    <value>exportThisRecipeToAWebPageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;picScore1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cmdNewRecipe.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;picScore1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="picRecipe.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="cmbRecipeIngredients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 24</value>
-  </data>
-  <data name="&gt;&gt;lblPortions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picSearchByIngredient.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;picInventory.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lblCompletionTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>586, 230</value>
-  </data>
-  <data name="txtSearchIngredient1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 22</value>
-  </data>
-  <data name="txtTitleSearch.MaxLength" type="System.Int32, mscorlib">
-    <value>200</value>
-  </data>
-  <data name="cmdNewRecipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 50</value>
-  </data>
-  <data name="&gt;&gt;picInventory.Name" xml:space="preserve">
-    <value>picInventory</value>
-  </data>
-  <data name="&gt;&gt;lstSearchResults.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="picScore1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;pnlScore.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;dimancheToolStripMenuItem.Name" xml:space="preserve">
-    <value>dimancheToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;picScore3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblSearchByIngredients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 18</value>
-  </data>
-  <data name="cmdTitleSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="picScore2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="pnlSlideMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient2.Name" xml:space="preserve">
-    <value>txtSearchIngredient2</value>
-  </data>
-  <data name="chkFilterRecipesForSmallBudget.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 159</value>
-  </data>
-  <data name="&gt;&gt;nudPersons.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="jeudiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 26</value>
-  </data>
-  <data name="picSettings.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;picMealPlanner.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="newRecipeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
-  </data>
-  <data name="&gt;&gt;saveFileDialog1.Name" xml:space="preserve">
-    <value>saveFileDialog1</value>
-  </data>
-  <data name="lstSearchResults.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="exportThisRecipeToAWebPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
-  </data>
-  <data name="&gt;&gt;deleteIngredientFromThisRecipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="picInventory.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="PlanRecipeOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
-  </data>
-  <data name="lblSearchResults.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient1.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="picRecipeReadyToCookStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="picLowBudget.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="lblSearchByIngredients.Text" xml:space="preserve">
-    <value>Recherche par ingrédients</value>
-  </data>
-  <data name="&gt;&gt;cmbRecipeIngredients.Name" xml:space="preserve">
-    <value>cmbRecipeIngredients</value>
-  </data>
-  <data name="picMealPlanner.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;pnlSlideMenu.Name" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="picSearchByIngredient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 50</value>
-  </data>
-  <data name="exportThisRecipeToAWebPageToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="cmsRecipeResult.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="pnlScore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 30</value>
-  </data>
-  <data name="picSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="chkFilterRecipesForSmallBudget.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 24</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="exportThisRecipeToAWebPageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exporter cette recette en une page web</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient3.Name" xml:space="preserve">
-    <value>lblSearchIngredient3</value>
-  </data>
-  <data name="pnlInstructions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>863, 354</value>
-  </data>
-  <data name="chkFilterRecipesForThreeStars.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7.8pt</value>
-  </data>
-  <data name="lblSearchByIngredients.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="picMealPlanner.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
   <data name="lblPortions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 18</value>
+    <value>63, 18</value>
   </data>
-  <data name="picScore1.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="lblPortions.Text" xml:space="preserve">
+    <value>servings</value>
   </data>
-  <data name="&gt;&gt;cmdNewRecipe.ZOrder" xml:space="preserve">
-    <value>17</value>
+  <data name="lblCompletionTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="editThisRecipesBasicInfosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Modifier les infos de base de la recette</value>
+  <data name="lblCompletionTime.Text" xml:space="preserve">
+    <value>Preparation :</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1033, 651</value>
+  <data name="chkFilterRecipesForThreeStars.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="picScore2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="chkFilterRecipesForThreeStars.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 159</value>
   </data>
-  <data name="&gt;&gt;addIngredientToThisRecipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chkFilterRecipesForThreeStars.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 24</value>
   </data>
   <data name="chkFilterRecipesForThreeStars.Text" xml:space="preserve">
-    <value>3 étoiles</value>
+    <value>3 stars rated</value>
   </data>
-  <data name="txtTitleSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>427, 27</value>
+  <data name="chkFilterRecipesForSmallBudget.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;picSettings.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="chkFilterRecipesForSmallBudget.Text" xml:space="preserve">
+    <value>Low budget</value>
+  </data>
+  <data name="lblSearchByIngredients.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSearchByIngredients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 18</value>
+  </data>
+  <data name="lblSearchByIngredients.Text" xml:space="preserve">
+    <value>Search by ingredients</value>
+  </data>
+  <data name="lblSearchIngredient3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSearchIngredient3.Text" xml:space="preserve">
+    <value>Ingredient #3 :</value>
+  </data>
+  <data name="lblSearchIngredient2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSearchIngredient2.Text" xml:space="preserve">
+    <value>Ingredient #2 :</value>
+  </data>
+  <data name="lblSearchIngredient1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSearchIngredient1.Text" xml:space="preserve">
+    <value>Ingredient #1 :</value>
   </data>
   <data name="cmdIngredientsSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -404,215 +220,70 @@
         AElFTkSuQmCC
 </value>
   </data>
-  <data name="lblPortions.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="chkFilterRecipesForThreeStars.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient2.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="&gt;&gt;ttpRecipeReadyToCookStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlSlideMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picScore3.Parent" xml:space="preserve">
-    <value>pnlScore</value>
-  </data>
-  <data name="chkFilterRecipesForSmallBudget.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="lblSearchIngredient3.Text" xml:space="preserve">
-    <value>Ingrédient #3 :</value>
-  </data>
-  <data name="cmdAddInstruction.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;chkFilterRecipesForSmallBudget.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkFilterRecipesForThreeStars.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
-  </data>
-  <data name="&gt;&gt;txtTitleSearch.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;picRecipeReadyToCookStatus.Name" xml:space="preserve">
-    <value>picRecipeReadyToCookStatus</value>
-  </data>
-  <data name="picSearchByIngredient.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="chkFilterRecipesForThreeStars.Location" type="System.Drawing.Point, System.Drawing">
-    <value>204, 159</value>
-  </data>
-  <data name="picLowBudget.Location" type="System.Drawing.Point, System.Drawing">
-    <value>460, 224</value>
-  </data>
-  <data name="lblSearchIngredient2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="&gt;&gt;lblSearchByIngredients.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblCompletionTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="pnlScore.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="newRecipeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvelle recette</value>
-  </data>
-  <data name="pnlInstructions.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblPortions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblSearchIngredient1.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;cmdTitleSearch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deleteThisRecipeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmMain</value>
-  </data>
-  <data name="picInventory.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;picLowBudget.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="mardiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 26</value>
-  </data>
-  <data name="lblSearchIngredient3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="deleteIngredientFromThisRecipe.Text" xml:space="preserve">
-    <value>Supprimer l'ingrédient sélectionné de cette recette</value>
-  </data>
-  <data name="&gt;&gt;addIngredientToThisRecipe.Name" xml:space="preserve">
-    <value>addIngredientToThisRecipe</value>
-  </data>
-  <data name="&gt;&gt;lblSearchResults.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="picMealPlanner.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 234</value>
-  </data>
-  <data name="&gt;&gt;dimancheToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cmdTitleSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>613, 33</value>
-  </data>
-  <data name="picSearchByIngredient.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="picScore1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="lblSearchResults.Text" xml:space="preserve">
-    <value>Résultats de la recherche :</value>
-  </data>
-  <data name="picRecipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 200</value>
-  </data>
-  <data name="picScore2.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lblSearchIngredient1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="cmbRecipeIngredients.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cmdNewRecipe.Name" xml:space="preserve">
-    <value>cmdNewRecipe</value>
-  </data>
-  <data name="&gt;&gt;pnlScore.Name" xml:space="preserve">
-    <value>pnlScore</value>
-  </data>
-  <data name="&gt;&gt;picSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="picScore1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picMealPlanner.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="picScore3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 26</value>
-  </data>
-  <data name="lblSearchIngredient1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="editThisRecipesBasicInfosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
-  </data>
-  <data name="addIngredientToThisRecipe.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lblPortions.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;exportThisRecipeToAWebPageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picScore2.Parent" xml:space="preserve">
-    <value>pnlScore</value>
-  </data>
-  <data name="lblSearchByIngredients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 9</value>
-  </data>
-  <data name="chkFilterRecipesForSmallBudget.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lblSearchIngredient2.Text" xml:space="preserve">
-    <value>Ingrédient #2 :</value>
-  </data>
-  <data name="&gt;&gt;cmbRecipeIngredients.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="chkFilterRecipesForThreeStars.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 24</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblSearchIngredient3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 110</value>
-  </data>
-  <data name="&gt;&gt;picScore3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cmdIngredientsSearch.Name" xml:space="preserve">
-    <value>cmdIngredientsSearch</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient1.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="lblSearchIngredient3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="picRecipeReadyToCookStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>513, 223</value>
+  <data name="cmdIngredientsSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 204</value>
+  </data>
+  <data name="picScore3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picScore2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picScore1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdTitleSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="cmdTitleSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picMealPlanner.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picSearchByIngredient.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picInventory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="cmdAddInstruction.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -671,412 +342,20 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="&gt;&gt;pnlScore.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="cmdAddInstruction.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="picScore3.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="picLowBudget.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="cmdTitleSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        AElFTkSuQmCC
-</value>
+  <data name="picRecipe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="addIngredientToThisRecipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
+  <data name="cmdNewRecipe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;lblSearchIngredient3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mercrediToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmdTitleSearch.Name" xml:space="preserve">
-    <value>cmdTitleSearch</value>
-  </data>
-  <data name="cmdNewRecipe.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="picSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 50</value>
-  </data>
-  <data name="&gt;&gt;lblCompletionTime.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;lundiToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCompletionTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chkFilterRecipesForThreeStars.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;pnlInstructions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;jeudiToolStripMenuItem.Name" xml:space="preserve">
-    <value>jeudiToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;picScore1.Name" xml:space="preserve">
-    <value>picScore1</value>
-  </data>
-  <data name="&gt;&gt;cmdTitleSearch.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="picScore2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 1</value>
-  </data>
-  <data name="pnlSlideMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 116</value>
-  </data>
-  <data name="lstSearchResults.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="txtSearchIngredient2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 74</value>
-  </data>
-  <data name="&gt;&gt;txtTitleSearch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtTitleSearch.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblSearchIngredient1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtSearchIngredient3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 22</value>
-  </data>
-  <data name="nudPersons.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblPortions.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="vendrediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 26</value>
-  </data>
-  <data name="picSearchByIngredient.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient2.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lblSearchByIngredients.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient3.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="pnlScore.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="pnlScore.Location" type="System.Drawing.Point, System.Drawing">
-    <value>784, 242</value>
-  </data>
-  <data name="pnlInstructions.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtSearchIngredient2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 22</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>414, 6</value>
-  </data>
-  <data name="&gt;&gt;chkFilterRecipesForThreeStars.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cmbRecipeIngredients.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="picLowBudget.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="cmdNewRecipe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 27</value>
-  </data>
-  <data name="lstSearchResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>562, 84</value>
-  </data>
-  <data name="lblSearchIngredient2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmdNewRecipe.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient2.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lstSearchResults.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="cmdIngredientsSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;pnlInstructions.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="samediToolStripMenuItem.Text" xml:space="preserve">
-    <value>Samedi</value>
-  </data>
-  <data name="cmdIngredientsSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
-  </data>
-  <data name="lblSearchByIngredients.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblSearchByIngredients.Name" xml:space="preserve">
-    <value>lblSearchByIngredients</value>
-  </data>
-  <data name="txtTitleSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="cmdAddInstruction.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="cmdAddInstruction.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient1.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="lundiToolStripMenuItem.Text" xml:space="preserve">
-    <value>Lundi</value>
-  </data>
-  <data name="&gt;&gt;picRecipe.Name" xml:space="preserve">
-    <value>picRecipe</value>
-  </data>
-  <data name="cmbRecipeIngredients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>234, 228</value>
-  </data>
-  <data name="PlanRecipeOn.Text" xml:space="preserve">
-    <value>Planifier la recette pour le</value>
-  </data>
-  <data name="txtSearchIngredient3.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;picRecipeReadyToCookStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="deleteIngredientFromThisRecipe.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;chkFilterRecipesForThreeStars.Name" xml:space="preserve">
-    <value>chkFilterRecipesForThreeStars</value>
-  </data>
-  <data name="picRecipe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>784, 38</value>
-  </data>
-  <data name="picRecipe.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="cmdTitleSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblSearchResults.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="lblSearchIngredient2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 78</value>
-  </data>
-  <data name="lblSearchIngredient1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 43</value>
-  </data>
-  <data name="&gt;&gt;cmdAddInstruction.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;ttpRecipeReadyToCookStatus.Name" xml:space="preserve">
-    <value>ttpRecipeReadyToCookStatus</value>
-  </data>
-  <data name="pnlScore.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbRecipeIngredients.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblSearchResults.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="cmdTitleSearch.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="picRecipeReadyToCookStatus.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;chkFilterRecipesForSmallBudget.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtSearchIngredient3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 109</value>
-  </data>
-  <data name="&gt;&gt;chkFilterRecipesForSmallBudget.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="&gt;&gt;lblSearchResults.Name" xml:space="preserve">
-    <value>lblSearchResults</value>
-  </data>
-  <data name="&gt;&gt;picRecipe.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="addIngredientToThisRecipe.Text" xml:space="preserve">
-    <value>Ajouter un ingrédient à cette recette</value>
-  </data>
-  <data name="&gt;&gt;cmdIngredientsSearch.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="picLowBudget.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ofdAssociatedImage.Title" xml:space="preserve">
-    <value>Associer une image d'illustration à cette recette</value>
-  </data>
-  <data name="picRecipe.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="cmdTitleSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
-  </data>
-  <data name="chkFilterRecipesForSmallBudget.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;cmdNewRecipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSearchByIngredients.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="picSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 293</value>
-  </data>
-  <data name="&gt;&gt;picScore3.Name" xml:space="preserve">
-    <value>picScore3</value>
-  </data>
-  <data name="lblCompletionTime.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lblSearchResults.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="&gt;&gt;picRecipeReadyToCookStatus.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;picLowBudget.Name" xml:space="preserve">
-    <value>picLowBudget</value>
-  </data>
-  <data name="&gt;&gt;deleteIngredientFromThisRecipe.Name" xml:space="preserve">
-    <value>deleteIngredientFromThisRecipe</value>
-  </data>
-  <data name="&gt;&gt;ofdAssociatedImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="picScore3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;picScore2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="picMealPlanner.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="PlanRecipeOn.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;vendrediToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chkFilterRecipesForSmallBudget.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;samediToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picSearchByIngredient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ofdAssociatedImage.Name" xml:space="preserve">
-    <value>ofdAssociatedImage</value>
-  </data>
-  <data name="&gt;&gt;picRecipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmsRecipeResult.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="picScore1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 1</value>
-  </data>
-  <data name="jeudiToolStripMenuItem.Text" xml:space="preserve">
-    <value>Jeudi</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudPersons.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;picInventory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="pnlSlideMenu.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lundiToolStripMenuItem.Name" xml:space="preserve">
-    <value>lundiToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;editThisRecipesBasicInfosToolStripMenuItem.Name" xml:space="preserve">
-    <value>editThisRecipesBasicInfosToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmdAddInstruction.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;editThisRecipesBasicInfosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picSearchByIngredient.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="picScore1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="picRecipeReadyToCookStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 35</value>
-  </data>
-  <data name="&gt;&gt;PlanRecipeOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="picRecipeReadyToCookStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2219,430 +1498,4 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="txtSearchIngredient1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;picLowBudget.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="picLowBudget.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="cmdAddInstruction.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient3.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient2.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="cmdIngredientsSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="picScore1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 26</value>
-  </data>
-  <data name="&gt;&gt;jeudiToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="picScore3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 204</value>
-  </data>
-  <data name="&gt;&gt;nudPersons.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;picSettings.Name" xml:space="preserve">
-    <value>picSettings</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="picRecipeReadyToCookStatus.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;cmdTitleSearch.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="lstSearchResults.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;cmdIngredientsSearch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblSearchResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 87</value>
-  </data>
-  <data name="&gt;&gt;picMealPlanner.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblPortions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 231</value>
-  </data>
-  <data name="&gt;&gt;mercrediToolStripMenuItem.Name" xml:space="preserve">
-    <value>mercrediToolStripMenuItem</value>
-  </data>
-  <data name="txtTitleSearch.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="picScore3.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lblCompletionTime.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="samediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 26</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmsRecipeResult.Name" xml:space="preserve">
-    <value>cmsRecipeResult</value>
-  </data>
-  <data name="&gt;&gt;pnlInstructions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cmbRecipeIngredients.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblSearchIngredient3.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;newRecipeToolStripMenuItem.Name" xml:space="preserve">
-    <value>newRecipeToolStripMenuItem</value>
-  </data>
-  <data name="picScore3.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="chkFilterRecipesForThreeStars.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="dimancheToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dimanche</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient3.Name" xml:space="preserve">
-    <value>txtSearchIngredient3</value>
-  </data>
-  <data name="chkFilterRecipesForSmallBudget.Text" xml:space="preserve">
-    <value>Petit budget</value>
-  </data>
-  <data name="nudPersons.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
-  </data>
-  <data name="&gt;&gt;mardiToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblCompletionTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 24</value>
-  </data>
-  <data name="txtTitleSearch.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ofdAssociatedImage.Filter" xml:space="preserve">
-    <value>jpg|*.jpg;*.jpeg|png|*.png|bmp|*.bmp|gif|*.gif|tiff|*.tif;*.tiff|Tous les types d'images|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tif;*.tiff</value>
-  </data>
-  <data name="&gt;&gt;txtTitleSearch.Name" xml:space="preserve">
-    <value>txtTitleSearch</value>
-  </data>
-  <data name="&gt;&gt;lstSearchResults.Name" xml:space="preserve">
-    <value>lstSearchResults</value>
-  </data>
-  <data name="lblSearchResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 28</value>
-  </data>
-  <data name="deleteThisRecipeToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblCompletionTime.Name" xml:space="preserve">
-    <value>lblCompletionTime</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Recipe Writer</value>
-  </data>
-  <data name="&gt;&gt;picMealPlanner.Name" xml:space="preserve">
-    <value>picMealPlanner</value>
-  </data>
-  <data name="nudPersons.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="cmdNewRecipe.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblSearchIngredient1.Text" xml:space="preserve">
-    <value>Ingrédient #1 :</value>
-  </data>
-  <data name="&gt;&gt;picRecipeReadyToCookStatus.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;lblSearchResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmdAddInstruction.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblSearchByIngredients.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lblPortions.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;nudPersons.Name" xml:space="preserve">
-    <value>nudPersons</value>
-  </data>
-  <data name="chkFilterRecipesForSmallBudget.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7.8pt</value>
-  </data>
-  <data name="cmsRecipeResult.Size" type="System.Drawing.Size, System.Drawing">
-    <value>418, 192</value>
-  </data>
-  <data name="dimancheToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 26</value>
-  </data>
-  <data name="picScore2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 26</value>
-  </data>
-  <data name="cmdNewRecipe.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="picScore2.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;samediToolStripMenuItem.Name" xml:space="preserve">
-    <value>samediToolStripMenuItem</value>
-  </data>
-  <data name="lblCompletionTime.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="mardiToolStripMenuItem.Text" xml:space="preserve">
-    <value>Mardi</value>
-  </data>
-  <data name="&gt;&gt;deleteThisRecipeToolStripMenuItem.Name" xml:space="preserve">
-    <value>deleteThisRecipeToolStripMenuItem</value>
-  </data>
-  <data name="picInventory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 50</value>
-  </data>
-  <data name="txtSearchIngredient1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="cmdAddInstruction.Location" type="System.Drawing.Point, System.Drawing">
-    <value>972, 595</value>
-  </data>
-  <data name="&gt;&gt;pnlSlideMenu.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;newRecipeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picScore2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="picScore3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 1</value>
-  </data>
-  <data name="cmdIngredientsSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 143</value>
-  </data>
-  <data name="&gt;&gt;mardiToolStripMenuItem.Name" xml:space="preserve">
-    <value>mardiToolStripMenuItem</value>
-  </data>
-  <data name="lblSearchIngredient2.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="pnlInstructions.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="picRecipe.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;picScore1.Parent" xml:space="preserve">
-    <value>pnlScore</value>
-  </data>
-  <data name="&gt;&gt;lblPortions.Name" xml:space="preserve">
-    <value>lblPortions</value>
-  </data>
-  <data name="lblPortions.Text" xml:space="preserve">
-    <value>portions</value>
-  </data>
-  <data name="lblSearchIngredient2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;picSearchByIngredient.Name" xml:space="preserve">
-    <value>picSearchByIngredient</value>
-  </data>
-  <data name="picSettings.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;cmdAddInstruction.Name" xml:space="preserve">
-    <value>cmdAddInstruction</value>
-  </data>
-  <data name="&gt;&gt;lblSearchByIngredients.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="nudPersons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 224</value>
-  </data>
-  <data name="&gt;&gt;picInventory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblSearchIngredient3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSearchIngredient3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 18</value>
-  </data>
-  <data name="&gt;&gt;picScore2.Name" xml:space="preserve">
-    <value>picScore2</value>
-  </data>
-  <data name="cmdTitleSearch.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient3.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="&gt;&gt;pnlScore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picLowBudget.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="nudPersons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 27</value>
-  </data>
-  <data name="lblSearchIngredient2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 18</value>
-  </data>
-  <data name="lblSearchIngredient1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 18</value>
-  </data>
-  <data name="&gt;&gt;cmdIngredientsSearch.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="&gt;&gt;lstSearchResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="deleteThisRecipeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
-  </data>
-  <data name="&gt;&gt;lblCompletionTime.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lstSearchResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 117</value>
-  </data>
-  <data name="txtSearchIngredient3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;chkFilterRecipesForThreeStars.Parent" xml:space="preserve">
-    <value>pnlSlideMenu</value>
-  </data>
-  <data name="mercrediToolStripMenuItem.Text" xml:space="preserve">
-    <value>Mercredi</value>
-  </data>
-  <data name="&gt;&gt;vendrediToolStripMenuItem.Name" xml:space="preserve">
-    <value>vendrediToolStripMenuItem</value>
-  </data>
-  <data name="picScore2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="pnlSlideMenu.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmdIngredientsSearch.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="vendrediToolStripMenuItem.Text" xml:space="preserve">
-    <value>Vendredi</value>
-  </data>
-  <data name="&gt;&gt;cmdNewRecipe.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="picInventory.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="lundiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 26</value>
-  </data>
-  <data name="pnlInstructions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 276</value>
-  </data>
-  <data name="txtSearchIngredient2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient2.Name" xml:space="preserve">
-    <value>lblSearchIngredient2</value>
-  </data>
-  <data name="txtTitleSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 39</value>
-  </data>
-  <data name="deleteThisRecipeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Supprimer cette recette</value>
-  </data>
-  <data name="&gt;&gt;saveFileDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cmdAddInstruction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 35</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="deleteIngredientFromThisRecipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
-  </data>
-  <data name="editThisRecipesBasicInfosToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="nudPersons.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lblCompletionTime.Text" xml:space="preserve">
-    <value>Préparation :</value>
-  </data>
-  <data name="lblPortions.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="&gt;&gt;chkFilterRecipesForSmallBudget.Name" xml:space="preserve">
-    <value>chkFilterRecipesForSmallBudget</value>
-  </data>
-  <data name="&gt;&gt;txtSearchIngredient1.Name" xml:space="preserve">
-    <value>txtSearchIngredient1</value>
-  </data>
-  <data name="cmdIngredientsSearch.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;lblSearchIngredient1.Name" xml:space="preserve">
-    <value>lblSearchIngredient1</value>
-  </data>
-  <data name="&gt;&gt;pnlSlideMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="mercrediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 26</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>197, 23</value>
-  </metadata>
-  <metadata name="cmsRecipeResult.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>366, 17</value>
-  </metadata>
-  <metadata name="ofdAssociatedImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>4, 17</value>
-  </metadata>
-  <metadata name="ttpRecipeReadyToCookStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>537, 17</value>
-  </metadata>
 </root>

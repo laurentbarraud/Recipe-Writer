@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewInstruction));
             this.lblNewInstruction = new System.Windows.Forms.Label();
             this.txtNewInstruction = new System.Windows.Forms.TextBox();
             this.cmdValidate = new System.Windows.Forms.Button();
@@ -36,58 +37,39 @@
             // 
             // lblNewInstruction
             // 
-            this.lblNewInstruction.AutoSize = true;
-            this.lblNewInstruction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewInstruction.Location = new System.Drawing.Point(29, 28);
+            resources.ApplyResources(this.lblNewInstruction, "lblNewInstruction");
             this.lblNewInstruction.Name = "lblNewInstruction";
-            this.lblNewInstruction.Size = new System.Drawing.Size(88, 18);
-            this.lblNewInstruction.TabIndex = 3;
-            this.lblNewInstruction.Text = "Instruction : ";
-            this.lblNewInstruction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtNewInstruction
             // 
-            this.txtNewInstruction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewInstruction.Location = new System.Drawing.Point(32, 71);
-            this.txtNewInstruction.Multiline = true;
+            resources.ApplyResources(this.txtNewInstruction, "txtNewInstruction");
             this.txtNewInstruction.Name = "txtNewInstruction";
-            this.txtNewInstruction.Size = new System.Drawing.Size(432, 71);
-            this.txtNewInstruction.TabIndex = 0;
             // 
             // cmdValidate
             // 
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
-            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(420, 173);
             this.cmdValidate.Name = "cmdValidate";
-            this.cmdValidate.Size = new System.Drawing.Size(34, 32);
-            this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // cmdCancel
             // 
+            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
-            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancel.Location = new System.Drawing.Point(365, 173);
             this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(34, 32);
-            this.cmdCancel.TabIndex = 1;
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // frmNewInstruction
             // 
             this.AcceptButton = this.cmdValidate;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
-            this.ClientSize = new System.Drawing.Size(493, 224);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewInstruction);
@@ -96,8 +78,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewInstruction";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ajout d\'une nouvelle instruction à la recette";
             this.Move += new System.EventHandler(this.frmNewInstruction_Move);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,7 +1,7 @@
 ﻿/// <file>frmNewIngredient.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>March 28th 2025</date>
+/// <date>April 5th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -52,9 +52,25 @@ namespace Recipe_Writer
 
             int idNewIngredient = _frmMain.dbConn.ReadIdForAnIngredientName(formattedIngredientName);
 
-            _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, idNewIngredient);
+            if (_frmMain._currentDisplayedRecipe.IngredientsList.Count < 20)
+            {
+                try
+                {
+                    _frmMain.dbConn.AddNewIngredientToRecipe(_frmMain._currentDisplayedRecipe.Id, idNewIngredient);
+                }
 
-            _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur pendant l'ajout de l'ingrédient à la recette : {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Nombre maximum d'ingrédients pour la recette atteint.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+                _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
 
             this.Close();
         }

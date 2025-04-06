@@ -28,71 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.lblInfosLicence = new System.Windows.Forms.Label();
             this.lblAppLanguage = new System.Windows.Forms.Label();
+            this.cmbAppLanguage = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.cmbAppLanguage = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInfosLicence
             // 
+            resources.ApplyResources(this.lblInfosLicence, "lblInfosLicence");
             this.lblInfosLicence.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblInfosLicence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfosLicence.Location = new System.Drawing.Point(13, 30);
             this.lblInfosLicence.Name = "lblInfosLicence";
-            this.lblInfosLicence.Size = new System.Drawing.Size(388, 234);
-            this.lblInfosLicence.TabIndex = 3;
-            this.lblInfosLicence.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAppLanguage
             // 
-            this.lblAppLanguage.Location = new System.Drawing.Point(116, 291);
+            resources.ApplyResources(this.lblAppLanguage, "lblAppLanguage");
             this.lblAppLanguage.Name = "lblAppLanguage";
-            this.lblAppLanguage.Size = new System.Drawing.Size(173, 23);
-            this.lblAppLanguage.TabIndex = 4;
-            this.lblAppLanguage.Text = "Langue de l\'application :";
-            this.lblAppLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cmbAppLanguage
+            // 
+            resources.ApplyResources(this.cmbAppLanguage, "cmbAppLanguage");
+            this.cmbAppLanguage.FormattingEnabled = true;
+            this.cmbAppLanguage.Items.AddRange(new object[] {
+            resources.GetString("cmbAppLanguage.Items"),
+            resources.GetString("cmbAppLanguage.Items1")});
+            this.cmbAppLanguage.Name = "cmbAppLanguage";
+            this.cmbAppLanguage.SelectedValueChanged += new System.EventHandler(this.cmbAppLanguage_SelectedValueChanged);
             // 
             // pictureBox1
             // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.BackgroundImage = global::Recipe_Writer.Properties.Resources.app_language;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(129, 367);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 71);
-            this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // cmdValidate
             // 
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdValidate.Location = new System.Drawing.Point(339, 376);
             this.cmdValidate.Name = "cmdValidate";
-            this.cmdValidate.Size = new System.Drawing.Size(44, 43);
-            this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
-            // cmbAppLanguage
-            // 
-            this.cmbAppLanguage.FormattingEnabled = true;
-            this.cmbAppLanguage.Items.AddRange(new object[] {
-            "anglais",
-            "français"});
-            this.cmbAppLanguage.Location = new System.Drawing.Point(116, 329);
-            this.cmbAppLanguage.Name = "cmbAppLanguage";
-            this.cmbAppLanguage.Size = new System.Drawing.Size(173, 24);
-            this.cmbAppLanguage.TabIndex = 6;
-            this.cmbAppLanguage.SelectedValueChanged += new System.EventHandler(this.cmbAppLanguage_SelectedValueChanged);
-            // 
             // frmSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 450);
             this.Controls.Add(this.cmbAppLanguage);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblAppLanguage);
@@ -102,8 +86,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSettings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "A propos de Recipe-Writer";
             this.Load += new System.EventHandler(this.frmSettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -117,4 +117,262 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblRecipeTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="chkLowBudget.Location" type="System.Drawing.Point, System.Drawing">
+    <value>254, 161</value>
+  </data>
+  <data name="&gt;&gt;lblRecipeCompletionTime.Name" xml:space="preserve">
+    <value>lblRecipeCompletionTime</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtRecipeTitleToEdit.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdCancel.Name" xml:space="preserve">
+    <value>cmdCancel</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cmdValidate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;lblRecipeTitle.Name" xml:space="preserve">
+    <value>lblRecipeTitle</value>
+  </data>
+  <data name="&gt;&gt;chkLowBudget.Name" xml:space="preserve">
+    <value>chkLowBudget</value>
+  </data>
+  <data name="&gt;&gt;chkLowBudget.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblRecipeCompletionTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblRecipeCompletionTime.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeTitleToEdit.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblRecipeTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkLowBudget.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeTitleToEdit.Name" xml:space="preserve">
+    <value>txtRecipeTitleToEdit</value>
+  </data>
+  <data name="lblRecipeTitle.Text" xml:space="preserve">
+    <value>Titre :</value>
+  </data>
+  <data name="chkLowBudget.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 24</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeTitleToEdit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdValidate.Name" xml:space="preserve">
+    <value>cmdValidate</value>
+  </data>
+  <data name="&gt;&gt;lblMinutes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkLowBudget.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="&gt;&gt;chkLowBudget.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblRecipeCompletionTime.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblRecipeCompletionTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 109</value>
+  </data>
+  <data name="txtRecipeTitleToEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 50</value>
+  </data>
+  <data name="lblMinutes.Text" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="lblRecipeTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 54</value>
+  </data>
+  <data name="chkLowBudget.Text" xml:space="preserve">
+    <value>Pour petit budget</value>
+  </data>
+  <data name="&gt;&gt;cmdCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblRecipeTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 18</value>
+  </data>
+  <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>408, 218</value>
+  </data>
+  <data name="lblMinutes.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="txtRecipeTitleToEdit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblRecipeCompletionTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 21</value>
+  </data>
+  <data name="txtRecipeTitleToEdit.MaxLength" type="System.Int32, mscorlib">
+    <value>500</value>
+  </data>
+  <data name="txtRecipeTitleToEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblMinutes.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;cmdValidate.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtRecipeCompletionTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>311, 106</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeCompletionTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Modifier les infos de base de la recette</value>
+  </data>
+  <data name="&gt;&gt;cmdValidate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkLowBudget.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="cmdCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 32</value>
+  </data>
+  <data name="txtRecipeCompletionTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="cmdValidate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="txtRecipeCompletionTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 24</value>
+  </data>
+  <data name="&gt;&gt;chkLowBudget.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblMinutes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblRecipeCompletionTime.Text" xml:space="preserve">
+    <value>Temps de réalisation :</value>
+  </data>
+  <data name="lblRecipeTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="cmdCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cmdValidate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>493, 267</value>
+  </data>
+  <data name="chkLowBudget.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="lblMinutes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 18</value>
+  </data>
+  <data name="&gt;&gt;cmdCancel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="cmdCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 218</value>
+  </data>
+  <data name="&gt;&gt;lblRecipeCompletionTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeCompletionTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblMinutes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>384, 110</value>
+  </data>
+  <data name="cmdCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 32</value>
+  </data>
+  <data name="&gt;&gt;lblMinutes.Name" xml:space="preserve">
+    <value>lblMinutes</value>
+  </data>
+  <data name="&gt;&gt;lblRecipeTitle.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cmdCancel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmEditRecipeBasicInfos</value>
+  </data>
+  <data name="txtRecipeCompletionTime.MaxLength" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cmdValidate.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeCompletionTime.Name" xml:space="preserve">
+    <value>txtRecipeCompletionTime</value>
+  </data>
+  <data name="&gt;&gt;lblMinutes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblRecipeCompletionTime.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeCompletionTime.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblRecipeCompletionTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="&gt;&gt;lblMinutes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblRecipeTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeTitleToEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtRecipeCompletionTime.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblRecipeTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="txtRecipeTitleToEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>349, 24</value>
+  </data>
+  <data name="&gt;&gt;cmdCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

@@ -137,6 +137,39 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Recipes.cs" />
+    <EmbeddedResource Include="frmAddNewIngredientToRecipe.en-US.resx">
+      <DependentUpon>frmAddNewIngredientToRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddNewIngredientToTheDB.en-US.resx">
+      <DependentUpon>frmAddNewIngredientToTheDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditIngredientName.en-US.resx">
+      <DependentUpon>frmEditIngredientName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditRecipeBasicInfos.en-US.resx">
+      <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventory.en-US.resx">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.en-US.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMealPlanner.en-US.resx">
+      <DependentUpon>frmMealPlanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewImagePath.en-US.resx">
+      <DependentUpon>frmNewImagePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewInstruction.en-US.resx">
+      <DependentUpon>frmNewInstruction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewRecipeBasicInfosInput.en-US.resx">
+      <DependentUpon>frmNewRecipeBasicInfosInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.en-US.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>

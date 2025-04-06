@@ -117,142 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;cmdValidate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblNewInstruction.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>493, 224</value>
-  </data>
-  <data name="cmdCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 32</value>
-  </data>
-  <data name="&gt;&gt;cmdValidate.Name" xml:space="preserve">
-    <value>cmdValidate</value>
-  </data>
-  <data name="&gt;&gt;cmdCancel.Name" xml:space="preserve">
-    <value>cmdCancel</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cmdValidate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="lblRecipeTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="txtNewInstruction.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 71</value>
+  <data name="lblRecipeTitle.Text" xml:space="preserve">
+    <value>Title :</value>
   </data>
-  <data name="&gt;&gt;lblNewInstruction.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chkLowBudget.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="cmdValidate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="chkLowBudget.Text" xml:space="preserve">
+    <value>For low budget</value>
   </data>
-  <data name="lblNewInstruction.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 28</value>
+  <data name="lblMinutes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="txtNewInstruction.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lblRecipeCompletionTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="lblNewInstruction.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="lblRecipeCompletionTime.Text" xml:space="preserve">
+    <value>Time to complete :</value>
   </data>
-  <data name="&gt;&gt;lblNewInstruction.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="cmdCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdValidate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Ajouter une nouvelle instruction à la recette</value>
+    <value>Edit basic recipe information</value>
   </data>
-  <data name="&gt;&gt;lblNewInstruction.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmNewInstruction</value>
-  </data>
-  <data name="&gt;&gt;lblNewInstruction.Name" xml:space="preserve">
-    <value>lblNewInstruction</value>
-  </data>
-  <data name="cmdCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 173</value>
-  </data>
-  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 32</value>
-  </data>
-  <data name="lblNewInstruction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 18</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtNewInstruction.Name" xml:space="preserve">
-    <value>txtNewInstruction</value>
-  </data>
-  <data name="&gt;&gt;txtNewInstruction.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="txtNewInstruction.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="&gt;&gt;cmdCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtNewInstruction.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblNewInstruction.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;cmdCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblNewInstruction.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="cmdCancel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>420, 173</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;txtNewInstruction.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblNewInstruction.Text" xml:space="preserve">
-    <value>Instruction : </value>
-  </data>
-  <data name="cmdValidate.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="txtNewInstruction.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cmdValidate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="cmdCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="txtNewInstruction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 71</value>
-  </data>
-  <data name="&gt;&gt;cmdCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="cmdCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cmdValidate.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

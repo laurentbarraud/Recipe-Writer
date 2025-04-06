@@ -28,65 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewImagePath));
             this.txtNewImagePath = new System.Windows.Forms.TextBox();
+            this.lblNewImagePath = new System.Windows.Forms.Label();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
-            this.lblNewImagePath = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNewImagePath
             // 
-            this.txtNewImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewImagePath.Location = new System.Drawing.Point(41, 80);
+            resources.ApplyResources(this.txtNewImagePath, "txtNewImagePath");
             this.txtNewImagePath.Name = "txtNewImagePath";
-            this.txtNewImagePath.Size = new System.Drawing.Size(349, 24);
-            this.txtNewImagePath.TabIndex = 0;
+            // 
+            // lblNewImagePath
+            // 
+            resources.ApplyResources(this.lblNewImagePath, "lblNewImagePath");
+            this.lblNewImagePath.Name = "lblNewImagePath";
             // 
             // cmdValidate
             // 
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
-            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(424, 129);
             this.cmdValidate.Name = "cmdValidate";
-            this.cmdValidate.Size = new System.Drawing.Size(34, 32);
-            this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // cmdCancel
             // 
+            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
-            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancel.Location = new System.Drawing.Point(369, 129);
             this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(34, 32);
-            this.cmdCancel.TabIndex = 1;
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
-            // 
-            // lblNewImagePath
-            // 
-            this.lblNewImagePath.AutoSize = true;
-            this.lblNewImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewImagePath.Location = new System.Drawing.Point(38, 36);
-            this.lblNewImagePath.Name = "lblNewImagePath";
-            this.lblNewImagePath.Size = new System.Drawing.Size(236, 18);
-            this.lblNewImagePath.TabIndex = 5;
-            this.lblNewImagePath.Text = "Nom de fichier à donner à l\'image :";
-            this.lblNewImagePath.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmNewImagePath
             // 
             this.AcceptButton = this.cmdValidate;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
-            this.ClientSize = new System.Drawing.Size(493, 185);
             this.Controls.Add(this.lblNewImagePath);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
@@ -95,8 +78,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewImagePath";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Entrer un nom pour le fichier de l\'image d\'illustration";
             this.Move += new System.EventHandler(this.frmNewImagePath_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
