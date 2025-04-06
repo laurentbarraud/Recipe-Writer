@@ -61,19 +61,19 @@ namespace Recipe_Writer
                 // If the user hasn't input a number in the textbox
                 else if (!int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
                 {
-                    MessageBox.Show("Vous devez saisir un nombre valide pour le temps de réalisation de la nouvelle recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(strings.ErrorMustEnterValidNumberForTimeCompletion, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 // If the user hasn't input a completion time for the new recipe
                 else if (txtNewRecipeCompletionTime.Text == "")
                 {
-                    MessageBox.Show("Vous devez saisir un temps de réalisation pour la nouvelle recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(strings.ErrorMustEnterACompletionTime, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             // If the user hasn't input a title for the new recipe
             else if (txtNewRecipeTitle.Text == "")
             {
-                MessageBox.Show("Vous devez saisir un titre pour la nouvelle recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(strings.ErrorMustEnterATitle, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

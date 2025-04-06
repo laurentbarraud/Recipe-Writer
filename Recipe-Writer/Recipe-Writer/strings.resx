@@ -142,7 +142,7 @@
     <value>New ingredient inserted into base.</value>
   </data>
   <data name="ErrorMustEnterACompletionTime" xml:space="preserve">
-    <value>Please enter a completion time for the recipe</value>
+    <value>Please enter a completion time for the recipe.</value>
   </data>
   <data name="ErrorMustEnterATitle" xml:space="preserve">
     <value>Please enter a title for the recipe</value>
@@ -206,5 +206,26 @@
   </data>
   <data name="ConfirmKeepOldImageFile" xml:space="preserve">
     <value>Keep the old image file ?</value>
+  </data>
+  <data name="ErrorMustEnterATitleForNewRecipe" xml:space="preserve">
+    <value>Please enter a title for the new recipe.</value>
+  </data>
+  <data name="LicenceInfo1" xml:space="preserve">
+    <value>This software uses a SQLite database for data management.</value>
+  </data>
+  <data name="LicenceInfo2" xml:space="preserve">
+    <value>It was developed as part of a project to replace work at the end of an apprenticeship.</value>
+  </data>
+  <data name="LicenceInfo3" xml:space="preserve">
+    <value>It is licensed to you under the GNU License.</value>
+  </data>
+  <data name="LicenceInfo4" xml:space="preserve">
+    <value>Please contact me for any improvements or bug reports.</value>
+  </data>
+  <data name="LicenceVersion" xml:space="preserve">
+    <value>Version 1.1 - April 2025</value>
+  </data>
+  <data name="LicenceAuthor" xml:space="preserve">
+    <value>Created by Laurent Barraud</value>
   </data>
 </root>

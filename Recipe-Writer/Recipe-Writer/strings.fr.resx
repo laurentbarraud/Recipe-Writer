@@ -145,7 +145,7 @@
     <value>Veuillez saisir un temps de réalisation pour la recette.</value>
   </data>
   <data name="ErrorMustEnterATitle" xml:space="preserve">
-    <value>Veuiller saisir un titre pour la recette</value>
+    <value>Veuillez saisir un titre pour la recette.</value>
   </data>
   <data name="ConfirmDeleteIngredientFromDB" xml:space="preserve">
     <value>Supprimer définitivement cet ingrédient ?</value>
@@ -202,9 +202,30 @@
     <value>Déduction de l'inventaire</value>
   </data>
   <data name="ErrorMustUseOnlyLettersForTheFileName" xml:space="preserve">
-    <value />
+    <value>Veuillez utiliser uniquement les lettres de A à Z sans accents, tirets, traits de soulignement ou chiffres pour le nom du fichier.</value>
   </data>
   <data name="ConfirmKeepOldImageFile" xml:space="preserve">
     <value>Conserver le fichier de l'ancienne image ?</value>
+  </data>
+  <data name="ErrorMustEnterATitleForNewRecipe" xml:space="preserve">
+    <value>Veuillez saisir un titre pour la nouvelle recette.</value>
+  </data>
+  <data name="LicenceInfo1" xml:space="preserve">
+    <value>Ce logiciel utilise pour la gestion des données une base de données SQLite.</value>
+  </data>
+  <data name="LicenceInfo2" xml:space="preserve">
+    <value>Il a été développé dans le cadre d'un projet de remplacement de travail de fin d'apprentissage.</value>
+  </data>
+  <data name="LicenceInfo3" xml:space="preserve">
+    <value>Il vous est accordé sous licence GNU.</value>
+  </data>
+  <data name="LicenceInfo4" xml:space="preserve">
+    <value>Merci de me contacter pour toute amélioration ou signalement de bug.</value>
+  </data>
+  <data name="LicenceVersion" xml:space="preserve">
+    <value>Version 1.1 - Avril 2025</value>
+  </data>
+  <data name="LicenceAuthor" xml:space="preserve">
+    <value>Créé par Laurent Barraud</value>
   </data>
 </root>

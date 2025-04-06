@@ -205,7 +205,7 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Please enter a completion time for the recipe.
+        ///   Recherche une chaîne localisée semblable à Please enter a completion time for the recipe..
         /// </summary>
         internal static string ErrorMustEnterACompletionTime {
             get {
@@ -219,6 +219,15 @@ namespace Recipe_Writer {
         internal static string ErrorMustEnterATitle {
             get {
                 return ResourceManager.GetString("ErrorMustEnterATitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please enter a title for the new recipe..
+        /// </summary>
+        internal static string ErrorMustEnterATitleForNewRecipe {
+            get {
+                return ResourceManager.GetString("ErrorMustEnterATitleForNewRecipe", resourceCulture);
             }
         }
         
@@ -282,6 +291,60 @@ namespace Recipe_Writer {
         internal static string InfoRecipeExported {
             get {
                 return ResourceManager.GetString("InfoRecipeExported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Created by Laurent Barraud.
+        /// </summary>
+        internal static string LicenceAuthor {
+            get {
+                return ResourceManager.GetString("LicenceAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à This software uses a SQLite database for data management..
+        /// </summary>
+        internal static string LicenceInfo1 {
+            get {
+                return ResourceManager.GetString("LicenceInfo1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à It was developed as part of a project to replace work at the end of an apprenticeship..
+        /// </summary>
+        internal static string LicenceInfo2 {
+            get {
+                return ResourceManager.GetString("LicenceInfo2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à It is licensed to you under the GNU License..
+        /// </summary>
+        internal static string LicenceInfo3 {
+            get {
+                return ResourceManager.GetString("LicenceInfo3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please contact me for any improvements or bug reports..
+        /// </summary>
+        internal static string LicenceInfo4 {
+            get {
+                return ResourceManager.GetString("LicenceInfo4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Version 1.1 - April 2025.
+        /// </summary>
+        internal static string LicenceVersion {
+            get {
+                return ResourceManager.GetString("LicenceVersion", resourceCulture);
             }
         }
         

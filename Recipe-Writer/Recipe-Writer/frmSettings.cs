@@ -38,11 +38,11 @@ namespace Recipe_Writer
                 cmbAppLanguage.SelectedItem = "English";
             }
 
-            lblInfosLicence.Text = "Ce logiciel utilise pour la gestion des données une base de données SQLite." +
-                "\r\n\r\nIl a été développé dans le cadre d'un projet de remplacement de travail de fin d'apprentissage." +
-                "\r\nIl vous est accordé sous licence GNU." +
-                "\r\n\r\nMerci de me contacter pour toute amélioration ou signalement de bug.\n" +
-                "\r\n\r\n\r\nVersion 1.1 - Avril 2025\nCréé par Laurent Barraud";
+            lblInfosLicence.Text = strings.LicenceInfo1 +
+                "\r\n\r\n" + strings.LicenceInfo2 +
+                "\r\n" + strings.LicenceInfo3 +
+                "\r\n\r\n" + strings.LicenceInfo4 + "\n" +
+                "\r\n\r\n\r\n" + strings.LicenceVersion + "\n" + strings.LicenceAuthor;
         }
         private void cmbAppLanguage_SelectedValueChanged(object sender, EventArgs e)
         {
