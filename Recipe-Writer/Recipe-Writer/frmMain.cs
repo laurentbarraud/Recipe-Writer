@@ -335,8 +335,8 @@ namespace Recipe_Writer
                 Button cmdDeleteInstruction = new Button();
                 cmdDeleteInstruction.Click += (object sender_here, EventArgs e_here) =>
                 {
-                    var confirmResult = MessageBox.Show("Etes-vous sûr(e) de vouloir supprimer l'instruction ?",
-                    "Confirmer la suppression.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    var confirmResult = MessageBox.Show(strings.ConfirmDeleteInstruction,
+                    strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (confirmResult == DialogResult.Yes)
                     {
@@ -405,14 +405,14 @@ namespace Recipe_Writer
 
             else
             {
-                MessageBox.Show("Aucun ingrédient n'a été sélectionné", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(strings.ErrorNoIngredientSelected, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void deleteThisRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Etes-vous sûr(e) de vouloir supprimer la recette affichée ?",
-                "Confirmer la suppression.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirmResult = MessageBox.Show(strings.ConfirmDeleteDisplayedRecipeFromDB,
+                strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
             {
@@ -462,7 +462,7 @@ namespace Recipe_Writer
 
             // --- Completion time
             lblCompletionTime.Text = "";
-            lblCompletionTime.Text += "Préparation : " + _currentDisplayedRecipe.CompletionTime + " min.";
+            lblCompletionTime.Text += strings.Preparation + _currentDisplayedRecipe.CompletionTime + " min.";
 
             // --- Low budget status
             if (_currentDisplayedRecipe.LowBudget == 1)
@@ -479,7 +479,7 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
 
             cmbRecipeIngredients.Items.Clear();
-            cmbRecipeIngredients.Items.Add("Ingrédients nécessaires");
+            cmbRecipeIngredients.Items.Add(strings.NecessaryIngredients);
 
             // Adds each ingredients list item as a new item in the ingredients comboBo
             foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
@@ -682,11 +682,11 @@ namespace Recipe_Writer
                     // Writes the generated HTML to the selected file.
                     File.WriteAllText(saveFileDialog1.FileName, stringBuilder.ToString());
 
-                    MessageBox.Show("La recette a été exportée avec succès !", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(strings.InfoRecipeExported, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur lors de l'exportation : " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(string.Format(strings.ErrorExport, ex.Message), strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -761,7 +761,7 @@ namespace Recipe_Writer
 
         /// <summary>
         /// Allows the user to drag and drop the selected recipe title
-        /// Source: https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/walkthrough-performing-a-drag-and-drop-operation-in-windows-forms
+        /// Adapted from this reference : https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/walkthrough-performing-a-drag-and-drop-operation-in-windows-forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -955,7 +955,7 @@ namespace Recipe_Writer
 
         private void picRecipeReadyToCookStatus_MouseHover(object sender, EventArgs e)
         {
-            ttpRecipeReadyToCookStatus.Show("Indique si vous avez assez d'ingrédients pour faire la recette.", picRecipeReadyToCookStatus);
+            ttpRecipeReadyToCookStatus.Show(strings.ToolTipRecipeReadyToCookStatusText, picRecipeReadyToCookStatus);
         }
 
         private void picScore1_Click(object sender, EventArgs e)

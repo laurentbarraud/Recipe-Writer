@@ -171,4 +171,40 @@
   <data name="ErrorMustEnterAtLeastOneIngredient" xml:space="preserve">
     <value>Please enter at least one ingredient.</value>
   </data>
+  <data name="ConfirmDeleteInstruction" xml:space="preserve">
+    <value>Really delete the instruction ?</value>
+  </data>
+  <data name="ErrorNoIngredientSelected" xml:space="preserve">
+    <value>No ingredient was selected</value>
+  </data>
+  <data name="ConfirmDeleteDisplayedRecipeFromDB" xml:space="preserve">
+    <value>Really delete the displayed recipe?</value>
+  </data>
+  <data name="Preparation" xml:space="preserve">
+    <value>Preparation : </value>
+  </data>
+  <data name="NecessaryIngredients" xml:space="preserve">
+    <value>Necessary ingredients</value>
+  </data>
+  <data name="InfoRecipeExported" xml:space="preserve">
+    <value>The recipe has been successfully exported !</value>
+  </data>
+  <data name="ErrorExport" xml:space="preserve">
+    <value>Error during export : {0}</value>
+  </data>
+  <data name="ToolTipRecipeReadyToCookStatusText" xml:space="preserve">
+    <value>Indicates if you have enough ingredients to make the recipe.</value>
+  </data>
+  <data name="InfoAmountOfIngredientsNeededDeducted" xml:space="preserve">
+    <value>The amount of ingredients needed to make this recipe has been deducted.</value>
+  </data>
+  <data name="DeductionFromInventory" xml:space="preserve">
+    <value>Deduction from inventory</value>
+  </data>
+  <data name="ErrorMustUseOnlyLettersForTheFileName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConfirmKeepOldImageFile" xml:space="preserve">
+    <value>Keep the old image file ?</value>
+  </data>
 </root>

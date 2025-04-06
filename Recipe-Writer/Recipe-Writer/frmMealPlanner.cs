@@ -252,7 +252,7 @@ namespace Recipe_Writer
                 _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientToDeduct.Id, ingredientToDeduct.QtyAvailable);
             }
 
-            MessageBox.Show("Les quantités d'ingrédients nécessaires pour faire cette recette ont été déduits.", "Déduction de l'inventaire");
+            MessageBox.Show(strings.InfoAmountOfIngredientsNeededDeducted, strings.DeductionFromInventory, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void lblMondayRecipe_DoubleClick(object sender, EventArgs e)

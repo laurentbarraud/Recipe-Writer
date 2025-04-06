@@ -45,26 +45,41 @@ namespace Recipe_Writer
         {
             try
             {
-                // Vérification que l'instruction n'est pas vide
+                // Ensure the instruction is not empty
                 if (string.IsNullOrWhiteSpace(txtNewInstruction.Text))
                 {
-                    MessageBox.Show(strings.ErrorEmptyFields, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowError(strings.ErrorEmptyFields);
                     return;
                 }
 
-                // Adding the instruction with secure parameters
-                AddInstructionToRecipe(txtNewInstruction.Text.Trim());
+                // Escape apostrophes before saving
+                string formattedText = txtNewInstruction.Text.Trim().Replace("'", "''");
 
-                // Recipe info refresh
+                // Add the instruction securely
+                AddInstructionToRecipe(formattedText);
+
+                // Refresh recipe information
                 _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
-
-                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format(strings.ErrorIngredientInsert, ex.Message), strings.ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowError(string.Format(strings.ErrorIngredientInsert, ex.Message));
+            }
+            finally
+            {
+                // Close the form whether an error occurred or not
+                this.Close();
             }
         }
+
+        /// <summary>
+        /// Displays an error message using MessageBox.
+        /// </summary>
+        private void ShowError(string message)
+        {
+            MessageBox.Show(message, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
 
         // Separate method to make the addition clearer and more secure
         private void AddInstructionToRecipe(string instruction)

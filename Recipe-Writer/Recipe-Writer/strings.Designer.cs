@@ -70,6 +70,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Really delete the displayed recipe?.
+        /// </summary>
+        internal static string ConfirmDeleteDisplayedRecipeFromDB {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteDisplayedRecipeFromDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Remove this ingredient definitely ?.
         /// </summary>
         internal static string ConfirmDeleteIngredientFromDB {
@@ -79,11 +88,29 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Really delete the instruction ?.
+        /// </summary>
+        internal static string ConfirmDeleteInstruction {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteInstruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Confirm deletion.
         /// </summary>
         internal static string ConfirmDeletion {
             get {
                 return ResourceManager.GetString("ConfirmDeletion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Keep the old image file ?.
+        /// </summary>
+        internal static string ConfirmKeepOldImageFile {
+            get {
+                return ResourceManager.GetString("ConfirmKeepOldImageFile", resourceCulture);
             }
         }
         
@@ -102,6 +129,15 @@ namespace Recipe_Writer {
         internal static string DBWillBeBuiltWithInitialData {
             get {
                 return ResourceManager.GetString("DBWillBeBuiltWithInitialData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Deduction from inventory.
+        /// </summary>
+        internal static string DeductionFromInventory {
+            get {
+                return ResourceManager.GetString("DeductionFromInventory", resourceCulture);
             }
         }
         
@@ -129,6 +165,15 @@ namespace Recipe_Writer {
         internal static string ErrorEmptyFields {
             get {
                 return ResourceManager.GetString("ErrorEmptyFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Error during export : {0}.
+        /// </summary>
+        internal static string ErrorExport {
+            get {
+                return ResourceManager.GetString("ErrorExport", resourceCulture);
             }
         }
         
@@ -196,11 +241,47 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please use only letters from A to Z without accents, hyphens, underscores or numbers for the file name..
+        /// </summary>
+        internal static string ErrorMustUseOnlyLettersForTheFileName {
+            get {
+                return ResourceManager.GetString("ErrorMustUseOnlyLettersForTheFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No ingredient was selected.
+        /// </summary>
+        internal static string ErrorNoIngredientSelected {
+            get {
+                return ResourceManager.GetString("ErrorNoIngredientSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Please enter a valid actual number for the quantity of the ingredient..
         /// </summary>
         internal static string ErrorNotANumber {
             get {
                 return ResourceManager.GetString("ErrorNotANumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The amount of ingredients needed to make this recipe has been deducted..
+        /// </summary>
+        internal static string InfoAmountOfIngredientsNeededDeducted {
+            get {
+                return ResourceManager.GetString("InfoAmountOfIngredientsNeededDeducted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The recipe has been successfully exported !.
+        /// </summary>
+        internal static string InfoRecipeExported {
+            get {
+                return ResourceManager.GetString("InfoRecipeExported", resourceCulture);
             }
         }
         
@@ -214,11 +295,38 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Necessary ingredients.
+        /// </summary>
+        internal static string NecessaryIngredients {
+            get {
+                return ResourceManager.GetString("NecessaryIngredients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à New ingredient inserted into base..
         /// </summary>
         internal static string NewIngredientInsertedIntoBase {
             get {
                 return ResourceManager.GetString("NewIngredientInsertedIntoBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Preparation : .
+        /// </summary>
+        internal static string Preparation {
+            get {
+                return ResourceManager.GetString("Preparation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Indicates if you have enough ingredients to make the recipe..
+        /// </summary>
+        internal static string ToolTipRecipeReadyToCookStatusText {
+            get {
+                return ResourceManager.GetString("ToolTipRecipeReadyToCookStatusText", resourceCulture);
             }
         }
     }

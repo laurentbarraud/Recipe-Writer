@@ -134,11 +134,89 @@
   <data name="lblPortions.Text" xml:space="preserve">
     <value>servings</value>
   </data>
+  <data name="cmsRecipeResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>401, 192</value>
+  </data>
+  <data name="newRecipeToolStripMenuItem.Text" xml:space="preserve">
+    <value>New recipe</value>
+  </data>
+  <data name="editThisRecipesBasicInfosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit basic infos for this recipe</value>
+  </data>
+  <data name="deleteThisRecipeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Delete this recipe</value>
+  </data>
+  <data name="exportThisRecipeToAWebPageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Export this recipe into a web page</value>
+  </data>
+  <data name="PlanRecipeOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 26</value>
+  </data>
+  <data name="PlanRecipeOn.Text" xml:space="preserve">
+    <value>Plan recipe for</value>
+  </data>
+  <data name="lundiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="lundiToolStripMenuItem.Text" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="mardiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="mardiToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="mercrediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="mercrediToolStripMenuItem.Text" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="jeudiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="jeudiToolStripMenuItem.Text" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="vendrediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="vendrediToolStripMenuItem.Text" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="samediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="samediToolStripMenuItem.Text" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="dimancheToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="dimancheToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="addIngredientToThisRecipe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 26</value>
+  </data>
+  <data name="addIngredientToThisRecipe.Text" xml:space="preserve">
+    <value>Add an ingredient to this recipe</value>
+  </data>
+  <data name="deleteIngredientFromThisRecipe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 26</value>
+  </data>
+  <data name="deleteIngredientFromThisRecipe.Text" xml:space="preserve">
+    <value>Remove the selected ingredient from this recipe</value>
+  </data>
   <data name="lblCompletionTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lblCompletionTime.Text" xml:space="preserve">
     <value>Preparation :</value>
+  </data>
+  <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 204</value>
   </data>
   <data name="chkFilterRecipesForThreeStars.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -222,9 +300,6 @@
   </data>
   <data name="cmdIngredientsSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 204</value>
   </data>
   <data name="picScore3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

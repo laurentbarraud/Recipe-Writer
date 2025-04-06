@@ -50,7 +50,7 @@ namespace Recipe_Writer
             // Checks that the user input doesn't contain accents or special characters
             if (hasSpecialChar(txtNewImagePath.Text))
             {
-                MessageBox.Show("Veuillez n'utiliser que les lettres de A à Z sans accents, des traits d'union, underscores ou des chiffres pour le nom du fichier.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(strings.ErrorMustUseOnlyLettersForTheFileName, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // If no special characters were used for the name of the file
@@ -63,7 +63,7 @@ namespace Recipe_Writer
                 Bitmap jpgFile = new Bitmap(frmMainPicBox.Image);
 
                 // Asks the user if the old file must be kept or deleted
-                var dialogResult = MessageBox.Show("Conserver le fichier de l'ancienne image ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var dialogResult = MessageBox.Show(strings.ConfirmKeepOldImageFile, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dialogResult == DialogResult.No)
                 {
