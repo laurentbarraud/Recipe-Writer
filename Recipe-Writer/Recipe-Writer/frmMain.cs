@@ -23,13 +23,13 @@ namespace Recipe_Writer
         private static frmInventory _frmInventory;
         private static frmMealPlanner _frmMealPlanner;
 
-        // Declares and instanciates a default instruction, accessible globally
+        // Declares and instanciates a default instruction
         public static Instructions _defaultInstruction = new Instructions(0, "", 0, 0);
 
-        // Declares and instanciates a default list of instructions, accessible globally
+        // Declares and instanciates a default list of instructions
         public static List<Instructions> _defaultListInstructions = new List<Instructions>();
 
-        // Declares and instanciates a default list of ingredients, accessible globally
+        // Declares and instanciates a default list of ingredients
         public static List<Ingredients> _defaultListIngredients = new List<Ingredients>();
 
         // Declares and instanciates the list that will handle the selected instruction
@@ -40,15 +40,6 @@ namespace Recipe_Writer
 
         private int currentInstruction = 0;
         private int selectedInstruction = -1;
-
-        // This variable store the previous title search value
-        private string previousTitleSearch = "";
-
-        public string PreviousTitleSearch
-        {
-            get { return previousTitleSearch; }
-            set { previousTitleSearch = value; }
-        }
 
         public frmMain()
         {
@@ -89,7 +80,7 @@ namespace Recipe_Writer
                 // If the database is corrupted
                 if (!DBvalid)
                 {
-                    MessageBox.Show("La base de donnée est corrompue.\nLa base va être reconstruite.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(strings.ErrorDatabaseCorrupted + "\n" + strings.BaseWillBeRebuilt, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Creates the database file recipe-album.db and its tables then fill-in the data
                     dbConn.CreateTables();
@@ -99,7 +90,7 @@ namespace Recipe_Writer
             // If the database file cannot be found in the application directory
             else
             {
-                MessageBox.Show("Le fichier de la base de donnée n'a pas été trouvé.\nLa base va être construite avec les données initiales.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(strings.DBfileNotFound + "\n" + strings.DBWillBeBuiltWithInitialData, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Creates the database file in the app's installation folder
                 dbConn.CreateFile();
@@ -220,7 +211,7 @@ namespace Recipe_Writer
             // If all the textboxes are empty
             else
             {
-                MessageBox.Show("Veuillez entrer au moins un ingrédient", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(strings.ErrorMustEnterAtLeastOneIngredient, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -233,8 +224,6 @@ namespace Recipe_Writer
 
         private void cmdTitleSearch_Click(object sender, EventArgs e)
         {
-            this.PreviousTitleSearch = txtTitleSearch.Text;
-
             // If the user has typed something in the textbox
             if (txtTitleSearch.Text != "")
             {
@@ -248,7 +237,8 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Creates the instructions layout to display them to the user
+        /// Creates the instruction layout to display them to the user.
+        /// User can edit an instruction by clicking the edit button or double-clicking the label.
         /// </summary>
         public void CreateInstructionsLayout()
         {
@@ -299,44 +289,40 @@ namespace Recipe_Writer
                 Button cmdEditInstruction = new Button();
                 cmdEditInstruction.Click += (object sender_here, EventArgs e_here) =>
                 {
-                    // Source-code : https://stackoverflow.com/questions/40416262/change-label-text-on-its-own-click-event-during-runtime
+                    // Check if a TextBox already exists
+                    TextBox txtInputUser = lblInstruction.Controls.OfType<TextBox>().FirstOrDefault();
 
-                    TextBox txtInputUser;
-
-                    // Is the textbox already created ?
-                    if (lblInstruction.Controls.Count > 0)
+                    if (txtInputUser != null)
                     {
-                        // Sets reference.
-                        txtInputUser = ((TextBox)lblInstruction.Controls[0]);
-
+                        // Update text and remove TextBox
                         lblInstruction.Text = txtInputUser.Text;
                         dbConn.UpdateInstruction(instructionItem.Id, txtInputUser.Text);
-                        txtInputUser.Hide();
+                        txtInputUser.Dispose();
 
+                        // Restore edit button icon
                         cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
                     }
-
-                    // We need to create the textbox
                     else
                     {
-                        txtInputUser = new TextBox();
+                        // Create TextBox
+                        txtInputUser = new TextBox
+                        {
+                            Parent = lblInstruction,
+                            Size = lblInstruction.Size,
+                            Text = lblInstruction.Text
+                        };
 
-                        // Adds it to the label's controls collection
-                        txtInputUser.Parent = lblInstruction;
+                        // Apply changes when focus is lost
+                        txtInputUser.Leave += (s, e) =>
+                        {
+                            lblInstruction.Text = txtInputUser.Text;
+                            dbConn.UpdateInstruction(instructionItem.Id, txtInputUser.Text);
+                            txtInputUser.Dispose();
+                            cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
+                        };
 
-                        // Sizes it
-                        txtInputUser.Size = lblInstruction.Size;
-
-                        // Sets the event that ends editing when focus goes elsewhere
-                        txtInputUser.LostFocus += (ss, ee) => { lblInstruction.Text = txtInputUser.Text; txtInputUser.Hide(); };
-
-                        // Gets current text
-                        txtInputUser.Text = lblInstruction.Text;
-
-                        // Displays the textbox in place
+                        // Show the TextBox for editing
                         txtInputUser.Show();
-
-                        // Displays the validate icon
                         cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.validate;
                     }
                 };

@@ -156,4 +156,19 @@
   <data name="NbIngredientsStored" xml:space="preserve">
     <value>Number of ingredients stored : </value>
   </data>
+  <data name="ErrorDatabaseCorrupted" xml:space="preserve">
+    <value>The database is corrupted.</value>
+  </data>
+  <data name="BaseWillBeRebuilt" xml:space="preserve">
+    <value>The base will be rebuilt.</value>
+  </data>
+  <data name="DBfileNotFound" xml:space="preserve">
+    <value>Database file not found.</value>
+  </data>
+  <data name="DBWillBeBuiltWithInitialData" xml:space="preserve">
+    <value>The database will be built with the initial data.</value>
+  </data>
+  <data name="ErrorMustEnterAtLeastOneIngredient" xml:space="preserve">
+    <value>Please enter at least one ingredient.</value>
+  </data>
 </root>

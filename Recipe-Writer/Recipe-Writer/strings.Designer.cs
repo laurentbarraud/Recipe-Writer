@@ -61,6 +61,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à The base will be rebuilt..
+        /// </summary>
+        internal static string BaseWillBeRebuilt {
+            get {
+                return ResourceManager.GetString("BaseWillBeRebuilt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Remove this ingredient definitely ?.
         /// </summary>
         internal static string ConfirmDeleteIngredientFromDB {
@@ -79,11 +88,38 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Database file not found..
+        /// </summary>
+        internal static string DBfileNotFound {
+            get {
+                return ResourceManager.GetString("DBfileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The database will be built with the initial data..
+        /// </summary>
+        internal static string DBWillBeBuiltWithInitialData {
+            get {
+                return ResourceManager.GetString("DBWillBeBuiltWithInitialData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Erreur.
         /// </summary>
         internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The database is corrupted..
+        /// </summary>
+        internal static string ErrorDatabaseCorrupted {
+            get {
+                return ResourceManager.GetString("ErrorDatabaseCorrupted", resourceCulture);
             }
         }
         
@@ -138,6 +174,15 @@ namespace Recipe_Writer {
         internal static string ErrorMustEnterATitle {
             get {
                 return ResourceManager.GetString("ErrorMustEnterATitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please enter at least one ingredient..
+        /// </summary>
+        internal static string ErrorMustEnterAtLeastOneIngredient {
+            get {
+                return ResourceManager.GetString("ErrorMustEnterAtLeastOneIngredient", resourceCulture);
             }
         }
         
