@@ -129,8 +129,8 @@ namespace Recipe_Writer
                 Button cmdDeleteIngredient = new Button();
                 cmdDeleteIngredient.Click += (object sender_here, EventArgs e_here) =>
                 {
-                    var confirmResult = MessageBox.Show("Etes-vous sûr(e) de vouloir supprimer l'ingrédient de la base ?",
-                    "Confirmer la suppression.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    var confirmResult = MessageBox.Show(strings.ConfirmDeleteIngredientFromDB,
+                    strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (confirmResult == DialogResult.Yes)
                     {
@@ -161,7 +161,7 @@ namespace Recipe_Writer
 
         public void RefreshInventory()
         {
-            lblNbOfIngredientsStored.Text = "Nombre d'ingrédients stockés : ";
+            lblNbOfIngredientsStored.Text = strings.NbIngredientsStored;
             lblNbOfIngredientsStored.Text += _frmMain.dbConn.CountAllIngredientsStored().ToString();
 
             int totalNbOfTypes = _frmMain.dbConn.CountAllTypesOfIngredients();

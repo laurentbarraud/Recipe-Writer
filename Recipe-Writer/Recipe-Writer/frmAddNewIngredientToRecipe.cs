@@ -1,8 +1,9 @@
 ﻿/// <file>frmNewIngredient.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 5th 2025</date>
+/// <date>April 6th 2025</date>
 
+using Recipe_Writer.Properties;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -61,13 +62,13 @@ namespace Recipe_Writer
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erreur pendant l'ajout de l'ingrédient à la recette : {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format(strings.ErrorIngredientAdd, ex.Message), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
             else
             {
-                MessageBox.Show("Nombre maximum d'ingrédients pour la recette atteint.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(strings.ErrorMaxIngredientsNbReached, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
                 _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);

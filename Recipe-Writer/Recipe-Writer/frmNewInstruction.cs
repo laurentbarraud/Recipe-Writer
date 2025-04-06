@@ -43,10 +43,35 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            _frmMain.dbConn.AddNewInstructionToRecipe(this.IdRecipeToEdit, this.NbInstructionsInCurrentRecipe, txtNewInstruction.Text);
-            _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
-            this.Close();
+            try
+            {
+                // Vérification que l'instruction n'est pas vide
+                if (string.IsNullOrWhiteSpace(txtNewInstruction.Text))
+                {
+                    MessageBox.Show(strings.ErrorEmptyFields, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Adding the instruction with secure parameters
+                AddInstructionToRecipe(txtNewInstruction.Text.Trim());
+
+                // Recipe info refresh
+                _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format(strings.ErrorIngredientInsert, ex.Message), strings.ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        // Separate method to make the addition clearer and more secure
+        private void AddInstructionToRecipe(string instruction)
+        {
+            _frmMain.dbConn.AddNewInstructionToRecipe(this.IdRecipeToEdit, this.NbInstructionsInCurrentRecipe, instruction);
+        }
+
 
         private void frmNewInstruction_Move(object sender, EventArgs e)
         {

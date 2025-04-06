@@ -1,7 +1,7 @@
 ﻿/// <file>frmEditRecipeTitle.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 5th 2025</date>
+/// <date>April 6th 2025</date>
 
 using System;
 using System.Windows.Forms;
@@ -113,19 +113,19 @@ namespace Recipe_Writer
                 // If the user hasn't input a number in the completion time textbox
                 else if (!int.TryParse(txtRecipeCompletionTime.Text, out parsedRecipeCompletionTime))
                 {
-                    MessageBox.Show("Vous devez saisir un nombre valide pour le temps de réalisation de la recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(strings.ErrorMustEnterValidNumberForTimeCompletion, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 // If the user hasn't input a completion time for the recipe
                 else if (txtRecipeCompletionTime.Text == "")
                 {
-                    MessageBox.Show("Vous devez saisir un temps de réalisation pour la recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(strings.ErrorMustEnterACompletionTime, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             // If the user hasn't input a title for the recipe
             else if (txtRecipeTitleToEdit.Text == "")
             {
-                MessageBox.Show("Vous devez saisir un titre pour la recette", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(strings.ErrorMustEnterATitle, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         
             this.Close();

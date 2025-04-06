@@ -1,7 +1,7 @@
 ﻿/// <file>frmAddNewIngredientToTheDB.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 5th 2025</date>
+/// <date>April 6th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -69,17 +69,18 @@ namespace Recipe_Writer
                 try
                 {
                     _frmMain.dbConn.AddNewIngredientToDB(formattedNewIngredientName, cmbScaleNewIngredient.SelectedIndex + 1, cmbTypesIngredientsListedInDB.SelectedIndex + 1 );
-                    MessageBox.Show("Nouvel ingrédient inséré dans la base.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(strings.NewIngredientInsertedIntoBase, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erreur lors de l'insertion d'un ingrédient dans la base : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format(strings.ErrorIngredientInsert, ex.Message), strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
 
             else
             {
-               MessageBox.Show("Veuillez remplir tous les champs.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show(strings.ErrorEmptyFields, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
