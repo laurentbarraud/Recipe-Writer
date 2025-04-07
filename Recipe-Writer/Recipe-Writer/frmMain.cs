@@ -1106,7 +1106,7 @@ namespace Recipe_Writer
                 searchIngredientsInputList.Add(ingredient3ToSearchFor.Replace("'", "''"));
 
             // Appelle la base de données avec les filtres sélectionnés
-            List<string> listTitlesRequested = dbConn.SearchRecipesByIngredients(searchIngredientsInputList, filterForSmallBudget, filterForThreeStars);
+            List<string> listTitlesRequested = dbConn.SearchRecipesByIngredients(searchIngredientsInputList, Properties.Settings.Default.LanguageSetting, filterForSmallBudget, filterForThreeStars);
 
             // Ajoute les résultats à la liste
             foreach (string titleItem in listTitlesRequested)

@@ -59,20 +59,20 @@ namespace Recipe_Writer
             string ingredientFr = txtNewIngredientNameFr.Text.Trim();
             string ingredientEn = txtNewIngredientNameEn.Text.Trim();
 
-            // Échapper les apostrophes pour éviter les erreurs SQL
+            // Escape apostrophes to avoid SQL errors
             if (ingredientFr.Contains("'")) ingredientFr = ingredientFr.Replace("'", "''");
             if (ingredientEn.Contains("'")) ingredientEn = ingredientEn.Replace("'", "''");
 
-            // Si un champ est vide, copie du contenu de l’autre
+            // If one field is empty, copy the content of the other
             if (string.IsNullOrWhiteSpace(ingredientFr)) ingredientFr = ingredientEn;
             if (string.IsNullOrWhiteSpace(ingredientEn)) ingredientEn = ingredientFr;
 
-            // Vérification que tous les champs nécessaires sont remplis
+            // Verification that all required fields are filled
             if (cmbTypesIngredientsListedInDB.SelectedIndex != -1 && cmbScaleNewIngredient.SelectedIndex != -1 && !string.IsNullOrWhiteSpace(ingredientFr))
             {
                 try
                 {
-                    // Insertion dans la base avec les deux langues
+                    // Insert in the database with both languages
                     _frmMain.dbConn.AddNewIngredientToDB(ingredientFr, ingredientEn, cmbScaleNewIngredient.SelectedIndex + 1, cmbTypesIngredientsListedInDB.SelectedIndex + 1);
                     MessageBox.Show(strings.NewIngredientInsertedIntoBase, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

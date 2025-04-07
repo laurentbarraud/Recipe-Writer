@@ -721,14 +721,20 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Retrieves all types of ingredients stored in the database.
+        /// Retrieves all types of ingredients stored in the database, adapted to the active language.
         /// </summary>
+        /// <param name="selectedLanguage">The active language ('fr' or 'en').</param>
         /// <returns>List of ingredient types.</returns>
-        public List<string> ReadAllTypesOfIngredientsStored()
+        public List<string> ReadAllTypesOfIngredientsStored(string selectedLanguage = "fr")
         {
             List<string> listAllTypesOfIngredientsFoundInDB = new List<string>();
 
-            using (SQLiteCommand cmd = new SQLiteCommand("SELECT DISTINCT type FROM TypesOfIngredient ORDER BY type;", sqliteConn))
+            // Determine the correct column based on the language
+            string typeColumn = "type_" + selectedLanguage;
+
+            string query = $"SELECT DISTINCT {typeColumn} AS type FROM TypesOfIngredient ORDER BY {typeColumn};";
+
+            using (SQLiteCommand cmd = new SQLiteCommand(query, sqliteConn))
             {
                 using (SQLiteDataReader reader = cmd.ExecuteReader())
                 {
@@ -741,6 +747,7 @@ namespace Recipe_Writer
 
             return listAllTypesOfIngredientsFoundInDB;
         }
+
 
         /// <summary>
         /// Reads the quantity available for a given ingredient.
@@ -1042,23 +1049,35 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Reads the type of an ingredient for a given id
+        /// Reads the type name of an ingredient for a given ID, adapted to the active language.
         /// </summary>
-        /// <param name="nameIngredient">the name of the ingredient</param>
-        /// <returns>Name of the type of ingredient</returns>
-        public string ReadTypeName (int idTypeOfIngredient)
+        /// <param name="idTypeOfIngredient">The ID of the ingredient type.</param>
+        /// <param name="selectedLanguage">The active language ('fr' or 'en').</param>
+        /// <returns>Name of the ingredient type.</returns>
+        public string ReadTypeName(int idTypeOfIngredient, string selectedLanguage = "fr")
         {
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT type FROM 'TypesOfIngredient' WHERE id ='" + idTypeOfIngredient + "';";
-
             string typeFound = "";
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+
+            // Determine the correct column based on the language
+            string typeColumn = "type_" + selectedLanguage;
+
+            using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                dataReader["type"].ToString();
+                cmd.CommandText = $"SELECT {typeColumn} AS type FROM TypesOfIngredient WHERE id = @IdTypeOfIngredient;";
+                cmd.Parameters.AddWithValue("@IdTypeOfIngredient", idTypeOfIngredient);
+
+                using (SQLiteDataReader dataReader = cmd.ExecuteReader())
+                {
+                    if (dataReader.Read()) // Optimisation : un seul résultat attendu
+                    {
+                        typeFound = dataReader["type"].ToString();
+                    }
+                }
             }
+
             return typeFound;
         }
+
 
         /// <summary>
         /// Reads the instructions needed to make the selected recipe.
@@ -1237,7 +1256,7 @@ namespace Recipe_Writer
         /// <param name="filterForLowBudget">Filter for low-budget recipes.</param>
         /// <param name="filterForThreeStars">Filter for recipes with three stars.</param>
         /// <returns>List of matching recipe titles.</returns>
-        public List<string> SearchRecipesByIngredients(List<string> ingredientInputs, string selectedLanguage = "fr", bool filterForLowBudget = false, bool filterForThreeStars = false)
+        public List<string> SearchRecipesByIngredients(List<string> ingredientInputs, string selectedLanguage = "en", bool filterForLowBudget = false, bool filterForThreeStars = false)
         {
             List<string> recipesTitlesFound = new List<string>();
 
