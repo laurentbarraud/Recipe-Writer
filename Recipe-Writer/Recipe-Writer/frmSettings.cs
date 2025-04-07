@@ -43,7 +43,7 @@ namespace Recipe_Writer
                 "\r\n\r\n" + strings.LicenceInfo2 +
                 "\r\n" + strings.LicenceInfo3 +
                 "\r\n\r\n" + strings.LicenceInfo4 + "\n" +
-                "\r\n\r\n\r\n" + strings.LicenceVersion + "\n" + strings.LicenceAuthor;
+                "\r\n" + strings.LicenceVersion + "\n" + strings.LicenceAuthor;
         }
 
         private void ApplyLanguage(string selectedLanguage)

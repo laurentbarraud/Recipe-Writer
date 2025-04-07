@@ -162,11 +162,14 @@
   <data name="lblNewIngredientNameFr.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="lblType.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
   <data name="&gt;&gt;lblType.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblType.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="&gt;&gt;txtNewIngredientNameFr.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblNewIngredientNameFr.Text" xml:space="preserve">
     <value>Nom de l'ingrédient (Fr) </value>
@@ -176,6 +179,9 @@
   </data>
   <data name="&gt;&gt;cmbTypesIngredientsListedInDB.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNewIngredientNameEn.Name" xml:space="preserve">
+    <value>lblNewIngredientNameEn</value>
   </data>
   <data name="&gt;&gt;lblNewIngredientNameEn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -219,9 +225,6 @@
   <data name="txtNewIngredientNameEn.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;cmdCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;cmbScaleNewIngredient.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -255,9 +258,6 @@
   <data name="cmdValidate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;txtNewIngredientNameFr.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;txtNewIngredientNameEn.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -266,12 +266,6 @@
   </data>
   <data name="lblNewIngredientNameEn.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;cmbTypesIngredientsListedInDB.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtNewIngredientNameFr.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblNewIngredientNameEn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
@@ -339,11 +333,17 @@
   <data name="cmdValidate.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;lblNewIngredientNameEn.Name" xml:space="preserve">
-    <value>lblNewIngredientNameEn</value>
+  <data name="cmbScaleNewIngredient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 50</value>
+  </data>
+  <data name="&gt;&gt;cmbTypesIngredientsListedInDB.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;lblNewIngredientNameFr.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;lblNewIngredientNameFr.Name" xml:space="preserve">
+    <value>lblNewIngredientNameFr</value>
   </data>
   <data name="cmbTypesIngredientsListedInDB.Location" type="System.Drawing.Point, System.Drawing">
     <value>206, 104</value>
@@ -363,16 +363,13 @@
   <data name="lblType.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="cmbScaleNewIngredient.Location" type="System.Drawing.Point, System.Drawing">
-    <value>416, 50</value>
+  <data name="&gt;&gt;cmdCancel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblNewIngredientNameFr.Name" xml:space="preserve">
-    <value>lblNewIngredientNameFr</value>
+  <data name="&gt;&gt;txtNewIngredientNameFr.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
 </root>

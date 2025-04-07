@@ -228,4 +228,7 @@
   <data name="LicenceAuthor" xml:space="preserve">
     <value>Créé par Laurent Barraud</value>
   </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Résultats :</value>
+  </data>
 </root>

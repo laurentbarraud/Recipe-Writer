@@ -24,7 +24,7 @@ namespace Recipe_Writer
             _frmMain = parentMain;
         }
 
-        // Generic delegate
+        // Dynamic delegate to update ingredient lists with localization support
         private Action<int> fillInListBoxesDelegate;
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Recipe_Writer
             _frmAddNewIngredientToTheDB.Show();
         }
 
-        private void FillInListBoxesWithIngredientsNamesAndQuantities (int idTypeOfIngredient)
+        private void FillInListBoxesWithIngredientsNamesAndQuantities(int idTypeOfIngredient)
         {
             int currentIngredient = 0;
 
@@ -99,7 +99,7 @@ namespace Recipe_Writer
                 // Label with the scale (unit of measure) used ===========================================================
 
                 Label lblScaleIngredient = new Label();
-                int scaleIdForThisIngredient = _frmMain.dbConn.ReadScaleIdForAnIngredient(ingredientId);               
+                int scaleIdForThisIngredient = _frmMain.dbConn.ReadScaleIdForAnIngredient(ingredientId);
                 lblScaleIngredient.Text = _frmMain.dbConn.ReadScaleNameForAnID(scaleIdForThisIngredient);
                 lblScaleIngredient.Font = new Font(lblScaleIngredient.Font.FontFamily, 9);
                 lblScaleIngredient.AutoSize = true;
@@ -124,7 +124,7 @@ namespace Recipe_Writer
                 editIngredientName.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
                 editIngredientName.BackgroundImageLayout = ImageLayout.Zoom;
                 editIngredientName.Location = new Point(lblScaleIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
-                
+
                 // Delete ingredient button code ===================================================================
                 Button cmdDeleteIngredient = new Button();
                 cmdDeleteIngredient.Click += (object sender_here, EventArgs e_here) =>

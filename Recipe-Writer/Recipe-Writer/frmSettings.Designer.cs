@@ -39,8 +39,8 @@
             // 
             // lblInfosLicence
             // 
-            resources.ApplyResources(this.lblInfosLicence, "lblInfosLicence");
             this.lblInfosLicence.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.lblInfosLicence, "lblInfosLicence");
             this.lblInfosLicence.Name = "lblInfosLicence";
             // 
             // lblAppLanguage
@@ -50,25 +50,25 @@
             // 
             // cmbAppLanguage
             // 
-            resources.ApplyResources(this.cmbAppLanguage, "cmbAppLanguage");
             this.cmbAppLanguage.FormattingEnabled = true;
             this.cmbAppLanguage.Items.AddRange(new object[] {
             resources.GetString("cmbAppLanguage.Items"),
             resources.GetString("cmbAppLanguage.Items1")});
+            resources.ApplyResources(this.cmbAppLanguage, "cmbAppLanguage");
             this.cmbAppLanguage.Name = "cmbAppLanguage";
             this.cmbAppLanguage.SelectedIndexChanged += new System.EventHandler(this.cmbAppLanguage_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.BackgroundImage = global::Recipe_Writer.Properties.Resources.app_language;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
             // cmdValidate
             // 
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);

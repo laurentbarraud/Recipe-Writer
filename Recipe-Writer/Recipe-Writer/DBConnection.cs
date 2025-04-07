@@ -655,9 +655,10 @@ namespace Recipe_Writer
         /// Reads all ingredients stored in the database for a type.
         /// If `typeProvided` is 0, the function returns all ingredients found in the database.
         /// The function adapts the ingredient name based on the selected language.
-        public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0, string selectedLanguage = "en")
+        public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0)
         {
             List<string> listAllIngredientsFoundInDB = new List<string>();
+            string selectedLanguage = Properties.Settings.Default.LanguageSetting.ToString();
 
             // Détermination de la bonne colonne en fonction de la langue
             string ingredientColumn = "ingredientName_" + selectedLanguage;
@@ -907,39 +908,36 @@ namespace Recipe_Writer
             return listIngredientsRequested;
         }
 
-        /// <summary>
-        /// Reads the ID of an ingredient for a given name, based on the selected language.
-        /// </summary>
-        /// <param name="nameIngredient">The name of the ingredient.</param>
-        /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient lookup.</param>
+        /// <summary> 
+        /// Reads the ID of an ingredient for a given name, based on the selected language. 
+        /// </summary> 
+        /// <param name="nameIngredient">The name of the ingredient.</param> 
+        /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient lookup.</param> 
         /// <returns>ID of the ingredient.</returns>
-        public int ReadIdForAnIngredientName(string nameIngredient, string selectedLanguage = "fr")
+        public int ReadIdForAnIngredientName(string nameIngredient, string selectedLanguage = "en")
         {
             int ingredientIdFound = 0;
 
-            // Ensure apostrophes are escaped to avoid SQL errors
-            string formattedNameIngredient = nameIngredient.Replace("'", "''");
-
-            // Select the appropriate column based on the language
+            // Sélection dynamique de la colonne selon la langue
             string ingredientColumn = "ingredientName_" + selectedLanguage;
 
             using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
                 cmd.CommandText = $"SELECT id FROM Ingredients WHERE {ingredientColumn} = @IngredientName;";
-                cmd.Parameters.AddWithValue("@IngredientName", formattedNameIngredient);
+                cmd.Parameters.AddWithValue("@IngredientName", nameIngredient.Trim()); // Deletes invisible spaces
 
                 using (SQLiteDataReader dataReader = cmd.ExecuteReader())
                 {
-
-                    if (dataReader.Read()) 
+                    if (dataReader.Read())
                     {
-                        ingredientIdFound = int.Parse(dataReader["id"].ToString());
+                        ingredientIdFound = dataReader.GetInt32(0);
                     }
                 }
             }
 
-            return ingredientIdFound;
+           return ingredientIdFound;
         }
+
 
 
         /// <summary>
@@ -1029,11 +1027,11 @@ namespace Recipe_Writer
         /// Reads the scale name corresponding to an ID, adapted to the active language.
         /// </summary>
         /// <param name="scaleId">The ID of the scale.</param>
-        /// <param name="selectedLanguage">The active language ('fr' or 'en').</param>
         /// <returns>The scale name used by the ingredient.</returns>
-        public string ReadScaleNameForAnID(int scaleId, string selectedLanguage = "fr")
+        public string ReadScaleNameForAnID(int scaleId)
         {
             string scaleNameFound = "";
+            string selectedLanguage = Properties.Settings.Default.LanguageSetting.ToString();
 
             // Determining the correct column by language
             string scaleColumn = "scaleName_" + selectedLanguage;
@@ -1045,7 +1043,7 @@ namespace Recipe_Writer
 
                 using (SQLiteDataReader dataReader = cmd.ExecuteReader())
                 {
-                    if (dataReader.Read()) // Optimisation : un seul résultat attendu
+                    if (dataReader.Read())
                     {
                         scaleNameFound = dataReader["scaleName"].ToString();
                     }

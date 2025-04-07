@@ -70,6 +70,8 @@ namespace Recipe_Writer
             int nbPersonsSet = Properties.Settings.Default.NbPersonsSet;
             nudPersons.Value = nbPersonsSet;
 
+            lblSearchResults.Text = strings.SearchResults;
+
             // Checks if the database file exists or not
             if (File.Exists(@Environment.CurrentDirectory + "\\" + "recipe-album" + ".db"))
             {

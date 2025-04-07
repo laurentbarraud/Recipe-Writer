@@ -207,14 +207,14 @@
   <data name="lblMinutes.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="txtNewRecipeTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
   <data name="lblNewRecipeTitle.Text" xml:space="preserve">
     <value>Titre :</value>
   </data>
   <data name="&gt;&gt;lblNewRecipeTitle.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtNewRecipeTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblMinutes.Text" xml:space="preserve">
     <value>minutes</value>
@@ -252,6 +252,9 @@
   <data name="lblMinutes.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
+  <data name="&gt;&gt;lblMinutes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="lblNewRecipeCompletionTime.Text" xml:space="preserve">
     <value>Temps de réalisation :</value>
   </data>
@@ -266,9 +269,6 @@
   </data>
   <data name="&gt;&gt;lblNewRecipeCompletionTime.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblNewRecipeCompletionTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>493, 267</value>
@@ -348,8 +348,8 @@
   <data name="lblNewRecipeTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="&gt;&gt;lblMinutes.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lblNewRecipeCompletionTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblNewRecipeCompletionTime.Parent" xml:space="preserve">
     <value>$this</value>
@@ -363,16 +363,13 @@
   <data name="lblNewRecipeCompletionTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 21</value>
   </data>
-  <data name="&gt;&gt;txtNewRecipeTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtNewRecipeTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="&gt;&gt;cmdCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
 </root>

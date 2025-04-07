@@ -124,9 +124,6 @@
   <data name="chkLowBudget.Location" type="System.Drawing.Point, System.Drawing">
     <value>254, 161</value>
   </data>
-  <data name="txtRecipeTitleToEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>349, 24</value>
-  </data>
   <data name="&gt;&gt;lblRecipeCompletionTime.Name" xml:space="preserve">
     <value>lblRecipeCompletionTime</value>
   </data>
@@ -149,9 +146,6 @@
   </data>
   <data name="&gt;&gt;chkLowBudget.Name" xml:space="preserve">
     <value>chkLowBudget</value>
-  </data>
-  <data name="lblMinutes.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
   </data>
   <data name="&gt;&gt;chkLowBudget.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -177,6 +171,9 @@
   <data name="lblRecipeTitle.Text" xml:space="preserve">
     <value>Titre :</value>
   </data>
+  <data name="&gt;&gt;lblMinutes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="chkLowBudget.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 24</value>
   </data>
@@ -201,8 +198,8 @@
   <data name="lblRecipeCompletionTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>120, 109</value>
   </data>
-  <data name="txtRecipeTitleToEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 50</value>
+  <data name="lblMinutes.Text" xml:space="preserve">
+    <value>minutes</value>
   </data>
   <data name="lblRecipeTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>40, 54</value>
@@ -231,11 +228,14 @@
   <data name="txtRecipeTitleToEdit.MaxLength" type="System.Int32, mscorlib">
     <value>500</value>
   </data>
+  <data name="&gt;&gt;lblRecipeTitle.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="txtRecipeTitleToEdit.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="lblMinutes.Text" xml:space="preserve">
-    <value>minutes</value>
+  <data name="lblMinutes.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;cmdValidate.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -258,9 +258,6 @@
   <data name="cmdCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 32</value>
   </data>
-  <data name="txtRecipeCompletionTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
   <data name="cmdValidate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -280,6 +277,9 @@
     <value>MiddleCenter</value>
   </data>
   <data name="cmdCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtRecipeCompletionTime.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="&gt;&gt;cmdValidate.Parent" xml:space="preserve">
@@ -345,14 +345,14 @@
   <data name="lblRecipeCompletionTime.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="&gt;&gt;txtRecipeCompletionTime.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="txtRecipeCompletionTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="lblRecipeCompletionTime.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="&gt;&gt;lblMinutes.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="txtRecipeTitleToEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 50</value>
   </data>
   <data name="&gt;&gt;lblRecipeTitle.Parent" xml:space="preserve">
     <value>$this</value>
@@ -366,16 +366,13 @@
   <data name="lblRecipeTitle.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;lblRecipeTitle.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="txtRecipeTitleToEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>349, 24</value>
   </data>
   <data name="&gt;&gt;cmdCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
 </root>

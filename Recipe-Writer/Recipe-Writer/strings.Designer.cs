@@ -385,6 +385,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Results :.
+        /// </summary>
+        internal static string SearchResults {
+            get {
+                return ResourceManager.GetString("SearchResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Indicates if you have enough ingredients to make the recipe..
         /// </summary>
         internal static string ToolTipRecipeReadyToCookStatusText {
