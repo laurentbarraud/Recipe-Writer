@@ -117,72 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblTypeIngredient2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblTypeIngredient2.Text" xml:space="preserve">
     <value>Fish and crustaceans</value>
-  </data>
-  <data name="lblTypeIngredient1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="lblTypeIngredient1.Text" xml:space="preserve">
     <value>Meat</value>
   </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Meat/Fish/Crustaceans</value>
-  </data>
-  <data name="lblTypeIngredient4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblTypeIngredient4.Text" xml:space="preserve">
-    <value>Vegetables legumes and mushrooms</value>
-  </data>
-  <data name="lblTypeIngredient3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Fruits/Vegetables/Legumes/Mushrooms</value>
-  </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Dairy/Eggs</value>
-  </data>
-  <data name="tabPage4.Text" xml:space="preserve">
-    <value>Cereals/Starches</value>
-  </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>Spices/Herbs/Condiments</value>
-  </data>
-  <data name="tabPage6.Text" xml:space="preserve">
-    <value>Nuts/Seeds</value>
-  </data>
-  <data name="tabPage7.Text" xml:space="preserve">
-    <value>Oil/Greases</value>
-  </data>
-  <data name="tabPage8.Text" xml:space="preserve">
-    <value>Bakery/pastry products</value>
-  </data>
-  <data name="lblTypeIngredient12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Legume vegetables and mushrooms</value>
   </data>
   <data name="lblTypeIngredient12.Text" xml:space="preserve">
     <value>Sauces and water</value>
   </data>
-  <data name="lblTypeIngredient11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblTypeIngredient11.Text" xml:space="preserve">
-    <value>Alcool and spirits</value>
-  </data>
-  <data name="tabPage9.Text" xml:space="preserve">
-    <value>Alcohol/spirits/sauces/water</value>
-  </data>
-  <data name="lblNbOfIngredientsStored.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Alcohol and spirits</value>
   </data>
   <data name="lblNbOfIngredientsStored.Text" xml:space="preserve">
-    <value>Number of ingredients stored : </value>
+    <value>Number of ingredients stored :</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cmdAddNewIngredientIntoDB.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -241,11 +192,5 @@
         AOLsOb4/K8609qeH4JdLfj/08LIZoZjtYerip1xmvDe3Z1f/f567Mny17PWj6uFk/g80hYLpxpQjzAAA
         AABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="cmdAddNewIngredientIntoDB.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cmdValidate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

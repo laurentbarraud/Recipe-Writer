@@ -56,15 +56,17 @@ namespace Recipe_Writer
             {
                 // Detect system language and apply the default setting
                 string systemLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-                Properties.Settings.Default.LanguageSetting = (systemLanguage == "fr") ? "fr" : "en";
+                Properties.Settings.Default.LanguageSetting = (systemLanguage == "fr") ? "fr" : "en-US";
 
                 // Save the setting for persistence
                 Properties.Settings.Default.Save();
             }
 
             // Apply the detected language
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Properties.Settings.Default.LanguageSetting);
-            
+            var cultureInfo = new System.Globalization.CultureInfo(Properties.Settings.Default.LanguageSetting);
+            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
             int nbPersonsSet = Properties.Settings.Default.NbPersonsSet;
             nudPersons.Value = nbPersonsSet;
 

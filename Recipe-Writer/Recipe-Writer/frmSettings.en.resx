@@ -117,35 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblRecipeTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblRecipeTitle.Text" xml:space="preserve">
-    <value>Title :</value>
-  </data>
-  <data name="chkLowBudget.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chkLowBudget.Text" xml:space="preserve">
-    <value>For low budget</value>
-  </data>
-  <data name="lblMinutes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblRecipeCompletionTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblRecipeCompletionTime.Text" xml:space="preserve">
-    <value>Time to complete :</value>
-  </data>
-  <data name="cmdCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cmdValidate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblAppLanguage.Text" xml:space="preserve">
+    <value>Application language :</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Edit basic recipe information</value>
+    <value>About Recipe-Writer</value>
   </data>
 </root>

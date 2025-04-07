@@ -1,17 +1,11 @@
 ﻿/// <file>frmAbout.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 6th 2025</date>
+/// <date>April 7th 2025</date>
 
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -25,16 +19,23 @@ namespace Recipe_Writer
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
-            // Set the selected value according to the setting
             string currentLanguage = Properties.Settings.Default.LanguageSetting;
-            
-            if (currentLanguage == "fr")
+
+            if (Properties.Settings.Default.LanguageSetting == "fr")
             {
+                cmbAppLanguage.Items.Clear();
+                cmbAppLanguage.Items.Add("français");
+                cmbAppLanguage.Items.Add("anglais");
+
                 cmbAppLanguage.SelectedItem = "français";
             }
 
             else
             {
+                cmbAppLanguage.Items.Clear();
+                cmbAppLanguage.Items.Add("English");
+                cmbAppLanguage.Items.Add("French");
+
                 cmbAppLanguage.SelectedItem = "English";
             }
 
@@ -44,29 +45,13 @@ namespace Recipe_Writer
                 "\r\n\r\n" + strings.LicenceInfo4 + "\n" +
                 "\r\n\r\n\r\n" + strings.LicenceVersion + "\n" + strings.LicenceAuthor;
         }
-        private void cmbAppLanguage_SelectedValueChanged(object sender, EventArgs e)
+
+        private void ApplyLanguage(string selectedLanguage)
         {
-            string selectedLanguage;
+            var cultureInfo = new System.Globalization.CultureInfo(selectedLanguage);
             
-            if (cmbAppLanguage.SelectedItem.ToString() == "français" || cmbAppLanguage.SelectedItem.ToString() == "French")
-            {
-                selectedLanguage = "fr";
-            }
-
-            else
-            {
-               selectedLanguage = "en";
-            } 
-
-            if (selectedLanguage != Properties.Settings.Default.LanguageSetting)
-            {
-                Properties.Settings.Default.LanguageSetting = selectedLanguage;
-                Properties.Settings.Default.Save();
-
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(selectedLanguage);
-
-                Application.Restart();
-            }
+            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
         }
 
         private void cmdValidate_Click(object sender, EventArgs e)
@@ -74,5 +59,32 @@ namespace Recipe_Writer
             this.Close();
         }
 
+        private void cmbAppLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbAppLanguage.SelectedItem == null) return;
+
+            string selectedLanguageItem = cmbAppLanguage.SelectedItem.ToString();
+            string selectedLanguage;
+
+            if (selectedLanguageItem == "français" || selectedLanguageItem == "French")
+            {
+                selectedLanguage = "fr";
+            }
+
+            else
+            {
+                selectedLanguage = "en";
+            }
+
+            if (selectedLanguage != Properties.Settings.Default.LanguageSetting)
+            {
+                Properties.Settings.Default.LanguageSetting = selectedLanguage;
+                Properties.Settings.Default.Save();
+
+                ApplyLanguage(selectedLanguage);
+
+                Application.Restart();
+            }
+        }
     }
 }

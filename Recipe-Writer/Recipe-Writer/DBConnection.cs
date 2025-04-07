@@ -655,18 +655,14 @@ namespace Recipe_Writer
         /// Reads all ingredients stored in the database for a type.
         /// If `typeProvided` is 0, the function returns all ingredients found in the database.
         /// The function adapts the ingredient name based on the selected language.
-        /// </summary>
-        /// <param name="typeProvided">The type ID of the ingredient. If 0, retrieves all ingredients.</param>
-        /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient names.</param>
-        /// <returns>List of ingredient names stored in the database.</returns>
-        public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0, string selectedLanguage = "fr")
+        public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0, string selectedLanguage = "en")
         {
             List<string> listAllIngredientsFoundInDB = new List<string>();
 
-            // Build dynamic column name based on the language
+            // Détermination de la bonne colonne en fonction de la langue
             string ingredientColumn = "ingredientName_" + selectedLanguage;
 
-            // Prepare the query
+            // Préparation de la requête
             string query = $"SELECT id, {ingredientColumn} AS ingredientName FROM Ingredients";
 
             if (typeProvided != 0)
@@ -687,13 +683,18 @@ namespace Recipe_Writer
                 {
                     while (reader.Read())
                     {
-                        listAllIngredientsFoundInDB.Add(reader[ingredientColumn].ToString());
+                        // Utilisation de l'alias défini dans la requête SQL
+                        if (!reader.IsDBNull(reader.GetOrdinal("ingredientName")))
+                        {
+                            listAllIngredientsFoundInDB.Add(reader["ingredientName"].ToString());
+                        }
                     }
                 }
             }
 
             return listAllIngredientsFoundInDB;
         }
+
 
 
         /// <summary>

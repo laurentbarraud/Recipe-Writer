@@ -56,7 +56,7 @@
             resources.GetString("cmbAppLanguage.Items"),
             resources.GetString("cmbAppLanguage.Items1")});
             this.cmbAppLanguage.Name = "cmbAppLanguage";
-            this.cmbAppLanguage.SelectedValueChanged += new System.EventHandler(this.cmbAppLanguage_SelectedValueChanged);
+            this.cmbAppLanguage.SelectedIndexChanged += new System.EventHandler(this.cmbAppLanguage_SelectedIndexChanged);
             // 
             // pictureBox1
             // 

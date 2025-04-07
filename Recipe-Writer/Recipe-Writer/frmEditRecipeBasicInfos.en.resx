@@ -117,24 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblNewImagePath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblRecipeTitle.Text" xml:space="preserve">
+    <value>Title :</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblNewImagePath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 18</value>
+  <data name="chkLowBudget.Text" xml:space="preserve">
+    <value>For low budget</value>
   </data>
-  <data name="lblNewImagePath.Text" xml:space="preserve">
-    <value>File name to give the image:</value>
-  </data>
-  <data name="cmdValidate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cmdCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblRecipeCompletionTime.Text" xml:space="preserve">
+    <value>Cooking time :</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Enter a name for the illustration image file</value>
+    <value>Edit recipe basic infos</value>
   </data>
 </root>

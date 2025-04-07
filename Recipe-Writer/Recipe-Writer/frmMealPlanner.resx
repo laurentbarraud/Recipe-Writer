@@ -128,14 +128,17 @@
   <data name="cmdMondayCooked.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="&gt;&gt;cmdThursdayCancelled.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="cmdSaturdayCooked.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="&gt;&gt;lblWednesday.Name" xml:space="preserve">
     <value>lblWednesday</value>
   </data>
-  <data name="cmdTuesdayCooked.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 25</value>
+  <data name="lblWednesday.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;lblMondayText.Name" xml:space="preserve">
     <value>lblMondayText</value>
@@ -149,20 +152,14 @@
   <data name="&gt;&gt;cmdSaturdayCancelled.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblSaturday.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="lblMondayRecipe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 46</value>
+  <data name="lblThursday.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="lblSunday.Text" xml:space="preserve">
     <value>Dimanche</value>
   </data>
   <data name="&gt;&gt;lblMondayText.ZOrder" xml:space="preserve">
     <value>20</value>
-  </data>
-  <data name="&gt;&gt;cmdFridayCancelled.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="lblTuesdayText.Text" xml:space="preserve">
     <value>Mardi</value>
@@ -183,23 +180,23 @@
   <data name="&gt;&gt;lblSaturday.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="cmdSundayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="cmdMondayCooked.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="cmdSundayCancelled.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="lblFriday.Location" type="System.Drawing.Point, System.Drawing">
-    <value>208, 145</value>
-  </data>
-  <data name="&gt;&gt;cmdMondayCooked.Name" xml:space="preserve">
-    <value>cmdMondayCooked</value>
+  <data name="cmdSundayCooked.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 25</value>
   </data>
   <data name="cmdWednesdayCooked.Location" type="System.Drawing.Point, System.Drawing">
     <value>477, 113</value>
   </data>
-  <data name="&gt;&gt;lblHowToUse.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lblTuesdayText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblHowToUse.Size" type="System.Drawing.Size, System.Drawing">
     <value>315, 48</value>
@@ -212,9 +209,6 @@
   </data>
   <data name="&gt;&gt;cmdThursdayCancelled.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblMondayText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblThursday.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -255,17 +249,14 @@
   <data name="cmdMondayCancelled.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
   </data>
-  <data name="&gt;&gt;cmdWednesdayCooked.Name" xml:space="preserve">
-    <value>cmdWednesdayCooked</value>
-  </data>
-  <data name="&gt;&gt;lblHowToUse.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmdWednesdayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="lblSunday.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 23</value>
   </data>
-  <data name="cmdTuesdayCancelled.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;cmdFridayCooked.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblTuesdayText.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -276,11 +267,11 @@
   <data name="&gt;&gt;lblTuesdayRecipe.ZOrder" xml:space="preserve">
     <value>26</value>
   </data>
+  <data name="lblSunday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 273</value>
+  </data>
   <data name="&gt;&gt;lblTuesdayRecipe.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="cmdSaturdayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
   </data>
   <data name="lblFriday.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 23</value>
@@ -300,17 +291,20 @@
   <data name="&gt;&gt;cmdSaturdayCooked.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;cmdThursdayCooked.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lblHowToUse.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="cmdWednesdayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="lblThursday.Text" xml:space="preserve">
+    <value>Jeudi</value>
+  </data>
+  <data name="&gt;&gt;cmdTuesdayCooked.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSaturdayRecipe.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblTuesdayText.Name" xml:space="preserve">
-    <value>lblTuesdayText</value>
+  <data name="&gt;&gt;lblSaturday.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lblMondayRecipe.Parent" xml:space="preserve">
     <value>$this</value>
@@ -342,11 +336,17 @@
   <data name="cmdWednesdayCooked.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="&gt;&gt;cmdFridayCooked.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;lblSaturdayRecipe.ZOrder" xml:space="preserve">
     <value>22</value>
   </data>
   <data name="lblTuesdayText.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
+  </data>
+  <data name="&gt;&gt;lblMondayText.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lblHowToUse.ZOrder" xml:space="preserve">
     <value>29</value>
@@ -354,14 +354,11 @@
   <data name="lblMondayText.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;cmdThursdayCancelled.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmdTuesdayCooked.Name" xml:space="preserve">
+    <value>cmdTuesdayCooked</value>
   </data>
   <data name="lblSundayRecipe.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
-  </data>
-  <data name="cmdWednesdayCancelled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 112</value>
   </data>
   <data name="&gt;&gt;cmdSundayCooked.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -372,8 +369,8 @@
   <data name="&gt;&gt;lblWednesday.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="cmdWednesdayCooked.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;lblMondayText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>Manual</value>
@@ -390,14 +387,14 @@
   <data name="lblMondayRecipe.Size" type="System.Drawing.Size, System.Drawing">
     <value>167, 64</value>
   </data>
-  <data name="&gt;&gt;cmdThursdayCancelled.Name" xml:space="preserve">
-    <value>cmdThursdayCancelled</value>
+  <data name="&gt;&gt;cmdThursdayCooked.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmdMondayCooked.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="cmdTuesdayCancelled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 112</value>
+  <data name="cmdFridayCancelled.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
   <data name="cmdThursdayCancelled.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
@@ -420,20 +417,29 @@
   <data name="lblTuesdayText.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 23</value>
   </data>
+  <data name="lblHowToUse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 313</value>
+  </data>
   <data name="lblFridayRecipe.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
+  </data>
+  <data name="lblMondayRecipe.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="cmdSaturdayCancelled.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmMealPlanner</value>
+  <data name="&gt;&gt;cmdWednesdayCancelled.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="cmdSundayCancelled.Location" type="System.Drawing.Point, System.Drawing">
     <value>35, 377</value>
   </data>
   <data name="lblThursday.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 23</value>
+  </data>
+  <data name="lblFriday.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
   <data name="lblWednesdayRecipe.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -447,11 +453,11 @@
   <data name="lblSaturday.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 23</value>
   </data>
+  <data name="cmdTuesdayCancelled.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 112</value>
+  </data>
   <data name="lblTuesdayRecipe.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 64</value>
-  </data>
-  <data name="&gt;&gt;cmdSundayCancelled.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblTuesdayRecipe.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
@@ -465,14 +471,14 @@
   <data name="cmdSaturdayCancelled.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
   </data>
-  <data name="lblThursday.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="cmdSaturdayCooked.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
-  <data name="&gt;&gt;cmdWednesdayCooked.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;cmdThursdayCooked.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;cmdWednesdayCancelled.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lblSaturday.ZOrder" xml:space="preserve">
+    <value>15</value>
   </data>
   <data name="&gt;&gt;lblFriday.Name" xml:space="preserve">
     <value>lblFriday</value>
@@ -482,9 +488,6 @@
   </data>
   <data name="lblWednesdayRecipe.Location" type="System.Drawing.Point, System.Drawing">
     <value>382, 46</value>
-  </data>
-  <data name="lblThursdayRecipe.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
   </data>
   <data name="&gt;&gt;lblMondayRecipe.Name" xml:space="preserve">
     <value>lblMondayRecipe</value>
@@ -501,8 +504,8 @@
   <data name="cmdWednesdayCooked.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="cmdSundayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;cmdTuesdayCooked.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmdSaturdayCancelled.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -522,14 +525,14 @@
   <data name="cmdSaturdayCooked.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="cmdMondayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="cmdSaturdayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="&gt;&gt;cmdSaturdayCancelled.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="cmdSundayCooked.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 25</value>
+  <data name="&gt;&gt;cmdWednesdayCooked.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="cmdFridayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -543,23 +546,20 @@
   <data name="lblWednesday.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 23</value>
   </data>
-  <data name="&gt;&gt;cmdTuesdayCooked.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblSunday.ZOrder" xml:space="preserve">
-    <value>14</value>
+  <data name="lblMondayRecipe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 46</value>
   </data>
   <data name="&gt;&gt;cmdFridayCooked.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblThursdayRecipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmdMondayCooked.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 113</value>
   </data>
   <data name="&gt;&gt;lblHowToUse.Name" xml:space="preserve">
     <value>lblHowToUse</value>
-  </data>
-  <data name="&gt;&gt;cmdFridayCooked.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmdTuesdayCooked.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -621,8 +621,14 @@
   <data name="&gt;&gt;cmdThursdayCooked.Name" xml:space="preserve">
     <value>cmdThursdayCooked</value>
   </data>
+  <data name="&gt;&gt;lblTuesdayText.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="lblFriday.Text" xml:space="preserve">
     <value>Vendredi</value>
+  </data>
+  <data name="cmdSaturdayCooked.Location" type="System.Drawing.Point, System.Drawing">
+    <value>476, 245</value>
   </data>
   <data name="&gt;&gt;lblThursdayRecipe.Name" xml:space="preserve">
     <value>lblThursdayRecipe</value>
@@ -636,8 +642,8 @@
   <data name="cmdThursdayCancelled.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;lblTuesdayText.ZOrder" xml:space="preserve">
-    <value>19</value>
+  <data name="&gt;&gt;cmdWednesdayCooked.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;cmdFridayCooked.Name" xml:space="preserve">
     <value>cmdFridayCooked</value>
@@ -645,14 +651,11 @@
   <data name="cmdSundayCooked.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;cmdSundayCooked.Name" xml:space="preserve">
-    <value>cmdSundayCooked</value>
-  </data>
   <data name="lblSundayRecipe.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 63</value>
   </data>
-  <data name="&gt;&gt;lblThursday.Name" xml:space="preserve">
-    <value>lblThursday</value>
+  <data name="cmdThursdayCancelled.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;cmdSundayCancelled.Parent" xml:space="preserve">
     <value>$this</value>
@@ -672,8 +675,8 @@
   <data name="cmdWednesdayCooked.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;lblSundayRecipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmdThursdayCancelled.Name" xml:space="preserve">
+    <value>cmdThursdayCancelled</value>
   </data>
   <data name="&gt;&gt;cmdMondayCancelled.Name" xml:space="preserve">
     <value>cmdMondayCancelled</value>
@@ -684,8 +687,8 @@
   <data name="cmdTuesdayCancelled.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
   </data>
-  <data name="&gt;&gt;lblThursdayRecipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmdWednesdayCooked.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;cmdTuesdayCancelled.Parent" xml:space="preserve">
     <value>$this</value>
@@ -693,17 +696,11 @@
   <data name="cmdFridayCancelled.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 244</value>
   </data>
-  <data name="&gt;&gt;cmdTuesdayCooked.Name" xml:space="preserve">
-    <value>cmdTuesdayCooked</value>
+  <data name="cmdSundayCooked.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 377</value>
   </data>
   <data name="&gt;&gt;lblSundayRecipe.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="lblSaturday.Text" xml:space="preserve">
-    <value>Samedi</value>
-  </data>
-  <data name="&gt;&gt;lblWednesdayRecipe.ZOrder" xml:space="preserve">
-    <value>25</value>
   </data>
   <data name="&gt;&gt;cmdValidate.Parent" xml:space="preserve">
     <value>$this</value>
@@ -714,11 +711,14 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Planificateur de repas</value>
   </data>
-  <data name="lblSundayRecipe.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
+  <data name="cmdFridayCooked.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="cmdSaturdayCancelled.Location" type="System.Drawing.Point, System.Drawing">
     <value>382, 244</value>
+  </data>
+  <data name="&gt;&gt;lblSunday.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="lblSaturday.Location" type="System.Drawing.Point, System.Drawing">
     <value>380, 145</value>
@@ -729,11 +729,14 @@
   <data name="lblSunday.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
+  <data name="&gt;&gt;cmdSundayCooked.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;cmdSundayCooked.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lblMondayRecipe.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;cmdMondayCooked.Name" xml:space="preserve">
+    <value>cmdMondayCooked</value>
   </data>
   <data name="lblFriday.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -747,8 +750,8 @@
   <data name="cmdThursdayCooked.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;cmdThursdayCooked.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblSundayRecipe.ZOrder" xml:space="preserve">
+    <value>21</value>
   </data>
   <data name="lblSaturdayRecipe.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
@@ -759,26 +762,26 @@
   <data name="&gt;&gt;cmdFridayCancelled.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cmdSundayCancelled.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
   <data name="lblFridayRecipe.Location" type="System.Drawing.Point, System.Drawing">
     <value>211, 179</value>
   </data>
   <data name="lblFriday.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
+  <data name="cmdTuesdayCancelled.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="cmdFridayCooked.Location" type="System.Drawing.Point, System.Drawing">
     <value>307, 244</value>
   </data>
-  <data name="&gt;&gt;lblMondayText.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;cmdSundayCancelled.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;lblThursday.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="&gt;&gt;cmdFridayCooked.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;cmdFridayCancelled.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="cmdSundayCancelled.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
@@ -786,11 +789,11 @@
   <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
     <value>453, 370</value>
   </data>
-  <data name="cmdSaturdayCooked.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="lblSundayRecipe.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="&gt;&gt;cmdTuesdayCancelled.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblSaturday.Text" xml:space="preserve">
+    <value>Samedi</value>
   </data>
   <data name="lblTuesdayRecipe.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -798,8 +801,8 @@
   <data name="cmdSundayCancelled.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
-  <data name="&gt;&gt;lblFridayRecipe.Name" xml:space="preserve">
-    <value>lblFridayRecipe</value>
+  <data name="lblFriday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>208, 145</value>
   </data>
   <data name="&gt;&gt;cmdMondayCooked.Parent" xml:space="preserve">
     <value>$this</value>
@@ -815,6 +818,9 @@
   </data>
   <data name="lblSaturdayRecipe.Location" type="System.Drawing.Point, System.Drawing">
     <value>382, 179</value>
+  </data>
+  <data name="cmdMondayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="cmdWednesdayCancelled.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -837,11 +843,8 @@
   <data name="&gt;&gt;cmdThursdayCancelled.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;lblTuesdayText.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblTuesdayText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmdWednesdayCooked.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSaturdayRecipe.Parent" xml:space="preserve">
     <value>$this</value>
@@ -855,31 +858,31 @@
   <data name="&gt;&gt;lblWednesday.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblSaturday.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 44</value>
   </data>
   <data name="&gt;&gt;cmdFridayCancelled.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="cmdFridayCancelled.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="&gt;&gt;cmdSundayCooked.Name" xml:space="preserve">
+    <value>cmdSundayCooked</value>
   </data>
-  <data name="lblWednesday.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmMealPlanner</value>
   </data>
   <data name="lblSaturdayRecipe.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="&gt;&gt;cmdWednesdayCooked.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmdWednesdayCancelled.Location" type="System.Drawing.Point, System.Drawing">
+    <value>382, 112</value>
   </data>
   <data name="&gt;&gt;cmdSaturdayCooked.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="cmdThursdayCancelled.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="cmdSundayCooked.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
-  <data name="&gt;&gt;cmdSundayCooked.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmdTuesdayCancelled.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmdTuesdayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -897,23 +900,23 @@
   <data name="cmdMondayCooked.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;cmdWednesdayCooked.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lblHowToUse.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblFriday.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
+  <data name="lblThursdayRecipe.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;cmdValidate.ZOrder" xml:space="preserve">
     <value>28</value>
   </data>
-  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 44</value>
+  <data name="&gt;&gt;lblThursday.Name" xml:space="preserve">
+    <value>lblThursday</value>
   </data>
-  <data name="lblThursday.Text" xml:space="preserve">
-    <value>Jeudi</value>
+  <data name="&gt;&gt;cmdWednesdayCooked.Name" xml:space="preserve">
+    <value>cmdWednesdayCooked</value>
   </data>
-  <data name="cmdFridayCooked.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;lblWednesdayRecipe.ZOrder" xml:space="preserve">
+    <value>25</value>
   </data>
   <data name="cmdTuesdayCancelled.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -927,20 +930,20 @@
   <data name="cmdMondayCancelled.Location" type="System.Drawing.Point, System.Drawing">
     <value>35, 113</value>
   </data>
+  <data name="cmdTuesdayCooked.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 25</value>
+  </data>
   <data name="&gt;&gt;lblThursdayRecipe.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="cmdSaturdayCooked.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="cmdSundayCooked.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
   <data name="lblThursdayRecipe.Location" type="System.Drawing.Point, System.Drawing">
     <value>37, 179</value>
   </data>
-  <data name="cmdSundayCooked.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 377</value>
+  <data name="&gt;&gt;cmdSundayCancelled.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmdThursdayCancelled.Location" type="System.Drawing.Point, System.Drawing">
     <value>35, 245</value>
@@ -951,8 +954,8 @@
   <data name="&gt;&gt;cmdWednesdayCancelled.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cmdSaturdayCooked.Location" type="System.Drawing.Point, System.Drawing">
-    <value>476, 245</value>
+  <data name="&gt;&gt;lblTuesdayText.Name" xml:space="preserve">
+    <value>lblTuesdayText</value>
   </data>
   <data name="cmdMondayCancelled.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -966,9 +969,6 @@
   <data name="&gt;&gt;lblTuesdayRecipe.Name" xml:space="preserve">
     <value>lblTuesdayRecipe</value>
   </data>
-  <data name="&gt;&gt;cmdTuesdayCooked.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="cmdMondayCooked.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
   </data>
@@ -978,16 +978,19 @@
   <data name="cmdThursdayCancelled.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;lblSundayRecipe.ZOrder" xml:space="preserve">
-    <value>21</value>
+  <data name="&gt;&gt;lblFridayRecipe.Name" xml:space="preserve">
+    <value>lblFridayRecipe</value>
   </data>
-  <data name="lblSunday.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 273</value>
+  <data name="&gt;&gt;lblSundayRecipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblHowToUse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 313</value>
+  <data name="&gt;&gt;lblTuesdayText.ZOrder" xml:space="preserve">
+    <value>19</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
   </metadata>
 </root>

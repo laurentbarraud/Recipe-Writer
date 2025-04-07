@@ -152,37 +152,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAddNewIngredientToRecipe.en-US.resx">
+    <EmbeddedResource Include="frmAddNewIngredientToRecipe.en.resx">
       <DependentUpon>frmAddNewIngredientToRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddNewIngredientToTheDB.en-US.resx">
+    <EmbeddedResource Include="frmAddNewIngredientToTheDB.en.resx">
       <DependentUpon>frmAddNewIngredientToTheDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditIngredientName.en-US.resx">
+    <EmbeddedResource Include="frmEditIngredientName.en.resx">
       <DependentUpon>frmEditIngredientName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditRecipeBasicInfos.en-US.resx">
+    <EmbeddedResource Include="frmEditRecipeBasicInfos.en.resx">
       <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInventory.en-US.resx">
+    <EmbeddedResource Include="frmInventory.en.resx">
       <DependentUpon>frmInventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.en-US.resx">
+    <EmbeddedResource Include="frmMain.en.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMealPlanner.en-US.resx">
+    <EmbeddedResource Include="frmMealPlanner.en.resx">
       <DependentUpon>frmMealPlanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewImagePath.en-US.resx">
+    <EmbeddedResource Include="frmNewImagePath.en.resx">
       <DependentUpon>frmNewImagePath.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewInstruction.en-US.resx">
+    <EmbeddedResource Include="frmNewInstruction.en.resx">
       <DependentUpon>frmNewInstruction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewRecipeBasicInfosInput.en-US.resx">
+    <EmbeddedResource Include="frmNewRecipeBasicInfosInput.en.resx">
       <DependentUpon>frmNewRecipeBasicInfosInput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSettings.en-US.resx">
+    <EmbeddedResource Include="frmSettings.en.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
@@ -293,7 +293,9 @@
     <Content Include="Recipe-writer.ico" />
     <None Include="Resources\recipeCooked.png" />
     <None Include="Resources\app-language.png" />
-    <Content Include="scripts\Recipe-writer-create-tables.sql" />
+    <Content Include="scripts\Recipe-writer-create-tables.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="scripts\Recipe-writer-insert-initial-data.sql" />
     <None Include="Resources\plan--recipe-into-planner.png" />
     <None Include="Resources\settings.png" />

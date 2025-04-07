@@ -117,23 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblNewIngredientNameFr.Text" xml:space="preserve">
-    <value>Name of the ingredient (Fr) </value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblNewImagePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 18</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cmdCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cmdValidate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblNewIngredientNameEn.Text" xml:space="preserve">
-    <value>Name of the ingredient (En) </value>
+  <data name="lblNewImagePath.Text" xml:space="preserve">
+    <value>File name to give the image :</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Add of new ingredient to the DB</value>
+    <value>Enter a name for the illustration image file</value>
   </data>
 </root>
