@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblNewIngredientNameFr.Text" xml:space="preserve">
+    <value>Name of the ingredient (Fr) </value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblNewIngredientName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblNewIngredientName.Text" xml:space="preserve">
-    <value>Name of ingredient :</value>
-  </data>
   <data name="lblType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -132,6 +129,9 @@
   </data>
   <data name="cmdValidate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblNewIngredientNameEn.Text" xml:space="preserve">
+    <value>Name of the ingredient (En) </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Add of new ingredient to the DB</value>

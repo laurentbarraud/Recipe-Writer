@@ -1,7 +1,7 @@
 ﻿/// <file>frmAddNewIngredientToTheDB.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 6th 2025</date>
+/// <date>April 7th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -56,31 +56,34 @@ namespace Recipe_Writer
 
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            string formattedNewIngredientName = txtNameNewIngredient.Text;
+            string ingredientFr = txtNewIngredientNameFr.Text.Trim();
+            string ingredientEn = txtNewIngredientNameEn.Text.Trim();
 
-            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
-            if (txtNameNewIngredient.Text.Contains("'"))
-            {
-                formattedNewIngredientName = txtNameNewIngredient.Text.Replace("'", "''");
-            }
-          
-            if (cmbTypesIngredientsListedInDB.SelectedIndex != -1 && cmbScaleNewIngredient.SelectedIndex != -1 && txtNameNewIngredient.Text != "")
+            // Échapper les apostrophes pour éviter les erreurs SQL
+            if (ingredientFr.Contains("'")) ingredientFr = ingredientFr.Replace("'", "''");
+            if (ingredientEn.Contains("'")) ingredientEn = ingredientEn.Replace("'", "''");
+
+            // Si un champ est vide, copie du contenu de l’autre
+            if (string.IsNullOrWhiteSpace(ingredientFr)) ingredientFr = ingredientEn;
+            if (string.IsNullOrWhiteSpace(ingredientEn)) ingredientEn = ingredientFr;
+
+            // Vérification que tous les champs nécessaires sont remplis
+            if (cmbTypesIngredientsListedInDB.SelectedIndex != -1 && cmbScaleNewIngredient.SelectedIndex != -1 && !string.IsNullOrWhiteSpace(ingredientFr))
             {
                 try
                 {
-                    _frmMain.dbConn.AddNewIngredientToDB(formattedNewIngredientName, cmbScaleNewIngredient.SelectedIndex + 1, cmbTypesIngredientsListedInDB.SelectedIndex + 1 );
+                    // Insertion dans la base avec les deux langues
+                    _frmMain.dbConn.AddNewIngredientToDB(ingredientFr, ingredientEn, cmbScaleNewIngredient.SelectedIndex + 1, cmbTypesIngredientsListedInDB.SelectedIndex + 1);
                     MessageBox.Show(strings.NewIngredientInsertedIntoBase, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(string.Format(strings.ErrorIngredientInsert, ex.Message), strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
             }
-
             else
             {
-               MessageBox.Show(strings.ErrorEmptyFields, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(strings.ErrorEmptyFields, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

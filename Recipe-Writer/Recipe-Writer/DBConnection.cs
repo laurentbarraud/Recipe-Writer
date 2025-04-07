@@ -2,7 +2,7 @@
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 5th 2025</date>
+/// <date>April 7th 2025</date>
 
 using System;
 using System.Data.SQLite;
@@ -112,27 +112,38 @@ namespace Recipe_Writer
 
         /// <summary>
         /// Adds a new ingredient into the database for a given recipe.
+        /// Ensures both French and English names are stored.
         /// </summary>
-        public void AddNewIngredient(int idRecipe, double qtyIngredient, string newIngredientName, string scaleIngredient, int nbIngredientsForARecipe)
+        public void AddNewIngredient(int idRecipe, double qtyIngredient, string newIngredientNameFr, string newIngredientNameEn, string scaleIngredient)
         {
             using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
+                // Ensure both names have a value
+                if (string.IsNullOrWhiteSpace(newIngredientNameFr)) newIngredientNameFr = newIngredientNameEn;
+                if (string.IsNullOrWhiteSpace(newIngredientNameEn)) newIngredientNameEn = newIngredientNameFr;
+
                 // Insert the new ingredient into the Ingredients table
-                cmd.CommandText = "INSERT INTO Ingredients (ingredientName, qtyAvailable) VALUES (@IngredientName, 0.0)";
-                cmd.Parameters.AddWithValue("@IngredientName", newIngredientName);
+                cmd.CommandText = "INSERT INTO Ingredients (ingredientName_fr, ingredientName_en, qtyAvailable) VALUES (@IngredientNameFr, @IngredientNameEn, 0.0)";
+                cmd.Parameters.AddWithValue("@IngredientNameFr", newIngredientNameFr);
+                cmd.Parameters.AddWithValue("@IngredientNameEn", newIngredientNameEn);
                 cmd.ExecuteNonQuery();
 
+                // Get the last inserted ingredient ID
+                cmd.CommandText = "SELECT last_insert_rowid()";
+                int newIngredientId = Convert.ToInt32(cmd.ExecuteScalar());
+
                 // Insert the ingredient reference into the Recipes_has_Ingredients table
-                cmd.CommandText = "INSERT INTO Recipes_has_Ingredients (qtyIngredient, ingredientName, scales, recipeId) VALUES (@QtyIngredient, @IngredientName, @ScaleIngredient, @RecipeId)";
+                cmd.CommandText = "INSERT INTO Recipes_has_Ingredients (qtyIngredient, ingredientId, scales, recipeId) VALUES (@QtyIngredient, @IngredientId, @ScaleIngredient, @RecipeId)";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@QtyIngredient", qtyIngredient);
-                cmd.Parameters.AddWithValue("@IngredientName", newIngredientName);
+                cmd.Parameters.AddWithValue("@IngredientId", newIngredientId);
                 cmd.Parameters.AddWithValue("@ScaleIngredient", scaleIngredient);
                 cmd.Parameters.AddWithValue("@RecipeId", idRecipe);
 
                 cmd.ExecuteNonQuery();
             }
         }
+
 
         /// <summary>
         /// Adds a new instruction into the database and returns its generated ID.
@@ -214,21 +225,30 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Adds a new ingredient to the database
-        /// <param name="idTypeOfIngredient"></param>
+        /// Adds a new ingredient to the database, ensuring French and English names are stored.
+        /// If only one name is provided, it is copied into the other.
         /// </summary>
-        public void AddNewIngredientToDB(string ingredientName, int scaleIdForThisIngredient, int idTypeOfIngredient)
+        public void AddNewIngredientToDB(string ingredientNameFr, string ingredientNameEn, int scaleIdForThisIngredient, int idTypeOfIngredient)
         {
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            using (SQLiteCommand cmd = sqliteConn.CreateCommand())
+            {
+                // Ensure both names have a value
+                if (string.IsNullOrWhiteSpace(ingredientNameFr)) ingredientNameFr = ingredientNameEn;
+                if (string.IsNullOrWhiteSpace(ingredientNameEn)) ingredientNameEn = ingredientNameFr;
 
-            // Configure the command with parameters to avoid SQL injection
-            cmd.CommandText = "INSERT INTO Ingredients (ingredientName, scale_id, typeOfIngredient_id) " +
-                              "VALUES (@ingredientName, @scaleId, @idTypeOfIngredient);";
-            cmd.Parameters.AddWithValue("@ingredientName", ingredientName);
-            cmd.Parameters.AddWithValue("@scaleId", scaleIdForThisIngredient);
-            cmd.Parameters.AddWithValue("@idTypeOfIngredient", idTypeOfIngredient);
-            cmd.ExecuteNonQuery();
+                // Insert the new ingredient into the Ingredients table
+                cmd.CommandText = "INSERT INTO Ingredients (ingredientName_fr, ingredientName_en, scale_id, typeOfIngredient_id) " +
+                                  "VALUES (@ingredientNameFr, @ingredientNameEn, @scaleId, @idTypeOfIngredient);";
+
+                cmd.Parameters.AddWithValue("@ingredientNameFr", ingredientNameFr);
+                cmd.Parameters.AddWithValue("@ingredientNameEn", ingredientNameEn);
+                cmd.Parameters.AddWithValue("@scaleId", scaleIdForThisIngredient);
+                cmd.Parameters.AddWithValue("@idTypeOfIngredient", idTypeOfIngredient);
+
+                cmd.ExecuteNonQuery();
+            }
         }
+
 
         // <summary>
         /// Adds a new ingredient to the selected recipe.
@@ -634,21 +654,27 @@ namespace Recipe_Writer
         /// <summary>
         /// Reads all ingredients stored in the database for a type.
         /// If `typeProvided` is 0, the function returns all ingredients found in the database.
+        /// The function adapts the ingredient name based on the selected language.
         /// </summary>
         /// <param name="typeProvided">The type ID of the ingredient. If 0, retrieves all ingredients.</param>
+        /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient names.</param>
         /// <returns>List of ingredient names stored in the database.</returns>
-        public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0)
+        public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0, string selectedLanguage = "fr")
         {
             List<string> listAllIngredientsFoundInDB = new List<string>();
 
-            string query = "SELECT ingredientName FROM Ingredients";
+            // Build dynamic column name based on the language
+            string ingredientColumn = "ingredientName_" + selectedLanguage;
+
+            // Prepare the query
+            string query = $"SELECT id, {ingredientColumn} AS ingredientName FROM Ingredients";
 
             if (typeProvided != 0)
             {
                 query += " WHERE typeOfIngredient_id = @TypeProvided";
             }
 
-            query += " ORDER BY ingredientName;";
+            query += $" ORDER BY {ingredientColumn};";
 
             using (SQLiteCommand cmd = new SQLiteCommand(query, sqliteConn))
             {
@@ -661,13 +687,14 @@ namespace Recipe_Writer
                 {
                     while (reader.Read())
                     {
-                        listAllIngredientsFoundInDB.Add(reader["ingredientName"].ToString());
+                        listAllIngredientsFoundInDB.Add(reader[ingredientColumn].ToString());
                     }
                 }
             }
 
             return listAllIngredientsFoundInDB;
         }
+
 
         /// <summary>
         /// Retrieves all recipe titles from the database.
@@ -742,34 +769,39 @@ namespace Recipe_Writer
 
 
         /// <summary>
-        /// Reads the quantity of an ingredient available 
+        /// Reads the quantity of an ingredient available, based on the selected language.
         /// </summary>
-        /// <param name="ingredientName">the name of the ingredient</param>
-        /// <returns>Quantity of the ingredient found in the inventory</returns>
-        public double ReadQtyAvailableForAnIngredient(string nameIngredient)
+        /// <param name="ingredientName">The name of the ingredient.</param>
+        /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient lookup.</param>
+        /// <returns>Quantity of the ingredient found in the inventory.</returns>
+        public double ReadQtyAvailableForAnIngredient(string ingredientName, string selectedLanguage = "fr")
         {
             double qtyIngredientFound = 0.0;
-            string formattednameIngredient = nameIngredient;
 
-            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
-            if (nameIngredient.Contains("'"))
+            // Ensure apostrophes are escaped to avoid SQL errors
+            string formattedNameIngredient = ingredientName.Replace("'", "''");
+
+            // Select the appropriate column based on the language
+            string ingredientColumn = "ingredientName_" + selectedLanguage;
+
+            using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                formattednameIngredient = nameIngredient.Replace("'", "''");
-            }
+                cmd.CommandText = $"SELECT qtyAvailable FROM Ingredients WHERE {ingredientColumn} = @IngredientName;";
+                cmd.Parameters.AddWithValue("@IngredientName", formattedNameIngredient);
 
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-
-            cmd.CommandText = "SELECT qtyAvailable FROM Ingredients WHERE ingredientName = '" + formattednameIngredient + "';";
-
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
-            {
-                // Parses the quantity of the ingredient
-                double.TryParse(dataReader["qtyAvailable"].ToString(), out qtyIngredientFound);
+                using (SQLiteDataReader dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        // Parses the quantity of the ingredient
+                        double.TryParse(dataReader["qtyAvailable"].ToString(), out qtyIngredientFound);
+                    }
+                }
             }
 
             return qtyIngredientFound;
         }
+
 
         /// <summary>
         /// Reads all scales stored in the database
@@ -812,7 +844,8 @@ namespace Recipe_Writer
                 {
                     int nbIngredientsForThisRecipe = CountAllIngredientsForARecipe(idRecipe);
 
-                    if (reader.Read()) // Reads only one row as expected
+                    // Reads only one row as expected
+                    if (reader.Read())
                     {
                         for (int i = 1; i <= nbIngredientsForThisRecipe; i++)
                         {
@@ -850,7 +883,6 @@ namespace Recipe_Writer
                                 ingredientToAdd.QtyRequested = qtyIngredientNeeded;
                                 ingredientToAdd.QtyAvailable = qtyIngredientAvailable;
 
-                                // Add to list
                                 listIngredientsRequested.Add(ingredientToAdd);
                             }
                         }
@@ -862,56 +894,71 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Reads id of an ingredient for a given name
+        /// Reads the ID of an ingredient for a given name, based on the selected language.
         /// </summary>
-        /// <param name="nameIngredient">the name of the ingredient</param>
-        /// <returns>Id of the ingredient</returns>
-        public int ReadIdForAnIngredientName(string nameIngredient)
+        /// <param name="nameIngredient">The name of the ingredient.</param>
+        /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient lookup.</param>
+        /// <returns>ID of the ingredient.</returns>
+        public int ReadIdForAnIngredientName(string nameIngredient, string selectedLanguage = "fr")
         {
-            // Declares a string to contain the ingredient id
             int ingredientIdFound = 0;
 
-            string formattednameIngredient = nameIngredient;
+            // Ensure apostrophes are escaped to avoid SQL errors
+            string formattedNameIngredient = nameIngredient.Replace("'", "''");
 
-            // Checks if the title of the recipe contains an apostroph, to avoid making the sql request crash
-            if (nameIngredient.Contains("'"))
+            // Select the appropriate column based on the language
+            string ingredientColumn = "ingredientName_" + selectedLanguage;
+
+            using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                formattednameIngredient = nameIngredient.Replace("'", "''");
-            }
+                cmd.CommandText = $"SELECT id FROM Ingredients WHERE {ingredientColumn} = @IngredientName;";
+                cmd.Parameters.AddWithValue("@IngredientName", formattedNameIngredient);
 
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
+                using (SQLiteDataReader dataReader = cmd.ExecuteReader())
+                {
 
-            cmd.CommandText = "SELECT id FROM 'Ingredients' WHERE ingredientName='"+formattednameIngredient+"';";
-
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
-            {
-                ingredientIdFound = int.Parse(dataReader["id"].ToString());
+                    if (dataReader.Read()) 
+                    {
+                        ingredientIdFound = int.Parse(dataReader["id"].ToString());
+                    }
+                }
             }
 
             return ingredientIdFound;
         }
 
+
         /// <summary>
-        /// Reads name of an ingredient for its id
+        /// Reads the name of an ingredient for its ID based on the selected language.
         /// </summary>
-        /// <param name="ingredientId">the id of the ingredient</param>
-        /// <returns>name of an ingredient</returns>
-        public string ReadNameForAnIngredientId(int ingredientId)
+        /// <param name="ingredientId">The ID of the ingredient.</param>
+        /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient name lookup.</param>
+        /// <returns>Name of the ingredient.</returns>
+        public string ReadNameForAnIngredientId(int ingredientId, string selectedLanguage = "fr")
         {
             string nameOfIngredientFound = "";
 
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Ingredients WHERE id='" + ingredientId + "';";
+            // Select the appropriate column based on the language
+            string ingredientColumn = "ingredientName_" + selectedLanguage;
 
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+            using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                nameOfIngredientFound = dataReader["ingredientName"].ToString();
+                cmd.CommandText = $"SELECT {ingredientColumn} AS ingredientName FROM Ingredients WHERE id = @IngredientId;";
+                cmd.Parameters.AddWithValue("@IngredientId", ingredientId);
+
+                using (SQLiteDataReader dataReader = cmd.ExecuteReader())
+                {
+                    // Optimization: only one expected result
+                    if (dataReader.Read())   
+                    {
+                        nameOfIngredientFound = dataReader["ingredientName"].ToString();
+                    }
+                }
             }
 
             return nameOfIngredientFound;
         }
+
 
         /// <summary>
         /// Reads planned meal for a day of the week stored in the database
@@ -1183,28 +1230,23 @@ namespace Recipe_Writer
 
         /// <summary>
         /// Searches for recipes based on multiple ingredient names and optional filters.
+        /// Adapts ingredient name search based on the selected language.
         /// </summary>
         /// <param name="ingredientInputs">List of ingredient names to search for.</param>
+        /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient names.</param>
         /// <param name="filterForLowBudget">Filter for low-budget recipes.</param>
         /// <param name="filterForThreeStars">Filter for recipes with three stars.</param>
         /// <returns>List of matching recipe titles.</returns>
-        public List<string> SearchRecipesByIngredients(List<string> ingredientInputs, bool filterForLowBudget = false, bool filterForThreeStars = false)
+        public List<string> SearchRecipesByIngredients(List<string> ingredientInputs, string selectedLanguage = "fr", bool filterForLowBudget = false, bool filterForThreeStars = false)
         {
             List<string> recipesTitlesFound = new List<string>();
 
-            string query = @"SELECT DISTINCT Recipes.title FROM Recipes
-                     LEFT JOIN Recipes_has_Ingredients ON Recipes.id = Recipes_has_Ingredients.id
-                     LEFT JOIN Ingredients ON Ingredients.id IN 
-                         (Recipes_has_Ingredients.ingredient1_id, Recipes_has_Ingredients.ingredient2_id, 
-                          Recipes_has_Ingredients.ingredient3_id, Recipes_has_Ingredients.ingredient4_id, 
-                          Recipes_has_Ingredients.ingredient5_id, Recipes_has_Ingredients.ingredient6_id, 
-                          Recipes_has_Ingredients.ingredient7_id, Recipes_has_Ingredients.ingredient8_id, 
-                          Recipes_has_Ingredients.ingredient9_id, Recipes_has_Ingredients.ingredient10_id, 
-                          Recipes_has_Ingredients.ingredient11_id, Recipes_has_Ingredients.ingredient12_id, 
-                          Recipes_has_Ingredients.ingredient13_id, Recipes_has_Ingredients.ingredient14_id, 
-                          Recipes_has_Ingredients.ingredient15_id, Recipes_has_Ingredients.ingredient16_id, 
-                          Recipes_has_Ingredients.ingredient17_id, Recipes_has_Ingredients.ingredient18_id, 
-                          Recipes_has_Ingredients.ingredient19_id, Recipes_has_Ingredients.ingredient20_id)
+            // Determine the correct ingredient column name dynamically
+            string ingredientColumn = "ingredientName_" + selectedLanguage;
+
+            string query = $@"SELECT DISTINCT Recipes.title FROM Recipes
+                     LEFT JOIN Recipes_has_Ingredients ON Recipes.id = Recipes_has_Ingredients.recipeId
+                     LEFT JOIN Ingredients ON Ingredients.id = Recipes_has_Ingredients.ingredientId
                      WHERE 1=1"; // Ensures proper query structure for dynamic conditions
 
             using (SQLiteCommand cmd = new SQLiteCommand(query, sqliteConn))
@@ -1214,7 +1256,7 @@ namespace Recipe_Writer
                     List<string> ingredientConditions = new List<string>();
                     for (int i = 0; i < ingredientInputs.Count; i++)
                     {
-                        ingredientConditions.Add($"Ingredients.ingredientName LIKE @Ingredient{i}");
+                        ingredientConditions.Add($"Ingredients.{ingredientColumn} LIKE @Ingredient{i}");
                         cmd.Parameters.AddWithValue($"@Ingredient{i}", $"%{ingredientInputs[i]}%");
                     }
                     query += " AND (" + string.Join(" OR ", ingredientConditions) + ")";
@@ -1243,6 +1285,7 @@ namespace Recipe_Writer
 
             return recipesTitlesFound;
         }
+
 
 
         /// <summary>
@@ -1316,17 +1359,28 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Updates the name of an ingredient.
+        /// Updates the name of an ingredient only in the active language.
         /// </summary>
-        public void UpdateIngredientName(int idIngredientToEdit, string newNameOfIngredient)
+        /// <param name="idIngredientToEdit">The ID of the ingredient.</param>
+        /// <param name="newNameOfIngredient">The new name of the ingredient.</param>
+        /// <param name="selectedLanguage">The active language ('fr' or 'en').</param>
+        public void UpdateIngredientName(int idIngredientToEdit, string newNameOfIngredient, string selectedLanguage)
         {
-            using (SQLiteCommand cmd = new SQLiteCommand("UPDATE Ingredients SET ingredientName = @NewNameOfIngredient WHERE id = @IdIngredient;", sqliteConn))
+            using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
+                // Determine the correct column based on the language
+                string ingredientColumn = "ingredientName_" + selectedLanguage;
+
+                // Prepare SQL query
+                cmd.CommandText = $"UPDATE Ingredients SET {ingredientColumn} = @NewNameOfIngredient WHERE id = @IdIngredient;";
                 cmd.Parameters.AddWithValue("@NewNameOfIngredient", newNameOfIngredient);
                 cmd.Parameters.AddWithValue("@IdIngredient", idIngredientToEdit);
+
                 cmd.ExecuteNonQuery();
             }
         }
+
+
 
         /// <summary>
         /// Updates the planned recipe for a specific day of the week.

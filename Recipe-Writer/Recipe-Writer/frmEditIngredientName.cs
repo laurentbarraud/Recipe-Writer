@@ -1,7 +1,7 @@
 ﻿/// <file>frmEditIngredientName.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1</version>
-/// <date>April 6th 2025</date>
+/// <date>April 7th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -54,23 +54,36 @@ namespace Recipe_Writer
         {
             this.Close();
         }
-
         private void cmdValidate_Click(object sender, EventArgs e)
         {
-            string formattedTitle = txtNewNameOfIngredient.Text;
+            string formattedTitle = txtNewNameOfIngredient.Text.Trim();
 
-            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
-            if (txtNewNameOfIngredient.Text.Contains("'"))
+            // Échapper les apostrophes pour éviter les erreurs SQL
+            if (formattedTitle.Contains("'"))
             {
-                formattedTitle = txtNewNameOfIngredient.Text.Replace("'", "''");
+                formattedTitle = formattedTitle.Replace("'", "''");
             }
 
-            if (txtNewNameOfIngredient.Text != "")
+            // Vérifier que le champ n'est pas vide
+            if (!string.IsNullOrWhiteSpace(formattedTitle))
             {
-                _frmMain.dbConn.UpdateIngredientName(IdIngredientToEdit, formattedTitle);
-                _frmInventory.RefreshInventory();
-                this.Close();
+                try
+                {   // Gets the app active language
+                    string selectedLanguage = Properties.Settings.Default.LanguageSetting;
+                    _frmMain.dbConn.UpdateIngredientName(IdIngredientToEdit, formattedTitle, selectedLanguage);
+                    _frmInventory.RefreshInventory();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format(strings.ErrorIngredientInsert, ex.Message), strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(strings.ErrorEmptyFields, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
