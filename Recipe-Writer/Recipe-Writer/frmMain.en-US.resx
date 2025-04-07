@@ -117,12 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtTitleSearch.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblSearchResults.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lblSearchResults.Text" xml:space="preserve">
     <value>Search results :</value>
+  </data>
+  <data name="lblSearchResults.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlInstructions.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="nudPersons.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="lblPortions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -134,71 +146,86 @@
   <data name="lblPortions.Text" xml:space="preserve">
     <value>servings</value>
   </data>
-  <data name="cmsRecipeResult.Size" type="System.Drawing.Size, System.Drawing">
-    <value>401, 192</value>
+  <data name="lblPortions.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="newRecipeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 26</value>
   </data>
   <data name="newRecipeToolStripMenuItem.Text" xml:space="preserve">
     <value>New recipe</value>
   </data>
+  <data name="editThisRecipesBasicInfosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 26</value>
+  </data>
   <data name="editThisRecipesBasicInfosToolStripMenuItem.Text" xml:space="preserve">
     <value>Edit basic infos for this recipe</value>
+  </data>
+  <data name="deleteThisRecipeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 26</value>
   </data>
   <data name="deleteThisRecipeToolStripMenuItem.Text" xml:space="preserve">
     <value>Delete this recipe</value>
   </data>
+  <data name="exportThisRecipeToAWebPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 26</value>
+  </data>
   <data name="exportThisRecipeToAWebPageToolStripMenuItem.Text" xml:space="preserve">
     <value>Export this recipe into a web page</value>
   </data>
-  <data name="PlanRecipeOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 26</value>
-  </data>
-  <data name="PlanRecipeOn.Text" xml:space="preserve">
-    <value>Plan recipe for</value>
-  </data>
   <data name="lundiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>168, 26</value>
   </data>
   <data name="lundiToolStripMenuItem.Text" xml:space="preserve">
     <value>Monday</value>
   </data>
   <data name="mardiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>168, 26</value>
   </data>
   <data name="mardiToolStripMenuItem.Text" xml:space="preserve">
     <value>Tuesday</value>
   </data>
   <data name="mercrediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>168, 26</value>
   </data>
   <data name="mercrediToolStripMenuItem.Text" xml:space="preserve">
     <value>Wednesday</value>
   </data>
   <data name="jeudiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>168, 26</value>
   </data>
   <data name="jeudiToolStripMenuItem.Text" xml:space="preserve">
     <value>Thursday</value>
   </data>
   <data name="vendrediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>168, 26</value>
   </data>
   <data name="vendrediToolStripMenuItem.Text" xml:space="preserve">
     <value>Friday</value>
   </data>
   <data name="samediToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>168, 26</value>
   </data>
   <data name="samediToolStripMenuItem.Text" xml:space="preserve">
     <value>Saturday</value>
   </data>
   <data name="dimancheToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>168, 26</value>
   </data>
   <data name="dimancheToolStripMenuItem.Text" xml:space="preserve">
     <value>Sunday</value>
   </data>
+  <data name="PlanRecipeOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 26</value>
+  </data>
+  <data name="PlanRecipeOn.Text" xml:space="preserve">
+    <value>Plan recipe for</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>397, 6</value>
+  </data>
   <data name="addIngredientToThisRecipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 26</value>
+    <value>400, 26</value>
   </data>
   <data name="addIngredientToThisRecipe.Text" xml:space="preserve">
     <value>Add an ingredient to this recipe</value>
@@ -209,14 +236,26 @@
   <data name="deleteIngredientFromThisRecipe.Text" xml:space="preserve">
     <value>Remove the selected ingredient from this recipe</value>
   </data>
+  <data name="cmsRecipeResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>401, 192</value>
+  </data>
+  <data name="cmsRecipeResult.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lstSearchResults.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmbRecipeIngredients.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblCompletionTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lblCompletionTime.Text" xml:space="preserve">
     <value>Preparation :</value>
   </data>
-  <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 204</value>
+  <data name="lblCompletionTime.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="chkFilterRecipesForThreeStars.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -230,11 +269,17 @@
   <data name="chkFilterRecipesForThreeStars.Text" xml:space="preserve">
     <value>3 stars rated</value>
   </data>
+  <data name="chkFilterRecipesForThreeStars.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="chkFilterRecipesForSmallBudget.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="chkFilterRecipesForSmallBudget.Text" xml:space="preserve">
     <value>Low budget</value>
+  </data>
+  <data name="chkFilterRecipesForSmallBudget.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="lblSearchByIngredients.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -245,11 +290,17 @@
   <data name="lblSearchByIngredients.Text" xml:space="preserve">
     <value>Search by ingredients</value>
   </data>
+  <data name="lblSearchByIngredients.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblSearchIngredient3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lblSearchIngredient3.Text" xml:space="preserve">
     <value>Ingredient #3 :</value>
+  </data>
+  <data name="lblSearchIngredient3.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="lblSearchIngredient2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -257,11 +308,26 @@
   <data name="lblSearchIngredient2.Text" xml:space="preserve">
     <value>Ingredient #2 :</value>
   </data>
+  <data name="lblSearchIngredient2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblSearchIngredient1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lblSearchIngredient1.Text" xml:space="preserve">
     <value>Ingredient #1 :</value>
+  </data>
+  <data name="lblSearchIngredient1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtSearchIngredient3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtSearchIngredient2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtSearchIngredient1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="cmdIngredientsSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -301,14 +367,35 @@
   <data name="cmdIngredientsSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="cmdIngredientsSearch.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 204</value>
+  </data>
+  <data name="pnlSlideMenu.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="picScore3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="picScore3.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="picScore2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="picScore2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="picScore1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="picScore1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlScore.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="cmdTitleSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -348,17 +435,32 @@
   <data name="cmdTitleSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="cmdTitleSearch.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="picSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="picSettings.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="picMealPlanner.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="picMealPlanner.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="picSearchByIngredient.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="picSearchByIngredient.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="picInventory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="picInventory.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="cmdAddInstruction.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -420,17 +522,32 @@
   <data name="cmdAddInstruction.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="cmdAddInstruction.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="picLowBudget.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="picLowBudget.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="picRecipe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="picRecipe.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="cmdNewRecipe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="cmdNewRecipe.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="picRecipeReadyToCookStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="picRecipeReadyToCookStatus.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1572,5 +1689,8 @@
         OcshQkEccUThCIERwPD2x744guB0pjvqqKsRp5OvAFbiuNo20Gks6DzO+Q5/JP8H8Tmt0U/gEEcAAAAA
         SUVORK5CYII=
 </value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>
