@@ -811,22 +811,28 @@ namespace Recipe_Writer
 
 
         /// <summary>
-        /// Reads all scales stored in the database
+        /// Reads all scales stored in the database, adapted to the active language.
         /// </summary>
-        /// <returns>the list of scales stored in the database</returns>
-        public List<string> ReadAllScalesStored()
+        /// <param name="selectedLanguage">The active language ('fr' or 'en').</param>
+        /// <returns>List of scales stored in the database.</returns>
+        public List<string> ReadAllScalesStored(string selectedLanguage = "fr")
         {
-            // Declares a list of ingredients to contain the ones needed to make the recipe
             List<string> allScalesNamesList = new List<string>();
 
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT id, scaleName FROM Scales;";
+            // Détermination de la bonne colonne selon la langue
+            string scaleColumn = "scaleName_" + selectedLanguage;
 
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+            string query = $"SELECT id, {scaleColumn} AS scaleName FROM Scales;";
+
+            using (SQLiteCommand cmd = new SQLiteCommand(query, sqliteConn))
             {
-                // Adds the ingredient to the list
-                allScalesNamesList.Add(dataReader["scaleName"].ToString());    
+                using (SQLiteDataReader dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        allScalesNamesList.Add(dataReader["scaleName"].ToString());
+                    }
+                }
             }
 
             return allScalesNamesList;
@@ -1018,35 +1024,36 @@ namespace Recipe_Writer
             return scaleIdFound;
         }
 
-
         /// <summary>
-        /// Reads the scale name corresponding to an id
+        /// Reads the scale name corresponding to an ID, adapted to the active language.
         /// </summary>
-        /// <param name="idIngredient">the id of the ingredient</param>
-        /// <returns>the scale name used by the ingredient</returns>
-        public string ReadScaleNameForAnID(int scaleId)
+        /// <param name="scaleId">The ID of the scale.</param>
+        /// <param name="selectedLanguage">The active language ('fr' or 'en').</param>
+        /// <returns>The scale name used by the ingredient.</returns>
+        public string ReadScaleNameForAnID(int scaleId, string selectedLanguage = "fr")
         {
-            // Stores the id of the scale used by that ingredient
             string scaleNameFound = "";
 
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
+            // Determining the correct column by language
+            string scaleColumn = "scaleName_" + selectedLanguage;
 
-            // Retrieves all the data about ingredients needed for the currently selected recipe
-            cmd.CommandText = "SELECT scaleName " +
-                                "FROM Scales " +
-                                "WHERE id = " + scaleId + ";";
-
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+            using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                if (dataReader["scaleName"].ToString() != "")
+                cmd.CommandText = $"SELECT {scaleColumn} AS scaleName FROM Scales WHERE id = @ScaleId;";
+                cmd.Parameters.AddWithValue("@ScaleId", scaleId);
+
+                using (SQLiteDataReader dataReader = cmd.ExecuteReader())
                 {
-                    scaleNameFound = dataReader["scaleName"].ToString();
+                    if (dataReader.Read()) // Optimisation : un seul résultat attendu
+                    {
+                        scaleNameFound = dataReader["scaleName"].ToString();
+                    }
                 }
             }
 
             return scaleNameFound;
         }
+
 
         /// <summary>
         /// Reads the type name of an ingredient for a given ID, adapted to the active language.
