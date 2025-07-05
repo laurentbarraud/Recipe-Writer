@@ -1,8 +1,9 @@
 ## Recipe Writer
 School project made in replacement of the end-of-learning job of computer specialist to manage a collection of recipes.
 
-![Tested](https://img.shields.io/badge/tested-no%20bugs-brightgreen)
-![Update](https://img.shields.io/badge/major%20update-2025-blue)
+![Release](https://img.shields.io/badge/release-stable-blue)
+![Completed](https://img.shields.io/badge/completed-2025-darkgreen)
+
 
 - Search by keywords based on recipe title.
 - Search by ingredients (up to 3 different).
