@@ -1,8 +1,8 @@
 ## Recipe Writer
 School project made in replacement of the end-of-learning job of computer specialist to manage a collection of recipes.
 
-![Release](https://img.shields.io/badge/release-stable-blue)
-![Completed](https://img.shields.io/badge/completed-2025-darkgreen)
+![Release](https://img.shields.io/badge/release-stable-1B4636)
+![Completed](https://img.shields.io/badge/completed-2025-1B4636)
 ![GitHub all releases](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/total?color=88aacc&style=flat)
 
 - Search by keywords based on recipe title.
