@@ -2,8 +2,7 @@
 School project made in replacement of the end-of-learning job of computer specialist to manage a collection of recipes.
 
 ![Release](https://img.shields.io/badge/release-stable-1B4636)
-![Completed](https://img.shields.io/badge/completed-2025-1B4636)
-![GitHub all releases](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/total?color=88aacc&style=flat)
+[![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-screenshot.jpg" width="500" alt="screenshot of the main form of Recipe Writer app">
