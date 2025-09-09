@@ -20,3 +20,15 @@ School project made in replacement of the end-of-learning job of computer specia
 - Possibility to rate each recipe from 1 to 3 stars.
 - A weekly meal planner with "Drag 'n drop" function to add a meal to a day.
 - When a planned meal has been cooked, a button allows you to deduct the ingredients used from the inventory.
+
+### How to Run
+
+- Clone the repository
+- Open in Visual Studio 2022
+- Build and run the solution to test the two projects in local connection.
+
+### Download
+
+Go to the [Releases](../../releases) section to download a ZIP archive containing the compiled executables (compatible with x64 systems running Windows 7 or later).
+
+
