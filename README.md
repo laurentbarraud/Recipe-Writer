@@ -2,7 +2,7 @@
 School project made in replacement of the end-of-learning job of computer specialist to manage a collection of recipes.
 
 ![Release](https://img.shields.io/badge/release-stable-1B4636)
-[![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
+[![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-screenshot.jpg" width="500" alt="screenshot of the main form of Recipe Writer app">
@@ -30,4 +30,4 @@ School project made in replacement of the end-of-learning job of computer specia
 
 Go to the [Releases](../../releases) section to download a ready-to-use installer. Designed for x64-based Windows systems (Windows 7 and above).
 
-
+If you find this project useful or inspiring, feel free to drop a star — it's greatly appreciated !
