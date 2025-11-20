@@ -1,7 +1,7 @@
 ## Recipe Writer
 
 School project made in replacement of the end-of-study assignment of a computer science student.  
-Recipe Writer is a Windows desktop application built with C#, WinForms and a SQLite database to manage a collection of recipes. It includes an ingredient inventory and a weekly meal planner.
+Built in WinForms with a SQLite database, it manages a collection of recipes. An ingredient inventory and a weekly meal planner are included.
 
 ![Release](https://img.shields.io/badge/release-stable-1B4636)
 [![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
