@@ -1,7 +1,8 @@
 ## Recipe Writer
 
 School project made as a replacement for the end-of-study assignment of a computer science student.  
-Developed in C# with WinForms, it uses a SQLite database to manage a collection of recipes and an inventory of available ingredients. A weekly meal planner is also included.
+Developed in C# with WinForms, it uses a SQLite database to manage a collection of recipes. 
+An inventory of available ingredients and a weekly meal planner are also included.
 
 ![Release](https://img.shields.io/badge/release-stable-1B4636)
 [![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
@@ -15,18 +16,16 @@ Developed in C# with WinForms, it uses a SQLite database to manage a collection 
 
 ### Features
 - 🔍 Search recipes by keywords based on title  
-- 🥕 Search by ingredients (up to 3 different)  
-- ⭐ Rate each recipe from 1 to 3 stars  
+- 🥕 Search by ingredients (up to 3 different)
+- ⭐ Rate each recipe from 1 to 3 stars
 - ⚖️ Automatic adjustment of ingredient quantities according to the number of servings  
-- 📖 Add your own recipes with your own illustration and instructions  
-- 🧩 Add your own custom ingredients  
+- 📝 Add your own recipes with your own illustration and instructions   - 🍄 Add your own custom ingredients
 - 🧊 Ingredient inventory sorted by type in different tabs  
 - 🍯 Jar icon indicates whether all ingredients are available for the currently displayed recipe  
 - 📅 Weekly meal planner with drag and drop to assign meals to a day  
-- ➖ When a planned meal has been cooked, a button allows you to deduct the used ingredient quantities from the inventory 
-- 🌍 Fully localized application: available in English and French  
+- ➖ When a planned meal has been cooked, a "Prepared" button lets you deduct each used ingredient quantities from the inventory  
+- 🌐 Fully localized application: available in English and French  
   
-
 ### How to Run
 
 - Clone the repository  
