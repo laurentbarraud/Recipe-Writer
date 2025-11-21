@@ -18,10 +18,15 @@ Developed in C# with WinForms, it uses a SQLite database to manage a collection 
 - 🥕 Search by ingredients (up to 3 different)  
 - ⭐ Rate each recipe from 1 to 3 stars  
 - ⚖️ Automatic adjustment of ingredient quantities according to the number of servings  
+- 📖 Add your own recipes with your own illustration and instructions  
+- 🧩 Add your own custom ingredients  
 - 🧊 Ingredient inventory sorted by type in different tabs  
 - 🍯 Jar icon indicates whether all ingredients are available for the currently displayed recipe  
 - 📅 Weekly meal planner with drag and drop to assign meals to a day  
-- ➖ When a planned meal has been cooked, a button allows you to deduct the used ingredient quantities from the inventory  
+- ➖ When a planned meal has been cooked, a button allows you to deduct the used ingredient quantities from the inventory 
+- 🌍 Fully localized application: available in English and French  
+  
+
 ### How to Run
 
 - Clone the repository  
@@ -30,7 +35,7 @@ Developed in C# with WinForms, it uses a SQLite database to manage a collection 
 
 ### Download
 
-Go to the [Releases](../../releases) section to download a ready-to-use installer.  
-Designed for x64-based Windows systems (Windows 7 and above).  
+Go to the [Releases](../../releases) section to download a ready-to-use installer,  
+designed for x64-based Windows systems (Windows 7 and above). 
 
 If you find this project useful or inspiring, a star is always appreciated.
