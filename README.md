@@ -1,7 +1,7 @@
 ## Recipe Writer
 
-School project made in replacement of the end-of-study assignment of a computer science student.  
-Built in WinForms with a SQLite database, it manages a collection of recipes. An ingredient inventory and a weekly meal planner are included.
+School project made as a replacement for the end-of-study assignment of a computer science student.  
+Developed in C# with WinForms, it uses a SQLite database to manage a collection of recipes and an inventory of available ingredients. A weekly meal planner is also included.
 
 ![Release](https://img.shields.io/badge/release-stable-1B4636)
 [![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
@@ -14,16 +14,14 @@ Built in WinForms with a SQLite database, it manages a collection of recipes. An
 </p>
 
 ### Features
-
-- Search recipes by keywords based on title  
-- Search by ingredients (up to 3 different)  
-- Rate each recipe from 1 to 3 stars  
-- Automatic adjustment of ingredient quantities according to the number of servings  
-- Ingredient inventory sorted by type in different tabs
-- Jar icon indicates whether all ingredients are available for the currently displayed recipe  
-- Weekly meal planner with drag and drop to assign meals to a day  
-- When a planned meal has been cooked, a button allows you to deduct the used ingredient quantities from the inventory.  
-
+- 🔍 Search recipes by keywords based on title  
+- 🥕 Search by ingredients (up to 3 different)  
+- ⭐ Rate each recipe from 1 to 3 stars  
+- ⚖️ Automatic adjustment of ingredient quantities according to the number of servings  
+- 🧊 Ingredient inventory sorted by type in different tabs  
+- 🍯 Jar icon indicates whether all ingredients are available for the currently displayed recipe  
+- 📅 Weekly meal planner with drag and drop to assign meals to a day  
+- ➖ When a planned meal has been cooked, a button allows you to deduct the used ingredient quantities from the inventory  
 ### How to Run
 
 - Clone the repository  
@@ -35,4 +33,4 @@ Built in WinForms with a SQLite database, it manages a collection of recipes. An
 Go to the [Releases](../../releases) section to download a ready-to-use installer.  
 Designed for x64-based Windows systems (Windows 7 and above).  
 
-If you find this project useful or inspiring, feel free to drop a star. It is greatly appreciated.
+If you find this project useful or inspiring, a star is always appreciated.
