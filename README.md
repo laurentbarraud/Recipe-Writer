@@ -1,18 +1,20 @@
 ## Recipe Writer
 
-School project made as a replacement for the end-of-study assignment of a computer science student.  
-Developed in C# with WinForms, it uses a SQLite database to manage a collection of recipes. 
-An inventory of available ingredients and a weekly meal planner are also included.
+School project developed in C# with WinForms, as a replacement for the end‑of‑study assignment of the computer science diploma.  
+It manages a collection of recipes stored in a SQLite database.
 
-![Release](https://img.shields.io/badge/release-stable-1B4636)
+[![Release](https://img.shields.io/badge/release-stable-245e48)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
 [![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-screenshot.jpg" width="500" alt="Screenshot of the main form">
 </p>
+
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-inventory-screenshot.jpg" width="500" alt="Screenshot of the inventory showing ingredient management tabs">
 </p>
+
+An inventory of available ingredients and a weekly meal planner are also included.
 
 ### Features
 - 🔍 Search recipes by keywords based on title  
