@@ -8,7 +8,7 @@ An inventory of available ingredients and a weekly meal planner are also include
 [![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-screenshot.jpg" width="500" alt="Screenshot of the main form of Recipe Writer app">
+<img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-screenshot.jpg" width="500" alt="Screenshot of the main form">
 </p>
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-inventory-screenshot.jpg" width="500" alt="Screenshot of the inventory showing ingredient management tabs">
@@ -18,8 +18,10 @@ An inventory of available ingredients and a weekly meal planner are also include
 - 🔍 Search recipes by keywords based on title  
 - 🥕 Search by ingredients (up to 3 different)
 - ⭐ Rate each recipe from 1 to 3 stars
+- 🏷️ Display budget-friendly recipes and apply a filter in search  
 - ⚖️ Automatic adjustment of ingredient quantities according to the number of servings  
-- 📝 Add your own recipes with your own illustration and instructions   - 🍄 Add your own custom ingredients
+- 📝 Add your own recipes with your own illustration and instructions
+- 🍄 Add your own custom ingredients
 - 🧊 Ingredient inventory sorted by type in different tabs  
 - 🍯 Jar icon indicates whether all ingredients are available for the currently displayed recipe  
 - 📅 Weekly meal planner with drag and drop to assign meals to a day  
