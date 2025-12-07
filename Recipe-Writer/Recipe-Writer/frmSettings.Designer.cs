@@ -32,8 +32,8 @@
             this.lblInfosLicence = new System.Windows.Forms.Label();
             this.lblAppLanguage = new System.Windows.Forms.Label();
             this.cmbAppLanguage = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmdValidate = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,13 +58,6 @@
             this.cmbAppLanguage.Name = "cmbAppLanguage";
             this.cmbAppLanguage.SelectedIndexChanged += new System.EventHandler(this.cmbAppLanguage_SelectedIndexChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Recipe_Writer.Properties.Resources.app_language;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
             // cmdValidate
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
@@ -73,12 +66,19 @@
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Recipe_Writer.Properties.Resources.language_selection;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
             // frmSettings
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cmbAppLanguage);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.cmbAppLanguage);
             this.Controls.Add(this.lblAppLanguage);
             this.Controls.Add(this.lblInfosLicence);
             this.Controls.Add(this.cmdValidate);
@@ -95,8 +95,8 @@
         #endregion
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.Label lblInfosLicence;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblAppLanguage;
         private System.Windows.Forms.ComboBox cmbAppLanguage;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

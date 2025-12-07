@@ -1,7 +1,7 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1</version>
-/// <date>April 7th 2025</date>
+/// <version>1.1.1</version>
+/// <date>December 7th 2025</date>
 /// 
 using System;
 using System.Drawing;
@@ -28,12 +28,21 @@ namespace Recipe_Writer
         private Action<int> fillInListBoxesDelegate;
 
         /// <summary>
-        /// Form load event
+        /// Handles the load event of the form.
+        /// Localizes the tab titles using resource strings,
+        /// then refreshes the inventory quantities.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The inventory form instance.</param>
+        /// <param name="e">Event arguments.</param>
         private void frmInventory_Load(object sender, EventArgs e)
         {
+            // Localizes tab titles using Strings.resx
+            for (int i = 0; i < tabInventoryIngredients.TabCount - 1; i++)
+            {
+                string resourceKey = $"TabInventory_{i}";
+                tabInventoryIngredients.TabPages[i].Text = strings.ResourceManager.GetString(resourceKey);
+            }
+
             RefreshInventory();
         }
 

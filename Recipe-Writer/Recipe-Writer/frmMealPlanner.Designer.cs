@@ -68,9 +68,9 @@
             // 
             // lblMondayRecipe
             // 
-            resources.ApplyResources(this.lblMondayRecipe, "lblMondayRecipe");
             this.lblMondayRecipe.AllowDrop = true;
             this.lblMondayRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lblMondayRecipe, "lblMondayRecipe");
             this.lblMondayRecipe.Name = "lblMondayRecipe";
             this.lblMondayRecipe.TextChanged += new System.EventHandler(this.lblMondayRecipe_TextChanged);
             this.lblMondayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblMondayRecipe_DragDrop);
@@ -79,9 +79,9 @@
             // 
             // lblTuesdayRecipe
             // 
-            resources.ApplyResources(this.lblTuesdayRecipe, "lblTuesdayRecipe");
             this.lblTuesdayRecipe.AllowDrop = true;
             this.lblTuesdayRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lblTuesdayRecipe, "lblTuesdayRecipe");
             this.lblTuesdayRecipe.Name = "lblTuesdayRecipe";
             this.lblTuesdayRecipe.TextChanged += new System.EventHandler(this.lblTuesdayRecipe_TextChanged);
             this.lblTuesdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblTuesdayRecipe_DragDrop);
@@ -90,9 +90,9 @@
             // 
             // lblWednesdayRecipe
             // 
-            resources.ApplyResources(this.lblWednesdayRecipe, "lblWednesdayRecipe");
             this.lblWednesdayRecipe.AllowDrop = true;
             this.lblWednesdayRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lblWednesdayRecipe, "lblWednesdayRecipe");
             this.lblWednesdayRecipe.Name = "lblWednesdayRecipe";
             this.lblWednesdayRecipe.TextChanged += new System.EventHandler(this.lblWednesdayRecipe_TextChanged);
             this.lblWednesdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblWednesdayRecipe_DragDrop);
@@ -101,9 +101,9 @@
             // 
             // lblThursdayRecipe
             // 
-            resources.ApplyResources(this.lblThursdayRecipe, "lblThursdayRecipe");
             this.lblThursdayRecipe.AllowDrop = true;
             this.lblThursdayRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lblThursdayRecipe, "lblThursdayRecipe");
             this.lblThursdayRecipe.Name = "lblThursdayRecipe";
             this.lblThursdayRecipe.TextChanged += new System.EventHandler(this.lblThursdayRecipe_TextChanged);
             this.lblThursdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblThursdayRecipe_DragDrop);
@@ -112,9 +112,9 @@
             // 
             // lblFridayRecipe
             // 
-            resources.ApplyResources(this.lblFridayRecipe, "lblFridayRecipe");
             this.lblFridayRecipe.AllowDrop = true;
             this.lblFridayRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lblFridayRecipe, "lblFridayRecipe");
             this.lblFridayRecipe.Name = "lblFridayRecipe";
             this.lblFridayRecipe.TextChanged += new System.EventHandler(this.lblFridayRecipe_TextChanged);
             this.lblFridayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblFridayRecipe_DragDrop);
@@ -123,9 +123,9 @@
             // 
             // lblSaturdayRecipe
             // 
-            resources.ApplyResources(this.lblSaturdayRecipe, "lblSaturdayRecipe");
             this.lblSaturdayRecipe.AllowDrop = true;
             this.lblSaturdayRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lblSaturdayRecipe, "lblSaturdayRecipe");
             this.lblSaturdayRecipe.Name = "lblSaturdayRecipe";
             this.lblSaturdayRecipe.TextChanged += new System.EventHandler(this.lblSaturdayRecipe_TextChanged);
             this.lblSaturdayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblSaturdayRecipe_DragDrop);
@@ -134,9 +134,9 @@
             // 
             // lblSundayRecipe
             // 
-            resources.ApplyResources(this.lblSundayRecipe, "lblSundayRecipe");
             this.lblSundayRecipe.AllowDrop = true;
             this.lblSundayRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lblSundayRecipe, "lblSundayRecipe");
             this.lblSundayRecipe.Name = "lblSundayRecipe";
             this.lblSundayRecipe.TextChanged += new System.EventHandler(this.lblSundayRecipe_TextChanged);
             this.lblSundayRecipe.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblSundayRecipe_DragDrop);
@@ -180,8 +180,8 @@
             // 
             // cmdSundayCooked
             // 
-            resources.ApplyResources(this.cmdSundayCooked, "cmdSundayCooked");
             this.cmdSundayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
+            resources.ApplyResources(this.cmdSundayCooked, "cmdSundayCooked");
             this.cmdSundayCooked.FlatAppearance.BorderSize = 0;
             this.cmdSundayCooked.Name = "cmdSundayCooked";
             this.cmdSundayCooked.UseVisualStyleBackColor = true;
@@ -189,8 +189,8 @@
             // 
             // cmdSaturdayCooked
             // 
-            resources.ApplyResources(this.cmdSaturdayCooked, "cmdSaturdayCooked");
             this.cmdSaturdayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
+            resources.ApplyResources(this.cmdSaturdayCooked, "cmdSaturdayCooked");
             this.cmdSaturdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdSaturdayCooked.Name = "cmdSaturdayCooked";
             this.cmdSaturdayCooked.UseVisualStyleBackColor = true;
@@ -198,8 +198,8 @@
             // 
             // cmdFridayCooked
             // 
-            resources.ApplyResources(this.cmdFridayCooked, "cmdFridayCooked");
             this.cmdFridayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
+            resources.ApplyResources(this.cmdFridayCooked, "cmdFridayCooked");
             this.cmdFridayCooked.FlatAppearance.BorderSize = 0;
             this.cmdFridayCooked.Name = "cmdFridayCooked";
             this.cmdFridayCooked.UseVisualStyleBackColor = true;
@@ -207,8 +207,8 @@
             // 
             // cmdThursdayCooked
             // 
-            resources.ApplyResources(this.cmdThursdayCooked, "cmdThursdayCooked");
             this.cmdThursdayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
+            resources.ApplyResources(this.cmdThursdayCooked, "cmdThursdayCooked");
             this.cmdThursdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdThursdayCooked.Name = "cmdThursdayCooked";
             this.cmdThursdayCooked.UseVisualStyleBackColor = true;
@@ -216,8 +216,8 @@
             // 
             // cmdWednesdayCooked
             // 
-            resources.ApplyResources(this.cmdWednesdayCooked, "cmdWednesdayCooked");
             this.cmdWednesdayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
+            resources.ApplyResources(this.cmdWednesdayCooked, "cmdWednesdayCooked");
             this.cmdWednesdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdWednesdayCooked.Name = "cmdWednesdayCooked";
             this.cmdWednesdayCooked.UseVisualStyleBackColor = true;
@@ -225,8 +225,8 @@
             // 
             // cmdTuesdayCooked
             // 
-            resources.ApplyResources(this.cmdTuesdayCooked, "cmdTuesdayCooked");
             this.cmdTuesdayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
+            resources.ApplyResources(this.cmdTuesdayCooked, "cmdTuesdayCooked");
             this.cmdTuesdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdTuesdayCooked.Name = "cmdTuesdayCooked";
             this.cmdTuesdayCooked.UseVisualStyleBackColor = true;
@@ -234,8 +234,8 @@
             // 
             // cmdMondayCooked
             // 
-            resources.ApplyResources(this.cmdMondayCooked, "cmdMondayCooked");
             this.cmdMondayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
+            resources.ApplyResources(this.cmdMondayCooked, "cmdMondayCooked");
             this.cmdMondayCooked.FlatAppearance.BorderSize = 0;
             this.cmdMondayCooked.Name = "cmdMondayCooked";
             this.cmdMondayCooked.UseVisualStyleBackColor = true;
@@ -243,8 +243,8 @@
             // 
             // cmdSaturdayCancelled
             // 
-            resources.ApplyResources(this.cmdSaturdayCancelled, "cmdSaturdayCancelled");
             this.cmdSaturdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdSaturdayCancelled, "cmdSaturdayCancelled");
             this.cmdSaturdayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdSaturdayCancelled.Name = "cmdSaturdayCancelled";
             this.cmdSaturdayCancelled.UseVisualStyleBackColor = true;
@@ -252,8 +252,8 @@
             // 
             // cmdFridayCancelled
             // 
-            resources.ApplyResources(this.cmdFridayCancelled, "cmdFridayCancelled");
             this.cmdFridayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdFridayCancelled, "cmdFridayCancelled");
             this.cmdFridayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdFridayCancelled.Name = "cmdFridayCancelled";
             this.cmdFridayCancelled.UseVisualStyleBackColor = true;
@@ -261,8 +261,8 @@
             // 
             // cmdThursdayCancelled
             // 
-            resources.ApplyResources(this.cmdThursdayCancelled, "cmdThursdayCancelled");
             this.cmdThursdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdThursdayCancelled, "cmdThursdayCancelled");
             this.cmdThursdayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdThursdayCancelled.Name = "cmdThursdayCancelled";
             this.cmdThursdayCancelled.UseVisualStyleBackColor = true;
@@ -270,8 +270,8 @@
             // 
             // cmdSundayCancelled
             // 
-            resources.ApplyResources(this.cmdSundayCancelled, "cmdSundayCancelled");
             this.cmdSundayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdSundayCancelled, "cmdSundayCancelled");
             this.cmdSundayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdSundayCancelled.Name = "cmdSundayCancelled";
             this.cmdSundayCancelled.UseVisualStyleBackColor = true;
@@ -279,8 +279,8 @@
             // 
             // cmdWednesdayCancelled
             // 
-            resources.ApplyResources(this.cmdWednesdayCancelled, "cmdWednesdayCancelled");
             this.cmdWednesdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdWednesdayCancelled, "cmdWednesdayCancelled");
             this.cmdWednesdayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdWednesdayCancelled.Name = "cmdWednesdayCancelled";
             this.cmdWednesdayCancelled.UseVisualStyleBackColor = true;
@@ -288,8 +288,8 @@
             // 
             // cmdTuesdayCancelled
             // 
-            resources.ApplyResources(this.cmdTuesdayCancelled, "cmdTuesdayCancelled");
             this.cmdTuesdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdTuesdayCancelled, "cmdTuesdayCancelled");
             this.cmdTuesdayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdTuesdayCancelled.Name = "cmdTuesdayCancelled";
             this.cmdTuesdayCancelled.UseVisualStyleBackColor = true;
@@ -297,8 +297,8 @@
             // 
             // cmdMondayCancelled
             // 
-            resources.ApplyResources(this.cmdMondayCancelled, "cmdMondayCancelled");
             this.cmdMondayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdMondayCancelled, "cmdMondayCancelled");
             this.cmdMondayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdMondayCancelled.Name = "cmdMondayCancelled";
             this.cmdMondayCancelled.UseVisualStyleBackColor = true;
@@ -306,8 +306,8 @@
             // 
             // cmdValidate
             // 
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.UseVisualStyleBackColor = true;
@@ -315,8 +315,8 @@
             // 
             // frmMealPlanner
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmdSundayCooked);
             this.Controls.Add(this.cmdSaturdayCooked);
             this.Controls.Add(this.cmdFridayCooked);

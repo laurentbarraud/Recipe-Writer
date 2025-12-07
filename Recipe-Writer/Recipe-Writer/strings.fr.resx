@@ -159,9 +159,6 @@
   <data name="ErrorDatabaseCorrupted" xml:space="preserve">
     <value>La base de donnée est corrompue.</value>
   </data>
-  <data name="BaseWillBeRebuilt" xml:space="preserve">
-    <value>La base va être reconstruite.</value>
-  </data>
   <data name="DBfileNotFound" xml:space="preserve">
     <value>Le fichier de la base de donnée n'a pas été trouvé.</value>
   </data>
@@ -230,5 +227,38 @@
   </data>
   <data name="SearchResults" xml:space="preserve">
     <value>Résultats :</value>
+  </data>
+  <data name="BaseWillBeRebuilt" xml:space="preserve">
+    <value>La base va être reconstruite.</value>
+  </data>
+  <data name="InfoIngredientDeletedFromDB" xml:space="preserve">
+    <value>Ingrédient supprimé avec succès de la base de données.</value>
+  </data>
+  <data name="TabInventory_0" xml:space="preserve">
+    <value>Viandes / Poissons / Crustacés</value>
+  </data>
+  <data name="TabInventory_1" xml:space="preserve">
+    <value>Fruits/Légumes/Légumineuses/Champignons</value>
+  </data>
+  <data name="TabInventory_2" xml:space="preserve">
+    <value>Produits laitiers / Oeufs</value>
+  </data>
+  <data name="TabInventory_3" xml:space="preserve">
+    <value>Céréales / Féculents</value>
+  </data>
+  <data name="TabInventory_4" xml:space="preserve">
+    <value>Epices / Herbes / Condiments</value>
+  </data>
+  <data name="TabInventory_5" xml:space="preserve">
+    <value>Noix / Graines</value>
+  </data>
+  <data name="TabInventory_6" xml:space="preserve">
+    <value>Huiles/Graisses</value>
+  </data>
+  <data name="TabInventory_7" xml:space="preserve">
+    <value>Produits boulangerie/pâtisserie</value>
+  </data>
+  <data name="TabInventory_8" xml:space="preserve">
+    <value>Alcool/spiritueux/sauces/eau</value>
   </data>
 </root>

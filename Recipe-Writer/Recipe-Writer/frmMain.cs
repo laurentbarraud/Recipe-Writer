@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1</version>
-/// <date>April 7th 2025</date>
+/// <version>1.1.1</version>
+/// <date>December 7th 2025</date>
 
 using System;
 using System.Collections.Generic;
@@ -784,9 +784,19 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Ensures that a valid item is selected before executing SQL
+            if (string.IsNullOrWhiteSpace(lstSearchResults.SelectedItem?.ToString()))
+            {
+                return; // Exits early if no selection
+            }
+
+            // Retrieves the recipe ID from the database using the selected item
             _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(lstSearchResults.SelectedItem.ToString());
+
+            // Displays recipe information in the UI
             DisplayRecipeInfos(_currentDisplayedRecipe.Id);
 
+            // Shows recipe controls if they are not already visible
             if (!nudPersons.Visible)
             {
                 DisplayRecipeControls();
@@ -794,73 +804,77 @@ namespace Recipe_Writer
         }
 
 
-        private void lundiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mondayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbConn.UpdatePlannedRecipeForADay(1, _currentDisplayedRecipe.Title);
 
-            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
+            if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
-                ShowInventory();
+                ShowMealPlanner();
+            }
+            else
+            {
+                _frmMealPlanner.BringToFront();
             }
         }
 
-        private void mardiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tuesdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbConn.UpdatePlannedRecipeForADay(2, _currentDisplayedRecipe.Title);
 
-            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
+            if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
-                ShowInventory();
+                ShowMealPlanner();
             }
         }
 
-        private void mercrediToolStripMenuItem_Click(object sender, EventArgs e)
+        private void wednesdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbConn.UpdatePlannedRecipeForADay(3, _currentDisplayedRecipe.Title);
 
-            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
+            if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
-                ShowInventory();
+                ShowMealPlanner();
             }
         }
 
-        private void jeudiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void thursdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbConn.UpdatePlannedRecipeForADay(4, _currentDisplayedRecipe.Title);
 
-            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
+            if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
-                ShowInventory();
+                ShowMealPlanner();
             }
         }
 
-        private void vendrediToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fridayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbConn.UpdatePlannedRecipeForADay(5, _currentDisplayedRecipe.Title);
 
-            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
+            if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
-                ShowInventory();
+                ShowMealPlanner();
             }
         }
 
-        private void samediToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saturdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbConn.UpdatePlannedRecipeForADay(6, _currentDisplayedRecipe.Title);
 
-            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
+            if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
-                ShowInventory();
+                ShowMealPlanner();
             }
         }
 
-        private void dimancheToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sundayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dbConn.UpdatePlannedRecipeForADay(7, _currentDisplayedRecipe.Title);
 
-            if (_frmMealPlanner == null && _frmMealPlanner.IsDisposed)
+            if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
-                ShowInventory();
+                ShowMealPlanner();
             }
         }
 
@@ -1011,7 +1025,7 @@ namespace Recipe_Writer
             if (!pnlSlideMenu.Visible)
             {
                 // Opening slide menu animation
-                pnlSlideMenu.Width = 350;
+                pnlSlideMenu.Width = 450;
                 Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 250, 0);
                 this.Refresh();
                 this.AcceptButton = cmdIngredientsSearch;

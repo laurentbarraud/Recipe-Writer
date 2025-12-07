@@ -72,8 +72,8 @@
             // 
             // cmdValidate
             // 
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.Name = "cmdValidate";
@@ -82,8 +82,8 @@
             // 
             // cmdCancel
             // 
-            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.CausesValidation = false;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
@@ -94,9 +94,9 @@
             // frmNewRecipeBasicInfosInput
             // 
             this.AcceptButton = this.cmdValidate;
-            resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.cmdCancel;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.chkLowBudget);
             this.Controls.Add(this.lblMinutes);
             this.Controls.Add(this.lblNewRecipeCompletionTime);

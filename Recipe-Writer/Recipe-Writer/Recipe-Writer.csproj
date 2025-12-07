@@ -292,12 +292,12 @@
   <ItemGroup>
     <Content Include="Recipe-writer.ico" />
     <None Include="Resources\recipeCooked.png" />
-    <None Include="Resources\app-language.png" />
+    <None Include="Resources\language-selection.png" />
     <Content Include="scripts\Recipe-writer-create-tables.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="scripts\Recipe-writer-insert-initial-data.sql" />
-    <None Include="Resources\plan--recipe-into-planner.png" />
+    <None Include="Resources\plan-recipe-into-planner.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\planner.png" />

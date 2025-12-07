@@ -66,10 +66,12 @@ INSERT INTO "Instructions" ("id","instruction") VALUES (1,'Disposez dans une coc
 INSERT INTO "Instructions" ("id","instruction") VALUES (2,'Couvrez et laissez cuire environ 1 heure. Réservez la viande et la carotte. Jetez le romarin et le laurier.');
 INSERT INTO "Instructions" ("id","instruction") VALUES (3,'Dans une casserole, préparez le roux en faisant fondre le beurre puis en y ajoutant la farine. Bien mélangez puis ajoutez peu à peu le bouillon de cuisson de la viande.');
 INSERT INTO "Instructions" ("id","instruction") VALUES (4,'Mélangez le jaune d''oeuf et la crème dans un bol puis ajoutez à la sauce.');
-INSERT INTO "Instructions" ("id","instruction") VALUES (5,'Rajoutez la viande et la carotte, puis laissez mijotez doucement (surtout ne pas faire bouillir sinon, la sauce tournerait). Rajoutez des rondelles de cornichons, si vous aimez.
+INSERT INTO "Instructions" ("id","instruction") VALUES (5,'Rajoutez la viande et la carotte, puis laissez mijotez doucement (surtout ne pas faire bouillir sinon, la sauce tournerait). Rajoutez des rondelles de cornichons, si vous aimez.
+
 ');
 INSERT INTO "Instructions" ("id","instruction") VALUES (6,'Dégustez si possible réchauffé, avec des pommes de terre vapeur.');
-INSERT INTO "Instructions" ("id","instruction") VALUES (7,'Couper le poulet en morceaux et piquer ceux-ci sur des brochettes en bois. 
+INSERT INTO "Instructions" ("id","instruction") VALUES (7,'Couper le poulet en morceaux et piquer ceux-ci sur des brochettes en bois. 
+
 ');
 INSERT INTO "Instructions" ("id","instruction") VALUES (8,'Assaisonner, puis les rôtir sur tous les côtés dans l’huile chaude. ');
 INSERT INTO "Instructions" ("id","instruction") VALUES (9,'Parer les carottes et le poireau, puis les tailler en fines lanières. ');
@@ -175,7 +177,8 @@ INSERT INTO "Instructions" ("id","instruction") VALUES (108,'In a saucepan, prep
 INSERT INTO "Instructions" ("id","instruction") VALUES (109,'Mix the egg yolk and cream in a bowl and add to the sauce.');
 INSERT INTO "Instructions" ("id","instruction") VALUES (110,'Add the meat and carrot, then simmer gently (especially not boil otherwise, the sauce would turn). Add more pickle slices, if you like.');
 INSERT INTO "Instructions" ("id","instruction") VALUES (111,'If possible, enjoy warm, with steamed potatoes.');
-INSERT INTO "Instructions" ("id","instruction") VALUES (112,'Cut the chicken into pieces and prick them on wooden skewers. 
+INSERT INTO "Instructions" ("id","instruction") VALUES (112,'Cut the chicken into pieces and prick them on wooden skewers. 
+
 ');
 INSERT INTO "Instructions" ("id","instruction") VALUES (113,'Season, then roast on all sides in hot oil. ');
 INSERT INTO "Instructions" ("id","instruction") VALUES (114,'Trim carrots and leek, then cut into thin strips. ');

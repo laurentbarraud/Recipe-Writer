@@ -1,8 +1,8 @@
 ﻿
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1</version>
-/// <date>April 7th 2025</date>
+/// <version>1.1.1</version>
+/// <date>December 7th 2025</date>
 
 using System;
 using System.Data.SQLite;
@@ -10,6 +10,9 @@ using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
+using System.Reflection;
+using System.Globalization;
 
 namespace Recipe_Writer
 {
@@ -390,7 +393,7 @@ namespace Recipe_Writer
         {
             try
             {
-                // Step 1: Gets all recipe IDs in Recipes_has_Ingredients
+                // Gets all recipe IDs in Recipes_has_Ingredients
                 List<int> recipesIDs = new List<int>();
                 string selectRecipeIdsQuery = "SELECT id FROM Recipes_has_Ingredients;";
                 using (SQLiteCommand selectCommand = new SQLiteCommand(selectRecipeIdsQuery, sqliteConn))
@@ -404,11 +407,9 @@ namespace Recipe_Writer
                     }
                 }
 
-                // Step 2: Processes each recipe to delete the ingredient and shift columns
+                // Processes each recipe to delete the ingredient and shift columns
                 foreach (int idRecipe in recipesIDs)
                 {
-                    bool ingredientFound = false;
-
                     for (int i = 1; i <= 20; i++)
                     {
                         string selectIngredientQuery = $"SELECT ingredient{i}_id FROM Recipes_has_Ingredients WHERE id = @RecipeID;";
@@ -420,8 +421,6 @@ namespace Recipe_Writer
 
                             if (ingredientId != null && ingredientId != DBNull.Value && Convert.ToInt32(ingredientId) == idIngredient)
                             {
-                                ingredientFound = true;
-
                                 // Deletes the ingredient and its associated qtyIngredient
                                 string deleteQuery = $"UPDATE Recipes_has_Ingredients " +
                                                      $"SET ingredient{i}_id = NULL, qtyIngredient{i} = NULL " +
@@ -435,6 +434,9 @@ namespace Recipe_Writer
 
                                 // Shifts columns to fill the gap
                                 OffsetRowValuesToLeft(idRecipe);
+
+                                MessageBox.Show(strings.InfoIngredientDeletedFromDB, "Information", MessageBoxButtons.OK, 
+                                    MessageBoxIcon.Information);
 
                                 break; // Exits loop once the ingredient is deleted
                             }
@@ -652,9 +654,12 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Reads all ingredients stored in the database for a type.
-        /// If `typeProvided` is 0, the function returns all ingredients found in the database.
-        /// The function adapts the ingredient name based on the selected language.
+        /// Reads all ingredients stored in the database for a given type.
+        /// If <paramref name="typeProvided"/> is 0, the function returns all ingredients.
+        /// The ingredient name is localized based on the active language setting.
+        /// </summary>
+        /// <param name="typeProvided">The type identifier of the ingredient, or 0 to retrieve all.</param>
+        /// <returns>A list of localized ingredient names.</returns>
         public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0)
         {
             List<string> listAllIngredientsFoundInDB = new List<string>();
@@ -723,18 +728,19 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Retrieves all types of ingredients stored in the database, adapted to the active language.
+        /// Retrieves all types of ingredients stored in the database,
+        /// localized according to the active language setting.
         /// </summary>
-        /// <param name="selectedLanguage">The active language ('fr' or 'en').</param>
-        /// <returns>List of ingredient types.</returns>
-        public List<string> ReadAllTypesOfIngredientsStored(string selectedLanguage = "fr")
+        /// <param name="selectedLanguage">The active language code ('fr' or 'en').</param>
+        /// <returns>A list of localized ingredient types.</returns>
+        public List<string> ReadAllTypesOfIngredientsStored(string selectedLanguage = "en")
         {
             List<string> listAllTypesOfIngredientsFoundInDB = new List<string>();
 
-            // Determine the correct column based on the language
+            // Determines the correct column based on the language
             string typeColumn = "type_" + selectedLanguage;
 
-            string query = $"SELECT DISTINCT {typeColumn} AS type FROM TypesOfIngredient ORDER BY {typeColumn};";
+            string query = $"SELECT {typeColumn} FROM TypesOfIngredient ORDER BY {typeColumn};";
 
             using (SQLiteCommand cmd = new SQLiteCommand(query, sqliteConn))
             {
@@ -742,7 +748,7 @@ namespace Recipe_Writer
                 {
                     while (reader.Read())
                     {
-                        listAllTypesOfIngredientsFoundInDB.Add(reader["type"].ToString());
+                        listAllTypesOfIngredientsFoundInDB.Add(reader[typeColumn].ToString());
                     }
                 }
             }
@@ -1408,13 +1414,29 @@ namespace Recipe_Writer
 
 
         /// <summary>
-        /// Updates the planned recipe for a specific day of the week.
+        /// Updates the planned recipe entry for a given day of the week.
+        /// If a recipe title is provided, it is stored in the database; 
+        /// if the title is null or empty, the column is set to NULL to indicate no recipe planned.
         /// </summary>
+        /// <param name="idDayOfTheWeek">The unique identifier of the day of the week (e.g., 1 = Monday).</param>
+        /// <param name="titleOfTheRecipe">The title of the recipe to assign, or null/empty to clear the entry.</param>
+
         public void UpdatePlannedRecipeForADay(int idDayOfTheWeek, string titleOfTheRecipe)
         {
-            using (SQLiteCommand cmd = new SQLiteCommand("UPDATE PlannedMeals SET titleOfPlannedRecipe = @TitleOfPlannedRecipe WHERE id = @IdDayOfTheWeek;", sqliteConn))
+            using (SQLiteCommand cmd = new SQLiteCommand(
+                "UPDATE PlannedMeals SET titleOfPlannedRecipe = @TitleOfPlannedRecipe WHERE id = @IdDayOfTheWeek;",
+                sqliteConn))
             {
-                cmd.Parameters.AddWithValue("@TitleOfPlannedRecipe", titleOfTheRecipe.Replace("'", "''")); // Protect against SQL errors
+                if (string.IsNullOrWhiteSpace(titleOfTheRecipe))
+                {
+                    // Stores NULL in the database if no recipe is planned
+                    cmd.Parameters.AddWithValue("@TitleOfPlannedRecipe", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@TitleOfPlannedRecipe", titleOfTheRecipe);
+                }
+
                 cmd.Parameters.AddWithValue("@IdDayOfTheWeek", idDayOfTheWeek);
                 cmd.ExecuteNonQuery();
             }

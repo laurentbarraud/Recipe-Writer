@@ -55,9 +55,9 @@
             // 
             // cmbIngredientsListedInDB
             // 
-            resources.ApplyResources(this.cmbIngredientsListedInDB, "cmbIngredientsListedInDB");
             this.cmbIngredientsListedInDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIngredientsListedInDB.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbIngredientsListedInDB, "cmbIngredientsListedInDB");
             this.cmbIngredientsListedInDB.Name = "cmbIngredientsListedInDB";
             this.cmbIngredientsListedInDB.SelectedIndexChanged += new System.EventHandler(this.cmbIngredientsList_SelectedIndexChanged);
             // 
@@ -68,8 +68,8 @@
             // 
             // cmdValidate
             // 
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.UseVisualStyleBackColor = true;
@@ -77,8 +77,8 @@
             // 
             // cmdCancel
             // 
-            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
             this.cmdCancel.Name = "cmdCancel";
@@ -88,9 +88,9 @@
             // frmAddNewIngredientToRecipe
             // 
             this.AcceptButton = this.cmdValidate;
-            resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.cmdCancel;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.lblScaleAssociatedWithIngredientSelected);
             this.Controls.Add(this.cmbIngredientsListedInDB);
             this.Controls.Add(this.txtQtyIngredientNeeded);

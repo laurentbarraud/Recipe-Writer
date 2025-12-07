@@ -47,8 +47,8 @@
             // 
             // cmdValidate
             // 
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.UseVisualStyleBackColor = true;
@@ -56,8 +56,8 @@
             // 
             // cmdCancel
             // 
-            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
             this.cmdCancel.Name = "cmdCancel";
@@ -67,8 +67,8 @@
             // frmEditIngredientName
             // 
             this.AcceptButton = this.cmdValidate;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewNameOfIngredient);

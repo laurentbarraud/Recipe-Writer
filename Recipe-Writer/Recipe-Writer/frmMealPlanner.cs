@@ -1,6 +1,6 @@
 ﻿/// <file>frmMealPlanner.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1</version>
+/// <version>1.1.1</version>
 /// <date>April 6th 2025</date>
 
 using System;
@@ -42,43 +42,43 @@ namespace Recipe_Writer
                 loadPlannedMeal(idDayOfWeek);
             }
 
-            if (lblMondayRecipe.Text != "")
+            if (!string.IsNullOrEmpty(lblMondayRecipe.Text))
             {
                 cmdMondayCancelled.Visible = true;
                 cmdMondayCooked.Visible = true;
             }
 
-            if (lblTuesdayRecipe.Text != "")
+            if (!string.IsNullOrEmpty(lblTuesdayRecipe.Text))
             {
                 cmdTuesdayCancelled.Visible = true;
                 cmdTuesdayCooked.Visible = true;
             }
 
-            if (lblWednesdayRecipe.Text != "")
+            if (!string.IsNullOrEmpty(lblWednesdayRecipe.Text))
             {
                 cmdWednesdayCancelled.Visible = true;
                 cmdWednesdayCooked.Visible = true;
             }
 
-            if (lblThursdayRecipe.Text != "")
+            if (!string.IsNullOrEmpty(lblThursdayRecipe.Text))
             {
                 cmdThursdayCancelled.Visible = true;
                 cmdThursdayCooked.Visible = true;
             }
 
-            if (lblFridayRecipe.Text != "")
+            if (!string.IsNullOrEmpty(lblFridayRecipe.Text))
             {
                 cmdFridayCancelled.Visible = true;
                 cmdFridayCooked.Visible = true;
             }
 
-            if (lblSaturdayRecipe.Text != "")
+            if (!string.IsNullOrEmpty(lblSaturdayRecipe.Text))
             {
                 cmdSaturdayCancelled.Visible = true;
                 cmdSaturdayCooked.Visible = true;
             }
 
-            if (lblSundayRecipe.Text != "")
+            if (!string.IsNullOrEmpty(lblSundayRecipe.Text))
             {
                 cmdSundayCancelled.Visible = true;
                 cmdSundayCooked.Visible = true;

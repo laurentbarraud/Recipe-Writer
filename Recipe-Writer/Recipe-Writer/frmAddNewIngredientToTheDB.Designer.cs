@@ -57,22 +57,22 @@
             // 
             // cmbTypesIngredientsListedInDB
             // 
-            resources.ApplyResources(this.cmbTypesIngredientsListedInDB, "cmbTypesIngredientsListedInDB");
             this.cmbTypesIngredientsListedInDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTypesIngredientsListedInDB.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbTypesIngredientsListedInDB, "cmbTypesIngredientsListedInDB");
             this.cmbTypesIngredientsListedInDB.Name = "cmbTypesIngredientsListedInDB";
             // 
             // cmbScaleNewIngredient
             // 
-            resources.ApplyResources(this.cmbScaleNewIngredient, "cmbScaleNewIngredient");
             this.cmbScaleNewIngredient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbScaleNewIngredient.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbScaleNewIngredient, "cmbScaleNewIngredient");
             this.cmbScaleNewIngredient.Name = "cmbScaleNewIngredient";
             // 
             // cmdCancel
             // 
-            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
             this.cmdCancel.Name = "cmdCancel";
@@ -81,8 +81,8 @@
             // 
             // cmdValidate
             // 
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.UseVisualStyleBackColor = true;
@@ -100,8 +100,8 @@
             // 
             // frmAddNewIngredientToTheDB
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblNewIngredientNameEn);
             this.Controls.Add(this.txtNewIngredientNameEn);
             this.Controls.Add(this.cmbScaleNewIngredient);

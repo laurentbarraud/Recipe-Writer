@@ -1,7 +1,7 @@
 ﻿/// <file>frmAddNewIngredientToTheDB.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1</version>
-/// <date>April 7th 2025</date>
+/// <version>1.1.1</version>
+/// <date>December 7th 2025</date>
 
 using System;
 using System.Collections.Generic;

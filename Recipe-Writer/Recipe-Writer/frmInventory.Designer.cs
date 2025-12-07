@@ -86,7 +86,6 @@
             // 
             // tabInventoryIngredients
             // 
-            resources.ApplyResources(this.tabInventoryIngredients, "tabInventoryIngredients");
             this.tabInventoryIngredients.Controls.Add(this.tabPage1);
             this.tabInventoryIngredients.Controls.Add(this.tabPage2);
             this.tabInventoryIngredients.Controls.Add(this.tabPage3);
@@ -96,19 +95,20 @@
             this.tabInventoryIngredients.Controls.Add(this.tabPage7);
             this.tabInventoryIngredients.Controls.Add(this.tabPage8);
             this.tabInventoryIngredients.Controls.Add(this.tabPage9);
+            resources.ApplyResources(this.tabInventoryIngredients, "tabInventoryIngredients");
             this.tabInventoryIngredients.Multiline = true;
             this.tabInventoryIngredients.Name = "tabInventoryIngredients";
             this.tabInventoryIngredients.SelectedIndex = 0;
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Controls.Add(this.lblTypeIngredient2);
             this.tabPage1.Controls.Add(this.lblTypeIngredient1);
             this.tabPage1.Controls.Add(this.pnlIngredientsType2Status);
             this.tabPage1.Controls.Add(this.lstIngredientsType2Available);
             this.tabPage1.Controls.Add(this.pnlIngredientsType1Status);
             this.tabPage1.Controls.Add(this.lstIngredientsType1Available);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
@@ -129,8 +129,8 @@
             // 
             // lstIngredientsType2Available
             // 
-            resources.ApplyResources(this.lstIngredientsType2Available, "lstIngredientsType2Available");
             this.lstIngredientsType2Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType2Available, "lstIngredientsType2Available");
             this.lstIngredientsType2Available.FormattingEnabled = true;
             this.lstIngredientsType2Available.Name = "lstIngredientsType2Available";
             // 
@@ -141,20 +141,20 @@
             // 
             // lstIngredientsType1Available
             // 
-            resources.ApplyResources(this.lstIngredientsType1Available, "lstIngredientsType1Available");
             this.lstIngredientsType1Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType1Available, "lstIngredientsType1Available");
             this.lstIngredientsType1Available.FormattingEnabled = true;
             this.lstIngredientsType1Available.Name = "lstIngredientsType1Available";
             // 
             // tabPage2
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Controls.Add(this.lblTypeIngredient4);
             this.tabPage2.Controls.Add(this.lblTypeIngredient3);
             this.tabPage2.Controls.Add(this.pnlIngredientsType4Status);
             this.tabPage2.Controls.Add(this.lstIngredientsType4Available);
             this.tabPage2.Controls.Add(this.pnlIngredientsType3Status);
             this.tabPage2.Controls.Add(this.lstIngredientsType3Available);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -175,8 +175,8 @@
             // 
             // lstIngredientsType4Available
             // 
-            resources.ApplyResources(this.lstIngredientsType4Available, "lstIngredientsType4Available");
             this.lstIngredientsType4Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType4Available, "lstIngredientsType4Available");
             this.lstIngredientsType4Available.FormattingEnabled = true;
             this.lstIngredientsType4Available.Name = "lstIngredientsType4Available";
             // 
@@ -187,16 +187,16 @@
             // 
             // lstIngredientsType3Available
             // 
-            resources.ApplyResources(this.lstIngredientsType3Available, "lstIngredientsType3Available");
             this.lstIngredientsType3Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType3Available, "lstIngredientsType3Available");
             this.lstIngredientsType3Available.FormattingEnabled = true;
             this.lstIngredientsType3Available.Name = "lstIngredientsType3Available";
             // 
             // tabPage3
             // 
-            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Controls.Add(this.pnlIngredientsType5Status);
             this.tabPage3.Controls.Add(this.lstIngredientsType5Available);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
@@ -207,16 +207,16 @@
             // 
             // lstIngredientsType5Available
             // 
-            resources.ApplyResources(this.lstIngredientsType5Available, "lstIngredientsType5Available");
             this.lstIngredientsType5Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType5Available, "lstIngredientsType5Available");
             this.lstIngredientsType5Available.FormattingEnabled = true;
             this.lstIngredientsType5Available.Name = "lstIngredientsType5Available";
             // 
             // tabPage4
             // 
-            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Controls.Add(this.pnlIngredientsType6Status);
             this.tabPage4.Controls.Add(this.lstIngredientsType6Available);
+            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
@@ -227,16 +227,16 @@
             // 
             // lstIngredientsType6Available
             // 
-            resources.ApplyResources(this.lstIngredientsType6Available, "lstIngredientsType6Available");
             this.lstIngredientsType6Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType6Available, "lstIngredientsType6Available");
             this.lstIngredientsType6Available.FormattingEnabled = true;
             this.lstIngredientsType6Available.Name = "lstIngredientsType6Available";
             // 
             // tabPage5
             // 
-            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Controls.Add(this.pnlIngredientsType7Status);
             this.tabPage5.Controls.Add(this.lstIngredientsType7Available);
+            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
@@ -247,16 +247,16 @@
             // 
             // lstIngredientsType7Available
             // 
-            resources.ApplyResources(this.lstIngredientsType7Available, "lstIngredientsType7Available");
             this.lstIngredientsType7Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType7Available, "lstIngredientsType7Available");
             this.lstIngredientsType7Available.FormattingEnabled = true;
             this.lstIngredientsType7Available.Name = "lstIngredientsType7Available";
             // 
             // tabPage6
             // 
-            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Controls.Add(this.pnlIngredientsType8Status);
             this.tabPage6.Controls.Add(this.lstIngredientsType8Available);
+            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
@@ -267,16 +267,16 @@
             // 
             // lstIngredientsType8Available
             // 
-            resources.ApplyResources(this.lstIngredientsType8Available, "lstIngredientsType8Available");
             this.lstIngredientsType8Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType8Available, "lstIngredientsType8Available");
             this.lstIngredientsType8Available.FormattingEnabled = true;
             this.lstIngredientsType8Available.Name = "lstIngredientsType8Available";
             // 
             // tabPage7
             // 
-            resources.ApplyResources(this.tabPage7, "tabPage7");
             this.tabPage7.Controls.Add(this.pnlIngredientsType9Status);
             this.tabPage7.Controls.Add(this.lstIngredientsType9Available);
+            resources.ApplyResources(this.tabPage7, "tabPage7");
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
@@ -287,16 +287,16 @@
             // 
             // lstIngredientsType9Available
             // 
-            resources.ApplyResources(this.lstIngredientsType9Available, "lstIngredientsType9Available");
             this.lstIngredientsType9Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType9Available, "lstIngredientsType9Available");
             this.lstIngredientsType9Available.FormattingEnabled = true;
             this.lstIngredientsType9Available.Name = "lstIngredientsType9Available";
             // 
             // tabPage8
             // 
-            resources.ApplyResources(this.tabPage8, "tabPage8");
             this.tabPage8.Controls.Add(this.pnlIngredientsType10Status);
             this.tabPage8.Controls.Add(this.lstIngredientsType10Available);
+            resources.ApplyResources(this.tabPage8, "tabPage8");
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
@@ -307,20 +307,20 @@
             // 
             // lstIngredientsType10Available
             // 
-            resources.ApplyResources(this.lstIngredientsType10Available, "lstIngredientsType10Available");
             this.lstIngredientsType10Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType10Available, "lstIngredientsType10Available");
             this.lstIngredientsType10Available.FormattingEnabled = true;
             this.lstIngredientsType10Available.Name = "lstIngredientsType10Available";
             // 
             // tabPage9
             // 
-            resources.ApplyResources(this.tabPage9, "tabPage9");
             this.tabPage9.Controls.Add(this.lblTypeIngredient12);
             this.tabPage9.Controls.Add(this.lblTypeIngredient11);
             this.tabPage9.Controls.Add(this.pnlIngredientsType12Status);
             this.tabPage9.Controls.Add(this.lstIngredientsType12Available);
             this.tabPage9.Controls.Add(this.pnlIngredientsType11Status);
             this.tabPage9.Controls.Add(this.lstIngredientsType11Available);
+            resources.ApplyResources(this.tabPage9, "tabPage9");
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
@@ -341,8 +341,8 @@
             // 
             // lstIngredientsType12Available
             // 
-            resources.ApplyResources(this.lstIngredientsType12Available, "lstIngredientsType12Available");
             this.lstIngredientsType12Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType12Available, "lstIngredientsType12Available");
             this.lstIngredientsType12Available.FormattingEnabled = true;
             this.lstIngredientsType12Available.Name = "lstIngredientsType12Available";
             // 
@@ -353,8 +353,8 @@
             // 
             // lstIngredientsType11Available
             // 
-            resources.ApplyResources(this.lstIngredientsType11Available, "lstIngredientsType11Available");
             this.lstIngredientsType11Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.lstIngredientsType11Available, "lstIngredientsType11Available");
             this.lstIngredientsType11Available.FormattingEnabled = true;
             this.lstIngredientsType11Available.Name = "lstIngredientsType11Available";
             // 
@@ -373,8 +373,8 @@
             // 
             // cmdValidate
             // 
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.UseVisualStyleBackColor = true;
@@ -382,8 +382,8 @@
             // 
             // frmInventory
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmdAddNewIngredientIntoDB);
             this.Controls.Add(this.lblNbOfIngredientsStored);
             this.Controls.Add(this.tabInventoryIngredients);
