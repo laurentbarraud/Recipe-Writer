@@ -28,17 +28,17 @@ An inventory of available ingredients and a weekly meal planner are also include
 - 🍯 Jar icon indicates whether all ingredients are available for the currently displayed recipe  
 - 📅 Weekly meal planner with drag and drop to assign meals to a day  
 - ➖ When a planned meal has been cooked, a "Prepared" button lets you deduct each used ingredient quantities from the inventory  
-- 🌐 Fully localized application: available in English and French  
+- 🌐 Fully localized application: English and French available. 
   
 ### How to Run
 
-- Clone the repository  
-- Open in Visual Studio 2022  
-- Build and run the solution  
+- Clone the repository using Git.
+- Open the solution (.sln) file in Visual Studio 2022.
+- Build the project with Ctrl+B, then run it.
 
 ### Download
 
-Go to the [Releases](../../releases) section to download a ready-to-use installer,  
+Go to the [Releases](https://github.com/laurentbarraud/Recipe-Writer/releases/) section to download a ready-to-use installer,  
 designed for x64-based Windows systems (Windows 7 and above). 
 
-If you find this project useful or inspiring, a star is always appreciated.
+If you find this project useful or inspiring, feel free to drop a star — it’s always appreciated.
