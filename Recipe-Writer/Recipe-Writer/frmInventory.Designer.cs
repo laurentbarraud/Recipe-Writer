@@ -382,8 +382,8 @@
             // 
             // frmInventory
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.cmdAddNewIngredientIntoDB);
             this.Controls.Add(this.lblNbOfIngredientsStored);
             this.Controls.Add(this.tabInventoryIngredients);

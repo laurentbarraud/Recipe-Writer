@@ -64,7 +64,7 @@ namespace Recipe_Writer
             {
                 try
                 {   // Gets the app active language
-                    string selectedLanguage = Properties.Settings.Default.LanguageSetting;
+                    string selectedLanguage = Properties.Settings.Default.AppLanguage;
                     _frmMain.dbConn.UpdateIngredientName(IdIngredientToEdit, formattedTitle, selectedLanguage);
                     _frmInventory.RefreshInventory();
                     this.Close();

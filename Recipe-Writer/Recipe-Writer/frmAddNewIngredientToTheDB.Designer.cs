@@ -100,8 +100,8 @@
             // 
             // frmAddNewIngredientToTheDB
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.lblNewIngredientNameEn);
             this.Controls.Add(this.txtNewIngredientNameEn);
             this.Controls.Add(this.cmbScaleNewIngredient);

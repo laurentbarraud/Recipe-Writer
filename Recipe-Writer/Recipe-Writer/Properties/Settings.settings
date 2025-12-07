@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Recipe_Writer.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="LanguageSetting" Type="System.String" Scope="User">
+    <Setting Name="AppLanguage" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="NbPersonsSet" Type="System.Int32" Scope="User">

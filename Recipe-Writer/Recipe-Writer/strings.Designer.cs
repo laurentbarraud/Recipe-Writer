@@ -142,6 +142,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à English.
+        /// </summary>
+        internal static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Erreur.
         /// </summary>
         internal static string Error {
@@ -295,6 +304,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à French.
+        /// </summary>
+        internal static string French {
+            get {
+                return ResourceManager.GetString("French", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à The amount of ingredients needed to make this recipe has been deducted..
         /// </summary>
         internal static string InfoAmountOfIngredientsNeededDeducted {
@@ -331,7 +349,7 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Created by Laurent Barraud.
+        ///   Recherche une chaîne localisée semblable à Created by Laurent Barraud..
         /// </summary>
         internal static string LicenceAuthor {
             get {
@@ -340,38 +358,14 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à This software uses a SQLite database for data management..
+        ///   Recherche une chaîne localisée semblable à This software uses a SQLite database for data management.
+        ///It was developed as part of a project to replace work at the end of an apprenticeship.
+        ///It is licensed to you under the GNU License.
+        ///Please contact me for any improvement or bug report..
         /// </summary>
-        internal static string LicenceInfo1 {
+        internal static string LicenceInfo {
             get {
-                return ResourceManager.GetString("LicenceInfo1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à It was developed as part of a project to replace work at the end of an apprenticeship..
-        /// </summary>
-        internal static string LicenceInfo2 {
-            get {
-                return ResourceManager.GetString("LicenceInfo2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à It is licensed to you under the GNU License..
-        /// </summary>
-        internal static string LicenceInfo3 {
-            get {
-                return ResourceManager.GetString("LicenceInfo3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Please contact me for any improvement or bug report..
-        /// </summary>
-        internal static string LicenceInfo4 {
-            get {
-                return ResourceManager.GetString("LicenceInfo4", resourceCulture);
+                return ResourceManager.GetString("LicenceInfo", resourceCulture);
             }
         }
         
@@ -381,15 +375,6 @@ namespace Recipe_Writer {
         internal static string LicenceVersion {
             get {
                 return ResourceManager.GetString("LicenceVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Number of ingredients stored : .
-        /// </summary>
-        internal static string NbIngredientsStored {
-            get {
-                return ResourceManager.GetString("NbIngredientsStored", resourceCulture);
             }
         }
         
@@ -430,83 +415,11 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Meat / Fish / Seafood.
+        ///   Recherche une chaîne localisée semblable à Settings.
         /// </summary>
-        internal static string TabInventory_0 {
+        internal static string Settings {
             get {
-                return ResourceManager.GetString("TabInventory_0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Fruits / Vegetables / Legumes / Mushrooms.
-        /// </summary>
-        internal static string TabInventory_1 {
-            get {
-                return ResourceManager.GetString("TabInventory_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Dairy Products / Eggs.
-        /// </summary>
-        internal static string TabInventory_2 {
-            get {
-                return ResourceManager.GetString("TabInventory_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Cereals / Starches.
-        /// </summary>
-        internal static string TabInventory_3 {
-            get {
-                return ResourceManager.GetString("TabInventory_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Spices / Herbs / Condiments.
-        /// </summary>
-        internal static string TabInventory_4 {
-            get {
-                return ResourceManager.GetString("TabInventory_4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Nuts / Seeds.
-        /// </summary>
-        internal static string TabInventory_5 {
-            get {
-                return ResourceManager.GetString("TabInventory_5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Oils / Fats.
-        /// </summary>
-        internal static string TabInventory_6 {
-            get {
-                return ResourceManager.GetString("TabInventory_6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Bakery / Pastry Products.
-        /// </summary>
-        internal static string TabInventory_7 {
-            get {
-                return ResourceManager.GetString("TabInventory_7", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Alcohol / Spirits / Sauces / Water.
-        /// </summary>
-        internal static string TabInventory_8 {
-            get {
-                return ResourceManager.GetString("TabInventory_8", resourceCulture);
+                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
         

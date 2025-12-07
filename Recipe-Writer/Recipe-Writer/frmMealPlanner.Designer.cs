@@ -315,8 +315,8 @@
             // 
             // frmMealPlanner
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.cmdSundayCooked);
             this.Controls.Add(this.cmdSaturdayCooked);
             this.Controls.Add(this.cmdFridayCooked);

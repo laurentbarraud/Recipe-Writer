@@ -165,8 +165,14 @@
     <EmbeddedResource Include="frmEditRecipeBasicInfos.en.resx">
       <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInventory.en-US.resx">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.en.resx">
       <DependentUpon>frmInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.en-US.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.en.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewRecipeBasicInfosInput.en.resx">
       <DependentUpon>frmNewRecipeBasicInfosInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.en-US.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.en.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>

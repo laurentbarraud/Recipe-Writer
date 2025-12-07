@@ -67,8 +67,8 @@
             // frmEditIngredientName
             // 
             this.AcceptButton = this.cmdValidate;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewNameOfIngredient);

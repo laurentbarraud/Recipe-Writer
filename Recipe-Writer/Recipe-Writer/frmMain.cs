@@ -52,20 +52,20 @@ namespace Recipe_Writer
         private void frmMain_Load(object sender, EventArgs e)
         {
             // If the application is launched for the first time
-            if (string.IsNullOrEmpty(Properties.Settings.Default.LanguageSetting))
+            if (string.IsNullOrEmpty(Properties.Settings.Default.AppLanguage))
             {
-                // Detect system language and apply the default setting
+                // Detects system language and applies the default setting
                 string systemLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-                Properties.Settings.Default.LanguageSetting = (systemLanguage == "fr") ? "fr" : "en-US";
+                Properties.Settings.Default.AppLanguage = (systemLanguage == "fr") ? "fr" : "en";
 
                 // Save the setting for persistence
                 Properties.Settings.Default.Save();
             }
 
-            // Apply the detected language
-            var cultureInfo = new System.Globalization.CultureInfo(Properties.Settings.Default.LanguageSetting);
-            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            // Applies the detected language
+            var cultureInfoToApply = new System.Globalization.CultureInfo(Properties.Settings.Default.AppLanguage);
+            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfoToApply;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfoToApply;
 
             int nbPersonsSet = Properties.Settings.Default.NbPersonsSet;
             nudPersons.Value = nbPersonsSet;
@@ -566,7 +566,7 @@ namespace Recipe_Writer
                     picRecipe.BackgroundImage = Image.FromFile(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
                     picRecipe.BorderStyle = BorderStyle.None;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     picRecipe.BackgroundImage = null;
                     picRecipe.BorderStyle = BorderStyle.None;
@@ -1152,7 +1152,7 @@ namespace Recipe_Writer
                 searchIngredientsInputList.Add(ingredient3ToSearchFor.Replace("'", "''"));
 
             // Appelle la base de données avec les filtres sélectionnés
-            List<string> listTitlesRequested = dbConn.SearchRecipesByIngredients(searchIngredientsInputList, Properties.Settings.Default.LanguageSetting, filterForSmallBudget, filterForThreeStars);
+            List<string> listTitlesRequested = dbConn.SearchRecipesByIngredients(searchIngredientsInputList, Properties.Settings.Default.AppLanguage, filterForSmallBudget, filterForThreeStars);
 
             // Ajoute les résultats à la liste
             foreach (string titleItem in listTitlesRequested)

@@ -153,9 +153,6 @@
   <data name="ConfirmDeletion" xml:space="preserve">
     <value>Confirm deletion</value>
   </data>
-  <data name="NbIngredientsStored" xml:space="preserve">
-    <value>Number of ingredients stored : </value>
-  </data>
   <data name="ErrorDatabaseCorrupted" xml:space="preserve">
     <value>The database is corrupted.</value>
   </data>
@@ -189,9 +186,6 @@
   <data name="ErrorExport" xml:space="preserve">
     <value>Error during export : {0}</value>
   </data>
-  <data name="ToolTipRecipeReadyToCookStatusText" xml:space="preserve">
-    <value>Indicates if you have enough ingredients to make the recipe.</value>
-  </data>
   <data name="InfoAmountOfIngredientsNeededDeducted" xml:space="preserve">
     <value>The amount of ingredients needed to make this recipe has been deducted.</value>
   </data>
@@ -207,23 +201,17 @@
   <data name="ErrorMustEnterATitleForNewRecipe" xml:space="preserve">
     <value>Please enter a title for the new recipe.</value>
   </data>
-  <data name="LicenceInfo1" xml:space="preserve">
-    <value>This software uses a SQLite database for data management.</value>
-  </data>
-  <data name="LicenceInfo2" xml:space="preserve">
-    <value>It was developed as part of a project to replace work at the end of an apprenticeship.</value>
-  </data>
-  <data name="LicenceInfo3" xml:space="preserve">
-    <value>It is licensed to you under the GNU License.</value>
-  </data>
-  <data name="LicenceInfo4" xml:space="preserve">
-    <value>Please contact me for any improvement or bug report.</value>
+  <data name="LicenceInfo" xml:space="preserve">
+    <value>This software uses a SQLite database for data management.
+It was developed as part of a project to replace work at the end of an apprenticeship.
+It is licensed to you under the GNU License.
+Please contact me for any improvement or bug report.</value>
   </data>
   <data name="LicenceVersion" xml:space="preserve">
     <value>v.1.1.1 - December 2025</value>
   </data>
   <data name="LicenceAuthor" xml:space="preserve">
-    <value>Created by Laurent Barraud</value>
+    <value>Created by Laurent Barraud.</value>
   </data>
   <data name="SearchResults" xml:space="preserve">
     <value>Results :</value>
@@ -234,33 +222,6 @@
   <data name="InfoIngredientDeletedFromDB" xml:space="preserve">
     <value>Ingredient successfully deleted from the database.</value>
   </data>
-  <data name="TabInventory_0" xml:space="preserve">
-    <value>Meat / Fish / Seafood</value>
-  </data>
-  <data name="TabInventory_1" xml:space="preserve">
-    <value>Fruits / Vegetables / Legumes / Mushrooms</value>
-  </data>
-  <data name="TabInventory_2" xml:space="preserve">
-    <value>Dairy Products / Eggs</value>
-  </data>
-  <data name="TabInventory_3" xml:space="preserve">
-    <value>Cereals / Starches</value>
-  </data>
-  <data name="TabInventory_4" xml:space="preserve">
-    <value>Spices / Herbs / Condiments</value>
-  </data>
-  <data name="TabInventory_5" xml:space="preserve">
-    <value>Nuts / Seeds</value>
-  </data>
-  <data name="TabInventory_6" xml:space="preserve">
-    <value>Oils / Fats</value>
-  </data>
-  <data name="TabInventory_7" xml:space="preserve">
-    <value>Bakery / Pastry Products</value>
-  </data>
-  <data name="TabInventory_8" xml:space="preserve">
-    <value>Alcohol / Spirits / Sauces / Water</value>
-  </data>
   <data name="ExportToHTMLDialogFilter" xml:space="preserve">
     <value>Web pages|*.html;*.htm</value>
   </data>
@@ -269,5 +230,17 @@
   </data>
   <data name="IngredientConnector" xml:space="preserve">
     <value>of</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ToolTipRecipeReadyToCookStatusText" xml:space="preserve">
+    <value>Indicates if you have enough ingredients to make the recipe.</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
   </data>
 </root>

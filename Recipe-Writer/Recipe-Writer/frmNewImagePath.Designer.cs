@@ -67,9 +67,9 @@
             // frmNewImagePath
             // 
             this.AcceptButton = this.cmdValidate;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.cmdCancel;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.cmdCancel;
             this.Controls.Add(this.lblNewImagePath);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);

@@ -153,9 +153,6 @@
   <data name="ConfirmDeletion" xml:space="preserve">
     <value>Confirmer la suppression</value>
   </data>
-  <data name="NbIngredientsStored" xml:space="preserve">
-    <value>Nombre d'ingrédients stockés : </value>
-  </data>
   <data name="ErrorDatabaseCorrupted" xml:space="preserve">
     <value>La base de donnée est corrompue.</value>
   </data>
@@ -189,9 +186,6 @@
   <data name="ErrorExport" xml:space="preserve">
     <value>Erreur lors de l'exportation : {0}</value>
   </data>
-  <data name="ToolTipRecipeReadyToCookStatusText" xml:space="preserve">
-    <value>Indique si vous avez assez d'ingrédients pour faire la recette.</value>
-  </data>
   <data name="InfoAmountOfIngredientsNeededDeducted" xml:space="preserve">
     <value>La quantité d’ingrédients nécessaire pour réaliser cette recette a été déduite.</value>
   </data>
@@ -207,23 +201,17 @@
   <data name="ErrorMustEnterATitleForNewRecipe" xml:space="preserve">
     <value>Veuillez saisir un titre pour la nouvelle recette.</value>
   </data>
-  <data name="LicenceInfo1" xml:space="preserve">
-    <value>Ce logiciel utilise pour la gestion des données une base de données SQLite.</value>
-  </data>
-  <data name="LicenceInfo2" xml:space="preserve">
-    <value>Il a été développé dans le cadre d'un projet de remplacement de travail de fin d'apprentissage.</value>
-  </data>
-  <data name="LicenceInfo3" xml:space="preserve">
-    <value>Il vous est accordé sous licence GNU.</value>
-  </data>
-  <data name="LicenceInfo4" xml:space="preserve">
-    <value>Merci de me contacter pour toute amélioration ou signalement de bug.</value>
+  <data name="LicenceInfo" xml:space="preserve">
+    <value>Ce logiciel utilise pour la gestion des données une base de données SQLite. 
+Il a été développé dans le cadre d'un projet de remplacement de travail de fin d'apprentissage. 
+Il vous est accordé sous licence GNU. 
+Merci de me contacter pour toute amélioration ou signalement de bug.</value>
   </data>
   <data name="LicenceVersion" xml:space="preserve">
     <value>v.1.1.1 - Décembre 2025</value>
   </data>
   <data name="LicenceAuthor" xml:space="preserve">
-    <value>Créé par Laurent Barraud</value>
+    <value>Créé par Laurent Barraud.</value>
   </data>
   <data name="SearchResults" xml:space="preserve">
     <value>Résultats :</value>
@@ -234,33 +222,6 @@
   <data name="InfoIngredientDeletedFromDB" xml:space="preserve">
     <value>Ingrédient supprimé avec succès de la base de données.</value>
   </data>
-  <data name="TabInventory_0" xml:space="preserve">
-    <value>Viandes / Poissons / Crustacés</value>
-  </data>
-  <data name="TabInventory_1" xml:space="preserve">
-    <value>Fruits/Légumes/Légumineuses/Champignons</value>
-  </data>
-  <data name="TabInventory_2" xml:space="preserve">
-    <value>Produits laitiers / Oeufs</value>
-  </data>
-  <data name="TabInventory_3" xml:space="preserve">
-    <value>Céréales / Féculents</value>
-  </data>
-  <data name="TabInventory_4" xml:space="preserve">
-    <value>Epices / Herbes / Condiments</value>
-  </data>
-  <data name="TabInventory_5" xml:space="preserve">
-    <value>Noix / Graines</value>
-  </data>
-  <data name="TabInventory_6" xml:space="preserve">
-    <value>Huiles/Graisses</value>
-  </data>
-  <data name="TabInventory_7" xml:space="preserve">
-    <value>Produits boulangerie/pâtisserie</value>
-  </data>
-  <data name="TabInventory_8" xml:space="preserve">
-    <value>Alcool/spiritueux/sauces/eau</value>
-  </data>
   <data name="ExportToHTMLDialogFilter" xml:space="preserve">
     <value>Pages web|*.html;*.htm</value>
   </data>
@@ -269,5 +230,17 @@
   </data>
   <data name="IngredientConnector" xml:space="preserve">
     <value>de</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="ToolTipRecipeReadyToCookStatusText" xml:space="preserve">
+    <value>Indique si vous avez assez d'ingrédients pour faire la recette.</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>français</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>anglais</value>
   </data>
 </root>

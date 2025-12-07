@@ -117,52 +117,83 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;cmdValidate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblInfosLicence.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
   </data>
-  <data name="lblInfosLicence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 9</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>422, 387</value>
   </data>
-  <data name="lblInfosLicence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>388, 245</value>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 275</value>
+  </data>
+  <data name="&gt;&gt;cmdValidate.Name" xml:space="preserve">
+    <value>cmdValidate</value>
+  </data>
+  <data name="&gt;&gt;cmbAppLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cmbAppLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 24</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cmdValidate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;lblInfosLicence.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblAppLanguage.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblInfosLicence.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="lblInfosLicence.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
-  <data name="&gt;&gt;lblInfosLicence.Name" xml:space="preserve">
-    <value>lblInfosLicence</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmSettings</value>
   </data>
-  <data name="&gt;&gt;lblInfosLicence.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
   </data>
-  <data name="&gt;&gt;lblInfosLicence.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblInfosLicence.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="lblInfosLicence.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 9</value>
   </data>
   <data name="lblAppLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 282</value>
   </data>
-  <data name="lblAppLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 23</value>
+  <data name="lblInfosLicence.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
-  <data name="lblAppLanguage.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;cmdValidate.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="lblAppLanguage.Text" xml:space="preserve">
-    <value>Langue de l'application :</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblAppLanguage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblAppLanguage.Name" xml:space="preserve">
     <value>lblAppLanguage</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>120, 120</value>
+  </data>
+  <data name="lblInfosLicence.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="&gt;&gt;cmbAppLanguage.Name" xml:space="preserve">
+    <value>cmbAppLanguage</value>
   </data>
   <data name="&gt;&gt;lblAppLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -170,101 +201,73 @@
   <data name="&gt;&gt;lblAppLanguage.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblAppLanguage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cmbAppLanguage.Items" xml:space="preserve">
-    <value>anglais</value>
-  </data>
-  <data name="cmbAppLanguage.Items1" xml:space="preserve">
-    <value>français</value>
-  </data>
-  <data name="cmbAppLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>187, 281</value>
-  </data>
-  <data name="cmbAppLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 24</value>
-  </data>
-  <data name="cmbAppLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;cmbAppLanguage.Name" xml:space="preserve">
-    <value>cmbAppLanguage</value>
-  </data>
-  <data name="&gt;&gt;cmbAppLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbAppLanguage.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblInfosLicence.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cmbAppLanguage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cmdValidate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 326</value>
-  </data>
-  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 43</value>
-  </data>
-  <data name="cmdValidate.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;cmdValidate.Name" xml:space="preserve">
-    <value>cmdValidate</value>
-  </data>
-  <data name="&gt;&gt;cmdValidate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmdValidate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cmdValidate.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 275</value>
-  </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
   </data>
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
+  <data name="lblAppLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblAppLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 23</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 43</value>
+  </data>
+  <data name="lblInfosLicence.Size" type="System.Drawing.Size, System.Drawing">
+    <value>388, 245</value>
+  </data>
+  <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>188, 326</value>
+  </data>
+  <data name="cmbAppLanguage.Items" xml:space="preserve">
+    <value>anglais</value>
+  </data>
+  <data name="cmbAppLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>187, 281</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;cmbAppLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblAppLanguage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;cmdValidate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cmbAppLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cmbAppLanguage.Items1" xml:space="preserve">
+    <value>français</value>
+  </data>
+  <data name="&gt;&gt;lblInfosLicence.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbAppLanguage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblInfosLicence.Name" xml:space="preserve">
+    <value>lblInfosLicence</value>
+  </data>
+  <data name="cmdValidate.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblAppLanguage.Text" xml:space="preserve">
+    <value>Langue de l'application :</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>422, 387</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>A propos de Recipe-Writer</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmSettings</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
 </root>

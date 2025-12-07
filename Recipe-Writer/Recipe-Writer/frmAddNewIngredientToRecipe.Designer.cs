@@ -88,9 +88,9 @@
             // frmAddNewIngredientToRecipe
             // 
             this.AcceptButton = this.cmdValidate;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.cmdCancel;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.cmdCancel;
             this.Controls.Add(this.lblScaleAssociatedWithIngredientSelected);
             this.Controls.Add(this.cmbIngredientsListedInDB);
             this.Controls.Add(this.txtQtyIngredientNeeded);

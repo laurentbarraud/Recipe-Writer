@@ -663,7 +663,7 @@ namespace Recipe_Writer
         public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0)
         {
             List<string> listAllIngredientsFoundInDB = new List<string>();
-            string selectedLanguage = Properties.Settings.Default.LanguageSetting.ToString();
+            string selectedLanguage = Properties.Settings.Default.AppLanguage.ToString();
             
             // Determines the correct column based on the language
             string ingredientColumn = "ingredientName_" + selectedLanguage;
@@ -1033,7 +1033,7 @@ namespace Recipe_Writer
         public string ReadScaleNameForAnID(int scaleId)
         {
             string scaleNameFound = "";
-            string selectedLanguage = Properties.Settings.Default.LanguageSetting.ToString();
+            string selectedLanguage = Properties.Settings.Default.AppLanguage.ToString();
 
             // Determining the correct column by language
             string scaleColumn = "scaleName_" + selectedLanguage;

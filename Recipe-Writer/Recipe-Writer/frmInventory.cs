@@ -170,7 +170,6 @@ namespace Recipe_Writer
 
         public void RefreshInventory()
         {
-            lblNbOfIngredientsStored.Text = strings.NbIngredientsStored;
             lblNbOfIngredientsStored.Text += _frmMain.dbConn.CountAllIngredientsStored().ToString();
 
             int totalNbOfTypes = _frmMain.dbConn.CountAllTypesOfIngredients();

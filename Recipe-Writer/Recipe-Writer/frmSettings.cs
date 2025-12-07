@@ -20,120 +20,34 @@ namespace Recipe_Writer
         public frmSettings(frmMain mainForm)
         {
             InitializeComponent();
-            _mainForm = mainForm; 
+            _mainForm = mainForm;
         }
 
+        /// <summary>
+        /// Handles the Load event of the Settings form.
+        /// Initializes the language selection ComboBox with localized display text bound to stable codes,
+        /// selects the current application language based on saved settings,
+        /// and updates the license information label.
+        /// </summary>
         private void frmSettings_Load(object sender, EventArgs e)
         {
-            string currentLanguage = Properties.Settings.Default.LanguageSetting;
+            string currentLanguageCode = Properties.Settings.Default.AppLanguage;
 
-            if (Properties.Settings.Default.LanguageSetting == "fr")
+            var languages = new[]
             {
-                cmbAppLanguage.Items.Clear();
-                cmbAppLanguage.Items.Add("français");
-                cmbAppLanguage.Items.Add("anglais");
+                new { Text = strings.French,  Code = "fr" },
+                new { Text = strings.English, Code = "en" }
+            };
 
-                cmbAppLanguage.SelectedItem = "français";
-            }
+            cmbAppLanguage.DisplayMember = "Text";   // what the user sees
+            cmbAppLanguage.ValueMember = "Code";     // stable internal value
+            cmbAppLanguage.DataSource = languages;   // binds the list
 
-            else
-            {
-                cmbAppLanguage.Items.Clear();
-                cmbAppLanguage.Items.Add("English");
-                cmbAppLanguage.Items.Add("French");
+            cmbAppLanguage.SelectedValue = currentLanguageCode; // selects current language
 
-                cmbAppLanguage.SelectedItem = "English";
-            }
-
-            lblInfosLicence.Text = strings.LicenceInfo1 +
-                "\r\n\r\n" + strings.LicenceInfo2 +
-                "\r\n" + strings.LicenceInfo3 +
-                "\r\n\r\n" + strings.LicenceInfo4 + "\n" +
-                "\r\n" + strings.LicenceVersion + "\n" + strings.LicenceAuthor;
-        }
-
-        /// <summary>
-        /// Applies the specified language to the current application thread.
-        /// This sets both the culture and the UI culture, ensuring that
-        /// localized resources (such as strings, dates, and formatting)
-        /// are displayed according to the selected language.
-        /// It then refreshes all open forms (including frmMain) with the new culture,
-        /// disabling AutoScale to avoid DPI issues.
-        /// </summary>
-        /// <param name="selectedLanguage">
-        /// The language code to apply (e.g., "fr" for French, "en" for English).
-        /// </param>
-        private void ApplyLanguage(string selectedLanguage)
-        {
-            var cultureInfo = new System.Globalization.CultureInfo(selectedLanguage);
-
-            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
-
-            // Refreshes all open forms with the new culture
-            foreach (Form form in Application.OpenForms)
-            {
-                // Disables autoscaling to prevent DPI enlargement
-                form.AutoScaleMode = AutoScaleMode.None;
-
-                var resources = new ComponentResourceManager(form.GetType());
-
-                // Relocalizes all direct controls
-                foreach (Control ctrl in form.Controls)
-                {
-                    ApplyResourcesRecursively(ctrl, resources, cultureInfo);
-                }
-
-                lblInfosLicence.Text = strings.LicenceInfo1 +
-                "\r\n\r\n" + strings.LicenceInfo2 +
-                "\r\n" + strings.LicenceInfo3 +
-                "\r\n\r\n" + strings.LicenceInfo4 + "\n" +
-                "\r\n" + strings.LicenceVersion + "\n" + strings.LicenceAuthor;
-
-                // Handles TabPages separately
-                foreach (TabControl tabControl in form.Controls.OfType<TabControl>())
-                {
-                    foreach (TabPage tab in tabControl.TabPages)
-                    {
-                        resources.ApplyResources(tab, tab.Name, cultureInfo);
-                        foreach (Control child in tab.Controls)
-                        {
-                            ApplyResourcesRecursively(child, resources, cultureInfo);
-                        }
-                    }
-                }
-            }
-
-            // Safely gets the main form
-            if (_mainForm == null || _mainForm.IsDisposed)
-            {
-                return;
-            }
-
-            // Clears recipe search results if the ListBox is available
-            _mainForm.txtTitleSearch.Text = ""; 
-
-            var listBox = _mainForm.lstSearchResults;
-            if (listBox != null && !listBox.IsDisposed)
-            {
-                listBox.Items.Clear();
-            }
-        }
-
-        /// <summary>
-        /// Recursively applies localized resources to a control and its children.
-        /// </summary>
-        /// <param name="control">The control to update.</param>
-        /// <param name="resources">The resource manager for the control's type.</param>
-        /// <param name="culture">The culture to apply.</param>
-        private void ApplyResourcesRecursively(Control control, ComponentResourceManager resources, CultureInfo culture)
-        {
-            resources.ApplyResources(control, control.Name, culture);
-
-            foreach (Control child in control.Controls)
-            {
-                ApplyResourcesRecursively(child, resources, culture);
-            }
+            lblInfosLicence.Text = strings.LicenceInfo + "\n\n" +
+                                   strings.LicenceVersion + "\n\n" +
+                                   strings.LicenceAuthor;
         }
 
         private void cmdValidate_Click(object sender, EventArgs e)
@@ -142,36 +56,25 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Handles the language selection change in the ComboBox.
-        /// If the selected language differs from the current setting,
-        /// the new language is saved and applied immediately to all open forms,
-        /// forcing them to refresh their localized resources.
+        /// Handles the language selection change committed by the user.
+        /// Saves the new language setting and restarts the application
+        /// so that all forms reload with the updated culture.
         /// </summary>
-        /// <param name="sender">The ComboBox control that triggered the event.</param>
-        /// <param name="e">Event arguments.</param>
-        private void cmbAppLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbAppLanguage_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cmbAppLanguage.SelectedItem == null) return;
-
-            string selectedLanguageItem = cmbAppLanguage.SelectedItem.ToString();
-            string selectedLanguage;
-
-            if (selectedLanguageItem == "français" || selectedLanguageItem == "French")
+            if (cmbAppLanguage.SelectedValue == null)
             {
-                selectedLanguage = "fr";
+                return;
             }
 
-            else
-            {
-                selectedLanguage = "en";
-            }
+            string selectedLanguageCode = cmbAppLanguage.SelectedValue.ToString();
 
-            if (selectedLanguage != Properties.Settings.Default.LanguageSetting)
+            if (selectedLanguageCode != Properties.Settings.Default.AppLanguage)
             {
-                Properties.Settings.Default.LanguageSetting = selectedLanguage;
+                Properties.Settings.Default.AppLanguage = selectedLanguageCode;
                 Properties.Settings.Default.Save();
 
-                ApplyLanguage(selectedLanguage);
+                Application.Restart();
             }
         }
     }
