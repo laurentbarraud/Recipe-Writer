@@ -183,7 +183,7 @@
     <value>863, 354</value>
   </data>
   <data name="pnlInstructions.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;pnlInstructions.Name" xml:space="preserve">
     <value>pnlInstructions</value>
@@ -207,7 +207,7 @@
     <value>46, 27</value>
   </data>
   <data name="nudPersons.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="nudPersons.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -260,6 +260,39 @@
   <metadata name="cmsRecipeResult.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>366, 17</value>
   </metadata>
+  <data name="cmsRecipeResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>418, 192</value>
+  </data>
+  <data name="&gt;&gt;cmsRecipeResult.Name" xml:space="preserve">
+    <value>cmsRecipeResult</value>
+  </data>
+  <data name="&gt;&gt;cmsRecipeResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lstSearchResults.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="lstSearchResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 117</value>
+  </data>
+  <data name="lstSearchResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>562, 84</value>
+  </data>
+  <data name="lstSearchResults.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lstSearchResults.Name" xml:space="preserve">
+    <value>lstSearchResults</value>
+  </data>
+  <data name="&gt;&gt;lstSearchResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lstSearchResults.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lstSearchResults.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="newRecipeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>417, 26</value>
   </data>
@@ -292,6 +325,15 @@
   </data>
   <data name="exportThisRecipeToAWebPageToolStripMenuItem.Text" xml:space="preserve">
     <value>Exporter cette recette en une page web</value>
+  </data>
+  <data name="PlanRecipeOn.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="PlanRecipeOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>417, 26</value>
+  </data>
+  <data name="PlanRecipeOn.Text" xml:space="preserve">
+    <value>Planifier la recette pour le</value>
   </data>
   <data name="mondayToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 26</value>
@@ -335,15 +377,6 @@
   <data name="sundayToolStripMenuItem.Text" xml:space="preserve">
     <value>Dimanche</value>
   </data>
-  <data name="PlanRecipeOn.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="PlanRecipeOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
-  </data>
-  <data name="PlanRecipeOn.Text" xml:space="preserve">
-    <value>Planifier la recette pour le</value>
-  </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>414, 6</value>
   </data>
@@ -365,39 +398,6 @@
   <data name="deleteIngredientFromThisRecipe.Text" xml:space="preserve">
     <value>Supprimer l'ingrédient sélectionné de cette recette</value>
   </data>
-  <data name="cmsRecipeResult.Size" type="System.Drawing.Size, System.Drawing">
-    <value>418, 192</value>
-  </data>
-  <data name="&gt;&gt;cmsRecipeResult.Name" xml:space="preserve">
-    <value>cmsRecipeResult</value>
-  </data>
-  <data name="&gt;&gt;cmsRecipeResult.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lstSearchResults.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="lstSearchResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 117</value>
-  </data>
-  <data name="lstSearchResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>562, 84</value>
-  </data>
-  <data name="lstSearchResults.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lstSearchResults.Name" xml:space="preserve">
-    <value>lstSearchResults</value>
-  </data>
-  <data name="&gt;&gt;lstSearchResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstSearchResults.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lstSearchResults.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cmbRecipeIngredients.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -409,7 +409,7 @@
     <value>206, 24</value>
   </data>
   <data name="cmbRecipeIngredients.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>4</value>
   </data>
   <data name="cmbRecipeIngredients.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -464,6 +464,150 @@
   </data>
   <data name="ofdAssociatedImage.Title" xml:space="preserve">
     <value>Associer une image d'illustration à cette recette</value>
+  </data>
+  <data name="&gt;&gt;chkFilterRecipesForThreeStars.Name" xml:space="preserve">
+    <value>chkFilterRecipesForThreeStars</value>
+  </data>
+  <data name="&gt;&gt;chkFilterRecipesForThreeStars.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkFilterRecipesForThreeStars.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;chkFilterRecipesForThreeStars.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chkFilterRecipesForSmallBudget.Name" xml:space="preserve">
+    <value>chkFilterRecipesForSmallBudget</value>
+  </data>
+  <data name="&gt;&gt;chkFilterRecipesForSmallBudget.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkFilterRecipesForSmallBudget.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;chkFilterRecipesForSmallBudget.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblSearchByIngredients.Name" xml:space="preserve">
+    <value>lblSearchByIngredients</value>
+  </data>
+  <data name="&gt;&gt;lblSearchByIngredients.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSearchByIngredients.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;lblSearchByIngredients.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient3.Name" xml:space="preserve">
+    <value>lblSearchIngredient3</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient3.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient2.Name" xml:space="preserve">
+    <value>lblSearchIngredient2</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient2.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient1.Name" xml:space="preserve">
+    <value>lblSearchIngredient1</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient1.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;lblSearchIngredient1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient3.Name" xml:space="preserve">
+    <value>txtSearchIngredient3</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient3.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient3.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient2.Name" xml:space="preserve">
+    <value>txtSearchIngredient2</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient2.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient1.Name" xml:space="preserve">
+    <value>txtSearchIngredient1</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient1.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;txtSearchIngredient1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;cmdIngredientsSearch.Name" xml:space="preserve">
+    <value>cmdIngredientsSearch</value>
+  </data>
+  <data name="&gt;&gt;cmdIngredientsSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdIngredientsSearch.Parent" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;cmdIngredientsSearch.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="pnlSlideMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 116</value>
+  </data>
+  <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>12, 204</value>
+  </data>
+  <data name="pnlSlideMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="pnlSlideMenu.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlSlideMenu.Name" xml:space="preserve">
+    <value>pnlSlideMenu</value>
+  </data>
+  <data name="&gt;&gt;pnlSlideMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlSlideMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlSlideMenu.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="chkFilterRecipesForThreeStars.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -773,29 +917,65 @@
   <data name="&gt;&gt;cmdIngredientsSearch.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="pnlSlideMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 116</value>
+  <data name="&gt;&gt;picScore3.Name" xml:space="preserve">
+    <value>picScore3</value>
   </data>
-  <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>12, 204</value>
+  <data name="&gt;&gt;picScore3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pnlSlideMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="&gt;&gt;picScore3.Parent" xml:space="preserve">
+    <value>pnlScore</value>
   </data>
-  <data name="pnlSlideMenu.Visible" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;picScore3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;picScore2.Name" xml:space="preserve">
+    <value>picScore2</value>
+  </data>
+  <data name="&gt;&gt;picScore2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picScore2.Parent" xml:space="preserve">
+    <value>pnlScore</value>
+  </data>
+  <data name="&gt;&gt;picScore2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;picScore1.Name" xml:space="preserve">
+    <value>picScore1</value>
+  </data>
+  <data name="&gt;&gt;picScore1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picScore1.Parent" xml:space="preserve">
+    <value>pnlScore</value>
+  </data>
+  <data name="&gt;&gt;picScore1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlScore.Location" type="System.Drawing.Point, System.Drawing">
+    <value>784, 242</value>
+  </data>
+  <data name="pnlScore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 30</value>
+  </data>
+  <data name="pnlScore.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="pnlScore.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;pnlSlideMenu.Name" xml:space="preserve">
-    <value>pnlSlideMenu</value>
+  <data name="&gt;&gt;pnlScore.Name" xml:space="preserve">
+    <value>pnlScore</value>
   </data>
-  <data name="&gt;&gt;pnlSlideMenu.Type" xml:space="preserve">
+  <data name="&gt;&gt;pnlScore.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pnlSlideMenu.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pnlScore.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pnlSlideMenu.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;pnlScore.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="picScore3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -886,30 +1066,6 @@
   </data>
   <data name="&gt;&gt;picScore1.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="pnlScore.Location" type="System.Drawing.Point, System.Drawing">
-    <value>784, 242</value>
-  </data>
-  <data name="pnlScore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 30</value>
-  </data>
-  <data name="pnlScore.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="pnlScore.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pnlScore.Name" xml:space="preserve">
-    <value>pnlScore</value>
-  </data>
-  <data name="&gt;&gt;pnlScore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlScore.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlScore.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <metadata name="ttpRecipeReadyToCookStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>537, 17</value>
@@ -1142,7 +1298,7 @@
     <value>40, 35</value>
   </data>
   <data name="cmdAddInstruction.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+    <value>6</value>
   </data>
   <data name="cmdAddInstruction.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1229,7 +1385,7 @@
     <value>50, 50</value>
   </data>
   <data name="cmdNewRecipe.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;cmdNewRecipe.Name" xml:space="preserve">
     <value>cmdNewRecipe</value>

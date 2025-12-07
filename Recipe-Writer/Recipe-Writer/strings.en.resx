@@ -217,10 +217,10 @@
     <value>It is licensed to you under the GNU License.</value>
   </data>
   <data name="LicenceInfo4" xml:space="preserve">
-    <value>Please contact me for any improvements or bug reports.</value>
+    <value>Please contact me for any improvement or bug report.</value>
   </data>
   <data name="LicenceVersion" xml:space="preserve">
-    <value>Version 1.1 - April 2025</value>
+    <value>v.1.1.1 - December 2025</value>
   </data>
   <data name="LicenceAuthor" xml:space="preserve">
     <value>Created by Laurent Barraud</value>

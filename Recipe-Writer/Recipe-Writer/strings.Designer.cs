@@ -340,7 +340,7 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Please contact me for any improvements or bug reports..
+        ///   Recherche une chaîne localisée semblable à Please contact me for any improvement or bug report..
         /// </summary>
         internal static string LicenceInfo4 {
             get {
@@ -349,7 +349,7 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Version 1.1 - April 2025.
+        ///   Recherche une chaîne localisée semblable à v.1.1.1 - December 2025.
         /// </summary>
         internal static string LicenceVersion {
             get {
