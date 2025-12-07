@@ -322,6 +322,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à of.
+        /// </summary>
+        internal static string IngredientConnector {
+            get {
+                return ResourceManager.GetString("IngredientConnector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Created by Laurent Barraud.
         /// </summary>
         internal static string LicenceAuthor {

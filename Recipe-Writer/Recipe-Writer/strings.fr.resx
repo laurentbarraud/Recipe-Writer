@@ -267,4 +267,7 @@
   <data name="ExportToHTMLDialogTitle" xml:space="preserve">
     <value>Exporter la recette dans une page web.</value>
   </data>
+  <data name="IngredientConnector" xml:space="preserve">
+    <value>de</value>
+  </data>
 </root>

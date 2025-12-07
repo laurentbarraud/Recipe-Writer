@@ -485,11 +485,15 @@ namespace Recipe_Writer
             cmbRecipeIngredients.Items.Clear();
             cmbRecipeIngredients.Items.Add(strings.NecessaryIngredients);
 
-            // Adds each ingredients list item as a new item in the ingredients comboBo
+            // Adds each ingredient as a new item in the comboBox
             foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
             {
                 string scaleIngredientToAdd = dbConn.ReadScaleNameForAnID(ingredientToAdd.Scale_id);
-                cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested.ToString() + " " + scaleIngredientToAdd + " de " + ingredientToAdd.Name);
+
+                // Use localized connector from resources
+                string connector = strings.IngredientConnector;
+
+                cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested + " " + scaleIngredientToAdd + " " + connector + " " + ingredientToAdd.Name);
             }
 
             // Selects automatically the first item of the combobox
