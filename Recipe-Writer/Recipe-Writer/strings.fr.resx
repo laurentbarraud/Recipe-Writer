@@ -261,4 +261,10 @@
   <data name="TabInventory_8" xml:space="preserve">
     <value>Alcool/spiritueux/sauces/eau</value>
   </data>
+  <data name="ExportToHTMLDialogFilter" xml:space="preserve">
+    <value>Pages web|*.html;*.htm</value>
+  </data>
+  <data name="ExportToHTMLDialogTitle" xml:space="preserve">
+    <value>Exporter la recette dans une page web.</value>
+  </data>
 </root>

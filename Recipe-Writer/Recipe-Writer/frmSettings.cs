@@ -8,16 +8,19 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
     public partial class frmSettings : Form
     {
-        public frmSettings()
+        private readonly frmMain _mainForm;
+
+        // Constructor that accepts the parent form
+        public frmSettings(frmMain mainForm)
         {
             InitializeComponent();
+            _mainForm = mainForm; 
         }
 
         private void frmSettings_Load(object sender, EventArgs e)
@@ -48,6 +51,7 @@ namespace Recipe_Writer
                 "\r\n\r\n" + strings.LicenceInfo4 + "\n" +
                 "\r\n" + strings.LicenceVersion + "\n" + strings.LicenceAuthor;
         }
+
         /// <summary>
         /// Applies the specified language to the current application thread.
         /// This sets both the culture and the UI culture, ensuring that
@@ -98,8 +102,21 @@ namespace Recipe_Writer
                         }
                     }
                 }
+            }
 
-                form.Invalidate(); // force redraw without scaling
+            // Safely gets the main form
+            if (_mainForm == null || _mainForm.IsDisposed)
+            {
+                return;
+            }
+
+            // Clears recipe search results if the ListBox is available
+            _mainForm.txtTitleSearch.Text = ""; 
+
+            var listBox = _mainForm.lstSearchResults;
+            if (listBox != null && !listBox.IsDisposed)
+            {
+                listBox.Items.Clear();
             }
         }
 

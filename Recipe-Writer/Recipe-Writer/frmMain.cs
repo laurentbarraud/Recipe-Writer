@@ -428,7 +428,7 @@ namespace Recipe_Writer
         /// <summary>
         /// Event when the user selects a recipe in the search result list control
         /// </summary>
-        private void DisplayRecipeControls()
+        public void DisplayRecipeControls()
         {
             cmsRecipeResult.Items[1].Enabled = true;
             cmsRecipeResult.Items[2].Enabled = true;
@@ -596,104 +596,128 @@ namespace Recipe_Writer
             _frmEditRecipeTitle.ShowDialog();
         }
 
+        /// <summary>
+        /// Ensures that the recipe controls on the main form are visible.
+        /// If they are currently hidden (e.g., after switching language or refreshing the UI),
+        public void EnsureRecipeControlsVisible()
+        {
+            if (!nudPersons.Visible)
+            {
+                DisplayRecipeControls();
+            }
+        }
+
+
+        /// <summary>
+        /// Exports the currently displayed recipe to a styled HTML web page.
+        /// Opens a SaveFileDialog to let the user choose the file name and location,
+        /// then generates the HTML content (including title, image, ingredients, and instructions),
+        /// writes it to disk, and notifies the user of success or failure.
+        /// </summary>
         private void exportThisRecipeToAWebPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Displays a SaveFileDialog
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "Web pages|*.html; *.htm";
-            saveFileDialog1.Title = "Exporter la recette dans une page web.";
+            // Detects current UI culture
+            var currentCulture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
 
-            saveFileDialog1.FileName = _currentDisplayedRecipe.Title + ".html";
+            // Uses localized strings from Resources
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            {
+                Filter = strings.ExportToHTMLDialogFilter,
+                Title = strings.ExportToHTMLDialogTitle,
+                FileName = _currentDisplayedRecipe.Title + ".html"
+            };
+
             var dialogResult = saveFileDialog1.ShowDialog();
 
-            // If a valid filename has been input
+            // Proceeds only if a valid filename was provided and the user did not cancel
             if (!string.IsNullOrEmpty(saveFileDialog1.FileName) && dialogResult != DialogResult.Cancel)
             {
                 try
                 {
-                    // StringBuilder is used to improve performance when concatenating strings.
+                    // Uses StringBuilder for efficient string concatenation
                     var stringBuilder = new StringBuilder();
 
-                    // Start HTML with external CSS styles embedded in the file.
+                    // Starts HTML document with embedded CSS styles
                     stringBuilder.Append(@"
-                    <html>
-                        <head>
-                            <style>
-                                body {
-                                    font-family: Arial, sans-serif;
-                                    line-height: 1.6;
-                                    margin: 20px;
-                                    padding: 20px;
-                                    background-color: #f8f8f8;
-                                    }
-                                h1 {
-                                    color: #333;
-                                    }
-                                    .ingredients, .instructions {
-                                        margin-bottom: 20px;
-                                    }
-                                    .ingredients ul {
-                                        list-style-type: square;
-                                    }
-                                    .recipe-image {
-                                    max-width: 30%;
-                                    height: auto;
-                                    margin-bottom: 20px;
-                                    }
-                        </style>
-                    </head>
-                    <body>
-                        <h1>" + _currentDisplayedRecipe.Title + @"</h1>");
+                                        <html>
+                                        <head>
+                                            <style>
+                                                body {
+                                                    font-family: Arial, sans-serif;
+                                                    line-height: 1.6;
+                                                    margin: 20px;
+                                                    padding: 20px;
+                                                    background-color: #f8f8f8;
+                                                }
+                                                h1 { color: #333; }
+                                                .ingredients, .instructions { margin-bottom: 20px; }
+                                                .ingredients ul { list-style-type: square; }
+                                                .recipe-image {
+                                                    max-width: 30%;
+                                                    height: auto;
+                                                    margin-bottom: 20px;
+                                                }
+                                            </style>
+                                        </head>
+                                        <body>
+                                            <h1>" + _currentDisplayedRecipe.Title + @"</h1>");
 
-                        // Checks if the image file associated to the recipe exists before integrating it
-                        if (File.Exists(Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg"))
-                        {
-                            stringBuilder.Append("<img src='./illustrations/" + _currentDisplayedRecipe.ImagePath + ".jpg' alt='recipe-image' class='recipe-image' />");
-                        }
+                    // Adds recipe image if the file exists
+                    if (File.Exists(Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg"))
+                    {
+                        stringBuilder.Append("<img src='./illustrations/" + _currentDisplayedRecipe.ImagePath + ".jpg' " +
+                            "alt='recipe-image' class='recipe-image' />");
+                    }
 
-                        stringBuilder.Append("<p>" + "Temps de préparation : " + _currentDisplayedRecipe.CompletionTime.ToString() + " minutes.</p>");
+                    // Adds preparation time
+                    stringBuilder.Append("<p>Preparation time: " + _currentDisplayedRecipe.CompletionTime + " minutes.</p>");
 
-                        // Adds the list of ingredients and the instructions in two different <div>.
-                        stringBuilder.Append(@"
-                            <div class='ingredients'>
-                            <h2>Ingrédients</h2>
-                            <ul>");
-                            
-                        foreach (var ingredient in _currentDisplayedRecipe.IngredientsList)
-                        {
-                            stringBuilder.Append("<li>" + ingredient.QtyRequested + " " + dbConn.ReadScaleNameForAnID(ingredient.Scale_id) + " " + ingredient.Name + "</li>");
-                        }
-                        
-                        stringBuilder.Append(@"
-                        </ul>
-                    </div>
-                    <div class='instructions'>
-                        <h2>Instructions</h2>
-                        <ul>");
-                 
-                        foreach (var instruction in _currentDisplayedRecipe.InstructionsList)
-                        {
-                            stringBuilder.Append("<li>" + instruction.Text + "</li>");
-                        }
-                        
-                        stringBuilder.Append(@"
-                        </ul>
+                    // Adds ingredients list
+                    stringBuilder.Append(@"
+                                        <div class='ingredients'>
+                                        <h2>Ingredients</h2>
+                                        <ul>");
 
-                    </div>
-                </body>
-            </html>");
+                    foreach (var ingredient in _currentDisplayedRecipe.IngredientsList)
+                    {
+                        stringBuilder.Append("<li>" + ingredient.QtyRequested + " " +
+                            dbConn.ReadScaleNameForAnID(ingredient.Scale_id) + " " +
+                            ingredient.Name + "</li>");
+                    }
 
-                    // Writes the generated HTML to the selected file.
+                    stringBuilder.Append(@"
+                                        </ul>
+                                        </div>
+                                        <div class='instructions'>
+                                        <h2>Instructions</h2>
+                                        <ul>");
+
+                    // Adds instructions list
+                    foreach (var instruction in _currentDisplayedRecipe.InstructionsList)
+                    {
+                        stringBuilder.Append("<li>" + instruction.Text + "</li>");
+                    }
+
+                    stringBuilder.Append(@"
+                                        </ul>
+                                        </div>
+                                        </body>
+                                        </html>");
+
+                    // Writes the generated HTML to the chosen file
                     File.WriteAllText(saveFileDialog1.FileName, stringBuilder.ToString());
 
+                    // Notifies the user of success
                     MessageBox.Show(strings.InfoRecipeExported, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
+                    // Notifies the user of any error during export
                     MessageBox.Show(string.Format(strings.ErrorExport, ex.Message), strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
         private void frmMain_Click(object sender, EventArgs e)
         {
@@ -1035,7 +1059,7 @@ namespace Recipe_Writer
 
         private void picSettings_Click(object sender, EventArgs e)
         {
-            frmSettings _frmSettings = new frmSettings();
+            frmSettings _frmSettings = new frmSettings(this);
             _frmSettings.ShowDialog();
         }
 

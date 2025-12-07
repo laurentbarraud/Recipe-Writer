@@ -277,6 +277,24 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Web pages|*.html;*.htm.
+        /// </summary>
+        internal static string ExportToHTMLDialogFilter {
+            get {
+                return ResourceManager.GetString("ExportToHTMLDialogFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Export the recipe to a web page..
+        /// </summary>
+        internal static string ExportToHTMLDialogTitle {
+            get {
+                return ResourceManager.GetString("ExportToHTMLDialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à The amount of ingredients needed to make this recipe has been deducted..
         /// </summary>
         internal static string InfoAmountOfIngredientsNeededDeducted {

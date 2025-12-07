@@ -947,7 +947,7 @@ namespace Recipe_Writer
         /// <param name="ingredientId">The ID of the ingredient.</param>
         /// <param name="selectedLanguage">The language ('fr' or 'en') for ingredient name lookup.</param>
         /// <returns>Name of the ingredient.</returns>
-        public string ReadNameForAnIngredientId(int ingredientId, string selectedLanguage = "fr")
+        public string ReadNameForAnIngredientId(int ingredientId, string selectedLanguage = "en")
         {
             string nameOfIngredientFound = "";
 
@@ -956,7 +956,7 @@ namespace Recipe_Writer
 
             using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                cmd.CommandText = $"SELECT {ingredientColumn} AS ingredientName FROM Ingredients WHERE id = @IngredientId;";
+                cmd.CommandText = $"SELECT {ingredientColumn} FROM Ingredients WHERE id = @IngredientId;";
                 cmd.Parameters.AddWithValue("@IngredientId", ingredientId);
 
                 using (SQLiteDataReader dataReader = cmd.ExecuteReader())
@@ -964,7 +964,7 @@ namespace Recipe_Writer
                     // Only one expected result
                     if (dataReader.Read())   
                     {
-                        nameOfIngredientFound = dataReader["ingredientName"].ToString();
+                        nameOfIngredientFound = dataReader[ingredientColumn].ToString();
                     }
                 }
             }
