@@ -121,21 +121,21 @@ namespace Recipe_Writer
         {
             using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                // Ensure both names have a value
+                // Ensures both names have a value
                 if (string.IsNullOrWhiteSpace(newIngredientNameFr)) newIngredientNameFr = newIngredientNameEn;
                 if (string.IsNullOrWhiteSpace(newIngredientNameEn)) newIngredientNameEn = newIngredientNameFr;
 
-                // Insert the new ingredient into the Ingredients table
+                // Inserts the new ingredient into the Ingredients table
                 cmd.CommandText = "INSERT INTO Ingredients (ingredientName_fr, ingredientName_en, qtyAvailable) VALUES (@IngredientNameFr, @IngredientNameEn, 0.0)";
                 cmd.Parameters.AddWithValue("@IngredientNameFr", newIngredientNameFr);
                 cmd.Parameters.AddWithValue("@IngredientNameEn", newIngredientNameEn);
                 cmd.ExecuteNonQuery();
 
-                // Get the last inserted ingredient ID
+                // Gets the last inserted ingredient ID
                 cmd.CommandText = "SELECT last_insert_rowid()";
                 int newIngredientId = Convert.ToInt32(cmd.ExecuteScalar());
 
-                // Insert the ingredient reference into the Recipes_has_Ingredients table
+                // Inserts the ingredient reference into the Recipes_has_Ingredients table
                 cmd.CommandText = "INSERT INTO Recipes_has_Ingredients (qtyIngredient, ingredientId, scales, recipeId) VALUES (@QtyIngredient, @IngredientId, @ScaleIngredient, @RecipeId)";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@QtyIngredient", qtyIngredient);
@@ -157,12 +157,12 @@ namespace Recipe_Writer
 
             using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                // Insert the instruction into the Instructions table
+                // Inserts the instruction into the Instructions table
                 cmd.CommandText = "INSERT INTO Instructions (instruction) VALUES (@InstructionText)";
                 cmd.Parameters.AddWithValue("@InstructionText", txtNewInstruction);
                 cmd.ExecuteNonQuery();
 
-                // Retrieve the last inserted instruction ID
+                // Retrieves the last inserted instruction ID
                 cmd.CommandText = "SELECT last_insert_rowid()";
                 cmd.Parameters.Clear();
 
@@ -187,7 +187,7 @@ namespace Recipe_Writer
 
             using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                // Insert reference in Instructions_has_Recipes
+                // Inserts reference in Instructions_has_Recipes
                 cmd.CommandText = "INSERT INTO Instructions_has_Recipes (Recipes_id, Instructions_id, InstructionNb) VALUES (@RecipeId, @InstructionId, @InstructionNb)";
                 cmd.Parameters.AddWithValue("@RecipeId", idRecipe);
                 cmd.Parameters.AddWithValue("@InstructionId", lastInstructionId);
@@ -235,11 +235,11 @@ namespace Recipe_Writer
         {
             using (SQLiteCommand cmd = sqliteConn.CreateCommand())
             {
-                // Ensure both names have a value
+                // Ensures both names have a value
                 if (string.IsNullOrWhiteSpace(ingredientNameFr)) ingredientNameFr = ingredientNameEn;
                 if (string.IsNullOrWhiteSpace(ingredientNameEn)) ingredientNameEn = ingredientNameFr;
 
-                // Insert the new ingredient into the Ingredients table
+                // Inserts the new ingredient into the Ingredients table
                 cmd.CommandText = "INSERT INTO Ingredients (ingredientName_fr, ingredientName_en, scale_id, typeOfIngredient_id) " +
                                   "VALUES (@ingredientNameFr, @ingredientNameEn, @scaleId, @idTypeOfIngredient);";
 
@@ -444,7 +444,7 @@ namespace Recipe_Writer
                     }
                 }
 
-                // Step 3: Remove the ingredient from Ingredients table
+                // Removes the ingredient from Ingredients table
                 string deleteIngredientQuery = "DELETE FROM Ingredients WHERE id = @IngredientID;";
                 using (SQLiteCommand deleteFromInventoryCommand = new SQLiteCommand(deleteIngredientQuery, sqliteConn))
                 {
@@ -452,7 +452,7 @@ namespace Recipe_Writer
                     deleteFromInventoryCommand.ExecuteNonQuery();
                 }
 
-                // Step 4: Reorders IDs in Ingredients, changes propagated via ON UPDATE CASCADE
+                // Reorders IDs in Ingredients, changes propagated via ON UPDATE CASCADE
                 OffsetColumnsValuesToUp();
 
                 return true; // Operation successful
@@ -490,7 +490,7 @@ namespace Recipe_Writer
 
                     transaction.Commit(); // Confirms the deletion process
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     transaction.Rollback(); // Undoes changes if an error occurs
                 }
@@ -521,7 +521,7 @@ namespace Recipe_Writer
         {
             try
             {
-                // Step 1: Retrieves all columns related to qtyIngredient and ingredient_id for the recipe
+                // Retrieves all columns related to qtyIngredient and ingredient_id for the recipe
                 string selectQuery = "SELECT * FROM Recipes_has_Ingredients WHERE id = @RecipeID;";
 
                 using (var cmd = new SQLiteCommand(selectQuery, sqliteConn))
@@ -532,7 +532,7 @@ namespace Recipe_Writer
                     {
                         if (dataReader.Read())
                         {
-                            // Step 2 : Create lists of non-null values for qtyIngredient and ingredient_id
+                            // Creates lists of non-null values for qtyIngredient and ingredient_id
                             List<object> nonNullQty = new List<object>();
                             List<object> nonNullIngredientsIds = new List<object>();
 
@@ -548,7 +548,7 @@ namespace Recipe_Writer
                                 }
                             }
 
-                            // Step 3 : Build the update query dynamically
+                            // Builds the update query dynamically
                             string updateQuery = "UPDATE Recipes_has_Ingredients SET ";
 
                             // For qtyIngredient columns
@@ -581,7 +581,7 @@ namespace Recipe_Writer
 
                             updateQuery = updateQuery.TrimEnd(',', ' ') + " WHERE id = @RecipeID;";
 
-                            // Step 4: Execute the update query
+                            // Executes the update query
                             using (var updateCommand = new SQLiteCommand(updateQuery, sqliteConn))
                             {
 
@@ -664,11 +664,9 @@ namespace Recipe_Writer
         {
             List<string> listAllIngredientsFoundInDB = new List<string>();
             string selectedLanguage = Properties.Settings.Default.LanguageSetting.ToString();
-
-            // Détermination de la bonne colonne en fonction de la langue
+            
+            // Determines the correct column based on the language
             string ingredientColumn = "ingredientName_" + selectedLanguage;
-
-            // Préparation de la requête
             string query = $"SELECT id, {ingredientColumn} AS ingredientName FROM Ingredients";
 
             if (typeProvided != 0)
@@ -689,7 +687,6 @@ namespace Recipe_Writer
                 {
                     while (reader.Read())
                     {
-                        // Utilisation de l'alias défini dans la requête SQL
                         if (!reader.IsDBNull(reader.GetOrdinal("ingredientName")))
                         {
                             listAllIngredientsFoundInDB.Add(reader["ingredientName"].ToString());
@@ -700,8 +697,6 @@ namespace Recipe_Writer
 
             return listAllIngredientsFoundInDB;
         }
-
-
 
         /// <summary>
         /// Retrieves all recipe titles from the database.
@@ -827,7 +822,7 @@ namespace Recipe_Writer
         {
             List<string> allScalesNamesList = new List<string>();
 
-            // Détermination de la bonne colonne selon la langue
+            // Determines the correct column based on the language
             string scaleColumn = "scaleName_" + selectedLanguage;
 
             string query = $"SELECT id, {scaleColumn} AS scaleName FROM Scales;";
@@ -924,7 +919,7 @@ namespace Recipe_Writer
         {
             int ingredientIdFound = 0;
 
-            // Sélection dynamique de la colonne selon la langue
+            // Determines the correct column based on the language
             string ingredientColumn = "ingredientName_" + selectedLanguage;
 
             using (SQLiteCommand cmd = sqliteConn.CreateCommand())
@@ -966,7 +961,7 @@ namespace Recipe_Writer
 
                 using (SQLiteDataReader dataReader = cmd.ExecuteReader())
                 {
-                    // Optimization: only one expected result
+                    // Only one expected result
                     if (dataReader.Read())   
                     {
                         nameOfIngredientFound = dataReader["ingredientName"].ToString();
@@ -1001,28 +996,29 @@ namespace Recipe_Writer
 
 
         /// <summary>
-        /// Reads the scale used by an ingredient
+        /// Reads the scale used by an ingredient.
         /// </summary>
-        /// <param name="idIngredient">the id of the ingredient</param>
-        /// <returns>the scale id used by the ingredient</returns>
+        /// <param name="idIngredient">The id of the ingredient.</param>
+        /// <returns>The scale id used by the ingredient.</returns>
         public int ReadScaleIdForAnIngredient(int idIngredient)
         {
-            // Stores the id of the scale used by that ingredient
             int scaleIdFound = 0;
 
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-
-            // Retrieves all the data about ingredients needed for the currently selected recipe
-            cmd.CommandText = "SELECT scale_id " +
-                                "FROM Ingredients " +
-                                "WHERE Ingredients.Id = " + idIngredient + ";";
-
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+            using (var cmd = sqliteConn.CreateCommand())
             {
-                if (dataReader["scale_id"].ToString() != "")
+                // Use parameterized query to prevent SQL injection
+                cmd.CommandText = "SELECT scale_id FROM Ingredients WHERE Id = @idIngredient;";
+                cmd.Parameters.AddWithValue("@idIngredient", idIngredient);
+
+                using (var dataReader = cmd.ExecuteReader())
                 {
-                    int.TryParse(dataReader["scale_id"].ToString(), out scaleIdFound);
+                    while (dataReader.Read())
+                    {
+                        if (dataReader["scale_id"] != DBNull.Value)
+                        {
+                            int.TryParse(dataReader["scale_id"].ToString(), out scaleIdFound);
+                        }
+                    }
                 }
             }
 
@@ -1198,6 +1194,35 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Reads a recipe image path.
+        /// </summary>
+        /// <param name="idRecipe">The id of the recipe to display.</param>
+        /// <returns>The image path for the currently selected recipe.</returns>
+        public string ReadRecipeImagePath(int idRecipe)
+        {
+            string imagePathFound = string.Empty;
+
+            using (var cmd = sqliteConn.CreateCommand())
+            {
+                cmd.CommandText = "SELECT imagePath AS recipeImagePath FROM Recipes WHERE id = @idRecipe;";
+                cmd.Parameters.AddWithValue("@idRecipe", idRecipe);
+
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        if (dataReader["recipeImagePath"] != DBNull.Value)
+                        {
+                            imagePathFound = dataReader["recipeImagePath"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return imagePathFound;
+        }
+
+        /// <summary>
         /// Reads a recipe's low budget status.
         /// </summary>
         /// <param name="idRecipe">The ID of the recipe.</param>
@@ -1220,43 +1245,33 @@ namespace Recipe_Writer
             return lowBudgetValueFound;
         }
 
-
         /// <summary>
-        /// Reads a recipe score
+        /// Reads a recipe score.
         /// </summary>
-        /// <param name="idRecipe"></param>the id of the recipe to display
-        /// <returns>the score currently affected to the the recipe</returns>
+        /// <param name="idRecipe">The id of the recipe to display.</param>
+        /// <returns>The score currently assigned to the recipe.</returns>
         public int ReadRecipeScore(int idRecipe)
         {
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT score AS scoreRecipe FROM 'Recipes' WHERE id='"+idRecipe+"';";
-
             int scoreFound = 0;
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+
+            using (var cmd = sqliteConn.CreateCommand())
             {
-                int.TryParse(dataReader["scoreRecipe"].ToString(), out scoreFound);
+                cmd.CommandText = "SELECT score AS scoreRecipe FROM Recipes WHERE id = @idRecipe;";
+                cmd.Parameters.AddWithValue("@idRecipe", idRecipe);
+
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        if (dataReader["scoreRecipe"] != DBNull.Value)
+                        {
+                            int.TryParse(dataReader["scoreRecipe"].ToString(), out scoreFound);
+                        }
+                    }
+                }
             }
+
             return scoreFound;
-        }
-
-        /// <summary>
-        /// Reads a recipe low budget status
-        /// </summary>
-        /// <param name="idRecipe"></param>the id of the recipe to display
-        /// <returns>the image path for the currently selected recipe</returns>
-        public string ReadRecipeImagePath(int idRecipe)
-        {
-            SQLiteCommand cmd = sqliteConn.CreateCommand();
-            cmd.CommandText = "SELECT imagePath AS recipeImagePath FROM 'Recipes' WHERE id='"+idRecipe+"';";
-
-            string imagePathFound = "";
-            SQLiteDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
-            {
-                imagePathFound = dataReader["recipeImagePath"].ToString();
-            }
-            return imagePathFound;
         }
 
         /// <summary>
