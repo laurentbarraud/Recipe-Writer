@@ -243,4 +243,35 @@ Merci de me contacter pour toute amélioration ou signalement de bug.</value>
   <data name="English" xml:space="preserve">
     <value>anglais</value>
   </data>
+  <data name="TabInventory_0" xml:space="preserve">
+    <value>Viandes / Poissons / Crustacés</value>
+  </data>
+  <data name="TabInventory_1" xml:space="preserve">
+    <value>Fruits/Légumes/Légumineuses/Champignons</value>
+  </data>
+  <data name="TabInventory_2" xml:space="preserve">
+    <value>Produits laitiers / Oeufs</value>
+  </data>
+  <data name="TabInventory_3" xml:space="preserve">
+    <value>Céréales/Féculents</value>
+  </data>
+  <data name="TabInventory_4" xml:space="preserve">
+    <value>Épices/Herbes/Condiments</value>
+  </data>
+  <data name="TabInventory_5" xml:space="preserve">
+    <value>Noix/Graines</value>
+  </data>
+  <data name="TabInventory_6" xml:space="preserve">
+    <value>Huiles/Graisses</value>
+  </data>
+  <data name="TabInventory_7" xml:space="preserve">
+    <value>Produits boulangerie/pâtisserie</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TabInventory_8" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>Inventaire des ingrédients</value>
+  </data>
 </root>

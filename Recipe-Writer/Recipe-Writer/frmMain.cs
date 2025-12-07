@@ -51,22 +51,6 @@ namespace Recipe_Writer
         /// </summary>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // If the application is launched for the first time
-            if (string.IsNullOrEmpty(Properties.Settings.Default.AppLanguage))
-            {
-                // Detects system language and applies the default setting
-                string systemLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-                Properties.Settings.Default.AppLanguage = (systemLanguage == "fr") ? "fr" : "en";
-
-                // Save the setting for persistence
-                Properties.Settings.Default.Save();
-            }
-
-            // Applies the detected language
-            var cultureInfoToApply = new System.Globalization.CultureInfo(Properties.Settings.Default.AppLanguage);
-            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfoToApply;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfoToApply;
-
             int nbPersonsSet = Properties.Settings.Default.NbPersonsSet;
             nudPersons.Value = nbPersonsSet;
 
@@ -958,13 +942,12 @@ namespace Recipe_Writer
             if (_frmInventory != null && !_frmInventory.IsDisposed)
             {
                 _frmInventory.Close();
-                _frmInventory = null; 
+                _frmInventory = null;
             }
             else
             {
-                _frmInventory = new frmInventory(this);
-                _frmInventory.Show();
-            }
+                ShowInventory();
+            }            
         }
 
         private void picInventory_MouseHover(object sender, EventArgs e)
@@ -1172,9 +1155,6 @@ namespace Recipe_Writer
             // Empties the listbox control before displaying new results
             lstSearchResults.Items.Clear();
 
-            if (string.IsNullOrWhiteSpace(titleToSearchFor))
-                return; // Avoid processing empty searches
-
             // Replaces apostrophes to prevent SQL errors
             string formattedKeywords = titleToSearchFor.Replace("'", "''");
 
@@ -1201,8 +1181,15 @@ namespace Recipe_Writer
 
         private void ShowInventory()
         {
-            _frmInventory = new frmInventory(this);
-            _frmInventory.Show();
+            if (_frmInventory == null || _frmInventory.IsDisposed)
+            {
+                _frmInventory = new frmInventory(this);
+                _frmInventory.Show();
+            }
+            else
+            {
+                _frmInventory.BringToFront();
+            }
         }
 
         private void ShowMealPlanner()

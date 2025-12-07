@@ -4,6 +4,7 @@
 /// <date>December 7th 2025</date>
 /// 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -29,21 +30,121 @@ namespace Recipe_Writer
 
         /// <summary>
         /// Handles the load event of the form.
-        /// Localizes the tab titles using resource strings,
-        /// then refreshes the inventory quantities.
+        /// Localizes the window title and the tab headers using resource keys TabInventory_0..8
+        /// from strings.resx, then refreshes the inventory quantities.
         /// </summary>
-        /// <param name="sender">The inventory form instance.</param>
-        /// <param name="e">Event arguments.</param>
         private void frmInventory_Load(object sender, EventArgs e)
         {
-            // Localizes tab titles using Strings.resx
-            for (int i = 0; i < tabInventoryIngredients.TabCount - 1; i++)
+            var cultureInfoCode = new System.Globalization.CultureInfo(Properties.Settings.Default.AppLanguage);
+
+            // Title
+            string title = strings.Inventory;
+            if (!string.IsNullOrEmpty(title))
+                this.Text = title;
+
+            // Tabs
+            foreach (TabControl tabControl in this.Controls.OfType<TabControl>())
             {
-                string resourceKey = $"TabInventory_{i}";
-                tabInventoryIngredients.TabPages[i].Text = strings.ResourceManager.GetString(resourceKey);
+                for (int i = 0; i < tabControl.TabPages.Count; i++)
+                {
+                    var tabPageSelected = tabControl.TabPages[i];
+                    string resourceKeyComposed = $"TabInventory_{i}";
+
+                    
+                    string localized = strings.ResourceManager.GetString(resourceKeyComposed, cultureInfoCode);
+
+                    if (!string.IsNullOrEmpty(localized)) 
+                    { 
+                        tabPageSelected.Text = localized;
+                    }
+
+                    foreach (Control child in tabPageSelected.Controls)
+                    {
+                        ApplyResourcesRecursively(child, new ComponentResourceManager(typeof(frmInventory)), cultureInfoCode);
+                    }
+                }
             }
 
             RefreshInventory();
+
+        }
+
+
+        /// <summary>
+        /// Recursively applies localized resources to a control and its children.
+        /// Handles common containers (Panel, GroupBox, TableLayoutPanel, etc.),
+        /// as well as MenuStrip, ToolStrip, and StatusStrip items.
+        /// </summary>
+        private void ApplyResourcesRecursively(Control control, ComponentResourceManager resources, System.Globalization.CultureInfo cultureInfo)
+        {
+            if (control == null) return;
+
+            // Applies resources to the control itself
+            resources.ApplyResources(control, control.Name, cultureInfo);
+
+            // Handles MenuStrip: applies resources to menu items recursively
+            if (control is MenuStrip menuStrip)
+            {
+                foreach (ToolStripMenuItem item in menuStrip.Items.OfType<ToolStripMenuItem>())
+                {
+                    ApplyToolStripItemResources(item, resources, cultureInfo);
+                }
+            }
+
+            // Handles ToolStrip : applies resources to each item
+            else if (control is ToolStrip toolStrip)
+            {
+                foreach (ToolStripItem item in toolStrip.Items)
+                {
+                    resources.ApplyResources(item, item.Name, cultureInfo);
+
+                    // If the item is a drop-down, applies resources to its children as well
+                    if (item is ToolStripDropDownItem dropDown)
+                    {
+                        foreach (ToolStripItem subItem in dropDown.DropDownItems)
+                        {
+                            resources.ApplyResources(subItem, subItem.Name, cultureInfo);
+                        }
+                    }
+                }
+            }
+            // Handles StatusStrip: apploes resources to each status label/panel
+            else if (control is StatusStrip statusStrip)
+            {
+                foreach (ToolStripItem item in statusStrip.Items)
+                {
+                    resources.ApplyResources(item, item.Name, cultureInfo);
+                }
+            }
+
+            // Applies resources to child controls 
+            foreach (Control child in control.Controls)
+            {
+                ApplyResourcesRecursively(child, resources, cultureInfo);
+            }
+        }
+
+        /// <summary>
+        /// Applies resources to a ToolStripMenuItem and its child menu items recursively.
+        /// </summary>
+        private void ApplyToolStripItemResources(ToolStripMenuItem item, ComponentResourceManager resources, System.Globalization.CultureInfo cultureInfo)
+        {
+            if (item == null) return;
+
+            // Applies resources to this menu item
+            resources.ApplyResources(item, item.Name, cultureInfo);
+
+            // Recursively applies to nested menu items
+            foreach (ToolStripItem subItem in item.DropDownItems)
+            {
+                resources.ApplyResources(subItem, subItem.Name, cultureInfo);
+
+                // If nested item is also a drop-down menu, goes deeper
+                if (subItem is ToolStripMenuItem subMenu)
+                {
+                    ApplyToolStripItemResources(subMenu, resources, cultureInfo);
+                }
+            }
         }
 
         private void cmdAddNewIngredientIntoDB_Click(object sender, EventArgs e)
@@ -86,7 +187,7 @@ namespace Recipe_Writer
             {
                 int ingredientId = _frmMain.dbConn.ReadIdForAnIngredientName(ingredientName);
 
-                // Edit quantity numeric up-down control ===========================================================
+                // Edits quantity numeric up-down control ===========================================================
 
                 NumericUpDown nudQtyIngredient = new NumericUpDown();
                 nudQtyIngredient.ValueChanged += (object sender_here, EventArgs e_here) =>
@@ -99,7 +200,7 @@ namespace Recipe_Writer
                 nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 9);
                 nudQtyIngredient.Width = 2 * (iconWidth);
                 nudQtyIngredient.Height = numericUpDownHeight;
-                nudQtyIngredient.Location = new Point(spacingWidth, currentIngredient * (iconHeight + lineHeight));
+                nudQtyIngredient.Location = new Point(0, currentIngredient * (iconHeight + lineHeight));
                 nudQtyIngredient.BorderStyle = BorderStyle.FixedSingle;
 
                 // Adds the ingredient quantity in the appropriate numeric up-down control
@@ -114,7 +215,7 @@ namespace Recipe_Writer
                 lblScaleIngredient.AutoSize = true;
                 lblScaleIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
 
-                // Edit ingredient name button ===================================================================
+                // Edits ingredient name button ===================================================================
                 Button editIngredientName = new Button();
                 editIngredientName.Click += (object sender_here, EventArgs e_here) =>
                 {
@@ -134,7 +235,7 @@ namespace Recipe_Writer
                 editIngredientName.BackgroundImageLayout = ImageLayout.Zoom;
                 editIngredientName.Location = new Point(lblScaleIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
 
-                // Delete ingredient button code ===================================================================
+                // Deletes ingredient button code ===================================================================
                 Button cmdDeleteIngredient = new Button();
                 cmdDeleteIngredient.Click += (object sender_here, EventArgs e_here) =>
                 {

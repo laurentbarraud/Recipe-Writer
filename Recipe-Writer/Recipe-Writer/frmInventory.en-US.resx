@@ -120,39 +120,14 @@
   <data name="tabPage1.Text" xml:space="preserve">
     <value>Meat / Fish / Seafood</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>874, 387</value>
-  </data>
   <data name="tabPage2.Text" xml:space="preserve">
     <value>Fruits / Vegetables / Legumes / Mushrooms</value>
-  </data>
-  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>874, 387</value>
   </data>
   <data name="tabPage3.Text" xml:space="preserve">
     <value>Dairy Products / Eggs</value>
   </data>
-  <data name="tabPage4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabPage4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>874, 387</value>
-  </data>
   <data name="tabPage4.Text" xml:space="preserve">
     <value>Cereals / Starches</value>
-  </data>
-  <data name="tabPage5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabPage5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>874, 387</value>
   </data>
   <data name="tabPage5.Text" xml:space="preserve">
     <value>Spices / Herbs / Condiments</value>
@@ -169,6 +144,7 @@
   <data name="tabPage9.Text" xml:space="preserve">
     <value>Alcohol / Spirits / Sauces / Water</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cmdAddNewIngredientIntoDB.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGMAAABkCAYAAACSPo4tAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
