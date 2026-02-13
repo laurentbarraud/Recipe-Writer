@@ -1,10 +1,9 @@
 ## Recipe Writer
 
-School project developed in C# with WinForms, as a replacement for the end‑of‑study assignment of the computer science diploma.  
-It manages a collection of recipes stored in a SQLite database.
+A C# WinForms to‑do list application with local SQLite storage, featuring recipe management and a full‑year birthday calendar.  
 
-[![Release](https://img.shields.io/badge/release-stable-31A66B)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
-[![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
+[![Release](https://img.shields.io/badge/release-stable-79BB83)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
+[![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-screenshot.jpg" width="500" alt="Screenshot of the main form">
@@ -13,6 +12,8 @@ It manages a collection of recipes stored in a SQLite database.
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-inventory-screenshot.jpg" width="500" alt="Screenshot of the inventory showing ingredient management tabs">
 </p>
+
+Developed as a school project for the final examination of the Computer Specialist diploma in Western Switzerland.
 
 ### Features
 - 🔍 Search recipes by keywords based on title  
