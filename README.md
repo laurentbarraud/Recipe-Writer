@@ -1,6 +1,7 @@
 ## Recipe Writer
 
-A C# WinForms to‑do list application with local SQLite storage, featuring recipe management and a full‑year birthday calendar.  
+A C# WinForms desktop application for managing recipes, organizing ingredients, and planning weekly meals.  
+Includes a full‑year birthday calendar and offline‑first local data storage powered by an SQLite database.
 
 [![Release](https://img.shields.io/badge/release-stable-79BB83)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
 [![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
