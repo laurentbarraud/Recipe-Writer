@@ -1,7 +1,7 @@
 ## Recipe Writer
 
 A C# WinForms desktop application for managing recipes, organizing ingredients, and planning weekly meals.  
-Includes a full‑year birthday calendar and offline‑first local data storage powered by an SQLite database.
+Data storage is powered by an SQLite database. 
 
 [![Release](https://img.shields.io/badge/release-stable-79BB83)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
 [![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
@@ -32,8 +32,8 @@ Developed as a school project for the final examination of the Computer Speciali
   
 ### How to Run
 
-- Clone the repository using Git.
-- Open the solution (.sln) file in Visual Studio 2022.
+- Clone the repository using Git
+- Open the solution (.sln) file in Visual Studio 2022
 - Build the project with Ctrl+B, then run it.
 
 ### Download
