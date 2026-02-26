@@ -250,10 +250,10 @@
     <value>Flat</value>
   </data>
   <data name="cmdCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 154</value>
+    <value>403, 154</value>
   </data>
   <data name="cmdCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 32</value>
+    <value>40, 32</value>
   </data>
   <data name="cmdCancel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -277,10 +277,10 @@
     <value>Flat</value>
   </data>
   <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>463, 154</value>
+    <value>458, 154</value>
   </data>
   <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 32</value>
+    <value>40, 32</value>
   </data>
   <data name="cmdValidate.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>

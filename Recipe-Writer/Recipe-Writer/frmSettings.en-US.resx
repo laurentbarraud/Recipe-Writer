@@ -134,7 +134,10 @@
     <value>185, 274</value>
   </data>
   <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 319</value>
+    <value>183, 315</value>
+  </data>
+  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 46</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>312, 268</value>

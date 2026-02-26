@@ -61,10 +61,11 @@
             // cmdValidate
             // 
             resources.ApplyResources(this.cmdValidate, "cmdValidate");
+            this.cmdValidate.BackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.Name = "cmdValidate";
-            this.cmdValidate.UseVisualStyleBackColor = true;
+            this.cmdValidate.UseVisualStyleBackColor = false;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // pictureBox1
