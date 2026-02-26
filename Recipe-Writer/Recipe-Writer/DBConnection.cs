@@ -1,7 +1,7 @@
 ﻿
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.1</version>
+/// <version>1.1.2</version>
 /// <date>December 7th 2025</date>
 
 using System;

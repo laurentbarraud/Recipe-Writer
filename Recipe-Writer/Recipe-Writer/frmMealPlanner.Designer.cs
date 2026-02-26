@@ -182,6 +182,7 @@
             // 
             this.cmdSundayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
             resources.ApplyResources(this.cmdSundayCooked, "cmdSundayCooked");
+            this.cmdSundayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSundayCooked.FlatAppearance.BorderSize = 0;
             this.cmdSundayCooked.Name = "cmdSundayCooked";
             this.cmdSundayCooked.UseVisualStyleBackColor = true;
@@ -191,6 +192,7 @@
             // 
             this.cmdSaturdayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
             resources.ApplyResources(this.cmdSaturdayCooked, "cmdSaturdayCooked");
+            this.cmdSaturdayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSaturdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdSaturdayCooked.Name = "cmdSaturdayCooked";
             this.cmdSaturdayCooked.UseVisualStyleBackColor = true;
@@ -200,6 +202,7 @@
             // 
             this.cmdFridayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
             resources.ApplyResources(this.cmdFridayCooked, "cmdFridayCooked");
+            this.cmdFridayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdFridayCooked.FlatAppearance.BorderSize = 0;
             this.cmdFridayCooked.Name = "cmdFridayCooked";
             this.cmdFridayCooked.UseVisualStyleBackColor = true;
@@ -209,6 +212,7 @@
             // 
             this.cmdThursdayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
             resources.ApplyResources(this.cmdThursdayCooked, "cmdThursdayCooked");
+            this.cmdThursdayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdThursdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdThursdayCooked.Name = "cmdThursdayCooked";
             this.cmdThursdayCooked.UseVisualStyleBackColor = true;
@@ -218,6 +222,7 @@
             // 
             this.cmdWednesdayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
             resources.ApplyResources(this.cmdWednesdayCooked, "cmdWednesdayCooked");
+            this.cmdWednesdayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdWednesdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdWednesdayCooked.Name = "cmdWednesdayCooked";
             this.cmdWednesdayCooked.UseVisualStyleBackColor = true;
@@ -227,6 +232,7 @@
             // 
             this.cmdTuesdayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
             resources.ApplyResources(this.cmdTuesdayCooked, "cmdTuesdayCooked");
+            this.cmdTuesdayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdTuesdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdTuesdayCooked.Name = "cmdTuesdayCooked";
             this.cmdTuesdayCooked.UseVisualStyleBackColor = true;
@@ -236,6 +242,7 @@
             // 
             this.cmdMondayCooked.BackgroundImage = global::Recipe_Writer.Properties.Resources.recipeCooked;
             resources.ApplyResources(this.cmdMondayCooked, "cmdMondayCooked");
+            this.cmdMondayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdMondayCooked.FlatAppearance.BorderSize = 0;
             this.cmdMondayCooked.Name = "cmdMondayCooked";
             this.cmdMondayCooked.UseVisualStyleBackColor = true;
@@ -245,6 +252,7 @@
             // 
             this.cmdSaturdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             resources.ApplyResources(this.cmdSaturdayCancelled, "cmdSaturdayCancelled");
+            this.cmdSaturdayCancelled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSaturdayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdSaturdayCancelled.Name = "cmdSaturdayCancelled";
             this.cmdSaturdayCancelled.UseVisualStyleBackColor = true;
@@ -254,6 +262,7 @@
             // 
             this.cmdFridayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             resources.ApplyResources(this.cmdFridayCancelled, "cmdFridayCancelled");
+            this.cmdFridayCancelled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdFridayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdFridayCancelled.Name = "cmdFridayCancelled";
             this.cmdFridayCancelled.UseVisualStyleBackColor = true;
@@ -263,6 +272,7 @@
             // 
             this.cmdThursdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             resources.ApplyResources(this.cmdThursdayCancelled, "cmdThursdayCancelled");
+            this.cmdThursdayCancelled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdThursdayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdThursdayCancelled.Name = "cmdThursdayCancelled";
             this.cmdThursdayCancelled.UseVisualStyleBackColor = true;
@@ -272,6 +282,7 @@
             // 
             this.cmdSundayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             resources.ApplyResources(this.cmdSundayCancelled, "cmdSundayCancelled");
+            this.cmdSundayCancelled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSundayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdSundayCancelled.Name = "cmdSundayCancelled";
             this.cmdSundayCancelled.UseVisualStyleBackColor = true;
@@ -281,6 +292,7 @@
             // 
             this.cmdWednesdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             resources.ApplyResources(this.cmdWednesdayCancelled, "cmdWednesdayCancelled");
+            this.cmdWednesdayCancelled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdWednesdayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdWednesdayCancelled.Name = "cmdWednesdayCancelled";
             this.cmdWednesdayCancelled.UseVisualStyleBackColor = true;
@@ -290,6 +302,7 @@
             // 
             this.cmdTuesdayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             resources.ApplyResources(this.cmdTuesdayCancelled, "cmdTuesdayCancelled");
+            this.cmdTuesdayCancelled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdTuesdayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdTuesdayCancelled.Name = "cmdTuesdayCancelled";
             this.cmdTuesdayCancelled.UseVisualStyleBackColor = true;
@@ -299,6 +312,7 @@
             // 
             this.cmdMondayCancelled.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             resources.ApplyResources(this.cmdMondayCancelled, "cmdMondayCancelled");
+            this.cmdMondayCancelled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdMondayCancelled.FlatAppearance.BorderSize = 0;
             this.cmdMondayCancelled.Name = "cmdMondayCancelled";
             this.cmdMondayCancelled.UseVisualStyleBackColor = true;

@@ -366,6 +366,7 @@
             // cmdAddNewIngredientIntoDB
             // 
             resources.ApplyResources(this.cmdAddNewIngredientIntoDB, "cmdAddNewIngredientIntoDB");
+            this.cmdAddNewIngredientIntoDB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdAddNewIngredientIntoDB.FlatAppearance.BorderSize = 0;
             this.cmdAddNewIngredientIntoDB.Name = "cmdAddNewIngredientIntoDB";
             this.cmdAddNewIngredientIntoDB.UseVisualStyleBackColor = true;
@@ -375,6 +376,7 @@
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
             resources.ApplyResources(this.cmdValidate, "cmdValidate");
+            this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.UseVisualStyleBackColor = true;

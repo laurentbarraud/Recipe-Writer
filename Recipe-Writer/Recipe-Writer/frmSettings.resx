@@ -133,6 +133,9 @@
   <data name="&gt;&gt;cmdValidate.Name" xml:space="preserve">
     <value>cmdValidate</value>
   </data>
+  <data name="&gt;&gt;lblInfosLicence.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;cmbAppLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -153,8 +156,8 @@
   <data name="lblInfosLicence.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>188, 326</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmSettings</value>
@@ -165,14 +168,11 @@
   <data name="lblInfosLicence.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 9</value>
   </data>
-  <data name="lblAppLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 282</value>
+  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 43</value>
   </data>
   <data name="lblInfosLicence.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;cmdValidate.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -198,11 +198,11 @@
   <data name="&gt;&gt;lblAppLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblAppLanguage.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lblInfosLicence.Name" xml:space="preserve">
+    <value>lblInfosLicence</value>
   </data>
-  <data name="&gt;&gt;lblInfosLicence.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblAppLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 282</value>
   </data>
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -213,14 +213,14 @@
   <data name="lblAppLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 23</value>
   </data>
-  <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 43</value>
+  <data name="lblAppLanguage.Text" xml:space="preserve">
+    <value>Langue de l'application :</value>
   </data>
-  <data name="lblInfosLicence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>388, 245</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
-  <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 326</value>
+  <data name="&gt;&gt;lblAppLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="cmbAppLanguage.Items" xml:space="preserve">
     <value>anglais</value>
@@ -255,14 +255,14 @@
   <data name="&gt;&gt;cmbAppLanguage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblInfosLicence.Name" xml:space="preserve">
-    <value>lblInfosLicence</value>
+  <data name="lblInfosLicence.Size" type="System.Drawing.Size, System.Drawing">
+    <value>388, 245</value>
   </data>
   <data name="cmdValidate.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="lblAppLanguage.Text" xml:space="preserve">
-    <value>Langue de l'application :</value>
+  <data name="&gt;&gt;cmdValidate.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

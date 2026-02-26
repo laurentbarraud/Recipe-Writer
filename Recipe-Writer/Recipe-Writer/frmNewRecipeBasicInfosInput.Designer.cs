@@ -74,6 +74,7 @@
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
             resources.ApplyResources(this.cmdValidate, "cmdValidate");
+            this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.Name = "cmdValidate";
@@ -85,6 +86,7 @@
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
             resources.ApplyResources(this.cmdCancel, "cmdCancel");
             this.cmdCancel.CausesValidation = false;
+            this.cmdCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
             this.cmdCancel.Name = "cmdCancel";
