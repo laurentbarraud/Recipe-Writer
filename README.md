@@ -1,10 +1,10 @@
 ## Recipe Writer
 
-School project developed in C# with WinForms, as a replacement for the end‑of‑study assignment of the computer science diploma.  
-It manages a collection of recipes stored in a SQLite database.
+A C# WinForms desktop application for managing recipes, organizing ingredients, and planning weekly meals.  
+Data storage is powered by an SQLite database. 
 
-[![Release](https://img.shields.io/badge/release-stable-31A66B)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
-[![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/)
+[![Release](https://img.shields.io/badge/release-stable-79BB83)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
+[![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-screenshot.jpg" width="500" alt="Screenshot of the main form">
@@ -13,6 +13,8 @@ It manages a collection of recipes stored in a SQLite database.
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/recipe-writer-inventory-screenshot.jpg" width="500" alt="Screenshot of the inventory showing ingredient management tabs">
 </p>
+
+Developed as a school project for the final examination of the Computer Specialist diploma in Western Switzerland.
 
 ### Features
 - 🔍 Search recipes by keywords based on title  
@@ -30,8 +32,8 @@ It manages a collection of recipes stored in a SQLite database.
   
 ### How to Run
 
-- Clone the repository using Git.
-- Open the solution (.sln) file in Visual Studio 2022.
+- Clone the repository using Git
+- Open the solution (.sln) file in Visual Studio 2022
 - Build the project with Ctrl+B, then run it.
 
 ### Download
