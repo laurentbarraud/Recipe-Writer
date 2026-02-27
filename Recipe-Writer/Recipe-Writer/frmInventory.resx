@@ -117,239 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
-    <value>tabPage3</value>
-  </data>
-  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;tabPage4.Name" xml:space="preserve">
-    <value>tabPage4</value>
-  </data>
-  <data name="&gt;&gt;tabPage4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage4.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tabPage5.Name" xml:space="preserve">
-    <value>tabPage5</value>
-  </data>
-  <data name="&gt;&gt;tabPage5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage5.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage5.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;tabPage6.Name" xml:space="preserve">
-    <value>tabPage6</value>
-  </data>
-  <data name="&gt;&gt;tabPage6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage6.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage6.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;tabPage7.Name" xml:space="preserve">
-    <value>tabPage7</value>
-  </data>
-  <data name="&gt;&gt;tabPage7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage7.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage7.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;tabPage8.Name" xml:space="preserve">
-    <value>tabPage8</value>
-  </data>
-  <data name="&gt;&gt;tabPage8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage8.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage8.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;tabPage9.Name" xml:space="preserve">
-    <value>tabPage9</value>
-  </data>
-  <data name="&gt;&gt;tabPage9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage9.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage9.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tabInventoryIngredients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 13</value>
-  </data>
-  <data name="tabInventoryIngredients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>983, 416</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabInventoryIngredients.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tabInventoryIngredients.Name" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabInventoryIngredients.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabInventoryIngredients.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tabInventoryIngredients.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient2.Name" xml:space="preserve">
-    <value>lblTypeIngredient2</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient2.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient1.Name" xml:space="preserve">
-    <value>lblTypeIngredient1</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient1.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType2Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType2Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType2Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType2Status.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType2Status.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType2Available.Name" xml:space="preserve">
-    <value>lstIngredientsType2Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType2Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType2Available.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType2Available.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType1Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType1Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType1Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType1Status.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType1Status.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType1Available.Name" xml:space="preserve">
-    <value>lstIngredientsType1Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType1Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType1Available.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType1Available.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>975, 366</value>
-  </data>
-  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Viandes/Poissons/Crustacés</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
-    <value>tabInventoryIngredients</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="lblTypeIngredient2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblTypeIngredient2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblTypeIngredient2.Location" type="System.Drawing.Point, System.Drawing">
     <value>404, 13</value>
@@ -357,6 +131,7 @@
   <data name="lblTypeIngredient2.Size" type="System.Drawing.Size, System.Drawing">
     <value>430, 20</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTypeIngredient2.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
@@ -380,6 +155,9 @@
   </data>
   <data name="lblTypeIngredient1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="lblTypeIngredient1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblTypeIngredient1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 13</value>
@@ -510,107 +288,38 @@
   <data name="&gt;&gt;lstIngredientsType1Available.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;lblTypeIngredient4.Name" xml:space="preserve">
-    <value>lblTypeIngredient4</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient4.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient4.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient3.Name" xml:space="preserve">
-    <value>lblTypeIngredient3</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient3.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType4Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType4Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType4Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType4Status.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType4Status.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType4Available.Name" xml:space="preserve">
-    <value>lstIngredientsType4Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType4Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType4Available.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType4Available.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType3Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType3Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType3Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType3Status.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType3Status.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType3Available.Name" xml:space="preserve">
-    <value>lstIngredientsType3Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType3Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType3Available.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType3Available.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
-  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
     <value>975, 366</value>
   </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Fruits/Légumes/Légumineuses/Champignons</value>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Viandes/Poissons/Crustacés</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
     <value>tabInventoryIngredients</value>
   </data>
-  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lblTypeIngredient4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="lblTypeIngredient4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblTypeIngredient4.Location" type="System.Drawing.Point, System.Drawing">
     <value>405, 7</value>
@@ -641,6 +350,9 @@
   </data>
   <data name="lblTypeIngredient3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="lblTypeIngredient3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblTypeIngredient3.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 7</value>
@@ -771,53 +483,32 @@
   <data name="&gt;&gt;lstIngredientsType3Available.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;pnlIngredientsType5Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType5Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType5Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType5Status.Parent" xml:space="preserve">
-    <value>tabPage3</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType5Status.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType5Available.Name" xml:space="preserve">
-    <value>lstIngredientsType5Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType5Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType5Available.Parent" xml:space="preserve">
-    <value>tabPage3</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType5Available.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
-  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
     <value>975, 366</value>
   </data>
-  <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Produits laitiers/Oeufs</value>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Fruits/Légumes/Légumineuses/Champignons</value>
   </data>
-  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
-    <value>tabPage3</value>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
   </data>
-  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
     <value>tabInventoryIngredients</value>
   </data>
-  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="pnlIngredientsType5Status.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -870,53 +561,29 @@
   <data name="&gt;&gt;lstIngredientsType5Available.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;pnlIngredientsType6Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType6Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType6Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType6Status.Parent" xml:space="preserve">
-    <value>tabPage4</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType6Status.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType6Available.Name" xml:space="preserve">
-    <value>lstIngredientsType6Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType6Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType6Available.Parent" xml:space="preserve">
-    <value>tabPage4</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType6Available.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPage4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
-  <data name="tabPage4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
     <value>975, 366</value>
   </data>
-  <data name="tabPage4.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="tabPage4.Text" xml:space="preserve">
-    <value>Céréales/Féculents</value>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Produits laitiers/Oeufs</value>
   </data>
-  <data name="&gt;&gt;tabPage4.Name" xml:space="preserve">
-    <value>tabPage4</value>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
-  <data name="&gt;&gt;tabPage4.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
     <value>tabInventoryIngredients</value>
   </data>
-  <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="pnlIngredientsType6Status.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -969,53 +636,29 @@
   <data name="&gt;&gt;lstIngredientsType6Available.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;pnlIngredientsType7Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType7Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType7Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType7Status.Parent" xml:space="preserve">
-    <value>tabPage5</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType7Status.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType7Available.Name" xml:space="preserve">
-    <value>lstIngredientsType7Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType7Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType7Available.Parent" xml:space="preserve">
-    <value>tabPage5</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType7Available.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPage5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage4.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
-  <data name="tabPage5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage4.Size" type="System.Drawing.Size, System.Drawing">
     <value>975, 366</value>
   </data>
-  <data name="tabPage5.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="tabPage4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="tabPage5.Text" xml:space="preserve">
-    <value>Épices/Herbes/Condiments</value>
+  <data name="tabPage4.Text" xml:space="preserve">
+    <value>Céréales/Féculents</value>
   </data>
-  <data name="&gt;&gt;tabPage5.Name" xml:space="preserve">
-    <value>tabPage5</value>
+  <data name="&gt;&gt;tabPage4.Name" xml:space="preserve">
+    <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;tabPage5.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage4.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage4.Parent" xml:space="preserve">
     <value>tabInventoryIngredients</value>
   </data>
-  <data name="&gt;&gt;tabPage5.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="pnlIngredientsType7Status.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1068,53 +711,29 @@
   <data name="&gt;&gt;lstIngredientsType7Available.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;pnlIngredientsType8Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType8Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType8Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType8Status.Parent" xml:space="preserve">
-    <value>tabPage6</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType8Status.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType8Available.Name" xml:space="preserve">
-    <value>lstIngredientsType8Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType8Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType8Available.Parent" xml:space="preserve">
-    <value>tabPage6</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType8Available.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPage6.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage5.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
-  <data name="tabPage6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage5.Size" type="System.Drawing.Size, System.Drawing">
     <value>975, 366</value>
   </data>
-  <data name="tabPage6.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="tabPage5.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="tabPage6.Text" xml:space="preserve">
-    <value>Noix/Graines</value>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Épices/Herbes/Condiments</value>
   </data>
-  <data name="&gt;&gt;tabPage6.Name" xml:space="preserve">
-    <value>tabPage6</value>
+  <data name="&gt;&gt;tabPage5.Name" xml:space="preserve">
+    <value>tabPage5</value>
   </data>
-  <data name="&gt;&gt;tabPage6.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage5.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage5.Parent" xml:space="preserve">
     <value>tabInventoryIngredients</value>
   </data>
-  <data name="&gt;&gt;tabPage6.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;tabPage5.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="pnlIngredientsType8Status.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1167,53 +786,29 @@
   <data name="&gt;&gt;lstIngredientsType8Available.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;pnlIngredientsType9Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType9Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType9Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType9Status.Parent" xml:space="preserve">
-    <value>tabPage7</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType9Status.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType9Available.Name" xml:space="preserve">
-    <value>lstIngredientsType9Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType9Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType9Available.Parent" xml:space="preserve">
-    <value>tabPage7</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType9Available.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPage7.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage6.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
-  <data name="tabPage7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage6.Size" type="System.Drawing.Size, System.Drawing">
     <value>975, 366</value>
   </data>
-  <data name="tabPage7.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="tabPage6.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="tabPage7.Text" xml:space="preserve">
-    <value>Huiles/Graisses</value>
+  <data name="tabPage6.Text" xml:space="preserve">
+    <value>Noix/Graines</value>
   </data>
-  <data name="&gt;&gt;tabPage7.Name" xml:space="preserve">
-    <value>tabPage7</value>
+  <data name="&gt;&gt;tabPage6.Name" xml:space="preserve">
+    <value>tabPage6</value>
   </data>
-  <data name="&gt;&gt;tabPage7.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage6.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage6.Parent" xml:space="preserve">
     <value>tabInventoryIngredients</value>
   </data>
-  <data name="&gt;&gt;tabPage7.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;tabPage6.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="pnlIngredientsType9Status.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1266,53 +861,29 @@
   <data name="&gt;&gt;lstIngredientsType9Available.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;pnlIngredientsType10Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType10Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType10Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType10Status.Parent" xml:space="preserve">
-    <value>tabPage8</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType10Status.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType10Available.Name" xml:space="preserve">
-    <value>lstIngredientsType10Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType10Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType10Available.Parent" xml:space="preserve">
-    <value>tabPage8</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType10Available.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPage8.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage7.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
-  <data name="tabPage8.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage7.Size" type="System.Drawing.Size, System.Drawing">
     <value>975, 366</value>
   </data>
-  <data name="tabPage8.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="tabPage7.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="tabPage8.Text" xml:space="preserve">
-    <value>Produits boulangerie/pâtisserie</value>
+  <data name="tabPage7.Text" xml:space="preserve">
+    <value>Huiles/Graisses</value>
   </data>
-  <data name="&gt;&gt;tabPage8.Name" xml:space="preserve">
-    <value>tabPage8</value>
+  <data name="&gt;&gt;tabPage7.Name" xml:space="preserve">
+    <value>tabPage7</value>
   </data>
-  <data name="&gt;&gt;tabPage8.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage7.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage8.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage7.Parent" xml:space="preserve">
     <value>tabInventoryIngredients</value>
   </data>
-  <data name="&gt;&gt;tabPage8.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;tabPage7.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="pnlIngredientsType10Status.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1365,104 +936,35 @@
   <data name="&gt;&gt;lstIngredientsType10Available.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblTypeIngredient12.Name" xml:space="preserve">
-    <value>lblTypeIngredient12</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient12.Parent" xml:space="preserve">
-    <value>tabPage9</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient12.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient11.Name" xml:space="preserve">
-    <value>lblTypeIngredient11</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient11.Parent" xml:space="preserve">
-    <value>tabPage9</value>
-  </data>
-  <data name="&gt;&gt;lblTypeIngredient11.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType12Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType12Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType12Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType12Status.Parent" xml:space="preserve">
-    <value>tabPage9</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType12Status.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType12Available.Name" xml:space="preserve">
-    <value>lstIngredientsType12Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType12Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType12Available.Parent" xml:space="preserve">
-    <value>tabPage9</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType12Available.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType11Status.Name" xml:space="preserve">
-    <value>pnlIngredientsType11Status</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType11Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType11Status.Parent" xml:space="preserve">
-    <value>tabPage9</value>
-  </data>
-  <data name="&gt;&gt;pnlIngredientsType11Status.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType11Available.Name" xml:space="preserve">
-    <value>lstIngredientsType11Available</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType11Available.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType11Available.Parent" xml:space="preserve">
-    <value>tabPage9</value>
-  </data>
-  <data name="&gt;&gt;lstIngredientsType11Available.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tabPage9.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage8.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
-  <data name="tabPage9.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage8.Size" type="System.Drawing.Size, System.Drawing">
     <value>975, 366</value>
   </data>
-  <data name="tabPage9.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="tabPage8.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="tabPage9.Text" xml:space="preserve">
-    <value>Alcool/spiritueux/sauces/eau</value>
+  <data name="tabPage8.Text" xml:space="preserve">
+    <value>Produits boulangerie/pâtisserie</value>
   </data>
-  <data name="&gt;&gt;tabPage9.Name" xml:space="preserve">
-    <value>tabPage9</value>
+  <data name="&gt;&gt;tabPage8.Name" xml:space="preserve">
+    <value>tabPage8</value>
   </data>
-  <data name="&gt;&gt;tabPage9.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage8.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage9.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage8.Parent" xml:space="preserve">
     <value>tabInventoryIngredients</value>
   </data>
-  <data name="&gt;&gt;tabPage9.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;tabPage8.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="lblTypeIngredient12.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="lblTypeIngredient12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblTypeIngredient12.Location" type="System.Drawing.Point, System.Drawing">
     <value>394, 10</value>
@@ -1493,6 +995,9 @@
   </data>
   <data name="lblTypeIngredient11.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="lblTypeIngredient11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblTypeIngredient11.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 10</value>
@@ -1623,8 +1128,56 @@
   <data name="&gt;&gt;lstIngredientsType11Available.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="tabPage9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 46</value>
+  </data>
+  <data name="tabPage9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>975, 366</value>
+  </data>
+  <data name="tabPage9.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tabPage9.Text" xml:space="preserve">
+    <value>Alcool/spiritueux/sauces/eau</value>
+  </data>
+  <data name="&gt;&gt;tabPage9.Name" xml:space="preserve">
+    <value>tabPage9</value>
+  </data>
+  <data name="&gt;&gt;tabPage9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage9.Parent" xml:space="preserve">
+    <value>tabInventoryIngredients</value>
+  </data>
+  <data name="&gt;&gt;tabPage9.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="tabInventoryIngredients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 13</value>
+  </data>
+  <data name="tabInventoryIngredients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>983, 416</value>
+  </data>
+  <data name="tabInventoryIngredients.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tabInventoryIngredients.Name" xml:space="preserve">
+    <value>tabInventoryIngredients</value>
+  </data>
+  <data name="&gt;&gt;tabInventoryIngredients.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabInventoryIngredients.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabInventoryIngredients.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="lblNbOfIngredientsStored.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblNbOfIngredientsStored.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblNbOfIngredientsStored.Location" type="System.Drawing.Point, System.Drawing">
     <value>622, 450</value>
@@ -1650,68 +1203,14 @@
   <data name="&gt;&gt;lblNbOfIngredientsStored.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="cmdAddNewIngredientIntoDB.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        AABJRU5ErkJggg==
-</value>
-  </data>
   <data name="cmdAddNewIngredientIntoDB.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
   <data name="cmdAddNewIngredientIntoDB.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="cmdAddNewIngredientIntoDB.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="cmdAddNewIngredientIntoDB.Location" type="System.Drawing.Point, System.Drawing">
     <value>432, 444</value>
@@ -1739,6 +1238,9 @@
   </data>
   <data name="cmdValidate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="cmdValidate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
     <value>487, 445</value>
@@ -1769,6 +1271,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1008, 486</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

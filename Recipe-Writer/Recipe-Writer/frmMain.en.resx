@@ -160,7 +160,7 @@
   <data name="lblSearchIngredient1.Text" xml:space="preserve">
     <value>Ingredient #1 :</value>
   </data>
-  <data name="cmdIngredientsSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmdingredientSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAABrNJREFUeF7t3flu1DoUwGEekvtcBaSCoNBChQCVvVQUsW+iLGUvrRBU7Zvk+oyU

@@ -111,7 +111,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewRecipeBasicInfosInput";
-            this.Move += new System.EventHandler(this.frmNewRecipeBasicInfosInput_Move);
+            this.Load += new System.EventHandler(this.frmNewRecipeBasicInfosInput_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

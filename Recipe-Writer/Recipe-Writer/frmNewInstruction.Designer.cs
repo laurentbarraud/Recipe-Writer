@@ -80,7 +80,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewInstruction";
-            this.Move += new System.EventHandler(this.frmNewInstruction_Move);
+            this.Load += new System.EventHandler(this.frmNewInstruction_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

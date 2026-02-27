@@ -1,8 +1,8 @@
 ﻿
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.2</version>
-/// <date>December 7th 2025</date>
+/// <version>1.1.3</version>
+/// <date>February 26th 2026</date>
 
 using System;
 using System.Data.SQLite;

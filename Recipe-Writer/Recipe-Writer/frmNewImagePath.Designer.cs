@@ -80,7 +80,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewImagePath";
-            this.Move += new System.EventHandler(this.frmNewImagePath_Move);
+            this.Load += new System.EventHandler(this.frmNewImagePath_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

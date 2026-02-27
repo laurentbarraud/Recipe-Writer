@@ -379,7 +379,7 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à v.1.1.2 - February 2026.
+        ///   Recherche une chaîne localisée semblable à v.1.1.3 - February 2026.
         /// </summary>
         internal static string LicenceVersion {
             get {

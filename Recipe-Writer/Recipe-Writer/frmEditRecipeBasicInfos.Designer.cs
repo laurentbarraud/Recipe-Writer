@@ -110,7 +110,6 @@
             this.MinimizeBox = false;
             this.Name = "frmEditRecipeBasicInfos";
             this.Load += new System.EventHandler(this.frmEditRecipeTitle_Load);
-            this.Move += new System.EventHandler(this.frmEditRecipeTitle_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
 

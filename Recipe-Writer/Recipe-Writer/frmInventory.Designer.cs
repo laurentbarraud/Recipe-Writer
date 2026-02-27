@@ -365,6 +365,7 @@
             // 
             // cmdAddNewIngredientIntoDB
             // 
+            this.cmdAddNewIngredientIntoDB.BackgroundImage = global::Recipe_Writer.Properties.Resources.add_new_ingredient_into_db;
             resources.ApplyResources(this.cmdAddNewIngredientIntoDB, "cmdAddNewIngredientIntoDB");
             this.cmdAddNewIngredientIntoDB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdAddNewIngredientIntoDB.FlatAppearance.BorderSize = 0;

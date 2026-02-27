@@ -117,12 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblInfosLicence.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblInfosLicence.Size" type="System.Drawing.Size, System.Drawing">
     <value>388, 242</value>
-  </data>
-  <data name="lblAppLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 275</value>
   </data>
   <data name="cmbAppLanguage.Items" xml:space="preserve">
     <value>English</value>
@@ -131,18 +132,52 @@
     <value>French</value>
   </data>
   <data name="cmbAppLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 274</value>
+    <value>229, 275</value>
+  </data>
+  <data name="lblAppLanguage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAVCAYAAABVAo5cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAARISURBVEhLtVQJUJVVFH7E4y28BTBBeCQohZJPlleyGJAg
+        KTkNKaOBkBE5Ni4wqbHpaCmaOCi77GAoU5YzNk0ZqW2aApEgDgUTGAKGe6noFK74dc+R9yaSEKnOzDf/
+        vf8993z3nPvdIyGz0+kkaq0WYgittTVoPBQ0VgLiS/6Ozs5QKJUcZ9gmVyjq3Tw8UNV4DEc6TuJgWyvj
+        m9afUN3ZgcaLF0z/GCfaUNf9C9LLyiD2QiaXE/lDGTYVFeIU7uLo2TOoP3eWcfzXizgkgufv/hBNly8N
+        WGs4fw4dfXdg8PPlTO+FGb5hc0kxmq/2oKark0GZtV3vRUxcHAf8qKaaD0D/jT4/9lyBz7OBIyOkDFuu
+        XTWRUTaH23+GUqW6Qeuzo6Nw4sZ1E2HtqS4m9A4M+G8IW3v/wOLkJIxx1CG7shJmZmb4sqUZnXf70Hyt
+        h327AUwNDvp3hERWd7qb78hSpSrWGwxCHKUcdM7L0VialIIpUwMwxc8ffoFBsDCXPZBQoVZKzKXS/tk9
+        G0DY2vs71uflcaBxrq6wc3CAk4sLz+VaBbxCfeA10xsezz2NgLkhCIp6HjNeDUNw9CwEzQ/lebBAyIIX
+        4ObrDgu5DFa2NgMOhbTiIhYNyf3omdPirVndCYuMRPutmzh5+xbeWLMWco0Cm78oRG5dJTKPvGtCVnUF
+        Nu0rQMa35cj6y//smgpsq38PT83wM1YhntmEIb28jIM3XfoNFVVV/Lb2NtR3/3DlMtpv30R41ALYT3RE
+        Tu0OpH6aw9hysBS53+1E2oFCKNVKxOWvQkHjLmQe3o6Nn+WxDx1gXlIMkXUQD7NJpVL4TptWRMokAiqr
+        aADHSYXHLpxHF/oQEbsQdk84cLANe3Pxzuf5iEiJxaxF4aKEoZyBIcQHL4ngYcsi8NaerdhYtQ2ZIus5
+        y6Np/XvyIT6JzsmJW5vN6NEgkVCHqTywH27u7pig1+NJT09Y24zCBO9JptOn7S8Q9zMZY8bpoHt8LB6b
+        6AxbJ3smVttosHpXGmdO/vcRkvX3Q95AAiKhGOdG6P29OACVirLMEOMlOYlYlpeC0pY9WFn+NvslVKRy
+        ucnvHwmNZm5uLhq0xkgywCY942kiJOTU7mRlmj1ixgcY7+EKnetYPgjNh0VID1x8hiQ0Bkv/qhjpX5eY
+        Skl4c/s6oU4hrOESDmWTAw2sOgq09VAZZr42G5pRWsgUMtiP10GpsYTKSg03P3e+P7prIpyb8MrICJ31
+        LvyuqGSUxfKSNYhIjkXijlTkN7yP9Z9k75u/eiHmJcawqOhQxU27uSmI7Q9HqFApJTKlHP7h07E4KwGL
+        tqwQYknGitK1iBfv7/WMlViak4R1H2ehsPEDfhZLshPxYnwkV0CEMGJ4JrWQSh7V2Ro3tfd/74PcUiEy
+        3oD4glWDrY/IqAsPFkxkIoeVnQ0UaktMF+r92/r/Y0qNStLfqAchk0j+BOsUZo1oVpHTAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="lblAppLanguage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblAppLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 275</value>
+  </data>
+  <data name="lblAppLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 23</value>
+  </data>
+  <data name="cmdValidate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="cmdValidate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 315</value>
+    <value>185, 362</value>
   </data>
   <data name="cmdValidate.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 46</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 268</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>422, 373</value>
+    <value>422, 420</value>
   </data>
 </root>

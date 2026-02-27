@@ -30,56 +30,48 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.lblInfosLicence = new System.Windows.Forms.Label();
-            this.lblAppLanguage = new System.Windows.Forms.Label();
             this.cmbAppLanguage = new System.Windows.Forms.ComboBox();
+            this.lblAppLanguage = new System.Windows.Forms.Label();
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInfosLicence
             // 
-            resources.ApplyResources(this.lblInfosLicence, "lblInfosLicence");
             this.lblInfosLicence.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.lblInfosLicence, "lblInfosLicence");
             this.lblInfosLicence.Name = "lblInfosLicence";
+            // 
+            // cmbAppLanguage
+            // 
+            this.cmbAppLanguage.FormattingEnabled = true;
+            this.cmbAppLanguage.Items.AddRange(new object[] {
+            resources.GetString("cmbAppLanguage.Items"),
+            resources.GetString("cmbAppLanguage.Items1")});
+            resources.ApplyResources(this.cmbAppLanguage, "cmbAppLanguage");
+            this.cmbAppLanguage.Name = "cmbAppLanguage";
+            this.cmbAppLanguage.SelectionChangeCommitted += new System.EventHandler(this.cmbAppLanguage_SelectionChangeCommitted);
             // 
             // lblAppLanguage
             // 
             resources.ApplyResources(this.lblAppLanguage, "lblAppLanguage");
             this.lblAppLanguage.Name = "lblAppLanguage";
             // 
-            // cmbAppLanguage
-            // 
-            resources.ApplyResources(this.cmbAppLanguage, "cmbAppLanguage");
-            this.cmbAppLanguage.FormattingEnabled = true;
-            this.cmbAppLanguage.Items.AddRange(new object[] {
-            resources.GetString("cmbAppLanguage.Items"),
-            resources.GetString("cmbAppLanguage.Items1")});
-            this.cmbAppLanguage.Name = "cmbAppLanguage";
-            this.cmbAppLanguage.SelectionChangeCommitted += new System.EventHandler(this.cmbAppLanguage_SelectionChangeCommitted);
-            // 
             // cmdValidate
             // 
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.BackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
+            resources.ApplyResources(this.cmdValidate, "cmdValidate");
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.UseVisualStyleBackColor = false;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.BackgroundImage = global::Recipe_Writer.Properties.Resources.language_selection;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            this.cmdValidate.MouseEnter += new System.EventHandler(this.cmdValidate_MouseEnter);
+            this.cmdValidate.MouseLeave += new System.EventHandler(this.cmdValidate_MouseLeave);
             // 
             // frmSettings
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbAppLanguage);
             this.Controls.Add(this.lblAppLanguage);
             this.Controls.Add(this.lblInfosLicence);
@@ -89,7 +81,6 @@
             this.MinimizeBox = false;
             this.Name = "frmSettings";
             this.Load += new System.EventHandler(this.frmSettings_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -99,6 +90,5 @@
         private System.Windows.Forms.Label lblInfosLicence;
         private System.Windows.Forms.Label lblAppLanguage;
         private System.Windows.Forms.ComboBox cmbAppLanguage;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

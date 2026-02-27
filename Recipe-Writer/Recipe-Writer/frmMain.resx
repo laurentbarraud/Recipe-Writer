@@ -144,10 +144,14 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtTitleSearch.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="lblSearchResults.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblSearchResults.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblSearchResults.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 87</value>
@@ -171,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSearchResults.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="pnlInstructions.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -195,7 +199,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlInstructions.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="nudPersons.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
@@ -222,13 +226,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nudPersons.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="lblPortions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblPortions.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblPortions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblPortions.Location" type="System.Drawing.Point, System.Drawing">
     <value>156, 231</value>
@@ -255,7 +262,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPortions.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <metadata name="cmsRecipeResult.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>366, 17</value>
@@ -396,9 +403,8 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lstSearchResults.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cmbRecipeIngredients.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -424,10 +430,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cmbRecipeIngredients.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="lblCompletionTime.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblCompletionTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblCompletionTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>586, 230</value>
@@ -454,7 +463,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCompletionTime.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <metadata name="ofdAssociatedImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>4, 17</value>
@@ -470,6 +479,9 @@
   </data>
   <data name="chkFilterRecipesForThreeStars.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 7.8pt</value>
+  </data>
+  <data name="chkFilterRecipesForThreeStars.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="chkFilterRecipesForThreeStars.Location" type="System.Drawing.Point, System.Drawing">
     <value>204, 159</value>
@@ -504,6 +516,9 @@
   <data name="chkFilterRecipesForSmallBudget.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 7.8pt</value>
   </data>
+  <data name="chkFilterRecipesForSmallBudget.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="chkFilterRecipesForSmallBudget.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 159</value>
   </data>
@@ -533,6 +548,9 @@
   </data>
   <data name="lblSearchByIngredients.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblSearchByIngredients.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblSearchByIngredients.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 9</value>
@@ -564,6 +582,9 @@
   <data name="lblSearchIngredient3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
+  <data name="lblSearchIngredient3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lblSearchIngredient3.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 110</value>
   </data>
@@ -594,6 +615,9 @@
   <data name="lblSearchIngredient2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
+  <data name="lblSearchIngredient2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lblSearchIngredient2.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 78</value>
   </data>
@@ -623,6 +647,9 @@
   </data>
   <data name="lblSearchIngredient1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblSearchIngredient1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblSearchIngredient1.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 43</value>
@@ -711,70 +738,38 @@
   <data name="&gt;&gt;txtSearchIngredient1.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="cmdIngredientsSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        AElFTkSuQmCC
-</value>
-  </data>
-  <data name="cmdIngredientsSearch.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="cmdingredientSearch.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="cmdIngredientsSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="cmdingredientSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="cmdIngredientsSearch.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="cmdingredientSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdingredientSearch.Location" type="System.Drawing.Point, System.Drawing">
     <value>357, 143</value>
   </data>
-  <data name="cmdIngredientsSearch.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cmdingredientSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 40</value>
   </data>
-  <data name="cmdIngredientsSearch.TabIndex" type="System.Int32, mscorlib">
+  <data name="cmdingredientSearch.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;cmdIngredientsSearch.Name" xml:space="preserve">
-    <value>cmdIngredientsSearch</value>
+  <data name="&gt;&gt;cmdingredientSearch.Name" xml:space="preserve">
+    <value>cmdingredientSearch</value>
   </data>
-  <data name="&gt;&gt;cmdIngredientsSearch.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmdingredientSearch.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cmdIngredientsSearch.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cmdingredientSearch.Parent" xml:space="preserve">
     <value>pnlSlideMenu</value>
   </data>
-  <data name="&gt;&gt;cmdIngredientsSearch.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cmdingredientSearch.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="pnlSlideMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 116</value>
+    <value>74, 116</value>
   </data>
   <data name="pnlSlideMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>12, 204</value>
@@ -795,10 +790,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlSlideMenu.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="picScore3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
+  </data>
+  <data name="picScore3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="picScore3.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 1</value>
@@ -830,6 +828,9 @@
   <data name="picScore2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
+  <data name="picScore2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="picScore2.Location" type="System.Drawing.Point, System.Drawing">
     <value>80, 1</value>
   </data>
@@ -859,6 +860,9 @@
   </data>
   <data name="picScore1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
+  </data>
+  <data name="picScore1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="picScore1.Location" type="System.Drawing.Point, System.Drawing">
     <value>47, 1</value>
@@ -909,11 +913,77 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlScore.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <metadata name="ttpRecipeReadyToCookStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>537, 17</value>
   </metadata>
+  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>197, 23</value>
+  </metadata>
+  <data name="button1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="button1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="button1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>672, 27</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 50</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cmdAddInstruction.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="cmdAddInstruction.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmdAddInstruction.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdAddInstruction.Location" type="System.Drawing.Point, System.Drawing">
+    <value>972, 595</value>
+  </data>
+  <data name="cmdAddInstruction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 35</value>
+  </data>
+  <data name="cmdAddInstruction.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cmdAddInstruction.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;cmdAddInstruction.Name" xml:space="preserve">
+    <value>cmdAddInstruction</value>
+  </data>
+  <data name="&gt;&gt;cmdAddInstruction.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdAddInstruction.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdAddInstruction.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
   <data name="cmdTitleSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -955,6 +1025,9 @@
   <data name="cmdTitleSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="cmdTitleSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="cmdTitleSearch.Location" type="System.Drawing.Point, System.Drawing">
     <value>613, 33</value>
   </data>
@@ -974,193 +1047,294 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cmdTitleSearch.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
-  <data name="picSettings.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="cmdMealPlanner.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="picSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 293</value>
-  </data>
-  <data name="picSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 50</value>
-  </data>
-  <data name="picSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;picSettings.Name" xml:space="preserve">
-    <value>picSettings</value>
-  </data>
-  <data name="&gt;&gt;picSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picSettings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;picSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="picMealPlanner.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="picMealPlanner.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 234</value>
-  </data>
-  <data name="picMealPlanner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 50</value>
-  </data>
-  <data name="picMealPlanner.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;picMealPlanner.Name" xml:space="preserve">
-    <value>picMealPlanner</value>
-  </data>
-  <data name="&gt;&gt;picMealPlanner.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picMealPlanner.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;picMealPlanner.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="picSearchByIngredient.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="picSearchByIngredient.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 117</value>
-  </data>
-  <data name="picSearchByIngredient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 50</value>
-  </data>
-  <data name="picSearchByIngredient.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;picSearchByIngredient.Name" xml:space="preserve">
-    <value>picSearchByIngredient</value>
-  </data>
-  <data name="&gt;&gt;picSearchByIngredient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picSearchByIngredient.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;picSearchByIngredient.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="picInventory.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="picInventory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 177</value>
-  </data>
-  <data name="picInventory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 50</value>
-  </data>
-  <data name="picInventory.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;picInventory.Name" xml:space="preserve">
-    <value>picInventory</value>
-  </data>
-  <data name="&gt;&gt;picInventory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picInventory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;picInventory.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="cmdAddInstruction.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="cmdAddInstruction.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="cmdAddInstruction.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="cmdMealPlanner.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="cmdAddInstruction.Location" type="System.Drawing.Point, System.Drawing">
-    <value>972, 595</value>
+  <data name="cmdMealPlanner.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="cmdAddInstruction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 35</value>
+  <data name="cmdMealPlanner.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="cmdAddInstruction.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="cmdMealPlanner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 233</value>
   </data>
-  <data name="cmdAddInstruction.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="cmdMealPlanner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 50</value>
   </data>
-  <data name="&gt;&gt;cmdAddInstruction.Name" xml:space="preserve">
-    <value>cmdAddInstruction</value>
+  <data name="cmdMealPlanner.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
   </data>
-  <data name="&gt;&gt;cmdAddInstruction.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmdMealPlanner.Name" xml:space="preserve">
+    <value>cmdMealPlanner</value>
+  </data>
+  <data name="&gt;&gt;cmdMealPlanner.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cmdAddInstruction.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cmdMealPlanner.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;cmdAddInstruction.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;cmdMealPlanner.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cmdInventory.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="cmdInventory.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmdInventory.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="cmdInventory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdInventory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 175</value>
+  </data>
+  <data name="cmdInventory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 50</value>
+  </data>
+  <data name="cmdInventory.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;cmdInventory.Name" xml:space="preserve">
+    <value>cmdInventory</value>
+  </data>
+  <data name="&gt;&gt;cmdInventory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdInventory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdInventory.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cmdSearchByIngredient.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="cmdSearchByIngredient.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="cmdSearchByIngredient.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmdSearchByIngredient.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="cmdSearchByIngredient.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdSearchByIngredient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 114</value>
+  </data>
+  <data name="cmdSearchByIngredient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 50</value>
+  </data>
+  <data name="cmdSearchByIngredient.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;cmdSearchByIngredient.Name" xml:space="preserve">
+    <value>cmdSearchByIngredient</value>
+  </data>
+  <data name="&gt;&gt;cmdSearchByIngredient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdSearchByIngredient.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdSearchByIngredient.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cmdEditRecipeTitle.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="cmdEditRecipeTitle.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cmdEditRecipeTitle.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmdEditRecipeTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="cmdEditRecipeTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdEditRecipeTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>659, 116</value>
+  </data>
+  <data name="cmdEditRecipeTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="cmdEditRecipeTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;cmdEditRecipeTitle.Name" xml:space="preserve">
+    <value>cmdEditRecipeTitle</value>
+  </data>
+  <data name="&gt;&gt;cmdEditRecipeTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdEditRecipeTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdEditRecipeTitle.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cmdDeleteRecipe.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="cmdDeleteRecipe.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cmdDeleteRecipe.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmdDeleteRecipe.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="cmdDeleteRecipe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdDeleteRecipe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>659, 157</value>
+  </data>
+  <data name="cmdDeleteRecipe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="cmdDeleteRecipe.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;cmdDeleteRecipe.Name" xml:space="preserve">
+    <value>cmdDeleteRecipe</value>
+  </data>
+  <data name="&gt;&gt;cmdDeleteRecipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdDeleteRecipe.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdDeleteRecipe.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="picLowBudget.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
+  </data>
+  <data name="picLowBudget.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="picLowBudget.Location" type="System.Drawing.Point, System.Drawing">
     <value>460, 224</value>
@@ -1184,10 +1358,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picLowBudget.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="picRecipe.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
+  </data>
+  <data name="picRecipe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="picRecipe.Location" type="System.Drawing.Point, System.Drawing">
     <value>784, 38</value>
@@ -1211,7 +1388,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picRecipe.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="cmdNewRecipe.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1222,11 +1399,14 @@
   <data name="cmdNewRecipe.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
+  <data name="cmdNewRecipe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="cmdNewRecipe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 27</value>
+    <value>108, 32</value>
   </data>
   <data name="cmdNewRecipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 50</value>
+    <value>40, 40</value>
   </data>
   <data name="cmdNewRecipe.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -1241,10 +1421,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cmdNewRecipe.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="picRecipeReadyToCookStatus.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
+  </data>
+  <data name="picRecipeReadyToCookStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="picRecipeReadyToCookStatus.Location" type="System.Drawing.Point, System.Drawing">
     <value>513, 223</value>
@@ -1265,11 +1448,41 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picRecipeReadyToCookStatus.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
-  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>197, 23</value>
-  </metadata>
+  <data name="cmdSettings.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="cmdSettings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmdSettings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="cmdSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 296</value>
+  </data>
+  <data name="cmdSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 50</value>
+  </data>
+  <data name="cmdSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;cmdSettings.Name" xml:space="preserve">
+    <value>cmdSettings</value>
+  </data>
+  <data name="&gt;&gt;cmdSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdSettings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdSettings.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
