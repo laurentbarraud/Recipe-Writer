@@ -1,6 +1,6 @@
 ﻿namespace Recipe_Writer
 {
-    partial class frmEditRecipeBasicInfos
+    partial class frmEditRecipeInfos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditRecipeBasicInfos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditRecipeInfos));
             this.txtRecipeTitleToEdit = new System.Windows.Forms.TextBox();
             this.lblRecipeTitle = new System.Windows.Forms.Label();
             this.chkLowBudget = new System.Windows.Forms.CheckBox();
@@ -93,7 +93,7 @@
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
-            // frmEditRecipeBasicInfos
+            // frmEditRecipeInfos
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -108,7 +108,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmEditRecipeBasicInfos";
+            this.Name = "frmEditRecipeInfos";
             this.Load += new System.EventHandler(this.frmEditRecipeTitle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

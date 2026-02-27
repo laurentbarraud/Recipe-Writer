@@ -199,7 +199,7 @@ namespace Recipe_Writer
 
 
         /// <summary>
-        /// Adds a new recipe into the database, with its basic data
+        /// Adds a new recipe into the database, with its  data
         /// </summary>
         /// <param name="newRecipeTitle">the title of the new recipe</param>
         /// <param name="newRecipeCompletionTime">the completion time of the new recipe</param>
@@ -1499,7 +1499,7 @@ namespace Recipe_Writer
         /// <summary>
         /// Updates the title, completion time, and low budget status of a recipe.
         /// </summary>
-        public void UpdateRecipeBasicInfos(int idRecipe, string newTitleRecipe = "", string newCompletionTime = "", string newLowBudgetStatus = "")
+        public void UpdateRecipeInfos(int idRecipe, string newTitleRecipe = "", string newCompletionTime = "", string newLowBudgetStatus = "")
         {
             if (!string.IsNullOrEmpty(newTitleRecipe))
             {

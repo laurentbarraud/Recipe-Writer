@@ -1,6 +1,6 @@
 ﻿namespace Recipe_Writer
 {
-    partial class frmNewRecipeBasicInfosInput
+    partial class frmNewRecipeInfosInput
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewRecipeBasicInfosInput));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewRecipeInfosInput));
             this.txtNewRecipeTitle = new System.Windows.Forms.TextBox();
             this.lblNewRecipeTitle = new System.Windows.Forms.Label();
             this.txtNewRecipeCompletionTime = new System.Windows.Forms.TextBox();
@@ -93,7 +93,7 @@
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
-            // frmNewRecipeBasicInfosInput
+            // frmNewRecipeInfosInput
             // 
             this.AcceptButton = this.cmdValidate;
             resources.ApplyResources(this, "$this");
@@ -110,8 +110,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmNewRecipeBasicInfosInput";
-            this.Load += new System.EventHandler(this.frmNewRecipeBasicInfosInput_Load);
+            this.Name = "frmNewRecipeInfosInput";
+            this.Load += new System.EventHandler(this.frmNewRecipeInfosInput_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

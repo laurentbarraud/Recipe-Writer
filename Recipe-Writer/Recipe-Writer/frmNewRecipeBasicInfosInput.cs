@@ -1,4 +1,4 @@
-﻿/// <file>frmNewRecipeBasicInfosInput.cs</file>
+﻿/// <file>frmNewRecipeInfosInput.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.3</version>
 /// <date>April 6th 2025</date>
@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
-    public partial class frmNewRecipeBasicInfosInput : Form
+    public partial class frmNewRecipeInfosInput : Form
     {
         // Maps each button to its original image file path
         private readonly Dictionary<Button, string> _buttonOriginalImagePaths = new Dictionary<Button, string>();
@@ -20,14 +20,14 @@ namespace Recipe_Writer
         private frmMain _frmMain = null;
 
         // Constructor - Adds the parent form as parameter in the form constructor
-        public frmNewRecipeBasicInfosInput(frmMain parentForm)
+        public frmNewRecipeInfosInput(frmMain parentForm)
         {
             // Affects the parent form to an alias
             _frmMain = parentForm;
             InitializeComponent();
         }
 
-        private void frmNewRecipeBasicInfosInput_Load(object sender, EventArgs e)
+        private void frmNewRecipeInfosInput_Load(object sender, EventArgs e)
         {
             // Sets the directory path for the resources folder, where all the button images are stored
             string resourcesDir = Path.Combine(Application.StartupPath, "Resources");

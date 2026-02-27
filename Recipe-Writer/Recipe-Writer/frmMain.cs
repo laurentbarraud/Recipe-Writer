@@ -96,7 +96,7 @@ namespace Recipe_Writer
                 // Sets the path for each button image by combining the resources directory path with the specific image filename
                 string cmdNewRecipePath = Path.Combine(resourcesDir, "new-recipe.png");
                 string cmdTitleSearchPath = Path.Combine(resourcesDir, "search.png");
-                string cmdEditRecipeTitlePath = Path.Combine(resourcesDir, "edit-recipe-title.png");
+                string cmdEditRecipeInfosPath = Path.Combine(resourcesDir, "edit-recipe-info.png");
                 string cmdDeleteRecipePath = Path.Combine(resourcesDir, "delete-recipe.png");
                 string cmdSearchByIngredientPath = Path.Combine(resourcesDir, "search-by-ingredient.png");
                 string cmdInventoryPath = Path.Combine(resourcesDir, "inventory.png");
@@ -108,7 +108,7 @@ namespace Recipe_Writer
                 // Assigns the background images to the buttons using the loaded paths
                 cmdNewRecipe.BackgroundImage = Image.FromFile(cmdNewRecipePath);
                 cmdTitleSearch.BackgroundImage = Image.FromFile(cmdTitleSearchPath);
-                cmdEditRecipeTitle.BackgroundImage = Image.FromFile(cmdEditRecipeTitlePath);
+                cmdEditRecipeInfos.BackgroundImage = Image.FromFile(cmdEditRecipeInfosPath);
                 cmdDeleteRecipe.BackgroundImage = Image.FromFile(cmdDeleteRecipePath);
                 cmdSearchByIngredient.BackgroundImage = Image.FromFile(cmdSearchByIngredientPath);
                 cmdInventory.BackgroundImage = Image.FromFile(cmdInventoryPath);
@@ -121,7 +121,7 @@ namespace Recipe_Writer
                 // for later restoration on mouse leave
                 _buttonOriginalImagePaths[cmdNewRecipe] = cmdNewRecipePath; 
                 _buttonOriginalImagePaths[cmdTitleSearch] = cmdTitleSearchPath; 
-                _buttonOriginalImagePaths[cmdEditRecipeTitle] = cmdEditRecipeTitlePath; 
+                _buttonOriginalImagePaths[cmdEditRecipeInfos] = cmdEditRecipeInfosPath; 
                 _buttonOriginalImagePaths[cmdDeleteRecipe] = cmdDeleteRecipePath; 
                 _buttonOriginalImagePaths[cmdSearchByIngredient] = cmdSearchByIngredientPath; 
                 _buttonOriginalImagePaths[cmdInventory] = cmdInventoryPath; 
@@ -135,8 +135,8 @@ namespace Recipe_Writer
                 cmdNewRecipe.MouseLeave += Button_MouseLeave;
                 cmdTitleSearch.MouseEnter += Button_MouseEnter;
                 cmdTitleSearch.MouseLeave += Button_MouseLeave;
-                cmdEditRecipeTitle.MouseEnter += Button_MouseEnter;
-                cmdEditRecipeTitle.MouseLeave += Button_MouseLeave;
+                cmdEditRecipeInfos.MouseEnter += Button_MouseEnter;
+                cmdEditRecipeInfos.MouseLeave += Button_MouseLeave;
                 cmdSearchByIngredient.MouseEnter += Button_MouseEnter;
                 cmdSearchByIngredient.MouseLeave += Button_MouseLeave;
                 cmdInventory.MouseEnter += Button_MouseEnter;
@@ -305,6 +305,37 @@ namespace Recipe_Writer
         private void cmdAddInstruction_MouseLeave(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmdDeleteRecipe_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show(strings.ConfirmDeleteDisplayedRecipeFromDB,
+                strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                dbConn.DeleteRecipe(_currentDisplayedRecipe.Id);
+                HidesRecipeInfosAndControls();
+            }
+        }
+
+        private void cmdEditRecipeInfos_Click(object sender, EventArgs e)
+        {
+            string formattedTitle = lstSearchResults.SelectedItem.ToString();
+
+            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
+            if (lstSearchResults.SelectedItem.ToString().Contains("'"))
+            {
+                formattedTitle = txtTitleSearch.Text.Replace("'", "''");
+            }
+
+
+            frmEditRecipeInfos _frmEditRecipeTitle = new frmEditRecipeInfos(this);
+            _frmEditRecipeTitle.IdRecipeToEdit = _currentDisplayedRecipe.Id;
+            _frmEditRecipeTitle.RecipeTitleToEdit = _currentDisplayedRecipe.Title;
+            _frmEditRecipeTitle.RecipeCompletionTime = _currentDisplayedRecipe.CompletionTime;
+            _frmEditRecipeTitle.LowBudgetStatus = _currentDisplayedRecipe.LowBudget;
+            _frmEditRecipeTitle.ShowDialog();
         }
 
         private void cmdingredientSearch_Click(object sender, EventArgs e)
@@ -633,14 +664,7 @@ namespace Recipe_Writer
 
         private void deleteThisRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show(strings.ConfirmDeleteDisplayedRecipeFromDB,
-                strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (confirmResult == DialogResult.Yes)
-            {
-                dbConn.DeleteRecipe(_currentDisplayedRecipe.Id);
-                HidesRecipeInfosAndControls();
-            }
+            cmdDeleteRecipe.PerformClick();
         }
 
         /// <summary>
@@ -799,23 +823,9 @@ namespace Recipe_Writer
             }
         }
 
-        private void editThisRecipesBasicInfosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editThisRecipesInfosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string formattedTitle = lstSearchResults.SelectedItem.ToString();
-
-            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
-            if (lstSearchResults.SelectedItem.ToString().Contains("'"))
-            {
-                formattedTitle = txtTitleSearch.Text.Replace("'", "''");
-            }
-
-
-            frmEditRecipeBasicInfos _frmEditRecipeTitle = new frmEditRecipeBasicInfos(this);
-            _frmEditRecipeTitle.IdRecipeToEdit = _currentDisplayedRecipe.Id;
-            _frmEditRecipeTitle.RecipeTitleToEdit = _currentDisplayedRecipe.Title;
-            _frmEditRecipeTitle.RecipeCompletionTime = _currentDisplayedRecipe.CompletionTime;
-            _frmEditRecipeTitle.LowBudgetStatus = _currentDisplayedRecipe.LowBudget;
-            _frmEditRecipeTitle.ShowDialog();
+            cmdEditRecipeInfos.PerformClick();
         }
 
         /// <summary>
@@ -1010,6 +1020,21 @@ namespace Recipe_Writer
         }
 
         /// <summary>
+        /// Event when the user double-clicks on a recipe in the search result list
+        /// </summary>
+        private void lstSearchResults_DoubleClick(object sender, EventArgs e)
+        {
+            // Ensures that a valid item is selected before triggering edit
+            if (lstSearchResults.Items.Count < 1 ||
+                string.IsNullOrWhiteSpace(lstSearchResults.SelectedItem?.ToString()))
+            {
+                return; // Exits early if no valid selection
+            }
+
+            cmdEditRecipeInfos.PerformClick();
+        }
+
+        /// <summary>
         /// Allows the user to drag and drop the selected recipe title
         /// Adapted from this reference : https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/walkthrough-performing-a-drag-and-drop-operation-in-windows-forms
         /// </summary>
@@ -1031,8 +1056,12 @@ namespace Recipe_Writer
         private void lstSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Ensures that a valid item is selected before executing SQL
-            if (string.IsNullOrWhiteSpace(lstSearchResults.SelectedItem?.ToString()))
+            if (lstSearchResults.Items.Count < 1 ||
+                string.IsNullOrWhiteSpace(lstSearchResults.SelectedItem?.ToString()))
             {
+                // Disables edit/delete buttons when no valid recipe is selected
+                cmdEditRecipeInfos.Enabled = false;
+                cmdDeleteRecipe.Enabled = false;
                 return; // Exits early if no selection
             }
 
@@ -1047,6 +1076,10 @@ namespace Recipe_Writer
             {
                 DisplayRecipeControls();
             }
+
+            // Enables edit/delete buttons when a valid recipe is selected
+            cmdEditRecipeInfos.Enabled = true;
+            cmdDeleteRecipe.Enabled = true;
         }
 
         private void mondayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1125,8 +1158,8 @@ namespace Recipe_Writer
 
         private void newRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNewRecipeBasicInfosInput _frmNewRecipeBasicInfosInput = new frmNewRecipeBasicInfosInput(this);
-            _frmNewRecipeBasicInfosInput.ShowDialog();
+            frmNewRecipeInfosInput _frmNewRecipeInfosInput = new frmNewRecipeInfosInput(this);
+            _frmNewRecipeInfosInput.ShowDialog();
         }
 
 
@@ -1362,6 +1395,16 @@ namespace Recipe_Writer
             this.AcceptButton = cmdTitleSearch;
         }
 
+        private void txtTitleSearch_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Prevents the default "ding" sound when pressing Enter
+                e.IsInputKey = true;
+
+                cmdTitleSearch.PerformClick();
+            }
+        }
 
         /// <summary>
         /// Updates the score for the current selected recipe

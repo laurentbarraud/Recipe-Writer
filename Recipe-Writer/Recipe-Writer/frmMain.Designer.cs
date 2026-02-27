@@ -38,7 +38,7 @@
             this.lstSearchResults = new System.Windows.Forms.ListBox();
             this.cmsRecipeResult = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editThisRecipesBasicInfosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editThisRecipesInfosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteThisRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportThisRecipeToAWebPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PlanRecipeOn = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +78,7 @@
             this.cmdMealPlanner = new System.Windows.Forms.Button();
             this.cmdInventory = new System.Windows.Forms.Button();
             this.cmdSearchByIngredient = new System.Windows.Forms.Button();
-            this.cmdEditRecipeTitle = new System.Windows.Forms.Button();
+            this.cmdEditRecipeInfos = new System.Windows.Forms.Button();
             this.cmdDeleteRecipe = new System.Windows.Forms.Button();
             this.picLowBudget = new System.Windows.Forms.PictureBox();
             this.picRecipe = new System.Windows.Forms.PictureBox();
@@ -102,6 +102,7 @@
             resources.ApplyResources(this.txtTitleSearch, "txtTitleSearch");
             this.txtTitleSearch.Name = "txtTitleSearch";
             this.txtTitleSearch.Enter += new System.EventHandler(this.txtTitleSearch_Enter);
+            this.txtTitleSearch.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtTitleSearch_PreviewKeyDown);
             // 
             // lblSearchResults
             // 
@@ -147,6 +148,7 @@
             resources.ApplyResources(this.lstSearchResults, "lstSearchResults");
             this.lstSearchResults.Name = "lstSearchResults";
             this.lstSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstSearchResults_SelectedIndexChanged);
+            this.lstSearchResults.DoubleClick += new System.EventHandler(this.lstSearchResults_DoubleClick);
             this.lstSearchResults.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lstSearchResults_MouseMove);
             // 
             // cmsRecipeResult
@@ -154,7 +156,7 @@
             this.cmsRecipeResult.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsRecipeResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newRecipeToolStripMenuItem,
-            this.editThisRecipesBasicInfosToolStripMenuItem,
+            this.editThisRecipesInfosToolStripMenuItem,
             this.deleteThisRecipeToolStripMenuItem,
             this.exportThisRecipeToAWebPageToolStripMenuItem,
             this.PlanRecipeOn,
@@ -171,12 +173,12 @@
             resources.ApplyResources(this.newRecipeToolStripMenuItem, "newRecipeToolStripMenuItem");
             this.newRecipeToolStripMenuItem.Click += new System.EventHandler(this.newRecipeToolStripMenuItem_Click);
             // 
-            // editThisRecipesBasicInfosToolStripMenuItem
+            // editThisRecipesInfosToolStripMenuItem
             // 
-            resources.ApplyResources(this.editThisRecipesBasicInfosToolStripMenuItem, "editThisRecipesBasicInfosToolStripMenuItem");
-            this.editThisRecipesBasicInfosToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.edit_recipe_title;
-            this.editThisRecipesBasicInfosToolStripMenuItem.Name = "editThisRecipesBasicInfosToolStripMenuItem";
-            this.editThisRecipesBasicInfosToolStripMenuItem.Click += new System.EventHandler(this.editThisRecipesBasicInfosToolStripMenuItem_Click);
+            resources.ApplyResources(this.editThisRecipesInfosToolStripMenuItem, "editThisRecipesInfosToolStripMenuItem");
+            this.editThisRecipesInfosToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.edit_recipe_info;
+            this.editThisRecipesInfosToolStripMenuItem.Name = "editThisRecipesInfosToolStripMenuItem";
+            this.editThisRecipesInfosToolStripMenuItem.Click += new System.EventHandler(this.editThisRecipesInfosToolStripMenuItem_Click);
             // 
             // deleteThisRecipeToolStripMenuItem
             // 
@@ -418,7 +420,6 @@
             // 
             // cmdAddInstruction
             // 
-            this.cmdAddInstruction.BackgroundImage = global::Recipe_Writer.Properties.Resources.new_instruction;
             resources.ApplyResources(this.cmdAddInstruction, "cmdAddInstruction");
             this.cmdAddInstruction.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdAddInstruction.FlatAppearance.BorderSize = 0;
@@ -471,14 +472,15 @@
             this.cmdSearchByIngredient.MouseLeave += new System.EventHandler(this.cmdSearchByIngredient_MouseLeave);
             this.cmdSearchByIngredient.MouseHover += new System.EventHandler(this.cmdSearchByIngredient_MouseHover);
             // 
-            // cmdEditRecipeTitle
+            // cmdEditRecipeInfos
             // 
-            this.cmdEditRecipeTitle.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit_recipe_title;
-            resources.ApplyResources(this.cmdEditRecipeTitle, "cmdEditRecipeTitle");
-            this.cmdEditRecipeTitle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdEditRecipeTitle.FlatAppearance.BorderSize = 0;
-            this.cmdEditRecipeTitle.Name = "cmdEditRecipeTitle";
-            this.cmdEditRecipeTitle.UseVisualStyleBackColor = true;
+            this.cmdEditRecipeInfos.BackgroundImage = global::Recipe_Writer.Properties.Resources.edit_recipe_info;
+            resources.ApplyResources(this.cmdEditRecipeInfos, "cmdEditRecipeInfos");
+            this.cmdEditRecipeInfos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdEditRecipeInfos.FlatAppearance.BorderSize = 0;
+            this.cmdEditRecipeInfos.Name = "cmdEditRecipeInfos";
+            this.cmdEditRecipeInfos.UseVisualStyleBackColor = true;
+            this.cmdEditRecipeInfos.Click += new System.EventHandler(this.cmdEditRecipeInfos_Click);
             // 
             // cmdDeleteRecipe
             // 
@@ -488,6 +490,7 @@
             this.cmdDeleteRecipe.FlatAppearance.BorderSize = 0;
             this.cmdDeleteRecipe.Name = "cmdDeleteRecipe";
             this.cmdDeleteRecipe.UseVisualStyleBackColor = true;
+            this.cmdDeleteRecipe.Click += new System.EventHandler(this.cmdDeleteRecipe_Click);
             // 
             // picLowBudget
             // 
@@ -543,7 +546,7 @@
             this.Controls.Add(this.cmdInventory);
             this.Controls.Add(this.cmdSearchByIngredient);
             this.Controls.Add(this.pnlSlideMenu);
-            this.Controls.Add(this.cmdEditRecipeTitle);
+            this.Controls.Add(this.cmdEditRecipeInfos);
             this.Controls.Add(this.cmdDeleteRecipe);
             this.Controls.Add(this.pnlScore);
             this.Controls.Add(this.cmdAddInstruction);
@@ -602,7 +605,7 @@
         private System.Windows.Forms.NumericUpDown nudPersons;
         private System.Windows.Forms.ContextMenuStrip cmsRecipeResult;
         private System.Windows.Forms.ToolStripMenuItem newRecipeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editThisRecipesBasicInfosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editThisRecipesInfosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteThisRecipeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportThisRecipeToAWebPageToolStripMenuItem;
         public System.Windows.Forms.TextBox txtTitleSearch;
@@ -632,7 +635,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteIngredientFromThisRecipe;
         private System.Windows.Forms.Button cmdDeleteRecipe;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button cmdEditRecipeTitle;
+        private System.Windows.Forms.Button cmdEditRecipeInfos;
         private System.Windows.Forms.Button cmdSearchByIngredient;
         private System.Windows.Forms.Button cmdInventory;
         private System.Windows.Forms.Button cmdMealPlanner;

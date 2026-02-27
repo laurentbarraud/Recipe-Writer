@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
-    public partial class frmEditRecipeBasicInfos : Form
+    public partial class frmEditRecipeInfos : Form
     {
         // Maps each button to its original image file path
         private readonly Dictionary<Button, string> _buttonOriginalImagePaths = new Dictionary<Button, string>();
@@ -48,7 +48,7 @@ namespace Recipe_Writer
         }
 
         // Constructor - Adds the parent form as parameter in the form constructor
-        public frmEditRecipeBasicInfos(frmMain parentForm)
+        public frmEditRecipeInfos(frmMain parentForm)
         {
             // Affects the parent form to an alias
             _frmMain = parentForm;
@@ -132,7 +132,7 @@ namespace Recipe_Writer
                 // If the user has entered only numbers in the textbox
                 if (txtRecipeCompletionTime.Text != "" && int.TryParse(txtRecipeCompletionTime.Text, out parsedRecipeCompletionTime))
                 {
-                    _frmMain.dbConn.UpdateRecipeBasicInfos(idRecipeToEdit, formattedRecipeTitle, txtRecipeCompletionTime.Text, LowBudgetStatus.ToString());
+                    _frmMain.dbConn.UpdateRecipeInfos(idRecipeToEdit, formattedRecipeTitle, txtRecipeCompletionTime.Text, LowBudgetStatus.ToString());
                     _frmMain.DisplayRecipeInfos(_frmMain._currentDisplayedRecipe.Id);
 
                     this.Close();

@@ -79,11 +79,11 @@
     <Compile Include="frmEditIngredientName.Designer.cs">
       <DependentUpon>frmEditIngredientName.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditRecipeBasicInfos.cs">
+    <Compile Include="frmEditRecipeInfos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditRecipeBasicInfos.Designer.cs">
-      <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
+    <Compile Include="frmEditRecipeInfos.Designer.cs">
+      <DependentUpon>frmEditRecipeInfos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInventory.cs">
       <SubType>Form</SubType>
@@ -162,8 +162,9 @@
     <EmbeddedResource Include="frmEditIngredientName.en.resx">
       <DependentUpon>frmEditIngredientName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditRecipeBasicInfos.en.resx">
-      <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
+    <EmbeddedResource Include="frmEditRecipeInfos.en.resx">
+      <DependentUpon>frmEditRecipeInfos.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.en-US.resx">
       <DependentUpon>frmInventory.cs</DependentUpon>
@@ -204,8 +205,9 @@
     <EmbeddedResource Include="frmEditIngredientName.resx">
       <DependentUpon>frmEditIngredientName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditRecipeBasicInfos.resx">
-      <DependentUpon>frmEditRecipeBasicInfos.cs</DependentUpon>
+    <EmbeddedResource Include="frmEditRecipeInfos.resx">
+      <DependentUpon>frmEditRecipeInfos.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.cs</DependentUpon>
@@ -213,6 +215,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMealPlanner.resx">
       <DependentUpon>frmMealPlanner.cs</DependentUpon>
@@ -228,6 +231,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewRecipeBasicInfosInput.resx">
       <DependentUpon>frmNewRecipeBasicInfosInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -262,6 +266,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="recipe-album.db" />
     <None Include="Resources\new-instruction-hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -301,7 +306,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\edit-recipe-title.png">
+    <None Include="Resources\edit-recipe-info.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -337,7 +342,7 @@
     <None Include="Resources\edit-hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\edit-recipe-title-hover.png">
+    <None Include="Resources\edit-recipe-info-hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Resources\export-db-to-html.png">
