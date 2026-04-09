@@ -1,8 +1,8 @@
 ﻿
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.3</version>
-/// <date>February 26th 2026</date>
+/// <version>1.1.4</version>
+/// <date>April 9th 2026</date>
 
 using System;
 using System.Data.SQLite;
@@ -10,9 +10,6 @@ using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
-using System.Resources;
-using System.Reflection;
-using System.Globalization;
 
 namespace Recipe_Writer
 {
@@ -1291,8 +1288,28 @@ namespace Recipe_Writer
             string ingredientColumn = "ingredientName_" + selectedLanguage;
 
             string query = $@"SELECT DISTINCT Recipes.title FROM Recipes
-                     LEFT JOIN Recipes_has_Ingredients ON Recipes.id = Recipes_has_Ingredients.recipeId
-                     LEFT JOIN Ingredients ON Ingredients.id = Recipes_has_Ingredients.ingredientId
+                     LEFT JOIN Recipes_has_Ingredients RHI ON Recipes.id = RHI.id
+                     LEFT JOIN Ingredients I ON 
+                           I.id = RHI.ingredient1_id OR
+                           I.id = RHI.ingredient2_id OR
+                           I.id = RHI.ingredient3_id OR
+                           I.id = RHI.ingredient4_id OR
+                           I.id = RHI.ingredient5_id OR
+                           I.id = RHI.ingredient6_id OR
+                           I.id = RHI.ingredient7_id OR
+                           I.id = RHI.ingredient8_id OR
+                           I.id = RHI.ingredient9_id OR
+                           I.id = RHI.ingredient10_id OR
+                           I.id = RHI.ingredient11_id OR
+                           I.id = RHI.ingredient12_id OR
+                           I.id = RHI.ingredient13_id OR
+                           I.id = RHI.ingredient14_id OR
+                           I.id = RHI.ingredient15_id OR
+                           I.id = RHI.ingredient16_id OR
+                           I.id = RHI.ingredient17_id OR
+                           I.id = RHI.ingredient18_id OR
+                           I.id = RHI.ingredient19_id OR
+                           I.id = RHI.ingredient20_id
                      WHERE 1=1"; // Ensures proper query structure for dynamic conditions
 
             using (SQLiteCommand cmd = new SQLiteCommand(query, sqliteConn))
@@ -1302,7 +1319,7 @@ namespace Recipe_Writer
                     List<string> ingredientConditions = new List<string>();
                     for (int i = 0; i < ingredientInputs.Count; i++)
                     {
-                        ingredientConditions.Add($"Ingredients.{ingredientColumn} LIKE @Ingredient{i}");
+                        ingredientConditions.Add($"I.{ingredientColumn} LIKE @Ingredient{i}");
                         cmd.Parameters.AddWithValue($"@Ingredient{i}", $"%{ingredientInputs[i]}%");
                     }
                     query += " AND (" + string.Join(" OR ", ingredientConditions) + ")";
@@ -1331,8 +1348,6 @@ namespace Recipe_Writer
 
             return recipesTitlesFound;
         }
-
-
 
         /// <summary>
         /// Reads the list of recipes that contain at least one of the specified keywords in their title.

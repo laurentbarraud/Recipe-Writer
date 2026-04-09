@@ -40,59 +40,85 @@
             // 
             // lblNewIngredientName
             // 
-            resources.ApplyResources(this.lblNewIngredientName, "lblNewIngredientName");
+            this.lblNewIngredientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNewIngredientName.Location = new System.Drawing.Point(32, 42);
             this.lblNewIngredientName.Name = "lblNewIngredientName";
+            this.lblNewIngredientName.Size = new System.Drawing.Size(146, 18);
+            this.lblNewIngredientName.TabIndex = 5;
+            this.lblNewIngredientName.Text = "Nom de l\'ingrédient : ";
+            this.lblNewIngredientName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblQtyIngredient
             // 
-            resources.ApplyResources(this.lblQtyIngredient, "lblQtyIngredient");
+            this.lblQtyIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblQtyIngredient.Location = new System.Drawing.Point(32, 95);
             this.lblQtyIngredient.Name = "lblQtyIngredient";
+            this.lblQtyIngredient.Size = new System.Drawing.Size(151, 18);
+            this.lblQtyIngredient.TabIndex = 6;
+            this.lblQtyIngredient.Text = "Quantité nécessaire : ";
+            this.lblQtyIngredient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtQtyIngredientNeeded
             // 
-            resources.ApplyResources(this.txtQtyIngredientNeeded, "txtQtyIngredientNeeded");
+            this.txtQtyIngredientNeeded.Location = new System.Drawing.Point(206, 91);
             this.txtQtyIngredientNeeded.Name = "txtQtyIngredientNeeded";
+            this.txtQtyIngredientNeeded.Size = new System.Drawing.Size(100, 22);
+            this.txtQtyIngredientNeeded.TabIndex = 1;
             // 
             // cmbIngredientsListedInDB
             // 
             this.cmbIngredientsListedInDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIngredientsListedInDB.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbIngredientsListedInDB, "cmbIngredientsListedInDB");
+            this.cmbIngredientsListedInDB.Location = new System.Drawing.Point(206, 40);
             this.cmbIngredientsListedInDB.Name = "cmbIngredientsListedInDB";
+            this.cmbIngredientsListedInDB.Size = new System.Drawing.Size(241, 24);
+            this.cmbIngredientsListedInDB.TabIndex = 7;
             this.cmbIngredientsListedInDB.SelectedIndexChanged += new System.EventHandler(this.cmbIngredientsList_SelectedIndexChanged);
             // 
             // lblScaleAssociatedWithIngredientSelected
             // 
-            resources.ApplyResources(this.lblScaleAssociatedWithIngredientSelected, "lblScaleAssociatedWithIngredientSelected");
+            this.lblScaleAssociatedWithIngredientSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblScaleAssociatedWithIngredientSelected.Location = new System.Drawing.Point(324, 106);
             this.lblScaleAssociatedWithIngredientSelected.Name = "lblScaleAssociatedWithIngredientSelected";
+            this.lblScaleAssociatedWithIngredientSelected.Size = new System.Drawing.Size(68, 22);
+            this.lblScaleAssociatedWithIngredientSelected.TabIndex = 8;
             // 
             // cmdValidate
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
+            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdValidate.Enabled = false;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdValidate.Location = new System.Drawing.Point(413, 141);
             this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(34, 32);
+            this.cmdValidate.TabIndex = 4;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // cmdCancel
             // 
-            this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            resources.ApplyResources(this.cmdCancel, "cmdCancel");
+            this.cmdCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdCancel.BackgroundImage")));
+            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
+            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancel.Location = new System.Drawing.Point(358, 141);
             this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Size = new System.Drawing.Size(34, 32);
+            this.cmdCancel.TabIndex = 3;
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // frmAddNewIngredientToRecipe
             // 
-            this.AcceptButton = this.cmdValidate;
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cmdCancel;
+            this.ClientSize = new System.Drawing.Size(493, 195);
             this.Controls.Add(this.lblScaleAssociatedWithIngredientSelected);
             this.Controls.Add(this.cmbIngredientsListedInDB);
             this.Controls.Add(this.txtQtyIngredientNeeded);
@@ -104,6 +130,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewIngredientToRecipe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ajout d\'un nouvel ingrédient à la recette";
             this.Load += new System.EventHandler(this.frmNewIngredient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

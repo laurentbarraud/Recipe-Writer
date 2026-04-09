@@ -208,7 +208,7 @@ It is licensed to you under the GNU License.
 Please contact me for any improvement or bug report.</value>
   </data>
   <data name="LicenceVersion" xml:space="preserve">
-    <value>v.1.1.3 - February 2026</value>
+    <value>v.1.1.4 - April 2026</value>
   </data>
   <data name="LicenceAuthor" xml:space="preserve">
     <value>Created by Laurent Barraud.</value>
@@ -267,10 +267,52 @@ Please contact me for any improvement or bug report.</value>
   <data name="TabInventory_7" xml:space="preserve">
     <value>Bakery / Pastry Products</value>
   </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>Inventory of ingredients</value>
+  </data>
   <data name="TabInventory_8" xml:space="preserve">
     <value>Alcohol / Spirits / Sauces / Water</value>
   </data>
-  <data name="Inventory" xml:space="preserve">
-    <value>Inventory of ingredients</value>
+  <data name="ToolStripMenuItemNewRecipe" xml:space="preserve">
+    <value>New recipe</value>
+  </data>
+  <data name="ToolStripMenuItemEditBasicInfos" xml:space="preserve">
+    <value>Edit recipe basic info</value>
+  </data>
+  <data name="ToolStripMenuItemDeleteThisRecipe" xml:space="preserve">
+    <value>Delete this recipe</value>
+  </data>
+  <data name="ToolStripMenuItemExportThisRecipeToAWebPage" xml:space="preserve">
+    <value>Export this recipe to a web page</value>
+  </data>
+  <data name="ToolStripMenuItemPlanThisRecipeFor" xml:space="preserve">
+    <value>Plan this recipe for</value>
+  </data>
+  <data name="ToolStripMenuItemMonday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="ToolStripMenuItemTuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="ToolStripMenuItemWednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="ToolStripMenuItemThursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="ToolStripMenuItemFriday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="ToolStripMenuItemSaturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="ToolStripMenuItemSunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="ToolStripMenuItemAddIngredientToThisRecipe" xml:space="preserve">
+    <value>Add ingredient to this recipe</value>
+  </data>
+  <data name="ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe" xml:space="preserve">
+    <value>Delete selected ingredient from this recipe</value>
   </data>
 </root>

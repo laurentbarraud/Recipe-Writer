@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.lblInfosLicence = new System.Windows.Forms.Label();
             this.cmbAppLanguage = new System.Windows.Forms.ComboBox();
             this.lblAppLanguage = new System.Windows.Forms.Label();
@@ -38,31 +37,47 @@
             // lblInfosLicence
             // 
             this.lblInfosLicence.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.lblInfosLicence, "lblInfosLicence");
+            this.lblInfosLicence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblInfosLicence.Location = new System.Drawing.Point(13, 9);
             this.lblInfosLicence.Name = "lblInfosLicence";
+            this.lblInfosLicence.Size = new System.Drawing.Size(388, 245);
+            this.lblInfosLicence.TabIndex = 3;
+            this.lblInfosLicence.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmbAppLanguage
             // 
             this.cmbAppLanguage.FormattingEnabled = true;
             this.cmbAppLanguage.Items.AddRange(new object[] {
-            resources.GetString("cmbAppLanguage.Items"),
-            resources.GetString("cmbAppLanguage.Items1")});
-            resources.ApplyResources(this.cmbAppLanguage, "cmbAppLanguage");
+            "anglais",
+            "français"});
+            this.cmbAppLanguage.Location = new System.Drawing.Point(220, 281);
             this.cmbAppLanguage.Name = "cmbAppLanguage";
+            this.cmbAppLanguage.Size = new System.Drawing.Size(116, 24);
+            this.cmbAppLanguage.TabIndex = 6;
             this.cmbAppLanguage.SelectionChangeCommitted += new System.EventHandler(this.cmbAppLanguage_SelectionChangeCommitted);
             // 
             // lblAppLanguage
             // 
-            resources.ApplyResources(this.lblAppLanguage, "lblAppLanguage");
+            this.lblAppLanguage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAppLanguage.Location = new System.Drawing.Point(16, 282);
             this.lblAppLanguage.Name = "lblAppLanguage";
+            this.lblAppLanguage.Size = new System.Drawing.Size(195, 23);
+            this.lblAppLanguage.TabIndex = 4;
+            this.lblAppLanguage.Text = "Langue de l\'application :";
+            this.lblAppLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmdValidate
             // 
             this.cmdValidate.BackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
+            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdValidate.Location = new System.Drawing.Point(193, 329);
             this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(36, 36);
+            this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = false;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             this.cmdValidate.MouseEnter += new System.EventHandler(this.cmdValidate_MouseEnter);
@@ -70,8 +85,9 @@
             // 
             // frmSettings
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(422, 387);
             this.Controls.Add(this.cmbAppLanguage);
             this.Controls.Add(this.lblAppLanguage);
             this.Controls.Add(this.lblInfosLicence);
@@ -80,6 +96,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSettings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmSettings_Load);
             this.ResumeLayout(false);
 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewRecipeInfosInput));
             this.txtNewRecipeTitle = new System.Windows.Forms.TextBox();
             this.lblNewRecipeTitle = new System.Windows.Forms.Label();
             this.txtNewRecipeCompletionTime = new System.Windows.Forms.TextBox();
@@ -41,64 +40,101 @@
             // 
             // txtNewRecipeTitle
             // 
-            resources.ApplyResources(this.txtNewRecipeTitle, "txtNewRecipeTitle");
+            this.txtNewRecipeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtNewRecipeTitle.Location = new System.Drawing.Point(95, 50);
+            this.txtNewRecipeTitle.MaxLength = 500;
             this.txtNewRecipeTitle.Name = "txtNewRecipeTitle";
+            this.txtNewRecipeTitle.Size = new System.Drawing.Size(349, 24);
+            this.txtNewRecipeTitle.TabIndex = 0;
             // 
             // lblNewRecipeTitle
             // 
-            resources.ApplyResources(this.lblNewRecipeTitle, "lblNewRecipeTitle");
+            this.lblNewRecipeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNewRecipeTitle.Location = new System.Drawing.Point(40, 54);
             this.lblNewRecipeTitle.Name = "lblNewRecipeTitle";
+            this.lblNewRecipeTitle.Size = new System.Drawing.Size(50, 18);
+            this.lblNewRecipeTitle.TabIndex = 5;
+            this.lblNewRecipeTitle.Text = "Titre :";
+            this.lblNewRecipeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtNewRecipeCompletionTime
             // 
-            resources.ApplyResources(this.txtNewRecipeCompletionTime, "txtNewRecipeCompletionTime");
+            this.txtNewRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtNewRecipeCompletionTime.Location = new System.Drawing.Point(311, 106);
+            this.txtNewRecipeCompletionTime.MaxLength = 3;
             this.txtNewRecipeCompletionTime.Name = "txtNewRecipeCompletionTime";
+            this.txtNewRecipeCompletionTime.Size = new System.Drawing.Size(61, 24);
+            this.txtNewRecipeCompletionTime.TabIndex = 1;
             // 
             // lblNewRecipeCompletionTime
             // 
-            resources.ApplyResources(this.lblNewRecipeCompletionTime, "lblNewRecipeCompletionTime");
+            this.lblNewRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNewRecipeCompletionTime.Location = new System.Drawing.Point(120, 109);
             this.lblNewRecipeCompletionTime.Name = "lblNewRecipeCompletionTime";
+            this.lblNewRecipeCompletionTime.Size = new System.Drawing.Size(185, 21);
+            this.lblNewRecipeCompletionTime.TabIndex = 6;
+            this.lblNewRecipeCompletionTime.Text = "Temps de réalisation :";
+            this.lblNewRecipeCompletionTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblMinutes
             // 
-            resources.ApplyResources(this.lblMinutes, "lblMinutes");
+            this.lblMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMinutes.Location = new System.Drawing.Point(384, 110);
             this.lblMinutes.Name = "lblMinutes";
+            this.lblMinutes.Size = new System.Drawing.Size(60, 18);
+            this.lblMinutes.TabIndex = 7;
+            this.lblMinutes.Text = "minutes";
+            this.lblMinutes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // chkLowBudget
             // 
-            resources.ApplyResources(this.chkLowBudget, "chkLowBudget");
+            this.chkLowBudget.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkLowBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chkLowBudget.Location = new System.Drawing.Point(254, 161);
             this.chkLowBudget.Name = "chkLowBudget";
+            this.chkLowBudget.Size = new System.Drawing.Size(179, 24);
+            this.chkLowBudget.TabIndex = 2;
+            this.chkLowBudget.Text = "Pour petit budget";
+            this.chkLowBudget.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkLowBudget.UseVisualStyleBackColor = true;
             // 
             // cmdValidate
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
+            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdValidate.Location = new System.Drawing.Point(398, 218);
             this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(40, 32);
+            this.cmdValidate.TabIndex = 4;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // cmdCancel
             // 
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            resources.ApplyResources(this.cmdCancel, "cmdCancel");
+            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdCancel.CausesValidation = false;
             this.cmdCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
+            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancel.Location = new System.Drawing.Point(343, 218);
             this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Size = new System.Drawing.Size(40, 32);
+            this.cmdCancel.TabIndex = 3;
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // frmNewRecipeInfosInput
             // 
-            this.AcceptButton = this.cmdValidate;
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cmdCancel;
+            this.ClientSize = new System.Drawing.Size(493, 267);
             this.Controls.Add(this.chkLowBudget);
             this.Controls.Add(this.lblMinutes);
             this.Controls.Add(this.lblNewRecipeCompletionTime);
@@ -111,6 +147,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewRecipeInfosInput";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Entrez les infos de base pour la nouvelle recette";
             this.Load += new System.EventHandler(this.frmNewRecipeInfosInput_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

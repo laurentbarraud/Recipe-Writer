@@ -138,11 +138,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Recipes.cs" />
-    <Compile Include="strings.en.Designer.cs">
-      <DependentUpon>strings.en.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="strings.fr.Designer.cs">
       <DependentUpon>strings.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -153,49 +148,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAddNewIngredientToRecipe.en.resx">
-      <DependentUpon>frmAddNewIngredientToRecipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAddNewIngredientToTheDB.en.resx">
-      <DependentUpon>frmAddNewIngredientToTheDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditIngredientName.en.resx">
-      <DependentUpon>frmEditIngredientName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditRecipeInfos.en.resx">
-      <DependentUpon>frmEditRecipeInfos.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmInventory.en-US.resx">
-      <DependentUpon>frmInventory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmInventory.en.resx">
-      <DependentUpon>frmInventory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.en-US.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.en.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMealPlanner.en.resx">
-      <DependentUpon>frmMealPlanner.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNewImagePath.en.resx">
-      <DependentUpon>frmNewImagePath.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNewInstruction.en.resx">
-      <DependentUpon>frmNewInstruction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNewRecipeBasicInfosInput.en.resx">
-      <DependentUpon>frmNewRecipeBasicInfosInput.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSettings.en-US.resx">
-      <DependentUpon>frmSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSettings.en.resx">
-      <DependentUpon>frmSettings.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,11 +190,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.en.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>strings.en.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="strings.fr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.fr.Designer.cs</LastGenOutput>
@@ -250,6 +197,7 @@
     <EmbeddedResource Include="strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -272,11 +220,6 @@
     </None>
     <None Include="Resources\new-recipe-hover.png" />
     <None Include="Resources\new-recipe.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delete.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -326,10 +269,40 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Recipe-writer.ico" />
-    <None Include="Resources\delete-hover.png">
+    <Content Include="illustrations\brochettes-chicken-sauce-julienne-vegetables.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
+    <Content Include="illustrations\chicken-shrimp-rice.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\emince-turkey-curry.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\eminence-beef-cream.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\goulash.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\pasta-forest.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\potatoes-rosemary.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\risotto-sour-sweet-chicken.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\stew-beef-express.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\tagliatelle-mushrooms.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="illustrations\vegetable-planter-with-lettuce.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Recipe-writer.ico" />
     <None Include="Resources\delete-recipe-hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -345,6 +318,8 @@
     <None Include="Resources\edit-recipe-info-hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\delete-hover.png" />
+    <None Include="Resources\delete.png" />
     <Content Include="Resources\export-db-to-html.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

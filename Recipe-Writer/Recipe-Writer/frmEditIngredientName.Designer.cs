@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditIngredientName));
             this.txtNewNameOfIngredient = new System.Windows.Forms.TextBox();
             this.lblNewNameOfIngredient = new System.Windows.Forms.Label();
             this.cmdValidate = new System.Windows.Forms.Button();
@@ -37,40 +36,57 @@
             // 
             // txtNewNameOfIngredient
             // 
-            resources.ApplyResources(this.txtNewNameOfIngredient, "txtNewNameOfIngredient");
+            this.txtNewNameOfIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtNewNameOfIngredient.Location = new System.Drawing.Point(32, 67);
             this.txtNewNameOfIngredient.Name = "txtNewNameOfIngredient";
+            this.txtNewNameOfIngredient.Size = new System.Drawing.Size(432, 24);
+            this.txtNewNameOfIngredient.TabIndex = 0;
             // 
             // lblNewNameOfIngredient
             // 
-            resources.ApplyResources(this.lblNewNameOfIngredient, "lblNewNameOfIngredient");
+            this.lblNewNameOfIngredient.AutoSize = true;
+            this.lblNewNameOfIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNewNameOfIngredient.Location = new System.Drawing.Point(29, 24);
             this.lblNewNameOfIngredient.Name = "lblNewNameOfIngredient";
+            this.lblNewNameOfIngredient.Size = new System.Drawing.Size(216, 18);
+            this.lblNewNameOfIngredient.TabIndex = 3;
+            this.lblNewNameOfIngredient.Text = "Nouveau nom pour l\'ingrédient :";
+            this.lblNewNameOfIngredient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmdValidate
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
+            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdValidate.Location = new System.Drawing.Point(413, 169);
             this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(40, 32);
+            this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // cmdCancel
             // 
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            resources.ApplyResources(this.cmdCancel, "cmdCancel");
+            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
+            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancel.Location = new System.Drawing.Point(358, 169);
             this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Size = new System.Drawing.Size(40, 32);
+            this.cmdCancel.TabIndex = 1;
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // frmEditIngredientName
             // 
-            this.AcceptButton = this.cmdValidate;
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(493, 224);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewNameOfIngredient);
@@ -79,6 +95,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEditIngredientName";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modifier le titre d\'un ingrédient";
             this.Load += new System.EventHandler(this.frmEditIngredientName_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

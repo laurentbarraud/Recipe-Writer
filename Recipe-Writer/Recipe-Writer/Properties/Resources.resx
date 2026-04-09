@@ -166,9 +166,6 @@
   <data name="lowBudget" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lowBudget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1-star-disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1-star-disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,9 +202,6 @@
   <data name="ingredientSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ingredientSearch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="validate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\validate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -219,5 +213,11 @@
   </data>
   <data name="new-instruction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new-instruction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

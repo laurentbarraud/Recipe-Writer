@@ -1,7 +1,7 @@
 ﻿/// <file>frmEditIngredientName.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.3</version>
-/// <date>February 26th 2026</date>
+/// <version>1.1.4</version>
+/// <date>April 9th 2026</date>
 
 using System;
 using System.Collections.Generic;

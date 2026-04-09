@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.3</version>
-/// <date>February 26th 2026</date>
+/// <version>1.1.4</version>
+/// <date>April 9th 2026</date>
 
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace Recipe_Writer
 {
     public partial class frmMain : Form
     {
-        // Private member variables ----------------------------
+        // Private member variables
         
         // Maps each button to its original image file path
         private readonly Dictionary<Button, string> _buttonOriginalImagePaths = new Dictionary<Button, string>();
@@ -39,7 +39,7 @@ namespace Recipe_Writer
 
         private int selectedInstruction = -1;
 
-        // Public properties -----------------------------------
+        // Public properties
 
         // Declares and instancies a connection to the database
         public DBConnection dbConn = new DBConnection();
@@ -70,6 +70,21 @@ namespace Recipe_Writer
             nudPersons.Value = nbPersonsSet;
 
             lblSearchResults.Text = strings.SearchResults;
+
+            newRecipeToolStripMenuItem.Text = strings.ToolStripMenuItemNewRecipe;
+            editThisRecipesInfosToolStripMenuItem.Text = strings.ToolStripMenuItemEditBasicInfos;
+            deleteThisRecipeToolStripMenuItem.Text = strings.ToolStripMenuItemDeleteThisRecipe;
+            exportThisRecipeToAWebPageToolStripMenuItem.Text = strings.ToolStripMenuItemExportThisRecipeToAWebPage;
+            planRecipeOn.Text = strings.ToolStripMenuItemPlanThisRecipeFor;
+            addIngredientToThisRecipe.Text = strings.ToolStripMenuItemAddIngredientToThisRecipe;
+
+            mondayToolStripMenuItem.Text = strings.ToolStripMenuItemMonday;
+            tuesdayToolStripMenuItem.Text = strings.ToolStripMenuItemTuesday;
+            wednesdayToolStripMenuItem.Text = strings.ToolStripMenuItemWednesday;
+            thursdayToolStripMenuItem.Text = strings.ToolStripMenuItemThursday;
+            fridayToolStripMenuItem.Text = strings.ToolStripMenuItemFriday;
+            saturdayToolStripMenuItem.Text = strings.ToolStripMenuItemSaturday;
+            sundayToolStripMenuItem.Text = strings.ToolStripMenuItemSunday;
 
             // Checks if the database file exists or not
             if (File.Exists(@Environment.CurrentDirectory + "\\" + "recipe-album" + ".db"))
@@ -643,7 +658,7 @@ namespace Recipe_Writer
             }
         }
 
-        private void deleteIngredientFromThisRecipe_Click(object sender, EventArgs e)
+        private void deleteSelectedIngredientFromThisRecipe_Click(object sender, EventArgs e)
         {
             if (cmbRecipeIngredients.Items.Count >= 2 && cmbRecipeIngredients.SelectedIndex >= 1)
             {
@@ -1320,11 +1335,19 @@ namespace Recipe_Writer
             List<string> searchIngredientsInputList = new List<string>();
 
             if (!string.IsNullOrWhiteSpace(ingredient1ToSearchFor))
+            {
                 searchIngredientsInputList.Add(ingredient1ToSearchFor.Replace("'", "''"));
+            }
+
             if (!string.IsNullOrWhiteSpace(ingredient2ToSearchFor))
+            {
                 searchIngredientsInputList.Add(ingredient2ToSearchFor.Replace("'", "''"));
+            }
+            
             if (!string.IsNullOrWhiteSpace(ingredient3ToSearchFor))
+            {
                 searchIngredientsInputList.Add(ingredient3ToSearchFor.Replace("'", "''"));
+            }
 
             // Appelle la base de données avec les filtres sélectionnés
             List<string> listTitlesRequested = dbConn.SearchRecipesByIngredients(searchIngredientsInputList, Properties.Settings.Default.AppLanguage, filterForSmallBudget, filterForThreeStars);
@@ -1388,6 +1411,37 @@ namespace Recipe_Writer
         {
             _frmMealPlanner = new frmMealPlanner(this);
             _frmMealPlanner.Show();
+        }
+
+        private void txtSearchIngredient1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Prevents the default "ding" sound when pressing Enter
+                e.IsInputKey = true;
+
+                cmdingredientSearch .PerformClick();
+            }
+        }
+
+        private void txtSearchIngredient2_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.IsInputKey = true;
+
+                cmdingredientSearch.PerformClick();
+            }
+        }
+
+        private void txtSearchIngredient3_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.IsInputKey = true;
+
+                cmdingredientSearch.PerformClick();
+            }
         }
 
         private void txtTitleSearch_Enter(object sender, EventArgs e)

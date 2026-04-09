@@ -379,7 +379,7 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à v.1.1.3 - February 2026.
+        ///   Recherche une chaîne localisée semblable à v.1.1.4 - April 2026.
         /// </summary>
         internal static string LicenceVersion {
             get {
@@ -510,6 +510,132 @@ namespace Recipe_Writer {
         internal static string TabInventory_8 {
             get {
                 return ResourceManager.GetString("TabInventory_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Add ingredient to this recipe.
+        /// </summary>
+        internal static string ToolStripMenuItemAddIngredientToThisRecipe {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemAddIngredientToThisRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete selected ingredient from this recipe.
+        /// </summary>
+        internal static string ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete this recipe.
+        /// </summary>
+        internal static string ToolStripMenuItemDeleteThisRecipe {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemDeleteThisRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Edit recipe basic info.
+        /// </summary>
+        internal static string ToolStripMenuItemEditBasicInfos {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemEditBasicInfos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Export this recipe to a web page.
+        /// </summary>
+        internal static string ToolStripMenuItemExportThisRecipeToAWebPage {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemExportThisRecipeToAWebPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Friday.
+        /// </summary>
+        internal static string ToolStripMenuItemFriday {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemFriday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Monday.
+        /// </summary>
+        internal static string ToolStripMenuItemMonday {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemMonday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à New recipe.
+        /// </summary>
+        internal static string ToolStripMenuItemNewRecipe {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemNewRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan this recipe for.
+        /// </summary>
+        internal static string ToolStripMenuItemPlanThisRecipeFor {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemPlanThisRecipeFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Saturday.
+        /// </summary>
+        internal static string ToolStripMenuItemSaturday {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemSaturday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Sunday.
+        /// </summary>
+        internal static string ToolStripMenuItemSunday {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemSunday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Thursday.
+        /// </summary>
+        internal static string ToolStripMenuItemThursday {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemThursday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tuesday.
+        /// </summary>
+        internal static string ToolStripMenuItemTuesday {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemTuesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wednesday.
+        /// </summary>
+        internal static string ToolStripMenuItemWednesday {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemWednesday", resourceCulture);
             }
         }
         

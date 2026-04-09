@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Recipe-Writer")]
 [assembly: AssemblyDescription("Manages a collection of recipes, with an inventory of available ingredients and a weekly meals planner.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CPNV")]
+[assembly: AssemblyCompany("CPNV, Switzerland.")]
 [assembly: AssemblyProduct("Recipe-Writer")]
 [assembly: AssemblyCopyright("Laurent Barraud 2026")]
 [assembly: AssemblyTrademark("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.3.0")]
-[assembly: AssemblyFileVersion("1.1.3.0")]
+[assembly: AssemblyVersion("1.1.4.0")]
+[assembly: AssemblyFileVersion("1.1.4.0")]

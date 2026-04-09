@@ -115,7 +115,7 @@ namespace Recipe_Writer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap delete_hover {
             get {
-                object obj = ResourceManager.GetObject("delete-hover", resourceCulture);
+                object obj = ResourceManager.GetObject("delete_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

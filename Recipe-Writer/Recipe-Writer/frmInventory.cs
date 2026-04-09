@@ -1,7 +1,7 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.3</version>
-/// <date>February 26th 2026</date>
+/// <version>1.1.4</version>
+/// <date>April 9th 2026</date>
 /// 
 using System;
 using System.Collections.Generic;
@@ -44,8 +44,11 @@ namespace Recipe_Writer
 
             // Title
             string title = strings.Inventory;
+            
             if (!string.IsNullOrEmpty(title))
+            {
                 this.Text = title;
+            }
 
             // Tabs
             foreach (TabControl tabControl in this.Controls.OfType<TabControl>())
@@ -283,6 +286,7 @@ namespace Recipe_Writer
                 cmdDeleteIngredient.BackgroundImage = Recipe_Writer.Properties.Resources.delete;
                 cmdDeleteIngredient.BackgroundImageLayout = ImageLayout.Zoom;
                 cmdDeleteIngredient.Location = new Point(editIngredientName.Left + 20, editIngredientName.Top);
+                cmdDeleteIngredient.Cursor = Cursors.Hand;
 
                 // Adds the controls to the layout ================================================================
                 panelToFill.Controls.Add(nudQtyIngredient);

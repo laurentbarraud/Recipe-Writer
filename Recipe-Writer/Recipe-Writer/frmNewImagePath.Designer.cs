@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewImagePath));
             this.txtNewImagePath = new System.Windows.Forms.TextBox();
             this.lblNewImagePath = new System.Windows.Forms.Label();
             this.cmdValidate = new System.Windows.Forms.Button();
@@ -37,41 +36,58 @@
             // 
             // txtNewImagePath
             // 
-            resources.ApplyResources(this.txtNewImagePath, "txtNewImagePath");
+            this.txtNewImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtNewImagePath.Location = new System.Drawing.Point(41, 80);
             this.txtNewImagePath.Name = "txtNewImagePath";
+            this.txtNewImagePath.Size = new System.Drawing.Size(349, 24);
+            this.txtNewImagePath.TabIndex = 0;
             // 
             // lblNewImagePath
             // 
-            resources.ApplyResources(this.lblNewImagePath, "lblNewImagePath");
+            this.lblNewImagePath.AutoSize = true;
+            this.lblNewImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNewImagePath.Location = new System.Drawing.Point(38, 36);
             this.lblNewImagePath.Name = "lblNewImagePath";
+            this.lblNewImagePath.Size = new System.Drawing.Size(236, 18);
+            this.lblNewImagePath.TabIndex = 5;
+            this.lblNewImagePath.Text = "Nom de fichier à donner à l\'image :";
+            this.lblNewImagePath.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmdValidate
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
-            resources.ApplyResources(this.cmdValidate, "cmdValidate");
+            this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdValidate.Location = new System.Drawing.Point(420, 129);
             this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(40, 32);
+            this.cmdValidate.TabIndex = 2;
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
             // cmdCancel
             // 
             this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            resources.ApplyResources(this.cmdCancel, "cmdCancel");
+            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.FlatAppearance.BorderSize = 0;
+            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancel.Location = new System.Drawing.Point(365, 129);
             this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Size = new System.Drawing.Size(40, 32);
+            this.cmdCancel.TabIndex = 1;
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // frmNewImagePath
             // 
-            this.AcceptButton = this.cmdValidate;
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cmdCancel;
+            this.ClientSize = new System.Drawing.Size(493, 185);
             this.Controls.Add(this.lblNewImagePath);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdValidate);
@@ -80,6 +96,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewImagePath";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Entrer un nom pour le fichier de l\'image d\'illustration";
             this.Load += new System.EventHandler(this.frmNewImagePath_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
