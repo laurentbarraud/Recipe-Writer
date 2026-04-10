@@ -34,7 +34,7 @@
             this.lblMinutes = new System.Windows.Forms.Label();
             this.lblRecipeCompletionTime = new System.Windows.Forms.Label();
             this.txtRecipeCompletionTime = new System.Windows.Forms.TextBox();
-            this.cmdCancel = new System.Windows.Forms.Button();
+            this.cmdDelete = new System.Windows.Forms.Button();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -100,21 +100,21 @@
             this.txtRecipeCompletionTime.Size = new System.Drawing.Size(61, 24);
             this.txtRecipeCompletionTime.TabIndex = 1;
             // 
-            // cmdCancel
+            // cmdDelete
             // 
-            this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdCancel.CausesValidation = false;
-            this.cmdCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.FlatAppearance.BorderSize = 0;
-            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancel.Location = new System.Drawing.Point(343, 218);
-            this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(40, 32);
-            this.cmdCancel.TabIndex = 3;
-            this.cmdCancel.UseVisualStyleBackColor = true;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            this.cmdDelete.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdDelete.CausesValidation = false;
+            this.cmdDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdDelete.FlatAppearance.BorderSize = 0;
+            this.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdDelete.Location = new System.Drawing.Point(343, 218);
+            this.cmdDelete.Name = "cmdDelete";
+            this.cmdDelete.Size = new System.Drawing.Size(40, 32);
+            this.cmdDelete.TabIndex = 3;
+            this.cmdDelete.UseVisualStyleBackColor = true;
+            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
             // cmdValidate
             // 
@@ -140,7 +140,7 @@
             this.Controls.Add(this.lblRecipeCompletionTime);
             this.Controls.Add(this.txtRecipeCompletionTime);
             this.Controls.Add(this.lblRecipeTitle);
-            this.Controls.Add(this.cmdCancel);
+            this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtRecipeTitleToEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -149,7 +149,7 @@
             this.Name = "frmEditRecipeInfos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modifier les infos de base de la recette";
-            this.Load += new System.EventHandler(this.frmEditRecipeTitle_Load);
+            this.Load += new System.EventHandler(this.frmEditRecipeInfos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,7 +157,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button cmdCancel;
+        private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.TextBox txtRecipeTitleToEdit;
         private System.Windows.Forms.Label lblRecipeTitle;

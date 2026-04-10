@@ -1,26 +1,24 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 9th 2026</date>
+/// <date>April 10th 2026</date>
 
+using Recipe_Writer.Properties;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
 
 namespace Recipe_Writer
 {
     public partial class frmMain : Form
     {
         // Private member variables
-        
-        // Maps each button to its original image file path
-        private readonly Dictionary<Button, string> _buttonOriginalImagePaths = new Dictionary<Button, string>();
 
         // Current recipe instruction rank, used for the instruction layout and
         // for adding new instructions at the end of the list
@@ -33,9 +31,6 @@ namespace Recipe_Writer
         
         // Declares and instanciates the list that will handle the selected instruction
         private List<InstructionSelections> instructionSelection = new List<InstructionSelections>();
-
-        // Stores the original image path of the last hovered button to restore it on mouse leave
-        private string _lastHoveredButtonOriginalImagePath;
 
         private int selectedInstruction = -1;
 
@@ -59,6 +54,40 @@ namespace Recipe_Writer
         public frmMain()
         {
             InitializeComponent();
+
+            // Register buttons in the global dictionary for hover effect
+            UIHoverHelper.ButtonBaseResourceNames[cmdNewRecipe] = "new_recipe";
+            UIHoverHelper.ButtonBaseResourceNames[cmdTitleSearch] = "search";
+            UIHoverHelper.ButtonBaseResourceNames[cmdEditRecipeInfos] = "edit_recipe_info";
+            UIHoverHelper.ButtonBaseResourceNames[cmdDeleteRecipe] = "delete_recipe";
+            UIHoverHelper.ButtonBaseResourceNames[cmdSearchByIngredient] = "search_by_ingredient";
+            UIHoverHelper.ButtonBaseResourceNames[cmdInventory] = "inventory";
+            UIHoverHelper.ButtonBaseResourceNames[cmdMealPlanner] = "planner";
+            UIHoverHelper.ButtonBaseResourceNames[cmdSettings] = "settings";
+            UIHoverHelper.ButtonBaseResourceNames[cmdingredientSearch] = "ingredientSearch";
+            UIHoverHelper.ButtonBaseResourceNames[cmdAddInstruction] = "new_instruction";
+
+            // Buttons hover events
+            cmdNewRecipe.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdNewRecipe.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdTitleSearch.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdTitleSearch.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdEditRecipeInfos.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdEditRecipeInfos.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdDeleteRecipe.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdDeleteRecipe.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdSearchByIngredient.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdSearchByIngredient.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdInventory.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdInventory.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdMealPlanner.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdMealPlanner.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdSettings.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdSettings.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdingredientSearch.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdingredientSearch.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdAddInstruction.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdAddInstruction.MouseLeave += UIHoverHelper.Button_MouseLeave;
         }
 
         /// <summary>
@@ -86,6 +115,8 @@ namespace Recipe_Writer
             saturdayToolStripMenuItem.Text = strings.ToolStripMenuItemSaturday;
             sundayToolStripMenuItem.Text = strings.ToolStripMenuItemSunday;
 
+            txtTitleSearch.Focus();
+
             // Checks if the database file exists or not
             if (File.Exists(@Environment.CurrentDirectory + "\\" + "recipe-album" + ".db"))
             {
@@ -104,66 +135,6 @@ namespace Recipe_Writer
                     dbConn.CreateTables();
                     dbConn.InsertInitialData();
                 }
-
-                // Sets the directory path for the resources folder, where all the button images are stored
-                string resourcesDir = Path.Combine(Application.StartupPath, "Resources");
-
-                // Sets the path for each button image by combining the resources directory path with the specific image filename
-                string cmdNewRecipePath = Path.Combine(resourcesDir, "new-recipe.png");
-                string cmdTitleSearchPath = Path.Combine(resourcesDir, "search.png");
-                string cmdEditRecipeInfosPath = Path.Combine(resourcesDir, "edit-recipe-info.png");
-                string cmdDeleteRecipePath = Path.Combine(resourcesDir, "delete-recipe.png");
-                string cmdSearchByIngredientPath = Path.Combine(resourcesDir, "search-by-ingredient.png");
-                string cmdInventoryPath = Path.Combine(resourcesDir, "inventory.png");
-                string cmdMealPlannerPath = Path.Combine(resourcesDir, "planner.png");
-                string cmdSettingsPath = Path.Combine(resourcesDir, "settings.png");
-                string cmdingredientSearchPath = Path.Combine(resourcesDir, "ingredientSearch.png");
-                string cmdAddInstructionPath = Path.Combine(resourcesDir, "new-instruction.png");
-
-                // Assigns the background images to the buttons using the loaded paths
-                cmdNewRecipe.BackgroundImage = Image.FromFile(cmdNewRecipePath);
-                cmdTitleSearch.BackgroundImage = Image.FromFile(cmdTitleSearchPath);
-                cmdEditRecipeInfos.BackgroundImage = Image.FromFile(cmdEditRecipeInfosPath);
-                cmdDeleteRecipe.BackgroundImage = Image.FromFile(cmdDeleteRecipePath);
-                cmdSearchByIngredient.BackgroundImage = Image.FromFile(cmdSearchByIngredientPath);
-                cmdInventory.BackgroundImage = Image.FromFile(cmdInventoryPath);
-                cmdMealPlanner.BackgroundImage = Image.FromFile(cmdMealPlannerPath);
-                cmdSettings.BackgroundImage = Image.FromFile(cmdSettingsPath);
-                cmdingredientSearch.BackgroundImage = Image.FromFile(cmdingredientSearchPath);
-                cmdAddInstruction.BackgroundImage = Image.FromFile(cmdAddInstructionPath);
-
-                // Fills the truth table that links each button to its original image path, 
-                // for later restoration on mouse leave
-                _buttonOriginalImagePaths[cmdNewRecipe] = cmdNewRecipePath; 
-                _buttonOriginalImagePaths[cmdTitleSearch] = cmdTitleSearchPath; 
-                _buttonOriginalImagePaths[cmdEditRecipeInfos] = cmdEditRecipeInfosPath; 
-                _buttonOriginalImagePaths[cmdDeleteRecipe] = cmdDeleteRecipePath; 
-                _buttonOriginalImagePaths[cmdSearchByIngredient] = cmdSearchByIngredientPath; 
-                _buttonOriginalImagePaths[cmdInventory] = cmdInventoryPath; 
-                _buttonOriginalImagePaths[cmdMealPlanner] = cmdMealPlannerPath; 
-                _buttonOriginalImagePaths[cmdSettings] = cmdSettingsPath; 
-                _buttonOriginalImagePaths[cmdingredientSearch] = cmdingredientSearchPath; 
-                _buttonOriginalImagePaths[cmdAddInstruction] = cmdAddInstructionPath;
-
-                // Buttons hover events
-                cmdNewRecipe.MouseEnter += Button_MouseEnter;
-                cmdNewRecipe.MouseLeave += Button_MouseLeave;
-                cmdTitleSearch.MouseEnter += Button_MouseEnter;
-                cmdTitleSearch.MouseLeave += Button_MouseLeave;
-                cmdEditRecipeInfos.MouseEnter += Button_MouseEnter;
-                cmdEditRecipeInfos.MouseLeave += Button_MouseLeave;
-                cmdSearchByIngredient.MouseEnter += Button_MouseEnter;
-                cmdSearchByIngredient.MouseLeave += Button_MouseLeave;
-                cmdInventory.MouseEnter += Button_MouseEnter;
-                cmdInventory.MouseLeave += Button_MouseLeave;
-                cmdMealPlanner.MouseEnter += Button_MouseEnter;
-                cmdMealPlanner.MouseLeave += Button_MouseLeave;
-                cmdSettings.MouseEnter += Button_MouseEnter;
-                cmdSettings.MouseLeave += Button_MouseLeave;
-                cmdingredientSearch.MouseEnter += Button_MouseEnter;
-                cmdingredientSearch.MouseLeave += Button_MouseLeave;
-                cmdAddInstruction.MouseEnter += Button_MouseEnter;
-                cmdAddInstruction.MouseLeave += Button_MouseLeave;
             }
 
             // If the database file cannot be found in the application directory
@@ -187,63 +158,6 @@ namespace Recipe_Writer
         {
             frmAddNewIngredientToRecipe _frmAddNewNewIngredientToRecipe = new frmAddNewIngredientToRecipe(this);
             _frmAddNewNewIngredientToRecipe.Show();
-        }
-
-        /// <summary>
-        /// Handles the mouse-enter event for any button by replacing its background image
-        /// with the corresponding hover version. 
-        /// The method automatically derives the hover filename by inserting "-hover" 
-        /// before the image extension, stores the original image path for later 
-        /// restoration, and applies the hover image if it exists.
-        /// </summary>
-        public void Button_MouseEnter(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-
-            if (!_buttonOriginalImagePaths.TryGetValue(btn, out string normalPath))
-            {
-                return;
-            }
-
-            if (!File.Exists(normalPath))
-            {
-                return;
-            }
-
-            _lastHoveredButtonOriginalImagePath = normalPath;
-
-            string directory = Path.GetDirectoryName(normalPath);
-            string filenameWithoutExt = Path.GetFileNameWithoutExtension(normalPath);
-            string extension = Path.GetExtension(normalPath);
-
-            string hoverPath = Path.Combine(directory, filenameWithoutExt + "-hover" + extension);
-
-            if (File.Exists(hoverPath))
-            {
-                btn.BackgroundImage = Image.FromFile(hoverPath);
-            }
-        }
-
-        /// <summary>
-        /// Handles the mouse-leave event for any button by restoring its original background
-        /// image. The method uses the previously stored file path of the normal image
-        /// and reloads it to revert the button to its default visual state.
-        /// </summary>
-        public void Button_MouseLeave(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-
-            if (string.IsNullOrEmpty(_lastHoveredButtonOriginalImagePath))
-            {
-                return;
-            }
-
-            if (File.Exists(_lastHoveredButtonOriginalImagePath))
-            {
-                btn.BackgroundImage = Image.FromFile(_lastHoveredButtonOriginalImagePath);
-            }
-
-            _lastHoveredButtonOriginalImagePath = null;
         }
 
         /// <summary>
@@ -404,12 +318,9 @@ namespace Recipe_Writer
             }
         }
 
-        private void cmdInventory_MouseHover(object sender, EventArgs e)
+        private void cmdInventory_MouseEnter(object sender, EventArgs e)
         {
-            if (pnlSlideMenu.Visible)
-            {
-                ClosePanel();
-            }
+
         }
 
         private void cmdInventory_MouseLeave(object sender, EventArgs e)
@@ -418,17 +329,13 @@ namespace Recipe_Writer
         }
         private void cmdMealPlanner_MouseEnter(object sender, EventArgs e)
         {
-            if (pnlSlideMenu.Visible)
-            {
-                ClosePanel();
-            }
+
         }
 
         private void cmdMealPlanner_MouseLeave(object sender, EventArgs e)
         {
 
         }
-
 
         private void cmdMealPlanner_Click(object sender, EventArgs e)
         {
@@ -448,6 +355,44 @@ namespace Recipe_Writer
         {
             cmsRecipeResult.Items[0].PerformClick();
         }
+
+        /// <summary>
+        /// Toggles the slide menu to search for recipes by ingredients.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdSearchByIngredient_Click(object sender, EventArgs e)
+        {
+            if (!pnlSlideMenu.Visible)
+            {
+                // Opening slide menu animation
+                pnlSlideMenu.Width = 450;
+                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 250, 0);
+                this.Refresh();
+            }
+
+            else
+            {
+                ClosePanel();
+            }
+        }
+
+        private void cmdSearchByIngredient_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdSearchByIngredient_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdSettings_Click(object sender, EventArgs e)
+        {
+            frmSettings _frmSettings = new frmSettings(this);
+            _frmSettings.ShowDialog();
+        }
+
 
         private void cmdSettings_MouseEnter(object sender, EventArgs e)
         {
@@ -474,34 +419,6 @@ namespace Recipe_Writer
             {
                 SearchRecipesByTitle("*");
             }
-        }
-
-        /// <summary>
-        /// Opens the slide menu to let the user search for recipes by ingredients.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmdSearchByIngredient_MouseHover(object sender, EventArgs e)
-        {
-            if (!pnlSlideMenu.Visible)
-            {
-                // Opening slide menu animation
-                pnlSlideMenu.Width = 450;
-                Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 250, 0);
-                this.Refresh();
-                this.AcceptButton = cmdingredientSearch;
-            }
-        }
-
-        private void cmdSearchByIngredient_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmdSettings_Click(object sender, EventArgs e)
-        {
-            frmSettings _frmSettings = new frmSettings(this);
-            _frmSettings.ShowDialog();
         }
 
         /// <summary>
@@ -710,127 +627,120 @@ namespace Recipe_Writer
         /// </summary>
         public void DisplayRecipeInfos(int idRecipe)
         {
-            // Affects to the title property of the _currentDisplayedRecipe object the selected recipe, in the search result listbox
-            _currentDisplayedRecipe.Title = lstSearchResults.SelectedItem.ToString();
+            // Ensures something is selected in the listbox
+            if (lstSearchResults.SelectedItem == null)
+            {
+                return;
+            }
 
-            // Affects to the properties of the _currentDisplayedRecipe object the others values returned by the dbConn functions
+            // Ensure _currentDisplayedRecipe is not null
+            if (_currentDisplayedRecipe == null)
+            {
+                return;
+            }
+
+            // Title
+            string selectedTitle = lstSearchResults.SelectedItem.ToString();
+            if (!string.IsNullOrWhiteSpace(selectedTitle))
+            {
+                _currentDisplayedRecipe.Title = selectedTitle;
+            }
+
+            // DB reads with safety guards
             _currentDisplayedRecipe.CompletionTime = dbConn.ReadRecipeCompletionTime(idRecipe);
             _currentDisplayedRecipe.LowBudget = dbConn.ReadRecipeLowBudgetStatus(idRecipe);
             _currentDisplayedRecipe.Score = dbConn.ReadRecipeScore(idRecipe);
-            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(idRecipe);
 
-            // --- Affecting the _currentDisplayedRecipe properties to the controls properties ----------------------------------------------------
+            string imagePath = dbConn.ReadRecipeImagePath(idRecipe);
+            _currentDisplayedRecipe.ImagePath = imagePath ?? "";
 
-            // --- Completion time
+            // Completion time
             lblCompletionTime.Text = "";
             lblCompletionTime.Text += strings.Preparation + _currentDisplayedRecipe.CompletionTime + " min.";
 
-            // --- Low budget status
-            if (_currentDisplayedRecipe.LowBudget == 1)
-            {
-                picLowBudget.Visible = true;
-            }
+            // Low budget icon
+            picLowBudget.Visible = (_currentDisplayedRecipe.LowBudget == 1);
 
-            else
-            {
-                picLowBudget.Visible = false;
-            }
-
-            // --- Ingredients list
+            // Ingredients list
             _currentDisplayedRecipe.IngredientsList = dbConn.ReadIngredientsQtyForARecipe(_currentDisplayedRecipe.Id);
 
             cmbRecipeIngredients.Items.Clear();
             cmbRecipeIngredients.Items.Add(strings.NecessaryIngredients);
 
-            // Adds each ingredient as a new item in the comboBox
-            foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
+            if (_currentDisplayedRecipe.IngredientsList != null)
             {
-                string scaleIngredientToAdd = dbConn.ReadScaleNameForAnID(ingredientToAdd.Scale_id);
+                foreach (Ingredients ingredientToAdd in _currentDisplayedRecipe.IngredientsList)
+                {
+                    if (ingredientToAdd == null)
+                    {
+                        continue;
+                    }
 
-                // Use localized connector from resources
-                string connector = strings.IngredientConnector;
+                    string scaleIngredientToAdd = dbConn.ReadScaleNameForAnID(ingredientToAdd.Scale_id);
+                    string connector = strings.IngredientConnector;
 
-                cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested + " " + scaleIngredientToAdd + " " + connector + " " + ingredientToAdd.Name);
+                    cmbRecipeIngredients.Items.Add(ingredientToAdd.QtyRequested + " " +
+                        scaleIngredientToAdd + " " +  connector + " " + ingredientToAdd.Name);
+                }
             }
 
-            // Selects automatically the first item of the combobox
-            cmbRecipeIngredients.SelectedIndex = 0;
-
-            // --- Calculates if the recipe is ready to cook with what is stored in the inventory.
-            if (CalculateRecipeReadyToCookStatus(_currentDisplayedRecipe.IngredientsList))
+            // Ensures index exists
+            if (cmbRecipeIngredients.Items.Count > 0)
             {
-                picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_green;
+                cmbRecipeIngredients.SelectedIndex = 0;
             }
 
-            // If there's one or more ingredient(s) missing
+            // Ready to cook status
+            if (_currentDisplayedRecipe.IngredientsList != null &&
+                CalculateRecipeReadyToCookStatus(_currentDisplayedRecipe.IngredientsList))
+            {
+                picRecipeReadyToCookStatus.BackgroundImage = Resources.recipe_status_green;
+            }
+            
             else
             {
-                picRecipeReadyToCookStatus.BackgroundImage = Recipe_Writer.Properties.Resources.recipe_status_red;
+                picRecipeReadyToCookStatus.BackgroundImage = Resources.recipe_status_red;
             }
 
-            // --- Score
-            if (_currentDisplayedRecipe.Score == 0)
+            // Score
+            picScore1.BackgroundImage = Resources._1_star_disabled;
+            picScore2.BackgroundImage = Resources._1_star_disabled;
+            picScore3.BackgroundImage = Resources._1_star_disabled;
+
+            if (_currentDisplayedRecipe.Score >= 1)
             {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
+                picScore1.BackgroundImage = Resources._1_star;
             }
-            else if (_currentDisplayedRecipe.Score == 1)
+            if (_currentDisplayedRecipe.Score >= 2)
             {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
+                picScore2.BackgroundImage = Resources._1_star;
             }
-            else if (_currentDisplayedRecipe.Score == 2)
+            if (_currentDisplayedRecipe.Score >= 3)
             {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star_disabled;
-
-            }
-            else if (_currentDisplayedRecipe.Score == 3)
-            {
-                picScore1.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore2.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
-                picScore3.BackgroundImage = Recipe_Writer.Properties.Resources._1_star;
+                picScore3.BackgroundImage = Resources._1_star;
             }
 
-            // --- Instructions
-            // Calls the function that will return the instructions list to follow to make the recipe,
-            // then and affects them to the current displayed Recipe instruction list.
+            // Instructions
             _currentDisplayedRecipe.InstructionsList = dbConn.ReadInstructionsForARecipe(_currentDisplayedRecipe.Id);
-
-            // Calls the function that creates the instruction labels dynamically
             CreateInstructionsLayout();
 
-            // --- ImagePath
-            // If there's an image file stored in the illustrations folder for this recipe
-            _currentDisplayedRecipe.ImagePath = dbConn.ReadRecipeImagePath(_currentDisplayedRecipe.Id);
+            // Illustration
+            string fullImagePath = Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg";
 
-            if (_currentDisplayedRecipe.ImagePath != DBNull.Value.ToString())
-            {
-                // Affects to the pictureBox the current displayed recipe illustration image
-                picRecipe.Load(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
-
-            }
-
-            if (File.Exists(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg"))
+            if (!string.IsNullOrWhiteSpace(_currentDisplayedRecipe.ImagePath) &&
+                File.Exists(fullImagePath))
             {
                 try
                 {
-                    picRecipe.BackgroundImage = Image.FromFile(@Environment.CurrentDirectory + "\\illustrations\\" + _currentDisplayedRecipe.ImagePath + ".jpg");
+                    picRecipe.BackgroundImage = Image.FromFile(fullImagePath);
                     picRecipe.BorderStyle = BorderStyle.None;
                 }
-                catch (Exception)
+                catch
                 {
                     picRecipe.BackgroundImage = null;
                     picRecipe.BorderStyle = BorderStyle.None;
-                }   
+                }
             }
-
-            // If the illustration file hasn't been found on disk
             else
             {
                 picRecipe.BackgroundImage = null;
@@ -964,7 +874,6 @@ namespace Recipe_Writer
                 }
             }
         }
-
 
         private void frmMain_Click(object sender, EventArgs e)
         {
@@ -1365,7 +1274,7 @@ namespace Recipe_Writer
         /// <summary>
         /// Searches for recipes containing the input keywords in their title.
         /// </summary>
-        private void SearchRecipesByTitle(string titleToSearchFor)
+        internal void SearchRecipesByTitle(string titleToSearchFor)
         {
             // Empties the listbox control before displaying new results
             lstSearchResults.Items.Clear();

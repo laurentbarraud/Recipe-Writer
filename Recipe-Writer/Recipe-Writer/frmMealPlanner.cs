@@ -13,9 +13,6 @@ namespace Recipe_Writer
 {
     public partial class frmMealPlanner : Form
     {
-        // Maps each button to its original image file path
-        private readonly Dictionary<Button, string> _buttonOriginalImagePaths = new Dictionary<Button, string>();
-
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
 
@@ -28,6 +25,55 @@ namespace Recipe_Writer
             // Affects the parent form to an alias
             _frmMain = parentForm;
             InitializeComponent();
+
+            // Register buttons in the global dictionary
+            UIHoverHelper.ButtonBaseResourceNames[cmdMondayCancelled] = "delete";
+            UIHoverHelper.ButtonBaseResourceNames[cmdMondayCooked] = "recipeCooked";
+            UIHoverHelper.ButtonBaseResourceNames[cmdTuesdayCancelled] = "delete";
+            UIHoverHelper.ButtonBaseResourceNames[cmdTuesdayCooked] = "recipeCooked";
+            UIHoverHelper.ButtonBaseResourceNames[cmdWednesdayCancelled] = "delete";
+            UIHoverHelper.ButtonBaseResourceNames[cmdWednesdayCooked] = "recipeCooked";
+            UIHoverHelper.ButtonBaseResourceNames[cmdThursdayCancelled] = "delete";
+            UIHoverHelper.ButtonBaseResourceNames[cmdThursdayCooked] = "recipeCooked";
+            UIHoverHelper.ButtonBaseResourceNames[cmdFridayCancelled] = "delete";
+            UIHoverHelper.ButtonBaseResourceNames[cmdFridayCooked] = "recipeCooked";
+            UIHoverHelper.ButtonBaseResourceNames[cmdSaturdayCancelled] = "delete";
+            UIHoverHelper.ButtonBaseResourceNames[cmdSaturdayCooked] = "recipeCooked";
+            UIHoverHelper.ButtonBaseResourceNames[cmdSundayCancelled] = "delete";
+            UIHoverHelper.ButtonBaseResourceNames[cmdSundayCooked] = "recipeCooked";
+            UIHoverHelper.ButtonBaseResourceNames[cmdValidate] = "validate";
+
+            // Buttons hover event
+            cmdMondayCancelled.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdMondayCancelled.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdMondayCooked.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdMondayCooked.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdTuesdayCancelled.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdTuesdayCancelled.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdTuesdayCooked.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdTuesdayCooked.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdWednesdayCancelled.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdWednesdayCancelled.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdWednesdayCooked.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdWednesdayCooked.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdThursdayCancelled.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdThursdayCancelled.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdThursdayCooked.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdThursdayCooked.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdFridayCancelled.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdFridayCancelled.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdFridayCooked.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdFridayCooked.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdSaturdayCancelled.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdSaturdayCancelled.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdSaturdayCooked.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdSaturdayCooked.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdSundayCancelled.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdSundayCancelled.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdSundayCooked.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdSundayCooked.MouseLeave += UIHoverHelper.Button_MouseLeave;
+            cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
+            cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
         }
 
         /// <summary>
@@ -87,93 +133,6 @@ namespace Recipe_Writer
                 cmdSundayCancelled.Visible = true;
                 cmdSundayCooked.Visible = true;
             }
-
-            // Sets the directory path for the resources folder, where all the button images are stored
-            string resourcesDir = Path.Combine(Application.StartupPath, "Resources");
-
-            // Sets the path for each button image by combining the resources directory path with the specific image filename
-            string cmdMondayCancelledPath = Path.Combine(resourcesDir, "delete.png");
-            string cmdMondayCookedPath = Path.Combine(resourcesDir, "recipeCooked.png");
-            string cmdTuesdayCancelledPath = Path.Combine(resourcesDir, "delete.png");
-            string cmdTuesdayCookedPath = Path.Combine(resourcesDir, "recipeCooked.png");
-            string cmdWednesdayCancelledPath = Path.Combine(resourcesDir, "delete.png");
-            string cmdWednesdayCookedPath = Path.Combine(resourcesDir, "recipeCooked.png");
-            string cmdThursdayCancelledPath = Path.Combine(resourcesDir, "delete.png");
-            string cmdThursdayCookedPath = Path.Combine(resourcesDir, "recipeCooked.png");
-            string cmdFridayCancelledPath = Path.Combine(resourcesDir, "delete.png");
-            string cmdFridayCookedPath = Path.Combine(resourcesDir, "recipeCooked.png");
-            string cmdSaturdayCancelledPath = Path.Combine(resourcesDir, "delete.png");
-            string cmdSaturdayCookedPath = Path.Combine(resourcesDir, "recipeCooked.png");
-            string cmdSundayCancelledPath = Path.Combine(resourcesDir, "delete.png");
-            string cmdSundayCookedPath = Path.Combine(resourcesDir, "recipeCooked.png");
-            string cmdValidatePath = Path.Combine(resourcesDir, "validate.png");
-
-            // Assigns the background images to the buttons using the loaded paths
-            cmdMondayCancelled.BackgroundImage = Image.FromFile(cmdMondayCancelledPath);
-            cmdMondayCooked.BackgroundImage = Image.FromFile(cmdMondayCookedPath);
-            cmdTuesdayCancelled.BackgroundImage = Image.FromFile(cmdTuesdayCancelledPath);
-            cmdTuesdayCooked.BackgroundImage = Image.FromFile(cmdTuesdayCookedPath);
-            cmdWednesdayCancelled.BackgroundImage = Image.FromFile(cmdWednesdayCancelledPath);
-            cmdWednesdayCooked.BackgroundImage = Image.FromFile(cmdWednesdayCookedPath);
-            cmdThursdayCancelled.BackgroundImage = Image.FromFile(cmdThursdayCancelledPath);
-            cmdThursdayCooked.BackgroundImage = Image.FromFile(cmdThursdayCookedPath);
-            cmdFridayCancelled.BackgroundImage = Image.FromFile(cmdFridayCancelledPath);
-            cmdFridayCooked.BackgroundImage = Image.FromFile(cmdFridayCookedPath);
-            cmdSaturdayCancelled.BackgroundImage = Image.FromFile(cmdSaturdayCancelledPath);
-            cmdSaturdayCooked.BackgroundImage = Image.FromFile(cmdSaturdayCookedPath);
-            cmdSundayCancelled.BackgroundImage = Image.FromFile(cmdSundayCancelledPath);
-            cmdSundayCooked.BackgroundImage = Image.FromFile(cmdSundayCookedPath);
-            cmdValidate.BackgroundImage = Image.FromFile(cmdValidatePath);
-
-            // Fills the truth table that links each button to its original image path, 
-            // for later restoration on mouse leave
-            _buttonOriginalImagePaths[cmdMondayCancelled] = cmdMondayCancelledPath;
-            _buttonOriginalImagePaths[cmdMondayCooked] = cmdMondayCookedPath;
-            _buttonOriginalImagePaths[cmdTuesdayCancelled] = cmdTuesdayCancelledPath;
-            _buttonOriginalImagePaths[cmdTuesdayCooked] = cmdTuesdayCookedPath;
-            _buttonOriginalImagePaths[cmdWednesdayCancelled] = cmdWednesdayCancelledPath;
-            _buttonOriginalImagePaths[cmdWednesdayCooked] = cmdWednesdayCookedPath;
-            _buttonOriginalImagePaths[cmdThursdayCancelled] = cmdThursdayCancelledPath;
-            _buttonOriginalImagePaths[cmdThursdayCooked] = cmdThursdayCookedPath;
-            _buttonOriginalImagePaths[cmdFridayCancelled] = cmdFridayCancelledPath;
-            _buttonOriginalImagePaths[cmdFridayCooked] = cmdFridayCookedPath;
-            _buttonOriginalImagePaths[cmdSaturdayCancelled] = cmdSaturdayCancelledPath;
-            _buttonOriginalImagePaths[cmdSaturdayCooked] = cmdSaturdayCookedPath;
-            _buttonOriginalImagePaths[cmdSundayCancelled] = cmdSundayCancelledPath;
-            _buttonOriginalImagePaths[cmdSundayCooked] = cmdSundayCookedPath;
-            _buttonOriginalImagePaths[cmdValidate] = cmdValidatePath;
-
-            // Buttons hover event
-            cmdMondayCancelled.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdMondayCancelled.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdMondayCooked.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdMondayCooked.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdTuesdayCancelled.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdTuesdayCancelled.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdTuesdayCooked.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdTuesdayCooked.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdWednesdayCancelled.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdWednesdayCancelled.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdWednesdayCooked.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdWednesdayCooked.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdThursdayCancelled.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdThursdayCancelled.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdThursdayCooked.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdThursdayCooked.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdFridayCancelled.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdFridayCancelled.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdFridayCooked.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdFridayCooked.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdSaturdayCancelled.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdSaturdayCancelled.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdSaturdayCooked.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdSaturdayCooked.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdSundayCancelled.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdSundayCancelled.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdSundayCooked.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdSundayCooked.MouseLeave += _frmMain.Button_MouseLeave;
-            cmdValidate.MouseEnter += _frmMain.Button_MouseEnter;
-            cmdValidate.MouseLeave += _frmMain.Button_MouseLeave;
         }
 
         private void cmdMondayCancelled_Click(object sender, EventArgs e)

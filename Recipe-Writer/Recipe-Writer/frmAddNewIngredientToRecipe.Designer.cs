@@ -35,7 +35,7 @@
             this.cmbIngredientsListedInDB = new System.Windows.Forms.ComboBox();
             this.lblScaleAssociatedWithIngredientSelected = new System.Windows.Forms.Label();
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.cmdCancel = new System.Windows.Forms.Button();
+            this.cmdDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNewIngredientName
@@ -98,33 +98,33 @@
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
-            // cmdCancel
+            // cmdDelete
             // 
-            this.cmdCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdCancel.BackgroundImage")));
-            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.FlatAppearance.BorderSize = 0;
-            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancel.Location = new System.Drawing.Point(358, 141);
-            this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(34, 32);
-            this.cmdCancel.TabIndex = 3;
-            this.cmdCancel.UseVisualStyleBackColor = true;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            this.cmdDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdDelete.BackgroundImage")));
+            this.cmdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdDelete.FlatAppearance.BorderSize = 0;
+            this.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdDelete.Location = new System.Drawing.Point(358, 141);
+            this.cmdDelete.Name = "cmdDelete";
+            this.cmdDelete.Size = new System.Drawing.Size(34, 32);
+            this.cmdDelete.TabIndex = 3;
+            this.cmdDelete.UseVisualStyleBackColor = true;
+            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
             // frmAddNewIngredientToRecipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.CancelButton = this.cmdCancel;
+            this.CancelButton = this.cmdDelete;
             this.ClientSize = new System.Drawing.Size(493, 195);
             this.Controls.Add(this.lblScaleAssociatedWithIngredientSelected);
             this.Controls.Add(this.cmbIngredientsListedInDB);
             this.Controls.Add(this.txtQtyIngredientNeeded);
             this.Controls.Add(this.lblQtyIngredient);
             this.Controls.Add(this.lblNewIngredientName);
-            this.Controls.Add(this.cmdCancel);
+            this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdValidate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -141,7 +141,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblNewIngredientName;
-        private System.Windows.Forms.Button cmdCancel;
+        private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.Label lblQtyIngredient;
         private System.Windows.Forms.TextBox txtQtyIngredientNeeded;

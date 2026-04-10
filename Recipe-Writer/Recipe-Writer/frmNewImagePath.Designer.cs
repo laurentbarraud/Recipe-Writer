@@ -31,7 +31,7 @@
             this.txtNewImagePath = new System.Windows.Forms.TextBox();
             this.lblNewImagePath = new System.Windows.Forms.Label();
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.cmdCancel = new System.Windows.Forms.Button();
+            this.cmdDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNewImagePath
@@ -67,29 +67,29 @@
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
-            // cmdCancel
+            // cmdDelete
             // 
-            this.cmdCancel.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
-            this.cmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.FlatAppearance.BorderSize = 0;
-            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancel.Location = new System.Drawing.Point(365, 129);
-            this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(40, 32);
-            this.cmdCancel.TabIndex = 1;
-            this.cmdCancel.UseVisualStyleBackColor = true;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            this.cmdDelete.BackgroundImage = global::Recipe_Writer.Properties.Resources.delete;
+            this.cmdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdDelete.FlatAppearance.BorderSize = 0;
+            this.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdDelete.Location = new System.Drawing.Point(365, 129);
+            this.cmdDelete.Name = "cmdDelete";
+            this.cmdDelete.Size = new System.Drawing.Size(40, 32);
+            this.cmdDelete.TabIndex = 1;
+            this.cmdDelete.UseVisualStyleBackColor = true;
+            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
             // frmNewImagePath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.CancelButton = this.cmdCancel;
+            this.CancelButton = this.cmdDelete;
             this.ClientSize = new System.Drawing.Size(493, 185);
             this.Controls.Add(this.lblNewImagePath);
-            this.Controls.Add(this.cmdCancel);
+            this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewImagePath);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -98,7 +98,6 @@
             this.Name = "frmNewImagePath";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrer un nom pour le fichier de l\'image d\'illustration";
-            this.Load += new System.EventHandler(this.frmNewImagePath_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,7 +107,7 @@
 
         private System.Windows.Forms.TextBox txtNewImagePath;
         private System.Windows.Forms.Button cmdValidate;
-        private System.Windows.Forms.Button cmdCancel;
+        private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Label lblNewImagePath;
     }
 }

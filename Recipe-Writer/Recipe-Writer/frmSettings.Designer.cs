@@ -73,6 +73,8 @@
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdValidate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdValidate.Location = new System.Drawing.Point(193, 329);
             this.cmdValidate.Name = "cmdValidate";

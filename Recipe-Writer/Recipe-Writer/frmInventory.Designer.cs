@@ -142,7 +142,7 @@
             // pnlIngredientsType2Status
             // 
             this.pnlIngredientsType2Status.AutoScroll = true;
-            this.pnlIngredientsType2Status.Location = new System.Drawing.Point(553, 53);
+            this.pnlIngredientsType2Status.Location = new System.Drawing.Point(586, 53);
             this.pnlIngredientsType2Status.Name = "pnlIngredientsType2Status";
             this.pnlIngredientsType2Status.Size = new System.Drawing.Size(206, 317);
             this.pnlIngredientsType2Status.TabIndex = 5;
@@ -155,15 +155,15 @@
             this.lstIngredientsType2Available.ItemHeight = 20;
             this.lstIngredientsType2Available.Location = new System.Drawing.Point(396, 50);
             this.lstIngredientsType2Available.Name = "lstIngredientsType2Available";
-            this.lstIngredientsType2Available.Size = new System.Drawing.Size(156, 320);
+            this.lstIngredientsType2Available.Size = new System.Drawing.Size(184, 320);
             this.lstIngredientsType2Available.TabIndex = 4;
             // 
             // pnlIngredientsType1Status
             // 
             this.pnlIngredientsType1Status.AutoScroll = true;
-            this.pnlIngredientsType1Status.Location = new System.Drawing.Point(165, 50);
+            this.pnlIngredientsType1Status.Location = new System.Drawing.Point(188, 50);
             this.pnlIngredientsType1Status.Name = "pnlIngredientsType1Status";
-            this.pnlIngredientsType1Status.Size = new System.Drawing.Size(206, 317);
+            this.pnlIngredientsType1Status.Size = new System.Drawing.Size(183, 317);
             this.pnlIngredientsType1Status.TabIndex = 3;
             // 
             // lstIngredientsType1Available
@@ -174,7 +174,7 @@
             this.lstIngredientsType1Available.ItemHeight = 20;
             this.lstIngredientsType1Available.Location = new System.Drawing.Point(7, 52);
             this.lstIngredientsType1Available.Name = "lstIngredientsType1Available";
-            this.lstIngredientsType1Available.Size = new System.Drawing.Size(156, 320);
+            this.lstIngredientsType1Available.Size = new System.Drawing.Size(175, 320);
             this.lstIngredientsType1Available.TabIndex = 2;
             // 
             // tabPage2
@@ -218,7 +218,7 @@
             // pnlIngredientsType4Status
             // 
             this.pnlIngredientsType4Status.AutoScroll = true;
-            this.pnlIngredientsType4Status.Location = new System.Drawing.Point(571, 30);
+            this.pnlIngredientsType4Status.Location = new System.Drawing.Point(646, 30);
             this.pnlIngredientsType4Status.Name = "pnlIngredientsType4Status";
             this.pnlIngredientsType4Status.Size = new System.Drawing.Size(206, 320);
             this.pnlIngredientsType4Status.TabIndex = 9;
@@ -229,15 +229,15 @@
             this.lstIngredientsType4Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.lstIngredientsType4Available.FormattingEnabled = true;
             this.lstIngredientsType4Available.ItemHeight = 20;
-            this.lstIngredientsType4Available.Location = new System.Drawing.Point(410, 33);
+            this.lstIngredientsType4Available.Location = new System.Drawing.Point(434, 33);
             this.lstIngredientsType4Available.Name = "lstIngredientsType4Available";
-            this.lstIngredientsType4Available.Size = new System.Drawing.Size(156, 320);
+            this.lstIngredientsType4Available.Size = new System.Drawing.Size(206, 320);
             this.lstIngredientsType4Available.TabIndex = 8;
             // 
             // pnlIngredientsType3Status
             // 
             this.pnlIngredientsType3Status.AutoScroll = true;
-            this.pnlIngredientsType3Status.Location = new System.Drawing.Point(171, 30);
+            this.pnlIngredientsType3Status.Location = new System.Drawing.Point(204, 30);
             this.pnlIngredientsType3Status.Name = "pnlIngredientsType3Status";
             this.pnlIngredientsType3Status.Size = new System.Drawing.Size(206, 320);
             this.pnlIngredientsType3Status.TabIndex = 7;
@@ -250,7 +250,7 @@
             this.lstIngredientsType3Available.ItemHeight = 20;
             this.lstIngredientsType3Available.Location = new System.Drawing.Point(7, 33);
             this.lstIngredientsType3Available.Name = "lstIngredientsType3Available";
-            this.lstIngredientsType3Available.Size = new System.Drawing.Size(156, 320);
+            this.lstIngredientsType3Available.Size = new System.Drawing.Size(191, 320);
             this.lstIngredientsType3Available.TabIndex = 6;
             // 
             // tabPage3
@@ -269,7 +269,7 @@
             this.pnlIngredientsType5Status.AutoScroll = true;
             this.pnlIngredientsType5Status.Location = new System.Drawing.Point(427, 13);
             this.pnlIngredientsType5Status.Name = "pnlIngredientsType5Status";
-            this.pnlIngredientsType5Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType5Status.Size = new System.Drawing.Size(264, 337);
             this.pnlIngredientsType5Status.TabIndex = 9;
             // 
             // lstIngredientsType5Available
@@ -299,7 +299,7 @@
             this.pnlIngredientsType6Status.AutoScroll = true;
             this.pnlIngredientsType6Status.Location = new System.Drawing.Point(440, 13);
             this.pnlIngredientsType6Status.Name = "pnlIngredientsType6Status";
-            this.pnlIngredientsType6Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType6Status.Size = new System.Drawing.Size(254, 337);
             this.pnlIngredientsType6Status.TabIndex = 11;
             // 
             // lstIngredientsType6Available
@@ -329,7 +329,7 @@
             this.pnlIngredientsType7Status.AutoScroll = true;
             this.pnlIngredientsType7Status.Location = new System.Drawing.Point(437, 13);
             this.pnlIngredientsType7Status.Name = "pnlIngredientsType7Status";
-            this.pnlIngredientsType7Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType7Status.Size = new System.Drawing.Size(240, 337);
             this.pnlIngredientsType7Status.TabIndex = 13;
             // 
             // lstIngredientsType7Available
@@ -359,7 +359,7 @@
             this.pnlIngredientsType8Status.AutoScroll = true;
             this.pnlIngredientsType8Status.Location = new System.Drawing.Point(445, 13);
             this.pnlIngredientsType8Status.Name = "pnlIngredientsType8Status";
-            this.pnlIngredientsType8Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType8Status.Size = new System.Drawing.Size(241, 337);
             this.pnlIngredientsType8Status.TabIndex = 15;
             // 
             // lstIngredientsType8Available
@@ -389,7 +389,7 @@
             this.pnlIngredientsType9Status.AutoScroll = true;
             this.pnlIngredientsType9Status.Location = new System.Drawing.Point(445, 13);
             this.pnlIngredientsType9Status.Name = "pnlIngredientsType9Status";
-            this.pnlIngredientsType9Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType9Status.Size = new System.Drawing.Size(247, 337);
             this.pnlIngredientsType9Status.TabIndex = 17;
             // 
             // lstIngredientsType9Available
@@ -419,7 +419,7 @@
             this.pnlIngredientsType10Status.AutoScroll = true;
             this.pnlIngredientsType10Status.Location = new System.Drawing.Point(445, 13);
             this.pnlIngredientsType10Status.Name = "pnlIngredientsType10Status";
-            this.pnlIngredientsType10Status.Size = new System.Drawing.Size(206, 337);
+            this.pnlIngredientsType10Status.Size = new System.Drawing.Size(235, 337);
             this.pnlIngredientsType10Status.TabIndex = 19;
             // 
             // lstIngredientsType10Available
@@ -475,7 +475,7 @@
             this.pnlIngredientsType12Status.AutoScroll = true;
             this.pnlIngredientsType12Status.Location = new System.Drawing.Point(595, 53);
             this.pnlIngredientsType12Status.Name = "pnlIngredientsType12Status";
-            this.pnlIngredientsType12Status.Size = new System.Drawing.Size(206, 297);
+            this.pnlIngredientsType12Status.Size = new System.Drawing.Size(229, 297);
             this.pnlIngredientsType12Status.TabIndex = 9;
             // 
             // lstIngredientsType12Available

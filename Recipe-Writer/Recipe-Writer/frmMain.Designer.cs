@@ -124,7 +124,7 @@
             this.pnlInstructions.Location = new System.Drawing.Point(91, 276);
             this.pnlInstructions.Name = "pnlInstructions";
             this.pnlInstructions.Size = new System.Drawing.Size(863, 354);
-            this.pnlInstructions.TabIndex = 5;
+            this.pnlInstructions.TabIndex = 17;
             // 
             // nudPersons
             // 
@@ -144,7 +144,7 @@
             this.nudPersons.Size = new System.Drawing.Size(46, 27);
             this.nudPersons.TabIndex = 3;
             this.nudPersons.Value = new decimal(new int[] {
-            2,
+            3,
             0,
             0,
             0});
@@ -189,7 +189,7 @@
             this.addIngredientToThisRecipe,
             this.deleteSelectedIngredientFromThisRecipe});
             this.cmsRecipeResult.Name = "cmsRecipeResult";
-            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 220);
+            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 192);
             // 
             // newRecipeToolStripMenuItem
             // 
@@ -202,7 +202,7 @@
             // editThisRecipesInfosToolStripMenuItem
             // 
             this.editThisRecipesInfosToolStripMenuItem.Enabled = false;
-            this.editThisRecipesInfosToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.edit_recipe_info;
+            this.editThisRecipesInfosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editThisRecipesInfosToolStripMenuItem.Image")));
             this.editThisRecipesInfosToolStripMenuItem.Name = "editThisRecipesInfosToolStripMenuItem";
             this.editThisRecipesInfosToolStripMenuItem.Size = new System.Drawing.Size(417, 26);
             this.editThisRecipesInfosToolStripMenuItem.Text = "Modifier les infos de base de la recette";
@@ -211,7 +211,7 @@
             // deleteThisRecipeToolStripMenuItem
             // 
             this.deleteThisRecipeToolStripMenuItem.Enabled = false;
-            this.deleteThisRecipeToolStripMenuItem.Image = global::Recipe_Writer.Properties.Resources.delete_recipe;
+            this.deleteThisRecipeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteThisRecipeToolStripMenuItem.Image")));
             this.deleteThisRecipeToolStripMenuItem.Name = "deleteThisRecipeToolStripMenuItem";
             this.deleteThisRecipeToolStripMenuItem.Size = new System.Drawing.Size(417, 26);
             this.deleteThisRecipeToolStripMenuItem.Text = "Supprimer cette recette";
@@ -361,7 +361,7 @@
             this.pnlSlideMenu.Controls.Add(this.cmdingredientSearch);
             this.pnlSlideMenu.Location = new System.Drawing.Point(74, 116);
             this.pnlSlideMenu.Name = "pnlSlideMenu";
-            this.pnlSlideMenu.Size = new System.Drawing.Size(11, 204);
+            this.pnlSlideMenu.Size = new System.Drawing.Size(10, 204);
             this.pnlSlideMenu.TabIndex = 19;
             this.pnlSlideMenu.Visible = false;
             // 
@@ -373,7 +373,7 @@
             this.chkFilterRecipesForThreeStars.Location = new System.Drawing.Point(204, 159);
             this.chkFilterRecipesForThreeStars.Name = "chkFilterRecipesForThreeStars";
             this.chkFilterRecipesForThreeStars.Size = new System.Drawing.Size(92, 24);
-            this.chkFilterRecipesForThreeStars.TabIndex = 21;
+            this.chkFilterRecipesForThreeStars.TabIndex = 13;
             this.chkFilterRecipesForThreeStars.Text = "3 étoiles";
             this.chkFilterRecipesForThreeStars.UseVisualStyleBackColor = true;
             // 
@@ -386,7 +386,7 @@
             this.chkFilterRecipesForSmallBudget.Location = new System.Drawing.Point(28, 159);
             this.chkFilterRecipesForSmallBudget.Name = "chkFilterRecipesForSmallBudget";
             this.chkFilterRecipesForSmallBudget.Size = new System.Drawing.Size(116, 24);
-            this.chkFilterRecipesForSmallBudget.TabIndex = 7;
+            this.chkFilterRecipesForSmallBudget.TabIndex = 12;
             this.chkFilterRecipesForSmallBudget.Text = "Petit budget";
             this.chkFilterRecipesForSmallBudget.UseVisualStyleBackColor = true;
             // 
@@ -442,7 +442,7 @@
             this.txtSearchIngredient3.Location = new System.Drawing.Point(169, 109);
             this.txtSearchIngredient3.Name = "txtSearchIngredient3";
             this.txtSearchIngredient3.Size = new System.Drawing.Size(228, 22);
-            this.txtSearchIngredient3.TabIndex = 6;
+            this.txtSearchIngredient3.TabIndex = 11;
             this.txtSearchIngredient3.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtSearchIngredient3_PreviewKeyDown);
             // 
             // txtSearchIngredient2
@@ -450,7 +450,7 @@
             this.txtSearchIngredient2.Location = new System.Drawing.Point(169, 74);
             this.txtSearchIngredient2.Name = "txtSearchIngredient2";
             this.txtSearchIngredient2.Size = new System.Drawing.Size(228, 22);
-            this.txtSearchIngredient2.TabIndex = 5;
+            this.txtSearchIngredient2.TabIndex = 10;
             this.txtSearchIngredient2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtSearchIngredient2_PreviewKeyDown);
             // 
             // txtSearchIngredient1
@@ -458,12 +458,12 @@
             this.txtSearchIngredient1.Location = new System.Drawing.Point(169, 43);
             this.txtSearchIngredient1.Name = "txtSearchIngredient1";
             this.txtSearchIngredient1.Size = new System.Drawing.Size(228, 22);
-            this.txtSearchIngredient1.TabIndex = 4;
+            this.txtSearchIngredient1.TabIndex = 9;
             this.txtSearchIngredient1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtSearchIngredient1_PreviewKeyDown);
             // 
             // cmdingredientSearch
             // 
-            this.cmdingredientSearch.BackgroundImage = global::Recipe_Writer.Properties.Resources.ingredientSearch;
+            this.cmdingredientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdingredientSearch.BackgroundImage")));
             this.cmdingredientSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdingredientSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdingredientSearch.FlatAppearance.BorderSize = 0;
@@ -474,7 +474,7 @@
             this.cmdingredientSearch.Location = new System.Drawing.Point(357, 143);
             this.cmdingredientSearch.Name = "cmdingredientSearch";
             this.cmdingredientSearch.Size = new System.Drawing.Size(40, 40);
-            this.cmdingredientSearch.TabIndex = 9;
+            this.cmdingredientSearch.TabIndex = 14;
             this.cmdingredientSearch.UseVisualStyleBackColor = true;
             this.cmdingredientSearch.Click += new System.EventHandler(this.cmdingredientSearch_Click);
             // 
@@ -556,7 +556,7 @@
             this.cmdAddInstruction.Location = new System.Drawing.Point(972, 595);
             this.cmdAddInstruction.Name = "cmdAddInstruction";
             this.cmdAddInstruction.Size = new System.Drawing.Size(40, 35);
-            this.cmdAddInstruction.TabIndex = 6;
+            this.cmdAddInstruction.TabIndex = 18;
             this.cmdAddInstruction.UseVisualStyleBackColor = true;
             this.cmdAddInstruction.Visible = false;
             this.cmdAddInstruction.Click += new System.EventHandler(this.cmdAddInstruction_Click);
@@ -566,7 +566,7 @@
             // cmdTitleSearch
             // 
             this.cmdTitleSearch.BackColor = System.Drawing.Color.Transparent;
-            this.cmdTitleSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdTitleSearch.BackgroundImage")));
+            this.cmdTitleSearch.BackgroundImage = global::Recipe_Writer.Properties.Resources.search;
             this.cmdTitleSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdTitleSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdTitleSearch.FlatAppearance.BorderSize = 0;
@@ -587,13 +587,15 @@
             this.cmdMealPlanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdMealPlanner.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdMealPlanner.FlatAppearance.BorderSize = 0;
+            this.cmdMealPlanner.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdMealPlanner.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdMealPlanner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdMealPlanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdMealPlanner.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdMealPlanner.Location = new System.Drawing.Point(9, 233);
             this.cmdMealPlanner.Name = "cmdMealPlanner";
             this.cmdMealPlanner.Size = new System.Drawing.Size(60, 50);
-            this.cmdMealPlanner.TabIndex = 33;
+            this.cmdMealPlanner.TabIndex = 7;
             this.cmdMealPlanner.UseVisualStyleBackColor = true;
             this.cmdMealPlanner.Click += new System.EventHandler(this.cmdMealPlanner_Click);
             this.cmdMealPlanner.MouseEnter += new System.EventHandler(this.cmdMealPlanner_MouseEnter);
@@ -601,21 +603,23 @@
             // 
             // cmdInventory
             // 
-            this.cmdInventory.BackgroundImage = global::Recipe_Writer.Properties.Resources.inventory;
+            this.cmdInventory.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdInventory.BackgroundImage")));
             this.cmdInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdInventory.FlatAppearance.BorderSize = 0;
+            this.cmdInventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdInventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdInventory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdInventory.Location = new System.Drawing.Point(9, 175);
             this.cmdInventory.Name = "cmdInventory";
             this.cmdInventory.Size = new System.Drawing.Size(60, 50);
-            this.cmdInventory.TabIndex = 32;
+            this.cmdInventory.TabIndex = 6;
             this.cmdInventory.UseVisualStyleBackColor = true;
             this.cmdInventory.Click += new System.EventHandler(this.cmdInventory_Click);
+            this.cmdInventory.MouseEnter += new System.EventHandler(this.cmdInventory_MouseEnter);
             this.cmdInventory.MouseLeave += new System.EventHandler(this.cmdInventory_MouseLeave);
-            this.cmdInventory.MouseHover += new System.EventHandler(this.cmdInventory_MouseHover);
             // 
             // cmdSearchByIngredient
             // 
@@ -623,16 +627,19 @@
             this.cmdSearchByIngredient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdSearchByIngredient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSearchByIngredient.FlatAppearance.BorderSize = 0;
+            this.cmdSearchByIngredient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdSearchByIngredient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdSearchByIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSearchByIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdSearchByIngredient.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdSearchByIngredient.Location = new System.Drawing.Point(11, 114);
             this.cmdSearchByIngredient.Name = "cmdSearchByIngredient";
             this.cmdSearchByIngredient.Size = new System.Drawing.Size(60, 50);
-            this.cmdSearchByIngredient.TabIndex = 31;
+            this.cmdSearchByIngredient.TabIndex = 5;
             this.cmdSearchByIngredient.UseVisualStyleBackColor = true;
+            this.cmdSearchByIngredient.Click += new System.EventHandler(this.cmdSearchByIngredient_Click);
+            this.cmdSearchByIngredient.MouseEnter += new System.EventHandler(this.cmdSearchByIngredient_MouseEnter);
             this.cmdSearchByIngredient.MouseLeave += new System.EventHandler(this.cmdSearchByIngredient_MouseLeave);
-            this.cmdSearchByIngredient.MouseHover += new System.EventHandler(this.cmdSearchByIngredient_MouseHover);
             // 
             // cmdEditRecipeInfos
             // 
@@ -641,13 +648,15 @@
             this.cmdEditRecipeInfos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdEditRecipeInfos.Enabled = false;
             this.cmdEditRecipeInfos.FlatAppearance.BorderSize = 0;
+            this.cmdEditRecipeInfos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdEditRecipeInfos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdEditRecipeInfos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdEditRecipeInfos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdEditRecipeInfos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdEditRecipeInfos.Location = new System.Drawing.Point(659, 116);
             this.cmdEditRecipeInfos.Name = "cmdEditRecipeInfos";
             this.cmdEditRecipeInfos.Size = new System.Drawing.Size(32, 32);
-            this.cmdEditRecipeInfos.TabIndex = 30;
+            this.cmdEditRecipeInfos.TabIndex = 15;
             this.cmdEditRecipeInfos.UseVisualStyleBackColor = true;
             this.cmdEditRecipeInfos.Click += new System.EventHandler(this.cmdEditRecipeInfos_Click);
             // 
@@ -658,13 +667,15 @@
             this.cmdDeleteRecipe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdDeleteRecipe.Enabled = false;
             this.cmdDeleteRecipe.FlatAppearance.BorderSize = 0;
+            this.cmdDeleteRecipe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdDeleteRecipe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdDeleteRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDeleteRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdDeleteRecipe.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdDeleteRecipe.Location = new System.Drawing.Point(659, 157);
             this.cmdDeleteRecipe.Name = "cmdDeleteRecipe";
             this.cmdDeleteRecipe.Size = new System.Drawing.Size(32, 32);
-            this.cmdDeleteRecipe.TabIndex = 29;
+            this.cmdDeleteRecipe.TabIndex = 16;
             this.cmdDeleteRecipe.UseVisualStyleBackColor = true;
             this.cmdDeleteRecipe.Click += new System.EventHandler(this.cmdDeleteRecipe_Click);
             // 
@@ -699,6 +710,8 @@
             this.cmdNewRecipe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdNewRecipe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdNewRecipe.FlatAppearance.BorderSize = 0;
+            this.cmdNewRecipe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdNewRecipe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdNewRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdNewRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdNewRecipe.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -726,13 +739,15 @@
             this.cmdSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSettings.FlatAppearance.BorderSize = 0;
+            this.cmdSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdSettings.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdSettings.Location = new System.Drawing.Point(8, 296);
             this.cmdSettings.Name = "cmdSettings";
             this.cmdSettings.Size = new System.Drawing.Size(60, 50);
-            this.cmdSettings.TabIndex = 34;
+            this.cmdSettings.TabIndex = 8;
             this.cmdSettings.UseVisualStyleBackColor = true;
             this.cmdSettings.Click += new System.EventHandler(this.cmdSettings_Click);
             this.cmdSettings.MouseEnter += new System.EventHandler(this.cmdSettings_MouseEnter);
@@ -816,7 +831,6 @@
         public System.Windows.Forms.TextBox txtTitleSearch;
         public System.Windows.Forms.ComboBox cmbRecipeIngredients;
         private System.Windows.Forms.PictureBox picLowBudget;
-        public System.Windows.Forms.Button cmdTitleSearch;
         private System.Windows.Forms.Button cmdAddInstruction;
         private System.Windows.Forms.Panel pnlScore;
         private System.Windows.Forms.PictureBox picScore3;
@@ -844,6 +858,7 @@
         private System.Windows.Forms.Button cmdInventory;
         private System.Windows.Forms.Button cmdMealPlanner;
         private System.Windows.Forms.Button cmdSettings;
+        private System.Windows.Forms.Button cmdTitleSearch;
     }
 }
 
