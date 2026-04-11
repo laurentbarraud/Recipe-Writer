@@ -16,7 +16,8 @@ namespace Recipe_Writer
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
 
-        // Generic delegate
+        // Generic delegate used to load the planned meal for a
+        // given day of the week in the corresponding label
         private Action<int> loadPlannedMeal;
 
         // Constructor - Adds the parent form as parameter in the form constructor
@@ -74,6 +75,24 @@ namespace Recipe_Writer
             cmdSundayCooked.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
+
+            // Title
+            string windowTitle = strings.MealPlanner;
+
+            if (!string.IsNullOrEmpty(windowTitle))
+            {
+                this.Text = windowTitle;
+            }
+
+            // Labels
+            lblMonday.Text = strings.Monday;
+            lblTuesday.Text = strings.Tuesday;
+            lblWednesday.Text = strings.Wednesday;
+            lblThursday.Text = strings.Thursday;
+            lblFriday.Text = strings.Friday;
+            lblSaturday.Text = strings.Saturday;
+            lblSunday.Text = strings.Sunday;
+            lblHowToUse.Text = strings.HowToUsePlannerText;
         }
 
         /// <summary>
@@ -549,6 +568,11 @@ namespace Recipe_Writer
         }
 
 
+        /// <summary>
+        /// Loads the planned meal for a given day of the week 
+        /// and displays it in the corresponding label
+        /// </summary>
+        /// <param name="idDayOfTheWeek"></param>
         private void LoadPlannedMealForADay(int idDayOfTheWeek)
         {
             string titlePlannedMeal = _frmMain.dbConn.ReadPlannedMealsForADay(idDayOfTheWeek);

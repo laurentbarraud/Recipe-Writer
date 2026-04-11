@@ -36,8 +36,8 @@
             this.lblFridayRecipe = new System.Windows.Forms.Label();
             this.lblSaturdayRecipe = new System.Windows.Forms.Label();
             this.lblSundayRecipe = new System.Windows.Forms.Label();
-            this.lblMondayText = new System.Windows.Forms.Label();
-            this.lblTuesdayText = new System.Windows.Forms.Label();
+            this.lblMonday = new System.Windows.Forms.Label();
+            this.lblTuesday = new System.Windows.Forms.Label();
             this.lblWednesday = new System.Windows.Forms.Label();
             this.lblThursday = new System.Windows.Forms.Label();
             this.lblFriday = new System.Windows.Forms.Label();
@@ -66,8 +66,8 @@
             this.lblHowToUse.Name = "lblHowToUse";
             this.lblHowToUse.Size = new System.Drawing.Size(315, 48);
             this.lblHowToUse.TabIndex = 29;
-            this.lblHowToUse.Text = "Glissez-déposez un titre de recette dans la case de votre choix ou sélectionnez u" +
-    "n titre et double-cliquez sur une case vide pour l\'affecter.";
+            this.lblHowToUse.Text = "Glissez-déposez le titre d’une recette dans la case de votre choix, ou sélectionn" +
+    "ez son titre et double-cliquez sur une case vide pour l’attribuer.";
             // 
             // lblMondayRecipe
             // 
@@ -167,25 +167,25 @@
             this.lblSundayRecipe.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblSundayRecipe_DragEnter);
             this.lblSundayRecipe.DoubleClick += new System.EventHandler(this.lblSundayRecipe_DoubleClick);
             // 
-            // lblMondayText
+            // lblMonday
             // 
-            this.lblMondayText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.lblMondayText.Location = new System.Drawing.Point(35, 14);
-            this.lblMondayText.Name = "lblMondayText";
-            this.lblMondayText.Size = new System.Drawing.Size(168, 23);
-            this.lblMondayText.TabIndex = 22;
-            this.lblMondayText.Text = "Lundi";
-            this.lblMondayText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMonday.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.lblMonday.Location = new System.Drawing.Point(35, 14);
+            this.lblMonday.Name = "lblMonday";
+            this.lblMonday.Size = new System.Drawing.Size(168, 23);
+            this.lblMonday.TabIndex = 22;
+            this.lblMonday.Text = "Lundi";
+            this.lblMonday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTuesdayText
+            // lblTuesday
             // 
-            this.lblTuesdayText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.lblTuesdayText.Location = new System.Drawing.Point(212, 14);
-            this.lblTuesdayText.Name = "lblTuesdayText";
-            this.lblTuesdayText.Size = new System.Drawing.Size(168, 23);
-            this.lblTuesdayText.TabIndex = 23;
-            this.lblTuesdayText.Text = "Mardi";
-            this.lblTuesdayText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTuesday.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.lblTuesday.Location = new System.Drawing.Point(212, 14);
+            this.lblTuesday.Name = "lblTuesday";
+            this.lblTuesday.Size = new System.Drawing.Size(168, 23);
+            this.lblTuesday.TabIndex = 23;
+            this.lblTuesday.Text = "Mardi";
+            this.lblTuesday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblWednesday
             // 
@@ -484,8 +484,8 @@
             this.Controls.Add(this.lblFriday);
             this.Controls.Add(this.lblThursday);
             this.Controls.Add(this.lblWednesday);
-            this.Controls.Add(this.lblTuesdayText);
-            this.Controls.Add(this.lblMondayText);
+            this.Controls.Add(this.lblTuesday);
+            this.Controls.Add(this.lblMonday);
             this.Controls.Add(this.lblSundayRecipe);
             this.Controls.Add(this.lblSaturdayRecipe);
             this.Controls.Add(this.lblFridayRecipe);
@@ -518,8 +518,8 @@
         private System.Windows.Forms.Label lblFridayRecipe;
         private System.Windows.Forms.Label lblSaturdayRecipe;
         private System.Windows.Forms.Label lblSundayRecipe;
-        private System.Windows.Forms.Label lblMondayText;
-        private System.Windows.Forms.Label lblTuesdayText;
+        private System.Windows.Forms.Label lblMonday;
+        private System.Windows.Forms.Label lblTuesday;
         private System.Windows.Forms.Label lblWednesday;
         private System.Windows.Forms.Label lblThursday;
         private System.Windows.Forms.Label lblFriday;

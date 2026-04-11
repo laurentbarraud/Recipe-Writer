@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNewInstruction = new System.Windows.Forms.Label();
+            this.lblInstruction = new System.Windows.Forms.Label();
             this.txtNewInstruction = new System.Windows.Forms.TextBox();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblNewInstruction
+            // lblInstruction
             // 
-            this.lblNewInstruction.AutoSize = true;
-            this.lblNewInstruction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNewInstruction.Location = new System.Drawing.Point(29, 28);
-            this.lblNewInstruction.Name = "lblNewInstruction";
-            this.lblNewInstruction.Size = new System.Drawing.Size(88, 18);
-            this.lblNewInstruction.TabIndex = 3;
-            this.lblNewInstruction.Text = "Instruction : ";
-            this.lblNewInstruction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblInstruction.AutoSize = true;
+            this.lblInstruction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblInstruction.Location = new System.Drawing.Point(29, 28);
+            this.lblInstruction.Name = "lblInstruction";
+            this.lblInstruction.Size = new System.Drawing.Size(88, 18);
+            this.lblInstruction.TabIndex = 3;
+            this.lblInstruction.Text = "Instruction : ";
+            this.lblInstruction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtNewInstruction
             // 
@@ -92,13 +92,13 @@
             this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewInstruction);
-            this.Controls.Add(this.lblNewInstruction);
+            this.Controls.Add(this.lblInstruction);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewInstruction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ajouter une nouvelle instruction à la recette";
+            this.Text = "Ajouter une nouvelle instruction à cette recette";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,7 +106,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblNewInstruction;
+        private System.Windows.Forms.Label lblInstruction;
         private System.Windows.Forms.TextBox txtNewInstruction;
         private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Button cmdValidate;

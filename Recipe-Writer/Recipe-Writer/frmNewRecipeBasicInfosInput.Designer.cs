@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.txtNewRecipeTitle = new System.Windows.Forms.TextBox();
-            this.lblNewRecipeTitle = new System.Windows.Forms.Label();
+            this.lblRecipeTitle = new System.Windows.Forms.Label();
             this.txtNewRecipeCompletionTime = new System.Windows.Forms.TextBox();
-            this.lblNewRecipeCompletionTime = new System.Windows.Forms.Label();
+            this.lblRecipeCompletionTime = new System.Windows.Forms.Label();
             this.lblMinutes = new System.Windows.Forms.Label();
             this.chkLowBudget = new System.Windows.Forms.CheckBox();
             this.cmdValidate = new System.Windows.Forms.Button();
@@ -47,15 +47,15 @@
             this.txtNewRecipeTitle.Size = new System.Drawing.Size(349, 24);
             this.txtNewRecipeTitle.TabIndex = 0;
             // 
-            // lblNewRecipeTitle
+            // lblRecipeTitle
             // 
-            this.lblNewRecipeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNewRecipeTitle.Location = new System.Drawing.Point(40, 54);
-            this.lblNewRecipeTitle.Name = "lblNewRecipeTitle";
-            this.lblNewRecipeTitle.Size = new System.Drawing.Size(50, 18);
-            this.lblNewRecipeTitle.TabIndex = 5;
-            this.lblNewRecipeTitle.Text = "Titre :";
-            this.lblNewRecipeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRecipeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblRecipeTitle.Location = new System.Drawing.Point(40, 54);
+            this.lblRecipeTitle.Name = "lblRecipeTitle";
+            this.lblRecipeTitle.Size = new System.Drawing.Size(50, 18);
+            this.lblRecipeTitle.TabIndex = 5;
+            this.lblRecipeTitle.Text = "Titre :";
+            this.lblRecipeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtNewRecipeCompletionTime
             // 
@@ -66,15 +66,15 @@
             this.txtNewRecipeCompletionTime.Size = new System.Drawing.Size(61, 24);
             this.txtNewRecipeCompletionTime.TabIndex = 1;
             // 
-            // lblNewRecipeCompletionTime
+            // lblRecipeCompletionTime
             // 
-            this.lblNewRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNewRecipeCompletionTime.Location = new System.Drawing.Point(120, 109);
-            this.lblNewRecipeCompletionTime.Name = "lblNewRecipeCompletionTime";
-            this.lblNewRecipeCompletionTime.Size = new System.Drawing.Size(185, 21);
-            this.lblNewRecipeCompletionTime.TabIndex = 6;
-            this.lblNewRecipeCompletionTime.Text = "Temps de réalisation :";
-            this.lblNewRecipeCompletionTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblRecipeCompletionTime.Location = new System.Drawing.Point(120, 109);
+            this.lblRecipeCompletionTime.Name = "lblRecipeCompletionTime";
+            this.lblRecipeCompletionTime.Size = new System.Drawing.Size(185, 21);
+            this.lblRecipeCompletionTime.TabIndex = 6;
+            this.lblRecipeCompletionTime.Text = "Temps de réalisation :";
+            this.lblRecipeCompletionTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblMinutes
             // 
@@ -137,8 +137,8 @@
             this.ClientSize = new System.Drawing.Size(493, 267);
             this.Controls.Add(this.chkLowBudget);
             this.Controls.Add(this.lblMinutes);
-            this.Controls.Add(this.lblNewRecipeCompletionTime);
-            this.Controls.Add(this.lblNewRecipeTitle);
+            this.Controls.Add(this.lblRecipeCompletionTime);
+            this.Controls.Add(this.lblRecipeTitle);
             this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.txtNewRecipeCompletionTime);
             this.Controls.Add(this.cmdValidate);
@@ -148,7 +148,7 @@
             this.MinimizeBox = false;
             this.Name = "frmNewRecipeInfosInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Entrez les infos de base pour la nouvelle recette";
+            this.Text = "Entrer les infos de base pour la nouvelle recette";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,9 +158,9 @@
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.TextBox txtNewRecipeTitle;
         private System.Windows.Forms.Button cmdDelete;
-        private System.Windows.Forms.Label lblNewRecipeTitle;
+        private System.Windows.Forms.Label lblRecipeTitle;
         private System.Windows.Forms.TextBox txtNewRecipeCompletionTime;
-        private System.Windows.Forms.Label lblNewRecipeCompletionTime;
+        private System.Windows.Forms.Label lblRecipeCompletionTime;
         private System.Windows.Forms.Label lblMinutes;
         private System.Windows.Forms.CheckBox chkLowBudget;
     }

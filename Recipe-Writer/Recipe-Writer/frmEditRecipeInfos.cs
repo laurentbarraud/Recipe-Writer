@@ -4,9 +4,6 @@
 /// <date>April 6th 2025</date>
 
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -60,6 +57,22 @@ namespace Recipe_Writer
             cmdDelete.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
+
+            // Title
+            string windowTitle = strings.EditRecipeBasicInfo;
+
+            if (!string.IsNullOrEmpty(windowTitle))
+            {
+                this.Text = windowTitle;
+            }
+
+            // Labels
+            lblRecipeTitle.Text = strings.Title;
+            lblRecipeCompletionTime.Text = strings.CompletionTime;
+            lblMinutes.Text = strings.Minutes;
+
+            // Checkboxes
+            chkLowBudget.Text = strings.LowBudget;
         }
 
         private void frmEditRecipeInfos_Load(object sender, EventArgs e)

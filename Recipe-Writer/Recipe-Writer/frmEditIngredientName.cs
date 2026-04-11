@@ -1,13 +1,9 @@
 ﻿/// <file>frmEditIngredientName.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 10th 2026</date>
+/// <date>April 12th 2026</date>
 
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -51,6 +47,17 @@ namespace Recipe_Writer
             cmdDelete.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
+
+            // Title
+            string windowTitle = strings.EditIngredientName;
+
+            if (!string.IsNullOrEmpty(windowTitle))
+            {
+                this.Text = windowTitle;
+            }
+
+            // Labels
+            lblNewIngredientName.Text = strings.NewIngredientName;
         }
 
         private void frmEditIngredientName_Load(object sender, EventArgs e)
@@ -84,7 +91,7 @@ namespace Recipe_Writer
             {
                 try
                 {   // Gets the app active language
-                    string selectedLanguage = Properties.Settings.Default.AppLanguage;
+                    string selectedLanguage = Properties.Settings.Default.AppLanguageCode;
                     
                     _frmMain.dbConn.UpdateIngredientName(IdIngredientToEdit, formattedTitle, selectedLanguage);
                     _frmInventory.RefreshInventory();

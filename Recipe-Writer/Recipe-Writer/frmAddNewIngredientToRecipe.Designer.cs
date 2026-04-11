@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddNewIngredientToRecipe));
             this.lblNewIngredientName = new System.Windows.Forms.Label();
-            this.lblQtyIngredient = new System.Windows.Forms.Label();
+            this.lblQtyIngredientNeeded = new System.Windows.Forms.Label();
             this.txtQtyIngredientNeeded = new System.Windows.Forms.TextBox();
             this.cmbIngredientsListedInDB = new System.Windows.Forms.ComboBox();
             this.lblScaleAssociatedWithIngredientSelected = new System.Windows.Forms.Label();
@@ -40,6 +40,7 @@
             // 
             // lblNewIngredientName
             // 
+            this.lblNewIngredientName.AutoSize = true;
             this.lblNewIngredientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblNewIngredientName.Location = new System.Drawing.Point(32, 42);
             this.lblNewIngredientName.Name = "lblNewIngredientName";
@@ -48,15 +49,16 @@
             this.lblNewIngredientName.Text = "Nom de l\'ingrédient : ";
             this.lblNewIngredientName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblQtyIngredient
+            // lblQtyIngredientNeeded
             // 
-            this.lblQtyIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblQtyIngredient.Location = new System.Drawing.Point(32, 95);
-            this.lblQtyIngredient.Name = "lblQtyIngredient";
-            this.lblQtyIngredient.Size = new System.Drawing.Size(151, 18);
-            this.lblQtyIngredient.TabIndex = 6;
-            this.lblQtyIngredient.Text = "Quantité nécessaire : ";
-            this.lblQtyIngredient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblQtyIngredientNeeded.AutoSize = true;
+            this.lblQtyIngredientNeeded.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblQtyIngredientNeeded.Location = new System.Drawing.Point(32, 95);
+            this.lblQtyIngredientNeeded.Name = "lblQtyIngredientNeeded";
+            this.lblQtyIngredientNeeded.Size = new System.Drawing.Size(151, 18);
+            this.lblQtyIngredientNeeded.TabIndex = 6;
+            this.lblQtyIngredientNeeded.Text = "Quantité nécessaire : ";
+            this.lblQtyIngredientNeeded.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtQtyIngredientNeeded
             // 
@@ -90,6 +92,8 @@
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.Enabled = false;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdValidate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdValidate.Location = new System.Drawing.Point(413, 141);
             this.cmdValidate.Name = "cmdValidate";
@@ -105,6 +109,8 @@
             this.cmdDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdDelete.FlatAppearance.BorderSize = 0;
+            this.cmdDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDelete.Location = new System.Drawing.Point(358, 141);
             this.cmdDelete.Name = "cmdDelete";
@@ -122,7 +128,7 @@
             this.Controls.Add(this.lblScaleAssociatedWithIngredientSelected);
             this.Controls.Add(this.cmbIngredientsListedInDB);
             this.Controls.Add(this.txtQtyIngredientNeeded);
-            this.Controls.Add(this.lblQtyIngredient);
+            this.Controls.Add(this.lblQtyIngredientNeeded);
             this.Controls.Add(this.lblNewIngredientName);
             this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdValidate);
@@ -143,7 +149,7 @@
         private System.Windows.Forms.Label lblNewIngredientName;
         private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Button cmdValidate;
-        private System.Windows.Forms.Label lblQtyIngredient;
+        private System.Windows.Forms.Label lblQtyIngredientNeeded;
         private System.Windows.Forms.TextBox txtQtyIngredientNeeded;
         private System.Windows.Forms.ComboBox cmbIngredientsListedInDB;
         private System.Windows.Forms.Label lblScaleAssociatedWithIngredientSelected;

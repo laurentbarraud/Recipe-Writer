@@ -1,7 +1,7 @@
 ﻿/// <file>Program.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 10th 2026</date>
+/// <date>April 12th 2026</date>
 
 using Recipe_Writer.Properties;
 using System;
@@ -38,18 +38,21 @@ namespace Recipe_Writer
 
         private static void ApplyLocalization()
         {
-            string lang = Settings.Default.AppLanguage;
+            // Reads the saved application language code
+            string appLanguageCode = Settings.Default.AppLanguageCode;
 
-            if (string.IsNullOrEmpty(lang))
+            // If empty, default to English
+            if (string.IsNullOrWhiteSpace(appLanguageCode))
             {
-                string systemLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-                lang = (systemLang == "fr") ? "fr" : "en";
-                Settings.Default.AppLanguage = lang;
+                appLanguageCode = "en";
+                Settings.Default.AppLanguageCode = appLanguageCode;
                 Settings.Default.Save();
             }
 
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
+            // Applies the culture before any form is created
+            CultureInfo culture = new CultureInfo(appLanguageCode);
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
         }
 
         private static void InitializeDatabase()

@@ -40,12 +40,12 @@
             this.lblTypeIngredient4 = new System.Windows.Forms.Label();
             this.lblTypeIngredient3 = new System.Windows.Forms.Label();
             this.pnlIngredientsType4Status = new System.Windows.Forms.Panel();
-            this.lstIngredientsType4Available = new System.Windows.Forms.ListBox();
+            this.lstIngredientsType4 = new System.Windows.Forms.ListBox();
             this.pnlIngredientsType3Status = new System.Windows.Forms.Panel();
-            this.lstIngredientsType3Available = new System.Windows.Forms.ListBox();
+            this.lstIngredientsType3 = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlIngredientsType5Status = new System.Windows.Forms.Panel();
-            this.lstIngredientsType5Available = new System.Windows.Forms.ListBox();
+            this.lstIngredientsType5 = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pnlIngredientsType6Status = new System.Windows.Forms.Panel();
             this.lstIngredientsType6Available = new System.Windows.Forms.ListBox();
@@ -182,9 +182,9 @@
             this.tabPage2.Controls.Add(this.lblTypeIngredient4);
             this.tabPage2.Controls.Add(this.lblTypeIngredient3);
             this.tabPage2.Controls.Add(this.pnlIngredientsType4Status);
-            this.tabPage2.Controls.Add(this.lstIngredientsType4Available);
+            this.tabPage2.Controls.Add(this.lstIngredientsType4);
             this.tabPage2.Controls.Add(this.pnlIngredientsType3Status);
-            this.tabPage2.Controls.Add(this.lstIngredientsType3Available);
+            this.tabPage2.Controls.Add(this.lstIngredientsType3);
             this.tabPage2.Location = new System.Drawing.Point(4, 46);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -223,16 +223,16 @@
             this.pnlIngredientsType4Status.Size = new System.Drawing.Size(206, 320);
             this.pnlIngredientsType4Status.TabIndex = 9;
             // 
-            // lstIngredientsType4Available
+            // lstIngredientsType4
             // 
-            this.lstIngredientsType4Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstIngredientsType4Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.lstIngredientsType4Available.FormattingEnabled = true;
-            this.lstIngredientsType4Available.ItemHeight = 20;
-            this.lstIngredientsType4Available.Location = new System.Drawing.Point(434, 33);
-            this.lstIngredientsType4Available.Name = "lstIngredientsType4Available";
-            this.lstIngredientsType4Available.Size = new System.Drawing.Size(206, 320);
-            this.lstIngredientsType4Available.TabIndex = 8;
+            this.lstIngredientsType4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstIngredientsType4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.lstIngredientsType4.FormattingEnabled = true;
+            this.lstIngredientsType4.ItemHeight = 20;
+            this.lstIngredientsType4.Location = new System.Drawing.Point(434, 33);
+            this.lstIngredientsType4.Name = "lstIngredientsType4";
+            this.lstIngredientsType4.Size = new System.Drawing.Size(206, 320);
+            this.lstIngredientsType4.TabIndex = 8;
             // 
             // pnlIngredientsType3Status
             // 
@@ -242,21 +242,21 @@
             this.pnlIngredientsType3Status.Size = new System.Drawing.Size(206, 320);
             this.pnlIngredientsType3Status.TabIndex = 7;
             // 
-            // lstIngredientsType3Available
+            // lstIngredientsType3
             // 
-            this.lstIngredientsType3Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstIngredientsType3Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.lstIngredientsType3Available.FormattingEnabled = true;
-            this.lstIngredientsType3Available.ItemHeight = 20;
-            this.lstIngredientsType3Available.Location = new System.Drawing.Point(7, 33);
-            this.lstIngredientsType3Available.Name = "lstIngredientsType3Available";
-            this.lstIngredientsType3Available.Size = new System.Drawing.Size(191, 320);
-            this.lstIngredientsType3Available.TabIndex = 6;
+            this.lstIngredientsType3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstIngredientsType3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.lstIngredientsType3.FormattingEnabled = true;
+            this.lstIngredientsType3.ItemHeight = 20;
+            this.lstIngredientsType3.Location = new System.Drawing.Point(7, 33);
+            this.lstIngredientsType3.Name = "lstIngredientsType3";
+            this.lstIngredientsType3.Size = new System.Drawing.Size(191, 320);
+            this.lstIngredientsType3.TabIndex = 6;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.pnlIngredientsType5Status);
-            this.tabPage3.Controls.Add(this.lstIngredientsType5Available);
+            this.tabPage3.Controls.Add(this.lstIngredientsType5);
             this.tabPage3.Location = new System.Drawing.Point(4, 46);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(975, 366);
@@ -272,16 +272,16 @@
             this.pnlIngredientsType5Status.Size = new System.Drawing.Size(264, 337);
             this.pnlIngredientsType5Status.TabIndex = 9;
             // 
-            // lstIngredientsType5Available
+            // lstIngredientsType5
             // 
-            this.lstIngredientsType5Available.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstIngredientsType5Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.lstIngredientsType5Available.FormattingEnabled = true;
-            this.lstIngredientsType5Available.ItemHeight = 20;
-            this.lstIngredientsType5Available.Location = new System.Drawing.Point(206, 13);
-            this.lstIngredientsType5Available.Name = "lstIngredientsType5Available";
-            this.lstIngredientsType5Available.Size = new System.Drawing.Size(215, 340);
-            this.lstIngredientsType5Available.TabIndex = 8;
+            this.lstIngredientsType5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstIngredientsType5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.lstIngredientsType5.FormattingEnabled = true;
+            this.lstIngredientsType5.ItemHeight = 20;
+            this.lstIngredientsType5.Location = new System.Drawing.Point(206, 13);
+            this.lstIngredientsType5.Name = "lstIngredientsType5";
+            this.lstIngredientsType5.Size = new System.Drawing.Size(215, 340);
+            this.lstIngredientsType5.TabIndex = 8;
             // 
             // tabPage4
             // 
@@ -596,11 +596,11 @@
         private System.Windows.Forms.Panel pnlIngredientsType2Status;
         private System.Windows.Forms.ListBox lstIngredientsType2Available;
         private System.Windows.Forms.Panel pnlIngredientsType4Status;
-        private System.Windows.Forms.ListBox lstIngredientsType4Available;
+        private System.Windows.Forms.ListBox lstIngredientsType4;
         private System.Windows.Forms.Panel pnlIngredientsType3Status;
-        private System.Windows.Forms.ListBox lstIngredientsType3Available;
+        private System.Windows.Forms.ListBox lstIngredientsType3;
         private System.Windows.Forms.Panel pnlIngredientsType5Status;
-        private System.Windows.Forms.ListBox lstIngredientsType5Available;
+        private System.Windows.Forms.ListBox lstIngredientsType5;
         private System.Windows.Forms.Panel pnlIngredientsType6Status;
         private System.Windows.Forms.ListBox lstIngredientsType6Available;
         private System.Windows.Forms.Panel pnlIngredientsType7Status;

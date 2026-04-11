@@ -315,4 +315,106 @@ Merci de me contacter pour toute amélioration ou signalement de bug.</value>
   <data name="ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe" xml:space="preserve">
     <value>Supprimer l'ingrédient sélectionné de cette recette</value>
   </data>
+  <data name="AddNewIngredientToRecipe" xml:space="preserve">
+    <value>Ajouter un nouvel ingrédient à cette recette</value>
+  </data>
+  <data name="NewIngredientName" xml:space="preserve">
+    <value>Nom du nouvel ingrédient :</value>
+  </data>
+  <data name="QtyIngredientNeeded" xml:space="preserve">
+    <value>Quantité d'ingrédient nécessaire :</value>
+  </data>
+  <data name="AddNewIngredientToBase" xml:space="preserve">
+    <value>Ajouter un ingrédient à la base de données</value>
+  </data>
+  <data name="NewIngredientNameFr" xml:space="preserve">
+    <value>Nom de l'ingrédient (Fr) </value>
+  </data>
+  <data name="NewIngredientNameEn" xml:space="preserve">
+    <value>Nom de l'ingrédient (En) </value>
+  </data>
+  <data name="TypeIngredient" xml:space="preserve">
+    <value>Type :</value>
+  </data>
+  <data name="EditIngredientName" xml:space="preserve">
+    <value>Modifier le nom d'un ingrédient</value>
+  </data>
+  <data name="lblTypeIngredient1" xml:space="preserve">
+    <value>Viande</value>
+  </data>
+  <data name="lblTypeIngredient2" xml:space="preserve">
+    <value>Poissons et crustacés</value>
+  </data>
+  <data name="lblTypeIngredient3" xml:space="preserve">
+    <value>Fruits</value>
+  </data>
+  <data name="lblTypeIngredient4" xml:space="preserve">
+    <value>Légumes, légumineuses et champignons</value>
+  </data>
+  <data name="lblTypeIngredient11" xml:space="preserve">
+    <value>Alcools et spiritueux</value>
+  </data>
+  <data name="lblTypeIngredient12" xml:space="preserve">
+    <value>Sauces et eau</value>
+  </data>
+  <data name="NbOfIngredientsStored" xml:space="preserve">
+    <value>Nombre d'ingrédients stockés : </value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titre :</value>
+  </data>
+  <data name="CompletionTime" xml:space="preserve">
+    <value>Temps de réalisation :</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="LowBudget" xml:space="preserve">
+    <value>Pour petit budget</value>
+  </data>
+  <data name="EditRecipeBasicInfo" xml:space="preserve">
+    <value>Modifier les informations de base de cette recette</value>
+  </data>
+  <data name="MealPlanner" xml:space="preserve">
+    <value>Planificateur de repas</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Lundi</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Mardi</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Mercredi</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Jeudi</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Vendredi</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Samedi</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Dimanche</value>
+  </data>
+  <data name="HowToUsePlannerText" xml:space="preserve">
+    <value>Glissez-déposez le titre d’une recette dans la case de votre choix, ou sélectionnez son titre et double-cliquez sur une case vide pour l’attribuer.</value>
+  </data>
+  <data name="EnterNameForIllustrationImage" xml:space="preserve">
+    <value>Entrer un nom pour l'image d'illustration :</value>
+  </data>
+  <data name="ImageFilename" xml:space="preserve">
+    <value>Nom de fichier à donner à l'image :</value>
+  </data>
+  <data name="AddNewInstructionToThisRecipe" xml:space="preserve">
+    <value>Ajouter une nouvelle instruction à cette recette</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Instruction : </value>
+  </data>
+  <data name="EnterBasicInfoForNewRecipe" xml:space="preserve">
+    <value>Entrer les infos de base pour la nouvelle recette</value>
+  </data>
 </root>

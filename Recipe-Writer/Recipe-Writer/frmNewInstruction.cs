@@ -1,12 +1,9 @@
 ﻿/// <file>frmNewInstruction.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 10th 2026</date>
+/// <date>April 12th 2026</date>
 
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -50,6 +47,17 @@ namespace Recipe_Writer
             cmdDelete.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
+
+            // Title
+            string windowTitle = strings.AddNewInstructionToThisRecipe;
+
+            if (!string.IsNullOrEmpty(windowTitle))
+            {
+                this.Text = windowTitle;
+            }
+
+            // Label
+            lblInstruction.Text = strings.Instruction;
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)

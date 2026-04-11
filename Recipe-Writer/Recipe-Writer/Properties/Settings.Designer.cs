@@ -26,12 +26,12 @@ namespace Recipe_Writer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AppLanguage {
+        public string AppLanguageCode {
             get {
-                return ((string)(this["AppLanguage"]));
+                return ((string)(this["AppLanguageCode"]));
             }
             set {
-                this["AppLanguage"] = value;
+                this["AppLanguageCode"] = value;
             }
         }
         

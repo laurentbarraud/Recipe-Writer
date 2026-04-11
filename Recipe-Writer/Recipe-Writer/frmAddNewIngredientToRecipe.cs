@@ -1,14 +1,10 @@
 ﻿/// <file>frmNewIngredient.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 10th 2026</date>
+/// <date>April 12th 2026</date>
 
-using Recipe_Writer.Properties;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Runtime;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -34,6 +30,18 @@ namespace Recipe_Writer
             cmdDelete.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
+
+            // Title
+            string windowTitle = strings.AddNewIngredientToRecipe;
+
+            if (!string.IsNullOrEmpty(windowTitle))
+            {
+                this.Text = windowTitle;
+            }
+
+            // Labels
+            lblNewIngredientName.Text = strings.NewIngredientName;
+            lblQtyIngredientNeeded.Text = strings.QtyIngredientNeeded;
         }
 
         private void frmNewIngredient_Load(object sender, EventArgs e)

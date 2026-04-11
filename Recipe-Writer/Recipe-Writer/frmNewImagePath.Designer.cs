@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtNewImagePath = new System.Windows.Forms.TextBox();
-            this.lblNewImagePath = new System.Windows.Forms.Label();
+            this.lblImageFilename = new System.Windows.Forms.Label();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -42,16 +42,16 @@
             this.txtNewImagePath.Size = new System.Drawing.Size(349, 24);
             this.txtNewImagePath.TabIndex = 0;
             // 
-            // lblNewImagePath
+            // lblImageFilename
             // 
-            this.lblNewImagePath.AutoSize = true;
-            this.lblNewImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNewImagePath.Location = new System.Drawing.Point(38, 36);
-            this.lblNewImagePath.Name = "lblNewImagePath";
-            this.lblNewImagePath.Size = new System.Drawing.Size(236, 18);
-            this.lblNewImagePath.TabIndex = 5;
-            this.lblNewImagePath.Text = "Nom de fichier à donner à l\'image :";
-            this.lblNewImagePath.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblImageFilename.AutoSize = true;
+            this.lblImageFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblImageFilename.Location = new System.Drawing.Point(38, 36);
+            this.lblImageFilename.Name = "lblImageFilename";
+            this.lblImageFilename.Size = new System.Drawing.Size(236, 18);
+            this.lblImageFilename.TabIndex = 5;
+            this.lblImageFilename.Text = "Nom de fichier à donner à l\'image :";
+            this.lblImageFilename.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmdValidate
             // 
@@ -88,7 +88,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cmdDelete;
             this.ClientSize = new System.Drawing.Size(493, 185);
-            this.Controls.Add(this.lblNewImagePath);
+            this.Controls.Add(this.lblImageFilename);
             this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewImagePath);
@@ -97,7 +97,7 @@
             this.MinimizeBox = false;
             this.Name = "frmNewImagePath";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Entrer un nom pour le fichier de l\'image d\'illustration";
+            this.Text = "Entrer un nom pour l\'image d\'illustration";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,6 +108,6 @@
         private System.Windows.Forms.TextBox txtNewImagePath;
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.Button cmdDelete;
-        private System.Windows.Forms.Label lblNewImagePath;
+        private System.Windows.Forms.Label lblImageFilename;
     }
 }

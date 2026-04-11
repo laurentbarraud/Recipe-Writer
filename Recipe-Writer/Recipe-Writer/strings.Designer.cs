@@ -61,11 +61,47 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Add new ingredient to the database.
+        /// </summary>
+        internal static string AddNewIngredientToBase {
+            get {
+                return ResourceManager.GetString("AddNewIngredientToBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Add new ingredient to this recipe.
+        /// </summary>
+        internal static string AddNewIngredientToRecipe {
+            get {
+                return ResourceManager.GetString("AddNewIngredientToRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Add a new instruction to this recipe.
+        /// </summary>
+        internal static string AddNewInstructionToThisRecipe {
+            get {
+                return ResourceManager.GetString("AddNewInstructionToThisRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à The base will be rebuilt..
         /// </summary>
         internal static string BaseWillBeRebuilt {
             get {
                 return ResourceManager.GetString("BaseWillBeRebuilt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Completion time :.
+        /// </summary>
+        internal static string CompletionTime {
+            get {
+                return ResourceManager.GetString("CompletionTime", resourceCulture);
             }
         }
         
@@ -142,11 +178,47 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Edit ingredient name.
+        /// </summary>
+        internal static string EditIngredientName {
+            get {
+                return ResourceManager.GetString("EditIngredientName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Edit basic information for this recipe.
+        /// </summary>
+        internal static string EditRecipeBasicInfo {
+            get {
+                return ResourceManager.GetString("EditRecipeBasicInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à English.
         /// </summary>
         internal static string English {
             get {
                 return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Enter basic information for the new recipe.
+        /// </summary>
+        internal static string EnterBasicInfoForNewRecipe {
+            get {
+                return ResourceManager.GetString("EnterBasicInfoForNewRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Enter a name for the illustration image :.
+        /// </summary>
+        internal static string EnterNameForIllustrationImage {
+            get {
+                return ResourceManager.GetString("EnterNameForIllustrationImage", resourceCulture);
             }
         }
         
@@ -313,6 +385,33 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Friday.
+        /// </summary>
+        internal static string Friday {
+            get {
+                return ResourceManager.GetString("Friday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Drag and drop a recipe title into the box of your choice, or select its title and double-click on an empty box to assign it..
+        /// </summary>
+        internal static string HowToUsePlannerText {
+            get {
+                return ResourceManager.GetString("HowToUsePlannerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à File name to give the image :.
+        /// </summary>
+        internal static string ImageFilename {
+            get {
+                return ResourceManager.GetString("ImageFilename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à The amount of ingredients needed to make this recipe has been deducted..
         /// </summary>
         internal static string InfoAmountOfIngredientsNeededDeducted {
@@ -349,11 +448,74 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Instruction :.
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Inventory of ingredients.
         /// </summary>
         internal static string Inventory {
             get {
                 return ResourceManager.GetString("Inventory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Meat.
+        /// </summary>
+        internal static string lblTypeIngredient1 {
+            get {
+                return ResourceManager.GetString("lblTypeIngredient1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Alcohols and spirits.
+        /// </summary>
+        internal static string lblTypeIngredient11 {
+            get {
+                return ResourceManager.GetString("lblTypeIngredient11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Sauces and water.
+        /// </summary>
+        internal static string lblTypeIngredient12 {
+            get {
+                return ResourceManager.GetString("lblTypeIngredient12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Fish and seafood.
+        /// </summary>
+        internal static string lblTypeIngredient2 {
+            get {
+                return ResourceManager.GetString("lblTypeIngredient2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Fruit.
+        /// </summary>
+        internal static string lblTypeIngredient3 {
+            get {
+                return ResourceManager.GetString("lblTypeIngredient3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Vegetables, legumes and mushrooms.
+        /// </summary>
+        internal static string lblTypeIngredient4 {
+            get {
+                return ResourceManager.GetString("lblTypeIngredient4", resourceCulture);
             }
         }
         
@@ -388,6 +550,51 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Low budget.
+        /// </summary>
+        internal static string LowBudget {
+            get {
+                return ResourceManager.GetString("LowBudget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Meal planner.
+        /// </summary>
+        internal static string MealPlanner {
+            get {
+                return ResourceManager.GetString("MealPlanner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à minutes.
+        /// </summary>
+        internal static string Minutes {
+            get {
+                return ResourceManager.GetString("Minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Monday.
+        /// </summary>
+        internal static string Monday {
+            get {
+                return ResourceManager.GetString("Monday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Number of ingredients stored :.
+        /// </summary>
+        internal static string NbOfIngredientsStored {
+            get {
+                return ResourceManager.GetString("NbOfIngredientsStored", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Necessary ingredients.
         /// </summary>
         internal static string NecessaryIngredients {
@@ -406,11 +613,56 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à New ingredient name :.
+        /// </summary>
+        internal static string NewIngredientName {
+            get {
+                return ResourceManager.GetString("NewIngredientName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à New ingredient name (En) :.
+        /// </summary>
+        internal static string NewIngredientNameEn {
+            get {
+                return ResourceManager.GetString("NewIngredientNameEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à New ingredient name (Fr) :.
+        /// </summary>
+        internal static string NewIngredientNameFr {
+            get {
+                return ResourceManager.GetString("NewIngredientNameFr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Preparation : .
         /// </summary>
         internal static string Preparation {
             get {
                 return ResourceManager.GetString("Preparation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Quantity of ingredient needed :.
+        /// </summary>
+        internal static string QtyIngredientNeeded {
+            get {
+                return ResourceManager.GetString("QtyIngredientNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Saturday.
+        /// </summary>
+        internal static string Saturday {
+            get {
+                return ResourceManager.GetString("Saturday", resourceCulture);
             }
         }
         
@@ -429,6 +681,15 @@ namespace Recipe_Writer {
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Sunday.
+        /// </summary>
+        internal static string Sunday {
+            get {
+                return ResourceManager.GetString("Sunday", resourceCulture);
             }
         }
         
@@ -510,6 +771,24 @@ namespace Recipe_Writer {
         internal static string TabInventory_8 {
             get {
                 return ResourceManager.GetString("TabInventory_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Thursday.
+        /// </summary>
+        internal static string Thursday {
+            get {
+                return ResourceManager.GetString("Thursday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Title :.
+        /// </summary>
+        internal static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
         
@@ -645,6 +924,33 @@ namespace Recipe_Writer {
         internal static string ToolTipRecipeReadyToCookStatusText {
             get {
                 return ResourceManager.GetString("ToolTipRecipeReadyToCookStatusText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tuesday.
+        /// </summary>
+        internal static string Tuesday {
+            get {
+                return ResourceManager.GetString("Tuesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Type :.
+        /// </summary>
+        internal static string TypeIngredient {
+            get {
+                return ResourceManager.GetString("TypeIngredient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wednesday.
+        /// </summary>
+        internal static string Wednesday {
+            get {
+                return ResourceManager.GetString("Wednesday", resourceCulture);
             }
         }
     }

@@ -50,21 +50,23 @@
             // 
             // lblRecipeTitle
             // 
+            this.lblRecipeTitle.AutoSize = true;
             this.lblRecipeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblRecipeTitle.Location = new System.Drawing.Point(40, 54);
             this.lblRecipeTitle.Name = "lblRecipeTitle";
-            this.lblRecipeTitle.Size = new System.Drawing.Size(50, 18);
+            this.lblRecipeTitle.Size = new System.Drawing.Size(45, 18);
             this.lblRecipeTitle.TabIndex = 6;
             this.lblRecipeTitle.Text = "Titre :";
             this.lblRecipeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkLowBudget
             // 
+            this.chkLowBudget.AutoSize = true;
             this.chkLowBudget.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkLowBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkLowBudget.Location = new System.Drawing.Point(254, 161);
+            this.chkLowBudget.Location = new System.Drawing.Point(290, 161);
             this.chkLowBudget.Name = "chkLowBudget";
-            this.chkLowBudget.Size = new System.Drawing.Size(179, 24);
+            this.chkLowBudget.Size = new System.Drawing.Size(141, 22);
             this.chkLowBudget.TabIndex = 2;
             this.chkLowBudget.Text = "Pour petit budget";
             this.chkLowBudget.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -73,6 +75,7 @@
             // 
             // lblMinutes
             // 
+            this.lblMinutes.AutoSize = true;
             this.lblMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblMinutes.Location = new System.Drawing.Point(384, 110);
             this.lblMinutes.Name = "lblMinutes";
@@ -83,10 +86,11 @@
             // 
             // lblRecipeCompletionTime
             // 
+            this.lblRecipeCompletionTime.AutoSize = true;
             this.lblRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblRecipeCompletionTime.Location = new System.Drawing.Point(120, 109);
+            this.lblRecipeCompletionTime.Location = new System.Drawing.Point(142, 110);
             this.lblRecipeCompletionTime.Name = "lblRecipeCompletionTime";
-            this.lblRecipeCompletionTime.Size = new System.Drawing.Size(185, 21);
+            this.lblRecipeCompletionTime.Size = new System.Drawing.Size(153, 18);
             this.lblRecipeCompletionTime.TabIndex = 6;
             this.lblRecipeCompletionTime.Text = "Temps de réalisation :";
             this.lblRecipeCompletionTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -148,7 +152,7 @@
             this.MinimizeBox = false;
             this.Name = "frmEditRecipeInfos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Modifier les infos de base de la recette";
+            this.Text = "Modifier les infos de base de cette recette";
             this.Load += new System.EventHandler(this.frmEditRecipeInfos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

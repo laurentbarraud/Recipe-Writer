@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtNewNameOfIngredient = new System.Windows.Forms.TextBox();
-            this.lblNewNameOfIngredient = new System.Windows.Forms.Label();
+            this.lblNewIngredientName = new System.Windows.Forms.Label();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -42,16 +42,16 @@
             this.txtNewNameOfIngredient.Size = new System.Drawing.Size(432, 24);
             this.txtNewNameOfIngredient.TabIndex = 0;
             // 
-            // lblNewNameOfIngredient
+            // lblNewIngredientName
             // 
-            this.lblNewNameOfIngredient.AutoSize = true;
-            this.lblNewNameOfIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNewNameOfIngredient.Location = new System.Drawing.Point(29, 24);
-            this.lblNewNameOfIngredient.Name = "lblNewNameOfIngredient";
-            this.lblNewNameOfIngredient.Size = new System.Drawing.Size(216, 18);
-            this.lblNewNameOfIngredient.TabIndex = 3;
-            this.lblNewNameOfIngredient.Text = "Nouveau nom pour l\'ingrédient :";
-            this.lblNewNameOfIngredient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblNewIngredientName.AutoSize = true;
+            this.lblNewIngredientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNewIngredientName.Location = new System.Drawing.Point(29, 24);
+            this.lblNewIngredientName.Name = "lblNewIngredientName";
+            this.lblNewIngredientName.Size = new System.Drawing.Size(183, 18);
+            this.lblNewIngredientName.TabIndex = 3;
+            this.lblNewIngredientName.Text = "Nom du nouvel ingrédient :";
+            this.lblNewIngredientName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmdValidate
             // 
@@ -90,13 +90,13 @@
             this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdValidate);
             this.Controls.Add(this.txtNewNameOfIngredient);
-            this.Controls.Add(this.lblNewNameOfIngredient);
+            this.Controls.Add(this.lblNewIngredientName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEditIngredientName";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Modifier le titre d\'un ingrédient";
+            this.Text = "Modifier le nom d\'un ingrédient";
             this.Load += new System.EventHandler(this.frmEditIngredientName_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,6 +108,6 @@
         private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Button cmdValidate;
         private System.Windows.Forms.TextBox txtNewNameOfIngredient;
-        private System.Windows.Forms.Label lblNewNameOfIngredient;
+        private System.Windows.Forms.Label lblNewIngredientName;
     }
 }

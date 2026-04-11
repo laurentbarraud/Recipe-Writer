@@ -1,7 +1,7 @@
 ﻿/// <file>frmAddNewIngredientToTheDB.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 10th 2026</date>
+/// <date>April 12th 2026</date>
 
 using System;
 using System.Collections.Generic;
@@ -37,6 +37,19 @@ namespace Recipe_Writer
             cmdDelete.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
+
+            // Title
+            string windowTitle = strings.AddNewIngredientToBase;
+
+            if (!string.IsNullOrEmpty(windowTitle))
+            {
+                this.Text = windowTitle;
+            }
+
+            // Labels
+            lblNewIngredientNameFr.Text = strings.NewIngredientNameFr;
+            lblNewIngredientNameEn.Text = strings.NewIngredientNameEn;
+            lblTypeIngredient.Text = strings.TypeIngredient;
         }
 
         private void frmAddNewIngredientToTheDB_Load(object sender, EventArgs e)

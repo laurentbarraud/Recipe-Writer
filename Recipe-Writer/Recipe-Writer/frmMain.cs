@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 10th 2026</date>
+/// <date>April 12th 2026</date>
 
 using Recipe_Writer.Properties;
 using System;
@@ -51,9 +51,33 @@ namespace Recipe_Writer
         // Declares and instanciates the current displayed recipe object, constructed with default values, and accessible globally
         public Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, null, _defaultListIngredients, _defaultListInstructions);
 
-        public frmMain()
+        public frmMain(bool enableFadeIn = false)
         {
             InitializeComponent();
+
+            // Optional fade-in animation
+            if (enableFadeIn)
+            {
+                this.Opacity = 0;
+
+                System.Windows.Forms.Timer fadeTimer = new System.Windows.Forms.Timer();
+                fadeTimer.Interval = 15;
+
+                fadeTimer.Tick += (s, e) =>
+                {
+                    if (this.Opacity < 1.0)
+                    {
+                        this.Opacity += 0.05;
+                    }
+                    else
+                    {
+                        fadeTimer.Stop();
+                        fadeTimer.Dispose();
+                    }
+                };
+
+                fadeTimer.Start();
+            }
 
             // Register buttons in the global dictionary for hover effect
             UIHoverHelper.ButtonBaseResourceNames[cmdNewRecipe] = "new_recipe";
@@ -88,18 +112,11 @@ namespace Recipe_Writer
             cmdingredientSearch.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdAddInstruction.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdAddInstruction.MouseLeave += UIHoverHelper.Button_MouseLeave;
-        }
 
-        /// <summary>
-        /// Form load
-        /// </summary>
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            int nbPersonsSet = Properties.Settings.Default.NbPersonsSet;
-            nudPersons.Value = nbPersonsSet;
-
+            // Labels
             lblSearchResults.Text = strings.SearchResults;
 
+            // Contextual menu items
             newRecipeToolStripMenuItem.Text = strings.ToolStripMenuItemNewRecipe;
             editThisRecipesInfosToolStripMenuItem.Text = strings.ToolStripMenuItemEditBasicInfos;
             deleteThisRecipeToolStripMenuItem.Text = strings.ToolStripMenuItemDeleteThisRecipe;
@@ -114,6 +131,15 @@ namespace Recipe_Writer
             fridayToolStripMenuItem.Text = strings.ToolStripMenuItemFriday;
             saturdayToolStripMenuItem.Text = strings.ToolStripMenuItemSaturday;
             sundayToolStripMenuItem.Text = strings.ToolStripMenuItemSunday;
+        }
+
+        /// <summary>
+        /// Form load
+        /// </summary>
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            int nbPersonsSet = Properties.Settings.Default.NbPersonsSet;
+            nudPersons.Value = nbPersonsSet;
 
             txtTitleSearch.Focus();
 
@@ -534,7 +560,7 @@ namespace Recipe_Writer
 
                 // Instruction label, detailed layout =========================================================================================
                 lblInstruction.Text = instructionItem.Text;
-                lblInstruction.Width = 615;
+                lblInstruction.Width = 550;
                 lblInstruction.Height = lineHeight;
                 lblInstruction.Location = new Point(20, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
                 lblInstruction.TextAlign = ContentAlignment.MiddleLeft;
@@ -563,8 +589,8 @@ namespace Recipe_Writer
                 cmdDeleteInstruction.BackgroundImageLayout = ImageLayout.Zoom;
 
                 // Corrects the layout for the panel ============================================================================================
-                cmdEditInstruction.Location = new Point(20 + spacingWidth + lblInstruction.Width + spacingWidth + spacingWidth + spacingWidth, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
-                cmdDeleteInstruction.Location = new Point(20 + spacingWidth + lblInstruction.Width + spacingWidth + spacingWidth + spacingWidth + cmdEditInstruction.Width + spacingWidth, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
+                cmdEditInstruction.Location = new Point(20 + lblInstruction.Width  + spacingWidth, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
+                cmdDeleteInstruction.Location = new Point(20 + lblInstruction.Width + spacingWidth + cmdEditInstruction.Width + spacingWidth, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
 
                 // Adds the controls to the layout ============================================================================================
                 pnlInstructions.Controls.Add(lblInstruction);
@@ -1259,7 +1285,7 @@ namespace Recipe_Writer
             }
 
             // Appelle la base de données avec les filtres sélectionnés
-            List<string> listTitlesRequested = dbConn.SearchRecipesByIngredients(searchIngredientsInputList, Properties.Settings.Default.AppLanguage, filterForSmallBudget, filterForThreeStars);
+            List<string> listTitlesRequested = dbConn.SearchRecipesByIngredients(searchIngredientsInputList, Properties.Settings.Default.AppLanguageCode, filterForSmallBudget, filterForThreeStars);
 
             // Ajoute les résultats à la liste
             foreach (string titleItem in listTitlesRequested)

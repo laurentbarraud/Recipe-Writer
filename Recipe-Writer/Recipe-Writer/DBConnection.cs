@@ -2,7 +2,7 @@
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 10th 2026</date>
+/// <date>April 12th 2026</date>
 
 using System;
 using System.Data.SQLite;
@@ -660,7 +660,7 @@ namespace Recipe_Writer
         public List<string> ReadAllIngredientsStoredForAType(int typeProvided = 0)
         {
             List<string> listAllIngredientsFoundInDB = new List<string>();
-            string selectedLanguage = Properties.Settings.Default.AppLanguage.ToString();
+            string selectedLanguage = Properties.Settings.Default.AppLanguageCode.ToString();
             
             // Determines the correct column based on the language
             string ingredientColumn = "ingredientName_" + selectedLanguage;
@@ -1030,7 +1030,7 @@ namespace Recipe_Writer
         public string ReadScaleNameForAnID(int scaleId)
         {
             string scaleNameFound = "";
-            string selectedLanguage = Properties.Settings.Default.AppLanguage.ToString();
+            string selectedLanguage = Properties.Settings.Default.AppLanguageCode.ToString();
 
             // Determining the correct column by language
             string scaleColumn = "scaleName_" + selectedLanguage;

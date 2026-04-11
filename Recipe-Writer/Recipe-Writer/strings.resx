@@ -315,4 +315,106 @@ Please contact me for any improvement or bug report.</value>
   <data name="ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe" xml:space="preserve">
     <value>Delete selected ingredient from this recipe</value>
   </data>
+  <data name="AddNewIngredientToRecipe" xml:space="preserve">
+    <value>Add new ingredient to this recipe</value>
+  </data>
+  <data name="NewIngredientName" xml:space="preserve">
+    <value>New ingredient name :</value>
+  </data>
+  <data name="QtyIngredientNeeded" xml:space="preserve">
+    <value>Quantity of ingredient needed :</value>
+  </data>
+  <data name="AddNewIngredientToBase" xml:space="preserve">
+    <value>Add new ingredient to the database</value>
+  </data>
+  <data name="NewIngredientNameFr" xml:space="preserve">
+    <value>New ingredient name (Fr) :</value>
+  </data>
+  <data name="NewIngredientNameEn" xml:space="preserve">
+    <value>New ingredient name (En) :</value>
+  </data>
+  <data name="TypeIngredient" xml:space="preserve">
+    <value>Type :</value>
+  </data>
+  <data name="EditIngredientName" xml:space="preserve">
+    <value>Edit ingredient name</value>
+  </data>
+  <data name="lblTypeIngredient1" xml:space="preserve">
+    <value>Meat</value>
+  </data>
+  <data name="lblTypeIngredient2" xml:space="preserve">
+    <value>Fish and seafood</value>
+  </data>
+  <data name="lblTypeIngredient3" xml:space="preserve">
+    <value>Fruit</value>
+  </data>
+  <data name="lblTypeIngredient4" xml:space="preserve">
+    <value>Vegetables, legumes and mushrooms</value>
+  </data>
+  <data name="lblTypeIngredient11" xml:space="preserve">
+    <value>Alcohols and spirits</value>
+  </data>
+  <data name="lblTypeIngredient12" xml:space="preserve">
+    <value>Sauces and water</value>
+  </data>
+  <data name="NbOfIngredientsStored" xml:space="preserve">
+    <value>Number of ingredients stored :</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title :</value>
+  </data>
+  <data name="CompletionTime" xml:space="preserve">
+    <value>Completion time :</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="LowBudget" xml:space="preserve">
+    <value>Low budget</value>
+  </data>
+  <data name="EditRecipeBasicInfo" xml:space="preserve">
+    <value>Edit basic information for this recipe</value>
+  </data>
+  <data name="MealPlanner" xml:space="preserve">
+    <value>Meal planner</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="HowToUsePlannerText" xml:space="preserve">
+    <value>Drag and drop a recipe title into the box of your choice, or select its title and double-click on an empty box to assign it.</value>
+  </data>
+  <data name="EnterNameForIllustrationImage" xml:space="preserve">
+    <value>Enter a name for the illustration image :</value>
+  </data>
+  <data name="ImageFilename" xml:space="preserve">
+    <value>File name to give the image :</value>
+  </data>
+  <data name="AddNewInstructionToThisRecipe" xml:space="preserve">
+    <value>Add a new instruction to this recipe</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Instruction :</value>
+  </data>
+  <data name="EnterBasicInfoForNewRecipe" xml:space="preserve">
+    <value>Enter basic information for the new recipe</value>
+  </data>
 </root>

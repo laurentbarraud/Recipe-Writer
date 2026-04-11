@@ -1,16 +1,13 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 10th 2026</date>
+/// <date>April 12th 2026</date>
 /// 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Recipe_Writer
 {
@@ -18,6 +15,9 @@ namespace Recipe_Writer
     {
         // Declares the parent form to be able to access its controls
         public frmMain _frmMain;
+
+        // Dynamic delegate to update ingredient lists with localization support
+        private Action<int> fillInListBoxesDelegate;
 
         // Constructor - Adds the parent form as parameter in the form constructor
         public frmInventory(frmMain parentMain)
@@ -35,10 +35,24 @@ namespace Recipe_Writer
             cmdAddNewIngredientIntoDB.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
-        }
 
-        // Dynamic delegate to update ingredient lists with localization support
-        private Action<int> fillInListBoxesDelegate;
+            // Title
+            string windowTitle = strings.Inventory;
+
+            if (!string.IsNullOrEmpty(windowTitle))
+            {
+                this.Text = windowTitle;
+            }
+
+            // Labels
+            lblTypeIngredient1.Text = strings.lblTypeIngredient1;
+            lblTypeIngredient2.Text = strings.lblTypeIngredient2;
+            lblTypeIngredient3.Text = strings.lblTypeIngredient3;
+            lblTypeIngredient4.Text = strings.lblTypeIngredient4;
+            lblTypeIngredient11.Text = strings.lblTypeIngredient11;
+            lblTypeIngredient12.Text = strings.lblTypeIngredient12;
+            lblNbOfIngredientsStored.Text = strings.NbOfIngredientsStored;
+        }
 
         /// <summary>
         /// Handles the load event of the form.
@@ -47,15 +61,7 @@ namespace Recipe_Writer
         /// </summary>
         private void frmInventory_Load(object sender, EventArgs e)
         {
-            var cultureInfoCode = new System.Globalization.CultureInfo(Properties.Settings.Default.AppLanguage);
-
-            // Title
-            string title = strings.Inventory;
-            
-            if (!string.IsNullOrEmpty(title))
-            {
-                this.Text = title;
-            }
+            var cultureInfoCode = new System.Globalization.CultureInfo(Properties.Settings.Default.AppLanguageCode);
 
             // Tabs
             foreach (TabControl tabControl in this.Controls.OfType<TabControl>())
