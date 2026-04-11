@@ -111,7 +111,7 @@
             // 
             this.lblSearchResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblSearchResults.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblSearchResults.Location = new System.Drawing.Point(91, 87);
+            this.lblSearchResults.Location = new System.Drawing.Point(105, 87);
             this.lblSearchResults.Name = "lblSearchResults";
             this.lblSearchResults.Size = new System.Drawing.Size(208, 28);
             this.lblSearchResults.TabIndex = 0;
@@ -123,7 +123,7 @@
             this.pnlInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlInstructions.Location = new System.Drawing.Point(91, 276);
             this.pnlInstructions.Name = "pnlInstructions";
-            this.pnlInstructions.Size = new System.Drawing.Size(827, 354);
+            this.pnlInstructions.Size = new System.Drawing.Size(868, 354);
             this.pnlInstructions.TabIndex = 17;
             // 
             // nudPersons
@@ -168,9 +168,9 @@
             this.lstSearchResults.ContextMenuStrip = this.cmsRecipeResult;
             this.lstSearchResults.FormattingEnabled = true;
             this.lstSearchResults.ItemHeight = 16;
-            this.lstSearchResults.Location = new System.Drawing.Point(91, 117);
+            this.lstSearchResults.Location = new System.Drawing.Point(103, 117);
             this.lstSearchResults.Name = "lstSearchResults";
-            this.lstSearchResults.Size = new System.Drawing.Size(503, 84);
+            this.lstSearchResults.Size = new System.Drawing.Size(506, 84);
             this.lstSearchResults.TabIndex = 2;
             this.lstSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstSearchResults_SelectedIndexChanged);
             this.lstSearchResults.DoubleClick += new System.EventHandler(this.lstSearchResults_DoubleClick);
@@ -483,7 +483,7 @@
             this.pnlScore.Controls.Add(this.picScore3);
             this.pnlScore.Controls.Add(this.picScore2);
             this.pnlScore.Controls.Add(this.picScore1);
-            this.pnlScore.Location = new System.Drawing.Point(718, 242);
+            this.pnlScore.Location = new System.Drawing.Point(718, 233);
             this.pnlScore.Name = "pnlScore";
             this.pnlScore.Size = new System.Drawing.Size(200, 30);
             this.pnlScore.TabIndex = 25;
@@ -553,7 +553,7 @@
             this.cmdAddInstruction.FlatAppearance.BorderSize = 0;
             this.cmdAddInstruction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAddInstruction.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmdAddInstruction.Location = new System.Drawing.Point(930, 595);
+            this.cmdAddInstruction.Location = new System.Drawing.Point(974, 595);
             this.cmdAddInstruction.Name = "cmdAddInstruction";
             this.cmdAddInstruction.Size = new System.Drawing.Size(40, 35);
             this.cmdAddInstruction.TabIndex = 18;
@@ -653,7 +653,7 @@
             this.cmdEditRecipeInfos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdEditRecipeInfos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdEditRecipeInfos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmdEditRecipeInfos.Location = new System.Drawing.Point(602, 116);
+            this.cmdEditRecipeInfos.Location = new System.Drawing.Point(617, 116);
             this.cmdEditRecipeInfos.Name = "cmdEditRecipeInfos";
             this.cmdEditRecipeInfos.Size = new System.Drawing.Size(32, 32);
             this.cmdEditRecipeInfos.TabIndex = 15;
@@ -672,7 +672,7 @@
             this.cmdDeleteRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDeleteRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmdDeleteRecipe.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmdDeleteRecipe.Location = new System.Drawing.Point(602, 157);
+            this.cmdDeleteRecipe.Location = new System.Drawing.Point(617, 157);
             this.cmdDeleteRecipe.Name = "cmdDeleteRecipe";
             this.cmdDeleteRecipe.Size = new System.Drawing.Size(32, 32);
             this.cmdDeleteRecipe.TabIndex = 16;
@@ -696,7 +696,7 @@
             this.picRecipe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picRecipe.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picRecipe.Location = new System.Drawing.Point(718, 38);
+            this.picRecipe.Location = new System.Drawing.Point(718, 21);
             this.picRecipe.Name = "picRecipe";
             this.picRecipe.Size = new System.Drawing.Size(200, 200);
             this.picRecipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -757,7 +757,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(987, 651);
+            this.ClientSize = new System.Drawing.Size(1029, 651);
             this.ContextMenuStrip = this.cmsRecipeResult;
             this.Controls.Add(this.cmdMealPlanner);
             this.Controls.Add(this.cmdInventory);
