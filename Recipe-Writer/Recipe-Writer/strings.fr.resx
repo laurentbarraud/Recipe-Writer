@@ -328,10 +328,10 @@ Merci de me contacter pour toute amélioration ou signalement de bug.</value>
     <value>Ajouter un ingrédient à la base de données</value>
   </data>
   <data name="NewIngredientNameFr" xml:space="preserve">
-    <value>Nom de l'ingrédient (Fr) </value>
+    <value>Nom de l'ingrédient (Fr) :</value>
   </data>
   <data name="NewIngredientNameEn" xml:space="preserve">
-    <value>Nom de l'ingrédient (En) </value>
+    <value>Nom de l'ingrédient (En) :</value>
   </data>
   <data name="TypeIngredient" xml:space="preserve">
     <value>Type :</value>
@@ -416,5 +416,14 @@ Merci de me contacter pour toute amélioration ou signalement de bug.</value>
   </data>
   <data name="EnterBasicInfoForNewRecipe" xml:space="preserve">
     <value>Entrer les infos de base pour la nouvelle recette</value>
+  </data>
+  <data name="NewIngredientNameEs" xml:space="preserve">
+    <value>Nom de l'ingrédient (Es) :</value>
+  </data>
+  <data name="AppLanguage" xml:space="preserve">
+    <value>Langue de l'application</value>
+  </data>
+  <data name="Spanish" xml:space="preserve">
+    <value>espagnol</value>
   </data>
 </root>

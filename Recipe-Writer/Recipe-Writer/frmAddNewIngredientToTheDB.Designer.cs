@@ -37,6 +37,8 @@
             this.cmdValidate = new System.Windows.Forms.Button();
             this.txtNewIngredientNameEn = new System.Windows.Forms.TextBox();
             this.lblNewIngredientNameEn = new System.Windows.Forms.Label();
+            this.lblNewIngredientNameEs = new System.Windows.Forms.Label();
+            this.txtNewIngredientNameEs = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtNewIngredientNameFr
@@ -59,7 +61,7 @@
             // lblTypeIngredient
             // 
             this.lblTypeIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblTypeIngredient.Location = new System.Drawing.Point(32, 105);
+            this.lblTypeIngredient.Location = new System.Drawing.Point(32, 139);
             this.lblTypeIngredient.Name = "lblTypeIngredient";
             this.lblTypeIngredient.Size = new System.Drawing.Size(146, 18);
             this.lblTypeIngredient.TabIndex = 10;
@@ -70,7 +72,7 @@
             // 
             this.cmbTypesIngredientsListedInDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTypesIngredientsListedInDB.FormattingEnabled = true;
-            this.cmbTypesIngredientsListedInDB.Location = new System.Drawing.Point(206, 104);
+            this.cmbTypesIngredientsListedInDB.Location = new System.Drawing.Point(206, 138);
             this.cmbTypesIngredientsListedInDB.Name = "cmbTypesIngredientsListedInDB";
             this.cmbTypesIngredientsListedInDB.Size = new System.Drawing.Size(317, 24);
             this.cmbTypesIngredientsListedInDB.TabIndex = 11;
@@ -79,7 +81,7 @@
             // 
             this.cmbScaleNewIngredient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbScaleNewIngredient.FormattingEnabled = true;
-            this.cmbScaleNewIngredient.Location = new System.Drawing.Point(416, 50);
+            this.cmbScaleNewIngredient.Location = new System.Drawing.Point(416, 65);
             this.cmbScaleNewIngredient.Name = "cmbScaleNewIngredient";
             this.cmbScaleNewIngredient.Size = new System.Drawing.Size(107, 24);
             this.cmbScaleNewIngredient.TabIndex = 12;
@@ -92,7 +94,7 @@
             this.cmdDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdDelete.FlatAppearance.BorderSize = 0;
             this.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDelete.Location = new System.Drawing.Point(423, 154);
+            this.cmdDelete.Location = new System.Drawing.Point(423, 188);
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.Size = new System.Drawing.Size(40, 32);
             this.cmdDelete.TabIndex = 7;
@@ -106,7 +108,7 @@
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(478, 154);
+            this.cmdValidate.Location = new System.Drawing.Point(478, 188);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(40, 32);
             this.cmdValidate.TabIndex = 8;
@@ -115,7 +117,7 @@
             // 
             // txtNewIngredientNameEn
             // 
-            this.txtNewIngredientNameEn.Location = new System.Drawing.Point(206, 64);
+            this.txtNewIngredientNameEn.Location = new System.Drawing.Point(206, 66);
             this.txtNewIngredientNameEn.Name = "txtNewIngredientNameEn";
             this.txtNewIngredientNameEn.Size = new System.Drawing.Size(192, 22);
             this.txtNewIngredientNameEn.TabIndex = 13;
@@ -131,11 +133,31 @@
             this.lblNewIngredientNameEn.Text = "Nom de l\'ingrédient (En) :";
             this.lblNewIngredientNameEn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lblNewIngredientNameEs
+            // 
+            this.lblNewIngredientNameEs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNewIngredientNameEs.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblNewIngredientNameEs.Location = new System.Drawing.Point(12, 92);
+            this.lblNewIngredientNameEs.Name = "lblNewIngredientNameEs";
+            this.lblNewIngredientNameEs.Size = new System.Drawing.Size(188, 21);
+            this.lblNewIngredientNameEs.TabIndex = 15;
+            this.lblNewIngredientNameEs.Text = "Nom de l\'ingrédient (Es) :";
+            this.lblNewIngredientNameEs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtNewIngredientNameEs
+            // 
+            this.txtNewIngredientNameEs.Location = new System.Drawing.Point(206, 91);
+            this.txtNewIngredientNameEs.Name = "txtNewIngredientNameEs";
+            this.txtNewIngredientNameEs.Size = new System.Drawing.Size(192, 22);
+            this.txtNewIngredientNameEs.TabIndex = 16;
+            // 
             // frmAddNewIngredientToTheDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(592, 200);
+            this.ClientSize = new System.Drawing.Size(592, 240);
+            this.Controls.Add(this.txtNewIngredientNameEs);
+            this.Controls.Add(this.lblNewIngredientNameEs);
             this.Controls.Add(this.lblNewIngredientNameEn);
             this.Controls.Add(this.txtNewIngredientNameEn);
             this.Controls.Add(this.cmbScaleNewIngredient);
@@ -169,5 +191,7 @@
         private System.Windows.Forms.ComboBox cmbScaleNewIngredient;
         private System.Windows.Forms.TextBox txtNewIngredientNameEn;
         private System.Windows.Forms.Label lblNewIngredientNameEn;
+        private System.Windows.Forms.Label lblNewIngredientNameEs;
+        private System.Windows.Forms.TextBox txtNewIngredientNameEs;
     }
 }

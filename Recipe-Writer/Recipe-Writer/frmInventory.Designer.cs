@@ -524,6 +524,8 @@
             this.cmdAddNewIngredientIntoDB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdAddNewIngredientIntoDB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdAddNewIngredientIntoDB.FlatAppearance.BorderSize = 0;
+            this.cmdAddNewIngredientIntoDB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdAddNewIngredientIntoDB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdAddNewIngredientIntoDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAddNewIngredientIntoDB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdAddNewIngredientIntoDB.Location = new System.Drawing.Point(432, 444);
@@ -539,6 +541,8 @@
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdValidate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdValidate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmdValidate.Location = new System.Drawing.Point(487, 445);

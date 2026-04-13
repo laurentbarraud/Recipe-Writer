@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Recipe-Writer")]
-[assembly: AssemblyDescription("Manages a collection of recipes, with an inventory of available ingredients and a weekly meals planner.")]
+[assembly: AssemblyDescription("Manages a collection of recipes with an inventory and a weekly meal planner.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CPNV, Switzerland.")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Recipe-Writer")]
 [assembly: AssemblyCopyright("Laurent Barraud 2026")]
 [assembly: AssemblyTrademark("")]

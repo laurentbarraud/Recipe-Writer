@@ -88,6 +88,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Application language.
+        /// </summary>
+        internal static string AppLanguage {
+            get {
+                return ResourceManager.GetString("AppLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à The base will be rebuilt..
         /// </summary>
         internal static string BaseWillBeRebuilt {
@@ -631,6 +640,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à New ingredient name (Es) :.
+        /// </summary>
+        internal static string NewIngredientNameEs {
+            get {
+                return ResourceManager.GetString("NewIngredientNameEs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à New ingredient name (Fr) :.
         /// </summary>
         internal static string NewIngredientNameFr {
@@ -681,6 +699,15 @@ namespace Recipe_Writer {
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Spanish.
+        /// </summary>
+        internal static string Spanish {
+            get {
+                return ResourceManager.GetString("Spanish", resourceCulture);
             }
         }
         

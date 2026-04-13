@@ -1,12 +1,15 @@
 ﻿/// <file>frmAbout.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 12th 2026</date>
+/// <date>April 13th 2026</date>
 
 
+using Recipe_Writer.Properties;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -32,26 +35,40 @@ namespace Recipe_Writer
             cmdValidate.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdValidate.MouseLeave += UIHoverHelper.Button_MouseLeave;
 
+            // Form title
+            this.Text = strings.Settings;
+
+            // Label
+            lblAppLanguage.Text = strings.AppLanguage;
+
             // Language ComboBox initialization
             string currentLanguageCode = Properties.Settings.Default.AppLanguageCode;
 
-            var languages = new List<LanguageItem>
+            var supportedLanguages = new List<LanguageItem>
             {
                 new LanguageItem(strings.French,  "fr"),
-                new LanguageItem(strings.English, "en")
+                new LanguageItem(strings.English, "en"),
+                new LanguageItem(strings.Spanish, "es")
             };
 
             cmbAppLanguage.DisplayMember = "DisplayName";
             cmbAppLanguage.ValueMember = "LanguageCode";
-            cmbAppLanguage.DataSource = languages;
+            cmbAppLanguage.DataSource = supportedLanguages;
+
+            // Fallback used to avoid a crash if the language saved in settings
+            // no longer exists in the list of languages displayed in the ComboBox.
+            if (!supportedLanguages.Any(lang => lang.LanguageCode == currentLanguageCode))
+            {
+                currentLanguageCode = "en";
+            }
+
             cmbAppLanguage.SelectedValue = currentLanguageCode;
 
-            // License info
             lblInfosLicence.Text = strings.LicenceInfo + "\n\n" +
                                    strings.LicenceVersion + "\n\n" +
                                    strings.LicenceAuthor;
 
-            // Optional fade-in animation
+            // Fade-in animation for the form
             if (enableFadeIn)
             {
                 this.Opacity = 0;
@@ -74,32 +91,6 @@ namespace Recipe_Writer
 
                 fadeTimer.Start();
             }
-        }
-
-        /// <summary>
-        /// Handles the Load event of the Settings form.
-        /// Initializes the language selection ComboBox with localized display text bound to stable codes,
-        /// selects the current application language based on saved settings,
-        /// and updates the license information label.
-        /// </summary>
-        private void frmSettings_Load(object sender, EventArgs e)
-        {
-            string currentLanguageCode = Properties.Settings.Default.AppLanguageCode;
-
-            var languages = new List<LanguageItem>
-            {
-                new LanguageItem(strings.French,  "fr"),
-                new LanguageItem(strings.English, "en")
-            };
-
-            cmbAppLanguage.DisplayMember = "DisplayName";           // what the user sees
-            cmbAppLanguage.ValueMember = "LanguageCode";            // stable internal value
-            cmbAppLanguage.DataSource = languages;                  // binds the list
-            cmbAppLanguage.SelectedValue = currentLanguageCode;     // selects current language
-
-            lblInfosLicence.Text = strings.LicenceInfo + "\n\n" +
-                                   strings.LicenceVersion + "\n\n" +
-                                   strings.LicenceAuthor;
         }
 
         private void cmdValidate_Click(object sender, EventArgs e)

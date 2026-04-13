@@ -141,6 +141,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Recipes.cs" />
+    <Compile Include="strings.es.Designer.cs">
+      <DependentUpon>strings.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="strings.fr.Designer.cs">
       <DependentUpon>strings.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -193,6 +198,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.es.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="strings.fr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.fr.Designer.cs</LastGenOutput>
@@ -217,7 +227,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="recipe-album.db" />
+    <None Include="recipe-album.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="doc\recipe-writer-inventory-screenshot.jpg" />
@@ -370,9 +382,11 @@
     <None Include="Resources\new-recipe.png" />
     <None Include="Resources\validate-hover.png" />
     <Content Include="scripts\Recipe-writer-create-tables.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="scripts\Recipe-writer-insert-initial-data.sql" />
+    <Content Include="scripts\Recipe-writer-insert-initial-data.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

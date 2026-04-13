@@ -1,7 +1,7 @@
 ﻿/// <file>frmAddNewIngredientToTheDB.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 12th 2026</date>
+/// <date>April 13th 2026</date>
 
 using System;
 using System.Collections.Generic;
@@ -49,6 +49,7 @@ namespace Recipe_Writer
             // Labels
             lblNewIngredientNameFr.Text = strings.NewIngredientNameFr;
             lblNewIngredientNameEn.Text = strings.NewIngredientNameEn;
+            lblNewIngredientNameEs.Text = strings.NewIngredientNameEs;
             lblTypeIngredient.Text = strings.TypeIngredient;
         }
 
@@ -81,32 +82,55 @@ namespace Recipe_Writer
         {
             string ingredientFr = txtNewIngredientNameFr.Text.Trim();
             string ingredientEn = txtNewIngredientNameEn.Text.Trim();
+            string ingredientEs = txtNewIngredientNameEs.Text.Trim();
 
-            // Escape apostrophes to avoid SQL errors
-            if (ingredientFr.Contains("'")) ingredientFr = ingredientFr.Replace("'", "''");
-            if (ingredientEn.Contains("'")) ingredientEn = ingredientEn.Replace("'", "''");
+            // Escape apostrophes
+            ingredientFr = ingredientFr.Replace("'", "''");
+            ingredientEn = ingredientEn.Replace("'", "''");
+            ingredientEs = ingredientEs.Replace("'", "''");
 
-            // If one field is empty, copy the content of the other
-            if (string.IsNullOrWhiteSpace(ingredientFr)) ingredientFr = ingredientEn;
-            if (string.IsNullOrWhiteSpace(ingredientEn)) ingredientEn = ingredientFr;
-
-            // Verification that all required fields are filled
-            if (cmbTypesIngredientsListedInDB.SelectedIndex != -1 && cmbScaleNewIngredient.SelectedIndex != -1 && !string.IsNullOrWhiteSpace(ingredientFr))
-            {
-                try
-                {
-                    // Insert in the database with both languages
-                    _frmMain.dbConn.AddNewIngredientToDB(ingredientFr, ingredientEn, cmbScaleNewIngredient.SelectedIndex + 1, cmbTypesIngredientsListedInDB.SelectedIndex + 1);
-                    MessageBox.Show(strings.NewIngredientInsertedIntoBase, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(string.Format(strings.ErrorIngredientInsert, ex.Message), strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
+            // Rejects if all three text fields are empty
+            if (string.IsNullOrWhiteSpace(ingredientFr) &&
+                string.IsNullOrWhiteSpace(ingredientEn) &&
+                string.IsNullOrWhiteSpace(ingredientEs))
             {
                 MessageBox.Show(strings.ErrorEmptyFields, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Auto-fill missing fields based on any available value
+            if (string.IsNullOrWhiteSpace(ingredientFr))
+            {
+                ingredientFr = !string.IsNullOrWhiteSpace(ingredientEn) ? ingredientEn : ingredientEs;
+            }
+
+            if (string.IsNullOrWhiteSpace(ingredientEn))
+            {
+                ingredientEn = !string.IsNullOrWhiteSpace(ingredientFr) ? ingredientFr : ingredientEs;
+            }
+
+            if (string.IsNullOrWhiteSpace(ingredientEs))
+            {
+                ingredientEs = !string.IsNullOrWhiteSpace(ingredientFr) ? ingredientFr : ingredientEn;
+            }
+
+            // Validates dropdowns
+            if (cmbTypesIngredientsListedInDB.SelectedIndex == -1 || cmbScaleNewIngredient.SelectedIndex == -1)
+            {
+                MessageBox.Show(strings.ErrorEmptyFields, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                _frmMain.dbConn.AddNewIngredientToDB(ingredientFr, ingredientEn, ingredientEs, cmbScaleNewIngredient.SelectedIndex + 1,
+                cmbTypesIngredientsListedInDB.SelectedIndex + 1);
+
+                MessageBox.Show(strings.NewIngredientInsertedIntoBase, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format(strings.ErrorIngredientInsert, ex.Message), strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

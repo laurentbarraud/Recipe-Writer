@@ -99,7 +99,6 @@
             this.MinimizeBox = false;
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.frmSettings_Load);
             this.ResumeLayout(false);
 
         }

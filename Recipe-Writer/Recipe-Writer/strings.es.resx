@@ -118,312 +118,312 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Error" xml:space="preserve">
-    <value>Erreur</value>
+    <value>Error</value>
   </data>
   <data name="ErrorEmptyFields" xml:space="preserve">
-    <value>Please fill in all fields.</value>
+    <value>Por favor, rellene todos los campos.</value>
   </data>
   <data name="ErrorIngredientAdd" xml:space="preserve">
-    <value>Error while adding ingredient : {0}</value>
+    <value>Error al añadir el ingrediente : {0}</value>
   </data>
   <data name="ErrorIngredientInsert" xml:space="preserve">
-    <value>Error inserting an ingredient : {0}</value>
+    <value>Error al insertar un ingrediente : {0}</value>
   </data>
   <data name="ErrorMaxIngredientsNbReached" xml:space="preserve">
-    <value>Maximum number of ingredients for the recipe reached.</value>
+    <value>Se ha alcanzado el número máximo de ingredientes para la receta.</value>
   </data>
   <data name="ErrorMustEnterValidNumberForTimeCompletion" xml:space="preserve">
-    <value>Please enter a valid number for the time of completion of the recipe</value>
+    <value>Por favor, introduzca un número válido para el tiempo de preparación de la receta.</value>
   </data>
   <data name="ErrorNotANumber" xml:space="preserve">
-    <value>Please enter a valid actual number for the quantity of the ingredient.</value>
+    <value>Por favor, introduzca un número válido para la cantidad del ingrediente.</value>
   </data>
   <data name="NewIngredientInsertedIntoBase" xml:space="preserve">
-    <value>New ingredient inserted into base.</value>
+    <value>Nuevo ingrediente insertado en la base de datos.</value>
   </data>
   <data name="ErrorMustEnterACompletionTime" xml:space="preserve">
-    <value>Please enter a completion time for the recipe.</value>
+    <value>Por favor, introduzca un tiempo de preparación para la receta.</value>
   </data>
   <data name="ErrorMustEnterATitle" xml:space="preserve">
-    <value>Please enter a title for the recipe</value>
+    <value>Por favor, introduzca un título para la receta.</value>
   </data>
   <data name="ConfirmDeleteIngredientFromDB" xml:space="preserve">
-    <value>Remove this ingredient definitely ?</value>
+    <value>¿Eliminar definitivamente este ingrediente?</value>
   </data>
   <data name="ConfirmDeletion" xml:space="preserve">
-    <value>Confirm deletion</value>
+    <value>Confirmar eliminación</value>
   </data>
   <data name="ErrorDatabaseCorrupted" xml:space="preserve">
-    <value>The database is corrupted.</value>
+    <value>La base de datos está dañada.</value>
   </data>
   <data name="DBfileNotFound" xml:space="preserve">
-    <value>Database file not found.</value>
+    <value>No se encontró el archivo de la base de datos.</value>
   </data>
   <data name="DBWillBeBuiltWithInitialData" xml:space="preserve">
-    <value>The database will be built with the initial data.</value>
+    <value>La base de datos se construirá con los datos iniciales.</value>
   </data>
   <data name="ErrorMustEnterAtLeastOneIngredient" xml:space="preserve">
-    <value>Please enter at least one ingredient.</value>
+    <value>Por favor, introduzca al menos un ingrediente.</value>
   </data>
   <data name="ConfirmDeleteInstruction" xml:space="preserve">
-    <value>Really delete the instruction ?</value>
+    <value>¿Eliminar realmente la instrucción?</value>
   </data>
   <data name="ErrorNoIngredientSelected" xml:space="preserve">
-    <value>No ingredient was selected</value>
+    <value>No se ha seleccionado ningún ingrediente.</value>
   </data>
   <data name="ConfirmDeleteDisplayedRecipeFromDB" xml:space="preserve">
-    <value>Really delete the displayed recipe?</value>
+    <value>¿Eliminar realmente la receta mostrada?</value>
   </data>
   <data name="Preparation" xml:space="preserve">
-    <value>Preparation : </value>
+    <value>Preparación : </value>
   </data>
   <data name="NecessaryIngredients" xml:space="preserve">
-    <value>Necessary ingredients</value>
+    <value>Ingredientes necesarios</value>
   </data>
   <data name="InfoRecipeExported" xml:space="preserve">
-    <value>The recipe has been successfully exported !</value>
+    <value>¡La receta ha sido exportada con éxito!</value>
   </data>
   <data name="ErrorExport" xml:space="preserve">
-    <value>Error during export : {0}</value>
+    <value>Error durante la exportación : {0}</value>
   </data>
   <data name="InfoAmountOfIngredientsNeededDeducted" xml:space="preserve">
-    <value>The amount of ingredients needed to make this recipe has been deducted.</value>
+    <value>La cantidad de ingredientes necesarios para esta receta ha sido deducida.</value>
   </data>
   <data name="DeductionFromInventory" xml:space="preserve">
-    <value>Deduction from inventory</value>
+    <value>Deducción del inventario</value>
   </data>
   <data name="ErrorMustUseOnlyLettersForTheFileName" xml:space="preserve">
-    <value>Please use only letters from A to Z without accents, hyphens, underscores or numbers for the file name.</value>
+    <value>Por favor, utilice solo letras de la A a la Z sin acentos, guiones, guiones bajos ni números para el nombre del archivo.</value>
   </data>
   <data name="ConfirmKeepOldImageFile" xml:space="preserve">
-    <value>Keep the old image file ?</value>
+    <value>¿Conservar el archivo de imagen antiguo?</value>
   </data>
   <data name="ErrorMustEnterATitleForNewRecipe" xml:space="preserve">
-    <value>Please enter a title for the new recipe.</value>
+    <value>Por favor, introduzca un título para la nueva receta.</value>
   </data>
   <data name="LicenceInfo" xml:space="preserve">
-    <value>This software uses a SQLite database for data management.
-It was developed as part of a project to replace work at the end of an apprenticeship.
-It is licensed to you under the GNU License.
-Please contact me for any improvement or bug report.</value>
+    <value>Este software utiliza una base de datos SQLite para la gestión de datos.
+Fue desarrollado como parte de un proyecto para sustituir un trabajo de fin de aprendizaje.
+Está bajo licencia GNU.
+Por favor, contácteme para cualquier mejora o informe de errores.</value>
   </data>
   <data name="LicenceVersion" xml:space="preserve">
-    <value>v.1.1.4 - April 2026</value>
+    <value>v.1.1.4 - Abril 2026</value>
   </data>
   <data name="LicenceAuthor" xml:space="preserve">
-    <value>Created by Laurent Barraud.</value>
+    <value>Creado por Laurent Barraud.</value>
   </data>
   <data name="SearchResults" xml:space="preserve">
-    <value>Results :</value>
+    <value>Resultados :</value>
   </data>
   <data name="BaseWillBeRebuilt" xml:space="preserve">
-    <value>The base will be rebuilt.</value>
+    <value>La base será reconstruida.</value>
   </data>
   <data name="InfoIngredientDeletedFromDB" xml:space="preserve">
-    <value>Ingredient successfully deleted from the database.</value>
+    <value>Ingrediente eliminado correctamente de la base de datos.</value>
   </data>
   <data name="ExportToHTMLDialogFilter" xml:space="preserve">
-    <value>Web pages|*.html;*.htm</value>
+    <value>Páginas web|*.html;*.htm</value>
   </data>
   <data name="ExportToHTMLDialogTitle" xml:space="preserve">
-    <value>Export the recipe to a web page.</value>
+    <value>Exportar la receta a una página web.</value>
   </data>
   <data name="IngredientConnector" xml:space="preserve">
-    <value>of</value>
+    <value>de</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Ajustes</value>
   </data>
   <data name="ToolTipRecipeReadyToCookStatusText" xml:space="preserve">
-    <value>Indicates if you have enough ingredients to make the recipe.</value>
+    <value>Indica si tiene suficientes ingredientes para preparar la receta.</value>
   </data>
   <data name="French" xml:space="preserve">
-    <value>French</value>
+    <value>Francés</value>
   </data>
   <data name="English" xml:space="preserve">
-    <value>English</value>
+    <value>Inglés</value>
   </data>
   <data name="TabInventory_0" xml:space="preserve">
-    <value>Meat / Fish / Seafood</value>
+    <value>Carne / Pescado / Mariscos</value>
   </data>
   <data name="TabInventory_1" xml:space="preserve">
-    <value>Fruits / Vegetables / Legumes / Mushrooms</value>
+    <value>Frutas / Verduras / Legumbres / Hongos</value>
   </data>
   <data name="TabInventory_2" xml:space="preserve">
-    <value>Dairy Products / Eggs</value>
+    <value>Lácteos / Huevos</value>
   </data>
   <data name="TabInventory_3" xml:space="preserve">
-    <value>Cereals / Starches</value>
+    <value>Cereales / Féculas</value>
   </data>
   <data name="TabInventory_4" xml:space="preserve">
-    <value>Spices / Herbs / Condiments</value>
+    <value>Especias / Hierbas / Condimentos</value>
   </data>
   <data name="TabInventory_5" xml:space="preserve">
-    <value>Nuts / Seeds</value>
+    <value>Frutos secos / Semillas</value>
   </data>
   <data name="TabInventory_6" xml:space="preserve">
-    <value>Oils / Fats</value>
+    <value>Aceites / Grasas</value>
   </data>
   <data name="TabInventory_7" xml:space="preserve">
-    <value>Bakery / Pastry Products</value>
+    <value>Panadería / Pastelería</value>
   </data>
   <data name="Inventory" xml:space="preserve">
-    <value>Inventory of ingredients</value>
+    <value>Inventario de ingredientes</value>
   </data>
   <data name="TabInventory_8" xml:space="preserve">
-    <value>Alcohol / Spirits / Sauces / Water</value>
+    <value>Alcohol / Licores / Salsas / Agua</value>
   </data>
   <data name="ToolStripMenuItemNewRecipe" xml:space="preserve">
-    <value>New recipe</value>
+    <value>Nueva receta</value>
   </data>
   <data name="ToolStripMenuItemEditBasicInfos" xml:space="preserve">
-    <value>Edit recipe basic info</value>
+    <value>Editar información básica de la receta</value>
   </data>
   <data name="ToolStripMenuItemDeleteThisRecipe" xml:space="preserve">
-    <value>Delete this recipe</value>
+    <value>Eliminar esta receta</value>
   </data>
   <data name="ToolStripMenuItemExportThisRecipeToAWebPage" xml:space="preserve">
-    <value>Export this recipe to a web page</value>
+    <value>Exportar esta receta a una página web</value>
   </data>
   <data name="ToolStripMenuItemPlanThisRecipeFor" xml:space="preserve">
-    <value>Plan this recipe for</value>
+    <value>Planificar esta receta para</value>
   </data>
   <data name="ToolStripMenuItemMonday" xml:space="preserve">
-    <value>Monday</value>
+    <value>Lunes</value>
   </data>
   <data name="ToolStripMenuItemTuesday" xml:space="preserve">
-    <value>Tuesday</value>
+    <value>Martes</value>
   </data>
   <data name="ToolStripMenuItemWednesday" xml:space="preserve">
-    <value>Wednesday</value>
+    <value>Miércoles</value>
   </data>
   <data name="ToolStripMenuItemThursday" xml:space="preserve">
-    <value>Thursday</value>
+    <value>Jueves</value>
   </data>
   <data name="ToolStripMenuItemFriday" xml:space="preserve">
-    <value>Friday</value>
+    <value>Viernes</value>
   </data>
   <data name="ToolStripMenuItemSaturday" xml:space="preserve">
-    <value>Saturday</value>
+    <value>Sábado</value>
   </data>
   <data name="ToolStripMenuItemSunday" xml:space="preserve">
-    <value>Sunday</value>
+    <value>Domingo</value>
   </data>
   <data name="ToolStripMenuItemAddIngredientToThisRecipe" xml:space="preserve">
-    <value>Add ingredient to this recipe</value>
+    <value>Añadir ingrediente a esta receta</value>
   </data>
   <data name="ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe" xml:space="preserve">
-    <value>Delete selected ingredient from this recipe</value>
+    <value>Eliminar ingrediente seleccionado de esta receta</value>
   </data>
   <data name="AddNewIngredientToRecipe" xml:space="preserve">
-    <value>Add new ingredient to this recipe</value>
+    <value>Añadir nuevo ingrediente a esta receta</value>
   </data>
   <data name="NewIngredientName" xml:space="preserve">
-    <value>New ingredient name :</value>
+    <value>Nombre del nuevo ingrediente :</value>
   </data>
   <data name="QtyIngredientNeeded" xml:space="preserve">
-    <value>Quantity of ingredient needed :</value>
+    <value>Cantidad necesaria del ingrediente :</value>
   </data>
   <data name="AddNewIngredientToBase" xml:space="preserve">
-    <value>Add new ingredient to the database</value>
+    <value>Añadir nuevo ingrediente a la base de datos</value>
   </data>
   <data name="NewIngredientNameFr" xml:space="preserve">
-    <value>New ingredient name (Fr) :</value>
+    <value>Nombre del nuevo ingrediente (Fr) :</value>
   </data>
   <data name="NewIngredientNameEn" xml:space="preserve">
-    <value>New ingredient name (En) :</value>
+    <value>Nombre del nuevo ingrediente (En) :</value>
   </data>
   <data name="TypeIngredient" xml:space="preserve">
-    <value>Type :</value>
+    <value>Tipo :</value>
   </data>
   <data name="EditIngredientName" xml:space="preserve">
-    <value>Edit ingredient name</value>
+    <value>Editar nombre del ingrediente</value>
   </data>
   <data name="lblTypeIngredient1" xml:space="preserve">
-    <value>Meat</value>
+    <value>Carne</value>
   </data>
   <data name="lblTypeIngredient2" xml:space="preserve">
-    <value>Fish and seafood</value>
+    <value>Pescado y mariscos</value>
   </data>
   <data name="lblTypeIngredient3" xml:space="preserve">
-    <value>Fruit</value>
+    <value>Fruta</value>
   </data>
   <data name="lblTypeIngredient4" xml:space="preserve">
-    <value>Vegetables, legumes and mushrooms</value>
+    <value>Verduras, legumbres y hongos</value>
   </data>
   <data name="lblTypeIngredient11" xml:space="preserve">
-    <value>Alcohols and spirits</value>
+    <value>Alcoholes y licores</value>
   </data>
   <data name="lblTypeIngredient12" xml:space="preserve">
-    <value>Sauces and water</value>
+    <value>Salsas y agua</value>
   </data>
   <data name="NbOfIngredientsStored" xml:space="preserve">
-    <value>Number of ingredients stored :</value>
+    <value>Número de ingredientes almacenados :</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Title :</value>
+    <value>Título :</value>
   </data>
   <data name="CompletionTime" xml:space="preserve">
-    <value>Completion time :</value>
+    <value>Tiempo de preparación :</value>
   </data>
   <data name="Minutes" xml:space="preserve">
-    <value>minutes</value>
+    <value>minutos</value>
   </data>
   <data name="LowBudget" xml:space="preserve">
-    <value>Low budget</value>
+    <value>Bajo presupuesto</value>
   </data>
   <data name="EditRecipeBasicInfo" xml:space="preserve">
-    <value>Edit basic information for this recipe</value>
+    <value>Editar información básica de esta receta</value>
   </data>
   <data name="MealPlanner" xml:space="preserve">
-    <value>Meal planner</value>
+    <value>Planificador de comidas</value>
   </data>
   <data name="Monday" xml:space="preserve">
-    <value>Monday</value>
+    <value>Lunes</value>
   </data>
   <data name="Tuesday" xml:space="preserve">
-    <value>Tuesday</value>
+    <value>Martes</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
-    <value>Wednesday</value>
+    <value>Miércoles</value>
   </data>
   <data name="Thursday" xml:space="preserve">
-    <value>Thursday</value>
+    <value>Jueves</value>
   </data>
   <data name="Friday" xml:space="preserve">
-    <value>Friday</value>
+    <value>Viernes</value>
   </data>
   <data name="Saturday" xml:space="preserve">
-    <value>Saturday</value>
+    <value>Sábado</value>
   </data>
   <data name="Sunday" xml:space="preserve">
-    <value>Sunday</value>
+    <value>Domingo</value>
   </data>
   <data name="HowToUsePlannerText" xml:space="preserve">
-    <value>Drag and drop a recipe title into the box of your choice, or select its title and double-click on an empty box to assign it.</value>
+    <value>Arrastre y suelte el título de una receta en la casilla de su elección, o seleccione su título y haga doble clic en una casilla vacía para asignarla.</value>
   </data>
   <data name="EnterNameForIllustrationImage" xml:space="preserve">
-    <value>Enter a name for the illustration image :</value>
+    <value>Introduzca un nombre para la imagen de ilustración :</value>
   </data>
   <data name="ImageFilename" xml:space="preserve">
-    <value>File name to give the image :</value>
+    <value>Nombre de archivo para la imagen :</value>
   </data>
   <data name="AddNewInstructionToThisRecipe" xml:space="preserve">
-    <value>Add a new instruction to this recipe</value>
+    <value>Añadir nueva instrucción a esta receta</value>
   </data>
   <data name="Instruction" xml:space="preserve">
-    <value>Instruction :</value>
+    <value>Instrucción :</value>
   </data>
   <data name="EnterBasicInfoForNewRecipe" xml:space="preserve">
-    <value>Enter basic information for the new recipe</value>
+    <value>Introduzca la información básica para la nueva receta</value>
   </data>
   <data name="NewIngredientNameEs" xml:space="preserve">
-    <value>New ingredient name (Es) :</value>
+    <value>Nombre del nuevo ingrediente (Es) :</value>
   </data>
   <data name="AppLanguage" xml:space="preserve">
-    <value>Application language</value>
+    <value>Idioma de la aplicación</value>
   </data>
   <data name="Spanish" xml:space="preserve">
-    <value>Spanish</value>
+    <value>español</value>
   </data>
 </root>

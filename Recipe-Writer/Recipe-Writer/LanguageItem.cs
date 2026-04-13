@@ -1,7 +1,7 @@
 ﻿/// <file>LanguageItem.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.1.4</version>
-/// <date>April 12th 2026</date>
+/// <date>April 13th 2026</date>
 
 using System;
 

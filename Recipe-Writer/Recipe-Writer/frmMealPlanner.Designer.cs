@@ -62,9 +62,9 @@
             // 
             // lblHowToUse
             // 
-            this.lblHowToUse.Location = new System.Drawing.Point(233, 313);
+            this.lblHowToUse.Location = new System.Drawing.Point(234, 297);
             this.lblHowToUse.Name = "lblHowToUse";
-            this.lblHowToUse.Size = new System.Drawing.Size(315, 48);
+            this.lblHowToUse.Size = new System.Drawing.Size(315, 70);
             this.lblHowToUse.TabIndex = 29;
             this.lblHowToUse.Text = "Glissez-déposez le titre d’une recette dans la case de votre choix, ou sélectionn" +
     "ez son titre et double-cliquez sur une case vide pour l’attribuer.";
@@ -452,6 +452,8 @@
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
+            this.cmdValidate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdValidate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdValidate.Location = new System.Drawing.Point(453, 370);
             this.cmdValidate.Name = "cmdValidate";
