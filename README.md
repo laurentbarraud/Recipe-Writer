@@ -1,7 +1,7 @@
 ## Recipe Writer
 
-A C# WinForms desktop application for managing recipes, organizing ingredients, and planning weekly meals.  
-Data storage is powered by an SQLite database. 
+A C# WinForms desktop application for managing recipes, organizing ingredients and planning weekly meals.  
+Data storage is powered by a local SQLite database. 
 
 [![Release](https://img.shields.io/badge/release-stable-79BB83)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
 [![Latest Release Downloads](https://img.shields.io/github/downloads/laurentbarraud/Recipe-Writer/latest/total?color=88aacc&style=flat)](https://github.com/laurentbarraud/Recipe-Writer/releases/latest)
@@ -14,7 +14,7 @@ Data storage is powered by an SQLite database.
 <img src="https://raw.githubusercontent.com/laurentbarraud/Recipe-Writer/refs/heads/master/Recipe-Writer/Recipe-Writer/doc/recipe-writer-inventory-screenshot.jpg" width="500" alt="Screenshot of the inventory showing ingredient management tabs">
 </p>
 
-Developed as a school project for the final examination of the Computer Specialist diploma in Western Switzerland.
+Developed as a school project for the final examination of the Computer Specialist diploma in Switzerland.
 
 ### Features
 - 🔍 Search recipes by keywords based on title  
@@ -28,13 +28,13 @@ Developed as a school project for the final examination of the Computer Speciali
 - 🍯 Jar icon indicates whether all ingredients are available for the currently displayed recipe  
 - 📅 Weekly meal planner, with drag and drop to assign meals to a day  
 - ➖ When a planned meal has been cooked, a "Prepared" button lets you deduct each used ingredient quantities from the inventory  
-- 🌐 Localized: English and French available. 
+- 🌐 Localized: English, French and Spanish available. 
   
 ### How to Run
 
 - Clone the repository using Git
 - Open the solution (.sln) file in Visual Studio 2022
-- Build the project with Ctrl+B, then run it.
+- Build the project with Ctrl+B then run it.
 
 ### Download
 
