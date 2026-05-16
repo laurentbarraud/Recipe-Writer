@@ -1,7 +1,7 @@
 ﻿/// <file>frmAbout.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.4</version>
-/// <date>April 13th 2026</date>
+/// <version>1.2</version>
+/// <date>May 17th 2026</date>
 
 
 using Recipe_Writer.Properties;
@@ -46,8 +46,8 @@ namespace Recipe_Writer
 
             var supportedLanguages = new List<LanguageItem>
             {
-                new LanguageItem(strings.French,  "fr"),
                 new LanguageItem(strings.English, "en"),
+                new LanguageItem(strings.French,  "fr"),
                 new LanguageItem(strings.Spanish, "es")
             };
 
@@ -115,7 +115,7 @@ namespace Recipe_Writer
         /// </summary>
         private void cmbAppLanguage_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            // Ignore invalid selections
+            // Ignores invalid selections
             if (cmbAppLanguage.SelectedValue == null)
             {
                 return;

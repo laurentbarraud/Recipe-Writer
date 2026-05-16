@@ -46,5 +46,17 @@ namespace Recipe_Writer.Properties {
                 this["NbPersonsSet"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        public int InstructionsFontSize {
+            get {
+                return ((int)(this["InstructionsFontSize"]));
+            }
+            set {
+                this["InstructionsFontSize"] = value;
+            }
+        }
     }
 }

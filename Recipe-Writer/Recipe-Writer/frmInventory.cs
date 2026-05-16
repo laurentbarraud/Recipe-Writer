@@ -1,12 +1,13 @@
 ﻿/// <file>frmInventory.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.4</version>
-/// <date>April 13th 2026</date>
+/// <version>1.2</version>
+/// <date>May 17th 2026</date>
 /// 
 using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -15,9 +16,6 @@ namespace Recipe_Writer
     {
         // Declares the parent form to be able to access its controls
         public frmMain _frmMain;
-
-        // Dynamic delegate to update ingredient lists with localization support
-        private Action<int> fillInListBoxesDelegate;
 
         // Constructor - Adds the parent form as parameter in the form constructor
         public frmInventory(frmMain parentMain)
@@ -172,154 +170,130 @@ namespace Recipe_Writer
             _frmAddNewIngredientToTheDB.Show();
         }
 
-        private void FillInListBoxesWithIngredientsNamesAndQuantities(int idTypeOfIngredient)
+        /// <summary>
+        /// Fills a target panel with ingredient rows (name + qty + scale + edit/delete buttons).
+        /// Each row is a horizontal panel aligned manually.
+        /// </summary>
+        public void FillPanelWithIngredients(Panel targetPanel, int typeId)
         {
-            int currentIngredient = 0;
+            // Clears previous controls
+            targetPanel.Controls.Clear();
 
-            // Tries to find the ListBox
-            ListBox listBoxToFill = null;
+            // Read all ingredients for this type
+            var ingredientsListForTypeId = _frmMain.dbConn.ReadIngredientsForType(typeId);
 
-            try
+            int posY = 0;
+            int rowHeight = 32;
+
+            foreach (var ingredient in ingredientsListForTypeId)
             {
-                string listBoxName = "lstIngredientsType" + idTypeOfIngredient;
-                listBoxToFill = (ListBox)this.Controls.Find(listBoxName, true).First();
-            }
-            catch
-            {
-                // If the ListBox does not exist, does nothing
-                return;
-            }
+                // Creates row panel
+                Panel pnlRow = new Panel();
+                pnlRow.Left = 0;
+                pnlRow.Top = posY;
+                pnlRow.Width = targetPanel.Width - 20;
+                pnlRow.Height = rowHeight;
 
-            listBoxToFill.Items.Clear();
-
-            // Adds ingredient names to the ListBox
-            foreach (string ingredientName in _frmMain.dbConn.ReadAllIngredientsStoredForAType(idTypeOfIngredient))
-            {
-                listBoxToFill.Items.Add(ingredientName);
-            }
-
-            // Tries to find the Panel
-            Panel panelToFill = null;
-
-            try
-            {
-                string panelName = "pnlIngredientsType" + idTypeOfIngredient;
-                panelToFill = (Panel)this.Controls.Find(panelName, true).First();
-            }
-            catch
-            {
-                // If the Panel does not exist, do nothing
-                return;
-            }
-
-            // Clears the panel before adding new controls
-            panelToFill.Controls.Clear();
-
-            // Layout parameters
-            int lineHeight = 5;
-            int iconHeight = 14;
-            int numericUpDownHeight = 10;
-            int iconWidth = 25;
-            int spacingWidth = 8;
-
-            // Generates dynamic controls
-            foreach (string ingredientName in listBoxToFill.Items)
-            {
-                int ingredientId = _frmMain.dbConn.ReadIdForAnIngredientName(ingredientName);
+                // Ingredient name label
+                Label lblIngredientName = new Label();
+                lblIngredientName.Text = ingredient.Name;
+                lblIngredientName.Left = 0;
+                lblIngredientName.Top = 6;
+                lblIngredientName.Width = 170;
 
                 // Quantity numeric up-down
-                NumericUpDown nudQtyIngredient = new NumericUpDown();
-                nudQtyIngredient.ValueChanged += (object sender_here, EventArgs e_here) =>
+                NumericUpDown nudIngredientQty = new NumericUpDown();
+                nudIngredientQty.Left = 180;
+                nudIngredientQty.Top = 4;
+                nudIngredientQty.Width = 50;
+                nudIngredientQty.Maximum = 10000;
+                nudIngredientQty.Value = (decimal)ingredient.Qty;
+                nudIngredientQty.ValueChanged += (s, e) =>
                 {
-                    _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientId, Convert.ToDouble(nudQtyIngredient.Value));
+                    _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredient.Id, (double)nudIngredientQty.Value);
                 };
-
-                nudQtyIngredient.Value = 0;
-                nudQtyIngredient.Maximum = 10000;
-                nudQtyIngredient.Font = new Font(nudQtyIngredient.Font.FontFamily, 9);
-                nudQtyIngredient.Width = 2 * iconWidth;
-                nudQtyIngredient.Height = numericUpDownHeight;
-                nudQtyIngredient.Location = new Point(0, currentIngredient * (iconHeight + lineHeight));
-                nudQtyIngredient.BorderStyle = BorderStyle.FixedSingle;
-
-                nudQtyIngredient.Value = decimal.Parse(_frmMain.dbConn.ReadQtyAvailableForAnIngredient(ingredientId).ToString());
 
                 // Scale label
-                Label lblScaleIngredient = new Label();
-                int scaleId = _frmMain.dbConn.ReadScaleIdForAnIngredient(ingredientId);
-                lblScaleIngredient.Text = _frmMain.dbConn.ReadScaleNameForAnID(scaleId);
-                lblScaleIngredient.Font = new Font(lblScaleIngredient.Font.FontFamily, 9);
-                lblScaleIngredient.AutoSize = true;
-                lblScaleIngredient.Location = new Point(nudQtyIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
+                Label lblScale = new Label();
+                lblScale.Text = ingredient.Scale;
+                lblScale.TextAlign = ContentAlignment.MiddleLeft;
+                lblScale.Left = 234;
+                lblScale.Top = 6;
+                lblScale.Width = 35;
 
-                // Edit ingredient name button
-                Button editIngredientName = new Button();
-                editIngredientName.Click += (object sender_here, EventArgs e_here) =>
+                // Edit button
+                Button btnEdit = new Button();
+                btnEdit.Left = 270;
+                btnEdit.Top = 4;
+                btnEdit.Width = 22;
+                btnEdit.Height = 22;
+                btnEdit.Cursor = Cursors.Hand;
+                btnEdit.FlatStyle = FlatStyle.Flat;
+                btnEdit.FlatAppearance.BorderSize = 0;
+                btnEdit.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
+                btnEdit.BackgroundImageLayout = ImageLayout.Zoom;
+
+                // Delete button
+                Button btnDelete = new Button();
+                btnDelete.Left = 295;
+                btnDelete.Top = 4;
+                btnDelete.Width = 22;
+                btnDelete.Height = 22;
+                btnDelete.Cursor = Cursors.Hand;
+                btnDelete.FlatStyle = FlatStyle.Flat;
+                btnDelete.FlatAppearance.BorderSize = 0;
+                btnDelete.BackgroundImage = Recipe_Writer.Properties.Resources.delete;
+                btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
+
+                btnEdit.Click += (s, e) =>
                 {
-                    frmEditIngredientName editForm = new frmEditIngredientName(this);
-                    editForm.IdIngredientToEdit = ingredientId;
-                    editForm.NameOfIngredientToEdit = ingredientName;
-                    editForm.Show(this);
+                    var formEditIngredientName = new frmEditIngredientName(this, ingredient.Id);
+                    formEditIngredientName.Show();
                 };
 
-                editIngredientName.Text = "";
-                editIngredientName.Width = iconWidth;
-                editIngredientName.Height = iconHeight;
-                editIngredientName.BackColor = Color.Transparent;
-                editIngredientName.FlatAppearance.BorderSize = 0;
-                editIngredientName.FlatStyle = FlatStyle.Flat;
-                editIngredientName.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
-                editIngredientName.BackgroundImageLayout = ImageLayout.Zoom;
-                editIngredientName.Location = new Point(lblScaleIngredient.Width + spacingWidth, currentIngredient * (iconHeight + lineHeight));
-
-                // Delete ingredient button
-                Button cmdDeleteIngredient = new Button();
-                cmdDeleteIngredient.Click += (object sender_here, EventArgs e_here) =>
+                btnDelete.Click += (s, e) =>
                 {
-                    var confirm = MessageBox.Show(strings.ConfirmDeleteIngredientFromDB,
-                                                  strings.ConfirmDeletion,
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-
-                    if (confirm == DialogResult.Yes)
+                    if (MessageBox.Show(strings.ConfirmDeleteIngredientFromDB, strings.ConfirmDeletion, MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        _frmMain.dbConn.DeleteIngredientFromAllRecipesAndFromDB(ingredientId);
+                        _frmMain.dbConn.DeleteIngredientFromAllRecipesAndFromDB(ingredient.Id);
                         RefreshInventory();
                     }
                 };
 
-                cmdDeleteIngredient.Text = "";
-                cmdDeleteIngredient.Width = iconWidth;
-                cmdDeleteIngredient.Height = iconHeight;
-                cmdDeleteIngredient.BackColor = Color.Transparent;
-                cmdDeleteIngredient.FlatAppearance.BorderSize = 0;
-                cmdDeleteIngredient.FlatStyle = FlatStyle.Flat;
-                cmdDeleteIngredient.BackgroundImage = Recipe_Writer.Properties.Resources.delete;
-                cmdDeleteIngredient.BackgroundImageLayout = ImageLayout.Zoom;
-                cmdDeleteIngredient.Location = new Point(editIngredientName.Left + 20, editIngredientName.Top);
-                cmdDeleteIngredient.Cursor = Cursors.Hand;
+                // Adds controls to row
+                pnlRow.Controls.Add(lblIngredientName);
+                pnlRow.Controls.Add(nudIngredientQty);
+                pnlRow.Controls.Add(lblScale);
+                pnlRow.Controls.Add(btnEdit);
+                pnlRow.Controls.Add(btnDelete);
 
-                // Adds controls to the panel
-                panelToFill.Controls.Add(nudQtyIngredient);
-                panelToFill.Controls.Add(lblScaleIngredient);
-                panelToFill.Controls.Add(editIngredientName);
-                panelToFill.Controls.Add(cmdDeleteIngredient);
+                // Adds row to panel
+                targetPanel.Controls.Add(pnlRow);
 
-                currentIngredient += 1;
+                posY += rowHeight + 4;
             }
         }
 
+        /// <summary>
+        /// Refreshes the inventory by loading all ingredient types and filling their panels.
+        /// </summary>
         public void RefreshInventory()
         {
-            lblNbOfIngredientsStored.Text += _frmMain.dbConn.CountAllIngredientsStored().ToString();
+            lblNbOfIngredientsStored.Text += " " + _frmMain.dbConn.CountAllIngredientsStored().ToString();
 
-            int totalNbOfTypes = _frmMain.dbConn.CountAllTypesOfIngredients();
+            int totalTypes = _frmMain.dbConn.CountAllTypesOfIngredients();
 
-            fillInListBoxesDelegate = FillInListBoxesWithIngredientsNamesAndQuantities;
-
-            for (int idTypeToHandle = 1; idTypeToHandle <= totalNbOfTypes; idTypeToHandle++)
+            for (int typeId = 1; typeId <= totalTypes; typeId++)
             {
-                fillInListBoxesDelegate(idTypeToHandle);
+                // Finds the panel for this type
+                string panelName = "pnlIngredientsType" + typeId;
+                Panel pnlControl = this.Controls.Find(panelName, true).FirstOrDefault() as Panel;
+
+                if (pnlControl != null)
+                {
+                    FillPanelWithIngredients(pnlControl, typeId);
+                }
             }
         }
 
@@ -327,6 +301,5 @@ namespace Recipe_Writer
         {
             this.Close();
         }
-
     }
 }

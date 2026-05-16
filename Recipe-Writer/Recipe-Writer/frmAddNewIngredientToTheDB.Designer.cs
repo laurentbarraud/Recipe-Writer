@@ -43,7 +43,7 @@
             // 
             // txtNewIngredientNameFr
             // 
-            this.txtNewIngredientNameFr.Location = new System.Drawing.Point(206, 41);
+            this.txtNewIngredientNameFr.Location = new System.Drawing.Point(240, 39);
             this.txtNewIngredientNameFr.Name = "txtNewIngredientNameFr";
             this.txtNewIngredientNameFr.Size = new System.Drawing.Size(192, 22);
             this.txtNewIngredientNameFr.TabIndex = 6;
@@ -51,9 +51,9 @@
             // lblNewIngredientNameFr
             // 
             this.lblNewIngredientNameFr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNewIngredientNameFr.Location = new System.Drawing.Point(12, 42);
+            this.lblNewIngredientNameFr.Location = new System.Drawing.Point(12, 40);
             this.lblNewIngredientNameFr.Name = "lblNewIngredientNameFr";
-            this.lblNewIngredientNameFr.Size = new System.Drawing.Size(188, 21);
+            this.lblNewIngredientNameFr.Size = new System.Drawing.Size(222, 24);
             this.lblNewIngredientNameFr.TabIndex = 9;
             this.lblNewIngredientNameFr.Text = "Nom de l\'ingrédient (Fr) : ";
             this.lblNewIngredientNameFr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -61,7 +61,7 @@
             // lblTypeIngredient
             // 
             this.lblTypeIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblTypeIngredient.Location = new System.Drawing.Point(32, 139);
+            this.lblTypeIngredient.Location = new System.Drawing.Point(66, 135);
             this.lblTypeIngredient.Name = "lblTypeIngredient";
             this.lblTypeIngredient.Size = new System.Drawing.Size(146, 18);
             this.lblTypeIngredient.TabIndex = 10;
@@ -72,7 +72,7 @@
             // 
             this.cmbTypesIngredientsListedInDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTypesIngredientsListedInDB.FormattingEnabled = true;
-            this.cmbTypesIngredientsListedInDB.Location = new System.Drawing.Point(206, 138);
+            this.cmbTypesIngredientsListedInDB.Location = new System.Drawing.Point(240, 134);
             this.cmbTypesIngredientsListedInDB.Name = "cmbTypesIngredientsListedInDB";
             this.cmbTypesIngredientsListedInDB.Size = new System.Drawing.Size(317, 24);
             this.cmbTypesIngredientsListedInDB.TabIndex = 11;
@@ -81,7 +81,7 @@
             // 
             this.cmbScaleNewIngredient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbScaleNewIngredient.FormattingEnabled = true;
-            this.cmbScaleNewIngredient.Location = new System.Drawing.Point(416, 65);
+            this.cmbScaleNewIngredient.Location = new System.Drawing.Point(450, 61);
             this.cmbScaleNewIngredient.Name = "cmbScaleNewIngredient";
             this.cmbScaleNewIngredient.Size = new System.Drawing.Size(107, 24);
             this.cmbScaleNewIngredient.TabIndex = 12;
@@ -94,7 +94,7 @@
             this.cmdDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdDelete.FlatAppearance.BorderSize = 0;
             this.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDelete.Location = new System.Drawing.Point(423, 188);
+            this.cmdDelete.Location = new System.Drawing.Point(457, 184);
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.Size = new System.Drawing.Size(40, 32);
             this.cmdDelete.TabIndex = 7;
@@ -108,7 +108,7 @@
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(478, 188);
+            this.cmdValidate.Location = new System.Drawing.Point(512, 184);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(40, 32);
             this.cmdValidate.TabIndex = 8;
@@ -117,7 +117,7 @@
             // 
             // txtNewIngredientNameEn
             // 
-            this.txtNewIngredientNameEn.Location = new System.Drawing.Point(206, 66);
+            this.txtNewIngredientNameEn.Location = new System.Drawing.Point(240, 64);
             this.txtNewIngredientNameEn.Name = "txtNewIngredientNameEn";
             this.txtNewIngredientNameEn.Size = new System.Drawing.Size(192, 22);
             this.txtNewIngredientNameEn.TabIndex = 13;
@@ -126,9 +126,9 @@
             // 
             this.lblNewIngredientNameEn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblNewIngredientNameEn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblNewIngredientNameEn.Location = new System.Drawing.Point(12, 66);
+            this.lblNewIngredientNameEn.Location = new System.Drawing.Point(15, 64);
             this.lblNewIngredientNameEn.Name = "lblNewIngredientNameEn";
-            this.lblNewIngredientNameEn.Size = new System.Drawing.Size(188, 21);
+            this.lblNewIngredientNameEn.Size = new System.Drawing.Size(219, 22);
             this.lblNewIngredientNameEn.TabIndex = 14;
             this.lblNewIngredientNameEn.Text = "Nom de l\'ingrédient (En) :";
             this.lblNewIngredientNameEn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -137,16 +137,16 @@
             // 
             this.lblNewIngredientNameEs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblNewIngredientNameEs.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblNewIngredientNameEs.Location = new System.Drawing.Point(12, 92);
+            this.lblNewIngredientNameEs.Location = new System.Drawing.Point(18, 90);
             this.lblNewIngredientNameEs.Name = "lblNewIngredientNameEs";
-            this.lblNewIngredientNameEs.Size = new System.Drawing.Size(188, 21);
+            this.lblNewIngredientNameEs.Size = new System.Drawing.Size(216, 21);
             this.lblNewIngredientNameEs.TabIndex = 15;
             this.lblNewIngredientNameEs.Text = "Nom de l\'ingrédient (Es) :";
             this.lblNewIngredientNameEs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtNewIngredientNameEs
             // 
-            this.txtNewIngredientNameEs.Location = new System.Drawing.Point(206, 91);
+            this.txtNewIngredientNameEs.Location = new System.Drawing.Point(240, 89);
             this.txtNewIngredientNameEs.Name = "txtNewIngredientNameEs";
             this.txtNewIngredientNameEs.Size = new System.Drawing.Size(192, 22);
             this.txtNewIngredientNameEs.TabIndex = 16;
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(592, 240);
+            this.ClientSize = new System.Drawing.Size(623, 240);
             this.Controls.Add(this.txtNewIngredientNameEs);
             this.Controls.Add(this.lblNewIngredientNameEs);
             this.Controls.Add(this.lblNewIngredientNameEn);

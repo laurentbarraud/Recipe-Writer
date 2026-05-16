@@ -1,17 +1,10 @@
 ﻿/// <file>frmAddNewIngredientToTheDB.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.4</version>
-/// <date>April 13th 2026</date>
+/// <version>1.2</version>
+/// <date>May 17th 2026</date>
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Recipe_Writer

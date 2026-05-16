@@ -208,13 +208,10 @@ Il vous est accordé sous licence GNU.
 Merci de me contacter pour toute amélioration ou signalement de bug.</value>
   </data>
   <data name="LicenceVersion" xml:space="preserve">
-    <value>v.1.1.4 - avril 2026</value>
+    <value>v.1.2 - mai 2026</value>
   </data>
   <data name="LicenceAuthor" xml:space="preserve">
     <value>Créé par Laurent Barraud.</value>
-  </data>
-  <data name="SearchResults" xml:space="preserve">
-    <value>Résultats :</value>
   </data>
   <data name="BaseWillBeRebuilt" xml:space="preserve">
     <value>La base va être reconstruite.</value>
@@ -425,5 +422,23 @@ Merci de me contacter pour toute amélioration ou signalement de bug.</value>
   </data>
   <data name="Spanish" xml:space="preserve">
     <value>espagnol</value>
+  </data>
+  <data name="SelectRecipeImage" xml:space="preserve">
+    <value>Sélectionner une image de recette</value>
+  </data>
+  <data name="ToolStripMenuItemAddInstructionToThisRecipe" xml:space="preserve">
+    <value>Ajouter une instruction à la recette</value>
+  </data>
+  <data name="ToolStripMenuItemEditSelectedInstruction" xml:space="preserve">
+    <value>Modifier l’instruction sélectionnée</value>
+  </data>
+  <data name="ToolStripMenuItemDeleteSelectedInstruction" xml:space="preserve">
+    <value>Supprimer l’instruction sélectionnée</value>
+  </data>
+  <data name="RecipeLanguage" xml:space="preserve">
+    <value>Langue de la recette :</value>
+  </data>
+  <data name="ErrorMustSelectLanguage" xml:space="preserve">
+    <value>Vous devez sélectionner une langue pour la recette.</value>
   </data>
 </root>

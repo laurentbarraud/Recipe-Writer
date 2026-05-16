@@ -1,7 +1,7 @@
 ﻿/// <file>Instructions.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.4</version>
-/// <date>April 13th 2026</date>
+/// <version>1.2</version>
+/// <date>May 17th 2026</date>
 
 namespace Recipe_Writer
 {
@@ -11,8 +11,9 @@ namespace Recipe_Writer
 		private string text;
 		private int recipeId;
 		private int rank;
+        private string language;
 
-		public int Id
+        public int Id
 		{
 			get { return id; }
 			set { id = value; }
@@ -36,15 +37,19 @@ namespace Recipe_Writer
 			set { rank = value; }
 		}
 
-		/// <summary>
-		/// Constructor of the Instructions class
-		/// </summary>
-		public Instructions(int idInstructionProvided, string textInstructionProvided, int recipeIdProvided, int rankInstructionProvided)
-		{
-			this.Id = idInstructionProvided;
-			this.Text = textInstructionProvided;
-			this.RecipeId = recipeIdProvided;
-			this.Rank = rankInstructionProvided;
+        public string Language
+        {
+            get { return language; }
+            set { language = value; }
+        }
+
+        /// <summary>
+        /// Default constructor used to create an empty Instructions instance.
+        /// Its properties are assigned later when loading a recipe.
+        /// </summary>
+        public Instructions() 
+		{ 
+		
 		}
 	}
 }

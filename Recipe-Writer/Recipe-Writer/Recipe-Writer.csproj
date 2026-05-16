@@ -298,9 +298,6 @@
     <Resource Include="Resources\delete-recipe-hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\edit.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\edit-hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -381,6 +378,7 @@
     <None Include="Resources\new-instruction.png" />
     <None Include="Resources\new-recipe.png" />
     <None Include="Resources\validate-hover.png" />
+    <None Include="Resources\edit.png" />
     <Content Include="scripts\Recipe-writer-create-tables.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -3,8 +3,9 @@ DROP TABLE IF EXISTS "Ingredients";
 CREATE TABLE "Ingredients" (
 	"id"	INTEGER NOT NULL,
 	"ingredientName_en"	TEXT,
-	"ingredientName_fr"	TEXT NOT NULL,
-	"qtyAvailable"	REAL NOT NULL,
+	"ingredientName_fr"	TEXT,
+	"ingredientName_es"	TEXT,
+	"qtyAvailable"	REAL,
 	"scale_id"	INTEGER NOT NULL,
 	"typeOfIngredient_id"	INTEGER,
 	PRIMARY KEY("id" AUTOINCREMENT),
@@ -15,17 +16,10 @@ DROP TABLE IF EXISTS "Instructions";
 CREATE TABLE "Instructions" (
 	"id"	INTEGER NOT NULL,
 	"instruction"	TEXT NOT NULL,
+	"recipe_id"	INTEGER,
+	"language"	TEXT,
+	"rank"	INTEGER,
 	PRIMARY KEY("id" AUTOINCREMENT)
-);
-DROP TABLE IF EXISTS "Instructions_has_Recipes";
-CREATE TABLE "Instructions_has_Recipes" (
-	"id"	INTEGER NOT NULL,
-	"Recipes_id"	INTEGER NOT NULL,
-	"Instructions_id"	INTEGER NOT NULL,
-	"InstructionNb"	INTEGER NOT NULL,
-	PRIMARY KEY("id" AUTOINCREMENT),
-	FOREIGN KEY("Instructions_id") REFERENCES "Instructions" ON UPDATE CASCADE ON DELETE CASCADE,
-	FOREIGN KEY("Recipes_id") REFERENCES "Recipes" ON UPDATE CASCADE ON DELETE CASCADE
 );
 DROP TABLE IF EXISTS "PlannedMeals";
 CREATE TABLE "PlannedMeals" (
@@ -42,6 +36,7 @@ CREATE TABLE "Recipes" (
 	"lowBudget"	INTEGER NOT NULL,
 	"score"	INTEGER NOT NULL,
 	"imagePath"	TEXT NOT NULL,
+	"language"	TEXT,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 DROP TABLE IF EXISTS "Recipes_has_Ingredients";
@@ -154,6 +149,7 @@ CREATE TABLE "Scales" (
 	"id"	INTEGER NOT NULL,
 	"scaleName_en"	TEXT,
 	"scaleName_fr"	TEXT,
+	"scaleName_es"	TEXT,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 DROP TABLE IF EXISTS "TypesOfIngredient";
@@ -161,6 +157,7 @@ CREATE TABLE "TypesOfIngredient" (
 	"id"	INTEGER,
 	"type_en"	TEXT,
 	"type_fr"	TEXT,
+	"type_es"	TEXT,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 COMMIT;

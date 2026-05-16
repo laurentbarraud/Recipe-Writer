@@ -40,29 +40,27 @@
             // 
             // lblNewIngredientName
             // 
-            this.lblNewIngredientName.AutoSize = true;
             this.lblNewIngredientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNewIngredientName.Location = new System.Drawing.Point(32, 42);
+            this.lblNewIngredientName.Location = new System.Drawing.Point(28, 42);
             this.lblNewIngredientName.Name = "lblNewIngredientName";
-            this.lblNewIngredientName.Size = new System.Drawing.Size(146, 18);
+            this.lblNewIngredientName.Size = new System.Drawing.Size(213, 22);
             this.lblNewIngredientName.TabIndex = 5;
             this.lblNewIngredientName.Text = "Nom de l\'ingrédient : ";
             this.lblNewIngredientName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblQtyIngredientNeeded
             // 
-            this.lblQtyIngredientNeeded.AutoSize = true;
             this.lblQtyIngredientNeeded.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblQtyIngredientNeeded.Location = new System.Drawing.Point(32, 95);
+            this.lblQtyIngredientNeeded.Location = new System.Drawing.Point(31, 95);
             this.lblQtyIngredientNeeded.Name = "lblQtyIngredientNeeded";
-            this.lblQtyIngredientNeeded.Size = new System.Drawing.Size(151, 18);
+            this.lblQtyIngredientNeeded.Size = new System.Drawing.Size(210, 18);
             this.lblQtyIngredientNeeded.TabIndex = 6;
             this.lblQtyIngredientNeeded.Text = "Quantité nécessaire : ";
             this.lblQtyIngredientNeeded.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtQtyIngredientNeeded
             // 
-            this.txtQtyIngredientNeeded.Location = new System.Drawing.Point(206, 91);
+            this.txtQtyIngredientNeeded.Location = new System.Drawing.Point(283, 91);
             this.txtQtyIngredientNeeded.Name = "txtQtyIngredientNeeded";
             this.txtQtyIngredientNeeded.Size = new System.Drawing.Size(100, 22);
             this.txtQtyIngredientNeeded.TabIndex = 1;
@@ -71,18 +69,18 @@
             // 
             this.cmbIngredientsListedInDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIngredientsListedInDB.FormattingEnabled = true;
-            this.cmbIngredientsListedInDB.Location = new System.Drawing.Point(206, 40);
+            this.cmbIngredientsListedInDB.Location = new System.Drawing.Point(249, 40);
             this.cmbIngredientsListedInDB.Name = "cmbIngredientsListedInDB";
-            this.cmbIngredientsListedInDB.Size = new System.Drawing.Size(241, 24);
+            this.cmbIngredientsListedInDB.Size = new System.Drawing.Size(249, 24);
             this.cmbIngredientsListedInDB.TabIndex = 7;
             this.cmbIngredientsListedInDB.SelectedIndexChanged += new System.EventHandler(this.cmbIngredientsList_SelectedIndexChanged);
             // 
             // lblScaleAssociatedWithIngredientSelected
             // 
             this.lblScaleAssociatedWithIngredientSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblScaleAssociatedWithIngredientSelected.Location = new System.Drawing.Point(324, 106);
+            this.lblScaleAssociatedWithIngredientSelected.Location = new System.Drawing.Point(393, 91);
             this.lblScaleAssociatedWithIngredientSelected.Name = "lblScaleAssociatedWithIngredientSelected";
-            this.lblScaleAssociatedWithIngredientSelected.Size = new System.Drawing.Size(68, 22);
+            this.lblScaleAssociatedWithIngredientSelected.Size = new System.Drawing.Size(70, 22);
             this.lblScaleAssociatedWithIngredientSelected.TabIndex = 8;
             // 
             // cmdValidate
@@ -95,7 +93,7 @@
             this.cmdValidate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(413, 141);
+            this.cmdValidate.Location = new System.Drawing.Point(469, 141);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(34, 32);
             this.cmdValidate.TabIndex = 4;
@@ -112,7 +110,7 @@
             this.cmdDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.cmdDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDelete.Location = new System.Drawing.Point(358, 141);
+            this.cmdDelete.Location = new System.Drawing.Point(414, 141);
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.Size = new System.Drawing.Size(34, 32);
             this.cmdDelete.TabIndex = 3;
@@ -124,7 +122,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cmdDelete;
-            this.ClientSize = new System.Drawing.Size(493, 195);
+            this.ClientSize = new System.Drawing.Size(549, 195);
             this.Controls.Add(this.lblScaleAssociatedWithIngredientSelected);
             this.Controls.Add(this.cmbIngredientsListedInDB);
             this.Controls.Add(this.txtQtyIngredientNeeded);

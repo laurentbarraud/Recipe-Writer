@@ -1,9 +1,11 @@
 ﻿/// <file>frmNewRecipeInfosInput.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.4</version>
+/// <version>1.2</version>
 /// <date>April 6th 2025</date>
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
@@ -40,11 +42,34 @@ namespace Recipe_Writer
 
             // Labels
             lblRecipeTitle.Text = strings.Title;
+            lblRecipeLanguage.Text = strings.RecipeLanguage;
             lblRecipeCompletionTime.Text = strings.CompletionTime;
             lblMinutes.Text = strings.Minutes;
 
             // Checkboxes
             chkLowBudget.Text = strings.LowBudget;
+
+            // ComboBox for recipe language
+            var supportedLanguages = new List<LanguageItem>
+            {
+                new LanguageItem(strings.English, "en"),
+                new LanguageItem(strings.French,  "fr"),
+                new LanguageItem(strings.Spanish, "es")
+            };
+
+            cmbRecipeLanguage.DisplayMember = "DisplayName";
+            cmbRecipeLanguage.ValueMember = "LanguageCode";
+            cmbRecipeLanguage.DataSource = supportedLanguages;
+
+            // Default selected language in the combo box based on the app language
+            string currentLanguageCode = Properties.Settings.Default.AppLanguageCode;
+            
+            if (!supportedLanguages.Any(language => language.LanguageCode == currentLanguageCode))
+            {
+                currentLanguageCode = "en";
+            }
+
+            cmbRecipeLanguage.SelectedValue = currentLanguageCode;
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)
@@ -52,55 +77,54 @@ namespace Recipe_Writer
             this.Close();
         }
 
+        /// <summary>
+        /// Validates the user input for creating a new recipe and inserts it into the database.
+        /// </summary>
         private void cmdValidate_Click(object sender, EventArgs e)
         {
             int parsedNewRecipeCompletionTime = 0;
             int statusChkLowBudget = 0;
 
-            if (txtNewRecipeTitle.Text != "")
-            {
-                // If the user has entered only numbers in the textbox
-                if (txtNewRecipeCompletionTime.Text != "" && int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
-                {
-                    if (chkLowBudget.Checked)
-                    {
-                        statusChkLowBudget = 1;
-                    }
-
-                    // If the user hasn't checked the low budget checkbox
-                    else
-                    {
-                        statusChkLowBudget = 0;
-                    }
-                    
-                    // Adds the new recipe into the database
-                    _frmMain.dbConn.AddNewRecipe(@txtNewRecipeTitle.Text, parsedNewRecipeCompletionTime.ToString(), statusChkLowBudget);
-
-                    // Displayed the new recipe title into the search texbox
-                    _frmMain.txtTitleSearch.Text = txtNewRecipeTitle.Text;
-
-                    // Performs a search with the new recipe title
-                    _frmMain.SearchRecipesByTitle(_frmMain.txtTitleSearch.Text);
-
-                    this.Close();
-                }
-                // If the user hasn't input a number in the textbox
-                else if (!int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
-                {
-                    MessageBox.Show(strings.ErrorMustEnterValidNumberForTimeCompletion, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                // If the user hasn't input a completion time for the new recipe
-                else if (txtNewRecipeCompletionTime.Text == "")
-                {
-                    MessageBox.Show(strings.ErrorMustEnterACompletionTime, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            // If the user hasn't input a title for the new recipe
-            else if (txtNewRecipeTitle.Text == "")
+            // Checks if a title has been input
+            if (txtNewRecipeTitle.Text == "")
             {
                 MessageBox.Show(strings.ErrorMustEnterATitle, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            // Checks if a completion time has been input and that it is numeric
+            if (txtNewRecipeCompletionTime.Text == "" ||
+                !int.TryParse(txtNewRecipeCompletionTime.Text, out parsedNewRecipeCompletionTime))
+            {
+                MessageBox.Show(strings.ErrorMustEnterValidNumberForTimeCompletion, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Checks if a language has been defined
+            if (cmbRecipeLanguage.SelectedValue == null)
+            {
+                MessageBox.Show(strings.ErrorMustSelectLanguage, strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string selectedLanguage = cmbRecipeLanguage.SelectedValue.ToString();
+
+            // Low budget flag
+            statusChkLowBudget = chkLowBudget.Checked ? 1 : 0;
+
+            // Inserts the data into DB
+            _frmMain.dbConn.AddNewRecipe(txtNewRecipeTitle.Text, parsedNewRecipeCompletionTime.ToString(),
+                statusChkLowBudget, selectedLanguage
+            );
+
+            // Displays the new recipe title in the search textbox
+            _frmMain.txtTitleSearch.Text = txtNewRecipeTitle.Text;
+
+            // Performs a search with the new recipe title
+            _frmMain.SearchRecipesByTitle(_frmMain.txtTitleSearch.Text);
+
+            this.Close();
         }
+
     }
 }

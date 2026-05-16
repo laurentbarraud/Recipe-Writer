@@ -1,56 +1,110 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.4</version>
-/// <date>April 13th 2026</date>
+/// <version>1.2</version>
+/// <date>May 17th 2026</date>
 
 using Recipe_Writer.Properties;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
+    /// <summary>
+    /// Main application form for managing recipes, ingredients and instructions.
+    /// </summary>
     public partial class frmMain : Form
     {
         // Private member variables
 
-        // Current recipe instruction rank, used for the instruction layout and
-        // for adding new instructions at the end of the list
+        /// <summary>
+        /// Current recipe instruction rank, used for the instruction layout and
+        /// for adding new instructions at the end of the list.
+        /// </summary>
         private int currentInstruction = 0;
 
-        // Declares and instanciates the forms that will be opened from the main form,
-        // to ensure that only one instance of each can be opened at a time
+        /// <summary>
+        /// Inventory form instance, ensures only one inventory window is opened at a time.
+        /// </summary>
         private static frmInventory _frmInventory;
+
+        /// <summary>
+        /// Meal planner form instance, ensures only one planner window is opened at a time.
+        /// </summary>
         private static frmMealPlanner _frmMealPlanner;
-        
-        // Declares and instanciates the list that will handle the selected instruction
+
+        /// <summary>
+        /// List that tracks the mapping between instruction ranks and their labels in the UI.
+        /// </summary>
         private List<InstructionSelections> instructionSelection = new List<InstructionSelections>();
 
-        private int selectedInstruction = -1;
+        /// <summary>
+        /// Rank of the currently selected instruction, or -1 if none is selected.
+        /// </summary>
+        private int _selectedInstructionRank = -1;
+
+        /// <summary>
+        /// Hides the default focus cues on buttons when they are clicked.
+        /// </summary>
+        protected override bool ShowFocusCues => false;
 
         // Public properties
 
-        // Declares and instancies a connection to the database
+        /// <summary>
+        /// Currently displayed recipe, initialized with default values and accessible globally.
+        /// </summary>
+        public Recipes _currentDisplayedRecipe = null;
+
+        /// <summary>
+        /// Database connection used by the main form.
+        /// </summary>
         public DBConnection dbConn = new DBConnection();
-        
-        // Declares and instanciates a default instruction
-        public static Instructions _defaultInstruction = new Instructions(0, "", 0, 0);
 
-        // Declares and instanciates a default list of instructions
-        public static List<Instructions> _defaultListInstructions = new List<Instructions>();
-
-        // Declares and instanciates a default list of ingredients
+        /// <summary>
+        /// Default list of ingredients used to initialize recipe objects.
+        /// </summary>
         public static List<Ingredients> _defaultListIngredients = new List<Ingredients>();
 
-        // Declares and instanciates the current displayed recipe object, constructed with default values, and accessible globally
-        public Recipes _currentDisplayedRecipe = new Recipes(0, "", 0, 0, 0, null, _defaultListIngredients, _defaultListInstructions);
+        public int InstructionsFontSize
+        {
+            get
+            {
+                // Defaults to 12 if not set or invalid
+                int value = Properties.Settings.Default.InstructionsFontSize;
+                
+                if (value < 10 || value > 24 || value % 2 != 0)
+                {
+                    value = 12;
+                }
+                
+                return value;
+            }
+            
+            set
+            {
+                // Clamps and normalizes to even steps between 10 and 24
+                int clampedValue = Math.Max(10, Math.Min(24, value));
+                
+                if (clampedValue % 2 != 0)
+                
+                {
+                    clampedValue--;
+                }
 
+                Properties.Settings.Default.InstructionsFontSize = clampedValue;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the main form, optionally with a fade-in animation,
+        /// registers hover effects, and localizes contextual menu items.
+        /// </summary>
+        /// <param name="enableFadeIn">If true, applies a fade-in effect when the form is shown.</param>
         public frmMain(bool enableFadeIn = false)
         {
             InitializeComponent();
@@ -82,24 +136,17 @@ namespace Recipe_Writer
             // Register buttons in the global dictionary for hover effect
             UIHoverHelper.ButtonBaseResourceNames[cmdNewRecipe] = "new_recipe";
             UIHoverHelper.ButtonBaseResourceNames[cmdTitleSearch] = "search";
-            UIHoverHelper.ButtonBaseResourceNames[cmdEditRecipeInfos] = "edit_recipe_info";
-            UIHoverHelper.ButtonBaseResourceNames[cmdDeleteRecipe] = "delete_recipe";
             UIHoverHelper.ButtonBaseResourceNames[cmdSearchByIngredient] = "search_by_ingredient";
             UIHoverHelper.ButtonBaseResourceNames[cmdInventory] = "inventory";
             UIHoverHelper.ButtonBaseResourceNames[cmdMealPlanner] = "planner";
             UIHoverHelper.ButtonBaseResourceNames[cmdSettings] = "settings";
             UIHoverHelper.ButtonBaseResourceNames[cmdingredientSearch] = "ingredientSearch";
-            UIHoverHelper.ButtonBaseResourceNames[cmdAddInstruction] = "new_instruction";
 
             // Buttons hover events
             cmdNewRecipe.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdNewRecipe.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdTitleSearch.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdTitleSearch.MouseLeave += UIHoverHelper.Button_MouseLeave;
-            cmdEditRecipeInfos.MouseEnter += UIHoverHelper.Button_MouseEnter;
-            cmdEditRecipeInfos.MouseLeave += UIHoverHelper.Button_MouseLeave;
-            cmdDeleteRecipe.MouseEnter += UIHoverHelper.Button_MouseEnter;
-            cmdDeleteRecipe.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdSearchByIngredient.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdSearchByIngredient.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdInventory.MouseEnter += UIHoverHelper.Button_MouseEnter;
@@ -110,19 +157,13 @@ namespace Recipe_Writer
             cmdSettings.MouseLeave += UIHoverHelper.Button_MouseLeave;
             cmdingredientSearch.MouseEnter += UIHoverHelper.Button_MouseEnter;
             cmdingredientSearch.MouseLeave += UIHoverHelper.Button_MouseLeave;
-            cmdAddInstruction.MouseEnter += UIHoverHelper.Button_MouseEnter;
-            cmdAddInstruction.MouseLeave += UIHoverHelper.Button_MouseLeave;
-
-            // Labels
-            lblSearchResults.Text = strings.SearchResults;
 
             // Contextual menu items
-            newRecipeToolStripMenuItem.Text = strings.ToolStripMenuItemNewRecipe;
-            editThisRecipesInfosToolStripMenuItem.Text = strings.ToolStripMenuItemEditBasicInfos;
-            deleteThisRecipeToolStripMenuItem.Text = strings.ToolStripMenuItemDeleteThisRecipe;
-            exportThisRecipeToAWebPageToolStripMenuItem.Text = strings.ToolStripMenuItemExportThisRecipeToAWebPage;
+            newRecipe.Text = strings.ToolStripMenuItemNewRecipe;
+            editThisRecipesInfos.Text = strings.ToolStripMenuItemEditBasicInfos;
+            deleteThisRecipe.Text = strings.ToolStripMenuItemDeleteThisRecipe;
+            exportThisRecipeToAWebPage.Text = strings.ToolStripMenuItemExportThisRecipeToAWebPage;
             planRecipeOn.Text = strings.ToolStripMenuItemPlanThisRecipeFor;
-            addIngredientToThisRecipe.Text = strings.ToolStripMenuItemAddIngredientToThisRecipe;
 
             mondayToolStripMenuItem.Text = strings.ToolStripMenuItemMonday;
             tuesdayToolStripMenuItem.Text = strings.ToolStripMenuItemTuesday;
@@ -131,10 +172,20 @@ namespace Recipe_Writer
             fridayToolStripMenuItem.Text = strings.ToolStripMenuItemFriday;
             saturdayToolStripMenuItem.Text = strings.ToolStripMenuItemSaturday;
             sundayToolStripMenuItem.Text = strings.ToolStripMenuItemSunday;
+
+            addIngredientToThisRecipe.Text = strings.ToolStripMenuItemAddIngredientToThisRecipe;
+            deleteSelectedIngredientFromThisRecipe.Text = strings.ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe;
+            
+            addInstructionToThisRecipe.Text = strings.ToolStripMenuItemAddInstructionToThisRecipe;
+            editSelectedInstruction.Text = strings.ToolStripMenuItemEditSelectedInstruction;
+            deleteSelectedInstruction.Text = strings.ToolStripMenuItemDeleteSelectedInstruction;
         }
 
         /// <summary>
-        /// Form load
+        /// Initializes the main form on startup by restoring user settings,
+        /// setting initial UI focus, and ensuring the application database exists
+        /// and is valid. If the database is missing or corrupted, it is rebuilt
+        /// with the required tables and initial data.
         /// </summary>
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -186,6 +237,14 @@ namespace Recipe_Writer
             _frmAddNewNewIngredientToRecipe.Show();
         }
 
+        private void addInstructionToThisRecipe_Click(object sender, EventArgs e)
+        {
+            frmNewInstruction _frmNewInstruction = new frmNewInstruction(this);
+            _frmNewInstruction.IdRecipeToEdit = _currentDisplayedRecipe.Id;
+            _frmNewInstruction.NbInstructionsInCurrentRecipe = currentInstruction;
+            _frmNewInstruction.ShowDialog();
+        }
+
         /// <summary>
         /// Calculates if all ingredients needed for a recipe are in enough quantity in the inventory
         /// </summary>
@@ -224,73 +283,20 @@ namespace Recipe_Writer
             // An ingredient of the combobox has been selected and there's at least one.
             if (cmbRecipeIngredients.SelectedIndex >= 1 && cmbRecipeIngredients.Items.Count >= 2)
             { 
-                if (cmsRecipeResult.Items[7].Enabled == false)
+                if (deleteSelectedIngredientFromThisRecipe.Visible == false)
                 {
-                    cmsRecipeResult.Items[7].Enabled = true;
+                    deleteSelectedIngredientFromThisRecipe.Visible = true;
                 }
             }
 
             // No ingredient has been selected
             else
             {
-                if (cmsRecipeResult.Items[7].Enabled == true)
+                if (deleteSelectedIngredientFromThisRecipe.Visible == true)
                 {
-                    cmsRecipeResult.Items[7].Enabled = false;
+                    deleteSelectedIngredientFromThisRecipe.Visible = false;
                 }
             }
-        }
-
-
-        /// <summary>
-        /// Function to add an instruction to the currently selected recipe
-        /// </summary>
-        private void cmdAddInstruction_Click(object sender, EventArgs e)
-        {
-            frmNewInstruction _frmNewInstruction = new frmNewInstruction(this);
-            _frmNewInstruction.IdRecipeToEdit = _currentDisplayedRecipe.Id;
-            _frmNewInstruction.NbInstructionsInCurrentRecipe = currentInstruction;
-            _frmNewInstruction.ShowDialog();
-        }
-
-        private void cmdAddInstruction_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmdAddInstruction_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmdDeleteRecipe_Click(object sender, EventArgs e)
-        {
-            var confirmResult = MessageBox.Show(strings.ConfirmDeleteDisplayedRecipeFromDB,
-                strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (confirmResult == DialogResult.Yes)
-            {
-                dbConn.DeleteRecipe(_currentDisplayedRecipe.Id);
-                HidesRecipeInfosAndControls();
-            }
-        }
-
-        private void cmdEditRecipeInfos_Click(object sender, EventArgs e)
-        {
-            string formattedTitle = lstSearchResults.SelectedItem.ToString();
-
-            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
-            if (lstSearchResults.SelectedItem.ToString().Contains("'"))
-            {
-                formattedTitle = txtTitleSearch.Text.Replace("'", "''");
-            }
-
-
-            frmEditRecipeInfos _frmEditRecipeTitle = new frmEditRecipeInfos(this);
-            _frmEditRecipeTitle.IdRecipeToEdit = _currentDisplayedRecipe.Id;
-            _frmEditRecipeTitle.RecipeTitleToEdit = _currentDisplayedRecipe.Title;
-            _frmEditRecipeTitle.RecipeCompletionTime = _currentDisplayedRecipe.CompletionTime;
-            _frmEditRecipeTitle.LowBudgetStatus = _currentDisplayedRecipe.LowBudget;
-            _frmEditRecipeTitle.ShowDialog();
         }
 
         private void cmdingredientSearch_Click(object sender, EventArgs e)
@@ -379,7 +385,7 @@ namespace Recipe_Writer
 
         private void cmdNewRecipe_Click(object sender, EventArgs e)
         {
-            cmsRecipeResult.Items[0].PerformClick();
+            newRecipe.PerformClick();
         }
 
         /// <summary>
@@ -392,7 +398,7 @@ namespace Recipe_Writer
             if (!pnlSlideMenu.Visible)
             {
                 // Opening slide menu animation
-                pnlSlideMenu.Width = 450;
+                pnlSlideMenu.Width = 360;
                 Animations.Animate(pnlSlideMenu, Animations.Effect.Slide, 250, 0);
                 this.Refresh();
             }
@@ -449,21 +455,22 @@ namespace Recipe_Writer
 
         /// <summary>
         /// Creates the instruction layout to display them to the user.
-        /// User can edit an instruction by clicking the edit button or double-clicking the label.
+        /// User can edit an instruction by double-clicking the label.
         /// </summary>
         public void CreateInstructionsLayout()
         {
             currentInstruction = 0;
 
-            // Layout parameters =================================================================================
-            int lineHeight = 20;
-            int iconHeight = 25;
-            int iconWidth = 25;
+            // Layout parameters
             int spacingWidth = 15;
             int spacingHeight = 5;
 
             // Clears the layout by removing all the labels, before adding new ones
-            this.pnlInstructions.Controls.Clear();
+            pnlInstructions.Controls.Clear();
+
+            // Clears the instruction selection list to avoid keeping references to old labels
+            // that would cause bugs with the selection and editing of instructions after refreshing the layout
+            instructionSelection.Clear();
 
             foreach (Instructions instructionItem in _currentDisplayedRecipe.InstructionsList)
             {
@@ -483,121 +490,200 @@ namespace Recipe_Writer
                 };
 
                 // Handles the event to make an instruction label appear selected when the user clicks on it
-                lblInstruction.Click += (object sender_here, EventArgs e_here) =>
+                lblInstruction.Click += (s, e) =>
                 {
-                    int selectedInstruction = instructionItem.Rank;
+                    _selectedInstructionRank = instructionItem.Rank;
                     RefreshSelectedInstruction();
                 };
 
-                // Binds the label to its related instruction =================================================================================
+                // Binds the label to its related instruction 
                 InstructionSelections instructionSelected = new InstructionSelections();
                 instructionSelected.InstructionRank = instructionItem.Rank;
                 instructionSelected.InstructionLabel = lblInstruction;
                 instructionSelection.Add(instructionSelected);
 
-                // Edit instruction button code ==============================================================================================
-
-                Button cmdEditInstruction = new Button();
-                cmdEditInstruction.Click += (object sender_here, EventArgs e_here) =>
-                {
-                    // Check if a TextBox already exists
-                    TextBox txtInputUser = lblInstruction.Controls.OfType<TextBox>().FirstOrDefault();
-
-                    if (txtInputUser != null)
-                    {
-                        // Update text and remove TextBox
-                        lblInstruction.Text = txtInputUser.Text;
-                        dbConn.UpdateInstruction(instructionItem.Id, txtInputUser.Text);
-                        txtInputUser.Dispose();
-
-                        // Restore edit button icon
-                        cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
-                    }
-                    else
-                    {
-                        // Create TextBox
-                        txtInputUser = new TextBox
-                        {
-                            Parent = lblInstruction,
-                            Size = lblInstruction.Size,
-                            Text = lblInstruction.Text
-                        };
-
-                        // Apply changes when focus is lost
-                        txtInputUser.Leave += (s, e) =>
-                        {
-                            lblInstruction.Text = txtInputUser.Text;
-                            dbConn.UpdateInstruction(instructionItem.Id, txtInputUser.Text);
-                            txtInputUser.Dispose();
-                            cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
-                        };
-
-                        // Show the TextBox for editing
-                        txtInputUser.Show();
-                        cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.validate;
-                    }
-                };
-
                 // Handles the event to make an instruction label editable
-                lblInstruction.DoubleClick += (object sender_here, EventArgs e_here) => { cmdEditInstruction.PerformClick(); };
-
-                // Delete instruction code ================================================================================================
-
-                Button cmdDeleteInstruction = new Button();
-                cmdDeleteInstruction.Click += (object sender_here, EventArgs e_here) =>
+                lblInstruction.DoubleClick += (s, e) =>
                 {
-                    var confirmResult = MessageBox.Show(strings.ConfirmDeleteInstruction,
-                    strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    _selectedInstructionRank = instructionItem.Rank;
 
-                    if (confirmResult == DialogResult.Yes)
+                    TextBox txtEditInstruction = new TextBox
                     {
-                        dbConn.DeleteInstruction(_currentDisplayedRecipe.Id, instructionItem.Rank);
+                        Parent = pnlInstructions,
+                        Text = lblInstruction.Text,
+                        Font = lblInstruction.Font,
+                        Multiline = true,
+                        WordWrap = true,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Location = lblInstruction.Location,
+                        Width = lblInstruction.Width,
+                        Height = lblInstruction.Height,
+                        BackColor = Color.White,
+                        ForeColor = Color.Black,
+                        Padding = new Padding(3),
+                    };
 
-                        // Loads all the instructions for the currently selected recipe
+                    // Local handler to commit the edit when the user clicks outside the TextBox,
+                    // then removes itself
+                    MouseEventHandler panelClickHandler = null;
+
+                    panelClickHandler = (sPanel, ePanel) =>
+                    {
+                        // Si on clique dans le TextBox, on ne fait rien
+                        if (txtEditInstruction.Bounds.Contains(ePanel.Location))
+                            return;
+
+                        // Commit simple quand on clique ailleurs
+                        string newText = txtEditInstruction.Text.Replace("'", "''");
+                        dbConn.UpdateInstruction(instructionItem.Id, newText);
+
+                        txtEditInstruction.Dispose();
+                        pnlInstructions.MouseDown -= panelClickHandler; // on se désabonne
                         CreateInstructionsLayout();
-                    }
+                    };
+
+                    pnlInstructions.MouseDown += panelClickHandler;
+
+                    lblInstruction.Visible = false;
+
+                    txtEditInstruction.TextChanged += (s2, e2) =>
+                    {
+                        Size proposedSize = new Size(txtEditInstruction.Width, int.MaxValue);
+
+                        // Adds an extra space to ensure the last line is measured correctly
+                        // when the user types and the text ends with a line break.
+                        Size measuredSize = TextRenderer.MeasureText(txtEditInstruction.Text + " ",
+                            txtEditInstruction.Font, proposedSize,
+                            TextFormatFlags.WordBreak);
+
+                        // Adds padding of 3px top and 3px bottom for better readability and sets a minimum height equal to the label height
+                        txtEditInstruction.Height = Math.Max(measuredSize.Height + 6, lblInstruction.Height);
+                    };
+
+                    txtEditInstruction.KeyDown += (s2, e2) =>
+                    {
+                        if (e2.KeyCode == Keys.Enter && !e2.Shift)
+                        {
+                            // Prevents the "ding" sound on Enter key press and allows multiline input with Shift+Enter
+                            e2.SuppressKeyPress = true;
+
+                            string newText = txtEditInstruction.Text.Replace("'", "''");
+
+                            // Saves the updated instruction text to the database
+                            dbConn.UpdateInstruction(instructionItem.Id, newText);
+
+                            // Unsubscribes the outside-click handler to avoid ghost commits
+                            pnlInstructions.MouseDown -= panelClickHandler;
+
+                            txtEditInstruction.Dispose();
+                            CreateInstructionsLayout();
+                        }
+                        else if (e2.KeyCode == Keys.Escape)
+                        {
+                            // Unsubscribes the outside-click handler to avoid ghost commits
+                            pnlInstructions.MouseDown -= panelClickHandler;
+
+                            txtEditInstruction.Dispose();
+                            CreateInstructionsLayout();
+                        }
+                    };
+
+                    txtEditInstruction.Focus();
+                    txtEditInstruction.SelectAll();
                 };
 
-                // Instruction label, detailed layout =========================================================================================
+                // Handles the event to show the instruction-related actions when the user right-clicks on an instruction label
+                lblInstruction.MouseDown += (s, e2) =>
+                {
+                    if (e2.Button == MouseButtons.Right)
+                    {
+                        _selectedInstructionRank = instructionItem.Rank;
+
+                        addInstructionToThisRecipe.Visible = true;
+                        editSelectedInstruction.Visible = true;
+                        deleteSelectedInstruction.Visible = true;
+
+                        toolStripSeparator1.Visible = true;
+                        toolStripSeparator2.Visible = true;
+                    }
+
+                    // Recalculates separators
+                    toolStripSeparator2.Visible = addInstructionToThisRecipe.Visible ||
+                        editSelectedInstruction.Visible || deleteSelectedInstruction.Visible;
+
+                    toolStripSeparator1.Visible = editSelectedInstruction.Visible ||
+                        deleteSelectedInstruction.Visible;
+                };
+
+                // Instruction label visual layout
+
                 lblInstruction.Text = instructionItem.Text;
-                lblInstruction.Width = 550;
-                lblInstruction.Height = lineHeight;
-                lblInstruction.Location = new Point(20, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
-                lblInstruction.TextAlign = ContentAlignment.MiddleLeft;
+
+                // Applies the dynamic font size
+                lblInstruction.Font = new Font(lblInstruction.Font.FontFamily, InstructionsFontSize, 
+                    lblInstruction.Font.Style);
+
+                // Adds light internal padding for better readability
+                // Left = 5, Top = 2, Right = 5, Bottom = 2
+                lblInstruction.Padding = new Padding(5, 2, 5, 2);
+
+                // Enables automatic vertical resizing and line wrapping
+                lblInstruction.AutoSize = true;
+
+                // Maximum width = panel width minus margins (keeps text inside the visible area)
+                lblInstruction.MaximumSize = new Size(pnlInstructions.Width - 20, 0);
+
+                // Aligns text at the top-left corner
+                lblInstruction.TextAlign = ContentAlignment.TopLeft;
+
+                // Sets the label position (10px left margin, dynamic vertical stacking)
+                lblInstruction.Location = new Point(10, spacingHeight + currentInstruction);
+
                 lblInstruction.ForeColor = Color.Black;
 
-                // Edit button for an instruction ==============================================================================================
-                cmdEditInstruction.Text = "";
-                cmdEditInstruction.Width = iconWidth;
-                cmdEditInstruction.Height = iconHeight;
-                cmdEditInstruction.Location = new Point(lblInstruction.Width, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
-                cmdEditInstruction.BackColor = Color.Transparent;
-                cmdEditInstruction.FlatAppearance.BorderSize = 0;
-                cmdEditInstruction.FlatStyle = FlatStyle.Flat;
-                cmdEditInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.edit;
-                cmdEditInstruction.BackgroundImageLayout = ImageLayout.Zoom;
-
-                // Delete button for an instruction, detailed layout =========================================================================
-                cmdDeleteInstruction.Text = "";
-                cmdDeleteInstruction.Width = iconWidth;
-                cmdDeleteInstruction.Height = iconHeight;
-                cmdDeleteInstruction.Location = new Point(lblInstruction.Width + spacingWidth + cmdEditInstruction.Width, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
-                cmdDeleteInstruction.BackColor = Color.Transparent;
-                cmdDeleteInstruction.FlatAppearance.BorderSize = 0;
-                cmdDeleteInstruction.FlatStyle = FlatStyle.Flat;
-                cmdDeleteInstruction.BackgroundImage = Recipe_Writer.Properties.Resources.delete;
-                cmdDeleteInstruction.BackgroundImageLayout = ImageLayout.Zoom;
-
-                // Corrects the layout for the panel ============================================================================================
-                cmdEditInstruction.Location = new Point(20 + lblInstruction.Width  + spacingWidth, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
-                cmdDeleteInstruction.Location = new Point(20 + lblInstruction.Width + spacingWidth + cmdEditInstruction.Width + spacingWidth, spacingHeight + currentInstruction * (lblInstruction.Height + spacingWidth) + lblInstruction.Height);
-
-                // Adds the controls to the layout ============================================================================================
                 pnlInstructions.Controls.Add(lblInstruction);
-                pnlInstructions.Controls.Add(cmdEditInstruction);
-                pnlInstructions.Controls.Add(cmdDeleteInstruction);
 
-                currentInstruction += 1;
+                // Updates vertical offset for the next instruction
+                currentInstruction += lblInstruction.Height + spacingWidth;
+            }
+        }
+
+        /// <summary>
+        /// Deletes the selected instruction from the database and refreshes the instruction layout.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void deleteSelectedInstruction_Click(object sender, EventArgs e)
+        {
+            // If no instruction was selected
+            if (_selectedInstructionRank < 0)
+            {
+                return;
+            }
+
+            // Retrieves the instruction object using the selected rank
+            var instructionItem = _currentDisplayedRecipe
+                .InstructionsList
+                .FirstOrDefault(instruction => instruction.Rank == _selectedInstructionRank);
+
+            if (instructionItem == null)
+            {
+                return;
+            }
+
+            // Asks the user for confirmation
+            var confirmResult = MessageBox.Show(strings.ConfirmDeleteInstruction,
+                strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                // Deletes the instruction from the DB using its rank and the current recipe ID
+                dbConn.DeleteInstruction(_currentDisplayedRecipe.Id, instructionItem.Rank);
+
+                CreateInstructionsLayout();
+
+                // Resets selection
+                _selectedInstructionRank = -1;
             }
         }
 
@@ -608,7 +694,10 @@ namespace Recipe_Writer
                 // If the ingredient has been correctly deleted, the function returns true
                 if (dbConn.DeleteIngredientFromARecipe(_currentDisplayedRecipe.Id, cmbRecipeIngredients.SelectedIndex) == true) 
                 {
+                    // Shifts the ingredient list to the left to avoid empty rows
                     dbConn.OffsetRowValuesToLeft(_currentDisplayedRecipe.Id);
+
+                    // Refreshes the displayed recipe info
                     DisplayRecipeInfos(_currentDisplayedRecipe.Id);
                 }
 
@@ -622,7 +711,14 @@ namespace Recipe_Writer
 
         private void deleteThisRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cmdDeleteRecipe.PerformClick();
+            var confirmResult = MessageBox.Show(strings.ConfirmDeleteDisplayedRecipeFromDB,
+                strings.ConfirmDeletion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                dbConn.DeleteRecipe(_currentDisplayedRecipe.Id);
+                HidesRecipeInfosAndControls();
+            }
         }
 
         /// <summary>
@@ -630,18 +726,33 @@ namespace Recipe_Writer
         /// </summary>
         public void DisplayRecipeControls()
         {
-            cmsRecipeResult.Items[1].Enabled = true;
-            cmsRecipeResult.Items[2].Enabled = true;
-            cmsRecipeResult.Items[3].Enabled = true;
-            cmsRecipeResult.Items[4].Enabled = true;
-            cmsRecipeResult.Items[6].Enabled = true;
+            // Shows recipe-level actions
+            editThisRecipesInfos.Visible = true;
+            deleteThisRecipe.Visible = true;
+            exportThisRecipeToAWebPage.Visible = true;
+            planRecipeOn.Visible = true;
+
+            // Shows ingredient actions
+            addIngredientToThisRecipe.Visible = true;
+
+            // Shows instruction actions
+            addInstructionToThisRecipe.Visible = true;
+            editSelectedInstruction.Visible = true;
+            deleteSelectedInstruction.Visible = true;
+
+            // Shows separators
+            toolStripSeparator1.Visible = true;
+            toolStripSeparator2.Visible = true;
 
             nudPersons.Visible = true;
             lblPortions.Visible = true;
             lblCompletionTime.Visible = true;
             cmbRecipeIngredients.Visible = true;
             picRecipeReadyToCookStatus.Visible = true;
-            cmdAddInstruction.Visible = true;
+
+            pnlInstructions.Visible = true;
+
+            picRecipe.Visible = true;
             pnlScore.Visible = true;
             picScore1.Visible = true;
             picScore2.Visible = true;
@@ -659,14 +770,9 @@ namespace Recipe_Writer
                 return;
             }
 
-            // Ensure _currentDisplayedRecipe is not null
-            if (_currentDisplayedRecipe == null)
-            {
-                return;
-            }
-
             // Title
             string selectedTitle = lstSearchResults.SelectedItem.ToString();
+            
             if (!string.IsNullOrWhiteSpace(selectedTitle))
             {
                 _currentDisplayedRecipe.Title = selectedTitle;
@@ -681,8 +787,9 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.ImagePath = imagePath ?? "";
 
             // Completion time
+            picCompletionTime.Visible = true;
             lblCompletionTime.Text = "";
-            lblCompletionTime.Text += strings.Preparation + _currentDisplayedRecipe.CompletionTime + " min.";
+            lblCompletionTime.Text = _currentDisplayedRecipe.CompletionTime + " min.";
 
             // Low budget icon
             picLowBudget.Visible = (_currentDisplayedRecipe.LowBudget == 1);
@@ -746,8 +853,13 @@ namespace Recipe_Writer
                 picScore3.BackgroundImage = Resources._1_star;
             }
 
+            // Language of the recipe (read from DB)
+            _currentDisplayedRecipe.Language = dbConn.ReadRecipeLanguage(idRecipe);
+
             // Instructions
-            _currentDisplayedRecipe.InstructionsList = dbConn.ReadInstructionsForARecipe(_currentDisplayedRecipe.Id);
+            _currentDisplayedRecipe.InstructionsList = 
+                dbConn.ReadInstructionsForARecipe(_currentDisplayedRecipe.Id, _currentDisplayedRecipe.Language);
+
             CreateInstructionsLayout();
 
             // Illustration
@@ -774,9 +886,125 @@ namespace Recipe_Writer
             }
         }
 
+        /// <summary>
+        /// Allows the user to edit an instruction by double-clicking its label.
+        /// Displays a temporary TextBox that auto-wraps and auto-resizes vertically.
+        /// </summary>
+        private void editSelectedInstruction_Click(object sender, EventArgs e)
+        {
+            if (_selectedInstructionRank < 0)
+            {
+                return;
+            }
+
+            var selectedInstructionLabelBinding = instructionSelection
+                .FirstOrDefault(instruction => instruction.InstructionRank == _selectedInstructionRank);
+
+            if (selectedInstructionLabelBinding == null)
+            {
+                return;
+            }
+
+            // Assumes the label exists since it is created in CreateInstructionsLayout and bound to the rank
+            Label lblInstruction = selectedInstructionLabelBinding.InstructionLabel;
+
+            var instructionItem = 
+                _currentDisplayedRecipe.InstructionsList.First(instruction => instruction.Rank == _selectedInstructionRank);
+
+            // Creates editable TextBox
+            TextBox txtInputUser = new TextBox
+            {
+                Parent = pnlInstructions,
+                Text = lblInstruction.Text,
+                Font = lblInstruction.Font,
+                BorderStyle = BorderStyle.FixedSingle,
+                Multiline = true,
+                WordWrap = true,
+                ScrollBars = ScrollBars.None
+            };
+
+            txtInputUser.Location = lblInstruction.Location;
+            txtInputUser.Width = lblInstruction.Width;
+
+            // Initial height: label height
+            txtInputUser.Height = lblInstruction.Height;
+
+            lblInstruction.Visible = false;
+
+            // Auto-resizes dynamically based on content
+            txtInputUser.TextChanged += (s2, e2) =>
+            {
+                // Measures required height
+                Size proposedSize = new Size(txtInputUser.Width, int.MaxValue);
+
+                // Uses TextRenderer to measure the size of the text with the current font and
+                // wrapping settings and adds an extra space to ensure the last line is measured
+                // correctly when the user types and the text ends with a line break.
+                Size measuredSize = TextRenderer.MeasureText(txtInputUser.Text + " ",
+                    txtInputUser.Font, proposedSize, TextFormatFlags.WordBreak
+                );
+
+                int newHeight = measuredSize.Height + 6; // padding of 3px top and 3px bottom for better readability
+
+                // Minimum is set to label height
+                if (newHeight < lblInstruction.Height)
+                {
+                    newHeight = lblInstruction.Height;
+                }
+
+                txtInputUser.Height = newHeight;
+            };
+
+            // Handles Enter (save) and Escape (cancel)
+            txtInputUser.KeyDown += (s2, e2) =>
+            {
+                // If the user presses Enter without Shift (to allow multiline input with Shift+Enter)
+                if (e2.KeyCode == Keys.Enter && !e2.Shift)
+                {
+                    e2.SuppressKeyPress = true;
+
+                    string formattedInputUserText = txtInputUser.Text;
+
+                    if (!string.IsNullOrEmpty(formattedInputUserText) && formattedInputUserText.Contains("'"))
+                    {
+                        formattedInputUserText = formattedInputUserText.Replace("'", "''");
+                    }
+                    
+                    // Saves the updated instruction text to the database
+                    dbConn.UpdateInstruction(instructionItem.Id, formattedInputUserText);
+
+                    txtInputUser.Dispose();
+                    CreateInstructionsLayout();
+                }
+                else if (e2.KeyCode == Keys.Escape)
+                {
+                    txtInputUser.Dispose();
+                    CreateInstructionsLayout();
+                }
+            };
+
+            txtInputUser.Show();
+            txtInputUser.Focus();
+            txtInputUser.SelectAll();
+        }
+
         private void editThisRecipesInfosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cmdEditRecipeInfos.PerformClick();
+            string formattedTitle = lstSearchResults.SelectedItem.ToString();
+
+            // Checks if the keywords contain an apostroph, to avoid making the sql request crash
+            if (lstSearchResults.SelectedItem.ToString().Contains("'"))
+            {
+                formattedTitle = txtTitleSearch.Text.Replace("'", "''");
+            }
+
+
+            frmEditRecipeInfos _frmEditRecipeTitle = new frmEditRecipeInfos(this);
+            _frmEditRecipeTitle.IdRecipeToEdit = _currentDisplayedRecipe.Id;
+            _frmEditRecipeTitle.RecipeTitleToEdit = _currentDisplayedRecipe.Title;
+            _frmEditRecipeTitle.RecipeCompletionTime = _currentDisplayedRecipe.CompletionTime;
+            _frmEditRecipeTitle.LowBudgetStatus = _currentDisplayedRecipe.LowBudget;
+            _frmEditRecipeTitle.ShowDialog();
         }
 
         /// <summary>
@@ -910,7 +1138,8 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Hides the ingredients, image and instructions and the controls for the current displayed recipe
+        /// Hides the ingredients, image and instructions and the controls 
+        /// for the current displayed recipe
         /// </summary>
         public void HidesRecipeInfosAndControls()
         {
@@ -922,6 +1151,18 @@ namespace Recipe_Writer
             _currentDisplayedRecipe.IngredientsList.Clear();
             _currentDisplayedRecipe.InstructionsList.Clear();
 
+            lstSearchResults.Items.Clear();
+            lstSearchResults.Visible = false;
+            cmbRecipeIngredients.Items.Clear();
+            cmbRecipeIngredients.Visible = false;
+            picCompletionTime.Visible = false;
+            lblCompletionTime.Text = "";
+            lblPortions.Visible = false;
+            lblCompletionTime.Visible = false;
+
+            nudPersons.Visible = false;
+
+            picRecipe.Visible = false;
             pnlScore.Visible = false;
             picScore1.Visible = false;
             picScore2.Visible = false;
@@ -931,25 +1172,26 @@ namespace Recipe_Writer
             picRecipe.BorderStyle = BorderStyle.FixedSingle;
             picRecipeReadyToCookStatus.Visible = false;
 
-            cmdAddInstruction.Visible = false;
-            cmbRecipeIngredients.Items.Clear();
-            cmbRecipeIngredients.Visible = false;
-            lblCompletionTime.Text = "";
-            lblPortions.Visible = false;
-            lblCompletionTime.Visible = false;
-            lstSearchResults.Items.Clear();
-            nudPersons.Visible = false;
-            
+            // Hides recipe-level actions
+            editThisRecipesInfos.Visible = false;
+            deleteThisRecipe.Visible = false;
+            exportThisRecipeToAWebPage.Visible = false;
+            planRecipeOn.Visible = false;
 
-            cmsRecipeResult.Items[1].Enabled = false;
-            cmsRecipeResult.Items[2].Enabled = false;
-            cmsRecipeResult.Items[3].Enabled = false;
-            cmsRecipeResult.Items[4].Enabled = false;
-            cmsRecipeResult.Items[6].Enabled = false;
-            cmsRecipeResult.Items[7].Enabled = false;
+            // Hides ingredient actions
+            addIngredientToThisRecipe.Visible = false;
 
-            
+            // Hides instruction actions
+            addInstructionToThisRecipe.Visible = false;
+            editSelectedInstruction.Visible = false;
+            deleteSelectedInstruction.Visible = false;
+
+            // Hides separators
+            toolStripSeparator1.Visible = false;
+            toolStripSeparator2.Visible = false;
+
             pnlInstructions.Controls.Clear();
+            pnlInstructions.Visible = false;
 
             this.Refresh();
         }
@@ -981,7 +1223,7 @@ namespace Recipe_Writer
                 return; // Exits early if no valid selection
             }
 
-            cmdEditRecipeInfos.PerformClick();
+            editThisRecipesInfos.PerformClick();
         }
 
         /// <summary>
@@ -1009,11 +1251,11 @@ namespace Recipe_Writer
             if (lstSearchResults.Items.Count < 1 ||
                 string.IsNullOrWhiteSpace(lstSearchResults.SelectedItem?.ToString()))
             {
-                // Disables edit/delete buttons when no valid recipe is selected
-                cmdEditRecipeInfos.Enabled = false;
-                cmdDeleteRecipe.Enabled = false;
                 return; // Exits early if no selection
             }
+
+            // Creates a new recipe object for the newly selected recipe
+            _currentDisplayedRecipe = new Recipes();
 
             // Retrieves the recipe ID from the database using the selected item
             _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(lstSearchResults.SelectedItem.ToString());
@@ -1026,10 +1268,6 @@ namespace Recipe_Writer
             {
                 DisplayRecipeControls();
             }
-
-            // Enables edit/delete buttons when a valid recipe is selected
-            cmdEditRecipeInfos.Enabled = true;
-            cmdDeleteRecipe.Enabled = true;
         }
 
         private void mondayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1118,6 +1356,12 @@ namespace Recipe_Writer
         /// </summary>
         private void nudPersons_ValueChanged(object sender, EventArgs e)
         {
+            // Prevents crash at startup when no recipe is selected yet
+            if (_currentDisplayedRecipe == null || _currentDisplayedRecipe.Id == 0)
+            {
+                return;
+            }
+
             Properties.Settings.Default.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
 
             // Save value for next sessions
@@ -1126,26 +1370,30 @@ namespace Recipe_Writer
             // Calls the function that will read the ingredients needed to make the recipe
             DisplayRecipeInfos(_currentDisplayedRecipe.Id);
         }
-     
+
 
         /// <summary>
         /// Opens OpenFileDialog instance and affects the selected file to the picture box
         /// </summary>
         private void picRecipe_Click(object sender, EventArgs e)
         {
-            if (nudPersons.Visible) 
+            if (nudPersons.Visible)
             {
-                // Wraps the creation of the OpenFileDialog instance in a using statement,
-                // rather than manually calling the Dispose method to ensure proper disposal
-                using (ofdAssociatedImage)
+                // Forces dialog culture to match the app language
+                System.Threading.Thread.CurrentThread.CurrentUICulture =
+                    new System.Globalization.CultureInfo(Properties.Settings.Default.AppLanguageCode);
+
+                // Creates a fresh dialog so it uses the correct culture
+                using (OpenFileDialog ofd = new OpenFileDialog())
                 {
-                    if (ofdAssociatedImage.ShowDialog() == DialogResult.OK)
+                    ofd.Title = strings.SelectRecipeImage;
+                    ofd.Filter = "Images|*.jpg;*.jpeg;*.png;*.bmp";
+
+                    if (ofd.ShowDialog() == DialogResult.OK)
                     {
-                        // Displays the image in the picturebox on the form       
-                        picRecipe.Load(ofdAssociatedImage.FileName);
+                        picRecipe.Load(ofd.FileName);
                         picRecipe.BorderStyle = BorderStyle.None;
 
-                        // Shows a dialog form which asks the user to provide a file name for the new image
                         frmNewImagePath _frmNewImagePath = new frmNewImagePath(this);
                         _frmNewImagePath.Show();
                     }
@@ -1171,6 +1419,44 @@ namespace Recipe_Writer
         private void picScore3_Click(object sender, EventArgs e)
         {
             UpdateScoreForCurrentRecipe(3);
+        }
+
+        private void pnlInstructions_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                // Shows the 3 instruction options
+                addInstructionToThisRecipe.Visible = true;
+                editSelectedInstruction.Visible = true;
+                deleteSelectedInstruction.Visible = true;
+
+                // Shows both separators
+                toolStripSeparator1.Visible = true;
+                toolStripSeparator2.Visible = true;
+            }
+
+            else
+            {
+                // Hides instruction options if the user clicks elsewhere on the panel
+                addInstructionToThisRecipe.Visible = false;
+                editSelectedInstruction.Visible = false;
+                deleteSelectedInstruction.Visible = false;
+
+                // Hides separators too
+                toolStripSeparator1.Visible = false;
+                toolStripSeparator2.Visible = false;
+            }
+
+            // Bottom separator visible only if at least one instruction option is visible
+            toolStripSeparator2.Visible =
+                addInstructionToThisRecipe.Visible ||
+                editSelectedInstruction.Visible ||
+                deleteSelectedInstruction.Visible;
+
+            // Top separator visible only if edit or delete are visible
+            toolStripSeparator1.Visible =
+                editSelectedInstruction.Visible ||
+                deleteSelectedInstruction.Visible;
         }
 
         private void pnlScore_MouseHover(object sender, EventArgs e)
@@ -1233,30 +1519,26 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Changes the background color of the selected instruction and changes the background to transparent for the unselected instructions
+        /// Changes the background color of the selected instruction and changes 
+        /// the background to transparent for the unselected instructions
         /// </summary>
         public void RefreshSelectedInstruction()
         {
-            for (int i = 0; i < instructionSelection.Count; ++i)
+            foreach (var binding in instructionSelection)
             {
-                if (instructionSelection[i].InstructionRank == selectedInstruction)
-                {
-                    if (instructionSelection[i].InstructionLabel.BackColor == Color.Transparent)
-                    {
-                        instructionSelection[i].InstructionLabel.BackColor = Color.FromArgb(168, 208, 230);
-                    }
-                    else
-                    {
-                        instructionSelection[i].InstructionLabel.BackColor = Color.Transparent;
-                    }
+                // The label whose rank = _selectedInstructionRank is blue
+                if (binding.InstructionRank == _selectedInstructionRank) 
+                { 
+                    binding.InstructionLabel.BackColor = Color.FromArgb(168, 208, 230);
                 }
+
+                // All the other labels are transparent
                 else
                 {
-                    instructionSelection[i].InstructionLabel.BackColor = Color.Transparent;
+                    binding.InstructionLabel.BackColor = Color.Transparent;
                 }
             }
         }
-
 
         /// <summary>
         /// Searches for recipes based on ingredients input and optional filters.
@@ -1327,6 +1609,11 @@ namespace Recipe_Writer
                 // Adds each found recipe title to the listbox
                 lstSearchResults.Items.Add(title);
             }
+
+            if (lstSearchResults.Enabled == false)
+            {
+                lstSearchResults.Enabled = true;
+            }
         }
 
         private void ShowInventory()
@@ -1379,17 +1666,16 @@ namespace Recipe_Writer
             }
         }
 
-        private void txtTitleSearch_Enter(object sender, EventArgs e)
-        {
-            this.AcceptButton = cmdTitleSearch;
-        }
-
-        private void txtTitleSearch_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        /// <summary>
+        /// Triggers a title search when pressing Enter inside the search textbox,
+        /// while suppressing the default system "ding" sound.
+        /// </summary>
+        private void txtTitleSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                // Prevents the default "ding" sound when pressing Enter
-                e.IsInputKey = true;
+                // Prevents the default beep sound
+                e.SuppressKeyPress = true;
 
                 cmdTitleSearch.PerformClick();
             }

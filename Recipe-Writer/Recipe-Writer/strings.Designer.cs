@@ -340,6 +340,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à You must select a language for the recipe..
+        /// </summary>
+        internal static string ErrorMustSelectLanguage {
+            get {
+                return ResourceManager.GetString("ErrorMustSelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Please use only letters from A to Z without accents, hyphens, underscores or numbers for the file name..
         /// </summary>
         internal static string ErrorMustUseOnlyLettersForTheFileName {
@@ -550,7 +559,7 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à v.1.1.4 - April 2026.
+        ///   Recherche une chaîne localisée semblable à v.1.2 - may 2026.
         /// </summary>
         internal static string LicenceVersion {
             get {
@@ -676,6 +685,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Recipe language :.
+        /// </summary>
+        internal static string RecipeLanguage {
+            get {
+                return ResourceManager.GetString("RecipeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Saturday.
         /// </summary>
         internal static string Saturday {
@@ -685,11 +703,11 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Results :.
+        ///   Recherche une chaîne localisée semblable à Select a recipe image.
         /// </summary>
-        internal static string SearchResults {
+        internal static string SelectRecipeImage {
             get {
-                return ResourceManager.GetString("SearchResults", resourceCulture);
+                return ResourceManager.GetString("SelectRecipeImage", resourceCulture);
             }
         }
         
@@ -829,11 +847,29 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Add an instruction to this recipe.
+        /// </summary>
+        internal static string ToolStripMenuItemAddInstructionToThisRecipe {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemAddInstructionToThisRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Delete selected ingredient from this recipe.
         /// </summary>
         internal static string ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe {
             get {
                 return ResourceManager.GetString("ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete selected instruction.
+        /// </summary>
+        internal static string ToolStripMenuItemDeleteSelectedInstruction {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemDeleteSelectedInstruction", resourceCulture);
             }
         }
         
@@ -852,6 +888,15 @@ namespace Recipe_Writer {
         internal static string ToolStripMenuItemEditBasicInfos {
             get {
                 return ResourceManager.GetString("ToolStripMenuItemEditBasicInfos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Edit selected instruction.
+        /// </summary>
+        internal static string ToolStripMenuItemEditSelectedInstruction {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemEditSelectedInstruction", resourceCulture);
             }
         }
         

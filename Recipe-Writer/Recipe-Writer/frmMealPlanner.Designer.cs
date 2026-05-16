@@ -451,6 +451,7 @@
             // 
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdValidate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -466,6 +467,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.cmdValidate;
             this.ClientSize = new System.Drawing.Size(585, 425);
             this.Controls.Add(this.cmdSundayCooked);
             this.Controls.Add(this.cmdSaturdayCooked);

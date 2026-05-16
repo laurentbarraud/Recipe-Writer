@@ -1,7 +1,7 @@
 ﻿/// <file>frmNewInstruction.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.4</version>
-/// <date>April 13th 2026</date>
+/// <version>1.2</version>
+/// <date>May 17th 2026</date>
 
 using System;
 using System.Windows.Forms;

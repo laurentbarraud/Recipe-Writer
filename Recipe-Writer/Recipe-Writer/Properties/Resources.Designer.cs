@@ -103,9 +103,9 @@ namespace Recipe_Writer.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_new_ingredient_into_db {
+        internal static System.Drawing.Bitmap add_new_ingredient {
             get {
-                object obj = ResourceManager.GetObject("add_new_ingredient_into_db", resourceCulture);
+                object obj = ResourceManager.GetObject("add_new_ingredient", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Recipe_Writer.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_new_ingredient_into_db_hover {
+        internal static System.Drawing.Bitmap add_new_ingredient_hover {
             get {
-                object obj = ResourceManager.GetObject("add_new_ingredient_into_db_hover", resourceCulture);
+                object obj = ResourceManager.GetObject("add_new_ingredient_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,29 +173,9 @@ namespace Recipe_Writer.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit_hover {
-            get {
-                object obj = ResourceManager.GetObject("edit_hover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap edit_recipe_info {
             get {
                 object obj = ResourceManager.GetObject("edit_recipe_info", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap edit_recipe_info_hover {
-            get {
-                object obj = ResourceManager.GetObject("edit_recipe_info_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,16 +246,6 @@ namespace Recipe_Writer.Properties {
         internal static System.Drawing.Bitmap new_instruction {
             get {
                 object obj = ResourceManager.GetObject("new_instruction", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap new_instruction_hover {
-            get {
-                object obj = ResourceManager.GetObject("new_instruction_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

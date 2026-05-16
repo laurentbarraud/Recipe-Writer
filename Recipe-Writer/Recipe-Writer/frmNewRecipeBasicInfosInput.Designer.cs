@@ -36,6 +36,8 @@
             this.chkLowBudget = new System.Windows.Forms.CheckBox();
             this.cmdValidate = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
+            this.cmbRecipeLanguage = new System.Windows.Forms.ComboBox();
+            this.lblRecipeLanguage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNewRecipeTitle
@@ -60,7 +62,7 @@
             // txtNewRecipeCompletionTime
             // 
             this.txtNewRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtNewRecipeCompletionTime.Location = new System.Drawing.Point(311, 106);
+            this.txtNewRecipeCompletionTime.Location = new System.Drawing.Point(311, 158);
             this.txtNewRecipeCompletionTime.MaxLength = 3;
             this.txtNewRecipeCompletionTime.Name = "txtNewRecipeCompletionTime";
             this.txtNewRecipeCompletionTime.Size = new System.Drawing.Size(61, 24);
@@ -69,9 +71,9 @@
             // lblRecipeCompletionTime
             // 
             this.lblRecipeCompletionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblRecipeCompletionTime.Location = new System.Drawing.Point(120, 109);
+            this.lblRecipeCompletionTime.Location = new System.Drawing.Point(120, 158);
             this.lblRecipeCompletionTime.Name = "lblRecipeCompletionTime";
-            this.lblRecipeCompletionTime.Size = new System.Drawing.Size(185, 21);
+            this.lblRecipeCompletionTime.Size = new System.Drawing.Size(178, 24);
             this.lblRecipeCompletionTime.TabIndex = 6;
             this.lblRecipeCompletionTime.Text = "Temps de réalisation :";
             this.lblRecipeCompletionTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -79,7 +81,7 @@
             // lblMinutes
             // 
             this.lblMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMinutes.Location = new System.Drawing.Point(384, 110);
+            this.lblMinutes.Location = new System.Drawing.Point(384, 162);
             this.lblMinutes.Name = "lblMinutes";
             this.lblMinutes.Size = new System.Drawing.Size(60, 18);
             this.lblMinutes.TabIndex = 7;
@@ -90,7 +92,7 @@
             // 
             this.chkLowBudget.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkLowBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkLowBudget.Location = new System.Drawing.Point(254, 161);
+            this.chkLowBudget.Location = new System.Drawing.Point(254, 213);
             this.chkLowBudget.Name = "chkLowBudget";
             this.chkLowBudget.Size = new System.Drawing.Size(179, 24);
             this.chkLowBudget.TabIndex = 2;
@@ -106,7 +108,7 @@
             this.cmdValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(398, 218);
+            this.cmdValidate.Location = new System.Drawing.Point(398, 270);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(40, 32);
             this.cmdValidate.TabIndex = 4;
@@ -122,19 +124,39 @@
             this.cmdDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdDelete.FlatAppearance.BorderSize = 0;
             this.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDelete.Location = new System.Drawing.Point(343, 218);
+            this.cmdDelete.Location = new System.Drawing.Point(343, 270);
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.Size = new System.Drawing.Size(40, 32);
             this.cmdDelete.TabIndex = 3;
             this.cmdDelete.UseVisualStyleBackColor = true;
             this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
+            // cmbRecipeLanguage
+            // 
+            this.cmbRecipeLanguage.FormattingEnabled = true;
+            this.cmbRecipeLanguage.Location = new System.Drawing.Point(311, 101);
+            this.cmbRecipeLanguage.Name = "cmbRecipeLanguage";
+            this.cmbRecipeLanguage.Size = new System.Drawing.Size(132, 24);
+            this.cmbRecipeLanguage.TabIndex = 8;
+            // 
+            // lblRecipeLanguage
+            // 
+            this.lblRecipeLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblRecipeLanguage.Location = new System.Drawing.Point(95, 104);
+            this.lblRecipeLanguage.Name = "lblRecipeLanguage";
+            this.lblRecipeLanguage.Size = new System.Drawing.Size(203, 21);
+            this.lblRecipeLanguage.TabIndex = 9;
+            this.lblRecipeLanguage.Text = "Langue de la recette :";
+            this.lblRecipeLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmNewRecipeInfosInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cmdDelete;
-            this.ClientSize = new System.Drawing.Size(493, 267);
+            this.ClientSize = new System.Drawing.Size(493, 321);
+            this.Controls.Add(this.lblRecipeLanguage);
+            this.Controls.Add(this.cmbRecipeLanguage);
             this.Controls.Add(this.chkLowBudget);
             this.Controls.Add(this.lblMinutes);
             this.Controls.Add(this.lblRecipeCompletionTime);
@@ -163,5 +185,7 @@
         private System.Windows.Forms.Label lblRecipeCompletionTime;
         private System.Windows.Forms.Label lblMinutes;
         private System.Windows.Forms.CheckBox chkLowBudget;
+        private System.Windows.Forms.ComboBox cmbRecipeLanguage;
+        private System.Windows.Forms.Label lblRecipeLanguage;
     }
 }

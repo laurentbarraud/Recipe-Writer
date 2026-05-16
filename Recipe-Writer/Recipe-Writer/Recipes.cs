@@ -1,7 +1,7 @@
 ﻿/// <file>Recipes.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.1.4</version>
-/// <date>April 13th 2026</date>
+/// <version>1.2</version>
+/// <date>May 17th 2026</date>
 
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,8 @@ namespace Recipe_Writer
 		private int id;
 		private string title;
 		private int completionTime;
-		private int lowBudget;
+        private string language;
+        private int lowBudget;
 		private int score;
 		private string imagePath;
 		private List<Ingredients> ingredientsList;
@@ -37,7 +38,13 @@ namespace Recipe_Writer
 			set { completionTime = value; }
 		}
 
-		public int LowBudget
+        public string Language 
+		{
+			get { return language; } 
+			set { language = value; }
+        }
+
+        public int LowBudget
 		{
 			get { return lowBudget; }
 			set { lowBudget = value; }
@@ -67,27 +74,15 @@ namespace Recipe_Writer
 			set { instructionsList = value; }
 		}
 
-		/// <summary>
-		/// Constructor of the Recipes class
-		/// </summary>
-		/// <param name="idRecipeProvided">the id of the recipe</param>
-		/// <param name="titleProvided">the title of the recipe</param>
-		/// <param name="completionTimeProvided">the completion time (preparing and baking) of the recipe</param>
-		/// <param name="lowBudgetProvided">the status if this recipe is made for low budget</param>
-		/// <param name="scoreProvided">the score affected to the recipe</param>
-		/// <param name="imagePathProvided">the image path affected to the recipe</param>
-		/// <param name="ingredientsListProvided">the list of ingredients needed to make the recipe</param>
-		/// <param name="instructionsListProvided">the list of instructions to follow to make the recipe</param>
-		public Recipes(int idRecipeProvided, string titleProvided, int completionTimeProvided, int lowBudgetProvided, int scoreProvided, string imagePathProvided, List<Ingredients> ingredientsListProvided, List<Instructions> instructionsListProvided, bool isReadyToCookProvided = false)
-		{
-			this.Id = idRecipeProvided;
-			this.Title = titleProvided;
-			this.CompletionTime = completionTimeProvided;
-			this.LowBudget = lowBudgetProvided;
-			this.Score = scoreProvided;
-			this.ImagePath = imagePathProvided;
-			this.IngredientsList = ingredientsListProvided;
-			this.InstructionsList = instructionsListProvided;
-		}
+        /// <summary>
+        /// Default constructor used to create an empty recipe instance.
+        /// Properties are initialized step by step when a recipe is selected.
+        /// </summary>
+        public Recipes()
+        {
+            // Initializes lists to avoid null reference issues
+            this.IngredientsList = new List<Ingredients>();
+            this.InstructionsList = new List<Instructions>();
+        }
 	}
 }
