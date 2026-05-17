@@ -64,6 +64,20 @@ namespace Recipe_Writer
             // Loads dropdowns (types + scales)
             LoadTypesAndScales();
 
+            // Selects the current type and scale for this ingredient
+            int readTypeId = _frmMain.dbConn.ReadTypeIdForIngredient(IdIngredientToEdit);
+            int readScaleId = _frmMain.dbConn.ReadScaleIdForAnIngredient(IdIngredientToEdit);
+
+            if (readTypeId > 0 && readTypeId <= cmbTypesIngredientsListedInDB.Items.Count)
+            {
+                cmbTypesIngredientsListedInDB.SelectedIndex = readTypeId - 1;
+            }
+
+            if (readTypeId > 0 && readTypeId <= cmbScaleIngredient.Items.Count)
+            {
+                cmbScaleIngredient.SelectedIndex = readScaleId - 1;
+            }
+
             // Loads names (FR/EN/ES) and auto-fills missing ones
             string[] languageCodes = { "fr", "en", "es" };
             TextBox[] textBoxesIngredientNamesArray = { txtIngredientNameFr, txtIngredientNameEn, txtIngredientNameEs };
