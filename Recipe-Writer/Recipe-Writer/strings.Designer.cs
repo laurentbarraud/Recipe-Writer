@@ -667,6 +667,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à portions.
+        /// </summary>
+        internal static string Portions {
+            get {
+                return ResourceManager.GetString("Portions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Preparation : .
         /// </summary>
         internal static string Preparation {

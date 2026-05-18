@@ -441,4 +441,7 @@ Merci de me contacter pour toute amélioration ou signalement de bug.</value>
   <data name="ErrorMustSelectLanguage" xml:space="preserve">
     <value>Vous devez sélectionner une langue pour la recette.</value>
   </data>
+  <data name="Portions" xml:space="preserve">
+    <value>portions</value>
+  </data>
 </root>

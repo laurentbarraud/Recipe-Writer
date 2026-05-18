@@ -2,7 +2,7 @@
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.2</version>
-/// <date>May 17th 2026</date>
+/// <date>May 19th 2026</date>
 
 using System;
 using System.Data.SQLite;

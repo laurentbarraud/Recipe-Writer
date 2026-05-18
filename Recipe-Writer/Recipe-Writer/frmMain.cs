@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.2</version>
-/// <date>May 17th 2026</date>
+/// <date>May 19th 2026</date>
 
 using Recipe_Writer.Properties;
 using System;
@@ -36,11 +36,6 @@ namespace Recipe_Writer
         /// Meal planner form instance, ensures only one planner window is opened at a time.
         /// </summary>
         private static frmMealPlanner _frmMealPlanner;
-
-        /// <summary>
-        /// List that tracks the mapping between instruction ranks and their labels in the UI.
-        /// </summary>
-        private List<InstructionSelections> instructionSelection = new List<InstructionSelections>();
 
         /// <summary>
         /// Rank of the currently selected instruction, or -1 if none is selected.
@@ -179,6 +174,8 @@ namespace Recipe_Writer
             addInstructionToThisRecipe.Text = strings.ToolStripMenuItemAddInstructionToThisRecipe;
             editSelectedInstruction.Text = strings.ToolStripMenuItemEditSelectedInstruction;
             deleteSelectedInstruction.Text = strings.ToolStripMenuItemDeleteSelectedInstruction;
+        
+            lblPortions.Text = strings.Portions;
         }
 
         /// <summary>
@@ -468,39 +465,22 @@ namespace Recipe_Writer
             // Clears the layout by removing all the labels, before adding new ones
             pnlInstructions.Controls.Clear();
 
-            // Clears the instruction selection list to avoid keeping references to old labels
-            // that would cause bugs with the selection and editing of instructions after refreshing the layout
-            instructionSelection.Clear();
-
             foreach (Instructions instructionItem in _currentDisplayedRecipe.InstructionsList)
             {
                 // Label that displays the title of the current instruction
                 Label lblInstruction = new Label();
 
-                // Shows a border around a label when the mouse hovers it
-                lblInstruction.MouseHover += (object sender_here, EventArgs e_here) =>
-                {
-                    lblInstruction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                };
-
-                // Hides the border around a label when the mouse leaves it
-                lblInstruction.MouseLeave += (object sender_here, EventArgs e_here) =>
-                {
-                    lblInstruction.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                };
+                // Binds the instruction rank to the label Tag property for easy retrieval in event handlers
+                lblInstruction.Tag = instructionItem.Rank;
 
                 // Handles the event to make an instruction label appear selected when the user clicks on it
                 lblInstruction.Click += (s, e) =>
                 {
                     _selectedInstructionRank = instructionItem.Rank;
                     RefreshSelectedInstruction();
-                };
-
-                // Binds the label to its related instruction 
-                InstructionSelections instructionSelected = new InstructionSelections();
-                instructionSelected.InstructionRank = instructionItem.Rank;
-                instructionSelected.InstructionLabel = lblInstruction;
-                instructionSelection.Add(instructionSelected);
+                    EnsureSelectedInstructionVisible();
+                    pnlInstructions.Focus();
+                };                        
 
                 // Handles the event to make an instruction label editable
                 lblInstruction.DoubleClick += (s, e) =>
@@ -529,16 +509,16 @@ namespace Recipe_Writer
 
                     panelClickHandler = (sPanel, ePanel) =>
                     {
-                        // Si on clique dans le TextBox, on ne fait rien
                         if (txtEditInstruction.Bounds.Contains(ePanel.Location))
+                        {
                             return;
+                        }
 
-                        // Commit simple quand on clique ailleurs
                         string newText = txtEditInstruction.Text.Replace("'", "''");
                         dbConn.UpdateInstruction(instructionItem.Id, newText);
 
                         txtEditInstruction.Dispose();
-                        pnlInstructions.MouseDown -= panelClickHandler; // on se désabonne
+                        pnlInstructions.MouseDown -= panelClickHandler;
                         CreateInstructionsLayout();
                     };
 
@@ -591,7 +571,7 @@ namespace Recipe_Writer
                     txtEditInstruction.Focus();
                     txtEditInstruction.SelectAll();
                 };
-
+                
                 // Handles the event to show the instruction-related actions when the user right-clicks on an instruction label
                 lblInstruction.MouseDown += (s, e2) =>
                 {
@@ -599,21 +579,26 @@ namespace Recipe_Writer
                     {
                         _selectedInstructionRank = instructionItem.Rank;
 
+                        // Shows instruction options
                         addInstructionToThisRecipe.Visible = true;
                         editSelectedInstruction.Visible = true;
                         deleteSelectedInstruction.Visible = true;
-
-                        toolStripSeparator1.Visible = true;
                         toolStripSeparator2.Visible = true;
                     }
 
-                    // Recalculates separators
-                    toolStripSeparator2.Visible = addInstructionToThisRecipe.Visible ||
-                        editSelectedInstruction.Visible || deleteSelectedInstruction.Visible;
-
-                    toolStripSeparator1.Visible = editSelectedInstruction.Visible ||
-                        deleteSelectedInstruction.Visible;
+                    else
+                    {
+                        // Hides instruction options
+                        addInstructionToThisRecipe.Visible = false;
+                        editSelectedInstruction.Visible = false;
+                        deleteSelectedInstruction.Visible = false;
+                        toolStripSeparator2.Visible = false;
+                    }
                 };
+
+                pnlInstructions.TabStop = true;
+                pnlInstructions.KeyDown -= PnlInstructions_KeyDown; // avoids multiple subscriptions of the same handler
+                pnlInstructions.KeyDown += PnlInstructions_KeyDown;
 
                 // Instruction label visual layout
 
@@ -734,14 +719,10 @@ namespace Recipe_Writer
 
             // Shows ingredient actions
             addIngredientToThisRecipe.Visible = true;
-
+            toolStripSeparator1.Visible = true;
+            
             // Shows instruction actions
             addInstructionToThisRecipe.Visible = true;
-            editSelectedInstruction.Visible = true;
-            deleteSelectedInstruction.Visible = true;
-
-            // Shows separators
-            toolStripSeparator1.Visible = true;
             toolStripSeparator2.Visible = true;
 
             nudPersons.Visible = true;
@@ -897,19 +878,19 @@ namespace Recipe_Writer
                 return;
             }
 
-            var selectedInstructionLabelBinding = instructionSelection
-                .FirstOrDefault(instruction => instruction.InstructionRank == _selectedInstructionRank);
+            // Retrieves the label directly from the panel using Tag
+            Label lblInstruction = pnlInstructions.Controls
+                .OfType<Label>()
+                .FirstOrDefault(lbl => (int)lbl.Tag == _selectedInstructionRank);
 
-            if (selectedInstructionLabelBinding == null)
+            if (lblInstruction == null)
             {
                 return;
             }
 
-            // Assumes the label exists since it is created in CreateInstructionsLayout and bound to the rank
-            Label lblInstruction = selectedInstructionLabelBinding.InstructionLabel;
-
-            var instructionItem = 
-                _currentDisplayedRecipe.InstructionsList.First(instruction => instruction.Rank == _selectedInstructionRank);
+            // Retrieves the instruction object
+            var instructionItem = _currentDisplayedRecipe.InstructionsList
+                .First(instruction => instruction.Rank == _selectedInstructionRank);
 
             // Creates editable TextBox
             TextBox txtInputUser = new TextBox
@@ -920,37 +901,32 @@ namespace Recipe_Writer
                 BorderStyle = BorderStyle.FixedSingle,
                 Multiline = true,
                 WordWrap = true,
-                ScrollBars = ScrollBars.None
+                ScrollBars = ScrollBars.None,
+                Location = lblInstruction.Location,
+                Width = lblInstruction.Width,
+                Height = lblInstruction.Height,
+                BackColor = Color.White,
+                ForeColor = Color.Black,
+                Padding = new Padding(3)
             };
-
-            txtInputUser.Location = lblInstruction.Location;
-            txtInputUser.Width = lblInstruction.Width;
-
-            // Initial height: label height
-            txtInputUser.Height = lblInstruction.Height;
 
             lblInstruction.Visible = false;
 
-            // Auto-resizes dynamically based on content
+            // Auto-resize dynamically based on content
             txtInputUser.TextChanged += (s2, e2) =>
             {
-                // Measures required height
                 Size proposedSize = new Size(txtInputUser.Width, int.MaxValue);
 
-                // Uses TextRenderer to measure the size of the text with the current font and
-                // wrapping settings and adds an extra space to ensure the last line is measured
-                // correctly when the user types and the text ends with a line break.
+                // Adds an extra space to ensure the last line is measured correctly
+                // when the user types and the text ends with a line break.
                 Size measuredSize = TextRenderer.MeasureText(txtInputUser.Text + " ",
                     txtInputUser.Font, proposedSize, TextFormatFlags.WordBreak
                 );
 
-                int newHeight = measuredSize.Height + 6; // padding of 3px top and 3px bottom for better readability
+                int newHeight = measuredSize.Height + 6;
 
-                // Minimum is set to label height
                 if (newHeight < lblInstruction.Height)
-                {
                     newHeight = lblInstruction.Height;
-                }
 
                 txtInputUser.Height = newHeight;
             };
@@ -958,24 +934,19 @@ namespace Recipe_Writer
             // Handles Enter (save) and Escape (cancel)
             txtInputUser.KeyDown += (s2, e2) =>
             {
-                // If the user presses Enter without Shift (to allow multiline input with Shift+Enter)
                 if (e2.KeyCode == Keys.Enter && !e2.Shift)
                 {
                     e2.SuppressKeyPress = true;
 
-                    string formattedInputUserText = txtInputUser.Text;
+                    string newText = txtInputUser.Text.Replace("'", "''");
 
-                    if (!string.IsNullOrEmpty(formattedInputUserText) && formattedInputUserText.Contains("'"))
-                    {
-                        formattedInputUserText = formattedInputUserText.Replace("'", "''");
-                    }
-                    
-                    // Saves the updated instruction text to the database
-                    dbConn.UpdateInstruction(instructionItem.Id, formattedInputUserText);
+                    // Updates the instruction text in the database using its ID
+                    dbConn.UpdateInstruction(instructionItem.Id, newText);
 
                     txtInputUser.Dispose();
                     CreateInstructionsLayout();
                 }
+
                 else if (e2.KeyCode == Keys.Escape)
                 {
                     txtInputUser.Dispose();
@@ -983,7 +954,6 @@ namespace Recipe_Writer
                 }
             };
 
-            txtInputUser.Show();
             txtInputUser.Focus();
             txtInputUser.SelectAll();
         }
@@ -1018,6 +988,33 @@ namespace Recipe_Writer
             }
         }
 
+        /// <summary>
+        /// Ensures that the currently selected instruction label remains visible
+        /// inside the scrollable instructions panel.
+        /// </summary>
+        private void EnsureSelectedInstructionVisible()
+        {
+            if (_selectedInstructionRank < 0)
+            {
+                return;
+            }
+
+            // Retrieves the label corresponding to the selected instruction
+            Label selectedInstructionLabel = pnlInstructions.Controls
+                .OfType<Label>()
+                .FirstOrDefault(lbl => (int)lbl.Tag == _selectedInstructionRank);
+
+            if (selectedInstructionLabel == null)
+            {
+                return;
+            }
+
+            // Forces WinForms to scroll so the selected label is fully visible
+            pnlInstructions.ScrollControlIntoView(selectedInstructionLabel);
+
+            // Forces layout refresh to ensure the scroll position is applied immediately
+            pnlInstructions.PerformLayout();
+        }
 
         /// <summary>
         /// Exports the currently displayed recipe to a styled HTML web page.
@@ -1180,14 +1177,13 @@ namespace Recipe_Writer
 
             // Hides ingredient actions
             addIngredientToThisRecipe.Visible = false;
+            deleteSelectedIngredientFromThisRecipe.Visible = false;
+            toolStripSeparator1.Visible = false;
 
             // Hides instruction actions
             addInstructionToThisRecipe.Visible = false;
             editSelectedInstruction.Visible = false;
             deleteSelectedInstruction.Visible = false;
-
-            // Hides separators
-            toolStripSeparator1.Visible = false;
             toolStripSeparator2.Visible = false;
 
             pnlInstructions.Controls.Clear();
@@ -1241,7 +1237,8 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Event when the user selects a recipe in the search result list control
+        /// Event when the user selects a recipe in the search result list control.
+        /// Ensures the recipe object exists, updates its ID, and refreshes the UI.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1254,10 +1251,13 @@ namespace Recipe_Writer
                 return; // Exits early if no selection
             }
 
-            // Creates a new recipe object for the newly selected recipe
-            _currentDisplayedRecipe = new Recipes();
+            // Creates the recipe object only if it does not exist yet
+            if (_currentDisplayedRecipe == null)
+            {
+                _currentDisplayedRecipe = new Recipes();
+            }
 
-            // Retrieves the recipe ID from the database using the selected item
+            // Updates the recipe ID
             _currentDisplayedRecipe.Id = dbConn.ReadRecipeId(lstSearchResults.SelectedItem.ToString());
 
             // Displays recipe information in the UI
@@ -1421,42 +1421,81 @@ namespace Recipe_Writer
             UpdateScoreForCurrentRecipe(3);
         }
 
+        /// <summary>
+        /// Handles keyboard navigation (up/down arrows) to change the selected instruction in the instructions panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PnlInstructions_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (_selectedInstructionRank == -1)
+            {
+                return;
+            }
+
+            // Retrieves the list of instruction ranks for the currently displayed recipe, sorted in ascending order
+            var instructionsRanks = _currentDisplayedRecipe.InstructionsList
+                .Select(instruction => instruction.Rank)
+                .OrderBy(rank => rank)
+                .ToList();
+
+            int selectedInstructionRankIndex = instructionsRanks.IndexOf(_selectedInstructionRank);
+
+            if (e.KeyCode == Keys.Down)
+            {
+                // If there is a next instruction
+                if (selectedInstructionRankIndex < instructionsRanks.Count - 1)
+                {
+                    // Moves selection to the next instruction
+                    _selectedInstructionRank = instructionsRanks[selectedInstructionRankIndex + 1];
+                    RefreshSelectedInstruction();
+                    EnsureSelectedInstructionVisible();
+                }
+                e.Handled = true;
+            }
+
+            if (e.KeyCode == Keys.Up)
+            {
+                // If there is a previous instruction
+                if (selectedInstructionRankIndex > 0)
+                {
+                    // Moves selection to the previous instruction
+                    _selectedInstructionRank = instructionsRanks[selectedInstructionRankIndex - 1];
+                    RefreshSelectedInstruction();
+                    EnsureSelectedInstructionVisible();
+                }
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Hides instruction options when clicking on the empty area
+        /// of the instructions panel.
+        /// </summary>
         private void pnlInstructions_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            // Hide instruction options
+            addInstructionToThisRecipe.Visible = false;
+            editSelectedInstruction.Visible = false;
+            deleteSelectedInstruction.Visible = false;
+
+            // Separator 2 = instruction options
+            toolStripSeparator2.Visible = false;
+        }
+
+        /// <summary>
+        /// Ensures that the Up and Down arrow keys are treated as input keys
+        /// by the instructions panel, preventing WinForms from using them
+        /// for focus navigation and allowing the panel to receive them in KeyDown.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pnlInstructions_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
             {
-                // Shows the 3 instruction options
-                addInstructionToThisRecipe.Visible = true;
-                editSelectedInstruction.Visible = true;
-                deleteSelectedInstruction.Visible = true;
-
-                // Shows both separators
-                toolStripSeparator1.Visible = true;
-                toolStripSeparator2.Visible = true;
+                e.IsInputKey = true;
             }
-
-            else
-            {
-                // Hides instruction options if the user clicks elsewhere on the panel
-                addInstructionToThisRecipe.Visible = false;
-                editSelectedInstruction.Visible = false;
-                deleteSelectedInstruction.Visible = false;
-
-                // Hides separators too
-                toolStripSeparator1.Visible = false;
-                toolStripSeparator2.Visible = false;
-            }
-
-            // Bottom separator visible only if at least one instruction option is visible
-            toolStripSeparator2.Visible =
-                addInstructionToThisRecipe.Visible ||
-                editSelectedInstruction.Visible ||
-                deleteSelectedInstruction.Visible;
-
-            // Top separator visible only if edit or delete are visible
-            toolStripSeparator1.Visible =
-                editSelectedInstruction.Visible ||
-                deleteSelectedInstruction.Visible;
         }
 
         private void pnlScore_MouseHover(object sender, EventArgs e)
@@ -1519,23 +1558,27 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Changes the background color of the selected instruction and changes 
-        /// the background to transparent for the unselected instructions
+        /// Applies the visual selection to the instruction whose rank matches
+        /// _selectedInstructionRank, and resets all others.
         /// </summary>
         public void RefreshSelectedInstruction()
         {
-            foreach (var binding in instructionSelection)
+            foreach (Control instCtrl in pnlInstructions.Controls)
             {
-                // The label whose rank = _selectedInstructionRank is blue
-                if (binding.InstructionRank == _selectedInstructionRank) 
-                { 
-                    binding.InstructionLabel.BackColor = Color.FromArgb(168, 208, 230);
-                }
-
-                // All the other labels are transparent
-                else
+                if (instCtrl is Label lblInstruction)
                 {
-                    binding.InstructionLabel.BackColor = Color.Transparent;
+                    int instructionRank = (int)lblInstruction.Tag;
+
+                    if (instructionRank == _selectedInstructionRank)
+                    {
+                        lblInstruction.BackColor = Color.FromArgb(168, 208, 230); // light blue
+                        lblInstruction.ForeColor = Color.Black;
+                    }
+                    else
+                    {
+                        lblInstruction.BackColor = Color.Transparent;
+                        lblInstruction.ForeColor = Color.Black;
+                    }
                 }
             }
         }

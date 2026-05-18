@@ -441,4 +441,7 @@ Por favor, contácteme para cualquier mejora o informe de errores.</value>
   <data name="ErrorMustSelectLanguage" xml:space="preserve">
     <value>Debe seleccionar un idioma para la receta.</value>
   </data>
+  <data name="Portions" xml:space="preserve">
+    <value>porciones</value>
+  </data>
 </root>

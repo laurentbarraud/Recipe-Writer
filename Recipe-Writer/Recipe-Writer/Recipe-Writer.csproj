@@ -131,7 +131,6 @@
     <Compile Include="helpers\UIHoverHelper.cs" />
     <Compile Include="Ingredients.cs" />
     <Compile Include="Instructions.cs" />
-    <Compile Include="InstructionSelections.cs" />
     <Compile Include="LanguageItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
