@@ -38,9 +38,9 @@
             // 
             this.lblInfosLicence.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblInfosLicence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblInfosLicence.Location = new System.Drawing.Point(13, 9);
+            this.lblInfosLicence.Location = new System.Drawing.Point(41, 19);
             this.lblInfosLicence.Name = "lblInfosLicence";
-            this.lblInfosLicence.Size = new System.Drawing.Size(388, 245);
+            this.lblInfosLicence.Size = new System.Drawing.Size(390, 201);
             this.lblInfosLicence.TabIndex = 3;
             this.lblInfosLicence.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -50,7 +50,7 @@
             this.cmbAppLanguage.Items.AddRange(new object[] {
             "anglais",
             "français"});
-            this.cmbAppLanguage.Location = new System.Drawing.Point(220, 281);
+            this.cmbAppLanguage.Location = new System.Drawing.Point(245, 281);
             this.cmbAppLanguage.Name = "cmbAppLanguage";
             this.cmbAppLanguage.Size = new System.Drawing.Size(116, 24);
             this.cmbAppLanguage.TabIndex = 6;
@@ -59,7 +59,7 @@
             // lblAppLanguage
             // 
             this.lblAppLanguage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblAppLanguage.Location = new System.Drawing.Point(16, 282);
+            this.lblAppLanguage.Location = new System.Drawing.Point(41, 282);
             this.lblAppLanguage.Name = "lblAppLanguage";
             this.lblAppLanguage.Size = new System.Drawing.Size(195, 23);
             this.lblAppLanguage.TabIndex = 4;
@@ -77,7 +77,7 @@
             this.cmdValidate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdValidate.Location = new System.Drawing.Point(193, 329);
+            this.cmdValidate.Location = new System.Drawing.Point(218, 329);
             this.cmdValidate.Name = "cmdValidate";
             this.cmdValidate.Size = new System.Drawing.Size(36, 36);
             this.cmdValidate.TabIndex = 2;
@@ -91,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cmdValidate;
-            this.ClientSize = new System.Drawing.Size(422, 387);
+            this.ClientSize = new System.Drawing.Size(470, 387);
             this.Controls.Add(this.cmbAppLanguage);
             this.Controls.Add(this.lblAppLanguage);
             this.Controls.Add(this.lblInfosLicence);

@@ -1,7 +1,7 @@
 ﻿/// <file>Program.cs</file>
 /// <author>Laurent Barraud</author>
 /// <version>1.2</version>
-/// <date>May 19th 2026</date>
+/// <date>May 21th 2026</date>
 
 using Recipe_Writer.Properties;
 using System;

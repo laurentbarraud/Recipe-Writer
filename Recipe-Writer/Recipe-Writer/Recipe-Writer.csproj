@@ -348,9 +348,6 @@
     <Resource Include="Resources\export-db-to-html.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\new-recipe-hover.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\delete-recipe.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -363,21 +360,24 @@
     <Resource Include="Resources\inventory.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\search-by-ingredient.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\inventory-hover.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\search-by-ingredient-hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <None Include="Resources\ingredientSearch-hover.png" />
     <None Include="Resources\search-hover.png" />
     <None Include="Resources\new-instruction.png" />
-    <None Include="Resources\new-recipe.png" />
     <None Include="Resources\validate-hover.png" />
     <None Include="Resources\edit.png" />
+    <None Include="Resources\new-recipe.png" />
+    <None Include="Resources\new-recipe-hover.png" />
+    <None Include="Resources\recipe-status-green.png" />
+    <None Include="Resources\recipe-status-red.png" />
+    <None Include="Resources\search-by-ingredient.png" />
+    <None Include="Resources\search-by-ingredient-hover.png" />
+    <Resource Include="Resources\zoom-in.cur" />
+    <Resource Include="Resources\zoom-out.cur" />
+    <None Include="Resources\font-size-decreased.png" />
+    <None Include="Resources\font-size-increased.png" />
     <Content Include="scripts\Recipe-writer-create-tables.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

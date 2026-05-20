@@ -121,9 +121,6 @@
   <data name="Recipe_writer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Recipe-writer.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="recipe_status_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\recipe-status-green.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="export_db_to_html" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\export-db-to-html.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,11 +133,14 @@
   <data name="1_star" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1-star.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="edit_recipe_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit-recipe-info-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="delete_recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="plan_recipe_into_planner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plan-recipe-into-planner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="new_recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="recipeCooked_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\recipeCooked-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,20 +148,8 @@
   <data name="add_new_ingredient_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add-new-ingredient-into-db-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search_by_ingredient" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search-by-ingredient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="new_recipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new-recipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="recipe_status_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\recipe-status-red.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="2_stars" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2-stars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search_by_ingredient_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search-by-ingredient-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +157,11 @@
   <data name="delete_recipe_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-recipe-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_recipe_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit-recipe-info-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_new_ingredient" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-new-ingredient-into-db.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lowBudget" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lowBudget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,14 +178,14 @@
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add_new_ingredient" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-new-ingredient-into-db.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="planner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\planner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ingredientSearch_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ingredientSearch-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plan_recipe_into_planner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plan-recipe-into-planner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,7 +217,28 @@
   <data name="delete_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="recipe_status_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\recipe-status-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recipe_status_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\recipe-status-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_by_ingredient" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search-by-ingredient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_by_ingredient_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search-by-ingredient-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zoom_in" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoom-in.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="zoom_out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoom-out.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="font_size_decreased" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\font-size-decreased.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="font_size_increased" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\font-size-increased.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

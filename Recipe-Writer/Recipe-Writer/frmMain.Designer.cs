@@ -55,6 +55,8 @@
             this.addInstructionToThisRecipe = new System.Windows.Forms.ToolStripMenuItem();
             this.editSelectedInstruction = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedInstruction = new System.Windows.Forms.ToolStripMenuItem();
+            this.increaseInstructionFontSize = new System.Windows.Forms.ToolStripMenuItem();
+            this.decreaseInstructionFontSize = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbRecipeIngredients = new System.Windows.Forms.ComboBox();
             this.lblCompletionTime = new System.Windows.Forms.Label();
             this.ofdAssociatedImage = new System.Windows.Forms.OpenFileDialog();
@@ -118,6 +120,8 @@
             this.pnlInstructions.TabIndex = 6;
             this.pnlInstructions.Visible = false;
             this.pnlInstructions.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlInstructions_MouseDown);
+            this.pnlInstructions.MouseEnter += new System.EventHandler(this.pnlInstructions_MouseEnter);
+            this.pnlInstructions.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlInstructions_MouseMove);
             this.pnlInstructions.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.pnlInstructions_PreviewKeyDown);
             // 
             // nudPersons
@@ -185,9 +189,11 @@
             this.toolStripSeparator2,
             this.addInstructionToThisRecipe,
             this.editSelectedInstruction,
-            this.deleteSelectedInstruction});
+            this.deleteSelectedInstruction,
+            this.increaseInstructionFontSize,
+            this.decreaseInstructionFontSize});
             this.cmsRecipeResult.Name = "cmsRecipeResult";
-            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 276);
+            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 356);
             // 
             // newRecipe
             // 
@@ -345,6 +351,24 @@
             this.deleteSelectedInstruction.Text = "Supprimer l\'instruction sélectionnée";
             this.deleteSelectedInstruction.Visible = false;
             this.deleteSelectedInstruction.Click += new System.EventHandler(this.deleteSelectedInstruction_Click);
+            // 
+            // increaseInstructionFontSize
+            // 
+            this.increaseInstructionFontSize.Image = ((System.Drawing.Image)(resources.GetObject("increaseInstructionFontSize.Image")));
+            this.increaseInstructionFontSize.Name = "increaseInstructionFontSize";
+            this.increaseInstructionFontSize.Size = new System.Drawing.Size(417, 26);
+            this.increaseInstructionFontSize.Text = "Augmenter la taille des instructions";
+            this.increaseInstructionFontSize.Visible = false;
+            this.increaseInstructionFontSize.Click += new System.EventHandler(this.increaseInstructionFontSize_Click);
+            // 
+            // decreaseInstructionFontSize
+            // 
+            this.decreaseInstructionFontSize.Image = ((System.Drawing.Image)(resources.GetObject("decreaseInstructionFontSize.Image")));
+            this.decreaseInstructionFontSize.Name = "decreaseInstructionFontSize";
+            this.decreaseInstructionFontSize.Size = new System.Drawing.Size(417, 26);
+            this.decreaseInstructionFontSize.Text = "Diminuer la taille des instructions";
+            this.decreaseInstructionFontSize.Visible = false;
+            this.decreaseInstructionFontSize.Click += new System.EventHandler(this.decreaseInstructionFontSize_Click);
             // 
             // cmbRecipeIngredients
             // 
@@ -517,9 +541,9 @@
             this.pnlScore.Controls.Add(this.picScore3);
             this.pnlScore.Controls.Add(this.picScore2);
             this.pnlScore.Controls.Add(this.picScore1);
-            this.pnlScore.Location = new System.Drawing.Point(494, 182);
+            this.pnlScore.Location = new System.Drawing.Point(494, 190);
             this.pnlScore.Name = "pnlScore";
-            this.pnlScore.Size = new System.Drawing.Size(204, 30);
+            this.pnlScore.Size = new System.Drawing.Size(204, 35);
             this.pnlScore.TabIndex = 17;
             this.pnlScore.Visible = false;
             this.pnlScore.MouseLeave += new System.EventHandler(this.pnlScore_MouseLeave);
@@ -531,9 +555,9 @@
             this.picScore3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picScore3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picScore3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picScore3.Location = new System.Drawing.Point(108, 1);
+            this.picScore3.Location = new System.Drawing.Point(112, 3);
             this.picScore3.Name = "picScore3";
-            this.picScore3.Size = new System.Drawing.Size(36, 26);
+            this.picScore3.Size = new System.Drawing.Size(36, 29);
             this.picScore3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picScore3.TabIndex = 7;
             this.picScore3.TabStop = false;
@@ -547,9 +571,9 @@
             this.picScore2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picScore2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picScore2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picScore2.Location = new System.Drawing.Point(75, 1);
+            this.picScore2.Location = new System.Drawing.Point(79, 3);
             this.picScore2.Name = "picScore2";
-            this.picScore2.Size = new System.Drawing.Size(36, 26);
+            this.picScore2.Size = new System.Drawing.Size(36, 29);
             this.picScore2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picScore2.TabIndex = 8;
             this.picScore2.TabStop = false;
@@ -563,9 +587,9 @@
             this.picScore1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picScore1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picScore1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picScore1.Location = new System.Drawing.Point(42, 1);
+            this.picScore1.Location = new System.Drawing.Point(46, 3);
             this.picScore1.Name = "picScore1";
-            this.picScore1.Size = new System.Drawing.Size(36, 26);
+            this.picScore1.Size = new System.Drawing.Size(36, 29);
             this.picScore1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picScore1.TabIndex = 9;
             this.picScore1.TabStop = false;
@@ -674,7 +698,7 @@
             this.picRecipe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picRecipe.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picRecipe.Location = new System.Drawing.Point(494, 22);
+            this.picRecipe.Location = new System.Drawing.Point(494, 29);
             this.picRecipe.Name = "picRecipe";
             this.picRecipe.Size = new System.Drawing.Size(204, 153);
             this.picRecipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -777,6 +801,8 @@
             this.Text = "Recipe Writer";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Click += new System.EventHandler(this.frmMain_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).EndInit();
             this.cmsRecipeResult.ResumeLayout(false);
             this.pnlSlideMenu.ResumeLayout(false);
@@ -850,6 +876,8 @@
         private System.Windows.Forms.ToolStripMenuItem addInstructionToThisRecipe;
         private System.Windows.Forms.ToolStripMenuItem editSelectedInstruction;
         private System.Windows.Forms.ToolStripMenuItem deleteSelectedInstruction;
+        private System.Windows.Forms.ToolStripMenuItem increaseInstructionFontSize;
+        private System.Windows.Forms.ToolStripMenuItem decreaseInstructionFontSize;
     }
 }
 

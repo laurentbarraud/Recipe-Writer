@@ -547,10 +547,12 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à This software uses a SQLite database for data management.
-        ///It was developed as part of a project to replace work at the end of an apprenticeship.
-        ///It is licensed to you under the GNU License.
-        ///Please contact me for any improvement or bug report..
+        ///   Recherche une chaîne localisée semblable à This software was developed 
+        ///as an end‑of‑apprenticeship project.
+        ///It is provided to you 
+        ///under the GNU License.
+        ///Feel free to contact me
+        ///for any improvement or bug report..
         /// </summary>
         internal static string LicenceInfo {
             get {
@@ -865,6 +867,15 @@ namespace Recipe_Writer {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Decrease instruction text size.
+        /// </summary>
+        internal static string ToolStripMenuItemDecreaseInstructionFontSize {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemDecreaseInstructionFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Delete selected ingredient from this recipe.
         /// </summary>
         internal static string ToolStripMenuItemDeleteSelectedIngredientFromThisRecipe {
@@ -924,6 +935,15 @@ namespace Recipe_Writer {
         internal static string ToolStripMenuItemFriday {
             get {
                 return ResourceManager.GetString("ToolStripMenuItemFriday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Increase instruction text size.
+        /// </summary>
+        internal static string ToolStripMenuItemIncreaseInstructionFontSize {
+            get {
+                return ResourceManager.GetString("ToolStripMenuItemIncreaseInstructionFontSize", resourceCulture);
             }
         }
         

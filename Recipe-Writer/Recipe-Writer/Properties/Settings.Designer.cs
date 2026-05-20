@@ -50,12 +50,12 @@ namespace Recipe_Writer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("11")]
-        public int InstructionsFontSize {
+        public int InstructionFontSize {
             get {
-                return ((int)(this["InstructionsFontSize"]));
+                return ((int)(this["InstructionFontSize"]));
             }
             set {
-                this["InstructionsFontSize"] = value;
+                this["InstructionFontSize"] = value;
             }
         }
     }

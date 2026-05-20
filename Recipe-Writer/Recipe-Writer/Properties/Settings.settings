@@ -8,7 +8,7 @@
     <Setting Name="NbPersonsSet" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
-    <Setting Name="InstructionsFontSize" Type="System.Int32" Scope="User">
+    <Setting Name="InstructionFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">11</Value>
     </Setting>
   </Settings>

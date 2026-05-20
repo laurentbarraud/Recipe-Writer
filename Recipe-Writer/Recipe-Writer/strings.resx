@@ -202,10 +202,12 @@
     <value>Please enter a title for the new recipe.</value>
   </data>
   <data name="LicenceInfo" xml:space="preserve">
-    <value>This software uses a SQLite database for data management.
-It was developed as part of a project to replace work at the end of an apprenticeship.
-It is licensed to you under the GNU License.
-Please contact me for any improvement or bug report.</value>
+    <value>This software was developed 
+as an end‑of‑apprenticeship project.
+It is provided to you 
+under the GNU License.
+Feel free to contact me
+for any improvement or bug report.</value>
   </data>
   <data name="LicenceVersion" xml:space="preserve">
     <value>v.1.2 - may 2026</value>
@@ -443,5 +445,11 @@ Please contact me for any improvement or bug report.</value>
   </data>
   <data name="Portions" xml:space="preserve">
     <value>portions</value>
+  </data>
+  <data name="ToolStripMenuItemIncreaseInstructionFontSize" xml:space="preserve">
+    <value>Increase instruction text size</value>
+  </data>
+  <data name="ToolStripMenuItemDecreaseInstructionFontSize" xml:space="preserve">
+    <value>Decrease instruction text size</value>
   </data>
 </root>
