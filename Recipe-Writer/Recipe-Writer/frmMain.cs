@@ -6,7 +6,6 @@
 using Recipe_Writer.Properties;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -65,7 +64,7 @@ namespace Recipe_Writer
         /// </summary>
         public DBConnection dbConn = new DBConnection();
 
-        private const int InstructionFontMin = 10;  
+        private const int InstructionFontMin = 9;  
         private const int InstructionFontMax = 24;
 
         public int InstructionFontSize
