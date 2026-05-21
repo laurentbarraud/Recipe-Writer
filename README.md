@@ -21,14 +21,15 @@ Developed as a school project for the final examination of the Computer Speciali
 - 🥕 Search by ingredients (up to 3 different)
 - ⭐ Rate each recipe from 1 to 3 stars
 - 🏷️ Display budget-friendly recipes and apply a filter in search  
-- ⚖️ Automatic adjustment of ingredient quantities according to the number of servings 
+- ⚖️ Automatic adjustment of ingredient quantities according to the number of servings
+- 🍯 Jar icon indicates whether all ingredients are available for the currently displayed recipe 
+- 🧊 Ingredient inventory sorted by type in different tabs  
+- 🔎 Zoom on instructions text by holding Ctrl or Shift while hovering
+-  📅 Weekly meal planner, with drag and drop to assign meals to a day
+- 🥣 When a planned meal has been cooked, a "Prepared" button lets you deduct each used ingredient quantities from the inventory  
 - 📝 Add your own recipes with your illustration and instructions
 - 🍄 Add your own custom ingredients
-- 🧊 Ingredient inventory sorted by type in different tabs  
-- 🍯 Jar icon indicates whether all ingredients are available for the currently displayed recipe  
-- 📅 Weekly meal planner, with drag and drop to assign meals to a day  
-- ➖ When a planned meal has been cooked, a "Prepared" button lets you deduct each used ingredient quantities from the inventory  
-- 🌐 Localized: English, French and Spanish available. 
+- 🌐 Localized in English, French and Spanish.
   
 ### How to Run
 
