@@ -1,7 +1,7 @@
-﻿/// <file>frmNewRecipeInfosInput.cs</file>
+﻿/// <file>frmNewRecipeBasicInfosInput.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.2</version>
-/// <date>April 6th 2025</date>
+/// <version>1.2.1</version>
+/// <date>August, 4th 2026</date>
 
 using System;
 using System.Collections.Generic;
@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Recipe_Writer
 {
-    public partial class frmNewRecipeInfosInput : Form
+    public partial class frmNewRecipeBasicInfosInput : Form
     {
         // Declares the parent form to be able to access its controls
         private frmMain _frmMain = null;
 
         // Constructor - Adds the parent form as parameter in the form constructor
-        public frmNewRecipeInfosInput(frmMain parentForm)
+        public frmNewRecipeBasicInfosInput(frmMain parentForm)
         {
             // Affects the parent form to an alias
             _frmMain = parentForm;
@@ -82,6 +82,16 @@ namespace Recipe_Writer
         /// </summary>
         private void cmdValidate_Click(object sender, EventArgs e)
         {
+            // Blocks if absolutely nothing was entered
+            if (string.IsNullOrWhiteSpace(txtNewRecipeTitle.Text) &&
+                string.IsNullOrWhiteSpace(txtNewRecipeCompletionTime.Text) &&
+                cmbRecipeLanguage.SelectedValue == null)
+            {
+                MessageBox.Show(strings.ErrorMustEnterATitle, strings.Error,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int parsedNewRecipeCompletionTime = 0;
             int statusChkLowBudget = 0;
 

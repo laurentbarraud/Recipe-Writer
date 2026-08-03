@@ -1,8 +1,8 @@
 ﻿
 /// <file>DBConnection.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.2</version>
-/// <date>May 21th 2026</date>
+/// <version>1.2.1</version>
+/// <date>August, 4th 2026</date>
 
 using System;
 using System.Data.SQLite;
@@ -921,13 +921,13 @@ namespace Recipe_Writer
                                 qtyIngredientNeeded = reader.GetDouble(reader.GetOrdinal(qtyColumn));
 
                                 // Adjust quantity based on number of persons
-                                if (Properties.Settings.Default.NbPersonsSet == 1 || Properties.Settings.Default.NbPersonsSet > 2)
+                                if (Properties.Settings.Default.NbPortionsSet == 1 || Properties.Settings.Default.NbPortionsSet > 2)
                                 {
                                     qtyIngredientNeeded /= 2;
                                 }
-                                if (Properties.Settings.Default.NbPersonsSet > 2)
+                                if (Properties.Settings.Default.NbPortionsSet > 2)
                                 {
-                                    qtyIngredientNeeded *= Properties.Settings.Default.NbPersonsSet;
+                                    qtyIngredientNeeded *= Properties.Settings.Default.NbPortionsSet;
                                 }
                             }
 
@@ -1054,6 +1054,31 @@ namespace Recipe_Writer
             }
 
             return listInstructionsRequested;
+        }
+        
+        /// <summary>
+        /// Reads the planned portion count for a specific day.
+        /// Returns 0 if the database entry is null or missing.
+        /// </summary>
+        /// <param name="idDayOfTheWeek">Numeric identifier of the day (1 = Monday).</param>
+        /// <returns>The number of planned portions.</returns>
+        public int ReadNbPortionsForADay(int idDayOfTheWeek)
+        {
+            using (SQLiteCommand cmd = new SQLiteCommand(
+                "SELECT nbPortionsPlanned FROM PlannedMeals WHERE id = @IdDay;",
+                sqliteConn))
+            {
+                cmd.Parameters.AddWithValue("@IdDay", idDayOfTheWeek);
+
+                object DBresult = cmd.ExecuteScalar();
+
+                if (DBresult == null || DBresult == DBNull.Value)
+                {
+                    return 0;
+                }
+
+                return Convert.ToInt32(DBresult);
+            }
         }
 
         /// <summary>
@@ -1569,21 +1594,26 @@ namespace Recipe_Writer
         /// </summary>
         /// <param name="idDayOfTheWeek">The unique identifier of the day of the week (e.g., 1 = Monday).</param>
         /// <param name="titleOfTheRecipe">The title of the recipe to assign, or null/empty to clear the entry.</param>
-
-        public void UpdatePlannedRecipeForADay(int idDayOfTheWeek, string titleOfTheRecipe)
+        /// <param name="nbPortionsPlanned">The number of portions that has effectively been cooked.</param>
+        public void UpdatePlannedRecipeForADay(int idDayOfTheWeek, string titleOfTheRecipe, int nbPortionsPlanned)
         {
             using (SQLiteCommand cmd = new SQLiteCommand(
-                "UPDATE PlannedMeals SET titleOfPlannedRecipe = @TitleOfPlannedRecipe WHERE id = @IdDayOfTheWeek;",
+                "UPDATE PlannedMeals " +
+                "SET titleOfPlannedRecipe = @TitleOfPlannedRecipe, " +
+                "    nbPortionsPlanned   = @NbPortionsPlanned " +
+                "WHERE id = @IdDayOfTheWeek;",
                 sqliteConn))
             {
                 if (string.IsNullOrWhiteSpace(titleOfTheRecipe))
                 {
-                    // Stores NULL in the database if no recipe is planned
+                    // Stores null in the database if no recipe is planned
                     cmd.Parameters.AddWithValue("@TitleOfPlannedRecipe", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@NbPortionsPlanned", 1);
                 }
                 else
                 {
                     cmd.Parameters.AddWithValue("@TitleOfPlannedRecipe", titleOfTheRecipe);
+                    cmd.Parameters.AddWithValue("@NbPortionsPlanned", nbPortionsPlanned);
                 }
 
                 cmd.Parameters.AddWithValue("@IdDayOfTheWeek", idDayOfTheWeek);

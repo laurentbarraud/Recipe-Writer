@@ -401,7 +401,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.CancelButton = this.cmdValidate;
             this.ClientSize = new System.Drawing.Size(1008, 486);
             this.Controls.Add(this.cmdAddNewIngredientIntoDB);
             this.Controls.Add(this.lblNbOfIngredientsStored);

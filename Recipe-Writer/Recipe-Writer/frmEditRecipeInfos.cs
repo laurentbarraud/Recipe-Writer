@@ -1,7 +1,7 @@
 ﻿/// <file>frmEditRecipeTitle.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.2</version>
-/// <date>April 6th 2025</date>
+/// <version>1.2.1</version>
+/// <date>August, 4th 2026</date>
 
 using System;
 using System.Collections.Generic;

@@ -1,7 +1,7 @@
 ﻿/// <file>frmMain.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.2</version>
-/// <date>May 21th 2026</date>
+/// <version>1.2.1</version>
+/// <date>August, 4th 2026</date>
 
 using Recipe_Writer.Properties;
 using System;
@@ -194,8 +194,8 @@ namespace Recipe_Writer
         /// </summary>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            int nbPersonsSet = Properties.Settings.Default.NbPersonsSet;
-            nudPersons.Value = nbPersonsSet;
+            int nbPersonsSet = Properties.Settings.Default.NbPortionsSet;
+            nudPortions.Value = nbPersonsSet;
 
             txtTitleSearch.Focus();
 
@@ -791,7 +791,7 @@ namespace Recipe_Writer
         /// </summary>
         public void DisplayRecipeControls()
         {
-            nudPersons.Visible = true;
+            nudPortions.Visible = true;
             lblPortions.Visible = true;
             lblCompletionTime.Visible = true;
             cmbRecipeIngredients.Visible = true;
@@ -1241,7 +1241,7 @@ namespace Recipe_Writer
             lblCompletionTime.Text = "";
             lblCompletionTime.Visible = false;
             lblPortions.Visible = false;
-            nudPersons.Visible = false;
+            nudPortions.Visible = false;
 
             picRecipe.Visible = false;
             pnlScore.Visible = false;
@@ -1355,7 +1355,7 @@ namespace Recipe_Writer
             DisplayRecipeInfos(_currentDisplayedRecipe.Id);
 
             // Shows recipe controls if they are not already visible
-            if (!nudPersons.Visible)
+            if (!nudPortions.Visible)
             {
                 DisplayRecipeControls();
             }
@@ -1363,7 +1363,7 @@ namespace Recipe_Writer
 
         private void mondayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dbConn.UpdatePlannedRecipeForADay(1, _currentDisplayedRecipe.Title);
+            dbConn.UpdatePlannedRecipeForADay(1, _currentDisplayedRecipe.Title, (int)nudPortions.Value);
 
             if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
@@ -1377,8 +1377,8 @@ namespace Recipe_Writer
 
         private void tuesdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dbConn.UpdatePlannedRecipeForADay(2, _currentDisplayedRecipe.Title);
-
+            dbConn.UpdatePlannedRecipeForADay(2, _currentDisplayedRecipe.Title, (int)nudPortions.Value);
+            
             if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
                 ShowMealPlanner();
@@ -1387,7 +1387,7 @@ namespace Recipe_Writer
 
         private void wednesdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dbConn.UpdatePlannedRecipeForADay(3, _currentDisplayedRecipe.Title);
+            dbConn.UpdatePlannedRecipeForADay(3, _currentDisplayedRecipe.Title, (int)nudPortions.Value);
 
             if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
@@ -1397,7 +1397,7 @@ namespace Recipe_Writer
 
         private void thursdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dbConn.UpdatePlannedRecipeForADay(4, _currentDisplayedRecipe.Title);
+            dbConn.UpdatePlannedRecipeForADay(4, _currentDisplayedRecipe.Title, (int)nudPortions.Value);
 
             if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
@@ -1407,7 +1407,7 @@ namespace Recipe_Writer
 
         private void fridayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dbConn.UpdatePlannedRecipeForADay(5, _currentDisplayedRecipe.Title);
+            dbConn.UpdatePlannedRecipeForADay(5, _currentDisplayedRecipe.Title, (int)nudPortions.Value);
 
             if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
@@ -1417,7 +1417,7 @@ namespace Recipe_Writer
 
         private void saturdayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dbConn.UpdatePlannedRecipeForADay(6, _currentDisplayedRecipe.Title);
+            dbConn.UpdatePlannedRecipeForADay(6, _currentDisplayedRecipe.Title, (int)nudPortions.Value);
 
             if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
@@ -1427,7 +1427,7 @@ namespace Recipe_Writer
 
         private void sundayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dbConn.UpdatePlannedRecipeForADay(7, _currentDisplayedRecipe.Title);
+            dbConn.UpdatePlannedRecipeForADay(7, _currentDisplayedRecipe.Title, (int)nudPortions.Value);
 
             if (_frmMealPlanner == null || _frmMealPlanner.IsDisposed)
             {
@@ -1437,15 +1437,15 @@ namespace Recipe_Writer
 
         private void newRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNewRecipeInfosInput _frmNewRecipeInfosInput = new frmNewRecipeInfosInput(this);
-            _frmNewRecipeInfosInput.ShowDialog();
+            frmNewRecipeBasicInfosInput _frmNewRecipeBasicInfosInput = new frmNewRecipeBasicInfosInput(this);
+            _frmNewRecipeBasicInfosInput.ShowDialog();
         }
 
 
         /// <summary>
         /// Handles the re-calculation of the quantity of each ingredient for the currently displayed recipe
         /// </summary>
-        private void nudPersons_ValueChanged(object sender, EventArgs e)
+        private void nudPortions_ValueChanged(object sender, EventArgs e)
         {
             // Prevents crash at startup when no recipe is selected yet
             if (_currentDisplayedRecipe == null || _currentDisplayedRecipe.Id == 0)
@@ -1453,7 +1453,7 @@ namespace Recipe_Writer
                 return;
             }
 
-            Properties.Settings.Default.NbPersonsSet = Convert.ToInt32(nudPersons.Value);
+            Properties.Settings.Default.NbPortionsSet = Convert.ToInt32(nudPortions.Value);
 
             // Save value for next sessions
             Properties.Settings.Default.Save();
@@ -1468,7 +1468,7 @@ namespace Recipe_Writer
         /// </summary>
         private void picRecipe_Click(object sender, EventArgs e)
         {
-            if (nudPersons.Visible)
+            if (nudPortions.Visible)
             {
                 // Forces dialog culture to match the app language
                 System.Threading.Thread.CurrentThread.CurrentUICulture =
@@ -1672,34 +1672,55 @@ namespace Recipe_Writer
         }
 
         /// <summary>
-        /// Captures global keyboard shortcuts for zooming instructions.
-        /// This method intercepts CTRL + '+' and CTRL + '-' even when
-        /// controls like NumericUpDown consume the key events.
+        /// Handles form‑level keyboard shortcuts by intercepting specific key combinations
+        /// before default processing.
         /// </summary>
+        /// <param name="msg">The Windows message linked to the key event.</param>
+        /// <param name="keyData">The keys pressed by the user.</param>
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            bool isCtrlPlusPressed = keyData == (Keys.Control | Keys.Oemplus)
-            || keyData == (Keys.Control | Keys.Add)
-            || keyData == (Keys.Control | Keys.Shift | Keys.Oemplus);
-            
-            bool isCtrlMinusPressed = keyData == (Keys.Control | Keys.OemMinus)
-            || keyData == (Keys.Control | Keys.Subtract);
-
             // CTRL + '+': zoom in
-            if (isCtrlPlusPressed)
+            if (keyData == (Keys.Control | Keys.Add))
             {
                 ApplyInstructionZoomDelta(+1);
-                return true; // event handled
+                return true;
             }
 
             // CTRL + '-': zoom out
-            if (isCtrlMinusPressed)
+            if (keyData == (Keys.Control | Keys.Subtract))
             {
                 ApplyInstructionZoomDelta(-1);
-                return true; 
+                return true;
             }
 
-            // For all other keys, proceed with default processing by the base class
+            // Enter
+            if (keyData == Keys.Enter)
+            {
+                // Inside txtTitleSearch: triggers a search
+                if (txtTitleSearch.Focused)
+                {
+                    cmdTitleSearch.PerformClick();
+                    return true;
+                }
+
+                // Elsewhere: consume the key to avoid beep
+                return true;
+            }
+
+            // Shows meal planner
+            if (keyData == (Keys.Control | Keys.M) || keyData == (Keys.Control | Keys.P))
+            {
+                ShowMealPlanner();
+                return true;
+            }
+
+            // Shows inventory
+            if (keyData == (Keys.Control | Keys.I))
+            {
+                ShowInventory();
+                return true;
+            }
+
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -1765,6 +1786,11 @@ namespace Recipe_Writer
                 {
                     lstSearchResults.Items.Add(titleItem);
                 }
+            }
+
+            if (lstSearchResults.Items.Count > 0 && lstSearchResults.Enabled == false)
+            {
+                lstSearchResults.Enabled = true;
             }
         }
 

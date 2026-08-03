@@ -38,12 +38,12 @@ namespace Recipe_Writer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public int NbPersonsSet {
+        public int NbPortionsSet {
             get {
-                return ((int)(this["NbPersonsSet"]));
+                return ((int)(this["NbPortionsSet"]));
             }
             set {
-                this["NbPersonsSet"] = value;
+                this["NbPortionsSet"] = value;
             }
         }
         
@@ -56,6 +56,18 @@ namespace Recipe_Writer.Properties {
             }
             set {
                 this["InstructionFontSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MealPlannerLastPosition {
+            get {
+                return ((string)(this["MealPlannerLastPosition"]));
+            }
+            set {
+                this["MealPlannerLastPosition"] = value;
             }
         }
     }

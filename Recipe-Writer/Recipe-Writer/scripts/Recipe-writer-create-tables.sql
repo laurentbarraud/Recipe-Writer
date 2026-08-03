@@ -23,10 +23,11 @@ CREATE TABLE "Instructions" (
 );
 DROP TABLE IF EXISTS "PlannedMeals";
 CREATE TABLE "PlannedMeals" (
-	"id"	INTEGER NOT NULL,
-	"titleOfPlannedRecipe"	TEXT,
-	"dayOfTheWeek"	TEXT NOT NULL,
-	PRIMARY KEY("id" AUTOINCREMENT)
+    "id"                INTEGER NOT NULL,
+    "titleOfPlannedRecipe"   TEXT,
+    "dayOfTheWeek"      TEXT NOT NULL,
+    "nbPortionsPlanned" INTEGER DEFAULT 2,
+    PRIMARY KEY("id" AUTOINCREMENT)
 );
 DROP TABLE IF EXISTS "Recipes";
 CREATE TABLE "Recipes" (

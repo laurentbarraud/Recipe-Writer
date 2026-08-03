@@ -1,7 +1,7 @@
 ﻿/// <file>Ingredients.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.2</version>
-/// <date>May 21th 2026</date>
+/// <version>1.2.1</version>
+/// <date>August, 4th 2026</date>
 
 using System;
 

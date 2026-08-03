@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.txtTitleSearch = new System.Windows.Forms.TextBox();
             this.pnlInstructions = new System.Windows.Forms.Panel();
-            this.nudPersons = new System.Windows.Forms.NumericUpDown();
+            this.nudPortions = new System.Windows.Forms.NumericUpDown();
             this.lblPortions = new System.Windows.Forms.Label();
             this.lstSearchResults = new System.Windows.Forms.ListBox();
             this.cmsRecipeResult = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -87,7 +87,7 @@
             this.picRecipeReadyToCookStatus = new System.Windows.Forms.PictureBox();
             this.cmdSettings = new System.Windows.Forms.Button();
             this.picCompletionTime = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPortions)).BeginInit();
             this.cmsRecipeResult.SuspendLayout();
             this.pnlSlideMenu.SuspendLayout();
             this.pnlScore.SuspendLayout();
@@ -124,30 +124,30 @@
             this.pnlInstructions.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlInstructions_MouseMove);
             this.pnlInstructions.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.pnlInstructions_PreviewKeyDown);
             // 
-            // nudPersons
+            // nudPortions
             // 
-            this.nudPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.nudPersons.Location = new System.Drawing.Point(270, 236);
-            this.nudPersons.Maximum = new decimal(new int[] {
+            this.nudPortions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.nudPortions.Location = new System.Drawing.Point(270, 236);
+            this.nudPortions.Maximum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.nudPersons.Minimum = new decimal(new int[] {
+            this.nudPortions.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudPersons.Name = "nudPersons";
-            this.nudPersons.Size = new System.Drawing.Size(42, 27);
-            this.nudPersons.TabIndex = 5;
-            this.nudPersons.Value = new decimal(new int[] {
+            this.nudPortions.Name = "nudPortions";
+            this.nudPortions.Size = new System.Drawing.Size(42, 27);
+            this.nudPortions.TabIndex = 5;
+            this.nudPortions.Value = new decimal(new int[] {
             3,
             0,
             0,
             0});
-            this.nudPersons.Visible = false;
-            this.nudPersons.ValueChanged += new System.EventHandler(this.nudPersons_ValueChanged);
+            this.nudPortions.Visible = false;
+            this.nudPortions.ValueChanged += new System.EventHandler(this.nudPortions_ValueChanged);
             // 
             // lblPortions
             // 
@@ -193,7 +193,7 @@
             this.increaseInstructionFontSize,
             this.decreaseInstructionFontSize});
             this.cmsRecipeResult.Name = "cmsRecipeResult";
-            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 356);
+            this.cmsRecipeResult.Size = new System.Drawing.Size(418, 328);
             // 
             // newRecipe
             // 
@@ -783,7 +783,7 @@
             this.Controls.Add(this.picLowBudget);
             this.Controls.Add(this.cmbRecipeIngredients);
             this.Controls.Add(this.lstSearchResults);
-            this.Controls.Add(this.nudPersons);
+            this.Controls.Add(this.nudPortions);
             this.Controls.Add(this.lblCompletionTime);
             this.Controls.Add(this.lblPortions);
             this.Controls.Add(this.pnlInstructions);
@@ -803,7 +803,7 @@
             this.Click += new System.EventHandler(this.frmMain_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.nudPersons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPortions)).EndInit();
             this.cmsRecipeResult.ResumeLayout(false);
             this.pnlSlideMenu.ResumeLayout(false);
             this.pnlSlideMenu.PerformLayout();
@@ -837,7 +837,7 @@
         private System.Windows.Forms.TextBox txtSearchIngredient2;
         private System.Windows.Forms.TextBox txtSearchIngredient1;
         private System.Windows.Forms.Button cmdingredientSearch;
-        private System.Windows.Forms.NumericUpDown nudPersons;
+        private System.Windows.Forms.NumericUpDown nudPortions;
         private System.Windows.Forms.ContextMenuStrip cmsRecipeResult;
         private System.Windows.Forms.ToolStripMenuItem newRecipe;
         private System.Windows.Forms.ToolStripMenuItem editThisRecipesInfos;

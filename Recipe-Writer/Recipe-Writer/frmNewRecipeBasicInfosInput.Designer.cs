@@ -1,6 +1,6 @@
 ﻿namespace Recipe_Writer
 {
-    partial class frmNewRecipeInfosInput
+    partial class frmNewRecipeBasicInfosInput
     {
         /// <summary>
         /// Required designer variable.
@@ -105,7 +105,6 @@
             this.cmdValidate.BackgroundImage = global::Recipe_Writer.Properties.Resources.validate;
             this.cmdValidate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdValidate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdValidate.FlatAppearance.BorderSize = 0;
             this.cmdValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdValidate.Location = new System.Drawing.Point(398, 270);
@@ -149,7 +148,7 @@
             this.lblRecipeLanguage.Text = "Langue de la recette :";
             this.lblRecipeLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // frmNewRecipeInfosInput
+            // frmNewRecipeBasicInfosInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -168,7 +167,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmNewRecipeInfosInput";
+            this.Name = "frmNewRecipeBasicInfosInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrer les infos de base pour la nouvelle recette";
             this.ResumeLayout(false);

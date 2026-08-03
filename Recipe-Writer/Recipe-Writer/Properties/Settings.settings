@@ -5,11 +5,14 @@
     <Setting Name="AppLanguageCode" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="NbPersonsSet" Type="System.Int32" Scope="User">
+    <Setting Name="NbPortionsSet" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="InstructionFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">11</Value>
+    </Setting>
+    <Setting Name="MealPlannerLastPosition" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

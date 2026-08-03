@@ -1,7 +1,7 @@
 ﻿/// <file>frmMealPlanner.cs</file>
 /// <author>Laurent Barraud</author>
-/// <version>1.2</version>
-/// <date>April 6th 2025</date>
+/// <version>1.2.1</version>
+/// <date>August, 4th 2026</date>
 
 using System;
 using System.Collections.Generic;
@@ -94,7 +94,7 @@ namespace Recipe_Writer
             lblSunday.Text = strings.Sunday;
             lblHowToUse.Text = strings.HowToUsePlannerText;
         }
-
+        
         /// <summary>
         /// Form load event
         /// </summary>
@@ -102,55 +102,118 @@ namespace Recipe_Writer
         /// <param name="e"></param>
         private void frmMealPlanner_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(_frmMain.Width - 150, _frmMain.Height / 2);
+            // Reads stored window coordinates
+            string storedMealPlannerWindowLastPosition = Properties.Settings.Default.MealPlannerLastPosition;
 
-            loadPlannedMeal = LoadPlannedMealForADay;
+            bool positionRestored = false;
 
-            for (int idDayOfWeek = 1; idDayOfWeek < 6; idDayOfWeek++)
+            // Tries to parse saved coordinates
+            if (!string.IsNullOrWhiteSpace(storedMealPlannerWindowLastPosition))
             {
-                loadPlannedMeal(idDayOfWeek);
+                string[] posCoordinates = storedMealPlannerWindowLastPosition.Split(';');
+
+                if (posCoordinates.Length == 2 &&
+                    int.TryParse(posCoordinates[0], out int posX) &&
+                    int.TryParse(posCoordinates[1], out int posY))
+                {
+                    this.StartPosition = FormStartPosition.Manual;
+                    this.Location = new Point(posX, posY);
+                    positionRestored = true;
+                }
             }
 
+            // Default placement: bottom-right corner
+            if (!positionRestored)
+            {
+                Rectangle screenRect = Screen.PrimaryScreen.WorkingArea;
+
+                this.Location = new Point(screenRect.Right - this.Width,
+                    screenRect.Bottom - this.Height
+                );
+            }
+
+            // Loads planned meals for all days (Monday = 1, Sunday = 7)
+            for (int idDayOfWeek = 1; idDayOfWeek <= 7; idDayOfWeek++)
+            {
+                LoadPlannedMealForADay(idDayOfWeek);
+            }
+
+            // Loads portion values for each day
+            var daysOfWeek = new[]
+            {
+                new { Id = 1, Nud = nudMondayPortions, Label = lblMondayRecipe },
+                new { Id = 2, Nud = nudTuesdayPortions, Label = lblTuesdayRecipe },
+                new { Id = 3, Nud = nudWednesdayPortions, Label = lblWednesdayRecipe },
+                new { Id = 4, Nud = nudThursdayPortions, Label = lblThursdayRecipe },
+                new { Id = 5, Nud = nudFridayPortions, Label = lblFridayRecipe },
+                new { Id = 6, Nud = nudSaturdayPortions, Label = lblSaturdayRecipe },
+                new { Id = 7, Nud = nudSundayPortions, Label = lblSundayRecipe }
+            };
+
+            foreach (var day in daysOfWeek)
+            {
+                // If a recipe is planned, load its portion count
+                if (!string.IsNullOrWhiteSpace(day.Label.Text))
+                {
+                    int readPortionsForThisDay = _frmMain.dbConn.ReadNbPortionsForADay(day.Id);
+                    day.Nud.Value = readPortionsForThisDay;
+                    day.Nud.Visible = true;
+                }
+                
+                else
+                {
+                    day.Nud.Visible = false;
+                }
+            }
+
+            // Shows buttons for each day where a recipe is planned
             if (!string.IsNullOrEmpty(lblMondayRecipe.Text))
             {
                 cmdMondayCancelled.Visible = true;
                 cmdMondayCooked.Visible = true;
+                nudMondayPortions.Visible = true;
             }
 
             if (!string.IsNullOrEmpty(lblTuesdayRecipe.Text))
             {
                 cmdTuesdayCancelled.Visible = true;
                 cmdTuesdayCooked.Visible = true;
+                nudTuesdayPortions.Visible = true;
             }
 
             if (!string.IsNullOrEmpty(lblWednesdayRecipe.Text))
             {
                 cmdWednesdayCancelled.Visible = true;
                 cmdWednesdayCooked.Visible = true;
+                nudWednesdayPortions.Visible = true;
             }
 
             if (!string.IsNullOrEmpty(lblThursdayRecipe.Text))
             {
                 cmdThursdayCancelled.Visible = true;
                 cmdThursdayCooked.Visible = true;
+                nudThursdayPortions.Visible = true;
             }
 
             if (!string.IsNullOrEmpty(lblFridayRecipe.Text))
             {
                 cmdFridayCancelled.Visible = true;
                 cmdFridayCooked.Visible = true;
+                nudFridayPortions.Visible = true;
             }
 
             if (!string.IsNullOrEmpty(lblSaturdayRecipe.Text))
             {
                 cmdSaturdayCancelled.Visible = true;
                 cmdSaturdayCooked.Visible = true;
+                nudSaturdayPortions.Visible = true;
             }
 
             if (!string.IsNullOrEmpty(lblSundayRecipe.Text))
             {
                 cmdSundayCancelled.Visible = true;
                 cmdSundayCooked.Visible = true;
+                nudSundayPortions.Visible = true;
             }
         }
 
@@ -159,6 +222,7 @@ namespace Recipe_Writer
             lblMondayRecipe.Text = "";
             cmdMondayCancelled.Visible = false;
             cmdMondayCooked.Visible = false;
+            nudMondayPortions.Visible = false;
         }
 
         private void cmdTuesdayCancelled_Click(object sender, EventArgs e)
@@ -166,6 +230,7 @@ namespace Recipe_Writer
             lblTuesdayRecipe.Text = "";
             cmdTuesdayCancelled.Visible = false;
             cmdTuesdayCooked.Visible = false;
+            nudTuesdayPortions.Visible = false;
         }
 
         private void cmdWednesdayCancelled_Click(object sender, EventArgs e)
@@ -173,6 +238,7 @@ namespace Recipe_Writer
             lblWednesdayRecipe.Text = "";
             cmdWednesdayCancelled.Visible = false;
             cmdWednesdayCooked.Visible = false;
+            nudWednesdayPortions.Visible = false;
         }
 
         private void cmdThursdayCancelled_Click(object sender, EventArgs e)
@@ -180,6 +246,7 @@ namespace Recipe_Writer
             lblThursdayRecipe.Text = "";
             cmdThursdayCancelled.Visible = false;
             cmdThursdayCooked.Visible = false;
+            nudThursdayPortions.Visible = false;
         }
 
         private void cmdFridayCancelled_Click(object sender, EventArgs e)
@@ -187,6 +254,7 @@ namespace Recipe_Writer
             lblFridayRecipe.Text = "";
             cmdFridayCancelled.Visible = false;
             cmdFridayCooked.Visible = false;
+            nudFridayPortions.Visible = false;
         }
 
         private void cmdSaturdayCancelled_Click(object sender, EventArgs e)
@@ -194,6 +262,7 @@ namespace Recipe_Writer
             lblSaturdayRecipe.Text = "";
             cmdSaturdayCancelled.Visible = false;
             cmdSaturdayCooked.Visible = false;
+            nudSaturdayPortions.Visible = false;
         }
 
         private void cmdSundayCancelled_Click(object sender, EventArgs e)
@@ -201,6 +270,7 @@ namespace Recipe_Writer
             lblSundayRecipe.Text = "";
             cmdSundayCancelled.Visible = false;
             cmdSundayCooked.Visible = false;
+            nudSundayPortions.Visible = false;
         }
 
         private void cmdMondayCooked_Click(object sender, EventArgs e)
@@ -208,11 +278,13 @@ namespace Recipe_Writer
             if (lblMondayRecipe.Text != "")
             {
                 int idRecipe = _frmMain.dbConn.ReadRecipeId(lblMondayRecipe.Text);
-                DeductEachIngredientUsedToCookARecipe(idRecipe);
-
+               
+                DeductEachIngredientUsedToCookARecipe(idRecipe, 1);
+            
                 lblMondayRecipe.Text = "";
                 cmdMondayCancelled.Visible = false;
                 cmdMondayCooked.Visible = false;
+                nudMondayPortions.Visible = false;
             }
         }
 
@@ -221,11 +293,13 @@ namespace Recipe_Writer
             if (lblTuesdayRecipe.Text != "")
             {
                 int idRecipe = _frmMain.dbConn.ReadRecipeId(lblTuesdayRecipe.Text);
-                DeductEachIngredientUsedToCookARecipe(idRecipe);
+                
+                DeductEachIngredientUsedToCookARecipe(idRecipe, 2);
 
                 lblTuesdayRecipe.Text = "";
                 cmdTuesdayCancelled.Visible = false;
                 cmdTuesdayCooked.Visible = false;
+                nudTuesdayPortions.Visible = false;
             }
         }
 
@@ -234,11 +308,13 @@ namespace Recipe_Writer
             if (lblWednesdayRecipe.Text != "")
             {
                 int idRecipe = _frmMain.dbConn.ReadRecipeId(lblWednesdayRecipe.Text);
-                DeductEachIngredientUsedToCookARecipe(idRecipe);
+                
+                DeductEachIngredientUsedToCookARecipe(idRecipe, 3);
 
                 lblWednesdayRecipe.Text = "";
                 cmdWednesdayCancelled.Visible = false;
                 cmdWednesdayCooked.Visible = false;
+                nudWednesdayPortions.Visible = false;
             } 
         }
 
@@ -247,11 +323,13 @@ namespace Recipe_Writer
             if (lblThursdayRecipe.Text != "")
             {
                 int idRecipe = _frmMain.dbConn.ReadRecipeId(lblThursdayRecipe.Text);
-                DeductEachIngredientUsedToCookARecipe(idRecipe);
+                
+                DeductEachIngredientUsedToCookARecipe(idRecipe, 4);
 
                 lblThursdayRecipe.Text = "";
                 cmdThursdayCancelled.Visible = false;
                 cmdThursdayCooked.Visible = false;
+                nudThursdayPortions.Visible = false;
             }
         }
 
@@ -260,11 +338,13 @@ namespace Recipe_Writer
             if (lblFridayRecipe.Text != "")
             {
                 int idRecipe = _frmMain.dbConn.ReadRecipeId(lblFridayRecipe.Text);
-                DeductEachIngredientUsedToCookARecipe(idRecipe);
+                
+                DeductEachIngredientUsedToCookARecipe(idRecipe, 5);
 
                 lblFridayRecipe.Text = "";
                 cmdFridayCancelled.Visible = false;
                 cmdFridayCooked.Visible = false;
+                nudFridayPortions.Visible = false;
             }
         }
 
@@ -273,11 +353,13 @@ namespace Recipe_Writer
             if (lblSaturdayRecipe.Text != "")
             {
                 int idRecipe = _frmMain.dbConn.ReadRecipeId(lblSaturdayRecipe.Text);
-                DeductEachIngredientUsedToCookARecipe(idRecipe);
+                
+                DeductEachIngredientUsedToCookARecipe(idRecipe, 6);
 
                 lblSaturdayRecipe.Text = "";
                 cmdSaturdayCancelled.Visible = false;
                 cmdSaturdayCooked.Visible = false;
+                nudSaturdayPortions.Visible = false;
             }
         }
 
@@ -286,11 +368,13 @@ namespace Recipe_Writer
             if (lblSundayRecipe.Text != "")
             {
                 int idRecipe = _frmMain.dbConn.ReadRecipeId(lblSundayRecipe.Text);
-                DeductEachIngredientUsedToCookARecipe(idRecipe);
+                
+                DeductEachIngredientUsedToCookARecipe(idRecipe, 7);
 
                 lblSundayRecipe.Text = "";
                 cmdSundayCancelled.Visible = false;
                 cmdSundayCooked.Visible = false;
+                nudSundayPortions.Visible = false;
             }
         }
 
@@ -299,20 +383,33 @@ namespace Recipe_Writer
             this.Close();
         }
 
-        private void DeductEachIngredientUsedToCookARecipe(int idRecipe)
+        /// <summary>
+        /// Deducts ingredient quantities from inventory based on the recipe and
+        /// the planned portion count for the specified day.
+        /// </summary>
+        /// <param name="idRecipe">The recipe identifier.</param>
+        /// <param name="idDayOfWeek">Numeric identifier of the day (1 = Monday).</param>
+        private void DeductEachIngredientUsedToCookARecipe(int idRecipe, int idDayOfWeek)
         {
             List<Ingredients> listIngredientsToDeduct = _frmMain.dbConn.ReadIngredientsQtyForARecipe(idRecipe);
 
+            int nbPortionsPlannedForThatDay = _frmMain.dbConn.ReadNbPortionsForADay(idDayOfWeek);
+
+            // Computes scaling factor: all recipes are stored in the database for 2 portions.
+            double scalingFactor = nbPortionsPlannedForThatDay / 2.0;
+
             foreach (Ingredients ingredientToDeduct in listIngredientsToDeduct)
             {
-                // If we have more than requested of the ingredient
-                if (ingredientToDeduct.QtyAvailable > ingredientToDeduct.QtyRequested) 
-                {
-                    ingredientToDeduct.QtyAvailable -= ingredientToDeduct.QtyRequested;
-                }
+                // Computes real quantity to deduct
+                double qtyToDeduct = ingredientToDeduct.QtyRequested * scalingFactor;
 
-                // If we have less than requested of the ingredient
-                else 
+                // If we have more than requested of the ingredient
+                if (ingredientToDeduct.QtyAvailable > qtyToDeduct)
+                {
+                    ingredientToDeduct.QtyAvailable -= qtyToDeduct;
+                }
+                
+                else
                 {
                     ingredientToDeduct.QtyAvailable = 0.0;
                 }
@@ -321,7 +418,8 @@ namespace Recipe_Writer
                 _frmMain.dbConn.UpdateQtyIngredientAvailable(ingredientToDeduct.Id, ingredientToDeduct.QtyAvailable);
             }
 
-            MessageBox.Show(strings.InfoAmountOfIngredientsNeededDeducted, strings.DeductionFromInventory, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(strings.InfoAmountOfIngredientsNeededDeducted, strings.DeductionFromInventory,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void lblMondayRecipe_DoubleClick(object sender, EventArgs e)
@@ -331,6 +429,7 @@ namespace Recipe_Writer
                 lblMondayRecipe.Text = _frmMain.lstSearchResults.Text;
                 cmdMondayCancelled.Visible = true;
                 cmdMondayCooked.Visible = true;
+                nudMondayPortions.Visible = true;
             }
         }
 
@@ -341,6 +440,7 @@ namespace Recipe_Writer
                 lblTuesdayRecipe.Text = _frmMain.lstSearchResults.Text;
                 cmdTuesdayCancelled.Visible = true;
                 cmdTuesdayCooked.Visible = true;
+                nudTuesdayPortions.Visible = true;
             }
         }
 
@@ -351,6 +451,7 @@ namespace Recipe_Writer
                 lblWednesdayRecipe.Text = _frmMain.lstSearchResults.Text;
                 cmdWednesdayCancelled.Visible = true;
                 cmdWednesdayCooked.Visible = true;
+                nudWednesdayPortions.Visible = true;
             }
         }
 
@@ -361,6 +462,7 @@ namespace Recipe_Writer
                 lblThursdayRecipe.Text = _frmMain.lstSearchResults.Text;
                 cmdThursdayCancelled.Visible = true;
                 cmdThursdayCooked.Visible = true;
+                nudThursdayPortions.Visible = true;
             }
         }
 
@@ -371,6 +473,7 @@ namespace Recipe_Writer
                 lblFridayRecipe.Text = _frmMain.lstSearchResults.Text;
                 cmdFridayCancelled.Visible = true;
                 cmdFridayCooked.Visible = true;
+                nudFridayPortions.Visible = true;
             }
         }
 
@@ -381,6 +484,7 @@ namespace Recipe_Writer
                 lblSaturdayRecipe.Text = _frmMain.lstSearchResults.Text;
                 cmdSaturdayCancelled.Visible = true;
                 cmdSaturdayCooked.Visible = true;
+                nudSaturdayPortions.Visible = true;
             }
         }
 
@@ -391,6 +495,7 @@ namespace Recipe_Writer
                 lblSundayRecipe.Text = _frmMain.lstSearchResults.Text;
                 cmdSundayCancelled.Visible = true;
                 cmdSundayCooked.Visible = true;
+                nudSundayPortions.Visible = true;
             }
         }
         private void lblMondayRecipe_DragDrop(object sender, DragEventArgs e)
@@ -398,6 +503,7 @@ namespace Recipe_Writer
             lblMondayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdMondayCancelled.Visible = true;
             cmdMondayCooked.Visible = true;
+            nudMondayPortions.Visible = true;
         }
 
         private void lblTuesdayRecipe_DragDrop(object sender, DragEventArgs e)
@@ -405,6 +511,7 @@ namespace Recipe_Writer
             lblTuesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdTuesdayCancelled.Visible = true;
             cmdTuesdayCooked.Visible = true;
+            nudTuesdayPortions.Visible = true;
         }
 
         private void lblWednesdayRecipe_DragDrop(object sender, DragEventArgs e)
@@ -412,6 +519,7 @@ namespace Recipe_Writer
             lblWednesdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdWednesdayCancelled.Visible = true;
             cmdWednesdayCooked.Visible = true;
+            nudWednesdayPortions.Visible = true;
         }
 
         private void lblThursdayRecipe_DragDrop(object sender, DragEventArgs e)
@@ -419,6 +527,7 @@ namespace Recipe_Writer
             lblThursdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdThursdayCancelled.Visible = true;
             cmdThursdayCooked.Visible = true;
+            nudThursdayPortions.Visible = true;
         }
 
         private void lblFridayRecipe_DragDrop(object sender, DragEventArgs e)
@@ -426,6 +535,7 @@ namespace Recipe_Writer
             lblFridayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdFridayCancelled.Visible = true;
             cmdFridayCooked.Visible = true;
+            nudFridayPortions.Visible = true;
         }
 
         private void lblSaturdayRecipe_DragDrop(object sender, DragEventArgs e)
@@ -433,6 +543,7 @@ namespace Recipe_Writer
             lblSaturdayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdSaturdayCancelled.Visible = true;
             cmdSaturdayCooked.Visible = true;
+            nudSaturdayPortions.Visible = true;
         }
 
         private void lblSundayRecipe_DragDrop(object sender, DragEventArgs e)
@@ -440,14 +551,28 @@ namespace Recipe_Writer
             lblSundayRecipe.Text = e.Data.GetData(DataFormats.Text).ToString();
             cmdSundayCancelled.Visible = true;
             cmdSundayCooked.Visible = true;
+            nudSundayPortions.Visible = true;
         }
 
+
+        /// <summary>
+        /// Essential DragEnter handler. 
+        /// WinForms will not fire DragDrop unless DragEnter explicitly sets 
+        /// a valid drop effect. 
+        /// This method checks that the incoming payload is text, and if so 
+        /// does a Copy operation. 
+        /// Without this handshake, the control is never considered a legal drop target.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblMondayRecipe_DragEnter(object sender, DragEventArgs e)
         {
+
             if (e.Data.GetDataPresent(DataFormats.Text))
             {
                 e.Effect = DragDropEffects.Copy;
             }
+
             else
             {
                 e.Effect = DragDropEffects.None;
@@ -460,10 +585,10 @@ namespace Recipe_Writer
             {
                 e.Effect = DragDropEffects.Copy;
             }
+
             else
             {
                 e.Effect = DragDropEffects.None;
-
             }
         }
 
@@ -473,10 +598,10 @@ namespace Recipe_Writer
             {
                 e.Effect = DragDropEffects.Copy;
             }
+
             else
             {
                 e.Effect = DragDropEffects.None;
-
             }
         }
 
@@ -486,10 +611,10 @@ namespace Recipe_Writer
             {
                 e.Effect = DragDropEffects.Copy;
             }
+
             else
             {
                 e.Effect = DragDropEffects.None;
-
             }
         }
 
@@ -499,11 +624,11 @@ namespace Recipe_Writer
             {
                 e.Effect = DragDropEffects.Copy;
             }
+
             else
             {
                 e.Effect = DragDropEffects.None;
-
-            } 
+            }
         }
 
         private void lblSaturdayRecipe_DragEnter(object sender, DragEventArgs e)
@@ -512,10 +637,10 @@ namespace Recipe_Writer
             {
                 e.Effect = DragDropEffects.Copy;
             }
+
             else
             {
                 e.Effect = DragDropEffects.None;
-
             }
         }
 
@@ -525,48 +650,62 @@ namespace Recipe_Writer
             {
                 e.Effect = DragDropEffects.Copy;
             }
+
             else
             {
                 e.Effect = DragDropEffects.None;
-
             }
         }
 
+        /// <summary>
+        /// Updates the planned recipe and its portion count for a specific day.
+        /// If the recipe title is null or empty, both the recipe entry and the
+        /// portion count are cleared in the database.
+        /// </summary>
+        /// <param name="idDayOfTheWeek">
+        /// Numeric identifier of the day (1 = Monday, 2 = Tuesday, etc.).
+        /// </param>
+        /// <param name="titleOfTheRecipe">
+        /// The recipe title to assign, or null/empty to clear the planned meal.
+        /// </param>
+        /// <param name="nbPortionsPlanned">
+        /// The number of portions planned for that day. When a recipe is newly
+        /// assigned, this value is initialized using _frmMain.nudPortions.Value.
+        /// </param>
         private void lblMondayRecipe_TextChanged(object sender, EventArgs e)
         {
-            _frmMain.dbConn.UpdatePlannedRecipeForADay(1, lblMondayRecipe.Text);
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(1, lblMondayRecipe.Text, (int)nudMondayPortions.Value);
         }
 
         private void lblTuesdayRecipe_TextChanged(object sender, EventArgs e)
         {
-            _frmMain.dbConn.UpdatePlannedRecipeForADay(2, lblTuesdayRecipe.Text);
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(2, lblTuesdayRecipe.Text, (int)nudTuesdayPortions.Value);
         }
 
         private void lblWednesdayRecipe_TextChanged(object sender, EventArgs e)
         {
-            _frmMain.dbConn.UpdatePlannedRecipeForADay(3, lblWednesdayRecipe.Text);
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(3, lblWednesdayRecipe.Text, (int)nudWednesdayPortions.Value);
         }
 
         private void lblThursdayRecipe_TextChanged(object sender, EventArgs e)
         {
-            _frmMain.dbConn.UpdatePlannedRecipeForADay(4, lblThursdayRecipe.Text);
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(4, lblThursdayRecipe.Text, (int)nudThursdayPortions.Value);
         }
 
         private void lblFridayRecipe_TextChanged(object sender, EventArgs e)
         {
-            _frmMain.dbConn.UpdatePlannedRecipeForADay(5, lblFridayRecipe.Text);
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(5, lblFridayRecipe.Text, (int)nudFridayPortions.Value);
         }
 
         private void lblSaturdayRecipe_TextChanged(object sender, EventArgs e)
         {
-            _frmMain.dbConn.UpdatePlannedRecipeForADay(6, lblSaturdayRecipe.Text);
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(6, lblSaturdayRecipe.Text, (int)nudSaturdayPortions.Value);
         }
 
         private void lblSundayRecipe_TextChanged(object sender, EventArgs e)
         {
-            _frmMain.dbConn.UpdatePlannedRecipeForADay(7, lblSundayRecipe.Text);
+            _frmMain.dbConn.UpdatePlannedRecipeForADay(7, lblSundayRecipe.Text, (int)nudSundayPortions.Value);
         }
-
 
         /// <summary>
         /// Loads the planned meal for a given day of the week 
@@ -607,6 +746,122 @@ namespace Recipe_Writer
                     lblSundayRecipe.Text = titlePlannedMeal;
                     break;
             }
+        }
+
+        /// <summary>
+        /// Saves the updated portion count for Monday into the database.
+        /// </summary>
+        private void nudMondayPortions_ValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(lblMondayRecipe.Text))
+            {
+                _frmMain.dbConn.UpdatePlannedRecipeForADay(1,
+                    lblMondayRecipe.Text, (int)nudMondayPortions.Value);
+            }
+        }
+
+        private void nudTuesdayPortions_ValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(lblTuesdayRecipe.Text))
+            {
+                _frmMain.dbConn.UpdatePlannedRecipeForADay(2,
+                    lblTuesdayRecipe.Text, (int)nudTuesdayPortions.Value);
+            }
+        }
+
+        private void nudWednesdayPortions_ValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(lblWednesdayRecipe.Text))
+            {
+                _frmMain.dbConn.UpdatePlannedRecipeForADay(3,
+                    lblWednesdayRecipe.Text, (int)nudWednesdayPortions.Value);
+            }
+        }
+
+        private void nudThursdayPortions_ValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(lblThursdayRecipe.Text))
+            {
+                _frmMain.dbConn.UpdatePlannedRecipeForADay(4,
+                    lblThursdayRecipe.Text, (int)nudThursdayPortions.Value);
+            }
+        }
+
+        private void nudFridayPortions_ValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(lblFridayRecipe.Text))
+            {
+                _frmMain.dbConn.UpdatePlannedRecipeForADay(5,
+                    lblFridayRecipe.Text, (int)nudFridayPortions.Value);
+            }
+        }
+
+        private void nudSaturdayPortions_ValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(lblSaturdayRecipe.Text))
+            {
+                _frmMain.dbConn.UpdatePlannedRecipeForADay(6,
+                    lblSaturdayRecipe.Text, (int)nudSaturdayPortions.Value);
+            }
+        }
+
+        private void nudSundayPortions_ValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(lblSundayRecipe.Text))
+            {
+                _frmMain.dbConn.UpdatePlannedRecipeForADay(7,
+                    lblSundayRecipe.Text, (int)nudSundayPortions.Value);
+            }
+        }
+
+        /// <summary>
+        /// Saves the current window position whenever the form is moved.
+        /// </summary>
+        protected override void OnMove(EventArgs e)
+        {
+            base.OnMove(e);
+
+            // Only saves valid coordinates
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                string newPosition = $"{this.Location.X};{this.Location.Y}";
+                Properties.Settings.Default.MealPlannerLastPosition = newPosition;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        /// <summary>
+        /// Provides simple keyboard handling for this form. Pressing ENTER triggers
+        /// the validation button (cmdValidate), while pressing ESC closes the window.
+        /// This improves basic UX by allowing quick confirmation or cancellation
+        /// without using the mouse.
+        /// </summary>
+        /// <param name="msg">The Windows message associated with the key event.</param>
+        /// <param name="keyData">The key combination pressed by the user.</param>
+        /// <returns>
+        /// true if the key was handled by the form; otherwise false to allow
+        /// default processing.
+        /// </returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                if (cmdValidate != null && cmdValidate.Enabled)
+                {
+                    cmdValidate.PerformClick();
+                }
+
+                return true; 
+            }
+
+            if (keyData == Keys.Escape)
+            {
+                this.Close();
+                return true; 
+            }
+
+            // Lets the base class handle all other keys
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

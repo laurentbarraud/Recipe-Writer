@@ -58,6 +58,20 @@
             this.cmdTuesdayCancelled = new System.Windows.Forms.Button();
             this.cmdMondayCancelled = new System.Windows.Forms.Button();
             this.cmdValidate = new System.Windows.Forms.Button();
+            this.nudMondayPortions = new System.Windows.Forms.NumericUpDown();
+            this.nudTuesdayPortions = new System.Windows.Forms.NumericUpDown();
+            this.nudWednesdayPortions = new System.Windows.Forms.NumericUpDown();
+            this.nudThursdayPortions = new System.Windows.Forms.NumericUpDown();
+            this.nudFridayPortions = new System.Windows.Forms.NumericUpDown();
+            this.nudSaturdayPortions = new System.Windows.Forms.NumericUpDown();
+            this.nudSundayPortions = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMondayPortions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTuesdayPortions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWednesdayPortions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThursdayPortions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFridayPortions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayPortions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSundayPortions)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHowToUse
@@ -244,9 +258,9 @@
             this.cmdSundayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSundayCooked.FlatAppearance.BorderSize = 0;
             this.cmdSundayCooked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSundayCooked.Location = new System.Drawing.Point(131, 377);
+            this.cmdSundayCooked.Location = new System.Drawing.Point(146, 377);
             this.cmdSundayCooked.Name = "cmdSundayCooked";
-            this.cmdSundayCooked.Size = new System.Drawing.Size(72, 25);
+            this.cmdSundayCooked.Size = new System.Drawing.Size(50, 25);
             this.cmdSundayCooked.TabIndex = 20;
             this.cmdSundayCooked.UseVisualStyleBackColor = true;
             this.cmdSundayCooked.Visible = false;
@@ -259,9 +273,9 @@
             this.cmdSaturdayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdSaturdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdSaturdayCooked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSaturdayCooked.Location = new System.Drawing.Point(476, 245);
+            this.cmdSaturdayCooked.Location = new System.Drawing.Point(491, 245);
             this.cmdSaturdayCooked.Name = "cmdSaturdayCooked";
-            this.cmdSaturdayCooked.Size = new System.Drawing.Size(72, 25);
+            this.cmdSaturdayCooked.Size = new System.Drawing.Size(50, 25);
             this.cmdSaturdayCooked.TabIndex = 17;
             this.cmdSaturdayCooked.UseVisualStyleBackColor = true;
             this.cmdSaturdayCooked.Visible = false;
@@ -274,9 +288,9 @@
             this.cmdFridayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdFridayCooked.FlatAppearance.BorderSize = 0;
             this.cmdFridayCooked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdFridayCooked.Location = new System.Drawing.Point(307, 244);
+            this.cmdFridayCooked.Location = new System.Drawing.Point(322, 244);
             this.cmdFridayCooked.Name = "cmdFridayCooked";
-            this.cmdFridayCooked.Size = new System.Drawing.Size(72, 25);
+            this.cmdFridayCooked.Size = new System.Drawing.Size(50, 25);
             this.cmdFridayCooked.TabIndex = 14;
             this.cmdFridayCooked.UseVisualStyleBackColor = true;
             this.cmdFridayCooked.Visible = false;
@@ -289,9 +303,9 @@
             this.cmdThursdayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdThursdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdThursdayCooked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdThursdayCooked.Location = new System.Drawing.Point(131, 244);
+            this.cmdThursdayCooked.Location = new System.Drawing.Point(146, 244);
             this.cmdThursdayCooked.Name = "cmdThursdayCooked";
-            this.cmdThursdayCooked.Size = new System.Drawing.Size(72, 25);
+            this.cmdThursdayCooked.Size = new System.Drawing.Size(50, 25);
             this.cmdThursdayCooked.TabIndex = 11;
             this.cmdThursdayCooked.UseVisualStyleBackColor = true;
             this.cmdThursdayCooked.Visible = false;
@@ -304,9 +318,9 @@
             this.cmdWednesdayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdWednesdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdWednesdayCooked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdWednesdayCooked.Location = new System.Drawing.Point(477, 113);
+            this.cmdWednesdayCooked.Location = new System.Drawing.Point(492, 113);
             this.cmdWednesdayCooked.Name = "cmdWednesdayCooked";
-            this.cmdWednesdayCooked.Size = new System.Drawing.Size(72, 25);
+            this.cmdWednesdayCooked.Size = new System.Drawing.Size(50, 25);
             this.cmdWednesdayCooked.TabIndex = 8;
             this.cmdWednesdayCooked.UseVisualStyleBackColor = true;
             this.cmdWednesdayCooked.Visible = false;
@@ -319,9 +333,9 @@
             this.cmdTuesdayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdTuesdayCooked.FlatAppearance.BorderSize = 0;
             this.cmdTuesdayCooked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdTuesdayCooked.Location = new System.Drawing.Point(307, 112);
+            this.cmdTuesdayCooked.Location = new System.Drawing.Point(322, 112);
             this.cmdTuesdayCooked.Name = "cmdTuesdayCooked";
-            this.cmdTuesdayCooked.Size = new System.Drawing.Size(72, 25);
+            this.cmdTuesdayCooked.Size = new System.Drawing.Size(50, 25);
             this.cmdTuesdayCooked.TabIndex = 5;
             this.cmdTuesdayCooked.UseVisualStyleBackColor = true;
             this.cmdTuesdayCooked.Visible = false;
@@ -334,9 +348,9 @@
             this.cmdMondayCooked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdMondayCooked.FlatAppearance.BorderSize = 0;
             this.cmdMondayCooked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdMondayCooked.Location = new System.Drawing.Point(126, 113);
+            this.cmdMondayCooked.Location = new System.Drawing.Point(148, 113);
             this.cmdMondayCooked.Name = "cmdMondayCooked";
-            this.cmdMondayCooked.Size = new System.Drawing.Size(72, 25);
+            this.cmdMondayCooked.Size = new System.Drawing.Size(50, 25);
             this.cmdMondayCooked.TabIndex = 2;
             this.cmdMondayCooked.UseVisualStyleBackColor = true;
             this.cmdMondayCooked.Visible = false;
@@ -351,7 +365,7 @@
             this.cmdSaturdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSaturdayCancelled.Location = new System.Drawing.Point(382, 244);
             this.cmdSaturdayCancelled.Name = "cmdSaturdayCancelled";
-            this.cmdSaturdayCancelled.Size = new System.Drawing.Size(72, 25);
+            this.cmdSaturdayCancelled.Size = new System.Drawing.Size(50, 25);
             this.cmdSaturdayCancelled.TabIndex = 16;
             this.cmdSaturdayCancelled.UseVisualStyleBackColor = true;
             this.cmdSaturdayCancelled.Visible = false;
@@ -366,7 +380,7 @@
             this.cmdFridayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdFridayCancelled.Location = new System.Drawing.Point(212, 244);
             this.cmdFridayCancelled.Name = "cmdFridayCancelled";
-            this.cmdFridayCancelled.Size = new System.Drawing.Size(72, 25);
+            this.cmdFridayCancelled.Size = new System.Drawing.Size(50, 25);
             this.cmdFridayCancelled.TabIndex = 13;
             this.cmdFridayCancelled.UseVisualStyleBackColor = true;
             this.cmdFridayCancelled.Visible = false;
@@ -381,7 +395,7 @@
             this.cmdThursdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdThursdayCancelled.Location = new System.Drawing.Point(35, 245);
             this.cmdThursdayCancelled.Name = "cmdThursdayCancelled";
-            this.cmdThursdayCancelled.Size = new System.Drawing.Size(72, 25);
+            this.cmdThursdayCancelled.Size = new System.Drawing.Size(50, 25);
             this.cmdThursdayCancelled.TabIndex = 10;
             this.cmdThursdayCancelled.UseVisualStyleBackColor = true;
             this.cmdThursdayCancelled.Visible = false;
@@ -396,7 +410,7 @@
             this.cmdSundayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSundayCancelled.Location = new System.Drawing.Point(35, 377);
             this.cmdSundayCancelled.Name = "cmdSundayCancelled";
-            this.cmdSundayCancelled.Size = new System.Drawing.Size(72, 25);
+            this.cmdSundayCancelled.Size = new System.Drawing.Size(50, 25);
             this.cmdSundayCancelled.TabIndex = 19;
             this.cmdSundayCancelled.UseVisualStyleBackColor = true;
             this.cmdSundayCancelled.Visible = false;
@@ -411,7 +425,7 @@
             this.cmdWednesdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdWednesdayCancelled.Location = new System.Drawing.Point(382, 112);
             this.cmdWednesdayCancelled.Name = "cmdWednesdayCancelled";
-            this.cmdWednesdayCancelled.Size = new System.Drawing.Size(72, 25);
+            this.cmdWednesdayCancelled.Size = new System.Drawing.Size(50, 25);
             this.cmdWednesdayCancelled.TabIndex = 7;
             this.cmdWednesdayCancelled.UseVisualStyleBackColor = true;
             this.cmdWednesdayCancelled.Visible = false;
@@ -426,7 +440,7 @@
             this.cmdTuesdayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdTuesdayCancelled.Location = new System.Drawing.Point(212, 112);
             this.cmdTuesdayCancelled.Name = "cmdTuesdayCancelled";
-            this.cmdTuesdayCancelled.Size = new System.Drawing.Size(72, 25);
+            this.cmdTuesdayCancelled.Size = new System.Drawing.Size(50, 25);
             this.cmdTuesdayCancelled.TabIndex = 4;
             this.cmdTuesdayCancelled.UseVisualStyleBackColor = true;
             this.cmdTuesdayCancelled.Visible = false;
@@ -441,7 +455,7 @@
             this.cmdMondayCancelled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdMondayCancelled.Location = new System.Drawing.Point(35, 113);
             this.cmdMondayCancelled.Name = "cmdMondayCancelled";
-            this.cmdMondayCancelled.Size = new System.Drawing.Size(72, 25);
+            this.cmdMondayCancelled.Size = new System.Drawing.Size(50, 25);
             this.cmdMondayCancelled.TabIndex = 1;
             this.cmdMondayCancelled.UseVisualStyleBackColor = true;
             this.cmdMondayCancelled.Visible = false;
@@ -463,12 +477,187 @@
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
+            // nudMondayPortions
+            // 
+            this.nudMondayPortions.Location = new System.Drawing.Point(92, 113);
+            this.nudMondayPortions.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudMondayPortions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudMondayPortions.Name = "nudMondayPortions";
+            this.nudMondayPortions.Size = new System.Drawing.Size(50, 22);
+            this.nudMondayPortions.TabIndex = 30;
+            this.nudMondayPortions.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nudMondayPortions.Visible = false;
+            this.nudMondayPortions.ValueChanged += new System.EventHandler(this.nudMondayPortions_ValueChanged);
+            // 
+            // nudTuesdayPortions
+            // 
+            this.nudTuesdayPortions.Location = new System.Drawing.Point(268, 111);
+            this.nudTuesdayPortions.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudTuesdayPortions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudTuesdayPortions.Name = "nudTuesdayPortions";
+            this.nudTuesdayPortions.Size = new System.Drawing.Size(50, 22);
+            this.nudTuesdayPortions.TabIndex = 31;
+            this.nudTuesdayPortions.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nudTuesdayPortions.Visible = false;
+            this.nudTuesdayPortions.ValueChanged += new System.EventHandler(this.nudTuesdayPortions_ValueChanged);
+            // 
+            // nudWednesdayPortions
+            // 
+            this.nudWednesdayPortions.Location = new System.Drawing.Point(439, 112);
+            this.nudWednesdayPortions.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudWednesdayPortions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudWednesdayPortions.Name = "nudWednesdayPortions";
+            this.nudWednesdayPortions.Size = new System.Drawing.Size(50, 22);
+            this.nudWednesdayPortions.TabIndex = 32;
+            this.nudWednesdayPortions.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nudWednesdayPortions.Visible = false;
+            this.nudWednesdayPortions.ValueChanged += new System.EventHandler(this.nudWednesdayPortions_ValueChanged);
+            // 
+            // nudThursdayPortions
+            // 
+            this.nudThursdayPortions.Location = new System.Drawing.Point(90, 244);
+            this.nudThursdayPortions.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudThursdayPortions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudThursdayPortions.Name = "nudThursdayPortions";
+            this.nudThursdayPortions.Size = new System.Drawing.Size(50, 22);
+            this.nudThursdayPortions.TabIndex = 33;
+            this.nudThursdayPortions.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nudThursdayPortions.Visible = false;
+            this.nudThursdayPortions.ValueChanged += new System.EventHandler(this.nudThursdayPortions_ValueChanged);
+            // 
+            // nudFridayPortions
+            // 
+            this.nudFridayPortions.Location = new System.Drawing.Point(267, 244);
+            this.nudFridayPortions.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudFridayPortions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudFridayPortions.Name = "nudFridayPortions";
+            this.nudFridayPortions.Size = new System.Drawing.Size(50, 22);
+            this.nudFridayPortions.TabIndex = 34;
+            this.nudFridayPortions.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nudFridayPortions.Visible = false;
+            this.nudFridayPortions.ValueChanged += new System.EventHandler(this.nudFridayPortions_ValueChanged);
+            // 
+            // nudSaturdayPortions
+            // 
+            this.nudSaturdayPortions.Location = new System.Drawing.Point(439, 244);
+            this.nudSaturdayPortions.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudSaturdayPortions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSaturdayPortions.Name = "nudSaturdayPortions";
+            this.nudSaturdayPortions.Size = new System.Drawing.Size(50, 22);
+            this.nudSaturdayPortions.TabIndex = 35;
+            this.nudSaturdayPortions.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nudSaturdayPortions.Visible = false;
+            this.nudSaturdayPortions.ValueChanged += new System.EventHandler(this.nudSaturdayPortions_ValueChanged);
+            // 
+            // nudSundayPortions
+            // 
+            this.nudSundayPortions.Location = new System.Drawing.Point(90, 377);
+            this.nudSundayPortions.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudSundayPortions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSundayPortions.Name = "nudSundayPortions";
+            this.nudSundayPortions.Size = new System.Drawing.Size(50, 22);
+            this.nudSundayPortions.TabIndex = 36;
+            this.nudSundayPortions.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nudSundayPortions.Visible = false;
+            this.nudSundayPortions.ValueChanged += new System.EventHandler(this.nudSundayPortions_ValueChanged);
+            // 
             // frmMealPlanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cmdValidate;
             this.ClientSize = new System.Drawing.Size(585, 425);
+            this.Controls.Add(this.nudSundayPortions);
+            this.Controls.Add(this.nudSaturdayPortions);
+            this.Controls.Add(this.nudFridayPortions);
+            this.Controls.Add(this.nudThursdayPortions);
+            this.Controls.Add(this.nudWednesdayPortions);
+            this.Controls.Add(this.nudTuesdayPortions);
+            this.Controls.Add(this.nudMondayPortions);
             this.Controls.Add(this.cmdSundayCooked);
             this.Controls.Add(this.cmdSaturdayCooked);
             this.Controls.Add(this.cmdFridayCooked);
@@ -507,6 +696,13 @@
             this.Text = "Planificateur de repas";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmMealPlanner_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nudMondayPortions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTuesdayPortions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWednesdayPortions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThursdayPortions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFridayPortions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayPortions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSundayPortions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -543,5 +739,12 @@
         private System.Windows.Forms.Button cmdFridayCooked;
         private System.Windows.Forms.Button cmdSaturdayCooked;
         private System.Windows.Forms.Button cmdSundayCooked;
+        private System.Windows.Forms.NumericUpDown nudMondayPortions;
+        private System.Windows.Forms.NumericUpDown nudTuesdayPortions;
+        private System.Windows.Forms.NumericUpDown nudWednesdayPortions;
+        private System.Windows.Forms.NumericUpDown nudThursdayPortions;
+        private System.Windows.Forms.NumericUpDown nudFridayPortions;
+        private System.Windows.Forms.NumericUpDown nudSaturdayPortions;
+        private System.Windows.Forms.NumericUpDown nudSundayPortions;
     }
 }
